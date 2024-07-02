@@ -17,7 +17,7 @@ include_once('../inc/function.php');
                               </div>
                               <div class="state-content">
                                   <p class="font-14 mb-2">Annual Taxes EMS</p>
-                                  <h2>&#36;251k</h2>
+                                  <h2>251</h2>
                               </div>
                            </div>
                         </div>
@@ -35,7 +35,7 @@ include_once('../inc/function.php');
                               </div>
                               <div class="state-content">
                                   <p class="font-14 mb-2">Average Revenue</p>
-                                  <h2>&#36;2.5M</h2>
+                                  <h2>25</h2>
                               </div>
                            </div>
                         </div>
@@ -53,7 +53,7 @@ include_once('../inc/function.php');
                               </div>
                               <div class="state-content">
                                   <p class="font-14 mb-2">Paid Comissions</p>
-                                  <h2>&#36;4.8M</h2>
+                                  <h2>48</h2>
                               </div>
                            </div>
                         </div>
@@ -71,7 +71,7 @@ include_once('../inc/function.php');
                               </div>
                               <div class="state-content">
                                   <p class="font-14 mb-2">Revenue Margin</p>
-                                  <h2>&#36;46%</h2>
+                                  <h2>46</h2>
                               </div>
                            </div>
                         </div>
