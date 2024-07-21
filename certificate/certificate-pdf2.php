@@ -35,7 +35,6 @@ if ($certificate) {
     $pdf->SetTitle('Crane Health Check Certificate');
     $pdf->SetSubject('Certificate');
     $pdf->SetKeywords('TCPDF, PDF, certificate, test, crane');
-
     // Set margins
     $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
     $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
