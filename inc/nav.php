@@ -19,7 +19,7 @@
                <ul class="nav">
                   <li class="nav-category">Main</li>
                   <li class="active">
-                     <a href="../dashboard/">
+                     <a href="<?php echo $url; ?>dashboard/">
                         <i class="icofont-pie-chart"></i>
                         <span class="link-title">Dashboard</span>
                      </a>
@@ -33,7 +33,7 @@
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
                         <li><a href="">Add Sticker</a></li>
-                        <li><a href="">Sticker List</a></li>
+                        <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
                         <!-- <li><a href="">Status Project</a></li> -->
                       
                      </ul>
@@ -47,11 +47,10 @@
 
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
-                        <li><a href="<?php echo $url; ?>job/create-job.php">Create Project</a></li>
-                        <li><a href="">Project List</a></li>
-                        <li><a href="">Status Project</a></li>
-                      
-                     </ul>
+                         <li><a href="<?php echo $url; ?>job/overall-job-list.php">Over all Projects</a></li>
+                        <li><a href="<?php echo $url; ?>job/create-job.php">Lifting Equipment</a></li>
+                        <li><a href="">NDT Equipment</a></li>
+                      </ul>
                      <!-- End Sub Menu -->
                   </li>
                   <li>
@@ -63,8 +62,8 @@
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
                         <li><a href="">Create Customer</a></li>
-                        <li><a href="">Customer List</a></li>
-                        <li><a href="">Customer Status</a></li>
+                        <li><a href="<?php echo $url; ?>customer/customer-list.php">Customer List</a></li>
+                        <li><a href="<?php echo $url; ?>customer/view-customer.php">Customer Status</a></li>
                       
                      </ul>
                      <!-- End Sub Menu -->
@@ -94,7 +93,7 @@
                             <!-- Sub Menu -->
                             <ul class="nav sub-menu" style="display: none;">
                            
-                                <li class="has-sub-item"><a href="#">Without Checklist</a>
+                                <li class="has-sub-item"><a href="#">Report</a>
                                 <!-- Sub Menu -->
                                 <ul class="nav sub-menu" style="display: none;">
                                     <li><a href="#">equp name</a></li>
@@ -102,7 +101,7 @@
                                 </ul>
                                 <!-- End Sub Menu -->
                                 </li>
-                                <li class="has-sub-item"><a href="#">With Checklist</a>
+                                <li class="has-sub-item"><a href="#">Checklist</a>
                                 <!-- Sub Menu -->
                                 <ul class="nav sub-menu" style="display: none;">
                                     <li><a href="#">Check name</a></li>

@@ -2,8 +2,8 @@
    <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
          <!-- Logo -->
          <div class="logo">
-            <a href="index.html" class="default-logo"><img src="<?php echo $url; ?>assets/img/logo.png" alt=""></a>
-            <a href="index.html" class="mobile-logo"><img src="<?php echo $url; ?>assets/img/mobile-logo.png" alt=""></a>
+            <a href="<?php echo $url; ?>" class="default-logo"><img src="<?php echo $url; ?>assets/img/logo.png" alt=""></a>
+            <a href="<?php echo $url; ?>" class="mobile-logo"><img src="<?php echo $url; ?>assets/img/mobile-logo.png" alt=""></a>
          </div>
          <!-- End Logo -->
 
@@ -39,10 +39,10 @@
                               </div>
                            </a>
                            <div class="dropdown-menu">
-                              <a href="#">My Profile</a>
-                              <a href="#">Connect</a>
-                              <a href="#">Settings</a>
-                              <a href="#">Log Out</a>
+                              <a href="<?php echo $url; ?>profile/index.php">My Profile</a>
+                              <!-- <a href="#">Connect</a> -->
+                              <a href="<?php echo $url; ?>profile/edit-profile.php">Settings</a>
+                              <a href="<?php echo $url; ?>authentication/">Log Out</a>
                            </div>
                         </div>
                         <!-- End Main Header User -->

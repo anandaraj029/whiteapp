@@ -26,7 +26,19 @@ $url= 'http://localhost/whiteapp/';
    <link rel="stylesheet" href="<?php echo $url; ?>assets/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="<?php echo $url; ?>assets/fonts/icofont/icofont.min.css">
    <link rel="stylesheet" href="<?php echo $url; ?>assets/plugins/perfect-scrollbar/perfect-scrollbar.min.css">
+  
+  
    <!-- ======= END BEGIN GLOBAL MANDATORY STYLES ======= -->
+
+   
+   <!-- ======= BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
+   <link rel="stylesheet" href="<?php echo $url; ?>assets/plugins/datepicker/datepicker.min.css">
+   <!-- ======= END BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
+   <!-- ### datatable -->
+   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+
+
    
    <!-- ======= BEGIN PAGE LEVEL PLUGINS STYLES ======= -->
    <link rel="stylesheet" href="<?php echo $url; ?>assets/plugins/apex/apexcharts.css">
@@ -35,6 +47,25 @@ $url= 'http://localhost/whiteapp/';
    <!-- ======= MAIN STYLES ======= -->
    <link rel="stylesheet" href="<?php echo $url; ?>assets/css/style.css">
    <!-- ======= END MAIN STYLES ======= -->
+
+<style>
+  .dataTables_filter{
+   margin: 20px;
+  }
+  .dt-buttons button:hover{
+      color: #000000;
+    background: #12006E;
+    border: none;
+   }
+   .dt-buttons .buttons-excel{
+      color: #ffffff;
+    background: #6045e2;
+    border: none;
+   }
+   .dt-buttons{
+      margin:20px
+   }
+</style>
 
 </head>
 

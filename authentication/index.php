@@ -10,7 +10,7 @@
                     <div class="col-xl-7 col-lg-9">
                         <h4 class="mb-5 font-20">Welcome To Cims</h4>
 
-                        <form method="post" action="../dashboard.php">
+                        <form method="post" action="../dashboard">
                             <!-- Form Group -->
                             <div class="form-group mb-20">
                                 <label for="email" class="mb-2 font-14 bold black">Email Address</label>
