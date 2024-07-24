@@ -37,7 +37,7 @@
                                     <label for="checkbox" class="font-14">Remember Me</label>
                                 </div>
 
-                                <a href="forget-pass.html" class="font-12 text_color">Forgot Password?</a>
+                                <a href="authentication/forget-pass.html" class="font-12 text_color">Forgot Password?</a>
                             </div>
 <!-- 
                             <div class="mb-30">
@@ -47,7 +47,7 @@
 
                             <div class="d-flex align-items-center">
                                 <button type="submit" class="btn long mr-20">Log In</button>
-                                <span class="font-12 d-block"><a href="register.html" class="bold">Sign Up</a>,If you have no account.</span>
+                                <!-- <span class="font-12 d-block"><a href="register.html" class="bold">Sign Up</a>,If you have no account.</span> -->
                             </div>
                         </form>
                     </div>                                    

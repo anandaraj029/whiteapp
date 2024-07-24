@@ -32,7 +32,7 @@
 
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
-                        <li><a href="">Add Sticker</a></li>
+                        <li><a href="<?php echo $url; ?>sticker/add-sticker.php">Add Sticker</a></li>
                         <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
                         <!-- <li><a href="">Status Project</a></li> -->
                       
@@ -128,8 +128,8 @@
 
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
-                        <li><a href="">Inspector List</a></li>
-                        <li><a href="">Timeline</a></li>
+                        <li><a href="<?php echo $url; ?>/setup/inspector-list.php">Inspector List</a></li>
+                        <li><a href="<?php echo $url; ?>/setup/timeline.php">Timeline</a></li>
                         <li><a href="">Account Settings</a></li>
                       
                      </ul>
