@@ -47,7 +47,7 @@ if ($certificate) {
     $pdf->AddPage();
 
     // Add an image at the top (adjust the path and size as needed)
-    $pdf->Image('./head.jpg', 15, 10, 180, 40, '', '', '', false, 300, '', false, false, 1, false, false, false);
+    $pdf->Image('./head.jpg', 15, 10, 180, 40, '', '', '', false, 300, '', false, false, false, false, false, false);
 
     // Move to the next line
     $pdf->Ln(40);
@@ -121,7 +121,7 @@ if ($certificate) {
     $pdf->writeHTML($html, true, false, true, false, '');
 
     // Optionally, add a footer image (adjust the path and size as needed)
-    $pdf->Image('./foot.jpg', 15, 330, 190, 15, '', '', '', false, 300, '', false, false, 1, false, false, false);
+    $pdf->Image('./foot.jpg', 15, 330, 190, 15, '', '', '', false, 300, '', false, false, false, false, false, false);
 
     // Close and output PDF document
     $pdf->Output('crane_certificate.pdf', 'I');

@@ -27,7 +27,7 @@ include_once('../inc/function.php');
                  <div class="container-fluid">
                     <div class="row">
      
-                       <div class="col-xl-12 mb-30 mb-xl-0">
+                       <div class="col-xl-10 mb-30 mb-xl-0">
                           <!-- Card -->
                           <div class="card h-100">
                              <div class="card-body p-30">
