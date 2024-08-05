@@ -1,132 +1,31 @@
-<?php
-require_once('../../vendor/autoload.php'); // Adjust the path as necessary
-
-$html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crane Health Check Certificate</title>
-  <style>
-    .certificate-title {
-      text-align: center;
-      margin: 8px;
-    }
-    .signature-section {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-      p {
-      font-size:12px;
-      }
-    .signature {
-      text-align: center;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 10px;
-      padding: 10px;
-      line-height: 1.4;
-    }
-    .container-fluid {
-      max-width: 800px;
-      margin: auto;
-      padding: 10px;
-    }
-    h1, h3 {
-      text-align: center;
-      font-size: 12px;
-      margin: 5px 0;
-    }
-    p {
-      text-align: center;
-      font-size: 10px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 3px;
-    }
-    th, td {
-      padding: 3px;
-      border: 1px solid #000;
-      text-align: left;
-      font-size: 10px;
-    }
-    .header-table, .details-table {
-      border: none;
-      margin-bottom: 0;
-    }
-    .header-table th, .header-table td {
-      border: none;
-      padding: 3px;
-    }
-    .section-title {
-      background-color: #bfdaef;
-      font-weight: bold;
-      font-size: 11px;
-    }
-    .answer {
-      color: red;
-      font-weight: bold;
-    }
-    .header, .footer {
-      text-align: center;
-    }
-    .header img {
-      max-width: 100%;
-      height: 200px;
-    }
-    .footer img {
-      max-width: 100%;
-      height: 70px;
-    }
-    .sign {
-      width: 80px;
-      height: 40px;
-    }
-       .sign2 {
-     width: 107px;
-    height: 87px;
-    }
-      .seal{
-      width: 40px
-      height: 40px
-      }
-    .qrcode {
-      width: 70px;
-      height: 70px;
-      float: right;
-      margin-top: 0;
-    }
-    .leea {
-      width: 69px;
-      height: 58px;
-      float: left;
-      margin-top: 0;
-    }
+  
+  <link rel="stylesheet" href="style.css" type="text/css">
 
-    @media (max-width: 600px) {
-      .header-table, .details-table, .content-table {
-        font-size: 8px;
-      }
-    }
-  </style>
+
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="header">
-      <img src="../head2.jpg" alt="Header Image">
-    </div>
-    <img src="../leea.png" class="leea" alt="Leea">
-    <img src="../code.png" class="qrcode" alt="Qr Code">
+  <div class="container">
+   <div class="header">
+            <img src="../head.jpg" alt="Header Image">
+        </div>
+		
+	
+    	<img src="../leea.png" class="leea" alt="Leea">
+		<img src="../code.png" class="qrcode" alt="Qr Code">
     <div class="text-center">
-      <h3 class="certificate-title"><strong>CRANE HEALTH CHECK CERTIFICATE <br />
-      FOR OFFSHORE PEDESTAL CRANES AND FLOATING CRANES</strong></h3>
+	 
+           <h3 class="certificate-title"><strong>CRANE HEALTH CHECK CERTIFICATE <br />
+	  FOR OFFSHORE PEDESTAL CRANES AND FLOATING CRANES</strong></h3>
     </div>
-    <div class="table-responsive keep-together">
+	
+    	
+    <div class="table-responsive">
       <table class="content-table">
         <tbody>
           <tr>
@@ -144,7 +43,8 @@ $html = '
         </tbody>
       </table>
     </div>
-    <div class="table-responsive keep-together">
+
+    <div class="table-responsive">
       <table class="content-table">
         <tbody>
           <tr>
@@ -193,7 +93,8 @@ $html = '
         </tbody>
       </table>
     </div>
-    <div class="table-responsive keep-together">
+
+    <div class="table-responsive">
       <table class="content-table">
         <thead>
           <tr>
@@ -246,19 +147,23 @@ $html = '
         </tbody>
       </table>
     </div>
+
     <p><strong>
       We hereby certify that the above Crane has been duly Inspected (Health Check) as per the Manufacturer’s Recommendation or based on ASME B30.3 – 2016, B30.4 – 2015, B30.5 – 2018, B30.7 – 2016, B30.8 – 2015, B30.9 – 2018, B30.10 – 2015, B30.22 – 2016, API SPECS 2C – 2012, and API RP 2D – 2014.
     </strong></p>
     <p class="text-center"><strong>
       The latest date by which the next inspection shall be carried out: <br><strong>(10 JANUARY 2024)</strong>
     </strong></p>
-    <div class="table-responsive keep-together">
+
+    <div class="table-responsive">
       <table class="content-table">
         <thead>
           <tr>
             <th class="text-center section-title" colspan="2">INSPECTED BY:</th>
             <th class="text-center section-title" colspan="2">APPROVED BY:</th>
-            <th class="text-center section-title" colspan="2">COMPANY SEAL</th>
+            <th class="text-center section-title" colspan="2">Company Seal</th>
+			
+			
           </tr>
         </thead>
         <tbody>
@@ -269,19 +174,20 @@ $html = '
           </tr>
           <tr>
             <td class="text-center"><strong>VENANCIO Z. VERA</strong></td>
-            <td> <img src="../sign.jpg" class="sign" alt="Signature Image"></td>
+            <td> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
             <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
-            <td> <img src="../sign.jpg" class="sign" alt="Signature Image"></td>
-            <td class="text-center"><strong>COMPANY SEAL </strong></td>
+           <td> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
+           <td class="text-center"><strong>COMPANY SEAL </strong></td>
            <td> <img src="../seal.png" class="sign" alt="Header Image"></td>
           </tr>
         </tbody>
       </table>
     </div>
-    <p class=""><strong>
+
+    <p class="mt-2"><strong>
       This certificate contained herein is the good-faith opinion of CIMS – KGEIT as to the Visual Condition of the crane inspected. This Certificate in no way represents any guarantee, expressed, or implied as to the classification, fitness for use of merchantability of the crane, and in no event shall CIMS – KGEIT be held liable for any damage as result of its use.
     </strong></p>
-    <div class="table-responsive keep-together">
+    <div class="table-responsive">
       <table class="content-table">
         <tbody>
           <tr>
@@ -292,30 +198,12 @@ $html = '
         </tbody>
       </table>
     </div>
-    <div class="footer">
-      <img src="../foot.jpg" alt="Footer Image">
-    </div>
+	 <div class="footer">
+            <img src="../foot.jpg" alt="Footer Image">
+        </div>
+  </div>
+  <div class="text-center">
+    <a href="download.php" ><button>download</button></a>
   </div>
 </body>
 </html>
-';
-
-$mpdf = new \Mpdf\Mpdf([
-    'margin_left' => 5,
-    'margin_right' => 5,
-    'margin_top' => 5,
-    'margin_bottom' => 5,
-    'margin_header' => 5,
-    'margin_footer' => 5
-]);
-
-// Add watermark text
-// $mpdf->SetWatermarkText('DRAFT');
-// $mpdf->showWatermarkText = true;
-
-// Add watermark image
-$mpdf->SetWatermarkImage('../logo.png', 0.3, '', [70, 100]);
-$mpdf->showWatermarkImage = true;
-
-$mpdf->WriteHTML($html);
-$mpdf->Output('certificate2.pdf', \Mpdf\Output\Destination::DOWNLOAD);

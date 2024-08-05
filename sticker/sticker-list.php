@@ -45,7 +45,14 @@ include_once('../inc/function.php');
                                     <td>$5.6</td>
                                     <td>12</td>
                                     <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -57,7 +64,14 @@ include_once('../inc/function.php');
                                     <td>$6.2</td>
                                     <td>36</td>
                                     <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -69,7 +83,14 @@ include_once('../inc/function.php');
                                     <td>$16.5</td>
                                     <td>25</td>
                                     <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -81,7 +102,14 @@ include_once('../inc/function.php');
                                     <td>$8.8</td>
                                     <td>26</td>
                                     <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -93,7 +121,14 @@ include_once('../inc/function.php');
                                     <td>$5.6</td>
                                     <td>16</td>
                                     <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -105,7 +140,14 @@ include_once('../inc/function.php');
                                     <td>$14.6</td>
                                     <td>36</td>
                                     <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -117,7 +159,14 @@ include_once('../inc/function.php');
                                     <td>$4.8</td>
                                     <td>25</td>
                                     <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -129,7 +178,14 @@ include_once('../inc/function.php');
                                     <td>$4.8</td>
                                     <td>14</td>
                                     <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -141,7 +197,14 @@ include_once('../inc/function.php');
                                     <td>$6.3</td>
                                     <td>54</td>
                                     <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -153,7 +216,14 @@ include_once('../inc/function.php');
                                     <td>$4.1</td>
                                     <td>69</td>
                                     <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -165,7 +235,14 @@ include_once('../inc/function.php');
                                     <td>$1.9</td>
                                     <td>14</td>
                                     <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -177,7 +254,14 @@ include_once('../inc/function.php');
                                     <td>$2.6</td>
                                     <td>47</td>
                                     <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -189,7 +273,14 @@ include_once('../inc/function.php');
                                     <td>$5.6</td>
                                     <td>26</td>
                                     <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
 
                                 <tr>
@@ -201,7 +292,14 @@ include_once('../inc/function.php');
                                     <td>$6.2</td>
                                     <td>17</td>
                                     <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
+                                    <td class="actions">
+                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                                            </span>
+                                            <span class="contact-close">
+                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                                            </span>
+                                        </td>
                                 </tr>
                             </tbody>
                         </table>
