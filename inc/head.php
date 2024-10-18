@@ -1,10 +1,11 @@
 
 <?php 
+session_start();
 $url= 'http://localhost/whiteapp/';
+
 ?>
 <!DOCTYPE html>
-<html lang="zxx">
-
+<html lang="en">
 <head>
    <!-- Page Title -->
    <title>CIMS - 3rd Party App</title>
@@ -47,6 +48,10 @@ $url= 'http://localhost/whiteapp/';
    <!-- ======= MAIN STYLES ======= -->
    <link rel="stylesheet" href="<?php echo $url; ?>assets/css/style.css">
    <!-- ======= END MAIN STYLES ======= -->
+  <!--  icon -------------------------------->
+   <link rel="stylesheet" href="<?php echo $url; ?>assets/fonts/et-lineicon/et-lineicons.css">
+   <link rel="stylesheet" href="<?php echo $url; ?>assets/fonts/themify-icons/themify-icons.css">
+
 
 <style>
   .dataTables_filter{

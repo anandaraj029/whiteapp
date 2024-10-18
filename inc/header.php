@@ -32,8 +32,8 @@
 
                                  <!-- User Info -->
                                  <div class="user-info">
-                                    <h4 class="user-name">Admin Dashboard</h4>
-                                    <p class="user-email">admin@gmail.com</p>
+                                 <h4 class="user-name"><?php echo "Admin Panel"; ?></h4>
+                                    <p class="user-email">Sathish kumar</p>
                                  </div>
                                  <!-- End User Info -->
                               </div>
@@ -42,7 +42,7 @@
                               <a href="<?php echo $url; ?>profile/index.php">My Profile</a>
                               <!-- <a href="#">Connect</a> -->
                               <a href="<?php echo $url; ?>profile/edit-profile.php">Settings</a>
-                              <a href="<?php echo $url; ?>authentication/">Log Out</a>
+                              <a href="<?php echo $url; ?>file/logout.php">Log Out</a>
                            </div>
                         </div>
                         <!-- End Main Header User -->

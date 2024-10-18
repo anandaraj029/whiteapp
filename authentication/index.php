@@ -1,27 +1,57 @@
-<?php include_once('../inc/head.php');?>
+<?php 
+session_start();
+include_once ('../file/config.php');
+
+// Enable error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Secure password checking
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $stmt->execute(['username' => $username]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user'] = $user['username'];
+        $_SESSION['role'] = $user['role'];
+        header("Location: ../dashboard/");
+        exit();
+    } else {
+        $error = "Invalid username or password!";
+    }
+}
+
+include_once('../inc/head.php');
+?>
+
+
 
 <body>
 
     <div class="mn-vh-100 d-flex align-items-center">
         <div class="container">
-            <!-- Card -->
-            <div class="card justify-content-center auth-card">
+             <!-- Card -->
+             <div class="card justify-content-center auth-card">
                 <div class="row justify-content-center">
                     <div class="col-xl-7 col-lg-9">
                         <h4 class="mb-5 font-20">Welcome To Cims</h4>
-
-                        <form method="post" action="../dashboard">
+                        <p class="text-danger"><?php if(isset($error)) echo $error; ?></p>
+                        <form method="POST" action="">
                             <!-- Form Group -->
                             <div class="form-group mb-20">
-                                <label for="email" class="mb-2 font-14 bold black">Email Address</label>
-                                <input type="email" id="email" class="theme-input-style" placeholder="Email Address">
+                                <label for="email" class="mb-2 font-14 bold black">Username</label>
+                                <input type="text" id="email" name="username" class="theme-input-style" placeholder="username" required>
                             </div>
                             <!-- End Form Group -->
                             
                             <!-- Form Group -->
                             <div class="form-group mb-20">
                                 <label for="password" class="mb-2 font-14 bold black">Password</label>
-                                <input type="password" id="password" class="theme-input-style" placeholder="********">
+                                <input type="password" id="password" name="password" class="theme-input-style" placeholder="********" required>
                             </div>
                             <!-- End Form Group -->
 
@@ -39,15 +69,10 @@
 
                                 <a href="forget-pass.html" class="font-12 text_color">Forgot Password?</a>
                             </div>
-<!-- 
-                            <div class="mb-30">
-                                <a href="#" class="light-btn mr-3 mb-20">Log In With Facebook</a>
-                                <a href="#" class="light-btn style--two mb-20">Log In With Gmail</a>
-                            </div> -->
 
                             <div class="d-flex align-items-center">
                                 <button type="submit" class="btn long mr-20">Log In</button>
-                                <span class="font-12 d-block"><a href="register.html" class="bold">Sign Up</a>,If you have no account.</span>
+                                <span class="font-12 d-block"><a href="register.html" class="bold">Sign Up</a>, If you have no account.</span>
                             </div>
                         </form>
                     </div>                                    

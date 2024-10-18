@@ -26,12 +26,12 @@ include_once('../inc/function.php');
 
             <div class="d-flex flex-wrap">
                 <!-- Date Picker -->
-                <div class="dashboard-date style--six mr-20 mt-3 mt-sm-0">
-                   <span class="input-group-addon">
+                <div class=" mr-20 mt-3 mt-sm-0">
+                   <!-- <span class="input-group-addon">
                       <img src="../../assets/img/svg/calender-color.svg" alt="" class="svg">
-                    </span>
+                    </span> -->
 
-                   <input type="text" id="default-date" value="28 October 2019"/>
+                  <a href="create-job.php"> <button type="button" class="btn" >Create New</button>   </a> 
                 </div>
                 <!-- End Date Picker -->
 
@@ -51,68 +51,86 @@ include_once('../inc/function.php');
     </div>
     <div class="table-responsive">
         <!-- Invoice List Table -->
-        <table class="order-list-table text-nowrap bg-white dh-table" id="job-table">
-            <thead>
-                <tr>
-                    <th>Name <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                    <th>Amount <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                    <th>Date <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                    <th>Tag <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                    <th>Status <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>UX Solutions</td>
-                    <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>Branding</td>
-                    <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>UX Solutions</td>
-                    <td><button type="button" class="status-btn paid">Paid</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>UX Solutions</td>
-                    <td><button type="button" class="status-btn completed">Completed</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>UX Solutions</td>
-                    <td><button type="button" class="status-btn draft">Draft</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-                <tr>
-                    <td>Christine McDonald</td>
-                    <td>$1564.32</td>
-                    <td>26 November 2019</td>
-                    <td>UX Solutions</td>
-                    <td><button type="button" class="status-btn active">Active</button></td>
-                    <td><a href="invoice-details.html" class="details-btn">View Details <i class="icofont-arrow-right"></i></a></td>
-                </tr>
-            </tbody>
-        </table>
+      
+        <div class="table-responsive">
+                  <table class="style--three table-centered text-nowrap">
+                     <thead>
+                        <tr>
+                           <th>Project ID</th>
+                           <th>Start Date</th>
+                           <th>Progress</th>
+                           <th>Customer</th>
+                           <th>Status </th>
+                           <th>Equip.Id</th>
+                           <th>Location</th>
+                           <th>Inspector</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td class="bold">#01254</td>
+                           <td>12 Oct 2019</td>
+                           <td>
+                              <div class="product-img">
+                                 <img src="../assets/img/product/product1.png" alt="">
+                                 <img src="../assets/img/product/product5.png" alt="">
+                                 <img src="../assets/img/product/product6.png" alt="">
+                              </div>
+                           </td>
+                           <td>Kyle Lee</td>
+                           <td class="text-danger">Processing</td>
+                           <td class="bold">$2456.4</td>
+                           <td class="bold">$24.6</td>
+                           <td class="bold">2687</td>
+                           <td><a href="job-details.php">
+                            <button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
+                        </tr>
+
+                        <tr>
+                           <td class="bold">#01365</td>
+                           <td>12 Oct 2019</td>
+                           <td>
+                              <div class="product-img d-flex align-ite">
+                              <!-- <div class="color-circle bg-success-light text-success mr-2 mb-2">Success</div> -->
+                                 <img src="../assets/img/product/product2.png" alt="">
+                               
+                                 <img src="../assets/img/product/product7.png" alt="">
+                             
+                                 <img src="../assets/img/product/product3.png" alt="">
+                              </div>
+                           </td>
+                           <td>Lindo De Sire</td>
+                           <td class="text-warning">Verified</td>
+                           <td class="bold">$2456.4</td>
+                           <td class="bold">$24.6</td>
+                           <td class="bold">2687</td>
+                           <td><a href="job-details.php"><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
+                        </tr>
+
+                        <tr>
+                           <td class="bold">#03654</td>
+                           <td>11 Oct 2019</td>
+                           <td>
+                              <div class="product-img">
+                                 <img src="../assets/img/product/product8.png" alt="">
+                                 <img src="../assets/img/product/product9.png" alt="">
+                                 <img src="../assets/img/product/product10.png" alt="">
+                              </div>
+                           </td>
+                           <td>Laturi Yasn</td>
+                           <td class="text-success">Completed</td>
+                           <td class="bold">$2456.4</td>
+                           <td class="bold">$24.6</td>
+                           <td class="bold">2687</td>
+                           <td><a href="job-details.php">
+                            <button type="button" class="details-btn">Details 
+                                <i class="icofont-arrow-right"></i></button></a>
+                            </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
         <!-- End Invoice List Table -->
     </div>
 </div>

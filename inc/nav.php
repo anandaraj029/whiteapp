@@ -55,23 +55,67 @@
                   </li>
                   <li>
                      <a href="#">
-                        <i class="icofont-contacts"></i>
-                        <span class="link-title">Customer Portal</span>
+                        <i class="icofont-navigation-menu"></i>
+                        <span class="link-title">Certficate Portal</span>
                      </a>
 
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
-                        <li><a href="">Create Customer</a></li>
-                        <li><a href="<?php echo $url; ?>customer/customer-list.php">Customer List</a></li>
-                        <li><a href="<?php echo $url; ?>customer/view-customer.php">Customer Status</a></li>
+                        <li><a href="<?php echo $url; ?>document/health-check/">Health-Check</a>
+                        <ul class="nav sub-menu">
+                        <!-- <li><a href="">Create Customer</a></li> -->
+                        <li><a href="<?php echo $url; ?>document/health-check/create.php">Create New</a></li>
+                       
+                      
+                     </ul>
+
+                     </li>
+                        <li><a href="<?php echo $url; ?>document/lifting/">Lifting</a></li>
+                        <li><a href="<?php echo $url; ?>document/loadtest/">Load test</a></li>
+                        <li><a href="<?php echo $url; ?>document/mobile/">Mobile</a></li>
+                        <li><a href="<?php echo $url; ?>document/mpi/">MPI</a></li>
+                     </ul>
+                     <!-- End Sub Menu -->
+                  </li>
+
+                  
+
+                  <li>
+                     <a href="#">
+                        <i class="icofont-contacts"></i>
+                        <span class="link-title">Checklist Portal</span>
+                     </a>
+
+                     <!-- Sub Menu -->
+                     <ul class="nav sub-menu">
+                        <!-- <li><a href="">Create Customer</a></li> -->
+                        <li><a href="<?php echo $url; ?>document/checklist/">All Checklist</a></li>
+                       
                       
                      </ul>
                      <!-- End Sub Menu -->
                   </li>
+                
                   <li>
                      <a href="#">
+                        <i class="icofont-contacts"></i>
+                        <span class="link-title"> Report Portal</span>
+                     </a>
+
+                     <!-- Sub Menu -->
+                     <ul class="nav sub-menu">
+                        <!-- <li><a href="">Create Customer</a></li> -->
+                        <li><a href="<?php echo $url; ?>document/report">All Report List</a></li>
+                       
+                      
+                     </ul>
+                     <!-- End Sub Menu -->
+                  </li>
+                
+                        <li>
+                     <a href="#">
                         <i class="icofont-edit"></i>
-                        <span class="link-title">Report Portal</span>
+                        <span class="link-title">KPI Result</span>
                      </a>
 
                      <!-- Sub Menu -->
@@ -84,42 +128,21 @@
                      <!-- End Sub Menu -->
                   </li>
 
-                  <li class="has-sub-item">
-                            <a href="#">
-                                <i class="icofont-database"></i>
-                                <span class="link-title">Document Portal</span>
-                            </a>
+                  <li>
+                     <a href="#">
+                        <i class="icofont-contacts"></i>
+                        <span class="link-title">Customer Portal</span>
+                     </a>
 
-                            <!-- Sub Menu -->
-                            <ul class="nav sub-menu" style="display: none;">
-                           
-                                <li class="has-sub-item"><a href="#">Report</a>
-                                <!-- Sub Menu -->
-                                <ul class="nav sub-menu" style="display: none;">
-                                    <li><a href="#">equp name</a></li>
-                                    <li><a href="#">equp name</a></li>
-                                </ul>
-                                <!-- End Sub Menu -->
-                                </li>
-                                <li class="has-sub-item"><a href="#">Checklist</a>
-                                <!-- Sub Menu -->
-                                <ul class="nav sub-menu" style="display: none;">
-                                    <li><a href="#">Check name</a></li>
-                                    <li><a href="#">Check name</a></li>
-                                </ul>
-                                <!-- End Sub Menu -->
-                                </li>
-                                <li class="has-sub-item"><a href="#">Certificate</a>
-                                <!-- Sub Menu -->
-                                <ul class="nav sub-menu" style="display: none;">
-                                    <li><a href="#">Cert name</a></li>
-                                    <li><a href="#">Cert name</a></li>
-                                </ul>
-                                <!-- End Sub Menu -->
-                                </li>
-                            </ul>
-                            <!-- End Sub Menu -->
-                        </li>
+                     <!-- Sub Menu -->
+                     <ul class="nav sub-menu">
+                        <!-- <li><a href="">Create Customer</a></li> -->
+                        <li><a href="<?php echo $url; ?>customer/customer-list.php">Customer List</a></li>
+                        <li><a href="<?php echo $url; ?>customer/view-customer.php">Customer Status</a></li>
+                      
+                     </ul>
+                     <!-- End Sub Menu -->
+                  </li>
                         <li>
                      <a href="#">
                         <i class="icofont-binary"></i>
