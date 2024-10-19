@@ -1,3 +1,22 @@
+<?php
+include_once('../../file/config.php');  // Include your database connection file
+
+// Fetch the record based on report_no
+$report_no = $_GET['report_no'];  // Assuming report_no is passed via URL
+
+$query = "SELECT * FROM crane_health_check_certificate WHERE report_no = '$report_no'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+} else {
+    echo "No record found!";
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,127 +44,128 @@
 	
     	
     <div class="table-responsive">
-      <table class="content-table">
+    <table class="content-table">
         <tbody>
-          <tr>
-            <td class="text-center section-title">Date of Inspection:</td>
-            <td>11 JULY 2023</td>
-            <td class="text-center section-title">Report No.:</td>
-            <td>92603</td>
-          </tr>
-          <tr>
-            <td class="text-center section-title">Certificate No.:</td>
-            <td>CHC-324-2023</td>
-            <td class="text-center section-title">JRN:</td>
-            <td>37781</td>
-          </tr>
+            <tr>
+                <td class="text-center section-title">Date of Inspection:</td>
+                <td><?php echo $row['inspection_date']; ?></td>
+                <td class="text-center section-title">Report No.:</td>
+                <td><?php echo $row['report_no']; ?></td>
+            </tr>
+            <tr>
+                <td class="text-center section-title">Certificate No.:</td>
+                <td><?php echo $row['certificate_no']; ?></td>
+                <td class="text-center section-title">JRN:</td>
+                <td><?php echo $row['jrn']; ?></td>
+            </tr>
         </tbody>
-      </table>
-    </div>
+    </table>
+</div>
 
-    <div class="table-responsive">
-      <table class="content-table">
+<div class="table-responsive">
+    <table class="content-table">
         <tbody>
-          <tr>
-            <th colspan="2" class="text-center section-title">A. GENERAL INFORMATION</th>
-          </tr>
-          <tr>
-            <th>Vessel Name & Location</th>
-            <td>M/V HORIZON SURVEYOR, BERTH # 11, JUBAIL COMMERCIAL PORT</td>
-          </tr>
-          <tr>
-            <th>Company Name</th>
-            <td>HORIZON GEOSCIENCES</td>
-          </tr>
-          <tr>
-            <th>Manufacturer</th>
-            <td>PUMA CRANES</td>
-          </tr>
-          <tr>
-            <th>Type of Crane</th>
-            <td>ELECTRO-HYDRAULIC ARTICULATING & TELESCOPING BOOM PEDESTAL CRANE</td>
-          </tr>
-          <tr>
-            <th>Model</th>
-            <td>PMA45K5</td>
-          </tr>
-          <tr>
-            <th>Manufacturing Year</th>
-            <td>2020</td>
-          </tr>
-          <tr>
-            <th>Asset Number</th>
-            <td>DECK CRANE</td>
-          </tr>
-          <tr>
-            <th>Serial Number</th>
-            <td>PMA45K5-2020-50-20</td>
-          </tr>
-          <tr>
-            <th>Capacity (SWL)</th>
-            <td>7.8 Tons @ 5m / 2 Tons @ 13m</td>
-          </tr>
-          <tr>
-            <th>Date of Previous Test of Crane</th>
-            <td>UNKNOWN</td>
-          </tr>
+            <tr>
+                <th colspan="2" class="text-center section-title">A. GENERAL INFORMATION</th>
+            </tr>
+            <tr>
+                <th>Vessel Name & Location</th>
+                <td><?php echo $row['vessel_name_location']; ?></td>
+            </tr>
+            <tr>
+                <th>Company Name</th>
+                <td><?php echo $row['companyName']; ?></td>
+            </tr>
+            <tr>
+                <th>Manufacturer</th>
+                <td><?php echo $row['manufacturer']; ?></td>
+            </tr>
+            <tr>
+                <th>Type of Crane</th>
+                <td><?php echo $row['crane_type']; ?></td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td><?php echo $row['model']; ?></td>
+            </tr>
+            <tr>
+                <th>Manufacturing Year</th>
+                <td><?php echo $row['manufacturing_year']; ?></td>
+            </tr>
+            <tr>
+                <th>Asset Number</th>
+                <td><?php echo $row['asset_number']; ?></td>
+            </tr>
+            <tr>
+                <th>Serial Number</th>
+                <td><?php echo $row['serial_number']; ?></td>
+            </tr>
+            <tr>
+                <th>Capacity (SWL)</th>
+                <td><?php echo $row['capacity_swl']; ?></td>
+            </tr>
+            <tr>
+                <th>Date of Previous Test of Crane</th>
+                <td><?php echo $row['previous_test_date']; ?></td>
+            </tr>
         </tbody>
-      </table>
-    </div>
+    </table>
+</div>
 
-    <div class="table-responsive">
-      <table class="content-table">
+<div class="table-responsive">
+    <table class="content-table">
         <thead>
-          <tr>
-            <th colspan="4" class="text-center section-title">B. GENERAL INFORMATION</th>
-          </tr>
-          <tr class="section-title">
-            <th class="text-center">Operation</th>
-            <th class="text-center">Comments</th>
-            <th class="text-center">Safety Devices</th>
-            <th class="text-center">Comments</th>
-          </tr>
+            <tr>
+                <th colspan="4" class="text-center section-title">B. GENERAL INFORMATION</th>
+            </tr>
+            <tr class="section-title">
+                <th class="text-center">Operation</th>
+                <th class="text-center">Comments</th>
+                <th class="text-center">Safety Devices</th>
+                <th class="text-center">Comments</th>
+            </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Crane Structure Condition:</td>
-            <td>SATISFACTORY</td>
-            <td>Auto Moment Limiter (LMI):</td>
-            <td>SATISFACTORY</td>
-          </tr>
-          <tr>
-            <td>Swinging / Slewing Function:</td>
-            <td>SATISFACTORY</td>
-            <td>Anti-Two-Block (A2B) Function:</td>
-            <td>SATISFACTORY</td>
-          </tr>
-          <tr>
-            <td>Hydraulic & Pneumatic System:</td>
-            <td>SATISFACTORY</td>
-            <td>Winch Drum Lock / Pawls:</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>Wire Ropes Condition:</td>
-            <td>SATISFACTORY</td>
-            <td>Hook Block Assembly:</td>
-            <td>SATISFACTORY</td>
-          </tr>
-          <tr>
-            <td>Boom Lifting, Extending & Retracting:</td>
-            <td>SATISFACTORY</td>
-            <td>Boom Angle Indicator:</td>
-            <td>N/A</td>
-          </tr>
-          <tr>
-            <td>Emergency Boom Lowering:</td>
-            <td>SATISFACTORY</td>
-            <td>Emergency Shutdown:</td>
-            <td>SATISFACTORY</td>
-          </tr>
+            <tr>
+                <td>Crane Structure Condition:</td>
+                <td><?php echo $row['crane_structure_condition']; ?></td>
+                <td>Auto Moment Limiter (LMI):</td>
+                <td><?php echo $row['auto_moment_limiter']; ?></td>
+            </tr>
+            <tr>
+                <td>Swinging / Slewing Function:</td>
+                <td><?php echo $row['swinging_slewing_function']; ?></td>
+                <td>Anti-Two-Block (A2B) Function:</td>
+                <td><?php echo $row['anti_two_block']; ?></td>
+            </tr>
+            <tr>
+                <td>Hydraulic & Pneumatic System:</td>
+                <td><?php echo $row['hydraulic_pneumatic_system']; ?></td>
+                <td>Winch Drum Lock / Pawls:</td>
+                <td><?php echo $row['winch_drum_lock_pawls']; ?></td>
+            </tr>
+            <tr>
+                <td>Wire Ropes Condition:</td>
+                <td><?php echo $row['wire_ropes_condition']; ?></td>
+                <td>Hook Block Assembly:</td>
+                <td><?php echo $row['hook_block_assembly']; ?></td>
+            </tr>
+            <tr>
+                <td>Boom Lifting, Extending & Retracting:</td>
+                <td><?php echo $row['boom_lifting_extending_retracting']; ?></td>
+                <td>Boom Angle Indicator:</td>
+                <td><?php echo $row['boom_angle_indicator']; ?></td>
+            </tr>
+            <tr>
+                <td>Emergency Boom Lowering:</td>
+                <td><?php echo $row['emergency_boom_lowering']; ?></td>
+                <td>Emergency Shutdown:</td>
+                <td><?php echo $row['emergency_shutdown']; ?></td>
+            </tr>
         </tbody>
-      </table>
-    </div>
+    </table>
+</div>
+
 
     <p><strong>
       We hereby certify that the above Crane has been duly Inspected (Health Check) as per the Manufacturer’s Recommendation or based on ASME B30.3 – 2016, B30.4 – 2015, B30.5 – 2018, B30.7 – 2016, B30.8 – 2015, B30.9 – 2018, B30.10 – 2015, B30.22 – 2016, API SPECS 2C – 2012, and API RP 2D – 2014.
@@ -202,7 +222,9 @@
         </div>
   </div>
   <div class="text-center">
-    <a href="download.php" ><button>download</button></a>
-  </div>
+    <a href="download.php?report_no=<?php echo $row['report_no']; ?>" >
+        <button>Download</button>
+    </a>
+</div>
 </body>
 </html>

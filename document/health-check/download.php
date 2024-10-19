@@ -1,5 +1,19 @@
 <?php
 require_once('../../vendor/autoload.php'); // Adjust the path as necessary
+include_once('../../file/config.php');  // Include your database connection file
+
+// Fetch the record based on report_no
+$report_no = $_GET['report_no'];  // Assuming report_no is passed via URL
+
+$query = "SELECT * FROM crane_health_check_certificate WHERE report_no = '$report_no'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+} else {
+    echo "No record found!";
+    exit;
+}
 
 $html = '
 <!DOCTYPE html>
@@ -13,16 +27,8 @@ $html = '
       text-align: center;
       margin: 8px;
     }
-    .signature-section {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-      p {
-      font-size:12px;
-      }
-    .signature {
-      text-align: center;
+    p {
+      font-size: 12px;
     }
     body {
       font-family: Arial, sans-serif;
@@ -30,7 +36,7 @@ $html = '
       padding: 10px;
       line-height: 1.4;
     }
-    .container-fluid {
+    .container {
       max-width: 800px;
       margin: auto;
       padding: 10px;
@@ -39,10 +45,6 @@ $html = '
       text-align: center;
       font-size: 12px;
       margin: 5px 0;
-    }
-    p {
-      text-align: center;
-      font-size: 10px;
     }
     table {
       width: 100%;
@@ -55,46 +57,25 @@ $html = '
       text-align: left;
       font-size: 10px;
     }
-    .header-table, .details-table {
-      border: none;
-      margin-bottom: 0;
-    }
-    .header-table th, .header-table td {
-      border: none;
-      padding: 3px;
-    }
     .section-title {
       background-color: #bfdaef;
       font-weight: bold;
       font-size: 11px;
     }
-    .answer {
-      color: red;
-      font-weight: bold;
-    }
     .header, .footer {
       text-align: center;
     }
-    .header img {
+    .header img, .footer img {
       max-width: 100%;
-      height: 200px;
-    }
-    .footer img {
-      max-width: 100%;
-      height: 70px;
     }
     .sign {
       width: 80px;
       height: 40px;
     }
-       .sign2 {
-     width: 107px;
-    height: 87px;
+    .seal {
+      width: 40px;
+      height: 40px;
     }
-      .seal{
-      width: 40px
-      height: 40px
-      }
     .qrcode {
       width: 70px;
       height: 70px;
@@ -109,16 +90,16 @@ $html = '
     }
 
     @media (max-width: 600px) {
-      .header-table, .details-table, .content-table {
+      table {
         font-size: 8px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <div class="header">
-      <img src="../head2.jpg" alt="Header Image">
+      <img src="../head.jpg" alt="Header Image">
     </div>
     <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
@@ -126,25 +107,27 @@ $html = '
       <h3 class="certificate-title"><strong>CRANE HEALTH CHECK CERTIFICATE <br />
       FOR OFFSHORE PEDESTAL CRANES AND FLOATING CRANES</strong></h3>
     </div>
-    <div class="table-responsive keep-together">
+    
+    <div class="table-responsive">
       <table class="content-table">
         <tbody>
           <tr>
             <td class="text-center section-title">Date of Inspection:</td>
-            <td>11 JULY 2023</td>
+            <td>' . htmlspecialchars($row['inspection_date']) . '</td>
             <td class="text-center section-title">Report No.:</td>
-            <td>92603</td>
+            <td>' . htmlspecialchars($row['report_no']) . '</td>
           </tr>
           <tr>
             <td class="text-center section-title">Certificate No.:</td>
-            <td>CHC-324-2023</td>
+            <td>' . htmlspecialchars($row['certificate_no']) . '</td>
             <td class="text-center section-title">JRN:</td>
-            <td>37781</td>
+            <td>' . htmlspecialchars($row['jrn']) . '</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="table-responsive keep-together">
+    
+    <div class="table-responsive">
       <table class="content-table">
         <tbody>
           <tr>
@@ -152,48 +135,49 @@ $html = '
           </tr>
           <tr>
             <th>Vessel Name & Location</th>
-            <td>M/V HORIZON SURVEYOR, BERTH # 11, JUBAIL COMMERCIAL PORT</td>
+            <td>' . htmlspecialchars($row['vessel_name_location']) . '</td>
           </tr>
           <tr>
             <th>Company Name</th>
-            <td>HORIZON GEOSCIENCES</td>
+            <td>' . htmlspecialchars($row['companyName']) . '</td>
           </tr>
           <tr>
             <th>Manufacturer</th>
-            <td>PUMA CRANES</td>
+            <td>' . htmlspecialchars($row['manufacturer']) . '</td>
           </tr>
           <tr>
             <th>Type of Crane</th>
-            <td>ELECTRO-HYDRAULIC ARTICULATING & TELESCOPING BOOM PEDESTAL CRANE</td>
+            <td>' . htmlspecialchars($row['crane_type']) . '</td>
           </tr>
           <tr>
             <th>Model</th>
-            <td>PMA45K5</td>
+            <td>' . htmlspecialchars($row['model']) . '</td>
           </tr>
           <tr>
             <th>Manufacturing Year</th>
-            <td>2020</td>
+            <td>' . htmlspecialchars($row['manufacturing_year']) . '</td>
           </tr>
           <tr>
             <th>Asset Number</th>
-            <td>DECK CRANE</td>
+            <td>' . htmlspecialchars($row['asset_number']) . '</td>
           </tr>
           <tr>
             <th>Serial Number</th>
-            <td>PMA45K5-2020-50-20</td>
+            <td>' . htmlspecialchars($row['serial_number']) . '</td>
           </tr>
           <tr>
             <th>Capacity (SWL)</th>
-            <td>7.8 Tons @ 5m / 2 Tons @ 13m</td>
+            <td>' . htmlspecialchars($row['capacity_swl']) . '</td>
           </tr>
           <tr>
             <th>Date of Previous Test of Crane</th>
-            <td>UNKNOWN</td>
+            <td>' . htmlspecialchars($row['previous_test_date']) . '</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div class="table-responsive keep-together">
+
+    <div class="table-responsive">
       <table class="content-table">
         <thead>
           <tr>
@@ -209,39 +193,39 @@ $html = '
         <tbody>
           <tr>
             <td>Crane Structure Condition:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['crane_structure_condition']) . '</td>
             <td>Auto Moment Limiter (LMI):</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['auto_moment_limiter']) . '</td>
           </tr>
           <tr>
             <td>Swinging / Slewing Function:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['swinging_slewing_function']) . '</td>
             <td>Anti-Two-Block (A2B) Function:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['anti_two_block']) . '</td>
           </tr>
           <tr>
             <td>Hydraulic & Pneumatic System:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['hydraulic_pneumatic_system']) . '</td>
             <td>Winch Drum Lock / Pawls:</td>
-            <td>N/A</td>
+            <td>' . htmlspecialchars($row['winch_drum_lock_pawls']) . '</td>
           </tr>
           <tr>
             <td>Wire Ropes Condition:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['wire_ropes_condition']) . '</td>
             <td>Hook Block Assembly:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['hook_block_assembly']) . '</td>
           </tr>
           <tr>
             <td>Boom Lifting, Extending & Retracting:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['boom_lifting_extending_retracting']) . '</td>
             <td>Boom Angle Indicator:</td>
-            <td>N/A</td>
+            <td>' . htmlspecialchars($row['boom_angle_indicator']) . '</td>
           </tr>
           <tr>
             <td>Emergency Boom Lowering:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['emergency_boom_lowering']) . '</td>
             <td>Emergency Shutdown:</td>
-            <td>SATISFACTORY</td>
+            <td>' . htmlspecialchars($row['emergency_shutdown']) . '</td>
           </tr>
         </tbody>
       </table>
