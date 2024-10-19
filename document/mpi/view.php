@@ -1,3 +1,32 @@
+<?php
+include_once('../../file/config.php'); // include your database connection
+
+// Get the report_no from the request (GET method)
+$report_no = $_GET['report_no'] ?? ''; // Ensure that it is set
+
+// Fetch the data based on report_no
+$sql = "SELECT * FROM mpi_certificates WHERE report_no = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $report_no); // Assuming report_no is a string
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    // Fetch the data
+    $row = $result->fetch_assoc();
+} else {
+    echo "No records found for the given report number.";
+    exit;
+}
+
+$conn->close();
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,25 +49,25 @@
         <table class="content-table">
             <tbody>
                 <tr >
-                    <td class="section-title" style="text-align: center; width: 25%;">CERTIFICATE NO.</td>
-                    <td><strong>240120291</strong></td>
-                    <td class="section-title" style="text-align: center">REFERENCE NO.</td>
-                    <td  style="text-align: center"><strong>2029</strong></td>
+                <td class="section-title" style="text-align: center; width: 25%;">CERTIFICATE NO.</td>
+                <td><strong><?php echo $row['certificate_no'] ?? 'N/A'; ?></strong></td>
+                <td class="section-title" style="text-align: center">REFERENCE NO.</td>
+                <td style="text-align: center"><strong><?php echo $row['reference_no'] ?? 'N/A'; ?></strong></td>
                 </tr>
                 <tr>
-                    <td  class="section-title" style="text-align: center">CUSTOMER NAME</td>
-                    <td colspan="3"><strong>HAMZA S. BALHARITH EST. (HSBE)</strong></td>
+                <td class="section-title" style="text-align: center">CUSTOMER NAME</td>
+                <td colspan="3"><strong><?php echo $row['customer_name'] ?? 'N/A'; ?></strong></td>
                 </tr>
                 <tr>
-                    <td   class="section-title" style="text-align: center">LOCATION</td>
-                    <td colspan="3"><strong>2ND INDUSTRIAL, DAMMAM</strong></td>
-                </tr>
-                <tr>
-                    <td  class="section-title" style="text-align: center">INSPECTION DATE</td>
-                    <td  style="text-align: center"><strong>28-JAN-2024</strong></td>
-                    <td  class="section-title" style="text-align: center">NEXT INSPECTION DATE</td>
-                    <td  style="text-align: center"><strong>27-Jul-2024</strong></td>
-                </tr>
+                <td class="section-title" style="text-align: center">LOCATION</td>
+                <td colspan="3"><strong><?php echo $row['location'] ?? 'N/A'; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">INSPECTION DATE</td>
+                <td style="text-align: center"><strong><?php echo $row['inspection_date'] ?? 'N/A'; ?></strong></td>
+                <td class="section-title" style="text-align: center">NEXT INSPECTION DATE</td>
+                <td style="text-align: center"><strong><?php echo $row['next_inspection_date'] ?? 'N/A'; ?></strong></td>
+            </tr>
                 
             </tbody>
         </table>
@@ -48,22 +77,22 @@
         <table class="content-table">
             <tbody>
                 
-                <tr>
-                    <td  class="section-title" style="text-align: center; width: 25%;">INSPECTED ITEM</td>
-                    <td colspan="3"><strong>FORKLIFT TRUCK FORK SWL: 10 TON</strong></td>
-                </tr>
-                <tr>
-                    <td  class="section-title" style="text-align: center">SERIAL NUMBERS</td>
-                    <td colspan="3"><strong>01102B0474</strong></td>
-                </tr>
-                <tr>
-                    <td  class="section-title" style="text-align: center">MANUFACTURER / EQUIP. NO.</td>
-                    <td colspan="3"><strong>HELI / FL-008 (2030-SAA)</strong></td>
-                </tr>
-                <tr>
-                    <td  class="section-title" style="text-align: center">STANDARDS</td>
-                    <td colspan="3"><strong>ASTM E 709 & BS EN 9934-1:2016</strong></td>
-                </tr>
+            <tr>
+                <td class="section-title" style="text-align: center; width: 25%;">INSPECTED ITEM</td>
+                <td colspan="3"><strong><?php echo $row['inspected_item'] ?? 'N/A'; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">SERIAL NUMBERS</td>
+                <td colspan="3"><strong><?php echo $row['serial_numbers'] ?? 'N/A'; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">MANUFACTURER / EQUIP. NO.</td>
+                <td colspan="3"><strong><?php echo $row['manufacturer'] ?? 'N/A'; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">STANDARDS</td>
+                <td colspan="3"><strong><?php echo $row['standards'] ?? 'N/A'; ?></strong></td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -77,35 +106,35 @@
                     
                 </tr>
                 <tr>
-                    <td class="section-title" style="text-align: center; width: 25%;">MPI EQUIP. TYPE</td>
-                    <td style="text-align: center"><strong>PERMANENT MAGNET</strong></td>
-                    <td class="section-title" style="text-align: center">BRAND</td>
-                    <td style="text-align: center"><strong>MAGNAFLUX</strong></td>
-                </tr>
-                <tr>
-                    <td class="section-title" style="text-align: center">CURRENT</td>
-                    <td style="text-align: center"><strong>N/A</strong></td>
-                    <td class="section-title" style="text-align: center">PROD. SPACING</td>
-                    <td style="text-align: center"><strong>10-15 CM</strong></td>
-                </tr>
-                <tr>
-                    <td class="section-title" style="text-align: center">CONTRAST PAINT</td>
-                    <td style="text-align: center"><strong>8903W/ARDROX</strong></td>
-                    <td class="section-title" style="text-align: center">INK</td>
-                    <td style="text-align: center"><strong>800/3/ARDOX</strong></td>
-                </tr>
-                <tr>
-                    <td class="section-title" style="text-align: center">PARTICLE MEDIUM</td>
-                    <td style="text-align: center"><strong>WET</strong></td>
-                    <td class="section-title" style="text-align: center">YOKE S/N</td>
-                    <td style="text-align: center"><strong>039</strong></td>
-                </tr>
-                <tr>
-                    <td class="section-title"  style="text-align: center">CALIBRATION EXPIRY DATE</td>
-                    <td style="text-align: center"><strong>11-FEB-2024</strong></td>
-                    <td class="section-title"  style="text-align: center">MODEL NO.</td>
-                    <td style="text-align: center"><strong>N/A</strong></td>
-                </tr>
+                <td class="section-title" style="text-align: center; width: 25%;">MPI EQUIP. TYPE</td>
+                <td style="text-align: center"><strong><?php echo $row['mpi_equip_type']; ?></strong></td>
+                <td class="section-title" style="text-align: center">BRAND</td>
+                <td style="text-align: center"><strong><?php echo $row['brand']; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">CURRENT</td>
+                <td style="text-align: center"><strong><?php echo $row['current']; ?></strong></td>
+                <td class="section-title" style="text-align: center">PROD. SPACING</td>
+                <td style="text-align: center"><strong><?php echo $row['prod_spacing']; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">CONTRAST PAINT</td>
+                <td style="text-align: center"><strong><?php echo $row['contrast_paint']; ?></strong></td>
+                <td class="section-title" style="text-align: center">INK</td>
+                <td style="text-align: center"><strong><?php echo $row['ink']; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">PARTICLE MEDIUM</td>
+                <td style="text-align: center"><strong><?php echo $row['particle_medium']; ?></strong></td>
+                <td class="section-title" style="text-align: center">YOKE S/N</td>
+                <td style="text-align: center"><strong><?php echo $row['yoke_sn']; ?></strong></td>
+            </tr>
+            <tr>
+                <td class="section-title" style="text-align: center">CALIBRATION EXPIRY DATE</td>
+                <td style="text-align: center"><strong><?php echo $row['calibration_expiry_date']; ?></strong></td>
+                <td class="section-title" style="text-align: center">MODEL NO.</td>
+                <td style="text-align: center"><strong><?php echo $row['model_no']; ?></strong></td>
+            </tr>
 				
             </tbody>
         </table>
@@ -116,13 +145,12 @@
         <table class="content-table">
             <tbody>
 			<tr>
-        <td style="text-align: center;">
-            <img src="img/1.png" alt="Placeholder Image" style="display: block; margin: 0 auto; height: 150px">
-          
-        </td>
-        <td>
-        <img src="img/2.png" alt="Placeholder Image" style="display: block; margin: 0 auto; height: 150px">
-        </td>
+            <td style="text-align: center;">
+                    <img src="<?php echo $row['image_path']; ?>" alt="Certificate Image" style="display: block; margin: 0 auto; height: 150px">
+                </td>
+                <td style="text-align: center;">
+                    <img src="<?php echo $row['image_path']; ?>" alt="Certificate Image" style="display: block; margin: 0 auto; height: 150px">
+                </td>
     </tr>
                 			
             </tbody>
@@ -187,8 +215,10 @@
         </div>
     </div>-->
     <div class="text-center">
-    <a href="download.php" ><button>download</button></a>
-  </div>
+    <a href="download.php?report_no=<?php echo $row['report_no']; ?>" >
+        <button>Download</button>
+    </a>
+</div>
     
 </div>
 
