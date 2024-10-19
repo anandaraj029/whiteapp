@@ -1,6 +1,28 @@
 <?php
 require_once('../../vendor/autoload.php');
 
+
+include_once('../../file/config.php'); // include your database connection
+
+// Get the project ID from the query parameter
+$projectid = $_GET['projectid'];
+
+// Fetch the data based on the projectid
+$sql = "SELECT * FROM lifting_gears_certificate WHERE projectid = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $projectid);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+} else {
+    die("No data found for the given project ID.");
+}
+
+$stmt->close();
+$conn->close();
+
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([
     'orientation' => 'L',
@@ -106,17 +128,17 @@ $html = <<<HTML
         <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
         <table class="table no-border">
-            <tr>
+        <tr>
                 <td colspan="3"></td>
-                <td colspan="3"><strong>Job Ref. No.:</strong> 38984</td>
-                <td colspan="3"><strong>Certificate No.:</strong> 24403-1</td>
+                <td colspan="3"><strong>Job Ref. No.:</strong> {$row['jrn']}</td>
+                <td colspan="3"><strong>Certificate No.:</strong> {$row['certificate_no']}</td>
                 <td colspan="3"></td>
             </tr>
             <tr>
-                <td colspan="3"><strong>Report No.:</strong> 92768</td>
-                <td colspan="3"><strong>Date of Report:</strong> 03 August 2023</td>
-                <td colspan="3"><strong>Color Code (if required):</strong> N/A</td>
-                <td colspan="3"><strong>Applicable Standard(s):</strong> ASME B30.9</td>
+                <td colspan="3"><strong>Report No.:</strong> {$row['report_no']}</td>
+                <td colspan="3"><strong>Date of Report:</strong> {$row['date_of_report']}</td>
+                <td colspan="3"><strong>Color Code (if required):</strong> {$row['color_code']}</td>
+                <td colspan="3"><strong>Applicable Standard(s):</strong> {$row['applicable_standards']}</td>
             </tr>
         </table>
         <div class="table-responsive">
@@ -147,20 +169,24 @@ $html = <<<HTML
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="height: 150px">
-                        <td>91946-7/66<br>91946-7/51<br>91946-7/10</td>
-                        <td>03</td>
-                        <td>FLAT POLYESTER WOVEN WEBBING SLING</td>
-                        <td>Manufacturer: LIFTEK<br>Size: 2”<br>Length: 6 m<br>Color: GREEN<br>Ply: 2</td>
-                        <td>2 Ton</td>
-                        <td>NIL</td>
-                        <td>03 Aug 2023</td>
-                        <td>02 Feb 2024</td>
-                        <td>B</td>
-                        <td>VISUAL INSPECTION</td>
-                        <td>ND</td>
-                        <td>YES</td>
-                    </tr>
+                <tr style="height: 150px">                
+                <td>{$row['identification_no']}</td>
+                <td>{$row['qty']}</td>
+                <td>{$row['type']}</td>
+                <td>Manufacturer: {$row['manufacturer']}<br>
+                Size: {$row['size']}<br>
+                Length: {$row['length']}<br>
+                Color: {$row['color']}<br>
+                Ply: {$row['ply']}    </td>
+                <td>{$row['wll_swl']}</td>
+                <td>{$row['date_last_examination']}</td>
+                <td>{$row['date_of_this_examination']}</td>
+                <td>{$row['next_examination_date']}</td>
+                <td>{$row['reason_for_examination']}</td>
+                <td>{$row['test_details']}</td>
+                <td>{$row['status']}</td>
+                <td>{$row['safe_to_use']}</td>
+            </tr>
                     <tr>
                         <td colspan="2">Reason for Examination</td>
                         <td colspan="2">3 Monthly: A</td>
