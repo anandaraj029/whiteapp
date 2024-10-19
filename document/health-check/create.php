@@ -195,7 +195,7 @@ include_once('../../inc/function.php');
                         <div class="col-lg-12">
                             <!-- Base Horizontal Form With Icons -->
                             <div class="form-element py-30 multiple-column">
-                                <h4 class="font-20 mb-20">A. GENERAL INFORMATION</h4>
+                                <h4 class="font-20 mb-20">A. GENERAL INFORMATIONS</h4>
 
                                 <!-- Form -->
                                 <form action="#" method="POST">
