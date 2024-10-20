@@ -1,3 +1,21 @@
+<?php
+include_once('../../file/config.php');  // Include your database connection file
+
+// Fetch the record based on report_no
+$report_no = $_GET['report_no'];  // Assuming report_no is passed via URL
+
+$query = "SELECT * FROM mobile_crane_loadtest WHERE report_no = '$report_no'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+} else {
+    echo "No record found!";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
