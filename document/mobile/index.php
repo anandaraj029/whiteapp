@@ -2,7 +2,14 @@
 <?php 
 include_once('../../inc/function.php');
 
+include_once('../../file/config.php'); // include your database connection
+
+// SQL query to fetch data from the 'mobile_crane_certificate' table
+$sql = "SELECT * FROM mobile_crane_loadtest";
+$result = $conn->query($sql);
 ?>
+
+
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
             <div class="container-fluid">
@@ -153,9 +160,9 @@ include_once('../../inc/function.php');
                                             <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
                                                 <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
                                             </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
+                                            <span class="contact-close" onclick="deleteRow('<?php echo $row['report_no']; ?>', this)">
+    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -615,3 +622,28 @@ include_once('../../inc/function.php');
         include_once('../../inc/footer.php');
         ?>
         
+
+
+
+        <script>
+    function deleteRow(report_no, element) {
+        if (confirm("Are you sure you want to delete this row?")) {
+            // Remove the row from the frontend
+            var row = element.closest('tr');
+            row.parentNode.removeChild(row);
+
+            // Send an AJAX request to delete the row from the database
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "delete.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert("Row deleted successfully");
+                } else if (xhr.status != 200) {
+                    alert("Failed to delete row. Please try again.");
+                }
+            };
+            xhr.send("report_no=" + report_no);
+        }
+    }
+</script>
