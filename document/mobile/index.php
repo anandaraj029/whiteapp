@@ -139,6 +139,13 @@ $result = $conn->query($sql);
                             </div>
                         </a>
                     </div>
+
+
+                    <div class="star">
+                    <a href="./download.php?report_no=<?php echo $row['report_no']; ?>">
+                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+                                </a>
+                              </div>
                     <!-- End Star -->
                 </td>
                 

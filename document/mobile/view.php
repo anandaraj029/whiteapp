@@ -136,26 +136,25 @@ margin: 5px;
         <p><strong>This report complies with the Lifting Equipment Engineers Association Technical requirements</strong></p>
 
         <table class="content-table">
-            <tr>
-                <td><strong>Date of Thorough Examination: 03 August 2023</strong></td>
-                <td><strong>Date of Report: 03 August 2023</strong></td>
-                <td><strong>Report Number: 91126</strong><br/>
-				<strong>Sticker Number: 14488</strong>
-				</td>
-                
+        <tr>
+                <td><strong>Date of Thorough Examination: <?= $row['examination_date'] ?></strong></td>
+                <td><strong>Date of Report: <?= $row['report_date'] ?></strong></td>
+                <td><strong>Report Number: <?= $row['report_no'] ?></strong><br/>
+                    <strong>Sticker Number: <?= $row['sticker_no'] ?></strong>
+                </td>
             </tr>
         </table>
 
         <table class="content-table">
-            <tr>
+        <tr>
                 <td colspan="3" style="text-align: center;"><strong>Name and Address of employer for whom the thorough examination was made:<br/>
-				GULF HAULAGE RIG MOVE (GHRM)
-				</strong></td>
+                <?= $row['employer_address'] ?>
+                </strong></td>
                 <td colspan="3" style="text-align: center;"><strong>Address of premises at which the examination was made:<br/>
-				KCA DEUTAG RIG-T915 HAWIYAH</strong>
-				</td>
+                <?= $row['premises_address'] ?></strong>
+                </td>
             </tr>
-            
+
             <tr>
                 <td colspan="3">
       
@@ -170,9 +169,9 @@ margin: 5px;
                     <strong>Rope Dia.: 20.4 mm (Main Hoist)</strong><br/>
                     <strong>Falls: 8</strong>
                 </td>
-                <td style="text-align: center;"><strong>Safe Working Load(s):<br/>85 Ton</strong></td>
-                <td  style="text-align: center;"><strong>Date of manufacture if known:<br/>2022</strong></td>
-                <td  style="text-align: center;"><strong>Date of last thorough examination:<br>NIL</strong></td>
+                <td style="text-align: center;"><strong>Safe Working Load(s):<br/><?= $row['safe_working_load'] ?></strong></td>
+                <td  style="text-align: center;"><strong>Date of manufacture if known:<br/><?= $row['manufacture_date'] ?></strong></td>
+                <td  style="text-align: center;"><strong>Date of last thorough examination:<br><?= $row['last_exam_date'] ?></strong></td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -183,7 +182,7 @@ margin: 5px;
                          <strong>   Is this the first examination after installation or assembly at a new site or location? </strong>
                         </div>
                         <div class="col-4">
-                        <strong>    NO</strong>
+                        <strong>    <?= $row['first_examination'] ?></strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -191,7 +190,7 @@ margin: 5px;
                       <strong>      If the answer to the above question is YES has the equipment been installed correctly? </strong>
                         </div>
                         <div class="col-4">
-                       <strong>     NO</strong>
+                       <strong>     <?= $row['installed_correctly'] ?></strong>
                         </div>
                     </div>
                     
@@ -209,7 +208,7 @@ margin: 5px;
                         <strong>    Within an interval of 6 months?  </strong>
                         </div>
                         <div class="col-4">
-                       <strong>     NO</strong>
+                       <strong>     <?= $row['interval_6_months'] ?></strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -217,7 +216,7 @@ margin: 5px;
                        <strong>     Within an interval of 12 months? </strong>
                         </div>
                         <div class="col-4">
-                            <strong>YES</strong>
+                            <strong><?= $row['interval_12_months'] ?></strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -225,7 +224,7 @@ margin: 5px;
                           <strong>  In accordance with an examination scheme? </strong>
                         </div>
                         <div class="col-4">
-                          <strong>  YES</strong>
+                          <strong>  <?= $row['examination_scheme'] ?></strong>
                         </div>
                     </div>
 					
@@ -234,7 +233,7 @@ margin: 5px;
                         <strong>    After the occurrence of exceptional circumstances? </strong>
                         </div>
                         <div class="col-4">
-                            <strong>NO</strong>
+                            <strong><?= $row['exceptional_circumstances'] ?></strong>
                         </div>
                     </div>
                 </td>
@@ -249,11 +248,10 @@ margin: 5px;
 				
 				(If none state NONE) 
 				
-				<br/>NONE
+				<br/><?= $row['last_exam_date'] ?>
 				</strong>
 				</td>
-				</tr>
-			
+				</tr>		
 
 			
 			
@@ -265,7 +263,7 @@ margin: 5px;
                       <strong>      Is the above a defect which is of immediate danger to persons </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     NO</strong>
+                       <strong>     <?= $row['last_exam_date'] ?></strong>
                         </div>
                     </div>
 				
@@ -321,7 +319,7 @@ margin: 5px;
                       <strong>      IS THIS EQUIPMENT FIT FOR PURPOSE?  </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     YES`</strong>
+                       <strong>    <?= $row['equipment_fit'] ?> </strong>
                         </div>
                     </div>
 				
@@ -338,7 +336,7 @@ margin: 5px;
 
             <img src="../sign.jpg" class="sign" alt="Header Image"><br>
 
-<strong>AFZAAL UMAIR  </strong><br/>
+<strong><?= $row['name_qualifications_person'] ?> </strong><br/>
 
 <strong>SAP No. 80019222 </strong>
 				
@@ -346,7 +344,7 @@ margin: 5px;
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
 				<img src="../sign.jpg" class="sign" alt="Header Image">
-			<strong>	VENANCIO Z. VERA </strong><br/>
+			<strong>	<?= $row['authenticating_person_name'] ?> </strong><br/>
 
 <strong>Technical Manager </strong>
 				
@@ -354,7 +352,7 @@ margin: 5px;
 				<td colspan="2" style="text-align: center;">
 				
 <strong>				Latest date by which next thorough examination must be carried out: </strong><br/>
-				<strong>02 August 2024 </strong><br>
+				<strong><?= $row['latest_date_exam'] ?> </strong><br>
 
                 <img src="../sign.jpg" class="sign" alt="Header Image">
 				</td>
@@ -381,10 +379,9 @@ margin: 5px;
 
         <table class="content-table">
             <tr>
-                <td><strong>Sticker No.: 14488 </strong></td>
-                <td><strong>Report No.: 91126  </strong></td>
-                
-                <td><strong>Certificate No.: 24393 </strong></td>
+                <td><strong>Sticker No.: <?= $row['sticker_no'] ?> </strong></td>
+                <td><strong>Report No.: <?= $row['report_no'] ?>  </strong></td>                
+                <td><strong>Certificate No.: <?= $row['certificate_no'] ?> </strong></td>
 				
 				
                 
@@ -403,11 +400,11 @@ margin: 5px;
 				<td style="text-align: center"><strong>Comments</strong></td>              
             </tr>
             <tr>
-                <td style="text-align: center"><strong>25.1</strong></td>
-                <td style="text-align: center"><strong>15</strong></td>
-                <td style="text-align: center"><strong>49.4</strong></td>
-				<td style="text-align: center"><strong>10.7 Ton</strong></td>
-				<td style="text-align: center"><strong>SATISFACTORY</strong></td>           
+                <td style="text-align: center"><strong><?= $row['boom_length'] ?></strong></td>
+                <td style="text-align: center"><strong><?= $row['radius'] ?></strong></td>
+                <td style="text-align: center"><strong><?= $row['boom_angle'] ?></strong></td>
+				<td style="text-align: center"><strong><?= $row['swl_test_weight'] ?></strong></td>
+				<td style="text-align: center"><strong><?= $row['comments'] ?></strong></td>           
             </tr>
 			<tr>
                 <td style="text-align: center"><strong></strong></td>
@@ -430,45 +427,45 @@ margin: 5px;
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Lifting</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['boom_lifting'] ?></strong></td>
                 <td style="text-align: center"><strong>Auto Moment Limiter</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['auto_moment_limiter'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>M. Winch Hoist</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['m_winch_hoist'] ?></strong></td>
                 <td style="text-align: center"><strong>Swing & Winch Brake</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['swing_winch_brake'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Aux. Winch Hoist</strong></td>
-                <td style="text-align: center"><strong>N/A</strong></td>
+                <td style="text-align: center"><strong><?= $row['aux_winch_hoist'] ?></strong></td>
                 <td style="text-align: center"><strong>Winch Drum Lock (Pawl)</strong></td>
-				<td style="text-align: center"><strong>N/A</strong></td>              
+				<td style="text-align: center"><strong><?= $row['winch_drum_lock'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Extending</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['boom_extending'] ?></strong></td>
                 <td style="text-align: center"><strong>Leveling Device</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['leveling_device'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Outriggers</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['outriggers'] ?></strong></td>
                 <td style="text-align: center"><strong>Hook Block Assembly</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['hook_block_assembly'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Swings / Slew</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['swings_slew'] ?></strong></td>
                 <td style="text-align: center"><strong>Boom Angle Indicator</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['boom_angle_indicator'] ?></strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Hydraulic System</strong></td>
-                <td style="text-align: center"><strong>GOOD</strong></td>
+                <td style="text-align: center"><strong><?= $row['hydraulic_system'] ?></strong></td>
                 <td style="text-align: center"><strong>Wind Speed Indicator (Anemometer)</strong></td>
-				<td style="text-align: center"><strong>GOOD</strong></td>              
+				<td style="text-align: center"><strong><?= $row['wind_speed_indicator'] ?></strong></td>              
             </tr>
         </table>
 
