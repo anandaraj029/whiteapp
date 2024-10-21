@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VISUAL INSPECTION CHECKLIST FOR ARC WELDING EQUIPMEN</title>
+    <title>VISUAL INSPECTION CHECKLIST FOR ARC WELDING EQUIPMENT  </title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -103,16 +103,27 @@
 	  <div class="table-responsive">
             <table class="table table-bordered">
                 <tbody>
-				
-				<tr>
-                <td colspan="3" style="text-align: center;"><strong>VISUAL INSPECTION CHECKLIST FOR ARC WELDING EQUIPMENT  </strong></td>
-				</tr>
-            <tr>
-                <td style="width: 25%; text-align: center;"><strong>FRM.0601-5.1</strong></td>
-                <td style="width: 25%; text-align: center;"> <strong>Revision 00</strong></td>
-                
+				<tr  style="text-align: center;">
+                <td> <img src="../logo.png" alt=""> </td>
+                   <td colspan="3" style="text-align: center;width: 100%"><strong>VISUAL INSPECTION CHECKLIST FOR ARC WELDING EQUIPMENT  </strong></td>
+                   <tr> 
                 <td style="width: 25%; text-align: center;"> <strong>Issue Date: 01/JAN/2020</strong></td>
-            </tr>
+           </tr>
+           <tr> 
+                <td style="width: 25%; text-align: center;"> <strong>Issue Date: 01/JAN/2020</strong></td>
+           </tr>
+           <tr> 
+                <td style="width: 25%; text-align: center;"> <strong>Issue Date: 01/JAN/2020</strong></td>
+           </tr>
+                   <tr>
+                   <td style="width: 25%; text-align: center;"><strong>FRM.0601-5.1</strong></td>
+                <td style="width: 25%; text-align: center;"> <strong>Revision 00</strong></td>
+               
+                   </tr>
+             
+                </tr>
+				
+            
 			</tbody>
 			</table>
 			
