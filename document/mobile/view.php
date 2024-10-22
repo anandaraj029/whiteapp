@@ -159,15 +159,15 @@ margin: 5px;
                 <td colspan="3">
       
                     <strong><span style="text-align: center;">Description and Identification of the equipment:</span></strong>   <br/>
-                    <strong>ROUGH TERRAIN CRANE-TELESCOPING BOOM (RT-H)</strong><br/>
-                    <strong>Manufacturer: ZOOMLION</strong> <span  style="float:right;"> <strong>Certificate No.: 24393</strong></span><br/>
-                    <strong>Model: ZRT 851</strong>          <span  style="float:right;"> <strong>JRN: 8989</strong></span><br/>
-                    <strong>Equipment ID No.: GHRM-4022</strong><br>
-                    <strong>Equipment Serial No.: ZRT851-0010</strong><br>
-                    <strong>Main Hook Block SWL: 70 Ton</strong><br>
-                    <strong>Serial No.: 2103000021</strong><br>
-                    <strong>Rope Dia.: 20.4 mm (Main Hoist)</strong><br/>
-                    <strong>Falls: 8</strong>
+                    <strong> <?= $row['equipment_description'] ?></strong><br/>
+                    <strong>Manufacturer: <?= $row['manufacturer'] ?></strong> <span  style="float:right;"> <strong>Certificate No.: <?= $row['certificate_no'] ?></strong></span><br/>
+                    <strong>Model: <?= $row['model'] ?></strong>          <span  style="float:right;"> <strong>JRN: <?= $row['jrn'] ?></strong></span><br/>
+                    <strong>Equipment ID No.: <?= $row['equipment_id'] ?></strong><br>
+                    <strong>Equipment Serial No.: <?= $row['equipment_serial_no'] ?></strong><br>
+                    <strong>Main Hook Block SWL: <?= $row['main_hook_block_swl'] ?></strong><br>
+                    <strong>Serial No.: <?= $row['serial_numbers'] ?></strong><br>
+                    <strong>Rope Dia.: <?= $row['rope_dia'] ?></strong><br/>
+                    <strong>Falls: <?= $row['falls'] ?></strong>
                 </td>
                 <td style="text-align: center;"><strong>Safe Working Load(s):<br/><?= $row['safe_working_load'] ?></strong></td>
                 <td  style="text-align: center;"><strong>Date of manufacture if known:<br/><?= $row['manufacture_date'] ?></strong></td>
@@ -338,12 +338,12 @@ margin: 5px;
 
 <strong><?= $row['name_qualifications_person'] ?> </strong><br/>
 
-<strong>SAP No. 80019222 </strong>
+<strong><?= $row['report_making_person_qualifications'] ?> </strong>
 				
 				</td>
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
-				<img src="../sign.jpg" class="sign" alt="Header Image">
+				<img src="../sign.jpg" class="sign" alt="Header Image"><br/>
 			<strong>	<?= $row['authenticating_person_name'] ?> </strong><br/>
 
 <strong>Technical Manager </strong>
@@ -483,7 +483,8 @@ margin: 5px;
         </div>
 <br>
         <div class="text-center">
-    <a href="download.php" ><button>Download</button></a>
+        <a href="download.php?report_no=<?php echo $row['report_no']; ?>" >
+        <button>Download</button></a>
   </div>
 
 
