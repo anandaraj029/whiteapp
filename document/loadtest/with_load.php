@@ -21,13 +21,14 @@ include_once('../../inc/function.php');
 
             </div>
                 <div class="container-fluid">
+                <form action="save_data_with_load.php" method="POST">
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
                             <div class="form-element py-30 mb-30">
                                 <h4 class="font-20 mb-30">Header Data</h4>
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                               
 
 
 <!-- Form Row -->
@@ -77,27 +78,65 @@ include_once('../../inc/function.php');
                                            
                                     
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                     <!-- Form Row -->
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Project ID</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" >
+                                        </div>
+                                    </div>
+                                           
+                                    
+                                    <!-- Form Row -->
+
+                                    <!-- Form Row -->
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Serial No</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Serial No">
+                                        </div>
+                                    </div>
+                                           
+                                    
+                                    <!-- Form Row -->
+
+                                    <!-- Form Row -->
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Company Name">
+                                        </div>
+                                    </div>
+                                           
+                                    
+                                    <!-- Form Row -->
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-right">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
+                                <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
                         </div>
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form With Icons -->
-                            <div class="form-element py-30 mb-30">
-                                <h4 class="font-20 mb-30">Customer Information / Inspector </h4>
+                            <div class="form-element py-30 mb-30" style="height: 540px;">
+                                <h4 class="font-20 mb-30" >Customer Information / Inspector </h4>
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <!-- <form action="#" method="POST"> -->
 
                                     <!-- Form Row -->
-                                    <div class="form-row mb-20">
+                                    <div class="form-row mb-20" >
                                         <div class="col-sm-4">
                                             <label class="font-14 bold">Customer Name</label>
                                         </div>
@@ -170,13 +209,13 @@ include_once('../../inc/function.php');
                                     <!-- End Form Row -->                                
 
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-right">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
+                                <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
@@ -192,7 +231,7 @@ include_once('../../inc/function.php');
                             <div class="form-element py-30 mb-30">
                                 <!-- <h4 class="font-20 mb-30">Header Data</h4> -->
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <!-- <form action="#" method="POST"> -->
 
 
 <!-- Form Row -->
@@ -317,13 +356,13 @@ include_once('../../inc/function.php');
                                            
                                     
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-right">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
+                                <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
@@ -334,11 +373,11 @@ include_once('../../inc/function.php');
 						
 						<div class="col-lg-6">
                             <!-- Base Horizontal Form With Icons -->
-                            <div class="form-element py-30 mb-30" style="height: 758px;">
+                            <div class="form-element py-30 mb-30" style="height: 720px;">
                                 <!-- <h4 class="font-20 mb-30">Customer Information / Inspector </h4> -->
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <!-- <form action="#" method="POST"> -->
 
                                     <!-- Form Row -->
                                     <div class="form-row mb-20">
@@ -403,13 +442,13 @@ include_once('../../inc/function.php');
 </div>
 <!-- End Additional Row 2 -->
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-right">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
+                                <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
@@ -428,10 +467,10 @@ include_once('../../inc/function.php');
                       
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
-                            <div class="form-element py-30 mb-30" style="height: 367px;">
+                            <div class="form-element py-30 mb-30" style="height: 330px;">
                                 <!-- <h4 class="font-20 mb-30">Header Data</h4> -->
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <!-- <form action="#" method="POST"> -->
 
 
 <!-- Form Row -->
@@ -456,14 +495,8 @@ include_once('../../inc/function.php');
         <label><input type="radio" name="installed_correctly" value="no"> NO</label>
     </div>
 </div>
-                                    <!-- Form Row -->
-                                    <div class="form-row">
-                                        <div class="col-12 text-right">
-                                            <button type="submit" class="btn long">Save</button>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
-                                </form>
+                                    
+                                <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
@@ -478,7 +511,7 @@ include_once('../../inc/function.php');
                                 <h4 class="font-20 mb-30">Was the examination carried out:</h4>
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <!-- <form action="#" method="POST"> -->
 
                                     <!-- Form Row -->
                                     <!-- End Form Row -->
@@ -535,14 +568,7 @@ include_once('../../inc/function.php');
 
 
                                     
-                                    <!-- Form Row -->
-                                    <div class="form-row">
-                                        <div class="col-12 text-right">
-                                            <button type="submit" class="btn long">Save</button>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
-                                </form>
+                                    
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
@@ -551,28 +577,13 @@ include_once('../../inc/function.php');
 
                         <!-- end -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      
+                     
 
   <div class="col-lg-12">    
     <div class="form-element py-30 multiple-column">
         <h4 class="font-20 mb-20">A. GENERAL INFORMATION</h4>
         <!-- Form -->
-        <form action="#" method="POST">
+        <!-- <form action="#" method="POST"> -->
 <div class="row">    
 <div class="col-lg-6">
                     
@@ -646,13 +657,13 @@ include_once('../../inc/function.php');
 
 
             <!-- Form Row -->
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="col-12 text-center mt-4">
                     <button type="submit" class="btn long">Save</button>
                 </div>
-            </div>
+            </div> -->
             <!-- End Form Row -->
-        </form>
+        <!-- </form> -->
         <!-- End Form -->
     </div>
         
@@ -669,10 +680,14 @@ include_once('../../inc/function.php');
 
 
                         </div>
-                        
+
+                        <div class="form-group text-center mt-3">
+                        <button type="submit" class="btn long" name="save_data_lifting">Save All</button>
+                    </div>
+                                            </form>
                     </div>
                 </div>
-            </div>
+            
             <!-- End Main Content -->
 
             <?php 

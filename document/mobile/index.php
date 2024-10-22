@@ -162,9 +162,9 @@ $result = $conn->query($sql);
                         </div>
                     </div>
                 </td>
-                <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
+                <td><?php echo date('F d, Y', strtotime($row['examination_date'])); ?></td>
                 <td><?php echo $row['company_name']; ?></td>
-                <td><?php echo $row['serial_number']; ?></td>
+                <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
                     <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
