@@ -167,9 +167,9 @@ $result = $conn->query($sql);
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
-                    <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                    </span>
+                    <a href="edit_mobile.php?report_no=<?php echo $row['report_no']; ?>" class="contact-edit">
+    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+</a>
                     <!-- Delete action -->
                     <span class="contact-close" onclick="deleteRow('<?php echo $row['report_no']; ?>', this)">
                         <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">

@@ -1,17 +1,16 @@
 <?php
 ob_start();
-
-
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Include your database connection
 
-if (isset($_POST['update'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
-    $report_no = $_POST['report_no'];
-    $projectid = $_POST['projectid'];
+    
     $date_of_report = $_POST['date_of_report'];
     $certificate_no = $_POST['certificate_no'];    
     $jrn = $_POST['jrn'];
+    $report_no = $_POST['report_no'];
+    $projectid = $_POST['projectid'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
@@ -42,61 +41,58 @@ if (isset($_POST['update'])) {
     $ndt_level = $_POST['ndt_level'];    
     $companyName = $_POST['companyName'];
 
+    // Image upload handling
+    $target_dir = "./img/";
+    $image_path = null;
 
-  // Image upload handling
-  $target_dir = "./img/";
-  $image_path = null;
+    // Fetch current image path from the database
+    $sql_current_image = "SELECT image_path FROM mpi_certificates WHERE report_no = '$report_no'";
+    $result_current_image = $conn->query($sql_current_image);
+    $current_image_path = '';
 
-  // Fetch current image path from the database
-  $sql_current_image = "SELECT image_path FROM mpi_certificates WHERE report_no = '$report_no'";
-  $result_current_image = $conn->query($sql_current_image);
-  $current_image_path = '';
+    if ($result_current_image->num_rows > 0) {
+        $row = $result_current_image->fetch_assoc();
+        $current_image_path = $row['image_path'];
+    }
 
-  if ($result_current_image->num_rows > 0) {
-      $row = $result_current_image->fetch_assoc();
-      $current_image_path = $row['image_path'];
-  }
+    if (!empty($_FILES['image_path']['name'])) {
+        $image_name = basename($_FILES["image"]["name"]);
+        $target_file = $target_dir . uniqid() . "_" . $image_name;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-  if (!empty($_FILES['image']['name'])) {
-      $image_name = basename($_FILES["image"]["name"]);
-      $target_file = $target_dir . uniqid() . "_" . $image_name;
-      $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        // Check if image file is a valid image type
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check !== false) {
+            if ($_FILES["image"]["size"] > 5000000) {
+                echo "Sorry, your file is too large.";
+                exit;
+            }
 
-      // Check if image file is a valid image type
-      $check = getimagesize($_FILES["image"]["tmp_name"]);
-      if ($check !== false) {
-          if ($_FILES["image"]["size"] > 5000000) {
-              echo "Sorry, your file is too large.";
-              exit;
-          }
+            $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
+            if (!in_array($imageFileType, $allowed_formats)) {
+                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                exit;
+            }
 
-          $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
-          if (!in_array($imageFileType, $allowed_formats)) {
-              echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-              exit;
-          }
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+                $image_path = $target_file;
 
-          if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-              $image_path = $target_file;
-
-              // Remove old image if new image is uploaded
-              if (!empty($current_image_path) && file_exists($current_image_path)) {
-                  unlink($current_image_path);
-              }
-          } else {
-              echo "Sorry, there was an error uploading your file.";
-              exit;
-          }
-      } else {
-          echo "File is not an image.";
-          exit;
-      }
-  } else {
-      // If no new image is uploaded, use the current image
-      $image_path = $current_image_path;
-  }
-
-
+                // Remove old image if new image is uploaded
+                if (!empty($current_image_path) && file_exists($current_image_path)) {
+                    unlink($current_image_path);
+                }
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+                exit;
+            }
+        } else {
+            echo "File is not an image.";
+            exit;
+        }
+    } else {
+        // If no new image is uploaded, use the current image
+        $image_path = $current_image_path;
+    }
 
     // Prepare the SQL update query
     $query = "UPDATE mpi_certificates SET 
@@ -133,14 +129,13 @@ if (isset($_POST['update'])) {
         ndt_inspector = '$ndt_inspector',
         ndt_level = '$ndt_level',
         companyName = '$companyName',
-        image_path= '$image_path',
-        -- Add more fields as needed for your application
-        WHERE report_no = '$report_no'";
+        image_path = '$image_path'
+        WHERE report_no = '$report_no'"; // Removed the extra comma before WHERE clause
 
     // Execute the query
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($query) === TRUE) { // Changed $sql to $query
         // Redirect to the list page after successful update
-        header("Location: index.php?msg=Health check updated successfully");
+        header("Location: index.php?msg=MPI updated successfully");
         exit(); // Ensure the script stops executing after redirect
     } else {
         echo "Error updating record: " . $conn->error;
@@ -149,6 +144,5 @@ if (isset($_POST['update'])) {
 
 // Close the database connection
 // mysqli_close($conn);
-// Close the output buffer and flush it
 ob_end_flush();
 ?>
