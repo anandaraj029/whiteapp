@@ -143,12 +143,12 @@ $result = $conn->query($sql);
                                 <i class="et-clipboard"></i>
                             </div>
                         </a>
+
+                        <a href="./download.php?report_no=<?php echo $row['report_no']; ?>"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
                     </div>
                     <!-- End Star -->
 
-                    <div class="star">
-                                                <a href="./download.php?report_no=<?php echo $row['report_no']; ?>"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                            </div>
+                    
                 </td>
                 <td><?php echo $row['certificate_no']; ?></td>
                 <td><?php echo $row['projectid']; ?></td> <!-- Assuming jrn is the Project ID -->
