@@ -279,7 +279,8 @@ margin: 5px;
                       <strong>      Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)  </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     YES by:   </strong>
+                       <strong>     YES by:   </strong><br/>
+                        <strong> <?= $row['last_exam_date'] ?></strong>
                         </div>
                     </div>
 				
