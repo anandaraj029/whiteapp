@@ -167,7 +167,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
-                    <a href="edit_mobile.php?report_no=<?php echo $row['report_no']; ?>" class="contact-edit">
+                    <a href="edit_loadtest.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
                     <!-- Delete action -->
