@@ -25,7 +25,7 @@ include_once('../../inc/function.php');
 
             </div>
                 <div class="container-fluid">
-                <form action="save_data_with_load.php" method="POST">
+                <form action="save_with_load.php" method="POST">
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -283,7 +283,7 @@ include_once('../../inc/function.php');
                                             <label class="font-14 bold">Width</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Width" name="customer_mobile" required>
+                                            <input type="text" class="theme-input-style" placeholder="Width" name="width" required>
                                         </div>
                                     </div>
 
@@ -292,14 +292,13 @@ include_once('../../inc/function.php');
                                             <label class="font-14 bold">Thickness</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Thickness" name="customer_mobile" required>
+                                            <input type="text" class="theme-input-style" placeholder="Thickness" name="thickness" required>
                                         </div>
                                     </div>
 
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
-                                            <label class="font-14 bold"> Certificate No.:
-                                            </label>
+                                            <label class="font-14 bold"> Certificate No.:         </label>
                                         </div>
                                         <div class="col-sm-8">
                                             <input type="text" class="theme-input-style" placeholder="Enter Certificate No" name="certificate_no" required>
@@ -499,12 +498,12 @@ include_once('../../inc/function.php');
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Identification of any part found to have a defect which is or could become a danger to persons and a description of the defect (If none state NONE)</label>
-    <textarea class="theme-input-style" placeholder="Enter details" name="customer_mobile" required></textarea>
+    <textarea class="theme-input-style" placeholder="Enter details" name="identification_any_part" required></textarea>
 </div>
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Is the above a defect which is of immediate danger to persons</label>
-    <select class="theme-input-style">
+    <select class="theme-input-style" name="defect">
         <option value="">Select</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
@@ -513,22 +512,22 @@ include_once('../../inc/function.php');
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)</label>
-    <input type="date" class="theme-input-style">
+    <input type="date" class="theme-input-style" name="date_defect">
 </div>
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Particulars of any repair, renewal or alteration required to remedy the defect identified above:</label>
-    <textarea class="theme-input-style" placeholder="Enter details" name="customer_mobile" required></textarea>
+    <textarea class="theme-input-style" placeholder="Enter details" name="repair_details" required></textarea>
 </div>
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Particulars of any tests carried out as part of the examination: (If none state NONE) (SEE ATTACHED PAGE 2)</label>
-    <textarea class="theme-input-style" placeholder="Enter details" name="customer_mobile" required></textarea>
+    <textarea class="theme-input-style" placeholder="Enter details" name="test_particulars" required></textarea>
 </div>
 
 <div class="form-group">
     <label class="font-14 bold mb-2">IS THIS EQUIPMENT FIT FOR PURPOSE?</label>
-    <select class="theme-input-style">
+    <select class="theme-input-style"  name="equipment_fit">
         <option value="">Select</option>
         <option value="yes">Yes</option>
         <option value="no">No</option>
@@ -549,7 +548,7 @@ include_once('../../inc/function.php');
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Name of person authenticating this report:</label>
-    <input type="text" class="theme-input-style" placeholder="Enter name" name="authenticating_person_name" required>
+    <input type="text" class="theme-input-style" placeholder="Name of person authenticating this report" name="authenticating_person_name" required>
 </div>
 
 <div class="form-group">
@@ -559,7 +558,7 @@ include_once('../../inc/function.php');
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Name and address of employer of persons making and authenticating this report:</label>
-    <textarea class="theme-input-style" placeholder="Enter name and address" name="name_address_of_employer" required></textarea>
+    <textarea class="theme-input-style" placeholder="Enter name and address of employer of persons making and authenticating this report" name="name_address_of_employer" required></textarea>
 </div>
 
 </div>
@@ -574,7 +573,7 @@ include_once('../../inc/function.php');
 </div>
 
 <div class="form-group text-center mt-3">
-<button type="submit" class="btn long" name="save_data_lifting">Save All</button>
+<button type="submit" class="btn long" value="Save Certificate">Save All</button>
 </div>
 </form>
 

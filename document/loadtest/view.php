@@ -93,8 +93,8 @@ margin: 5px;
 
         <table class="content-table">
             <tr>
-                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong>KHALID SAEED FAHEED AL-HAJRI CO. (KCT)</strong></td>
-                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong>KCT WORKSHOP YARD ABQAIQ</strong></td>
+                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong> <?= $row['employer_address'] ?> </strong></td>
+                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong> <?= $row['premises_address'] ?></strong></td>
             </tr>
             <tr>
                 <td colspan="3" class="center-text">Description and Identification of the equipment:</td>
@@ -104,13 +104,13 @@ margin: 5px;
             </tr>
             <tr>
                 <td colspan="3" class="no-right-border">
-                    <span style="text-align: center;"> <strong>FORKLIFT LOADER</strong> </span><br/>
-                    Manufacturer: <strong>HYUNDAI</strong> <span style="margin-left: 30px;">Certificate No.: <strong>24391</strong></span><br/>
-                    Model No.: <strong>HL770-9S</strong><br/>
-                    Equipment ID No.: <strong>KCT-1488</strong><br/>
-                    Equipment Serial No.: <strong>TF0000504</strong><br/>
-                    Width: <strong>20 cm</strong><br/>
-                    Thickness: <strong>7 cm</strong>
+                    <span style="text-align: center;"> <strong> <?= $row['equipment_description'] ?></strong> </span><br/>
+                    Manufacturer: <strong><?= $row['manufacturer'] ?></strong> <span style="margin-left: 30px;">Certificate No.: <strong><?= $row['certificate_no'] ?></strong></span><br/>
+                    Model No.: <strong><?= $row['model'] ?></strong><br/>
+                    Equipment ID No.: <strong><?= $row['equipment_id'] ?></strong><br/>
+                    Equipment Serial No.: <strong><?= $row['equipment_serial_no'] ?></strong><br/>
+                    Width: <strong><?= $row['width'] ?></strong><br/>
+                    Thickness: <strong><?= $row['thickness'] ?></strong>
                 </td>
                 <td class="center-text"><strong>10 Ton</strong></td>
                 <td class="center-text"><strong>NIL</strong></td>
@@ -161,7 +161,9 @@ margin: 5px;
 			
 			<tr>
 			<td colspan="5"><strong>Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)</strong></td>
-                <td class="center-text"><strong>YES by:</strong></td>
+                <td class="center-text"><strong>YES by:</strong><br/>
+
+            </td>
 			</tr>
             <tr>
                 <td colspan="6" class="center-text">
@@ -185,12 +187,12 @@ margin: 5px;
             <tr>
                 <td colspan="2" class="center-text">
                     <strong>Name & Qualifications of person making this report:</strong><br/>
-                    LUIS S. MAGARARU<br/>
-                    SA Cert No. 80019230
+                    <?= $row['name_qualifications_person'] ?><br/>
+                    <?= $row['report_making_person_qualifications'] ?>
                 </td>
 				<td colspan="2" class="center-text">
                     <strong>Name of person authenticating this report:</strong><br/>
-                    VENANCIO Z. VERA<br/>
+                    <?= $row['authenticating_person_name'] ?><br/>
                     Technical Manager
                 </td>
 				<td colspan="2" class="center-text">

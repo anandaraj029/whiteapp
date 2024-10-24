@@ -214,10 +214,10 @@ $html = <<<HTML
                     <strong>Model: {$row['model']}</strong>          <span  style="text-align:right;"> <strong>JRN: {$row['jrn']}</strong></span><br/>
                     <strong>Equipment ID No.: {$row['equipment_id']}</strong><br>
                     <strong>Equipment Serial No.: {$row['equipment_serial_no']}</strong><br>
-                    <strong>Main Hook Block SWL: {$row['jrn']}</strong><br>
-                    <strong>Serial No.: {$row['jrn']}</strong><br>
-                    <strong>Rope Dia.: {$row['jrn']}</strong><br/>
-                    <strong>Falls: {$row['jrn']}</strong>
+                    <strong>Main Hook Block SWL: {$row['main_hook_block_swl']}</strong><br>
+                    <strong>Serial No.: {$row['serial_numbers']}</strong><br>
+                    <strong>Rope Dia.: {$row['rope_dia']}</strong><br/>
+                    <strong>Falls: {$row['falls']}</strong>
                 </td>
                 <td style="text-align: center;"><strong>Safe Working Load(s):<br/>{$row['safe_working_load']}</strong></td>
                 <td  style="text-align: center;"><strong>Date of manufacture if known:<br/>{$row['manufacture_date']}</strong></td>
