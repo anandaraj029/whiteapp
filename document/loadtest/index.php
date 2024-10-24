@@ -138,12 +138,12 @@ $result = $conn->query($sql);
                                 <i class="et-clipboard"></i>
                             </div>
                         </a>
-                    </div>
+                    
 
 
-                    <div class="star">
+                    
                     <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
-                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
                                 </a>
                               </div>
                     <!-- End Star -->
@@ -167,13 +167,14 @@ $result = $conn->query($sql);
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
-                    <a href="edit_mobile.php?report_no=<?php echo $row['report_no']; ?>" class="contact-edit">
+                    <a href="edit_loadtest.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
                     <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['report_no']; ?>', this)">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                    </span>
+                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_id']; ?>', this)">
+    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+</span>
+
                 </td>
             </tr>
         <?php } ?>
@@ -351,3 +352,34 @@ $result = $conn->query($sql);
         include_once('../../inc/footer.php');
         ?>
         
+
+        <script>
+
+
+function deleteRow(project_id, element) {
+    if (confirm("Are you sure you want to delete this row?")) {
+        // Send AJAX request to delete the row from the database
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "delete_project.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // On success, remove the row from the table
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    // Remove the row from the table
+                    var row = element.closest('tr');
+                    row.parentNode.removeChild(row);
+                } else {
+                    alert("Error deleting row: " + response.error);
+                }
+            }
+        };
+
+        // Send project_id as data
+        xhr.send("project_id=" + project_id);
+    }
+}
+
+        </script>
