@@ -87,13 +87,68 @@ include_once('../inc/function.php');
 
         
 
-         <div class="col-xl-4 col-lg-6">
+         <div class="col-xl-6 col-lg-6">
+            <!-- Card -->
+            <div class="card pb-2 mb-30">
+                        <div class="p-4">
+                            <div class="row">
+                                <div class="col-xl-12 mb-40">
+                                    <h4 class="mb-3">Timeline</h4>
+                                    <p>Vestibulum blandit viverra convallis.</p>
+                                </div>
+
+                                <div class="col-xl-12 p-4">
+                                    <!-- Timeline Wrap -->
+                                    <div id="timeline-wrap">
+                                        <ul class="timeline">
+                                            <li class="event" data-date="12 October 2019">
+                                                <span>1:08 AM</span>
+                                                <h4>Vitae eius reiciendis</h4>
+                                                <p>Recusandae quia explicabo.</p>
+                                            </li>
+                                            <li class="event">
+                                                <span>8:00 PM</span>
+                                                <h4>Est accusamus rerum molestias.</h4>
+                                                <p> Ut illo ut aut. Est exercitationem voluptas optio molestiae modi.</p>
+                                            </li>
+                                            <li class="event" data-date="13 October 2019">
+                                                <span>2:50 PM</span>
+                                                <h4>Quam aut exercitationem adipisci</h4>
+                                                <p> Alias vitae voluptatum et. Aut odit facere iure dolore. Ut consequatur omnis.</p>
+                                            </li>
+                                            <li class="event" data-date="14 October 2019">
+                                                <span>1:06 PM</span>
+                                                <h4>Mollitia assumenda aut sit vel</h4>
+                                                <p>Eum dolores nemo quasi repudiandae sunt nesciunt aut possimus.</p>
+                                            </li>
+                                            <!-- <li class="event" data-date="">
+                                                <span>11:21 PM</span>
+                                                <h4>Voluptas voluptas aut magnam</h4>
+                                                <p>Rerum repudiandae voluptatem aut.</p>
+                                            </li>
+                                            <li class="event" data-date="15 October 2019">
+                                                <span>7:10 PM</span>
+                                                <h4> dolor excepturi enim.</h4>
+                                                <p>Aperiam eos sint repellat nihil ut fuga autem molestiae accusamus.</p>
+                                            </li> -->
+                                        </ul>
+                                        
+                                    </div>
+                                    <a href="../setup/timeline.php" class="d-flex justify-content-center pt-4"><button type="button" class="details-btn">View More <i class="icofont-arrow-right"></i></button></a>
+                                    <!-- End Timeline Wrap -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <!-- End Card -->
+         </div>
+         <div class="col-xl-6 col-lg-6">
             <!-- Card -->
             <div class="card mb-30">
                <div class="card-body">
                   <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
                      <div class="">
-                        <h4 class="mb-1">Today completed Projects</h4>
+                        <h4 class="mb-1">Ongoing Projects</h4>
                         <p class="font-14"> Tell use paid law ever yet new. Meant to learn of vexed he there.</p>
                      </div>
 
@@ -180,192 +235,7 @@ include_once('../inc/function.php');
             </div>
             <!-- End Card -->
          </div>
-         <div class="col-xl-4 col-lg-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="card-body">
-                  <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
-                     <div class="">
-                        <h4 class="mb-1">Today Pending Projects</h4>
-                        <p class="font-14"> Tell use paid law ever yet new. Meant to learn of vexed he there.</p>
-                     </div>
-
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Daily</a>
-                           <a href="#">Sort By</a>
-                           <a href="#">Monthly</a>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Product List -->
-                  <div class="product-list">
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product1.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product2.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product3.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product4.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-                  </div>
-                  <!-- End Product List -->
-               </div>
-            </div>
-            <!-- End Card -->
-         </div>
-         <div class="col-xl-4 col-lg-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="card-body">
-                  <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
-                     <div class="">
-                        <h4 class="mb-1">Today Expiring Project</h4>
-                        <p class="font-14"> Tell use paid law ever yet new. Meant to learn of vexed he there.</p>
-                     </div>
-
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Daily</a>
-                           <a href="#">Sort By</a>
-                           <a href="#">Monthly</a>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Product List -->
-                  <div class="product-list">
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product1.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product2.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product3.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product4.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-                  </div>
-                  <!-- End Product List -->
-               </div>
-            </div>
-            <!-- End Card -->
-         </div>
+         
 
 
          <div class="col-xl-12">

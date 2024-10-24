@@ -5,116 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSPECTION CHECKLIST FOR ARTICULATING BOOM CRANES   </title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-           
-        }
-        h1, h2, h3, h4 {
-            text-align: center;
-			font-size: 18px;
-			font-weight: 700;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-			
-        }
-		
-		table th{
-		background-color: #1b6bab47 !important;
-		color: black;
-		}
-		
-        th {
-            background-color: #1b6bab47;
-        }
-		
-				.large-checkbox {
-      width: 27px;
-      height: 15px;
-	  
-      
-    }
-	
-	
-    .checkbox-cell {
-    text-align: center; /* Center horizontally */
-    vertical-align: middle; /* Center vertically */
-    height: 100%; /* Ensure the cell has enough height */
-}
-	
-	.table-bordered td, .table-bordered th {
-    border: 1px solid black;
-}
 
-
-.table thead th {
-    vertical-align: bottom;
-    border-bottom: 1px solid black;
-}
-
-.table .thead-dark th {
-    color: black;
-    
-    border-color: #454d55;
-}
-
-	
-       
-        @media (max-width: 768px) {
-            .signature-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            .signature {
-                margin-bottom: 20px;
-            }
-        }
-		
-		@media print {
-      .no-print {
-        display: none;
-      }
-    }
-    </style>
 </head>
 <body>
     <div class="container">
 	
 	  <div class="table-responsive">
-            <table class="table table-bordered">
-                <tbody>
-				
-				<tr>
-                <td colspan="3" style="text-align: center;"><strong>INSPECTION CHECKLIST FOR ARTICULATING BOOM CRANES  </strong></td>
-				</tr>
+      <table class="w-100">
             <tr>
-                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.6</strong></td>
-                <td style="width: 25%; text-align: center;"> <strong>Revision 03</strong></td>
-                
-                <td style="width: 25%; text-align: center;"> <strong>Issue Date: 09/DEC/2020</strong></td>
-            </tr>
-			</tbody>
-			</table>
+        <td rowspan="4" class="logo-cell ">
+            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+        </td>
+        <td colspan="3" class="no-border">
+            <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
+            A DIVISION OF AL-KHOBAR GATE INTERNATIONAL TRADING EST.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="">
+            <strong>INSPECTION CHECKLIST FOR ARTICULATING BOOM CRANES </strong>
+        </td>
+    </tr>
+    <tr>
+        <td>FRM.0601-1.16</td>
+        <td>Revision 01</td>
+        <td>Issue Date: 28/JAN/2021</td>
+    </tr>
+    <tr>
+        <td class="left-align">Prepared By:<br>Operations Manager</td>
+        <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
+   
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+</tr>
+</table>
+            
 			
 			</div>
 
@@ -195,7 +123,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -205,7 +133,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
@@ -216,7 +144,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
@@ -227,7 +155,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
@@ -238,7 +166,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>1.6</strong></td>
@@ -247,7 +175,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
@@ -258,7 +186,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 
         </tbody>
@@ -283,7 +211,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
             <tr>
                 <td><strong>1.8.2</strong></td>
@@ -292,7 +220,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
             <tr>
                 <td><strong>1.8.3</strong></td>
@@ -301,7 +229,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
             <tr>
                 <td><strong>1.8.4</strong></td>
@@ -310,7 +238,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 		
 			
@@ -339,7 +267,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -351,7 +279,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
@@ -362,7 +290,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
             <tr>
                 <td><strong>2.4</strong></td>
@@ -373,7 +301,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
@@ -384,7 +312,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.6</strong></td>
@@ -395,7 +323,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.7</strong></td>
@@ -406,7 +334,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -418,7 +346,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.9</strong></td>
@@ -429,7 +357,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.10</strong></td>
@@ -440,7 +368,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.11</strong></td>
@@ -451,7 +379,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -463,7 +391,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.13</strong></td>
@@ -474,7 +402,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.14</strong></td>
@@ -485,7 +413,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.15</strong></td>
@@ -496,7 +424,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -508,7 +436,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.17</strong></td>
@@ -519,7 +447,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.18</strong></td>
@@ -530,7 +458,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			<tr>
                 <td><strong>2.19</strong></td>
@@ -541,7 +469,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			
@@ -554,7 +482,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			
@@ -567,7 +495,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 		<!--	<tr>
@@ -577,7 +505,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>-->
 			
 			<tr>
@@ -589,7 +517,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -601,7 +529,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -613,7 +541,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -625,7 +553,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -637,7 +565,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -649,7 +577,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -661,7 +589,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -675,7 +603,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -689,7 +617,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -701,7 +629,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -713,7 +641,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -725,7 +653,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -737,7 +665,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -749,7 +677,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -761,7 +689,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -773,7 +701,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -785,7 +713,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -797,7 +725,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -809,7 +737,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -821,7 +749,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -833,7 +761,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -845,7 +773,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -861,7 +789,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -873,7 +801,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			<tr>
@@ -885,7 +813,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 
             
@@ -914,7 +842,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 
@@ -927,7 +855,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -939,7 +867,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -951,7 +879,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -963,7 +891,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -975,7 +903,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -987,7 +915,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -999,7 +927,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -1011,7 +939,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 
 <tr>
@@ -1023,7 +951,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>			
 			
 			
@@ -1036,7 +964,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 <tr>
                 <td><strong>3.12</strong></td>
@@ -1047,7 +975,7 @@
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td><input name="remarks" ></td>
             </tr>
 			
 			

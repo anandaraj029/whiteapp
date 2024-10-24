@@ -101,7 +101,37 @@
     <div class="container">
 	
 	  <div class="table-responsive">
-            <table class="table table-bordered">
+
+      <table class="w-100">
+            <tr>
+        <td rowspan="4" class="logo-cell ">
+            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+        </td>
+        <td colspan="3" class="no-border">
+            <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
+            A DIVISION OF AL-KHOBAR GATE INTERNATIONAL TRADING EST.
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="">
+            <strong>INSPECTION CHECKLIST FOR ELEVATORS AND ESCALATORS</strong>
+        </td>
+    </tr>
+    <tr>
+        <td>FRM.0601-1.2</td>
+        <td>Revision 02</td>
+        <td>Issue Date: 30/SEP/2020</td>
+    </tr>
+    <tr>
+        <td class="left-align">Prepared By:<br>Operations Manager</td>
+        <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
+   
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+</tr>
+</table>
+           
+           
+            <!-- <table class="table table-bordered">
                 <tbody>
 				
 				<tr>
@@ -114,7 +144,7 @@
                 <td style="width: 25%; text-align: center;"> <strong>Issue Date: 30/SEP/2020</strong></td>
             </tr>
 			</tbody>
-			</table>
+			</table> -->
 			
 			</div>
 

@@ -113,9 +113,16 @@ include_once('../../inc/function.php');
                                                 <input type="text" class="theme-input-style" placeholder="CAPACITY (SWL)">
                                             </div>
                                             <!-- End Form Group -->
+
+                                               <!-- Form Group -->
+                                            
+                                            <!-- End Form Group -->
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                                <label class="font-14 bold mb-2">REMARKS / RECOMMENDATIONS:</label>
+                                             <textarea class="form-control" placeholder="Remarks" row="5" name="remarks"></textarea>
+                                            </div>
                                     <!-- Form Row -->
                                     <div class="form-group pt-1">
                                         <div class="d-flex align-items-center mb-3">
