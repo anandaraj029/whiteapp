@@ -133,7 +133,7 @@ $result = $conn->query($sql);
 
                     <!-- Star -->
                     <div class="star">
-                        <a href="./view.php?report_no=<?php echo $row['report_no']; ?>">
+                        <a href="./view.php?project_id=<?php echo $row['project_id']; ?>">
                             <div class="icon text-primary">
                                 <i class="et-clipboard"></i>
                             </div>
@@ -142,7 +142,7 @@ $result = $conn->query($sql);
 
 
                     <div class="star">
-                    <a href="./download.php?report_no=<?php echo $row['report_no']; ?>">
+                    <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
                                     <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
                                 </a>
                               </div>

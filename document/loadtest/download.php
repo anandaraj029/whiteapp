@@ -1,6 +1,27 @@
 <?php
 require_once('../../vendor/autoload.php');
 
+include_once('../../file/config.php'); // include your database connection
+
+// Get the project ID from the query parameter
+$project_id = $_GET['project_id'];
+
+// Fetch the data based on the projectid
+$sql = "SELECT * FROM loadtest_certificate WHERE project_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+} else {
+    die("No data found for the given project id.");
+}
+
+$stmt->close();
+$conn->close();
+
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([
     'orientation' => 'P',
@@ -128,8 +149,8 @@ margin: 5px;
       
         <table class="content-table">
             <tr>
-                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong>KHALID SAEED FAHEED AL-HAJRI CO. (KCT)</strong></td>
-                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong>KCT WORKSHOP YARD ABQAIQ</strong></td>
+                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong>{$row['employer_address']}</strong></td>
+                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong>{$row['premises_address']}</strong></td>
             </tr>
             <tr>
                 <td colspan="3" class="center-text">Description and Identification of the equipment:</td>
@@ -139,17 +160,17 @@ margin: 5px;
             </tr>
             <tr>
                 <td colspan="3" class="no-right-border">
-                    <span style="text-align: center;"> <strong>FORKLIFT LOADER</strong> </span><br/>
-                    Manufacturer: <strong>HYUNDAI</strong> <span style="margin-left: 30px;">Certificate No.: <strong>24391</strong></span><br/>
-                    Model No.: <strong>HL770-9S</strong><br/>
-                    Equipment ID No.: <strong>KCT-1488</strong><br/>
-                    Equipment Serial No.: <strong>TF0000504</strong><br/>
-                    Width: <strong>20 cm</strong><br/>
-                    Thickness: <strong>7 cm</strong>
+                    <span style="text-align: center;"> <strong>{$row['equipment_description']}</strong> </span><br/>
+                    Manufacturer: <strong>{$row['manufacturer']}</strong> <span style="margin-left: 30px;">Certificate No.: <strong>{$row['certificate_no']}</strong></span><br/>
+                    Model No.: <strong>{$row['model']}</strong><br/>
+                    Equipment ID No.: <strong>{$row['equipment_id']}</strong><br/>
+                    Equipment Serial No.: <strong>{$row['equipment_serial_no']}</strong><br/>
+                    Width: <strong>{$row['width']}</strong><br/>
+                    Thickness: <strong>{$row['thickness']}</strong>
                 </td>
-                <td class="center-text"><strong>10 Ton</strong></td>
-                <td class="center-text"><strong>NIL</strong></td>
-                <td class="center-text"><strong>12 February 2023</strong> (CIMS – 12190)</td>
+                <td class="center-text"><strong>{$row['safe_working_load']}</strong></td>
+                <td class="center-text"><strong>{$row['manufacture_date']}</strong></td>
+                <td class="center-text"><strong>{$row['last_exam_date']}</strong> </td>
             </tr>
 			
 			<tr>
@@ -159,80 +180,82 @@ margin: 5px;
 			</tr>
             <tr>
                 <td colspan="2" rowspan="2" class="no-right-border"><strong>Is this the first examination after installation or assembly at a new site or location?</strong></td>
-                <td class="center-text" rowspan="2" ><strong>NO</strong></td>
+                <td class="center-text" rowspan="2" ><strong>{$row['first_examination']}</strong></td>
                 <td colspan="2" ><strong>Within an interval of 6 months?</strong></td>
-                <td class="center-text"><strong>YES</strong></td>
+                <td class="center-text"><strong>{$row['interval_6_months']}</strong></td>
             </tr>
             <tr>
 			
 			    
                 <td colspan="2"><strong>Within an interval of 12 months?</strong></td>
-                <td class="center-text"><strong>NO</strong></td>
+                <td class="center-text"><strong>{$row['interval_12_months']}</strong></td>
             </tr>
             <tr>
 			
 			<td colspan="2" rowspan="2" class="no-right-border"><strong>If the answer to the above question is YES has the equipment been installed correctly?</strong></td>
-                <td class="center-text" rowspan="2"><strong>N/A</strong></td>
+                <td class="center-text" rowspan="2"><strong>{$row['installed_correctly']}</strong></td>
                 <td colspan="2"><strong>In accordance with an examination scheme?</strong></td>
-                <td class="center-text"><strong>YES</strong></td>
+                <td class="center-text"><strong>{$row['examination_scheme']}</strong></td>
                 
             </tr>
 			<tr>
 			
 			<td colspan="2"><strong>After the occurrence of exceptional circumstances?</strong></td>
-                <td class="center-text"><strong>NO</strong></td>
+                <td class="center-text"><strong>{$row['exceptional_circumstances']}</strong></td>
 			</tr>
             <tr>
                 <td colspan="6" class="center-text">
                     <strong>Identification of any part found to have a defect which is or could become a danger to persons and a description of the defect:<br/>(If none state NONE)</strong><br/>
-                    <strong>NONE</strong>
+                    <strong>{$row['identification_any_part']}</strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="5"><strong>Is the above a defect which is of immediate danger to persons</strong></td>
-                <td class="center-text"><strong>NO</strong></td>
+                <td class="center-text"><strong>{$row['defect']}</strong></td>
                 
             </tr>
 			
 			<tr>
 			<td colspan="5"><strong>Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)</strong></td>
-                <td class="center-text"><strong>YES by:</strong></td>
+                <td class="center-text"><strong>YES by:<br/>
+
+                {$row['date_defect']}
+                </strong></td>
 			</tr>
             <tr>
                 <td colspan="6" class="center-text">
                     <strong>Particulars of any repair renewal or alteration required to remedy the defect identified above:</strong><br/>
-                    <strong>NOT APPLICABLE</strong>
+                    <strong>{$row['repair_details']}</strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="6" class="center-text">
                     <strong>Particulars of any tests carried out as part of the examination: (If none state NONE)</strong><br/>
-                    Fork Length – <strong>178 cm (Out)</strong> 171 cm (In)<br/>
-                    Load Applied @ Load Centre – <strong>10 Ton @ 850 mm</strong>
+                    {$row['test_particulars']}
                 </td>
             </tr>
             <tr>
                 <td colspan="5" >
                     <strong>IS THIS EQUIPMENT FIT FOR PURPOSE?</strong></td>
-                    <td><strong>YES</strong>
+                    <td><strong>{$row['equipment_fit']}</strong>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" class="center-text">
                     <strong>Name & Qualifications of person making this report:</strong><br/>
                     <img src="../sign.jpg" class="sign" alt="Signature Image"><br/>
-                   <u> LUIS S. MAGARARU</u><br/>
-                    SA Cert No. 80019230
+                   <u> {$row['name_qualifications_person']}</u><br/>
+                   {$row['report_making_person_qualifications']}
                 </td>
 				<td colspan="2" class="center-text">
                     <strong>Name of person authenticating this report:</strong><br/>
                     <img src="../sign.jpg" class="sign" alt="Signature Image"><br/>
-                    <u>VENANCIO Z. VERA</u><br/>
+                    <u>{$row['authenticating_person_name']}</u><br/>
                     Technical Manager
                 </td>
 				<td colspan="2" class="center-text">
                     <strong>Latest date by which next thorough examination must be carried out:</strong><br/>
-                    02 February 2024<br>
+                    {$row['latest_date_exam']}<br>
                     <img src="../sign.jpg" class="sign" alt="Signature Image">
                 </td>
             </tr>
@@ -240,7 +263,7 @@ margin: 5px;
             <tr>
                 <td colspan="6" class="center-text">
                     <strong>Name and address of employer of persons making and authenticating this report:</strong><br/>
-                    <span><strong><i>CIMS P.O. BOX 74007 AL ANDALUS STREET AL RAKAH AL KHOBAR 31952</i></strong></span>
+                    <span><strong><i>{$row['name_address_of_employer']}</i></strong></span>
                 </td>
             </tr>
             <tr>
