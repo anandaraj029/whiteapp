@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES  </title>
+    <title>INSPECTION CHECKLIST FOR SIDE BOOM TRACTORS </title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -26,11 +26,11 @@
     </tr>
     <tr>
         <td colspan="3" class="">
-            <strong>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES  </strong>
+            <strong>INSPECTION CHECKLIST FOR SIDE BOOM TRACTORS </strong>
         </td>
     </tr>
     <tr>
-        <td>FRM.0601-1.4</td>
+        <td>FRM.0601-1.11</td>
         <td>Revision 02</td>
         <td><b>Issue Date: </b>30/SEP/2020</td>
     </tr>
@@ -45,10 +45,10 @@
                 <tbody>
 				
 				<tr>
-                <td colspan="3" style="text-align: center;"><strong>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES </strong></td>
+                <td colspan="3" style="text-align: center;"><strong>INSPECTION CHECKLIST FOR SIDE BOOM TRACTORS </strong></td>
 				</tr>
             <tr>
-                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.4</strong></td>
+                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.11</strong></td>
                 <td style="width: 25%; text-align: center;"> <strong>Revision 02</strong></td>
                 
                 <td style="width: 25%; text-align: center;"> <strong>Issue Date: 30/SEP/2020</strong></td>
@@ -58,8 +58,8 @@
 			
 			</div>
 
-        <h4>MARINE & OFFSHORE CRANES</h4>
-        <h4>ASME B30.2-2016, ASME B30.3-2016, ASME B30.4-2015, ASME B30.5-2018, ASME B30.8-2015, ASME B30.16-2017, ASME B30.17-2015, ASME B30.22-2016, API SPEC 2C-2012, API RP 2D-2015</h4>
+        <h4>SIDE BOOM TRACTORS</h4>
+        <h4>ASME B30.14-2015</h4>
 		
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
@@ -131,8 +131,8 @@
  <tr>
                 <td><strong>1.1</strong></td>
                 <td><strong> Equipment documentation is available </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.5
-Sec.8-2.1.5
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.5
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -143,8 +143,8 @@ Sec.8-2.1.5
 			<tr>
                 <td><strong>1.2</strong></td>
                 <td><strong>Previous inspection reports are checked </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.5
-Sec.8-2.4.5
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.5
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -153,12 +153,9 @@ Sec.8-2.4.5
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
-                <td><strong> Operator is certified or qualified for the specific type of equipment.</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.5
-Sec.5-3.1.3.3.1
-ASME B30.8 
-Sec.8-3.1.2
-  </strong></td>
+                <td><strong>Operator is certified or qualified for the specific type of equipment.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec.3.1.1(a)(1-3)</strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -166,9 +163,9 @@ Sec.8-3.1.2
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
-                <td><strong> Crane manufacturer name, address, serial number and power rates are marked or tagged </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.22
-Sec. 22-2.1.4n
+                <td><strong>Load rating chart is applicable to the configured boom and is legible</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.1.3
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -177,9 +174,9 @@ Sec. 22-2.1.4n
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
-                <td><strong>Operator manuals are available</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.2.2
+                <td><strong>An operating manual is available</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.1.3 (c)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -189,7 +186,7 @@ Sec.8-1.2.2
 			<tr>
                 <td><strong>1.6</strong></td>
                 <td><strong>A sign is posted warning the operator not to rely solely on any automatic device as a substitute for safe operating practice</strong></td>
-				<td style="text-align: center;"><strong>CIMS QHSE-06</strong></td>
+				<td style="text-align: center;"><strong>CIMS QHSE 06</strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -197,8 +194,9 @@ Sec.8-1.2.2
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
-                <td><strong>Rated capacity of crane is marked </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.22 Sec. 22-1.1.3a</strong></td>
+                <td><strong>Rated capacity of crane is marked</strong></td>
+				<td style="text-align: center;"><strong>CIMS QHSE 06
+</strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -207,63 +205,20 @@ Sec.8-1.2.2
 			
       <tr>
                 <td><strong>1.8</strong></td>
-                <td><strong>A durable rating chart with legible letters and figures is provided and fixed at a location visible to the operator while seated at his control station</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.1.3
+                <td><strong>A fire extinguisher with minimum rating of 10 BC is installed in the cab or at the machinery housing</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.4 (a)
+
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                 <td><strong></strong></td>
             </tr>  
- <tr>
-                <td><strong>1.9</strong></td>
-                <td><strong>Erection and dismantling procedures are based on manufacturer recommendations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.1.2 (a)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>1.10</strong></td>
-                <td><strong>Main structure components are free of defects (bolts, pins, mast sections for cracks, bent structural members, etc.)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3
-Sec.3-1.1.2
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>1.11</strong></td>
-                <td><strong>Flags and/or markers with high visibility are placed and visible to the operator</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.1.4 (f)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>1.12</strong></td>
-                <td><strong> Essential precautionary or warning notes relative to limitations on equipment, operating procedures, and stability factors are provided on the rating chart or the operating manual</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.1.3 (d)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
+
 		<tr>
                     <th style="text-align: center;">2</th>
-                    <th style="text-align: center;">INSPECTION POINTS</th>
+                    <th style="text-align: center;">GENERAL INSPECTION POINTS</th>
 					<th style="text-align: center;"> </th>
                     
                     <th style="text-align: center;">PASS</th>
@@ -271,12 +226,22 @@ Sec.8-1.1.3 (d)
                     <th style="text-align: center;">NA</th>
                     <th> </th>
                 </tr>
+				 <tr>
+                <td><strong>2.0</strong></td>
+                <td><strong>Electrical apparatus is working correctly without excessive dirt, deterioration or moisture accumulation</strong></td>
+				<td style="text-align: center;"><strong> ASME B30.2, Sec.1.2.1
+ </strong></td>
+                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+                <td><strong></strong></td>
+            </tr>
 				
  <tr>
                 <td><strong>2.1</strong></td>
-                <td><strong> Access ladders to cab are provided (platform surfaces to be skid resistant) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.15.2a)
+                <td><strong>Control levers are all operable from the operator station</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.3.1&2
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -286,9 +251,9 @@ Sec.4-1.15.2a)
 			
 			<tr>
                 <td><strong>2.2</strong></td>
-                <td><strong>Foot walks and ladders are provided where appropriate (foot walks to be minimum of 18" wide, with slip resistant surface) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.18.1
+                <td><strong>Control pedals are functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.3.1&2
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -297,9 +262,9 @@ Sec.3-1.18.1
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
-                <td><strong> Navigational lights are provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (g)
+                <td><strong>All controls are labeled as to their functions and within reach of operator</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.1
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -308,9 +273,9 @@ Sec.8-1.4.3 (g)
             </tr>
 			<tr>
                 <td><strong>2.4</strong></td>
-                <td><strong> Flame arrester on fill and vent lines of gasoline tank is provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (d)
+                <td><strong>Guards are fitted and secured to cover exposed moving parts</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.5
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -319,9 +284,9 @@ Sec.8-1.4.3 (d)
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
-                <td><strong>Fuel tank is equipped with self-closing filler cap</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (c)
+                <td><strong>Guards are fitted and secured to cover exposed moving parts</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.5
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -330,10 +295,9 @@ Sec.8-1.4.3 (c)
             </tr>
 			<tr>
                 <td><strong>2.6</strong></td>
-                <td><strong>A fire extinguisher is provided in the cab (minimum rating is 10 BC)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 
-Sec.4-1.15.4, ASME
-B30.3, Sec.3.1.18.4
+                <td><strong>All moving parts that require lubrication are lubricated and accessible</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.4 (b)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -342,10 +306,9 @@ B30.3, Sec.3.1.18.4
             </tr>
 			<tr>
                 <td><strong>2.7</strong></td>
-                <td><strong>Exhaust piping is guarded or insulated (where personnel could contact it) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4-1.16.4, ASME
-B30.3 Sec.3.1.18.4
+                <td><strong>Boom angle indicator is functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -355,10 +318,9 @@ B30.3 Sec.3.1.18.4
 			
       <tr>
                 <td><strong>2.8</strong></td>
-                <td><strong>Fuel filler pipes are located or protected so as to avoid spillage</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 
-Sec.4-1.16.7, ASME B30.3 Sec.3.1.18.8
-
+                <td><strong>Boom hoist shut off is functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -367,10 +329,9 @@ Sec.4-1.16.7, ASME B30.3 Sec.3.1.18.8
             </tr>  
  <tr>
                 <td><strong>2.9</strong></td>
-                <td><strong>Guards are fitted to exposed moving parts and can support 90 kg without deformation</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec. 4-1.16.2, ASME
-B30.3 Sec.3.1.18.2
+                <td><strong>Load indicator is functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -380,10 +341,9 @@ B30.3 Sec.3.1.18.2
 			
 			<tr>
                 <td><strong>2.10</strong></td>
-                <td><strong>Limiting devices are fully operational for trolley travel, boom luffing, upper hoist limit, crane travel, lifted load and radius</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec. 3-1.11, ASME
-B30.4 Sec.4.1.9
+                <td><strong>Capacity indicator is functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -392,10 +352,9 @@ B30.4 Sec.4.1.9
             </tr>	
 <tr>
                 <td><strong>2.11</strong></td>
-                <td><strong>Slewing (swing) motion of the crane is smooth for both start and stop</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3 
-Sec. 3-1.6.1, ASME
-B30.4 Sec.4.1.6.1
+                <td><strong>Ignition system is operating correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -405,9 +364,9 @@ B30.4 Sec.4.1.6.1
 			
 			<tr>
                 <td><strong>2.12</strong></td>
-                <td><strong>Slewing brakes are operational and can be set to hold the position without further operator action</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3	
-Sec. 3-1.6.1b, ASME B30.4 Sec.4.1.6.1 (b)
+                <td><strong>Emergency shut down is operating satisfactorily</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (c)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -416,10 +375,9 @@ Sec. 3-1.6.1b, ASME B30.4 Sec.4.1.6.1 (b)
             </tr>
 			<tr>
                 <td><strong>2.13</strong></td>
-                <td><strong> Counterweight values are correct</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.14, ASME
-B30.4 Sec.4.1.12
+                <td><strong>Engine throttle is functioning satisfactorily</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec.1.4.3 (b)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -428,10 +386,9 @@ B30.4 Sec.4.1.12
             </tr>
 			<tr>
                 <td><strong>2.14</strong></td>
-                <td><strong> Counterweight is fixed in place and (for movable weights uncontrolled movement is not possible) </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3
-Sec.3-1.14, ASME
-B30.4 Sec.4.1.12
+                <td><strong> Battery is secured and ventilated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (f)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -440,9 +397,9 @@ B30.4 Sec.4.1.12
             </tr>
 			<tr>
                 <td><strong>2.15</strong></td>
-                <td><strong>Welded members/Joints are free of defects (cracks, corrosion, etc.)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.18.5, ASME B30.4 (4.2.1.4a1)
+                <td><strong>Engine gauges are functioning correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c7)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -451,10 +408,9 @@ Sec.3-1.18.5, ASME B30.4 (4.2.1.4a1)
             </tr>
 			<tr>
                 <td><strong>2.16</strong></td>
-                <td><strong>A metal receptacle is in place for storage of small hand tools and lubricating equipment (in cab or machinery housing)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.15.3 ASME
-B30.3, Sec.3.1.17.3
+                <td><strong>Exhaust system is not corroded, and is guarded or insulated where necessary to prevent personal contact with hot surfaces</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.2
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -463,9 +419,9 @@ B30.3, Sec.3.1.17.3
             </tr>
 			<tr>
                 <td><strong>2.17</strong></td>
-                <td><strong>Vertical clearance between crane lowest point and floor level of boat or barge is at least 7 feet (if less than 7 feet, barricading is to be provided to protect personnel from rotating Sections) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.5.
+                <td><strong>Engine oil level is adequate.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.1
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -475,9 +431,9 @@ Sec.8-1.5.
 			
       <tr>
                 <td><strong>2.18</strong></td>
-                <td><strong>All controls are within the reach of operator and clearly marked with functions and modes of </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (a)
+                <td><strong>Hydraulic systems are not leaking</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -486,9 +442,9 @@ Sec.8-1.8.1 (a)
             </tr>  
  <tr>
                 <td><strong>2.19</strong></td>
-                <td><strong>Remote control of the crane is properly working and crane stops if control signal becomes ineffective (if fitted)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (b)
+                <td><strong>Oil and fuel tanks do not leak</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -498,9 +454,9 @@ Sec.8-1.8.1 (b)
 			
 			<tr>
                 <td><strong>2.20</strong></td>
-                <td><strong>Electrical motors disconnect on power failure</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.1 (c)
+                <td><strong>Hydraulic/Pneumatic systems are not leaking (pumps, valves, lines, etc.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -509,9 +465,9 @@ Sec.8-1.8.1 (c)
             </tr>	
 <tr>
                 <td><strong>2.21</strong></td>
-                <td><strong>Electrical motors do not start on power return </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (c)
+                <td><strong>Hook assembly labeling and manufacturer data is clearly marked</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.1.1
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -521,9 +477,9 @@ Sec.8-1.8.1 (c)
 			
 			<tr>
                 <td><strong>2.22</strong></td>
-                <td><strong>Over-speeding preventing device is provided for electric motor operated cranes </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (d)
+                <td><strong>Hook's weight is clearly marked/printed on the hook</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.1.1
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -532,14 +488,10 @@ Sec.8-1.8.1 (d)
             </tr>
 			<tr>
                 <td><strong>2.23</strong></td>
-                <td><strong> Power plant controls are provided to
-•	Control start, stop and lock in off position
-•	Control engine speed
-•	Stop diesel engines in emergency, and
-Shift selective transmissions
+                <td><strong> Safe working load of hook is clearly marked on the item
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.2
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.1.1
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -548,9 +500,9 @@ Sec.8-1.8.2
             </tr>
 			<tr>
                 <td><strong>2.24</strong></td>
-                <td><strong> Control forces are acceptable and within the capabilities of operator</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.3 (a)
+                <td><strong>Hook does not show defects such as nicks, cracks and gouges</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.2 (c3)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -559,12 +511,10 @@ Sec.8-1.8.3 (a)
             </tr>
 			<tr>
                 <td><strong>2.25</strong></td>
-                <td><strong>Controls’ travel distances are:
-•	Hand levers not greater than 14” (356 mm) from neutral position on two- way and not greater than 24 (610 mm) on one-way levers
-Foot pedals not greater than 10” (254 mm)
+                <td><strong>Hook is not bent or twisted
+Max. bending or twisting not to exceed 10 degrees from plane of unbent hook or as per manufacturer recommendations
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.3 (a)
+				<td style="text-align: center;"><strong>ASME B30.10 Sec.10-1.2.1.3(c1)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -573,9 +523,11 @@ Sec.8-1.8.3 (a)
             </tr>
 			<tr>
                 <td><strong>2.26</strong></td>
-                <td><strong>Clutch is operating properly and within the reach of operator station</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.4
+                <td><strong>Hook is not distorted in the throat opening
+Max. allowable throat opening is 15% compared to new hook, or as per manufacturer recommendations
+</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.3 (c2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -584,9 +536,9 @@ Sec.8-1.8.4
             </tr>
 			<tr>
                 <td><strong>2.27</strong></td>
-                <td><strong>Electrical control panels are fixed, protected and free of any damages </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.5
+                <td><strong>Maximum wear in the hook bowl is not exceeding 10% (compared to new hook) or as per manufacturer recommendations</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.3 (c3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -596,9 +548,9 @@ Sec.8-1.8.5
 			
       <tr>
                 <td><strong>2.28</strong></td>
-                <td><strong>Resistors and connectors are corrosion free, protected, ventilated and installed to prevent the accumulation of combustible matter near hot parts</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (a)
+                <td><strong>Hook is not cracked, gouged or shows nicks</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.2 (c3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -607,9 +559,9 @@ Sec.8-1.8.6 (a)
             </tr>  
  <tr>
                 <td><strong>2.29</strong></td>
-                <td><strong>Resistor units are supported and do not vibrate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (b)
+                <td><strong>Hook can lock (if it is a self-locking hook)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.3 (c4)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -619,9 +571,9 @@ Sec.8-1.8.6 (b)
 			
 			<tr>
                 <td><strong>2.30</strong></td>
-                <td><strong>Cab is provided with safety glazing glass</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (b)
+                <td><strong>Hook latch is operative</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10
+Sec. 1.2.1.3 (c5)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -630,9 +582,9 @@ Sec.8-1.8.6 (b)
             </tr>	
 <tr>
                 <td><strong>2.31</strong></td>
-                <td><strong>Cab door swings out to open or slides rearward for sliding door type (door operation is restrained during machine operation) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (c)
+                <td><strong>Upper and lower structures are free of defective/corroded welds</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.4
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -642,9 +594,9 @@ Sec.8-1.8.10.1 (c)
 			
 			<tr>
                 <td><strong>2.32</strong></td>
-                <td><strong>Cab wipers are in good condition and operating </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (c)
+                <td><strong>Boom mounting ears are not cracked</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3(d)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -653,9 +605,9 @@ Sec.8-1.8.10.1 (c)
             </tr>
 			<tr>
                 <td><strong>2.33</strong></td>
-                <td><strong> A clear passageway is provided from operator's position to outside the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (d)
+                <td><strong> Boom bushings and pins are not worn and are secure</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -664,9 +616,9 @@ Sec.8-1.8.10.1 (d)
             </tr>
 			<tr>
                 <td><strong>2.34</strong></td>
-                <td><strong> Platform to cab walkway is skid resistance </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.10.2 (a)
+                <td><strong>Machinery deck frame is undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -675,9 +627,9 @@ Sec.8-1.8.10.2 (a)
             </tr>
 			<tr>
                 <td><strong>2.35</strong></td>
-                <td><strong>Handholds/steps are provided to facilitate access to the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.3
+                <td><strong>Boom hoist cylinder mount is secure</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.1
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -686,17 +638,10 @@ Sec.8-1.8.10.3
             </tr>
 			<tr>
                 <td><strong>2.36</strong></td>
-                <td><strong>Communication method is one of the following:
-•	Hand signals (standard chart is posted in visible location to the operator)
-•	Radio/telephone
-•	Bell signal
-Special signals (to be understood and agreed upon by operator and signalperson)
+                <td><strong>A-frame frontage is undamaged
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-3.3.1 
-Sec.8-3-3.2 
-Sec.8-3-3.3 
-Sec.8-3-3.4
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3 (a)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -705,9 +650,9 @@ Sec.8-3-3.4
             </tr>
 			<tr>
                 <td><strong>2.37</strong></td>
-                <td><strong>Load trolley can brake in travel mode (automatically in case of power loss and drive rope breakage) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.5.4
+                <td><strong>A-frame back legs are undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3 (a)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -717,10 +662,9 @@ Sec.4-1.5.4
 			
       <tr>
                 <td><strong>2.38</strong></td>
-                <td><strong>Clutch is in good condition and protected against weather and oil contaminations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.5, ASME
-B30.3 Sec.3.1.18.6
+                <td><strong>Float mast is undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3 (d)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -729,9 +673,9 @@ B30.3 Sec.3.1.18.6
             </tr>  
  <tr>
                 <td><strong>2.39</strong></td>
-                <td><strong>Brakes are protected from weather and other industrial liquids</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.8.3
+                <td><strong>Sheave grooves are free from surface defects and lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.5.4 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -741,9 +685,9 @@ Sec.4-1.8.3
 			
 			<tr>
                 <td><strong>2.40</strong></td>
-                <td><strong>Wire rope clips are correctly located and secured</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8. 
-Sec.8-2.4.2 (b-5)
+                <td><strong>Rope Carrying sheaves have close-fittings guards or other suitable devices</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.5.4 (b)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -752,9 +696,9 @@ Sec.8-2.4.2 (b-5)
             </tr>	
 <tr>
                 <td><strong>2.41</strong></td>
-                <td><strong> The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.4.3 (b-1)
+                <td><strong>Lower block sheaves have close-fittings guards</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14 
+Sec. 1.5.4(c)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -764,9 +708,9 @@ Sec.8-2.4.3 (b-1)
 			
 			<tr>
                 <td><strong>2.42</strong></td>
-                <td><strong>The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8,
- Sec.8-2.4.3(b-2)
+                <td><strong>Inner bridle frame is undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+ Sec. 2.1.3(a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -775,9 +719,9 @@ Sec.8-2.4.3 (b-1)
             </tr>
 			<tr>
                 <td><strong>2.43</strong></td>
-                <td><strong>The rope wear does not exceed 1/3 of the original diameter (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8,
- Sec.8-2.4.3 (b-3)
+                <td><strong>Inner bridle frame sheaves are smooth in their grooves and lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.4 (a)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -786,9 +730,9 @@ Sec.8-2.4.3 (b-1)
             </tr>
 			<tr>
                 <td><strong>2.44</strong></td>
-                <td><strong>The rope does not have kinking, crunching, bird caging, evidence of heat damage, upstanding, core corrosion, main strand displacement or any other damages</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, Sec.8-2.4.3 (b4/5)
-Sec.8-2.4.1 (a)
+                <td><strong>Bearings and bushings are undamaged, secure and lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -797,9 +741,9 @@ Sec.8-2.4.1 (a)
             </tr>
 			<tr>
                 <td><strong>2.45</strong></td>
-                <td><strong>The ropes do not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8 2.4.3 (b-7)
+                <td><strong>Outer bridle frame is undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -808,9 +752,9 @@ Sec.8 2.4.3 (b-7)
             </tr>
 			<tr>
                 <td><strong>2.46</strong></td>
-                <td><strong>Wire rope is not corroded</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8. 
-Sec.8-2.4.1(b)
+                <td><strong>Outer bridle frame sheaves are smooth in their grooves and lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.5.4
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -819,9 +763,9 @@ Sec.8-2.4.1(b)
             </tr>
 			<tr>
                 <td><strong>2.47</strong></td>
-                <td><strong>Rope lubrication is adequate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.4.6 (e)
+                <td><strong>Boom stops are fitted and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14 Sec.1.7.1 (a)
+Sec. 2.2.1 (3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -831,9 +775,9 @@ Sec.8-2.4.6 (e)
 			
       <tr>
                 <td><strong>2.48</strong></td>
-                <td><strong>Sheaves and drums are not cracked or show worn surfaces</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.3 (a3)
+                <td><strong>Load hoist brake function is satisfactory</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (b)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -842,9 +786,9 @@ Sec.8-2.1.3 (a3)
             </tr>  
  <tr>
                 <td><strong>2.49</strong></td>
-                <td><strong>Bolts and rivets around the structure are tight</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.3 (a2)
+                <td><strong>Load lifting and lowering operations are satisfactory</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -854,9 +798,9 @@ Sec.8-2.1.3 (a2)
 			
 			<tr>
                 <td><strong>2.50</strong></td>
-                <td><strong>Clutch system parts, linings, pawls and ratchet are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a11)
+                <td><strong>Two full wraps, at least, of rope remain on the drum when the hook is in its extreme low working position</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -865,9 +809,9 @@ Sec.8-2.1.2 (a11)
             </tr>	
 <tr>
                 <td><strong>2.51</strong></td>
-                <td><strong> Brake system parts are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a5)
+                <td><strong>Rope ends are anchored to the drum by clamps or as per manufacturer recommendations</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -877,9 +821,9 @@ Sec.8-2.1.2 (a5)
 			
 			<tr>
                 <td><strong>2.52</strong></td>
-                <td><strong>Rope reeving is in compliance with manufacturer's recommendations </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a7) 
+                <td><strong>Drums are provided with a guidance or other means to prevent rope from jumping off the drum</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -888,9 +832,9 @@ Sec.8-2.1.2 (a7)
             </tr>
 			<tr>
                 <td><strong>2.53</strong></td>
-                <td><strong> Sheave sizes are not less than 18 times the nominal rope diameter for load hoist</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.9.5 (b)
+                <td><strong>Power controlled lowering is operational and meets the speed and load criteria as per manufacturers specifications</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (c)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -899,9 +843,9 @@ Sec.8-1.9.5 (b)
             </tr>
 			<tr>
                 <td><strong>2.54</strong></td>
-                <td><strong> Sheave sizes are not less than 16 times the nominal rope diameter for load blocks.</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.9
-Sec.8-1.9.5 (c)
+                <td><strong>Positive braking means is available, controllable by the operator, to prevent drum rotation in the lowering direction</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a4)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -910,9 +854,9 @@ Sec.8-1.9.5 (c)
             </tr>
 			<tr>
                 <td><strong>2.55</strong></td>
-                <td><strong>Eye splices are in accordance with the manufacturer's recommendations and rope thimbles are used</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.9.3 (a)
+                <td><strong>The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b1)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -921,9 +865,9 @@ Sec.8-1.9.3 (a)
             </tr>
 			<tr>
                 <td><strong>2.56</strong></td>
-                <td><strong>Brakes and clutches are provided with adjustments to compensate for wear</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (b)
+                <td><strong>The ropes does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b6)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -932,9 +876,9 @@ Sec.8-1.6.1 (b)
             </tr>
 			<tr>
                 <td><strong>2.57</strong></td>
-                <td><strong>Boom hoist drum is provided with an auxiliary a locking device controllable from the operator’s station to hold the drum from rotating in the lowering direction and to hold the rated load</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (f)
+                <td><strong>The rope wear does not exceed 1/3 of the original diameter</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -944,9 +888,9 @@ Sec.8-1.6.1 (f)
 			
       <tr>
                 <td><strong>2.58</strong></td>
-                <td><strong>Boom hoist drum has at least 2 full wraps remaining on the drum when the boom is at lowest position</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (g-1)
+                <td><strong>The rope does not have kinking, crushing, bird caging, evidence of heat damage, unstranding, core corrosion, main strand displacement or any other damages</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14 Sec. 2.4.1 (a)
+Sec. 2.4.2 (b3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -955,9 +899,9 @@ Sec.8-1.6.1 (g-1)
             </tr>  
  <tr>
                 <td><strong>2.59</strong></td>
-                <td><strong>The load hoist mechanism is provided with a suitable clutching or power engaging device, unless directly coupled</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.2
+                <td><strong>Boom hoist mechanism (raising and lowering) is properly operating</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.1
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -967,9 +911,9 @@ Sec.8-1.6.2
 			
 			<tr>
                 <td><strong>2.60</strong></td>
-                <td><strong>Over hoist limit devices are operable</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.2.1 (a)
+                <td><strong>Boom hoist brake and clutch are correctly operating</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.1 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -978,9 +922,9 @@ Sec.8-2.2.1 (a)
             </tr>	
 <tr>
                 <td><strong>2.61</strong></td>
-                <td><strong>All welded members and joints have no cracks, distortions, corrosion or other defects</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.2.1 (c)
+                <td><strong>Boom hoist brake and clutch have adjustments to compensate for wear</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.1 (b)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -990,9 +934,9 @@ Sec.8-1.2.1 (c)
 			
 			<tr>
                 <td><strong>2.62</strong></td>
-                <td><strong>Boom stops are provided and in good condition (one of the following; fixed or telescopic bumper, shock absorbing umber, hydraulic boom elevation cylinder, or derrick masts)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.11 (a)
+                <td><strong>Locking pawl and ratchet is in good working condition to prevent inadvertent lowering of the boom</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.1 (c)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1001,9 +945,9 @@ Sec.8-1.11 (a)
             </tr>
 			<tr>
                 <td><strong>2.63</strong></td>
-                <td><strong> Boom angle indicator is provided and readable from operator's cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.11 (b)
+                <td><strong>Two full wraps, at least, of rope remain on the drum when the hook is in its extreme low working position)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1012,9 +956,9 @@ Sec.8-1.11 (b)
             </tr>
 			<tr>
                 <td><strong>2.64</strong></td>
-                <td><strong>Boom hoist disconnect, shutoff, or hydraulic relief is provided to stop the boom hoist automatically when the boom reaches a predetermined angle</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.11.1 (d)
+                <td><strong>Rope ends are anchored to the drum by clamps or as per manufacturer recommendations</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1023,9 +967,9 @@ Sec.8-1.11.1 (d)
             </tr>
 			<tr>
                 <td><strong>2.65</strong></td>
-                <td><strong>Cords and lacings have no damage</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a2)
+                <td><strong>Drums are provided with a guidance or other means to prevent rope from jumping off the drum</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.2.2 (a2)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1034,9 +978,9 @@ Sec.8-2.1.2. (a2)
             </tr>
 			<tr>
                 <td><strong>2.66</strong></td>
-                <td><strong>Guy ropes are correctly tensioned</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a9)
+                <td><strong>The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b1)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1045,9 +989,9 @@ Sec.8-2.1.2. (a9)
             </tr>
 			<tr>
                 <td><strong>2.67</strong></td>
-                <td><strong>Derrick mast fittings and connections are in compliance with the manufacturer's </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a10)
+                <td><strong>The ropes does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b6)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1057,9 +1001,9 @@ Sec.8-2.1.2. (a10)
 			
       <tr>
                 <td><strong>2.68</strong></td>
-                <td><strong>Clutch system parts, linings, pawls and ratchet are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a5)
+                <td><strong>The rope wear does not exceed 1/3 of the original diameter</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.2 (b2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1068,9 +1012,10 @@ Sec.8-2.1.3 (a5)
             </tr>  
  <tr>
                 <td><strong>2.69</strong></td>
-                <td><strong>Load, boom angle, and other indicators, over their full range, are accurately functioning</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a6)
+                <td><strong>The rope does not have kinking, crushing, bird caging, evidence of heat damage, unstranding, core corrosion, main strand displacement or any other damages</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.4.1 (a)
+Sec. 2.4.2 (b3)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1080,9 +1025,10 @@ Sec.8-2.1.3 (a6)
 			
 			<tr>
                 <td><strong>2.70</strong></td>
-                <td><strong>Chain drive sprockets do not show excessive wear and is not stretched</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a8)
+                <td><strong>Boom hoist cylinder and associated hydraulic system is operating correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3)
+
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1091,9 +1037,9 @@ Sec.8-2.1.3 (a8)
             </tr>	
 <tr>
                 <td><strong>2.71</strong></td>
-                <td><strong> Gudgeon pins do not have cracks, wear or distortion </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a11)
+                <td><strong>Boom hoist cylinder seals are not leaking</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1103,9 +1049,9 @@ Sec.8-2.1.3 (a11)
 			
 			<tr>
                 <td><strong>2.72</strong></td>
-                <td><strong>Supports do not have any defects and have continued ability to sustain the imposed loads </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a12)
+                <td><strong>Track shoes are all in place and not loose or broken</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a, b, d)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1114,9 +1060,9 @@ Sec.8-2.1.3 (a12)
             </tr>
 			<tr>
                 <td><strong>2.73</strong></td>
-                <td><strong> Hydraulic and pneumatic hoses, fittings and tubes are not damaged and not leaking</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a13)
+                <td><strong>Track rollers and followers are turning and not loose, worn or seized</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a, b, d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1125,9 +1071,9 @@ Sec.8-2.1.3 (a13)
             </tr>
 			<tr>
                 <td><strong>2.74</strong></td>
-                <td><strong> Hydraulic/Pneumatic pumps and motors are correctly functioning </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a14)
+                <td><strong>End tumblers are serviceable</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a, b, d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1136,9 +1082,9 @@ Sec.8-2.1.3 (a14)
             </tr>
 			<tr>
                 <td><strong>2.75</strong></td>
-                <td><strong>Hydraulic/Pneumatic pumps and motors have no leaks, excess vibrations, unusual noises, loss of pressure or loss of speed</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a14)
+                <td><strong>Track tension is sufficient for ground conditions</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14 S
+Sec. 2.1.3 (g)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1147,9 +1093,9 @@ Sec.8-2.1.3 (a14)
             </tr>
 			<tr>
                 <td><strong>2.76</strong></td>
-                <td><strong>Hydraulic/Pneumatic valves and motors are correctly functioning</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a15)
+                <td><strong>Drive chain is not stretched excessively</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (g)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1158,9 +1104,9 @@ Sec.8-2.1.3 (a15)
             </tr>
 			<tr>
                 <td><strong>2.77</strong></td>
-                <td><strong>Hydraulic/Pneumatic valves and motors have no leaks, corrosion, excess vibrations, unusual noises or loss of pressure</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a15)
+                <td><strong>Drive gearbox operates without excessive noise or leakage</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.3 (1)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1170,9 +1116,9 @@ Sec.8-2.1.3 (a15)
 			
       <tr>
                 <td><strong>2.78</strong></td>
-                <td><strong>Hydraulic/ Pneumatic cylinders do not leak (external and internal) at seals and welded joints or any other locations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a16)
+                <td><strong>End sprockets are not excessively worn at the teeth</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14 S
+Sec. 2.1.3 (g)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1181,9 +1127,9 @@ Sec.8-2.1.3 (a16)
             </tr>  
  <tr>
                 <td><strong>2.79</strong></td>
-                <td><strong>Hydraulic/ Pneumatic cylinders are free of scores, dents or nicks on piston rods or cylinder barrels and loose/deformed rod eyes or connecting joints</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a16)
+                <td><strong>Frame to axle fastenings are secured and not loose</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (b)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1193,9 +1139,9 @@ Sec.8-2.1.3 (a16)
 			
 			<tr>
                 <td><strong>2.80</strong></td>
-                <td><strong>Hydraulic filters are clean and free from debris such as rubber or metal particles</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a17)
+                <td><strong>Stabilizer struts are undamaged and secure</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (g)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1204,9 +1150,9 @@ Sec.8-2.1.3 (a17)
             </tr>	
 <tr>
                 <td><strong>2.81</strong></td>
-                <td><strong>Boom cradle is available and can secure the boom if required</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-3.2.6 (b)
+                <td><strong>Propelling forward is accepted</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.2.2 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1216,9 +1162,9 @@ Sec.8-3.2.6 (b)
 			
 			<tr>
                 <td><strong>2.82</strong></td>
-                <td><strong>Pins, bearings, shafts, gears, rollers, and locking devices are free of wear, cracks, and distortion</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a4)
+                <td><strong>Propelling backward is accepted</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.2.2 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1227,9 +1173,9 @@ Sec.8-2.1.3 (a4)
             </tr>
 			<tr>
                 <td><strong>2.83</strong></td>
-                <td><strong> The swing mechanism is controlling the swing of the rated load under all operating conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.1
+                <td><strong>Transmission gearbox functioning well and gears are operational</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1238,9 +1184,9 @@ Sec.8-1.7.1
             </tr>
 			<tr>
                 <td><strong>2.84</strong></td>
-                <td><strong> Swing braking operates and capable of restrict the movement of the rotating structure </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.7.2 (a)
+                <td><strong>Steering to the right is operational</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (h)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1249,9 +1195,9 @@ Sec.8-1.7.2 (a)
             </tr>
 			<tr>
                 <td><strong>2.85</strong></td>
-                <td><strong>Swing brake locking device is provided and capable of locking the rotation of rotating structure</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.2 (b)
+                <td><strong>Steering to the left is operational</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (h)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1260,9 +1206,9 @@ Sec.8-1.7.2 (b)
             </tr>
 			<tr>
                 <td><strong>2.86</strong></td>
-                <td><strong>Swing brakes are adjustable to compensate for wear</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.2 (d)
+                <td><strong>Travel locks are operational and remain in engagement</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (h)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1271,9 +1217,9 @@ Sec.8-1.7.2 (d)
             </tr>
 			<tr>
                 <td><strong>2.87</strong></td>
-                <td><strong>All swing moving parts are lubricated </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.3.4
+                <td><strong>All safety limit devices are operational</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.3.2
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1283,9 +1229,9 @@ Sec.8-2.3.4
 			
       <tr>
                 <td><strong>2.88</strong></td>
-                <td><strong>Exhaust pipes are insulated and gases are properly discharged away from the operator's cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.10.5
+                <td><strong>Cab glass is made of safety glazing material</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.6.1 (c)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1294,9 +1240,9 @@ Sec.8-1.10.5
             </tr>  
  <tr>
                 <td><strong>2.89</strong></td>
-                <td><strong>A portable fire extinguisher is in place inside cab and outside machinery (minimum rating of 10 BC)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (a)
+                <td><strong>Screen wipers are in good operational condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.6.1 (d)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1306,9 +1252,9 @@ Sec.8-1.4.3 (a)
 			
 			<tr>
                 <td><strong>2.90</strong></td>
-                <td><strong>A tool box with basic maintenance tools is placed inside the cab</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.4.3 (b)
+                <td><strong>Road mirrors are fitted and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.6.1 (d)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1317,9 +1263,9 @@ Sec.8-1.4.3 (b)
             </tr>	
 <tr>
                 <td><strong>2.91</strong></td>
-                <td><strong>An audible warning device is in place and within reach of the operator</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (c)
+                <td><strong>Fire extinguisher is available in the cab (minimum rating is 10BC)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.4
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1329,9 +1275,9 @@ Sec.8-1.4.3 (c)
 			
 			<tr>
                 <td><strong>2.92</strong></td>
-                <td><strong>The load moment indicator (LMI) is installed and properly working </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.4.3 (f)
+                <td><strong>Gauges and instrumentations are in good working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c7)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1340,9 +1286,9 @@ Sec.8-1.4.3 (f)
             </tr>
 			<tr>
                 <td><strong>2.93</strong></td>
-                <td><strong> The cab and operating enclosures have good housekeeping</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-3.4.4 (b)
+                <td><strong>Brakes are in working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (e)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1351,10 +1297,9 @@ Sec.8-3.4.4 (b)
             </tr>
 			<tr>
                 <td><strong>2.94</strong></td>
-                <td><strong> Control levers and/or pedals functions are labeled </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.13.1(a)   
-ASME B30.3 Sec.3.1.15.1(b)
+                <td><strong>Parking brake is in working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (e)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1363,10 +1308,9 @@ ASME B30.3 Sec.3.1.15.1(b)
             </tr>
 			<tr>
                 <td><strong>2.95</strong></td>
-                <td><strong>Engine exhaust gases are piped and discharged away from the operator cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.4
-ASME B30.3  Sec.3.1.18.4
+                <td><strong>Clutch is in good working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.3
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1375,9 +1319,9 @@ ASME B30.3  Sec.3.1.18.4
             </tr>
 			<tr>
                 <td><strong>2.96</strong></td>
-                <td><strong>Operator cab has a safety glazing glass</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.15.1(e) ASME B30.3 Sec.3.1.17.1(e)
+                <td><strong>Gear selector is properly working</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (d)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1386,10 +1330,9 @@ Sec.4- 1.15.1(e) ASME B30.3 Sec.3.1.17.1(e)
             </tr>
 			<tr>
                 <td><strong>2.97</strong></td>
-                <td><strong>Cab lighting (artificial or natural) is sufficient to enable the operator to observe the controls </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.
-Sec.4- 1.15.1(g)
-ASME B30.3 Sec.3.1.17.1(g)
+                <td><strong>Back-up alarm is operable</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1399,10 +1342,9 @@ ASME B30.3 Sec.3.1.17.1(g)
 			
       <tr>
                 <td><strong>2.98</strong></td>
-                <td><strong>Emergency stop is effective (when there is a remote-control device malfunction)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.13.1(f)   
-ASME B30.3 Sec.3.1.15.1(g)
+                <td><strong>Headlights are working</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1411,10 +1353,9 @@ ASME B30.3 Sec.3.1.15.1(g)
             </tr>  
  <tr>
                 <td><strong>2.99</strong></td>
-                <td><strong>Simultaneous activation of controls is not possible when more than one operator station (remote control) is provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4.1.13.1(g)
-ASME B30.3 Sec.3.1.15.1(h)
+                <td><strong>Brake lights are working</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1433,9 +1374,9 @@ ASME B30.3 Sec.3.1.15.1(h)
                 </tr>
 <tr>
                 <td><strong>3.0</strong></td>
-                <td><strong>Pilot lights at boom tip, jib tip and topmost sheave are working and in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.2.1.4(a8)
- ASME B30.3 Sec.3.2.1.4(a8)
+                <td><strong>Back-up lights are working</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1444,10 +1385,9 @@ ASME B30.3 Sec.3.1.15.1(h)
             </tr>
  <tr>
                 <td><strong>3.1</strong></td>
-                <td><strong> Remaining rope on the drum (load hoist and/or boom hoist) in the extreme low position is at least 2 full wraps </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec. 4- 1.5.2 (b1)
-ASME B30.3 Sec.3.1.5.2 (a)
+                <td><strong>Turn signals are working</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c2)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1457,10 +1397,9 @@ ASME B30.3 Sec.3.1.5.2 (a)
 			
 			<tr>
                 <td><strong>3.2</strong></td>
-                <td><strong>The drum end of the rope is attached to the drum as per manufacturer recommendations </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.5.2b2  
-ASME B30.3 Sec.3.1.5.2b
+                <td><strong>Ignition system is operating correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1469,10 +1408,9 @@ ASME B30.3 Sec.3.1.5.2b
             </tr>
 			<tr>
                 <td><strong>3.3</strong></td>
-                <td><strong> Hoist brakes are working and can provide 125% or more of the full load hoisting torque and can provide controlled lowering speeds</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4 1.4.3(a)
-ASME B30.3 Sec.3.1.5.3(b)
+                <td><strong>Throttle is operating correctly</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.4.3 (b)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1481,10 +1419,9 @@ ASME B30.3 Sec.3.1.5.3(b)
             </tr>
 			<tr>
                 <td><strong>3.4</strong></td>
-                <td><strong> Relief valves in the hydraulic pneumatic circuits limit the circuit pressure for the correct rated load conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.16.8(a)   
-ASME B30.3 3.1.18.9a)
+                <td><strong>Battery is secure and ventilated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (f)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1493,17 +1430,10 @@ ASME B30.3 3.1.18.9a)
             </tr>
 			<tr>
                 <td><strong>3.5</strong></td>
-                <td><strong>Rope is free of damages
-•	Max of 12 randomly broken wires in 1 lay
-•	4 broken wires in 1 strand of 1 lay
-•	1 broken wire protruding from the core (2 for rotation resistant ropes)
-•	Wear of 1/3 of the original diameter of outside individual wires
-Kinking, crushing, bird caging or other distortion
+                <td><strong>Gauges are in working condition
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 2.4.2a2a
-ASME B30.3
-Sec.3.2.4.2a2a
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c7)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1512,10 +1442,9 @@ Sec.3.2.4.2a2a
             </tr>
 			<tr>
                 <td><strong>3.6</strong></td>
-                <td><strong>Sheaves are smooth in their grooves and well lubricated</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.41.4.4(a)
-ASME B30.3 Se.3.1.5.4(a)
+                <td><strong>Engine exhaust system is not corroded, and is guarded or insulated where necessary to prevent personal contact with hot surfaces</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.2
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1524,10 +1453,9 @@ ASME B30.3 Se.3.1.5.4(a)
             </tr>
 			<tr>
                 <td><strong>3.7</strong></td>
-                <td><strong>Sheave are fitted with close fittings guards when liable to unload momentarily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.4.4b  
-ASME B30.3 Sec.3.1.5.4b
+                <td><strong>Oil level is sufficient</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.1
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1537,10 +1465,9 @@ ASME B30.3 Sec.3.1.5.4b
 			
       <tr>
                 <td><strong>3.8</strong></td>
-                <td><strong>Lower load block sheaves have close fitting guards</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.4.4e  
-ASME B30.3 Sec.3.1.5.4e
+                <td><strong>Torque converter is in working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.3
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1549,10 +1476,9 @@ ASME B30.3 Sec.3.1.5.4e
             </tr>  
  <tr>
                 <td><strong>3.9</strong></td>
-                <td><strong>Over hoist limit (anti-2-Block) device is operational</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4-1.9.1	
-ASME B30.3 Sec.3.1.5.1f/3.1.11.1b
+                <td><strong>Main transmission is in working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.3
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1562,9 +1488,9 @@ ASME B30.3 Sec.3.1.5.1f/3.1.11.1b
 			
 			<tr>
                 <td><strong>3.10</strong></td>
-                <td><strong>Lower over travel limiting devices are fitted where hook is in areas not visible to the operators</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.9.2
+                <td><strong>Auxiliary transmission is in working condition</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.3.3
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1573,11 +1499,9 @@ Sec.4-1.9.2
             </tr>	
 <tr>
                 <td><strong>3.11</strong></td>
-                <td><strong>Standing ropes are not fiber core or rotation resistant ropes</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.10.1
-ASME B30.3
-Sec.3.1.12.1
+                <td><strong>Tires and rims are undamaged and serviceable</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (I)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1587,9 +1511,9 @@ Sec.3.1.12.1
 			
 			<tr>
                 <td><strong>3.12</strong></td>
-                <td><strong>Sagged or poured sockets (pendant ropes) are in good condition</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4-1.10.5
+                <td><strong>Outrigger beam sections are not corroded, cracked or damaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3 (a)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1598,11 +1522,9 @@ Sec.4-1.10.5
             </tr>
 			<tr>
                 <td><strong>3.13</strong></td>
-                <td><strong> Welded members/Joints are free of defects (cracks, corrosion, etc.</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-2.3.4
-ASME B30.3
-Sec.3.1.18.5
+                <td><strong>Outrigger pads are securely fitted and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3 (d)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1611,10 +1533,9 @@ Sec.3.1.18.5
             </tr>
 			<tr>
                 <td><strong>3.14</strong></td>
-                <td><strong> Boom is free of damage/deformation (cracks, corrosion, dents, etc. </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 2.1.4(a1)   ASME B30.3
-Sec.3.2.1.4(1)
+                <td><strong>Pad pins are locked and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1623,9 +1544,9 @@ Sec.3.2.1.4(1)
             </tr>
 			<tr>
                 <td><strong>3.15</strong></td>
-                <td><strong>Boom stops are in good working condition (fixed, telescopic, shock absorbing or hydraulic)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.5.1(f)
+                <td><strong>Extension cylinders are working correctly and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1634,9 +1555,9 @@ Sec.3-1.5.1(f)
             </tr>
 			<tr>
                 <td><strong>3.16</strong></td>
-                <td><strong>Luffing boom brake can provide 125% or more of the full load torque</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.5.1(c)   ASME B30.3 Sec.3.15.3(a)
+                <td><strong>Vertical cylinders are working correctly and undamaged</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.3
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1645,11 +1566,9 @@ Sec.4- 1.5.1(c)   ASME B30.3 Sec.3.15.3(a)
             </tr>
 			<tr>
                 <td><strong>3.17</strong></td>
-                <td><strong>Wind velocity measuring device (Anemometer) is rotating freely and sending a signal to the display in the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.6
-ASME B30.3
-Sec.3.1.18.7
+                <td><strong>Boom tip section is undamaged, has no cracks or distortion</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (a)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1659,9 +1578,9 @@ Sec.3.1.18.7
 			
       <tr>
                 <td><strong>3.18</strong></td>
-                <td><strong>Stabilizers are undamaged and secure </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3- 1.3.3(a)
+                <td><strong>Boom extension cylinder is properly working with no signs of leaks)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.2 (c3)
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1670,10 +1589,9 @@ Sec.3- 1.3.3(a)
             </tr>  
  <tr>
                 <td><strong>3.19</strong></td>
-                <td><strong>Travel rails are level and secure</strong></td>
-				<td style="text-align: center;"><strong>AASME B30.4
-Sec.4- 1.1.1(c)
-ASME B30.3   Sec.3.1.1.1(c)
+                <td><strong>Guide sheaves are not worn and are well lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3 (c)
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1683,9 +1601,9 @@ ASME B30.3   Sec.3.1.1.1(c)
 			
 			<tr>
                 <td><strong>3.20</strong></td>
-                <td><strong>Rails are grounded (for electrically powered cranes)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec. 4- 1.1.1(f)
+                <td><strong>Main sheaves are smooth in their grooves and well lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.5.4
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1694,10 +1612,9 @@ Sec. 4- 1.1.1(f)
             </tr>	
 <tr>
                 <td><strong>3.21</strong></td>
-                <td><strong>Stops or buffers are correctly adjusted for simultaneous contact with both sides of the travel base (stops to be fitted not less that 1 meter inboard of last rail support) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.1.1(g)
-ASME B30.3 Sec.3.1.1.3(i)
+                <td><strong>Bushings/bearings are not worn and are well lubricated</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 2.1.3
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1707,10 +1624,9 @@ ASME B30.3 Sec.3.1.1.3(i)
 			
 			<tr>
                 <td><strong>3.22</strong></td>
-                <td><strong>Rail sweeps are in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.7.2(a) 
-ASME B30.3   Sec.3.1.7.29(a)
+                <td><strong>Guards are fitted and secured to cover exposed moving parts</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.7.5
  </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1719,10 +1635,9 @@ ASME B30.3   Sec.3.1.7.29(a)
             </tr>
 			<tr>
                 <td><strong>3.23</strong></td>
-                <td><strong> Means to limit drop of a travel truck are in place and in good condition (in case of axle or wheel failure)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.7.2(c)
-ASME B30.3 Sec.3.1.7.2(c)
+                <td><strong>Rope wedge anchor is correctly fitted and secure, and is fitted in accordance with the manufacturer’s recommendations</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 1.5.3 (c)
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1731,10 +1646,9 @@ ASME B30.3 Sec.3.1.7.2(c)
             </tr>
 			<tr>
                 <td><strong>3.24</strong></td>
-                <td><strong> Truck wheels are guarded</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.7.2(b)
-ASME B30.3 Sec.3.1.7.2(b)
+                <td><strong>Counterweight(s) are securely fitted and locked in position on the operating arms</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.1
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1743,11 +1657,10 @@ ASME B30.3 Sec.3.1.7.2(b)
             </tr>
 			<tr>
                 <td><strong>3.25</strong></td>
-                <td><strong>Travel brakes can lock the wheels
+                <td><strong>Operating rams are undamaged with no seal or hose leaks
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.7.3(a)
- ASME B30.3 Sec.3.1.7.3(a)
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.1
   </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1756,9 +1669,9 @@ Sec.4- 1.7.3(a)
             </tr>
 			<tr>
                 <td><strong>3.26</strong></td>
-                <td><strong>Stairs/access ladders are secure and in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.15.2(a) ASME B30.3 Sec.3.1.17.2(a)
+                <td><strong>Back stops are in place and secure</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.1
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
@@ -1767,332 +1680,16 @@ Sec.4- 1.15.2(a) ASME B30.3 Sec.3.1.17.2(a)
             </tr>
 			<tr>
                 <td><strong>3.27</strong></td>
-                <td><strong>The machinery and electrical equipment are located clear of deck loading areas</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (a)
+                <td><strong>Complete counterweight and arm assembly shows no cracks or deformation</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.14
+Sec. 3.4.1
 </strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                 <td><strong></strong></td>
             </tr>
-			
-      <tr>
-                <td><strong>3.28</strong></td>
-                <td><strong>Work areas, companion ways and ladders are equipped with anti-slip surface materials</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (b)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>  
- <tr>
-                <td><strong>3.29</strong></td>
-                <td><strong>Electrical wiring and equipment are free of damages and of the specified type for shipboard</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (c)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.30</strong></td>
-                <td><strong>Manholes and hatches are not less than 15"x22"and raised above the deck to prevent accidental entry of spilled liquids</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.3
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>	
-<tr>
-                <td><strong>3.31</strong></td>
-                <td><strong>Engine speed control is working satisfactorily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.1.13.2(b2) 
-ASME B30.3 Sec3.1.15.1(a2)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.32</strong></td>
-                <td><strong>Transmission selector can be operated satisfactorily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.1.13.2(b4) 
-ASME B30.3 Sec.3.1.15.1(a4
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.33</strong></td>
-                <td><strong> Engine emergency stop switch is working properly</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 (4.1.13.2b3) 
-ASME B30.3 Sec.3.1.15.1(a3)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.34</strong></td>
-                <td><strong> Pedals and hand levers are easily operated and well-functioning </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.13.3(a) ASME B30.3 Sec.3.1.15.3(a)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.35</strong></td>
-                <td><strong>Travel distance extremes of hand levers and pedals are acceptable
-•	14”-24” for hand levers
-10” for pedals
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.13.3(b)   
-ASME B.30.3
-Sec.3.1.15.3(b)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.36</strong></td>
-                <td><strong>Electrical crane has a main disconnect switch at or near the initial base of the crane
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(a) ASME B30.3 Sec.3.1.16.1(a)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.37</strong></td>
-                <td><strong>Electrical equipment is so located or guarded that live parts are not exposed to inadvertent contact under normal operating conditions </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(b)  
- ASME B30.3 Sec.3.1.16.1(b)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-      <tr>
-                <td><strong>3.38</strong></td>
-                <td><strong>Electrical equipment is protected from dirt, grease, oil, moisture and other weather conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(c)   ASME B30.3 Sec.3.1.16.1(c)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>  
- <tr>
-                <td><strong>3.39</strong></td>
-                <td><strong>An overload device is in place for each motor</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(g) ASME B30.3 Sec.3.1.16.1(g)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.40</strong></td>
-                <td><strong>Lighting protection is in place</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(h) ASME B30.3 Sec.3.1.16.1(h)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>	
-<tr>
-                <td><strong>3.41</strong></td>
-                <td><strong> Resistor units are supported to minimize vibrations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.2(b) ASME B30.3 Sec.3.1.16.2(a)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.42</strong></td>
-                <td><strong>Resistor parts are not suffering from corrosion</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.41.14.2(a)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.43</strong></td>
-                <td><strong>A separate circuit is in place for the lifting magnet alone (if magnet is used)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.9.3(a)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.44</strong></td>
-                <td><strong>An indication light is in place to magnet is energized (if magnet is used)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.9.3(c)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.45</strong></td>
-                <td><strong>Labeling and manufacturer data are available and legible</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-2.1.1)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.46</strong></td>
-                <td><strong>Hook's weight is clearly marked/printed on the hook</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-1.1.1)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.47</strong></td>
-                <td><strong>Safe working load is clearly marked on the hook</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-2.1.1)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-      <tr>
-                <td><strong>3.48</strong></td>
-                <td><strong>Hook is not bent or twisted
-•	Max. bending or twisting not to exceed 10 degrees from plane of unbent hook or as per manufacturer recommendations
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c1)
-</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>  
- <tr>
-                <td><strong>3.49</strong></td>
-                <td><strong>Hook is not distorted in the throat opening
-•	Max. allowable throat opening is 15% compared to new hook, or as per manufacturer recommendations
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c2)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.50</strong></td>
-                <td><strong>Maximum wear in the hook bowl is not exceeding 10% (compared to new hook) or as per manufacturer recommendations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c3)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>	
-<tr>
-                <td><strong>3.51</strong></td>
-                <td><strong> Hook is not cracked, gouged or shows nicks</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.2c3)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.52</strong></td>
-                <td><strong>Hook can lock (if it is a self-locking hook) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c4)
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.53</strong></td>
-                <td><strong>Hook latch is operative</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c5)
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
-			<tr>
-                <td><strong>3.54</strong></td>
-                <td><strong> Hook is free to rotate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-Sec.10-1.2.
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
-            </tr>
+			  
 			
         </table>
 </div>
