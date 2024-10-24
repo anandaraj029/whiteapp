@@ -247,7 +247,7 @@ include_once('../../inc/function.php');
                                             <label class="font-14 bold">Manufacturer</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Manufacturer" name="manufacturer" required>
+                                            <input type="text" class="theme-input-style"  placeholder="Manufacturer" name="manufacturer" required>
                                         </div>
                                     </div>
 
@@ -522,8 +522,10 @@ include_once('../../inc/function.php');
 
 <div class="form-group">
     <label class="font-14 bold mb-2">Particulars of any tests carried out as part of the examination: (If none state NONE) (SEE ATTACHED PAGE 2)</label>
-    <textarea class="theme-input-style" placeholder="Enter details" name="test_particulars" required></textarea>
+    <textarea class="theme-input-style" placeholder="Enter details" name="test_particulars" required>Fork Length – 178 cm (Out) 171 cm (In)
+    Load Applied @ Load Centre – 10 Ton @ 850 mm</textarea>
 </div>
+
 
 <div class="form-group">
     <label class="font-14 bold mb-2">IS THIS EQUIPMENT FIT FOR PURPOSE?</label>
