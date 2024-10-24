@@ -171,9 +171,10 @@ $result = $conn->query($sql);
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
                     <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['report_no']; ?>', this)">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                    </span>
+                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_id']; ?>', this)">
+    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+</span>
+
                 </td>
             </tr>
         <?php } ?>
@@ -351,3 +352,34 @@ $result = $conn->query($sql);
         include_once('../../inc/footer.php');
         ?>
         
+
+        <script>
+
+
+function deleteRow(project_id, element) {
+    if (confirm("Are you sure you want to delete this row?")) {
+        // Send AJAX request to delete the row from the database
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "delete_project.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        // On success, remove the row from the table
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    // Remove the row from the table
+                    var row = element.closest('tr');
+                    row.parentNode.removeChild(row);
+                } else {
+                    alert("Error deleting row: " + response.error);
+                }
+            }
+        };
+
+        // Send project_id as data
+        xhr.send("project_id=" + project_id);
+    }
+}
+
+        </script>
