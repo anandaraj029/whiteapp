@@ -73,6 +73,31 @@ include_once('../../inc/function.php');
                                     </div>
                                
                                 <!-- End Form -->
+
+                                <!-- Form Row -->
+                                <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Project ID</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_id" required>
+                                        </div>
+                                    </div>
+                               
+                                <!-- End Form -->
+
+
+                                <!-- Form Row -->
+                                <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Company Name" name="company_name" required>
+                                        </div>
+                                    </div>
+                               
+                                <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
                         </div>
@@ -233,6 +258,42 @@ include_once('../../inc/function.php');
                                         </div>
                                         <div class="col-sm-8">
                                             <input type="text" class="theme-input-style" placeholder="Equipment Serial No" name="equipment_serial_no">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Main Hook Block SWL:</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Main Hook Block SWL" name="main_hook_block_swl">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Serial No.:</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Serial No" name="serial_numbers">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Rope Dia.:</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Rope Dia" name="rope_dia">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Falls:</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="theme-input-style" placeholder="Falls" name="falls">
                                         </div>
                                     </div>
 
@@ -525,8 +586,13 @@ include_once('../../inc/function.php');
                     <div class="col-lg-6">
                         
                     <div class="form-group">
-    <label class="font-14 bold mb-2">Name & Qualifications of person making this report:</label>
+    <label class="font-14 bold mb-2">Name of person making this report:</label>
     <input type="text" class="theme-input-style" placeholder="Enter name & qualifications" name="name_qualifications_person">
+</div>
+
+<div class="form-group">
+    <label class="font-14 bold mb-2">Qualifications of person making this report:</label>
+    <input type="text" class="theme-input-style" placeholder="Enter qualifications" name="report_making_person_qualifications">
 </div>
 
 <div class="form-group">

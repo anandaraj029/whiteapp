@@ -162,14 +162,14 @@ $result = $conn->query($sql);
                         </div>
                     </div>
                 </td>
-                <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
+                <td><?php echo date('F d, Y', strtotime($row['examination_date'])); ?></td>
                 <td><?php echo $row['company_name']; ?></td>
-                <td><?php echo $row['serial_number']; ?></td>
+                <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
-                    <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                    </span>
+                    <a href="edit_mobile.php?report_no=<?php echo $row['report_no']; ?>" class="contact-edit">
+    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+</a>
                     <!-- Delete action -->
                     <span class="contact-close" onclick="deleteRow('<?php echo $row['report_no']; ?>', this)">
                         <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">

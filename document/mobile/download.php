@@ -209,19 +209,19 @@ $html = <<<HTML
                 <td colspan="3">
       
                     <strong><span style="text-align: center;">Description and Identification of the equipment:</span></strong>   <br/>
-                    <strong>{$row['jrn']}</strong><br/>
-                    <strong>Manufacturer: {$row['jrn']}</strong> <span  style="text-align:right;"> <strong>Certificate No.: 24393</strong></span><br/>
-                    <strong>Model: {$row['jrn']}</strong>          <span  style="text-align:right;"> <strong>JRN: 8989</strong></span><br/>
-                    <strong>Equipment ID No.: {$row['jrn']}</strong><br>
-                    <strong>Equipment Serial No.: {$row['jrn']}</strong><br>
-                    <strong>Main Hook Block SWL: {$row['jrn']}</strong><br>
-                    <strong>Serial No.: {$row['jrn']}</strong><br>
-                    <strong>Rope Dia.: {$row['jrn']}</strong><br/>
-                    <strong>Falls: {$row['jrn']}</strong>
+                    <strong>{$row['equipment_description']}</strong><br/>
+                    <strong>Manufacturer: {$row['manufacturer']}</strong> <span  style="text-align:right;"> <strong>Certificate No.: {$row['certificate_no']}</strong></span><br/>
+                    <strong>Model: {$row['model']}</strong>          <span  style="text-align:right;"> <strong>JRN: {$row['jrn']}</strong></span><br/>
+                    <strong>Equipment ID No.: {$row['equipment_id']}</strong><br>
+                    <strong>Equipment Serial No.: {$row['equipment_serial_no']}</strong><br>
+                    <strong>Main Hook Block SWL: {$row['main_hook_block_swl']}</strong><br>
+                    <strong>Serial No.: {$row['serial_numbers']}</strong><br>
+                    <strong>Rope Dia.: {$row['rope_dia']}</strong><br/>
+                    <strong>Falls: {$row['falls']}</strong>
                 </td>
-                <td style="text-align: center;"><strong>Safe Working Load(s):<br/>{$row['jrn']}</strong></td>
-                <td  style="text-align: center;"><strong>Date of manufacture if known:<br/>{$row['jrn']}</strong></td>
-                <td  style="text-align: center;"><strong>Date of last thorough examination:<br>{$row['jrn']}</strong></td>
+                <td style="text-align: center;"><strong>Safe Working Load(s):<br/>{$row['safe_working_load']}</strong></td>
+                <td  style="text-align: center;"><strong>Date of manufacture if known:<br/>{$row['manufacture_date']}</strong></td>
+                <td  style="text-align: center;"><strong>Date of last thorough examination:<br>{$row['last_exam_date']}</strong></td>
             </tr>
             <tr>
                 <td colspan="3">
@@ -232,7 +232,7 @@ $html = <<<HTML
                          <strong>   Is this the first examination after installation or assembly at a new site or location? </strong>
                         </div>
                         <div class="col-4">
-                        <strong>    {$row['jrn']}</strong>
+                        <strong>    {$row['first_examination']}</strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -240,7 +240,7 @@ $html = <<<HTML
                       <strong>      If the answer to the above question is YES has the equipment been installed correctly? </strong>
                         </div>
                         <div class="col-4">
-                       <strong>     {$row['jrn']}</strong>
+                       <strong>     {$row['installed_correctly']}</strong>
                         </div>
                     </div>
                     
@@ -258,7 +258,7 @@ $html = <<<HTML
                         <strong>    Within an interval of 6 months?  </strong>
                         </div>
                         <div class="col-4">
-                       <strong>     {$row['jrn']}</strong>
+                       <strong>     {$row['interval_6_months']}</strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -266,7 +266,7 @@ $html = <<<HTML
                        <strong>     Within an interval of 12 months? </strong>
                         </div>
                         <div class="col-4">
-                            <strong>{$row['jrn']}</strong>
+                            <strong>{$row['interval_12_months']}</strong>
                         </div>
                     </div>
                     <div class="row align-items-start">
@@ -274,7 +274,7 @@ $html = <<<HTML
                           <strong>  In accordance with an examination scheme? </strong>
                         </div>
                         <div class="col-4">
-                          <strong>  {$row['jrn']}</strong>
+                          <strong>  {$row['examination_scheme']}</strong>
                         </div>
                     </div>
 					
@@ -283,7 +283,7 @@ $html = <<<HTML
                         <strong>    After the occurrence of exceptional circumstances? </strong>
                         </div>
                         <div class="col-4">
-                            <strong>{$row['jrn']}</strong>
+                            <strong>{$row['exceptional_circumstances']}</strong>
                         </div>
                     </div>
                 </td>
@@ -298,7 +298,7 @@ $html = <<<HTML
 				
 				(If none state NONE) 
 				
-				<br/>{$row['jrn']}
+				<br/>{$row['identification_any_part']}
 				</strong>
 				</td>
 				</tr>
@@ -314,7 +314,7 @@ $html = <<<HTML
                       <strong>      Is the above a defect which is of immediate danger to persons </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     {$row['jrn']}</strong>
+                       <strong>     {$row['defect']}</strong>
                         </div>
                     </div>
 				
@@ -330,7 +330,7 @@ $html = <<<HTML
                       <strong>      Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)  </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     YES by:   </strong>
+                       <strong>     YES by:  {$row['date_defect']}  </strong>
                         </div>
                     </div>
 				
@@ -347,7 +347,8 @@ $html = <<<HTML
 				 <td colspan="6" style="text-align: center;">
 				<strong>
 				Particulars of any repair, renewal or alteration required to remedy the defect identified above: <br/>
-                NOT APPLICABLE
+
+                {$row['repair_details']} 
 				</strong>
 				</td>
 				</tr>
@@ -357,6 +358,7 @@ $html = <<<HTML
 				 <td colspan="6" style="text-align: center;">
 				<strong>
 				Particulars of any tests carried out as part of the examination: (If none state NONE) <br/>
+                {$row['test_particulars']} 
                 (SEE ATTACHED PAGE 2) 
 				</strong>
 				</td>
@@ -370,7 +372,7 @@ $html = <<<HTML
                       <strong>      IS THIS EQUIPMENT FIT FOR PURPOSE?  </strong>
                         </div>
                         <div class="col-2">
-                       <strong>     {$row['jrn']}`</strong>
+                       <strong>     {$row['equipment_fit']}</strong>
                         </div>
                     </div>
 				
@@ -387,7 +389,7 @@ $html = <<<HTML
 
             <img src="../sign.jpg" class="sign" alt="Header Image"><br>
 
-<strong>AFZAAL UMAIR  </strong><br/>
+<strong>{$row['name_qualifications_person']} </strong><br/>
 
 <strong>SAP No. 80019222 </strong>
 				
@@ -395,7 +397,7 @@ $html = <<<HTML
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
 				<img src="../sign.jpg" class="sign" alt="Header Image"><br>
-			<strong>	VENANCIO Z. VERA </strong><br/>
+			<strong>	{$row['authenticating_person_name']} </strong><br/>
 
 <strong>Technical Manager </strong>
 				
@@ -403,7 +405,7 @@ $html = <<<HTML
 				<td colspan="2" style="text-align: center;">
 				
 <strong>				Latest date by which next thorough examination must be carried out: </strong><br/>
-				<strong>{$row['jrn']}</strong><br>
+				<strong>{$row['latest_date_exam']}</strong><br>
 
                 <img src="../sign.jpg" class="sign" alt="Header Image">
 				</td>
@@ -430,10 +432,10 @@ $html = <<<HTML
         </h1>
         <table class="content-table">
             <tr>
-                <td><strong>Sticker No.: {$row['jrn']} </strong></td>
-                <td><strong>Report No.: {$row['jrn']}  </strong></td>
+                <td><strong>Sticker No.: {$row['sticker_no']} </strong></td>
+                <td><strong>Report No.: {$row['report_no']}  </strong></td>
                 
-                <td><strong>Certificate No.: {$row['jrn']}</strong></td>
+                <td><strong>Certificate No.: {$row['certificate_no']}</strong></td>
 				
 				
                 
@@ -452,11 +454,11 @@ $html = <<<HTML
 				<td style="text-align: center"><strong>Comments</strong></td>              
             </tr>
             <tr>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
-				<td style="text-align: center"><strong>{$row['jrn']}</strong></td>
-				<td style="text-align: center"><strong>{$row['jrn']}</strong></td>           
+                <td style="text-align: center"><strong>{$row['boom_length']}</strong></td>
+                <td style="text-align: center"><strong>{$row['radius']}</strong></td>
+                <td style="text-align: center"><strong>{$row['boom_angle']}</strong></td>
+				<td style="text-align: center"><strong>{$row['swl_test_weight']}</strong></td>
+				<td style="text-align: center"><strong>{$row['comments']}</strong></td>           
             </tr>
 			<tr>
                 <td style="text-align: center"><strong></strong></td>
@@ -479,21 +481,21 @@ $html = <<<HTML
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Lifting</strong></td>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
+                <td style="text-align: center"><strong>{$row['boom_lifting']}</strong></td>
                 <td style="text-align: center"><strong>Auto Moment Limiter</strong></td>
-				<td style="text-align: center"><strong>{$row['jrn']}</strong></td>              
+				<td style="text-align: center"><strong>{$row['auto_moment_limiter']}</strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>M. Winch Hoist</strong></td>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
+                <td style="text-align: center"><strong>{$row['m_winch_hoist']}</strong></td>
                 <td style="text-align: center"><strong>Swing & Winch Brake</strong></td>
-				<td style="text-align: center"><strong>{$row['jrn']}</strong></td>              
+				<td style="text-align: center"><strong>{$row['swing_winch_brake']}</strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Aux. Winch Hoist</strong></td>
-                <td style="text-align: center"><strong>{$row['jrn']}</strong></td>
+                <td style="text-align: center"><strong>{$row['aux_winch_hoist']}</strong></td>
                 <td style="text-align: center"><strong>Winch Drum Lock (Pawl)</strong></td>
-				<td style="text-align: center"><strong>{$row['jrn']}</strong></td>              
+				<td style="text-align: center"><strong>{$row['winch_drum_lock']}</strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Extending</strong></td>

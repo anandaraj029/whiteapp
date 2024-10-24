@@ -28,8 +28,6 @@ if (isset($_GET['report_no'])) {
 }
 ?>
 
-
-
             <!-- Main Content -->
             <div class="main-content">
                 <div class="container-fluid">
@@ -398,25 +396,24 @@ if (isset($_GET['report_no'])) {
     <div class="form-element py-30 multiple-column">       
         <!-- Form -->
         
-<div class="row">
-<div class="col-lg-12">
-<div class="form-group">
-    <label class="font-14 bold mb-2">Upload Image</label>
-    
-    <!-- File input for uploading a new image -->
-    <input type="file" name="image_path" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
+        <div class="row">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label class="font-14 bold mb-2">Upload Image</label>
+            
+            <!-- File input for uploading a new image -->
+            <input type="file" name="image" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
 
-    <!-- Show the current image if it exists -->
-    <?php if (!empty($row['image_path'])): ?>
-        <div class="mt-3">
-            <img src="<?php echo $row['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
+            <!-- Show the current image if it exists -->
+            <?php if (!empty($row['image_path'])): ?>
+                <div class="mt-3">
+                    <img src="<?php echo $row['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
+                </div>
+            <?php endif; ?>
         </div>
-    <?php endif; ?>
+    </div>
 </div>
 
-
-</div>
-</div>
 
             
         
@@ -445,16 +442,11 @@ if (isset($_GET['report_no'])) {
                         <input type="text" class="theme-input-style" name="comments" placeholder="Enter COMMENTS / ACTION" value="<?php echo $row['comments']; ?>" >
         </div>                   
 </div>
-</div>
-
-            
-        
+</div>  
         <!-- End Form -->
     </div>
        <!-- End Horizontal Form With Icons -->
 </div>
-
-
 
 
 <div class="col-lg-12">    
@@ -480,7 +472,7 @@ if (isset($_GET['report_no'])) {
 <div class="row">
                 <div class="col-lg-12">
                     <div class="form-element py-30">
-                        <button type="submit" name="update" class="btn btn-success">Update Certificate</button>
+                        <button type="submit" class="btn btn-success">Update Certificate</button>
                     </div>
                 </div>
             </div>
