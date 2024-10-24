@@ -138,12 +138,12 @@ $result = $conn->query($sql);
                                 <i class="et-clipboard"></i>
                             </div>
                         </a>
-                    </div>
+                    
 
 
-                    <div class="star">
+                    
                     <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
-                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
                                 </a>
                               </div>
                     <!-- End Star -->

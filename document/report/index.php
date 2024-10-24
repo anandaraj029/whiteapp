@@ -1,7 +1,11 @@
 
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php'); // include your database connection
 
+// SQL query to fetch data from the 'mobile_crane_certificate' table
+$sql = "SELECT * FROM reports";
+$result = $conn->query($sql);
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -110,338 +114,69 @@ include_once('../../inc/function.php');
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
+        <?php
+        // Loop through the fetched data and populate the table rows
+        while ($row = mysqli_fetch_assoc($result)) {
+            ?>
+            <tr>
+                <td>
+                    <!-- Custom Checkbox -->
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                    <!-- End Custom Checkbox -->
 
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="./view.php">
-                                                <div class="icon text-primary">
-                                                 <i class="et-clipboard"></i>
-                                                 </div>
-                                                   </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>4332-1</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                        <a href="./index2.php">  <img src="<?php echo $url; ?>assets/img/svg/calender-color.svg" alt="" class="svg">
-                                        </a>  </span> -->
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
+                    <!-- Star -->
+                    <div class="star">
+                        <a href="./view.php?project_id=<?php echo $row['project_id']; ?>">
+                            <div class="icon text-primary">
+                                <i class="et-clipboard"></i>
+                            </div>
+                        </a>
+                    
 
-                                             <!-- Star -->
-                                             <div class="star">
-                                                <a href="./view.php">
-                                                <div class="icon text-primary">
-                                                 <i class="et-clipboard"></i>
-                                                 </div>
-                                                   </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>4332-2</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                               <a href="./index2.php">  <img src="<?php echo $url; ?>assets/img/svg/calender-color.svg" alt="" class="svg">
-                                               </a>  </span> -->
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                                    <!-- End Custom Checkbox -->
-                                                    <!-- Star -->
-                                                    <div class="star">
-                                                        <a href="./view.php">
-                                                <div class="icon text-primary">
-                                                 <i class="et-clipboard"></i>
-                                                 </div>
-                                                   </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>3234234</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                               <a href="./index2.php">  <img src="<?php echo $url; ?>assets/img/svg/calender-color.svg" alt="" class="svg">
-                                               </a>  </span> -->
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr class="selected">
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" checked>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
 
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="./download.php"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>3234234</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal"> -->
-                                               <a href="./view.php">   <div class="icon text-info">
-                                                 <i class="et-clipboard"></i>
-                                                 </div>
-                                               </a>  
-                                            <!-- </span> -->
-                                            <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span> -->
-                                        </td>
-                                    </tr>
-                                    <tr class="selected">
-                                        <td >
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" checked>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
+                    
+                    <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
+                                </a>
+                              </div>
+                    <!-- End Star -->
+                </td>
+                
+                <td><?php echo $row['certificate_no']; ?></td>
+                <td><?php echo $row['project_id']; ?></td>
+                <td><?php echo $row['report_no']; ?></td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="img mr-20">
+                            <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
+                        </div>
+                        <div class="name bold">
+                            <?php echo $row['inspector_name']; ?>
+                        </div>
+                    </div>
+                </td>
+                <td><?php echo date('F d, Y', strtotime($row['examination_date'])); ?></td>
+                <td><?php echo $row['company_name']; ?></td>
+                <td><?php echo $row['serial_numbers']; ?></td>
+                <td class="actions">
+                    <!-- Edit action -->
+                    <a href="edit_loadtest.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
+    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+</a>
+                    <!-- Delete action -->
+                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_id']; ?>', this)">
+    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+</span>
 
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="./download.php"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>3234234</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                               <a href="./view.php">  
-                                                <div class="icon text-success">
-                                                 <i class="et-clipboard"></i>
-                                                 </div>
-                                               </a>  </span>
-                                            <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span> -->
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                             <!-- Star -->
-                                             <div class="star">
-                                                <a href="./view.php">
-                                                <div class="icon text-primary">
-                                                 <i class="et-document"></i>
-                                                 </div>
-                                                   </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>3234234</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                               <a href="./index2.php">  <img src="<?php echo $url; ?>assets/img/svg/calender-color.svg" alt="" class="svg">
-                                               </a>  </span> -->
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                              <!-- Star -->
-                                              <div class="star">
-                                                <a href="./view.php">
-                                                <div class="icon text-info">
-                                                 <i class="et-document"></i>
-                                                 </div>
-                                                   </div>
-                                            <!-- End Star -->
-                                        </td>
-                                     
-                                        <td>3234234</td>
-                                        <td>68184267</td>
-                                        <td>28112313</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                  Sathishkumar
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>June 20, 2015</td>
-                                        <td>HORIZON GEOSCIENCES</td>
-                                        <td>PMA45K5-2020-50-20</td>
-                                        <td class="actions">
-                                        <!-- <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                               <a href="./index2.php">  <img src="<?php echo $url; ?>assets/img/svg/calender-color.svg" alt="" class="svg">
-                                               </a>  </span> -->
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                          
-                                </tbody>
+                </td>
+            </tr>
+        <?php } ?>
+    </tbody>
                             </table>
                             <!-- End Invoice List Table -->
                         </div>
