@@ -53,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Execute the query
     if (mysqli_query($conn, $query)) {
-        echo "Record saved successfully!";
+        $msg = "Mobile Crane created successfully";
+        header('Location: index.php?msg=' . $msg); 
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
