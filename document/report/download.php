@@ -222,9 +222,7 @@ $html = <<<HTML
                                 
                                 
                             </div>
-                            <!-- <div class="col-md-2">
-                                <img src="../code.png" alt="CIMS" width="120" height="120">
-                            </div> -->
+                            
                         </div>
 
                         <div class="row">

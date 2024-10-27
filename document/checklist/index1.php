@@ -1,6 +1,13 @@
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php'); // include your database connection
+
+// Fetch data from checklist_information table
+
+$sql = "SELECT * FROM checklist_information";
+$result = $conn->query($sql);
 ?>
+
 <!-- Main Content -->
 <div class="main-content">
     <div class="container-fluid">
@@ -38,115 +45,66 @@ include_once('../../inc/function.php');
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
-                                <tr>
-                                    <td> 
-                                        <div class="star">
-                                    <a href="./type/wheel-loader.php">
-                                    <div class="icon text-primary">
-                                    <i class="et-document"></i>
-                                    </div>
-                                    </div>
-                                </td>
-                                    <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td> Mobile & Locomotive</td>
-                                    <td>AAA inc company</td>
-                                    <!-- <td>$5.6</td>
-                                    <td>12</td> -->
-                                    <td><button type="button" class="status-btn un_paid">Closed</button></td>
-                                    <td class="actions">
-                                    <a href="#">  <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                </tr>
+                                <?php 
+                                // Check if records exist
+                                if(mysqli_num_rows($result) > 0) {
+                                    // Loop through each row
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        $checklist_type = $row['checklist_type']; // Get checklist type for each row
 
-                                <tr>
-                                <td> 
-                                        <div class="star">
-                                        <a href="./type/wheel-loader.php">
-                                    <div class="icon text-primary">
-                                    <i class="et-document"></i>
-                                    </div>
-                                    </div>
-                                </td>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td> Mobile & Locomotive</td>
-                                    <td>AAA inc company</td>
-                                    <td><button type="button" class="status-btn on_hold">Pending</button></td>
-                                    <td class="actions">
-                                    <a href="#">    <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <a href="#">  <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span></a>
-                                        </td>
-                                </tr>
-
-                                <tr>
-                                <td> 
-                                        <div class="star">
-                                        <a href="./type/wheel-loader.php">
-                                    <div class="icon text-primary">
-                                    <i class="et-document"></i>
-                                    </div>
-                                    </div>
-                                </td>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td> Mobile & Locomotive</td>
-                                    <td>AAA inc company</td>
-                                  
-                                    <td><button type="button" class="status-btn on_hold">Pending</button></td>
-                                    <td class="actions">
-                                    <a href="#">     <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <a href="#">      <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span></a>
-                                        </td>
-                                </tr>
-
-                                <tr>
-                                <td> 
-                                        <div class="star">
-                                        <a href="./type/wheel-loader.php">
-                                    <div class="icon text-primary">
-                                    <i class="et-document"></i>
-                                    </div>
-                                    </div>
-                                </td>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td> Mobile & Locomotive</td>
-                                    <td>AAA inc company</td>
-                                     <td><button type="button" class="status-btn paid">Active</button></td>
-                                    <td class="actions">
-                                       <a href="#"> <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            </a>
-                                            <span class="contact-close">
-                                            <a href="#">   <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </a>
-                                            </span>
-                                         
-                                        </td>
-                                </tr>
-
+                                        echo "<tr>";
+                                        echo "<td> 
+        <div class='star'>
+            <a href='./type/{$checklist_type}.php?checklist_type=$checklist_type'>
             
+                <div class='icon text-primary'>
+                    <i class='et-document'></i>
+                </div>
+            </a>
+        </div>
+    </td>";
+                                        echo "<td>{$row['checklist_no']}</td>";
+                                        echo "<td>project_id</td>";
+                                        echo "<td>{$row['inspected_by']}</td>";
+                                        echo "<td>{$row['equipment_type']}</td>";
+                                        echo "<td>{$row['client_name']}</td>";
+                                        
+                                        // Dynamically set button style based on status
+                                        // $statusClass = '';
+                                        // if ($row['status'] == 'Closed') {
+                                        //     $statusClass = 'un_paid';
+                                        // } elseif ($row['status'] == 'Pending') {
+                                        //     $statusClass = 'on_hold';
+                                        // } else {
+                                        //     $statusClass = 'paid';
+                                        // }
+                                        // echo "<td>
+                                        // // <button type='button' class='status-btn {$statusClass}'>{$row['status']}</button></td>";
+
+                                        echo "<td>
+                                         <button type='button' class='status-btn'>'status'</button></td>";
+
+                                        echo "<td class='actions'>
+                                                <a href='#'>
+                                                    <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
+                                                        <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
+                                                    </span>
+                                                </a>
+                                                <a href='#'>
+                                                    <span class='contact-close'>
+                                                        <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
+                                                    </span>
+                                                </a>
+                                            </td>";
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='8' class='text-center'>No records found</td></tr>";
+                                }
+                                ?>
                             </tbody>
                         </table>
+                        
                     </div>
                 </div>
                 <!-- End Card -->

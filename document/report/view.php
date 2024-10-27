@@ -1,3 +1,21 @@
+<?php
+include_once('../../file/config.php');  // Include your database connection file
+
+// Fetch the record based on report_no
+$project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
+
+$query = "SELECT * FROM reports WHERE project_id = '$project_id'";
+$result = mysqli_query($conn, $query);
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+} else {
+    echo "No record found!";
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,7 +210,7 @@
 <body>
     <div class="container-fluid p-4" style="page-break-before:always">
         <div class="report">
-            <form method="POST" action="./view_report_fetch.php?viewid=">
+            <form method="POST">
                 <div class="panel_s mtop20">
                     <div class="panel-body">
                         <div class="row">
@@ -208,7 +226,9 @@
                                 
                             </div>
                             <div class="col-md-5">
-                                <h4 style="font-size: 19px;" class="bold estimate-html-number" >Report No : 96421<span class="alert-success"></span></h4>
+                                <h4 style="font-size: 19px;" class="bold estimate-html-number" >
+                                Report No: <?php echo htmlspecialchars($row['report_no']); ?>
+                                    <span class="alert-success"></span></h4>
                                 
                                 
                             </div>
@@ -227,7 +247,7 @@
                             </div>
                             <div class="col-md-5">
                                 
-                                <h4 style="font-size: 19px;">JRN: </h4>
+                                <h4 style="font-size: 19px;">JRN:<?php echo htmlspecialchars($row['jrn']); ?> </h4>
                                 
                             </div>
                             <!-- <div class="col-md-2">
@@ -248,22 +268,22 @@
                             <tbody>
                                 <tr>
                                     <td colspan="2" rowspan="3" style="vertical-align: top;">
-                                        <b>Client Company / Name & Address</b></td>
-                                    <td><b>Manufacturer : </b></td>
-                                    <td> <b> Equipment Identification Number:</b></td>
-                                    <td><b>Date of Inspection: </b></td>
+                                        <b>Client Company / Name & Address:</b> <?php echo htmlspecialchars($row['client_company_address']); ?></td>
+                                    <td><b>Manufacturer : </b> <?php echo htmlspecialchars($row['manufacturer']); ?></td>
+                                    <td> <b> Equipment Identification Number:</b> <?php echo htmlspecialchars($row['equipment_id_no']); ?></td>
+                                    <td><b>Date of Inspection: </b><?php echo htmlspecialchars($row['date_of_inspection']); ?></td>
                                     
                                 </tr>
                                 <tr>
-                                    <td><b>Model: </b></td>
-                                    <td><b> Equipment Serial Number : </b></td>
-                                    <td><b>Next Inspection Due Date : </b></td>
+                                    <td><b>Model: </b><?php echo htmlspecialchars($row['model']); ?></td>
+                                    <td><b> Equipment Serial Number : </b> <?php echo htmlspecialchars($row['equipment_serial_no']); ?></td>
+                                    <td><b>Next Inspection Due Date : </b> <?php echo htmlspecialchars($row['next_inspection_due_date']); ?></td>
                                 </tr>
                                 <tr>
                                     <td  style="vertical-align: top;"> <b> Type:</b></td>
                                     <td style="vertical-align: top;" rowspan="2"> <b>
                                         Location:
-                                    </b></td>
+                                    </b><?php echo htmlspecialchars($row['location']); ?></td>
                                     <td colspan="2">
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <b>Inspection Status:</b>
@@ -285,10 +305,10 @@
                                     
                                 </tr>
                                 <tr>
-                                    <td> <b>Previous Sticker S.No.:</b></td>
-                                    <td><b>Issued by: </b></td>
-                                    <td><b>Capacity: </b></td>
-                                    <td> <b>Sticker Number Issued:</b></td>
+                                    <td> <b>Previous Sticker S.No.:</b><?php echo htmlspecialchars($row['prev_sticker_no']); ?></td>
+                                    <td><b>Issued by: </b><?php echo htmlspecialchars($row['issued_by']); ?></td>
+                                    <td><b>Capacity: </b><?php echo htmlspecialchars($row['capacity']); ?></td>
+                                    <td> <b>Sticker Number Issued:</b><?php echo htmlspecialchars($row['sticker_number_issued']); ?></td>
                                     
                                 </tr>
                             </tbody>
@@ -302,107 +322,37 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                    <table class="table items items-preview estimate-items-preview" style="border:1px solid black; width: 100%;">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th class="description" style="text-align: center;">DEFICIENCIES</th>
-                                                <th style="text-align: center;">CORRECTIVE ACTION TAKEN</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                
-                                                <!-- <td class="description">
-                                                    <textarea class="notes" name="corrective" cols="65" rows="10"></textarea>
-                                                </td>
-                                                <td>
-                                                    <textarea class="notes" name="action" cols="32" rows="10"></textarea>
-                                                </td> -->
-                                            </tr>
+                                <table class="table items items-preview estimate-items-preview" style="border:1px solid black; width: 100%;"> 
+    <thead>
+        <tr>
+            <th>#</th>
+            <th class="description" style="text-align: center;">DEFICIENCIES</th>
+            <th style="text-align: center;">CORRECTIVE ACTION TAKEN</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php
+    if ($row && isset($row['deficiency'], $row['corrective_action'])) {
+        // Explode deficiencies and corrective actions into arrays
+        $deficiencies = explode("\n", trim($row['deficiency'])); // Trim to remove extra newlines
+        $corrective_actions = explode("\n", trim($row['corrective_action']));
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
+        // Iterate through deficiencies and corresponding corrective actions
+        foreach ($deficiencies as $index => $deficiency) {
+            echo "<tr>
+                <td>" . ($index + 1) . "</td>
+                <td>" . htmlspecialchars(trim($deficiency)) . "</td>
+                <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? '')) . "</td>
+            </tr>";
+        }
+    } else {
+        echo "<tr><td colspan='3' style='text-align: center;'>No data available</td></tr>";
+    }
+    ?>
+    </tbody>
+</table>
 
-                                                <td style="width: 25%;">
-                                                <b>
-                                                Report Receiver's Name & Signature
-    </b>    
-                                            </td>
-                                                <td>
-                                                   <b> Contact Tel. & Mobile Number
-    </b></td>
-                                                <td>
-                                                <b>Inspector Name & Signature<br>
 
-                                                    Telephone No.: 013 814 6861 / 2 Ext. 109
-    </b>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                     
                                 </div>
                             </div>
