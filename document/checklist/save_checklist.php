@@ -4,7 +4,7 @@ include_once('../../file/config.php');  // Include your database connection file
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve form data
+    // Retrieve main form data
     $checklist_no = $_POST['checklist_no'];
     $report_no = $_POST['report_no'];
     $client_name = $_POST['client_name'];
@@ -19,26 +19,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $capacity_swl = $_POST['capacity_swl'];
     $remarks = $_POST['remarks'];
 
-    // SQL to insert data into the checklist table
-    $sql = "INSERT INTO checklist_information 
-    (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks) 
-    VALUES 
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    // Retrieve arrays of results and remarks
+    $results = $_POST['results']; // Expecting an array from the form
+    $remarks_array = $_POST['remarks_array']; // Expecting an array from the form
 
-    // Prepare and execute the SQL statement
+    // Insert main checklist data
+    $sql = "INSERT INTO checklist_information 
+            (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('sssssssssssss', $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, $capacity_swl, $remarks);
 
     if ($stmt->execute()) {
-        // echo "Data saved successfully!";
-        // header('Location: index1.php');
+        // Retrieve the newly inserted checklist ID
+        $checklist_id = $stmt->insert_id;
+
+        // Prepare statement for inserting results and remarks
+        $stmt_results = $conn->prepare("INSERT INTO checklist_results (checklist_id, result, remark) VALUES (?, ?, ?)");
+
+        // Loop through results and remarks and insert each as a new row
+        foreach ($results as $key => $result) {
+            $remark = isset($remarks_array[$key]) ? $remarks_array[$key] : null; // Use null if no remark
+            $stmt_results->bind_param("iss", $checklist_id, $result, $remark);
+            $stmt_results->execute();
+        }
+
+        // Close the second statement
+        $stmt_results->close();
+
+        // Redirect on successful insertion
         header("Location: type/$checklist_type.php");
+
     } else {
         echo "Error: " . $stmt->error;
     }
 
+    // Close statements and connection
     $stmt->close();
     $conn->close();
+
 } else {
     echo "Form submission error.";
 }
