@@ -64,7 +64,7 @@ include_once('../../inc/function.php');
                 <option value="">Select Type</option>
             <option value="articulating-boom">Articulating boom</option>
             <option value="elevators">Elevators</option>
-            <option value="mobile-locomotive">Mobile & Locomotive Cranes</option>
+            <option value="mobile_locomotive">Mobile & Locomotive Cranes</option>
             <option value="marine-offshore-cranes">Marine & Offshore Cranes</option>
             <option value="storage-retrieval">Storage Retrieval</option>
             <option value="articulating-boom-cranes">Articulating Boom Cranes</option>

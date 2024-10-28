@@ -2,25 +2,26 @@
 include_once('../../../file/config.php'); // include your database connection
 
 // Check if checklist_type parameter is set in the URL, use 'wheel-loader' as default for testing
-// $checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
-$checklist_type = $_GET['checklist_type'] ? $_GET['checklist_type'] : 'wheel-loader';
+$checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
 
 // Debug line to check the checklist_type
 echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
 
 if (!empty($checklist_type)) {
     // SQL query to fetch data from the 'checklist_information' table based on checklist type
-    $query = "SELECT * FROM checklist_information WHERE checklist_type = 'Storage Retrieval';";
+    $query = "SELECT * FROM checklist_information WHERE checklist_type = '$checklist_type';";
     
     $result = mysqli_query($conn, $query);
 
-    if (mysqli_num_rows($result) > 0) {
+    if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
     } else {
         echo "No record found!";
+        $row = []; // Initialize as an empty array if no record found
     }
 } else {
     echo "No checklist type provided!";
+    $row = []; // Initialize as an empty array if checklist type is not provided
 }
 ?>
 
@@ -89,45 +90,48 @@ if (!empty($checklist_type)) {
         <h4> ASME B30.13-2017   </h4>
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
-         <?php if (isset($row)): ?>
+         <!-- <?php if (isset($row)): ?> -->
          <div class="table-responsive">
 
 
-        <table class="table table-bordered">
-            <tr>
+         <table class="table table-bordered">
+                
+				
+				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"><strong><?php echo $row['report_no']; ?></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"><strong><?php echo date('F j, Y', strtotime($row['inspection_date'])); ?></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td><strong><?php echo $row['client_name']; ?></strong></td>
+                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
                 <th>INSPECTED BY:</th>
-                <td><strong><?php echo $row['inspected_by']; ?></strong></td>
+                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
-                <td><strong><?php echo $row['location']; ?></strong></td>
-                <th>STICKER NO.:</th>
-                <td><strong><?php echo $row['sticker_no']; ?></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT NO:</th>
-                <td><strong><?php echo $row['equipment_type']; ?></strong></td>
-                <th>EQUIP.SERIAL NO.:</th>
-                <td><strong><?php echo $row['crane_serial_no']; ?></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT TYPE:</th>
-                <td><strong><?php echo $row['equipment_type']; ?></strong></td>
-                <th>CAPACITY (SWL):</th>
-                <td><strong><?php echo $row['capacity_swl']; ?></strong></td>
-            </tr>
+        <th>LOCATION:</th>
+        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <th>STICKER NO.:</th>
+        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+    </tr>
+    <tr>
+        <th>CRANE ASSET NO:</th>
+        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
+        <th>CRANE SERIAL NO.:</th>
+        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+    </tr>
+    <tr>
+        <th>EQUIPMENT TYPE:</th>
+        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <th>CAPACITY (SWL):</th>
+        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+    </tr>
+            
         </table>
 
 </div>
-<?php endif; ?>
+<!-- <?php endif; ?> -->
         
 
         <div class="table-responsive">
