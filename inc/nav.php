@@ -62,12 +62,12 @@
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
                         <li><a href="<?php echo $url; ?>document/health-check/">Health-Check</a>
-                        <ul class="nav sub-menu">
+                        <!-- <ul class="nav sub-menu"> -->
                         <!-- <li><a href="">Create Customer</a></li> -->
-                        <li><a href="<?php echo $url; ?>document/health-check/create.php">Create New</a></li>
+                        <!-- <li><a href="<?php echo $url; ?>document/health-check/create.php">Create New</a></li>
                        
                       
-                     </ul>
+                     </ul> -->
 
                      </li>
                         <li><a href="<?php echo $url; ?>document/lifting/">Lifting</a></li>
