@@ -90,7 +90,7 @@ if (!empty($checklist_type)) {
         <h4> ASME B30.13-2017   </h4>
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
-         <!-- <?php if (isset($row)): ?> -->
+         
          <div class="table-responsive">
 
 
@@ -131,7 +131,7 @@ if (!empty($checklist_type)) {
         </table>
 
 </div>
-<!-- <?php endif; ?> -->
+
         
 
         <div class="table-responsive">
