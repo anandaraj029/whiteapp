@@ -32,16 +32,6 @@ include_once('../../inc/function.php');
 <!-- <body part> -->
 
 
-
-					
-						
-						
-						
-						                 
-                      
-
-						
-
                      
 
   <div class="col-lg-12">    
@@ -53,8 +43,13 @@ include_once('../../inc/function.php');
             <div class="col-lg-6">                    
 
                 <div class="form-group">
-                    <label class="font-14 bold mb-2">Client Company / Name & Address</label>
-                    <textarea class="theme-input-style" placeholder="Enter company name & address" name="client_company_address" required></textarea>
+                    <label class="font-14 bold mb-2">Client Company / Name</label>
+                    <input type="text" class="theme-input-style" placeholder="Enter client company name" name="client_company_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-14 bold mb-2">Client Company Address</label>
+                    <textarea class="theme-input-style" placeholder="Enter company address" name="client_company_address" required></textarea>
                 </div>
 
                 <div class="form-group">
@@ -85,6 +80,11 @@ include_once('../../inc/function.php');
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Capacity</label>
                     <input type="text" class="theme-input-style" placeholder="Enter capacity" name="capacity" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-14 bold mb-2">Report No</label>
+                    <input type="text" class="theme-input-style" placeholder="Enter report no" name="report_no" required>
                 </div>
 
             </div>
@@ -126,6 +126,21 @@ include_once('../../inc/function.php');
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Sticker Number Issued</label>
                     <input type="text" class="theme-input-style" placeholder="Enter sticker number issued" name="sticker_number_issued" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-14 bold mb-2">Project ID</label>
+                    <input type="text" class="theme-input-style" placeholder="Enter Project ID" name="project_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-14 bold mb-2">Checklist No</label>
+                    <input type="text" class="theme-input-style" placeholder="Enter Checklist No" name="checklist_no" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="font-14 bold mb-2">JRN</label>
+                    <input type="text" class="theme-input-style" placeholder="Enter JRN" name="jrn" required>
                 </div>
 
             </div>

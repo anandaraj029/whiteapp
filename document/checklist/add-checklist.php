@@ -14,138 +14,112 @@ include_once('../../inc/function.php');
                                 <h4 class="font-20 mb-20">Checklist Information</h4>
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <form action="save_checklist.php" method="POST">
+                                <!-- <input type="hidden" name="checklist_type"> Example checklist type -->
 
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                                <!-- Form Group -->
-                                                <div class="form-group">
-                                                <label class="font-14 bold mb-2">Checklist NO</label>
-                                                <input type="text" class="theme-input-style" placeholder="Checklist NO">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">REPORT NO</label>
-                                                <input type="text" class="theme-input-style" placeholder="REPORT NO">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">CLIENT’S NAME</label>
-                                                <input type="text" class="theme-input-style" placeholder="CLIENT’S NAME">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">LOCATION</label>
-                                                <input type="text" class="theme-input-style" placeholder="LOCATION">
-                                            </div>
-                                            <!-- End Form Group -->
-                                             
-                                       
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">CRANE ASSET NO</label>
-                                                <input type="text" class="theme-input-style" placeholder="CRANE ASSET NO">
-                                            </div>
-                                            <!-- End Form Group -->
-                                             
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">EQUIPMENT TYPE</label>
-                                                <input type="text" class="theme-input-style" placeholder="EQUIPMENT TYPE">
-                                            </div>
-                                            <!-- End Form Group -->
-                                        </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <!-- Checklist NO -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">Checklist NO</label>
+                <input type="text" name="checklist_no" class="theme-input-style" placeholder="Checklist NO" required>
+            </div>
+            
+            <!-- REPORT NO -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">REPORT NO</label>
+                <input type="text" name="report_no" class="theme-input-style" placeholder="REPORT NO" required>
+            </div>
+            
+            <!-- CLIENT’S NAME -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">CLIENT’S NAME</label>
+                <input type="text" name="client_name" class="theme-input-style" placeholder="CLIENT’S NAME" required>
+            </div>
+            
+            <!-- LOCATION -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">LOCATION</label>
+                <input type="text" name="location" class="theme-input-style" placeholder="LOCATION" required>
+            </div>
+            
+            <!-- CRANE ASSET NO -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">CRANE ASSET NO</label>
+                <input type="text" name="crane_asset_no" class="theme-input-style" placeholder="CRANE ASSET NO" required>
+            </div>
+            
+            <!-- EQUIPMENT TYPE -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">EQUIPMENT TYPE</label>
+                <input type="text" name="equipment_type" class="theme-input-style" placeholder="EQUIPMENT TYPE" required>
+            </div>
+        </div>
 
-                                        <div class="col-lg-6">
+        <div class="col-lg-6">
+            <!-- Checklist Type -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">Checklist Type</label>
+                <select name="checklist_type" class="theme-input-style">
+                <option value="">Select Type</option>
+            <option value="Articulating boom">Articulating boom</option>
+            <option value="Elevators">Elevators</option>
+            <option value="Mobile & Locomotive Cranes">Mobile & Locomotive Cranes</option>
+            <option value="Marine & Offshore Cranes">Marine & Offshore Cranes</option>
+            <option value="Storage Retrieval">Storage Retrieval</option>
+            <option value="Articulating Boom Cranes">Articulating Boom Cranes</option>
+            <option value="Lifting Beam Spreader Bar">Lifting Beam Spreader Bar</option>
+            <option value="Powered Platforms (Sky Climbers)">Powered Platforms (Sky Climbers)</option>
+            <option value="Vehicle-Mounted Elevating & Aerial Rotating Devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+                </select> 
+            </div>
 
-                                         <!-- Form Group -->
-                                         <div class="form-group">
-                                                <label class="font-14 bold mb-2">Checklist Type</label>
-                                                <select class="theme-input-style">
-                                                    <option>Select Type</option>
-                                                    <option>Articulating boom</option>
-                                                    <option>Elevators</option>
-                                                    <option>Mobile & Locomotive Cranes</option>
-                                                    <option>Marine & Offshore Cranes</option>
-                                                    <option>Storage Retrieval</option>
-                                                    <option>Articulating Boom Cranes</option>
-                                                    <option>Lifting Beam Spreader Bar</option>
-                                                    <option>Powered Platforms (Sky Climbers)</option>
-                                                    <option>Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
-                                                </select> 
-                                            </div>
-                                            <!-- End Form Group -->
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">INSPECTION DATE</label>
-                                                <input type="text" class="theme-input-style" placeholder="INSPECTION DATE">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">INSPECTED BY</label>
-                                                <input type="text" class="theme-input-style" placeholder="INSPECTED BY">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">STICKER NO</label>
-                                                <input type="text" class="theme-input-style" placeholder="STICKER NO">
-                                            </div>
-                                            <!-- End Form Group -->
-                                               <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">CRANE SERIAL NO.</label>
-                                                <input type="text" class="theme-input-style" placeholder="CRANE SERIAL NO.">
-                                            </div>
-                                            <!-- End Form Group -->
-                                               <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">CAPACITY (SWL)</label>
-                                                <input type="text" class="theme-input-style" placeholder="CAPACITY (SWL)">
-                                            </div>
-                                            <!-- End Form Group -->
+            <!-- INSPECTION DATE -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">INSPECTION DATE</label>
+                <input type="text" name="inspection_date" class="theme-input-style" placeholder="INSPECTION DATE" required>
+            </div>
+            
+            <!-- INSPECTED BY -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">INSPECTED BY</label>
+                <input type="text" name="inspected_by" class="theme-input-style" placeholder="INSPECTED BY" required>
+            </div>
+            
+            <!-- STICKER NO -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">STICKER NO</label>
+                <input type="text" name="sticker_no" class="theme-input-style" placeholder="STICKER NO" required>
+            </div>
+            
+            <!-- CRANE SERIAL NO. -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">CRANE SERIAL NO.</label>
+                <input type="text" name="crane_serial_no" class="theme-input-style" placeholder="CRANE SERIAL NO." required>
+            </div>
+            
+            <!-- CAPACITY (SWL) -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">CAPACITY (SWL)</label>
+                <input type="text" name="capacity_swl" class="theme-input-style" placeholder="CAPACITY (SWL)" required>
+            </div>
+        </div>
+    </div>
 
-                                               <!-- Form Group -->
-                                            
-                                            <!-- End Form Group -->
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                                <label class="font-14 bold mb-2">REMARKS / RECOMMENDATIONS:</label>
-                                             <textarea class="form-control" placeholder="Remarks" row="5" name="remarks"></textarea>
-                                            </div>
-                                    <!-- Form Row -->
-                                    <div class="form-group pt-1">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox position-relative mr-2">
-                                                <input type="checkbox" id="check5">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-                                            
-                                            <label for="check5">Remember me</label>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
+    <!-- Remarks / Recommendations -->
+    <div class="form-group">
+        <label class="font-14 bold mb-2">REMARKS / RECOMMENDATIONS: (IF NO REMARKS LEAVE EMPTY)</label>
+        <textarea name="remarks" class="form-control" placeholder="Remarks" rows="5"></textarea>
+    </div>
 
-                                    <!-- Form Row -->
-                                    <div class="form-row">
-                                        <div class="col-12 text-center">
-                                            <button type="submit" class="btn long">Submit</button>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
-                                </form>
+    <!-- Submit Button -->
+    <div class="form-row">
+        <div class="col-12 text-center">
+            <button type="submit" class="btn long">Submit</button>
+        </div>
+    </div>
+</form>
+
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->

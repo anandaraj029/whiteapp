@@ -20,7 +20,7 @@ $result = $conn->query($sql);
                            
                            <div class="card-body bg-white">
                            <div class="main-header-btn ">
-                                 <a href="#" class="btn">lifting Gears Certificate</a>
+                                 <a href="#" class="btn">Report</a>
                               </div>
                             </div>
                                  <!-- Search Form -->
@@ -147,7 +147,7 @@ $result = $conn->query($sql);
                     <!-- End Star -->
                 </td>
                 
-                <td><?php echo $row['certificate_no']; ?></td>
+                <td><?php echo $row['report_no']; ?></td>
                 <td><?php echo $row['project_id']; ?></td>
                 <td><?php echo $row['report_no']; ?></td>
                 <td>
@@ -156,13 +156,13 @@ $result = $conn->query($sql);
                             <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
                         </div>
                         <div class="name bold">
-                            <?php echo $row['inspector_name']; ?>
+                            <?php echo $row['client_company_address']; ?>
                         </div>
                     </div>
                 </td>
-                <td><?php echo date('F d, Y', strtotime($row['examination_date'])); ?></td>
-                <td><?php echo $row['company_name']; ?></td>
-                <td><?php echo $row['serial_numbers']; ?></td>
+                <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
+                <td><?php echo $row['client_company_address']; ?></td>
+                <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
                     <a href="edit_loadtest.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
