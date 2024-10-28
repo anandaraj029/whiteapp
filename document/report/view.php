@@ -331,25 +331,21 @@ if (mysqli_num_rows($result) > 0) {
         </tr>
     </thead>
     <tbody>
-    <?php
-    if ($row && isset($row['deficiency'], $row['corrective_action'])) {
-        // Explode deficiencies and corrective actions into arrays
-        $deficiencies = explode("\n", trim($row['deficiency'])); // Trim to remove extra newlines
-        $corrective_actions = explode("\n", trim($row['corrective_action']));
+                                <?php
+                                // Parse deficiencies and corrective actions into arrays
+                                $deficiencies = explode("\n", trim($row['deficiency'] ?? ''));
+                                $corrective_actions = explode("\n", trim($row['corrective_action'] ?? ''));
 
-        // Iterate through deficiencies and corresponding corrective actions
-        foreach ($deficiencies as $index => $deficiency) {
-            echo "<tr>
-                <td>" . ($index + 1) . "</td>
-                <td>" . htmlspecialchars(trim($deficiency)) . "</td>
-                <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? '')) . "</td>
-            </tr>";
-        }
-    } else {
-        echo "<tr><td colspan='3' style='text-align: center;'>No data available</td></tr>";
-    }
-    ?>
-    </tbody>
+                                // Display each deficiency and action
+                                foreach ($deficiencies as $index => $deficiency) {
+                                    echo "<tr>
+                                        <td>" . ($index + 1) . "</td>
+                                        <td>" . htmlspecialchars(trim($deficiency)) . "</td>
+                                        <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? 'N/A')) . "</td>
+                                    </tr>";
+                                }
+                                ?>
+                                </tbody>
 </table>
 
 
