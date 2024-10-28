@@ -1,3 +1,30 @@
+<?php 
+include_once('../../../file/config.php'); // include your database connection
+
+// Check if checklist_type parameter is set in the URL, use 'wheel-loader' as default for testing
+$checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
+
+// Debug line to check the checklist_type
+echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
+
+if (!empty($checklist_type)) {
+    // SQL query to fetch data from the 'checklist_information' table based on checklist type
+    $query = "SELECT * FROM checklist_information WHERE checklist_type = '$checklist_type';";
+    
+    $result = mysqli_query($conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+    } else {
+        echo "No record found!";
+        $row = []; // Initialize as an empty array if no record found
+    }
+} else {
+    echo "No checklist type provided!";
+    $row = []; // Initialize as an empty array if checklist type is not provided
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,34 +99,34 @@
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
-                <td><strong></strong></td>
-                <th>STICKER NO.:</th>
-                <td><strong></strong></td>
-            </tr>
-            <tr>
-                <th>CRANE ASSET NO:</th>
-                <td><strong></strong></td>
-                <th>CRANE SERIAL NO.:</th>
-                <td><strong></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
-                <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
-            </tr>
+        <th>LOCATION:</th>
+        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <th>STICKER NO.:</th>
+        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+    </tr>
+    <tr>
+        <th>CRANE ASSET NO:</th>
+        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
+        <th>CRANE SERIAL NO.:</th>
+        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+    </tr>
+    <tr>
+        <th>EQUIPMENT TYPE:</th>
+        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <th>CAPACITY (SWL):</th>
+        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+    </tr>
             
         </table>
 </div>
