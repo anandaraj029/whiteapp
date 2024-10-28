@@ -34,101 +34,16 @@ if (!empty($checklist_type)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-           
-        }
-        h1, h2, h3, h4 {
-            text-align: center;
-			font-size: 18px;
-			font-weight: 700;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-			
-        }
-		
-		table th{
-		background-color: #1b6bab47 !important;
-		color: black;
-		}
-		
-        th {
-            background-color: #1b6bab47;
-        }
-		
-				.large-checkbox {
-      width: 27px;
-      height: 15px;
-	  
-      
-    }
-	
-	
-    .checkbox-cell {
-    text-align: center; /* Center horizontally */
-    vertical-align: middle; /* Center vertically */
-    height: 100%; /* Ensure the cell has enough height */
-}
-	
-	.table-bordered td, .table-bordered th {
-    border: 1px solid black;
-}
-
-
-.table thead th {
-    vertical-align: bottom;
-    border-bottom: 1px solid black;
-}
-
-.table .thead-dark th {
-    color: black;
-    
-    border-color: #454d55;
-}
-
-	
-       
-        @media (max-width: 768px) {
-            .signature-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            .signature {
-                margin-bottom: 20px;
-            }
-        }
-		
-		@media print {
-      .no-print {
-        display: none;
-      }
-    }
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
 	
 	  <div class="table-responsive">
 
-      <table class="w-100">
+      
+           
+<table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
             <img src="../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
@@ -146,16 +61,15 @@ if (!empty($checklist_type)) {
     <tr>
         <td>FRM.0601-1.2</td>
         <td>Revision 02</td>
-        <td>Issue Date: 30/SEP/2020</td>
+        <td><b>Issue Date: </b>30/SEP/2020</td>
     </tr>
     <tr>
-        <td class="left-align">Prepared By:<br>Operations Manager</td>
-        <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
+        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
+        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
    <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
-           
            
             <!-- <table class="table table-bordered">
                 <tbody>

@@ -21,7 +21,7 @@ $result = $conn->query($sql);
                            
                            <div class="card-body bg-white">
                            <div class="main-header-btn ">
-                                 <a href="#" class="btn">lifting Gears Certificate</a>
+                                 <a href="#" class="btn">Lifting Gears Certificate</a>
                               </div>
                             </div>
                                  <!-- Search Form -->
@@ -41,7 +41,7 @@ $result = $conn->query($sql);
 
                                     <!-- Add New Contact Btn -->
                                     <div class="add-new-contact mr-20">
-                                       <a href="#" class="btn-circle" data-toggle="modal" data-target="#contactAddModal">
+                                       <a href="./create.php" class="btn-circle">
                                           <img src="<?php echo $url; ?>assets/img/svg/plus_white.svg" alt="" class="svg">
                                        </a>
                                  </div>
