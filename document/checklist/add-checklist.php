@@ -62,15 +62,15 @@ include_once('../../inc/function.php');
                 <label class="font-14 bold mb-2">Checklist Type</label>
                 <select name="checklist_type" class="theme-input-style">
                 <option value="">Select Type</option>
-            <option value="Articulating boom">Articulating boom</option>
-            <option value="Elevators">Elevators</option>
-            <option value="Mobile & Locomotive Cranes">Mobile & Locomotive Cranes</option>
-            <option value="Marine & Offshore Cranes">Marine & Offshore Cranes</option>
-            <option value="Storage Retrieval">Storage Retrieval</option>
-            <option value="Articulating Boom Cranes">Articulating Boom Cranes</option>
-            <option value="Lifting Beam Spreader Bar">Lifting Beam Spreader Bar</option>
-            <option value="Powered Platforms (Sky Climbers)">Powered Platforms (Sky Climbers)</option>
-            <option value="Vehicle-Mounted Elevating & Aerial Rotating Devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+            <option value="articulating-boom">Articulating boom</option>
+            <option value="elevators">Elevators</option>
+            <option value="mobile-locomotive">Mobile & Locomotive Cranes</option>
+            <option value="marine-offshore-cranes">Marine & Offshore Cranes</option>
+            <option value="storage-retrieval">Storage Retrieval</option>
+            <option value="articulating-boom-cranes">Articulating Boom Cranes</option>
+            <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
+            <option value="powered-platforms">Powered Platforms (Sky Climbers)</option>
+            <option value="vehicle-mounted-elevating-aerial-rotating-devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
                 </select> 
             </div>
 

@@ -55,7 +55,7 @@ $result = $conn->query($sql);
                                         echo "<tr>";
                                         echo "<td> 
         <div class='star'>
-            <a href='./type/{$checklist_type}.php?checklist_type=$checklist_type'>
+            <a href='./type/{$checklist_type}.php?checklist_type={$checklist_type}'>
             
                 <div class='icon text-primary'>
                     <i class='et-document'></i>
