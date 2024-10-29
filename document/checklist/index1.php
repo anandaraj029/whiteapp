@@ -85,8 +85,8 @@ $result = $conn->query($sql);
                                          <button type='button' class='status-btn'>'status'</button></td>";
 
                                         echo "<td class='actions'>
-                                                <a href='#'>
-                                                    <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
+                                              <a href='./type/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>
+                                                    <span class='contact-edit' >
                                                         <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
                                                     </span>
                                                 </a>
