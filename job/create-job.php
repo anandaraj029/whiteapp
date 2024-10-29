@@ -58,8 +58,6 @@ include_once('../inc/function.php');
                                     </div>
                                     <!-- End Form Row -->
 
-                              
-
                                     <!-- Form Row -->
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
@@ -134,9 +132,7 @@ include_once('../inc/function.php');
                             <div class="form-element py-30 mb-30">
                                 <h4 class="font-20 mb-30">Customer Information / Inspector </h4>
 
-                                <!-- Form -->
-                                <form action="#" method="POST">
-
+                        
                                      <!-- Form Row -->
                                      <div class="form-row mb-20">
                                         <div class="col-sm-4">
@@ -240,7 +236,7 @@ include_once('../inc/function.php');
                                 <h4 class="font-20 mb-20">A. GENERAL INFORMATION</h4>
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                            
 
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -318,159 +314,26 @@ include_once('../inc/function.php');
                                
 
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-center mt-4">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Horizontal Form With Icons -->
-                        </div>
-                        <div class="col-lg-12 d-none">
-                            <!-- Base Horizontal Form With Icons -->
-                            <div class="form-element py-30 multiple-column">
-                                <h4 class="font-20 mb-20">B. GENERAL INFORMATION</h4>
-
-                                <!-- Form -->
-                                <form action="#" method="POST">
-
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Crane Structure Condition:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                            
-                                               <!-- Form Group -->
-                                               <div class="form-group">
-                                                <label class="font-14 bold mb-2">Swinging / Slewing Function:	</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Hydraulic & Pneumatic System</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-
-                                                 <!-- Form Group -->
-                                                 <div class="form-group">
-                                                <label class="font-14 bold mb-2">Wire Ropes Condition:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Boom Lifting, Extending & Retracting:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                   <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Emergency Boom Lowering:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Auto Moment Limiter (LMI):</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                            
-                                               <!-- Form Group -->
-                                               <div class="form-group">
-                                                <label class="font-14 bold mb-2">Anti-Two-Block (A2B) Function:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">	Winch Drum Lock / Pawls:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-
-                                                 <!-- Form Group -->
-                                                 <div class="form-group">
-                                                <label class="font-14 bold mb-2">Hook Block Assembly:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Boom Angle Indicator:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                   <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Emergency Shutdown:</label>
-                                                <select class="form-control" >
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                        </div>
-                                      
-                                    </div>
-
                                
-
-                                    <!-- Form Row -->
-                                    <div class="form-row">
-                                        <div class="col-12 text-center mt-4">
-                                            <button type="submit" class="btn long">Save</button>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
-                                </form>
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
                         </div>
+                       
+                            <!-- Form Row -->
+                            <div class="form-row">
+                                        <div class="col-12 text-center mt-4">
+                                            <button type="submit" class="btn long">Save</button>
+                                        </div>
+                                    </div>
+
+                                    </form>
                     </div>
                 </div>
             </div>
