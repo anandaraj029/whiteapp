@@ -36,12 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $checklist_id = $stmt->insert_id;
 
         // Prepare statement for inserting results and remarks
-        $stmt_results = $conn->prepare("INSERT INTO checklist_results (checklist_id, result, remark) VALUES (?, ?, ?)");
+        $stmt_results = $conn->prepare("INSERT INTO checklist_results (checklist_id, result, checklist_remark) VALUES (?, ?, ?)");
 
         // Loop through results and remarks and insert each as a new row
         foreach ($results as $key => $result) {
-            $remark = isset($remarks_array[$key]) ? $remarks_array[$key] : null; // Use null if no remark
-            $stmt_results->bind_param("iss", $checklist_id, $result, $remark);
+            $checklist_remark = isset($remarks_array[$key]) ? $remarks_array[$key] : null; // Use null if no remark
+            $stmt_results->bind_param("iss", $checklist_id, $result, $checklist_remark);
             $stmt_results->execute();
         }
 

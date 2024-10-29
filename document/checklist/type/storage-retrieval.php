@@ -24,6 +24,9 @@ if (!empty($checklist_type)) {
     echo "No checklist type provided!";
     $row = []; // Initialize as an empty array if checklist type is not provided
 }
+
+
+
 ?>
 
 
@@ -174,7 +177,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[1]">
+    <input type="text" name="checklist_remark[1]">
 </td>
             </tr>
             <tr>
@@ -192,7 +195,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[2]">
+    <input type="text" name="checklist_remark[2]">
 </td>
             </tr>
             <tr>
@@ -210,7 +213,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[3]">
+    <input type="text" name="checklist_remark[3]">
 </td>
             </tr>
             <tr>
@@ -227,7 +230,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[4]">
+    <input type="text" name="checklist_remark[4]">
 </td>
             </tr>
             <tr>
@@ -244,7 +247,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[5]">
+    <input type="text" name="checklist_remark[5]">
 </td>
             </tr>
             <tr>
@@ -261,7 +264,7 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[6]">
+    <input type="text" name="checklist_remark[6]">
 </td>
             </tr>
             
@@ -277,19 +280,22 @@ if (!empty($checklist_type)) {
                 <tbody>
 				
 				<tr>
-                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </th>
+                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3">
-                <?php echo htmlspecialchars($row['remarks']); ?>        
-            </td>
+                <td style="height: 120px;" colspan="3"> </td>
                 
             </tr>
 			</tbody>
 			</table>
 			
 			</div>
+<<<<<<< HEAD
 
+=======
+       
+		
+>>>>>>> ebd873dfa2b006683503af9d458899808831e872
 		
 		<div class="table-responsive">
             <table class="table table-bordered">
@@ -301,9 +307,9 @@ if (!empty($checklist_type)) {
             </tr>
             <tr>
                 <th>SIGNATURE & DATE:</th>
-                <td><input name="remarks" ></td>
+                <td><input name="date" ></td>
                 <th>SIGNATURE & DATE:</th>
-                <td><input name="remarks" ></td>
+                <td><input name="signature" ></td>
             </tr>
             
            
