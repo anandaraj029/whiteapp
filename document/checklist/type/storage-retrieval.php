@@ -24,6 +24,9 @@ if (!empty($checklist_type)) {
     echo "No checklist type provided!";
     $row = []; // Initialize as an empty array if checklist type is not provided
 }
+
+
+
 ?>
 
 
@@ -174,14 +177,13 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[1]">
+    <input type="text" name="checklist_remark[1]">
 </td>
             </tr>
             <tr>
                 <td><strong>1.2</strong></td>
                 <td><strong> Previous inspection reports are checked </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
-<<<<<<< HEAD
 
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
@@ -193,20 +195,13 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[2]">
+    <input type="text" name="checklist_remark[2]">
 </td>
-=======
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
-                <td><input name="remarks[1.2]" ></td>
->>>>>>> d525f7ba6d9c1d02d8bfe878b9e4c3a65f9f4103
             </tr>
             <tr>
                 <td><strong>1.3</strong></td>
                 <td><strong> Rated load is clearly marked and visible to the operator </strong></td>
 				<td style="text-align: center;"><strong> CIMS-QHSE-06 (13.1.1.1)  </strong></td>
-<<<<<<< HEAD
               
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
@@ -218,19 +213,12 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[3]">
+    <input type="text" name="checklist_remark[3]">
 </td>
-=======
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
-                <td><input name="remarks[1.3]" ></td>
->>>>>>> d525f7ba6d9c1d02d8bfe878b9e4c3a65f9f4103
             </tr>
             <tr>
                 <td><strong>1.4</strong></td>
                 <td><strong> Warning and cautionary labels are affixed at aisle entrance points or access positions and are durable and legible </strong></td>
-<<<<<<< HEAD
 				<td style="text-align: center;"><strong> ASME B30.13 sec. 1.1.2 </strong></td>
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
@@ -242,23 +230,13 @@ if (!empty($checklist_type)) {
     <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[4]">
+    <input type="text" name="checklist_remark[4]">
 </td>
-=======
-				<td style="text-align: center;"><strong> ASME B30.13 
-sec. 1.1.2
-  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
-                <td><input name="remarks[1.4]" ></td>
->>>>>>> d525f7ba6d9c1d02d8bfe878b9e4c3a65f9f4103
             </tr>
             <tr>
                 <td><strong>1.5</strong></td>
                 <td><strong> Clearances and tolerances within the system are as determined by the manufacturer or user (specifications) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.2  </strong></td>
-<<<<<<< HEAD
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
 </td>
@@ -269,20 +247,13 @@ sec. 1.1.2
     <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[5]">
+    <input type="text" name="checklist_remark[5]">
 </td>
-=======
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
-                <td><input name="remarks[1.5]" ></td>
->>>>>>> d525f7ba6d9c1d02d8bfe878b9e4c3a65f9f4103
             </tr>
             <tr>
                 <td><strong>1.6</strong></td>
                 <td><strong> A fire extinguisher with minimum 10BC rating is available (in the cab) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec..1.4.3  </strong></td>
-<<<<<<< HEAD
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
 </td>
@@ -293,14 +264,8 @@ sec. 1.1.2
     <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="remarks[6]">
+    <input type="text" name="checklist_remark[6]">
 </td>
-=======
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
-                <td><input name="remarks[1.6]" ></td>
->>>>>>> d525f7ba6d9c1d02d8bfe878b9e4c3a65f9f4103
             </tr>
             
 			</tbody>
@@ -315,24 +280,16 @@ sec. 1.1.2
                 <tbody>
 				
 				<tr>
-                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </th>
+                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3">
-                <?php echo htmlspecialchars($row['remarks']); ?>        
-            </td>
+                <td style="height: 120px;" colspan="3"> </td>
                 
             </tr>
 			</tbody>
 			</table>
 			
 			</div>
-
-       
-        
-
-      	
-
        
 		
 		
@@ -346,9 +303,9 @@ sec. 1.1.2
             </tr>
             <tr>
                 <th>SIGNATURE & DATE:</th>
-                <td><input name="remarks" ></td>
+                <td><input name="date" ></td>
                 <th>SIGNATURE & DATE:</th>
-                <td><input name="remarks" ></td>
+                <td><input name="signature" ></td>
             </tr>
             
            
