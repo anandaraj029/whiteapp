@@ -83,11 +83,11 @@ if (isset($_POST['result']) && is_array($_POST['result'])) {
 }
 
 // Check if 'remarks' is an array; if not, make it an array
-if (isset($_POST['remarks'])) {
-    if (!is_array($_POST['remarks'])) {
-        $remarks = [$_POST['remarks']];
+if (isset($_POST['checklist_remark'])) {
+    if (!is_array($_POST['checklist_remark'])) {
+        $remarks = [$_POST['checklist_remark']];
     } else {
-        $remarks = $_POST['remarks'];
+        $remarks = $_POST['checklist_remark'];
     }
 }
 
@@ -113,10 +113,10 @@ $checkQuery->store_result();
 
 if ($checkQuery->num_rows > 0) {
     // Update if a record exists
-    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, remark = ? WHERE checklist_id = ?");
+    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ? WHERE checklist_id = ?");
 } else {
     // Insert a new record if none exists
-    $stmt = $conn->prepare("INSERT INTO checklist_results (result, remark, checklist_id) VALUES (?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, checklist_id) VALUES (?, ?, ?)");
 }
 
 $checkQuery->close();
