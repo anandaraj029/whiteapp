@@ -13,4 +13,6 @@ if ($conn->connect_error) {
 }
 
 // If the connection is successful, the script continues
+
+
 ?>

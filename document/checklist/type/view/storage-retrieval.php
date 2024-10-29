@@ -24,6 +24,9 @@ if (!empty($checklist_type)) {
     echo "No checklist type provided!";
     $row = []; // Initialize as an empty array if checklist type is not provided
 }
+
+
+
 ?>
 
 
