@@ -30,37 +30,38 @@ if (!empty($checklist_type)) {
 $checklist_no = $_GET['checklist_no'] ?? null; // Assuming checklist_no is passed via GET
 
 // Initialize variables
-// $selected_results = [];
-// $db_remark = '';
+$selected_results = [];
+$db_remark = '';
 
-// if ($checklist_no) {
-//     // Fetch checklist data
-//     $stmt = $conn->prepare("SELECT result, remark FROM checklist_results WHERE checklist_id = ?");
-//     $stmt->bind_param("i", $checklist_no);
-//     $stmt->execute();
-//     $stmt->bind_result($db_result, $db_remark);
-//     $stmt->fetch();
-//     $stmt->close();
+if ($checklist_no) {
+    // Fetch checklist data
+    $stmt = $conn->prepare("SELECT result, checklist_remark FROM checklist_results WHERE checklist_id = ?");
+    $stmt->bind_param("i", $checklist_no);
+    $stmt->execute();
+    $stmt->bind_result($db_result, $db_remark);
+    $stmt->fetch();
+    $stmt->close();
 
-//     // Debugging output
-//     echo "Database Result: " . htmlspecialchars($db_result) . "<br>";
-//     echo "Database Remark: " . htmlspecialchars($db_remark) . "<br>";
+    // Debugging output
+    echo "Database Result: " . htmlspecialchars($db_result) . "<br>";
+    echo "Database Remark: " . htmlspecialchars($db_remark) . "<br>";
 
-//     // Convert the result to an array for easy checking
-//     $selected_results = explode(",", $db_result);
-// } else {
-//     echo "Checklist ID is required.";
-//     exit;
-// }
-
-
-
-$fetchLang = mysqli_query($conn, "SELECT * FROM checklist_results WHERE checklist_id = $checklist_no");
-if (mysqli_num_rows($fetchLang) > 0) {
-    $result = mysqli_fetch_assoc($fetchLang);
-    $checked_arr = explode(", ", $result['result']);
-    $chek_remark = explode(",", $result['checklist_remark']);
+    // Convert the result to an array for easy checking
+    $selected_results = explode(",", $db_result);
+    $chek_remark = explode(",", $db_remark);
+} else {
+    echo "Checklist ID is required.";
+    exit;
 }
+
+
+
+// $fetchLang = mysqli_query($conn, "SELECT * FROM checklist_results WHERE checklist_id = $checklist_no");
+// if (mysqli_num_rows($fetchLang) > 0) {
+//     $result = mysqli_fetch_assoc($fetchLang);
+//     $checked_arr = explode(", ", $result['result']);
+//     $chek_remark = explode(",", $result['checklist_remark']);
+// }
 
 
 ?>
@@ -205,15 +206,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
                 <td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $checked_arr[0]=="PASS"?'checked':''; ?> > 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $checked_arr[0]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $checked_arr[0]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
@@ -226,15 +227,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
 
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[1][]" id="checkbox4" value="PASS" 
-        <?php echo $checked_arr[1]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[1][]" id="checkbox5" value="FAIL" 
-        <?php echo $checked_arr[1]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[1][]" id="checkbox6" value="NA" 
-        <?php echo $checked_arr[1]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[1]" value="<?php echo $chek_remark[1];?>" disabled>
@@ -247,15 +248,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
               
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[1][]" id="checkbox7" value="PASS" 
-        <?php echo $checked_arr[2]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[1][]" id="checkbox8" value="FAIL" 
-        <?php echo $checked_arr[2]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox9" value="NA" 
-        <?php echo $checked_arr[2]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[1]" value="<?php echo $chek_remark[2];?>" disabled>
@@ -267,15 +268,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
 				<td style="text-align: center;"><strong> ASME B30.13 sec. 1.1.2 </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox10" value="PASS" 
-        <?php echo $checked_arr[3]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox11" value="FAIL" 
-        <?php echo $checked_arr[3]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox12" value="NA" 
-        <?php echo $checked_arr[3]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[1]" value="<?php echo $chek_remark[3];?>" disabled>
@@ -287,15 +288,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.2  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox13" value="PASS" 
-        <?php echo $checked_arr[4]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox14" value="FAIL" 
-        <?php echo $checked_arr[4]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox15" value="NA" 
-        <?php echo $checked_arr[4]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[1]" value="<?php echo $chek_remark[4];?>" disabled>
@@ -307,15 +308,15 @@ if (mysqli_num_rows($fetchLang) > 0) {
 				<td style="text-align: center;"><strong> ASME B30.13 sec..1.4.3  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox16" value="PASS" 
-        <?php echo $checked_arr[5]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="PASS"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]"  id="checkbox17" value="FAIL" 
-        <?php echo $checked_arr[5]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?>> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="result[1][]" id="checkbox18" value="NA" 
-        <?php echo $checked_arr[5]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="NA"?'checked':''; ?>> 
     </td>
     <td>
         <input type="text" name="remarks[1]" value="<?php echo $chek_remark[5];?>" disabled>
