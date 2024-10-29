@@ -98,8 +98,8 @@ if (!$checklist_no) {
 }
 
 // Concatenate all results and remarks into single strings
-$combined_results = implode(" , ", $results);
-$combined_remarks = implode(" , ", $remarks);
+$combined_results = implode(",", $results);
+$combined_remarks = implode(",", $remarks);
 
 // Debugging output for remarks
 echo "Combined Results: " . $combined_results . "<br>";

@@ -290,12 +290,6 @@ if (!empty($checklist_type)) {
 			</table>
 			
 			</div>
-<<<<<<< HEAD
-
-=======
-       
-		
->>>>>>> ebd873dfa2b006683503af9d458899808831e872
 		
 		<div class="table-responsive">
             <table class="table table-bordered">
