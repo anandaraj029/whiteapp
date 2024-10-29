@@ -175,7 +175,7 @@ if (!empty($checklist_type)) {
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.2]" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td><input name="remarks[1.2]" ></td>
             </tr>
             <tr>
                 <td><strong>1.3</strong></td>
@@ -184,7 +184,7 @@ if (!empty($checklist_type)) {
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.3]" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td><input name="remarks[1.3]" ></td>
             </tr>
             <tr>
                 <td><strong>1.4</strong></td>
@@ -195,7 +195,7 @@ sec. 1.1.2
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.4]" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td><input name="remarks[1.4]" ></td>
             </tr>
             <tr>
                 <td><strong>1.5</strong></td>
@@ -204,7 +204,7 @@ sec. 1.1.2
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.5]" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td><input name="remarks[1.5]" ></td>
             </tr>
             <tr>
                 <td><strong>1.6</strong></td>
@@ -213,7 +213,7 @@ sec. 1.1.2
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
                  <td class="checkbox-cell"><strong><input type="checkbox" name="result[1.6]" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td><input name="remarks[1.6]" ></td>
             </tr>
             
 			</tbody>
@@ -233,10 +233,12 @@ sec. 1.1.2
                 <tbody>
 				
 				<tr>
-                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
+                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </th>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                <?php echo htmlspecialchars($row['remarks']); ?>        
+            </td>
                 
             </tr>
 			</tbody>
