@@ -1,5 +1,5 @@
 <?php 
-include_once('../../../file/config.php'); // include your database connection
+include_once('../../../../file/config.php'); // include your database connection
 
 // Check if checklist_type parameter is set in the URL, use 'wheel-loader' as default for testing
 $checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
@@ -25,6 +25,42 @@ if (!empty($checklist_type)) {
     $row = []; // Initialize as an empty array if checklist type is not provided
 }
 
+//fetch checklist
+// Example checklist ID to fetch
+$checklist_no = $_GET['checklist_no'] ?? null; // Assuming checklist_no is passed via GET
+
+// Initialize variables
+// $selected_results = [];
+// $db_remark = '';
+
+// if ($checklist_no) {
+//     // Fetch checklist data
+//     $stmt = $conn->prepare("SELECT result, remark FROM checklist_results WHERE checklist_id = ?");
+//     $stmt->bind_param("i", $checklist_no);
+//     $stmt->execute();
+//     $stmt->bind_result($db_result, $db_remark);
+//     $stmt->fetch();
+//     $stmt->close();
+
+//     // Debugging output
+//     echo "Database Result: " . htmlspecialchars($db_result) . "<br>";
+//     echo "Database Remark: " . htmlspecialchars($db_remark) . "<br>";
+
+//     // Convert the result to an array for easy checking
+//     $selected_results = explode(",", $db_result);
+// } else {
+//     echo "Checklist ID is required.";
+//     exit;
+// }
+
+
+
+$fetchLang = mysqli_query($conn, "SELECT * FROM checklist_results WHERE checklist_id = $checklist_no");
+if (mysqli_num_rows($fetchLang) > 0) {
+    $result = mysqli_fetch_assoc($fetchLang);
+    $checked_arr = explode(", ", $result['result']);
+    $chek_remark = explode(",", $result['checklist_remark']);
+}
 
 
 ?>
@@ -40,7 +76,7 @@ if (!empty($checklist_type)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -49,7 +85,7 @@ if (!empty($checklist_type)) {
       <table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
-            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+            <img src="../../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
         </td>
         <td colspan="3" class="no-border">
             <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
@@ -70,7 +106,7 @@ if (!empty($checklist_type)) {
         <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
-   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">
@@ -136,7 +172,7 @@ if (!empty($checklist_type)) {
 
 </div>
 
-        <form method="post" action="./update_checklist.php">
+        <form method="post" action="?">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -167,18 +203,21 @@ if (!empty($checklist_type)) {
                 <td><strong>1.1</strong></td>
                 <td><strong>Equipment documentation is available</strong></td>
                 <td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
-				<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[1]">
-</td>
+                <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $checked_arr[0]=="PASS"?'checked':''; ?> > 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $checked_arr[0]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $checked_arr[0]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
             <tr>
                 <td><strong>1.2</strong></td>
@@ -186,17 +225,20 @@ if (!empty($checklist_type)) {
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
 
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[2]">
-</td>
+        <input type="checkbox" name="checked_arr[1][]" id="checkbox4" value="PASS" 
+        <?php echo $checked_arr[1]=="PASS"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[1][]" id="checkbox5" value="FAIL" 
+        <?php echo $checked_arr[1]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[1][]" id="checkbox6" value="NA" 
+        <?php echo $checked_arr[1]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[1]" value="<?php echo $chek_remark[1];?>" disabled>
+    </td>
             </tr>
             <tr>
                 <td><strong>1.3</strong></td>
@@ -204,68 +246,80 @@ if (!empty($checklist_type)) {
 				<td style="text-align: center;"><strong> CIMS-QHSE-06 (13.1.1.1)  </strong></td>
               
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[3]">
-</td>
+        <input type="checkbox" name="checked_arr[1][]" id="checkbox7" value="PASS" 
+        <?php echo $checked_arr[2]=="PASS"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[1][]" id="checkbox8" value="FAIL" 
+        <?php echo $checked_arr[2]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox9" value="NA" 
+        <?php echo $checked_arr[2]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[1]" value="<?php echo $chek_remark[2];?>" disabled>
+    </td>
             </tr>
             <tr>
                 <td><strong>1.4</strong></td>
                 <td><strong> Warning and cautionary labels are affixed at aisle entrance points or access positions and are durable and legible </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec. 1.1.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[4]">
-</td>
+        <input type="checkbox" name="result[1][]" id="checkbox10" value="PASS" 
+        <?php echo $checked_arr[3]=="PASS"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox11" value="FAIL" 
+        <?php echo $checked_arr[3]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox12" value="NA" 
+        <?php echo $checked_arr[3]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[1]" value="<?php echo $chek_remark[3];?>" disabled>
+    </td>
             </tr>
             <tr>
                 <td><strong>1.5</strong></td>
                 <td><strong> Clearances and tolerances within the system are as determined by the manufacturer or user (specifications) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.2  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[5]">
-</td>
+        <input type="checkbox" name="result[1][]" id="checkbox13" value="PASS" 
+        <?php echo $checked_arr[4]=="PASS"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox14" value="FAIL" 
+        <?php echo $checked_arr[4]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox15" value="NA" 
+        <?php echo $checked_arr[4]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[1]" value="<?php echo $chek_remark[4];?>" disabled>
+    </td>
             </tr>
             <tr>
                 <td><strong>1.6</strong></td>
                 <td><strong> A fire extinguisher with minimum 10BC rating is available (in the cab) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec..1.4.3  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="remarks[6]">
-</td>
+        <input type="checkbox" name="result[1][]" id="checkbox16" value="PASS" 
+        <?php echo $checked_arr[5]=="PASS"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]"  id="checkbox17" value="FAIL" 
+        <?php echo $checked_arr[5]=="FAIL"?'checked':''; ?>> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="result[1][]" id="checkbox18" value="NA" 
+        <?php echo $checked_arr[5]=="NA"?'checked':''; ?>> 
+    </td>
+    <td>
+        <input type="text" name="remarks[1]" value="<?php echo $chek_remark[5];?>" disabled>
+    </td>
             </tr>
             
 			</tbody>

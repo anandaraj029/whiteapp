@@ -51,11 +51,11 @@ $result = $conn->query($sql);
                                     // Loop through each row
                                     while($row = mysqli_fetch_assoc($result)) {
                                         $checklist_type = $row['checklist_type']; // Get checklist type for each row
-
+                                        $checklist_no = $row['checklist_id']; // Get checklist number for each
                                         echo "<tr>";
                                         echo "<td> 
         <div class='star'>
-            <a href='./type/{$checklist_type}.php?checklist_type={$checklist_type}'>
+            <a href='./type/view/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>
             
                 <div class='icon text-primary'>
                     <i class='et-document'></i>
