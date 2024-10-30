@@ -1,3 +1,10 @@
+<?php 
+
+include_once('./get-checklist.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,44 +72,48 @@
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
          <div class="table-responsive">
-            <table class="table table-bordered">
+            
+         <table class="table table-bordered">
                 
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
-                <td><strong></strong></td>
-                <th>STICKER NO.:</th>
-                <td><strong></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
-                <th>EQUIP. SERIAL NO.:</th>
-                <td><strong></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
-                <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
-            </tr>
+        <th>LOCATION:</th>
+        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <th>STICKER NO.:</th>
+        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+    </tr>
+    <tr>
+        <th>CRANE ASSET NO:</th>
+        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
+        <th>CRANE SERIAL NO.:</th>
+        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+    </tr>
+    <tr>
+        <th>EQUIPMENT TYPE:</th>
+        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <th>CAPACITY (SWL):</th>
+        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+    </tr>
             
         </table>
 </div>
         
 
+
+<form method="post" action="./update_checklist.php">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -129,82 +140,162 @@
  <tr>
                 <td><strong>1.1</strong></td>
                 <td><strong> Documentation is available.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.2</strong></td>
                 <td><strong>Equipment asset ID Number is prominently marked. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[2]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.3</strong></td>
                 <td><strong> Nameplate, caution, and instruction markings are available on the truck.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[3]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.4</strong></td>
                 <td><strong> SWL/WLL (Capacities) are clearly marked & on a prominent location.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[4]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.5</strong></td>
                 <td><strong> All controls are marked for identification of function.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[5]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.6</strong></td>
                 <td><strong>Front end attachments, including fork extensions are marked with identification, capacity, maximum elevation with the load laterally centered.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[6]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.7</strong></td>
                 <td><strong>The machine is operated by Certified Operator. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[7]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.8</strong></td>
                 <td><strong>  All control levers are within reach of operator during the normal operating conditions.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[8]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.9</strong></td>
                 <td><strong> Capacity chart is provided & legible.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[9]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.10</strong></td>
                 <td><strong> All safety & warning decals are posted.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[10]">
+</td>
             </tr>
 			</tbody>
 			
@@ -223,162 +314,322 @@
 			<tr>
                 <td><strong>2.1</strong></td>
                 <td><strong>Carriage, backrest, & mast are not bent or deformed.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[11]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.2</strong></td>
                 <td><strong> Forks are not deformed or bent.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[12]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.3</strong></td>
                 <td><strong> Forks arms & levers are not deformed or bent.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[13]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.4</strong></td>
                 <td><strong> No excessive corrosion on frames, anchorages, structures are present. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[14]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.5</strong></td>
                 <td><strong> Load chains have no broken links or pins.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[15]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.6</strong></td>
                 <td><strong> Lift & tilt cylinders are operating correctly & without hydraulic oil leaks.    </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[16]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.7</strong></td>
                 <td><strong> Steering & side shift cylinders are operating correctly & without hydraulic oil leaks.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[17]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.8</strong></td>
                 <td><strong>  ROPS or overhead guard is provided and can withstand the drop test based on the applicable table or rated capacity.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[18]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.9</strong></td> 
                 <td><strong> Safety belt is provided.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[19]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.10</strong></td>
                 <td><strong> All control levers are within reach of operator during the normal operating conditions.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[20]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.11</strong></td>
                 <td><strong>All hydraulic hoses are free of tears, and no signs of leaks on their hose fittings.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[21]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.12</strong></td>
                 <td><strong>   Hydraulic oil tank level is correct and tank is securely fastened, and no signs of oil leakages.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[22]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.13</strong></td>
                 <td><strong>  Fuel tank is correct, secured, & not leaking.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[23]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.14</strong></td>
                 <td><strong>Steering & transmission oil levels are correct & not leaking. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[24]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.15</strong></td>
                 <td><strong>Lubrication points are accessible.     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[25]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.16</strong></td>
                 <td><strong>No deterioration or leakage in air, water or hydraulic is found. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[26]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.17</strong></td>
                 <td><strong>  No indication of loose, damaged, or missing structural components including supports and anchorages.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[27]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.18</strong></td>
                 <td><strong>  Limit Switches are properly working.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[28]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.19</strong></td>
                 <td><strong>Brake & Clutch system parts & linings have no excessive wear, severe distortion, and damage.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[29]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.20</strong></td>
                 <td><strong> Seat and back cushion are not torn.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[30]">
+</td>
             </tr>
             
 			
@@ -399,82 +650,162 @@
  <tr>
                 <td><strong>3.1</strong></td>
                 <td><strong>  No deterioration or leakage in air or hydraulic is found. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[31]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.2</strong></td>
                 <td><strong>Tires have no tears, sidewall cuts & excessive wear.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[32]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.3</strong></td>
                 <td><strong> Wheel hubs and gear boxes have no leakages.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[33]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.4</strong></td>
                 <td><strong> Wheel bearings / bushing have no signs of excessive wear.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[34]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.5</strong></td>
                 <td><strong>  No indication of loose, damaged, or missing components including supports and anchorages on under chassis.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[35]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.6</strong></td>
                 <td><strong> Control & drive mechanisms are properly adjusted and without excessive wear.    </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[36]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.7</strong></td>
                 <td><strong> Brake fluid level is correctly topped-up.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[37]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.8</strong></td>
                 <td><strong> Parking brake is correctly working.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[38]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.9</strong></td>
                 <td><strong>Steering cylinders, knuckles, kingpins, tie rods, equalizer bar, etc. have no excessive plays and not excessively worn-out.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[39]">
+</td>
             </tr>
             <tr>
                 <td><strong>3.10</strong></td>
                 <td><strong> No damage tubing, piping, electrical cables, or hoses, and their fittings.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[40]">
+</td>
             </tr>
 			
 			</tbody>
@@ -495,92 +826,172 @@
 			<tr>
                 <td><strong>4.1</strong></td>
                 <td><strong>Engine has no excessive smoke, & engine oil leak.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[41]">
+</td>
             </tr>
             <tr>
                 <td><strong>4.2</strong></td>
                 <td><strong>Fuel is not leaking.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[42]">
+</td>
             </tr>
             <tr>
                 <td><strong>4.3</strong></td>
                 <td><strong> Engine has no loss of power.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[43]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>4.4</strong></td>
                 <td><strong> Fan, Alternator, & steering belts tension are not loose.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[44]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>4.5</strong></td>
                 <td><strong>  All indicator lights are not broken and are functioning correctly.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[45]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>4.6</strong></td>
                 <td><strong>  Strobe light or rotating beacon light is provided working.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[46]">
+</td>
             </tr>
 			
 			
 			<tr>
                 <td><strong>4.7</strong></td>
                 <td><strong>  Head light & working lights are not broken and are functioning correctly. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[47]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>4.8</strong></td>
                 <td><strong> Brake & tail lights, including reverse light are working.   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[48]">
+</td>
             </tr>
 			
 			
 			<tr>
                 <td><strong>4.9</strong></td>
                 <td><strong>   Back-Up alarm is working.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[49]">
+</td>
             </tr>
 			
 			
 			<tr>
                 <td><strong>4.10</strong></td>
                 <td><strong> Horn is working.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[50]">
+</td>
             </tr>
 			
 			
@@ -588,39 +999,71 @@
 			<tr>
                 <td><strong>4.11</strong></td>
                 <td><strong>  Radiator coolant level is correct and no sign of water leakage.  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[51]">
+</td>
             </tr>
 			
 			
 			<tr>
                 <td><strong>4.12</strong></td>
                 <td><strong>  Turn signal lights are provided and working correctly. </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[52]">
+</td>
             </tr>
 			
 			
 			<tr>
                 <td><strong>4.13</strong></td>
                 <td><strong>Battery water/electrolyte level is correct.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[53]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>4.14</strong></td>
                 <td><strong>Fire extinguisher is provided and has the valid inspection tag.</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[54]">
+</td>
             </tr>
 			
             
@@ -655,7 +1098,10 @@
            
         </table>
 
-
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
         
     </div>
 	    </div>

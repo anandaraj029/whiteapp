@@ -69,7 +69,9 @@ include_once('../../inc/function.php');
             <option value="storage-retrieval">Storage Retrieval</option>            
             <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
             <option value="powered-platforms">Powered Platforms (Sky Climbers)</option>
-            <option value="vehicle-mounted-elevating-aerial-rotating-devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+            <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+            <option value="forklift">Forklift</option>
+            <option value="bulldozer">Bulldozer</option>
                 </select> 
             </div>
 
