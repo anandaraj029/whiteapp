@@ -34,7 +34,7 @@ include_once('../inc/function.php');
                                 <h4 class="font-20 mb-30">Project Data</h4>
 
                                 <!-- Form -->
-                                <form action="#" method="POST">
+                                <form action="../file/create-job.php" method="POST">
 
                                       <!-- Form Row -->
                                       <div class="form-row mb-20">
@@ -42,7 +42,7 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Project No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Project No">
+                                            <input type="text" name="project_no" class="theme-input-style" placeholder="Project No">
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -53,7 +53,7 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Date of Creation</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="date" class="theme-input-style" placeholder="Date of Creation">
+                                            <input type="date" name="creation_date" class="theme-input-style" placeholder="Date of Creation">
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -64,13 +64,11 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Equipment Type</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <select class="theme-input-style">
-
-                                            <option value="">Select</option>
-                                            <option value="">Lifting Equipment</option>
-                                            <option value="">NDT Equipment</option>
-                                            </select>
-                                    
+                                        <select name="equipment_type" class="theme-input-style">
+                                        <option value="Lifting Equipment">Lifting Equipment</option>
+                                        <option value="NDT Equipment">NDT Equipment</option>
+                                    </select>
+                                                                    
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -81,13 +79,11 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Sticker / Non Sticker</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <select class="theme-input-style">
-
-                                            <option value="">Select</option>
-                                            <option value="">Yes</option>
-                                            <option value="">No</option>
-                                            </select>
-                                    
+                                        <select name="sticker_status" class="theme-input-style">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                                                    
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -96,18 +92,19 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Checklist Type</label>
                                         </div>
                                         <div class="col-sm-8">
-                                        <select class="theme-input-style">
-                                                    <option>Select Type</option>
-                                                    <option>Articulating boom</option>
-                                                    <option>Elevators</option>
-                                                    <option>Mobile & Locomotive Cranes</option>
-                                                    <option>Marine & Offshore Cranes</option>
-                                                    <option>Storage Retrieval</option>
-                                                    <option>Articulating Boom Cranes</option>
-                                                    <option>Lifting Beam Spreader Bar</option>
-                                                    <option>Powered Platforms (Sky Climbers)</option>
-                                                    <option>Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
-                                                </select> 
+
+                                        <select name="checklist_type" class="theme-input-style">
+                                            <option value="Articulating boom">Articulating boom</option>
+                                            <option value="Elevators">Elevators</option>
+                                            <option value="Mobile & Locomotive Cranes">Mobile & Locomotive Cranes</option>
+                                            <option value="Marine & Offshore Cranes">Marine & Offshore Cranes</option>
+                                            <option value="Storage Retrieval">Storage Retrieval</option>
+                                            <option value="Articulating Boom Cranes">Articulating Boom Cranes</option>
+                                            <option value="Lifting Beam Spreader Bar">Lifting Beam Spreader Bar</option>
+                                            <option value="Powered Platforms (Sky Climbers)">Powered Platforms (Sky Climbers)</option>
+                                            <option value="Vehicle-Mounted Elevating & Aerial Rotating Devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+                                        </select>
+                                       
                                     
                                         </div>
                                     </div>
@@ -116,13 +113,13 @@ include_once('../inc/function.php');
                            
 
                                     <!-- Form Row -->
-                                    <div class="form-row">
+                                    <!-- <div class="form-row">
                                         <div class="col-12 text-right">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
-                                </form>
+                             
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
@@ -139,13 +136,11 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Select Customer</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <select class="theme-input-style">
-
-                                            <option value="">Select</option>
-                                            <option value="">Customer name 1</option>
-                                            <option value="">Customer name 2</option>
-                                            </select>
-                                    
+                                        <select name="customer_name" class="theme-input-style">
+                                        <option value="Customer name 1">Customer name 1</option>
+                                        <option value="Customer name 2">Customer name 2</option>
+                                    </select>
+                                                                    
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -162,7 +157,8 @@ include_once('../inc/function.php');
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address">
+                                                <input type="email" name="customer_email" class="form-control pl-1" placeholder="Type Email Address">
+
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +176,7 @@ include_once('../inc/function.php');
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" placeholder="Contact Number">
+                                                <input type="number" name="customer_mobile" class="form-control pl-1" placeholder="Contact Number">
                                             </div>
                                         </div>
                                     </div>
@@ -192,13 +188,11 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Select Inspector</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <select class="theme-input-style">
-
-                                            <option value="">Select</option>
-                                            <option value="">Inspector name 1</option>
-                                            <option value="">Inspector name 2</option>
-                                            </select>
-                                    
+                                        <select name="inspector_name" class="theme-input-style">
+                                        <option value="Inspector name 1">Inspector name 1</option>
+                                        <option value="Inspector name 2">Inspector name 2</option>
+                                    </select>
+                                                                    
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -208,21 +202,14 @@ include_once('../inc/function.php');
                                             <label class="font-14 bold">Equipment Location</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="location">
+                                        <input type="text" name="equipment_location" class="theme-input-style" placeholder="Location">
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
 
-                                
-
-                                    <!-- Form Row -->
-                                    <div class="form-row">
-                                        <div class="col-12 text-right">
-                                            <button type="submit" class="btn long">Save</button>
-                                        </div>
-                                    </div>
+                               
                                     <!-- End Form Row -->
-                                </form>
+                              
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
@@ -230,101 +217,7 @@ include_once('../inc/function.php');
 
                       
                         </div>
-                        <div class="col-lg-12 d-none">
-                            <!-- Base Horizontal Form With Icons -->
-                            <div class="form-element py-30 multiple-column">
-                                <h4 class="font-20 mb-20">A. GENERAL INFORMATION</h4>
-
-                                <!-- Form -->
-                            
-
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Vessel Name & Location</label>
-                                                <input type="text" class="theme-input-style" placeholder="Vessel Name & Location">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Manufacturer</label>
-                                                <input type="text" class="theme-input-style" placeholder="Manufacturer">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Type of Crane</label>
-                                                <input type="text" class="theme-input-style" placeholder="Type of Crane">
-                                            </div>
-                                            <!-- End Form Group -->
-
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Asset Number</label>
-                                                <input type="text" class="theme-input-style" placeholder="Asset Number">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Serial Number</label>
-                                                <input type="text" class="theme-input-style" placeholder="Serial Number">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Model</label>
-                                                <input type="text" class="theme-input-style" placeholder="Model">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Manufacturing Year</label>
-                                                <input type="text" class="theme-input-style" placeholder="Manufacturing Year">
-                                            </div>
-                                            <!-- End Form Group -->
-                                            
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Address</label>
-                                                <input type="text" class="theme-input-style" placeholder="Address">
-                                            </div>
-                                            <!-- End Form Group -->
-                                              <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Capacity (SWL)	</label>
-                                                <input type="text" class="theme-input-style" placeholder="Capacity (SWL)">
-                                            </div>
-                                            <!-- End Form Group -->
-                                              <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Date of Previous Test of Crane</label>
-                                                <input type="date" class="theme-input-style" placeholder="Date of Previous Test of Crane">
-                                            </div>
-                                            <!-- End Form Group -->
-                                        </div>
-                                    </div>
-
-                               
-
-                                    <!-- Form Row -->
-                                    <!-- <div class="form-row">
-                                        <div class="col-12 text-center mt-4">
-                                            <button type="submit" class="btn long">Save</button>
-                                        </div>
-                                    </div> -->
-                                    <!-- End Form Row -->
-                               
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Horizontal Form With Icons -->
-                        </div>
+                   
                        
                             <!-- Form Row -->
                             <div class="form-row">

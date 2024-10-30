@@ -1,5 +1,12 @@
 <?php 
+
 include_once('../inc/function.php');
+
+include '../file/config.php'; // Database connection
+
+// Fetch data from the project_info table
+$sql = "SELECT * FROM project_info";
+$result = $conn->query($sql);
 ?>
 <!-- Main Content -->
 <div class="main-content">
@@ -61,14 +68,49 @@ include_once('../inc/function.php');
                            <th>Progress</th>
                            <th>Customer</th>
                            <th>Status </th>
-                           <th>Equip.Id</th>
+                           <th>Equip.type</th>
                            <th>Location</th>
                            <th>Inspector</th>
                            <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
+
+                     <?php
+            if ($result->num_rows > 0) {
+                // Loop through each row in the result
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td class="bold"><?php echo "#" . str_pad($row["id"], 5, "0", STR_PAD_LEFT); ?></td>
+                        <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                        <td>
+                            <div class="product-img">
+                                <img src="../assets/img/product/product1.png" alt="">
+                                <img src="../assets/img/product/product5.png" alt="">
+                                <img src="../assets/img/product/product6.png" alt="">
+                            </div>
+                        </td>
+                        <td><?php echo $row["customer_name"]; ?></td>
+                        <td class="text-danger">Processing</td> <!-- Example status -->
+                        <td class="bold"><?php echo $row["equipment_type"]; ?></td> <!-- Assuming Equip. ID is the project ID -->
+                        <td class="bold"><?php echo $row["equipment_location"]; ?></td>
+                        <td class="bold"><?php echo $row["inspector_name"]; ?></td>
+                        <td>
+                            <a href="job-details.php?id=<?php echo $row['id']; ?>">
+                                <button type="button" class="details-btn">
+                                    Details <i class="icofont-arrow-right"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            } else {
+                echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
+            }
+            ?>
+                        <!-- <tr>
                            <td class="bold">#01254</td>
                            <td>12 Oct 2019</td>
                            <td>
@@ -85,14 +127,14 @@ include_once('../inc/function.php');
                            <td class="bold">2687</td>
                            <td><a href="job-details.php">
                             <button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
-                        </tr>
+                        </tr> -->
 
-                        <tr>
+                        <!-- <tr>
                            <td class="bold">#01365</td>
                            <td>12 Oct 2019</td>
                            <td>
                               <div class="product-img d-flex align-ite">
-                              <!-- <div class="color-circle bg-success-light text-success mr-2 mb-2">Success</div> -->
+                            
                                  <img src="../assets/img/product/product2.png" alt="">
                                
                                  <img src="../assets/img/product/product7.png" alt="">
@@ -106,9 +148,9 @@ include_once('../inc/function.php');
                            <td class="bold">$24.6</td>
                            <td class="bold">2687</td>
                            <td><a href="job-details.php"><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
-                        </tr>
+                        </tr> -->
 
-                        <tr>
+                        <!-- <tr>
                            <td class="bold">#03654</td>
                            <td>11 Oct 2019</td>
                            <td>
@@ -127,13 +169,17 @@ include_once('../inc/function.php');
                             <button type="button" class="details-btn">Details 
                                 <i class="icofont-arrow-right"></i></button></a>
                             </td>
-                        </tr>
+                        </tr> -->
                      </tbody>
                   </table>
                </div>
         <!-- End Invoice List Table -->
     </div>
 </div>
+<?php
+// Close the database connection
+$conn->close();
+?>
 
 <!-- Include the export scripts -->
 <script>
@@ -151,194 +197,7 @@ document.getElementById('excel-button').addEventListener('click', function () {
 </script>
 
 
-                    <!-- <div class="table-responsive">
-                        <table class="order-list-table text-nowrap">
-                            <thead>
-                                <tr>
-                                    <th>ID <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                    <th>Purchase Date <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                    <th>Customer <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                    <th>Grand Total <img src="../../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                    <th>Tax</th>
-                                    <th>Shipping</th>
-                                    <th>Quantity</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white">
-                                <tr>
-                                    <td>#00125</td>
-                                    <td>14 November 2019</td>
-                                    <td>Jim Spencer</td>
-                                    <td>$2546.6</td>
-                                    <td>$25.6</td>
-                                    <td>$5.6</td>
-                                    <td>12</td>
-                                    <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00126</td>
-                                    <td>15 November 2019</td>
-                                    <td>Gordon Wood</td>
-                                    <td>$645.2</td>
-                                    <td>$6.2</td>
-                                    <td>$6.2</td>
-                                    <td>36</td>
-                                    <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00127</td>
-                                    <td>16 November 2019</td>
-                                    <td>Maggie Hawkins</td>
-                                    <td>$1546.5</td>
-                                    <td>$16.5</td>
-                                    <td>$16.5</td>
-                                    <td>25</td>
-                                    <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00128</td>
-                                    <td>17 November 2019</td>
-                                    <td>Chester Love</td>
-                                    <td>$3568.8</td>
-                                    <td>$38.8</td>
-                                    <td>$8.8</td>
-                                    <td>26</td>
-                                    <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00129</td>
-                                    <td>18 November 2019</td>
-                                    <td>Clifton Morales</td>
-                                    <td>$215.6</td>
-                                    <td>$25.6</td>
-                                    <td>$5.6</td>
-                                    <td>16</td>
-                                    <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00130</td>
-                                    <td>19 November 2019</td>
-                                    <td>Tasha Jackson</td>
-                                    <td>$46.6</td>
-                                    <td>$4.6</td>
-                                    <td>$14.6</td>
-                                    <td>36</td>
-                                    <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00131</td>
-                                    <td>20 November 2019</td>
-                                    <td>Everett Aguilar</td>
-                                    <td>$154.8</td>
-                                    <td>$14.8</td>
-                                    <td>$4.8</td>
-                                    <td>25</td>
-                                    <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00132</td>
-                                    <td>21 November 2019</td>
-                                    <td>Sarah Ramos</td>
-                                    <td>$15.6</td>
-                                    <td>$5.6</td>
-                                    <td>$4.8</td>
-                                    <td>14</td>
-                                    <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00133</td>
-                                    <td>22 November 2019</td>
-                                    <td>Eileen Figueroa</td>
-                                    <td>$156.3</td>
-                                    <td>$16.3</td>
-                                    <td>$6.3</td>
-                                    <td>54</td>
-                                    <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00134</td>
-                                    <td>23 November 2019</td>
-                                    <td>Harold Harrington</td>
-                                    <td>$254.1</td>
-                                    <td>$4.1</td>
-                                    <td>$4.1</td>
-                                    <td>69</td>
-                                    <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00135</td>
-                                    <td>24 November 2019</td>
-                                    <td>Tyler Howard</td>
-                                    <td>$215.9</td>
-                                    <td>$2.9</td>
-                                    <td>$1.9</td>
-                                    <td>14</td>
-                                    <td><button type="button" class="status-btn un_paid">Unpaid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00136</td>
-                                    <td>25 November 2019</td>
-                                    <td>Maxine Hogan</td>
-                                    <td>$657.6</td>
-                                    <td>$7.6</td>
-                                    <td>$2.6</td>
-                                    <td>47</td>
-                                    <td><button type="button" class="status-btn completed">Completed</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00137</td>
-                                    <td>26 November 2019</td>
-                                    <td>Eleanor Bradley</td>
-                                    <td>$2546.6</td>
-                                    <td>$25.6</td>
-                                    <td>$5.6</td>
-                                    <td>26</td>
-                                    <td><button type="button" class="status-btn on_hold">On Hold</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-
-                                <tr>
-                                    <td>#00138</td>
-                                    <td>27 November 2019</td>
-                                    <td>Nettie Stokes</td>
-                                    <td>$645.2</td>
-                                    <td>$6.2</td>
-                                    <td>$6.2</td>
-                                    <td>17</td>
-                                    <td><button type="button" class="status-btn paid">Paid</button></td>
-                                    <td><a href="#"><img src="../../assets/img/svg/table-colse.svg" alt="" class="svg"></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        
-                    </div> -->
+                  
                 </div>
                 <!-- End Card -->
             </div>

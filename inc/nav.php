@@ -48,8 +48,8 @@
                      <!-- Sub Menu -->
                      <ul class="nav sub-menu">
                          <li><a href="<?php echo $url; ?>job/overall-job-list.php">Over all Projects</a></li>
-                        <li><a href="<?php echo $url; ?>job/create-job.php">Lifting Equipment</a></li>
-                        <li><a href="">NDT Equipment</a></li>
+                        <!-- <li><a href="<?php echo $url; ?>job/create-job.php">Lifting Equipment</a></li>
+                        <li><a href="">NDT Equipment</a></li> -->
                       </ul>
                      <!-- End Sub Menu -->
                   </li>

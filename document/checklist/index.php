@@ -22,8 +22,8 @@ $result = $conn->query($sql);
                         <h4 class="pl-2 pt-3 pb-2">Checklist List</h4>
                     </div>
                         <div class="col-6 text-right">
-                            <a href="./add-sticker.php" >
-                       <button type="button" class="btn" >Create New</button>    
+                            <a href="./add-checklist.php">
+                       <button type="button" class="btn">Create New</button>    
                        </a>           
                         </div>
                     </div>

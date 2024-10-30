@@ -5,7 +5,7 @@ include_once('../../../file/config.php'); // include your database connection
 $checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
 
 // Debug line to check the checklist_type
-echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
+// echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
 
 if (!empty($checklist_type)) {
     // SQL query to fetch data from the 'checklist_information' table based on checklist type
@@ -49,7 +49,7 @@ if (!empty($checklist_type)) {
       <table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
-            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+            <img src="../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
         </td>
         <td colspan="3" class="no-border">
             <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
