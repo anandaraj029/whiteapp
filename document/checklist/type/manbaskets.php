@@ -1,3 +1,8 @@
+<?php 
+
+include_once('./get-checklist.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,6 +108,8 @@
 </div>
         
 
+<form method="post" action="./update_checklist.php">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -133,10 +140,18 @@
                 <td><strong> Documentation is available. </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 Sec 1.2.1(c)(1,2,3)
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+ <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
@@ -144,28 +159,52 @@
                 <td><strong>  Platform has an identification number / asset number marked on it. </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 SEC 1.1(7)(-c)
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+ <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
-                <td><strong> Platform’s SWL is prominently marked (Minimum Platform rating is 300 lbs. (136 kg).   </strong></td>
+                <td><strong> Platform’s SWL is prominently marked Minimum Platform rating is 300 lbs. (136 kg).   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 SEC 1.1.1 (B)(1)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
                 <td><strong> Maximum number of persons allowed on the platform is clearly marked.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
@@ -174,28 +213,52 @@
 Sec 1.1.
 (7)(-a)(d)(-e)
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+  <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.6</strong></td>
                 <td><strong>  Rope sling and chain sling suspension systems shall have each leg of the system permanently marked with the rated load of the leg.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-h)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
                 <td><strong>  The master link in the system shall be permanently marked with the suspension system's rated load and identification as a personnel lifting platform suspension component.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-h)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
             
@@ -218,112 +281,208 @@ Sec 1.1.
                 <td><strong>2.1</strong></td>
                 <td><strong>  Shackles shall be of a bolt type with cotter pin.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-i)   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>2.2</strong></td>
                 <td><strong>  Access system (gate), if provided, shall only open inward. </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(8)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
                 <td><strong>Rope Sling Suspension System with Mechanically spliced Flemish eyes, if used, have thimbles in all eyes.  (Wire rope clips, wedge sockets, or knots shall not be used).    </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-a)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.4</strong></td>
                 <td><strong> Chain sling, if used, has a minimum of grade 80 chain.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-c) </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
                 <td><strong>All sling suspension systems utilized a master link for attachment to the hoisting equipment’s hook or bolt type shackle with cotter pin.   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-d) </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.6</strong></td>
                 <td><strong>  Guard rail protection consists of: Top rail (not less than 39” (990 mm & not more than 45” in 1,140 mm),  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1.1(2)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.7</strong></td>
                 <td><strong> Intermediate rail, toe board has a min. in height of 3.9”(90 mm) from the top of the platform floor.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1.1(2)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>2.8</strong></td>
                 <td><strong> Anchorage points are provided within the platform or on the boom tip.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(3)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.9</strong></td>
                 <td><strong> Hand Railings are provided around the platform, with the exception of any access gate or door. Hand railings shall have the clearance of not less than 1.5” (39 mm) between the railings and any other structure.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(4)(-c)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.10</strong></td>
                 <td><strong> Flooring with a slip-resistant surface and provisions to facilitate the free drainage of fluids and that will stand the forces developed under proof load test. Flooring shall have no opening that will allow a sphere of 0.5” (13 mm) to pass through.   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(5) </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.11</strong></td>
                 <td><strong>  Synthetic webbing sling or natural synthetic fiber rope sling is not used for suspension systems.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-e) </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>2.12</strong></td>
                 <td><strong>  Overhead protection if provided, shall allow for a clear view of the hoist equipment components directly overhead from any position in the platform. Any openings designed in the overhead protection shall not allow a sphere of 0.5” (13 mm) to pass through.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(11)  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			</tbody>
@@ -378,7 +537,10 @@ Sec 1.1.
            
         </table>
 
-
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
         
     </div>
 	    </div>
