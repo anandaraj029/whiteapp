@@ -247,7 +247,7 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                             <div class="col-md-5">
                                 
-                                <h4 style="font-size: 19px;">JRN:<?php echo htmlspecialchars($row['jrn']); ?> </h4>
+                                <h4 style="font-size: 19px;">JRN: <?php echo htmlspecialchars($row['jrn']); ?> </h4>
                                 
                             </div>
                             <!-- <div class="col-md-2">
@@ -290,16 +290,15 @@ if (mysqli_num_rows($result) > 0) {
         <div style="display: flex; flex-direction: column; margin-left: 20px;">
             <div>
                 <label for="pass"><b>Passed</b></label>
-                <input type="checkbox" id="pass" name="ins_result_pass" value="pass">
+                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
             </div>
             <div>
                 <label for="fail"><b>Failed</b></label>
-                <input type="checkbox" id="fail" name="ins_result_fail" value="fail">
+                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
             </div>
         </div>
     </div>
 </td>
-
 
 
                                     
