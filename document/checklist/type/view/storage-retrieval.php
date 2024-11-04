@@ -1697,7 +1697,9 @@ sec.2.1.3(c)
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                <?php echo htmlspecialchars($row['remarks']); ?>        
+            </td>
                 
             </tr>
 			</tbody>
