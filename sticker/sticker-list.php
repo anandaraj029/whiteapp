@@ -1,5 +1,12 @@
 <?php 
 include_once('../inc/function.php');
+
+
+include '../file/config.php'; // Database connection
+
+// Fetch data from the project_info table
+$sql = "SELECT * FROM stickers";
+$result = $conn->query($sql);
 ?>
 <!-- Main Content -->
 <div class="main-content">
@@ -26,98 +33,74 @@ include_once('../inc/function.php');
                         <table class="order-list-table text-nowrap">
                             <thead>
                                 <tr>
-                                    <th>Sticker ID </th>
-                                    <th>Project ID</th>
-                                    <th>Inspect By</th>
-                                    <th>Date of Issues</th>
-                                    <th>Date of Expiry</th>
-                                    <!-- <th>Shipping</th>
-                                    <th>Quantity</th> -->
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                <th>Sticker ID</th>
+                                <th>Project ID</th>
+                                <th>Inspect By</th>
+                                <th>Date of Issue</th>
+                                <th>Date of Expiry</th>
+                                <th>Status</th>
+                                <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
-                                <tr>
-                                    <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td>18/06/2024</td>
-                                    <td>20/10/2024</td>
-                                    <!-- <td>$5.6</td>
-                                    <td>12</td> -->
-                                    <td><button type="button" class="status-btn un_paid">Expired</button></td>
-                                    <td class="actions">
-                                    <a href="#">  <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                </tr>
+                       
 
-                                <tr>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td>18/06/2024</td>
-                                    <td>20/10/2024</td>
-                                 
-                                    <td><button type="button" class="status-btn on_hold">On Hand</button></td>
-                                    <td class="actions">
-                                    <a href="#">    <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <a href="#">  <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span></a>
-                                        </td>
-                                </tr>
 
-                                <tr>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td>18/06/2024</td>
-                                    <td>20/10/2024</td>
-                                  
-                                    <td><button type="button" class="status-btn on_hold">On Hand</button></td>
-                                    <td class="actions">
-                                    <a href="#">     <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span></a>
-                                            <a href="#">      <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span></a>
-                                        </td>
-                                </tr>
+                             <?php
+            // Check if there are any records in the result
+            if ($result->num_rows > 0) {
+                // Loop through each row in the result set
+                while ($row = $result->fetch_assoc()) {
+                    // Set status button class based on database_status
+                    $status_class = '';
+                    $status_text = '';
+                    switch ($row['status']) {
+                        case 'active':
+                            $status_class = 'paid';
+                            $status_text = 'Active';
+                            break;
+                        case 'expired':
+                            $status_class = 'un_paid';
+                            $status_text = 'Expired';
+                            break;
+                        case 'on_hold':
+                            $status_class = 'on_hold';
+                            $status_text = 'On Hold';
+                            break;
+                        default:
+                            $status_class = 'on_hold';
+                            $status_text = 'Pending';
+                            break;
+                    }
 
-                                <tr>
-                                <td>#00125</td>
-                                    <td>2313</td>
-                                    <td>INSPECTOR</td>
-                                    <td>18/06/2024</td>
-                                    <td>20/10/2024</td>
-                                     <td><button type="button" class="status-btn paid">Active</button></td>
-                                    <td class="actions">
-                                       <a href="#"> <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            </a>
-                                            <span class="contact-close">
-                                            <a href="#"> 
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </a>
-                                            </span>
-                                         
-                                        </td>
-                                </tr>
-
+                    echo "<tr>
+                            <td>#{$row['sticker_start_no']}</td>
+                            <td>{$row['project_id']}</td>
+                            <td>{$row['assign_inspector']}</td>
+                            <td>" . date("d/m/Y", strtotime($row['created_at'])) . "</td>
+                            <td>" . date("d/m/Y", strtotime($row['expiry_date'])) . "</td>
+                            <td><button type='button' class='status-btn $status_class'>$status_text</button></td>
+                            <td class='actions'>
+                                <a href='#'><span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
+                                    <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
+                                </span></a>
+                               <a href='delete-sticker.php?id={$row['sticker_start_no']}' onclick='return confirm(\"Are you sure you want to delete this sticker?\");'>
+                                <span class='contact-close'>
+                                    <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
+                                </span>
+                            </a>
+                            </td>
+                          </tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No stickers found</td></tr>";
+            }
+            ?>
             
                             </tbody>
                         </table>
                     </div>
+                    
                 </div>
                 <!-- End Card -->
             </div>
