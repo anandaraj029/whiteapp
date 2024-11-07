@@ -103,6 +103,9 @@
 </div>
         
 
+
+<form method="post" action="./update_checklist.php">
+<input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -879,6 +882,12 @@ is used in a rope termination (in accordance with the manufacturer's instruction
            
         </table>
 
+
+
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
 
         
     </div>
