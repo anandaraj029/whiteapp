@@ -82,19 +82,16 @@ include_once('../inc/function.php');
                                             </label>
                                             <!-- End Custom Checkbox -->
 
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
+                                         
                                             <!-- End Star -->
                                         </th>
-                                        <th class="text-center">Name <img src="<?php echo $url; ?>assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
+                                        <th class="text-center">Company Name </th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Age <img src="<?php echo $url; ?>assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                        <th>Post</th>
-                                        <th>Joining Date <img src="<?php echo $url; ?>assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                                        <th>Salary <img src="<?php echo $url; ?>assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
+                                        <th>City</th>
+                                        <th>Address</th>
+                                        <th>Create at </th>
+                                        <th>Rep.name </th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -110,7 +107,7 @@ include_once('../inc/function.php');
 
                                             <!-- Star -->
                                             <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
+                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/chat-icon.svg" alt="" class="svg"></a>
                                             </div>
                                             <!-- End Star -->
                                         </td>
@@ -120,525 +117,16 @@ include_once('../inc/function.php');
                                                     <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
                                                 </div>
                                                 <div class="name bold">
-                                                    Arden Spencer
+                                                   MSI
                                                 </div>
                                             </div>
                                         </td>
                                         <td>Evangeline62@yahoo.com</td>
                                         <td>(023) 708-6818 x4267</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
+                                        <td>Kobar</td>
+                                        <td>2342,asdad,asda asasd</td>
                                         <td>June 20, 2015</td>
-                                        <td>$26253.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m20.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Favian Maggio DDS </div>
-                                            </div>
-                                        </td>
-                                        <td>Electa_Conroy@hotmail.com</td>
-                                        <td>1-076-628-3095 x7154</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>October 11, 2019</td>
-                                        <td>$26253.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m21.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Jacey Considine </div>
-                                            </div>
-                                        </td>
-                                        <td>Garry23@yahoo.com</td>
-                                        <td>1-016-234-2482</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>January 2, 2016</td>
-                                        <td>$6162.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m22.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Kolby Torphy II </div>
-                                            </div>
-                                        </td>
-                                        <td>Phyllis75@hotmail.com</td>
-                                        <td>1-345-656-4163 x373</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>August 9, 2017</td>
-                                        <td>$4022.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m23.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Mattie Daugherty </div>
-                                            </div>
-                                        </td>
-                                        <td>Jessika.Conroy@yahoo.com</td>
-                                        <td>721-969-9795 x09197</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>December 24, 2016</td>
-                                        <td>$11588.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m24.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Timothy Littel </div>
-                                            </div>
-                                        </td>
-                                        <td>Nannie_Kling49@hotmail.com</td>
-                                        <td>1-251-141-2444 x275</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>February 8, 2019</td>
-                                        <td>$14283.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="selected">
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" checked>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m19.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Karli Braun </div>
-                                            </div>
-                                        </td>
-                                        <td>Ruthe_Gleichner@gmail.com</td>
-                                        <td>697.704.7326</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>October 25, 2016</td>
-                                        <td>$13329.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="selected">
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox" checked>
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                    Arden Spencer
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Evangeline62@yahoo.com</td>
-                                        <td>(023) 708-6818 x4267</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>June 20, 2015</td>
-                                        <td>$26253.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m20.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Favian Maggio DDS </div>
-                                            </div>
-                                        </td>
-                                        <td>Electa_Conroy@hotmail.com</td>
-                                        <td>1-076-628-3095 x7154</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>October 11, 2019</td>
-                                        <td>$26253.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m21.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Jacey Considine </div>
-                                            </div>
-                                        </td>
-                                        <td>Garry23@yahoo.com</td>
-                                        <td>1-016-234-2482</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>January 2, 2016</td>
-                                        <td>$6162.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m22.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Kolby Torphy II </div>
-                                            </div>
-                                        </td>
-                                        <td>Phyllis75@hotmail.com</td>
-                                        <td>1-345-656-4163 x373</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>August 9, 2017</td>
-                                        <td>$4022.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m23.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Timothy Littel </div>
-                                            </div>
-                                        </td>
-                                        <td>Nannie_Kling49@hotmail.com</td>
-                                        <td>1-251-141-2444 x275</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>February 8, 2019</td>
-                                        <td>$14283.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m2.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Birdie Thiel </div>
-                                            </div>
-                                        </td>
-                                        <td>Kenya.Stanton@yahoo.com</td>
-                                        <td>209-225-4857</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>August 7, 2015</td>
-                                        <td>$18037.0</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
-
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m19.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold"> Karli Braun </div>
-                                            </div>
-                                        </td>
-                                        <td>Ruthe_Gleichner@gmail.com</td>
-                                        <td>697.704.7326</td>
-                                        <td>28</td>
-                                        <td>UX Researcher</td>
-                                        <td>October 25, 2016</td>
-                                        <td>$13329.0</td>
+                                        <td>representive</td>
                                         <td class="actions">
                                             <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
                                                 <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
@@ -670,7 +158,7 @@ include_once('../inc/function.php');
                                              <img src="<?php echo $url; ?>assets/img/img-placeholder.png" class="profile-avatar" alt="">
                                              <div class="upload-button">
                                                 <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                <span>Upload Photo</span>
+                                                <span>Upload Logo</span>
                                                 <input class="file-input" type="file" id="fileUpload" accept="image/*">
                                              </div>
                                           </div>
@@ -687,31 +175,32 @@ include_once('../inc/function.php');
                                           <h4 class="mb-4">Account Settings</h4>
 
                                           <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name">Name</label>
+                                             <label class="bold black mb-2" for="as_name">Company Name</label>
                                              <input type="text" id="as_name" class="theme-input-style" placeholder="Type Here" required>
                                           </div>
                                           
                                           <div class="mb-4">
                                              <label class="bold black mb-2" for="as_email">Email</label>
-                                             <input type="email" id="as_email" class="theme-input-style" placeholder="Type Here" required>
+                                             <input type="email" id="email" class="theme-input-style" placeholder="Type Here" required>
                                           </div>
                                           
                                           <div class="mb-4">
                                              <label class="bold black mb-2"  for="as_phone">Phone</label>
-                                             <input type="number" id="as_phone" class="theme-input-style" placeholder="Type Here" required>
+                                             <input type="number" id="phone" class="theme-input-style" placeholder="Type Here" required>
                                           </div>
                                           
                                           <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age">Age</label>
-                                             <input type="text" id="as_age" class="theme-input-style" placeholder="Type Here" required>
+                                             <label class="bold black mb-2" for="as_age">City</label>
+                                             <input type="text" id="city" class="theme-input-style" placeholder="Type Here" required>
                                           </div>
                                           
                                           <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post">Post</label>
-                                             <input type="text" id="as_post" class="theme-input-style" placeholder="Type Here" required>
+                                             <label class="bold black mb-2" for="as_post">Address</label>
+                                             <textarea name="address" id="address" class="theme-input-style"  row="2"  placeholder="Type Here" ></textarea>
+                                             <!-- <input type="text" id="address" class="theme-input-style" placeholder="Type Here" required> -->
                                           </div>
                                           
-                                          <div class="mb-30">
+                                          <div class="mb-10">
                                              <label class="bold black mb-2">Joining Date</label>
                                              
                                              <div class="date datepicker dashboard-date style--two" id="datePickerExample">
@@ -719,7 +208,16 @@ include_once('../inc/function.php');
                                                 <input type="text" class="pl-2" required>
                                              </div>
                                           </div>
-
+                                          <div class="d-flex align-items-center pb-20">
+                                    <!-- Custom Checkbox -->
+                                    <label class="custom-checkbox position-relative ">
+                                        <input type="checkbox" id="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <!-- End Custom Checkbox -->
+                                    
+                                    <label for="checkbox" class="font-14">Create the Customer profile </label>
+                                </div>
                                           <div class="">
                                              <a href="#" class="btn mr-4">Save Changes</a>
                                              <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
