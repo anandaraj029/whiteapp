@@ -1,3 +1,9 @@
+<?php 
+
+include_once('./get-checklist.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +97,9 @@
 </div>
         
 
+<form method="post" action="./update_checklist.php">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
+
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -120,20 +129,36 @@
                 <td><strong>1.1</strong></td>
                 <td><strong>Equipment Documentation is available  </strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
                 <td><strong>1.2</strong></td>
                 <td><strong> Previous Inspection reports are checked   </strong></td>
 				<td style="text-align: center;"><strong> CIMS QHSE 06 </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[2]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
@@ -141,10 +166,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22 
                     Sec. 22-2.1.4n
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[3]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
@@ -152,10 +185,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-2.1.4n
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[4]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
@@ -163,19 +204,35 @@
 				<td style="text-align: center;"><strong> ASME B30.22 
                     Sec. 22-1.1.3a
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[5]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.6</strong></td>
                 <td><strong>  A sign is posted warning the operator not to rely solely on any automatic device as a substitute for safe operating practice  </strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[6]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
@@ -183,10 +240,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.1.3a
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[7]">
+</td>
             </tr>
 
         </tbody>
@@ -195,8 +260,7 @@
             <tr>
                 <th style="text-align: center;">1.8</th>
                 <th style="text-align: center;">OPERATIONAL AIDS:</th>
-                <th style="text-align: center;">ASME B30.22 sec 1.8.2 </th>
-                
+                <th style="text-align: center;">ASME B30.22 sec 1.8.2 </th>                
                 <th style="text-align: center;">PASS</th>
                 <th style="text-align: center;">FAIL</th>
                 <th style="text-align: center;">N/A</th>
@@ -208,37 +272,69 @@
                 <td><strong>1.8.1</strong></td>
                 <td><strong> Two-block damage prevention system or anti-two block device.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.1</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[8]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.8.2</strong></td>
                 <td><strong>Overload protection system or rated capacity limiters.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.2</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[9]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.8.3</strong></td>
                 <td><strong> Crane Level Indicator.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.3</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[10]">
+</td>
             </tr>
             <tr>
                 <td><strong>1.8.4</strong></td>
                 <td><strong> Load indicator, rated capacity indicator, minimum wrap limiter.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 3.2.2 (b)(2)</strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[11]">
+</td>
             </tr>
 		
 			
@@ -264,10 +360,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec 22-1.2.1(a)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[12]">
+</td>
             </tr>
 			
 			<tr>
@@ -276,10 +380,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec 22-1.2.1(b)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[13]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
@@ -287,10 +399,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec 22-2.1.4(i)(1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[14]">
+</td>
             </tr>
             <tr>
                 <td><strong>2.4</strong></td>
@@ -298,10 +418,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec 22-2.1.4(i)(2)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[15]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
@@ -309,10 +437,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec 22-2.1.4(d)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[16]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.6</strong></td>
@@ -320,10 +456,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-1.2.2(a)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[17]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.7</strong></td>
@@ -331,10 +475,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.2.2(c)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[18]">
+</td>
             </tr>
 			
 			<tr>
@@ -343,10 +495,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(i)(1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[19]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.9</strong></td>
@@ -354,10 +514,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(i)(2)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[20]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.10</strong></td>
@@ -365,10 +533,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(d)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[21]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.11</strong></td>
@@ -376,10 +552,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.2.3(b)(1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[22]">
+</td>
             </tr>
 			
 			<tr>
@@ -388,10 +572,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.2.3(b)(2)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[23]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.13</strong></td>
@@ -399,10 +591,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.2.3(b)(2)(a)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[24]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.14</strong></td>
@@ -410,10 +610,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.2.3(b)(2)(b)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[25]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.15</strong></td>
@@ -421,10 +629,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-1.5.3(a)
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[26]">
+</td>
             </tr>
 			
 			<tr>
@@ -433,10 +649,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-1.5.3(d)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[27]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.17</strong></td>
@@ -444,10 +668,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.3.1
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[28]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.18</strong></td>
@@ -455,10 +687,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.3.2(a)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[29]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.19</strong></td>
@@ -466,10 +706,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.3.2(b)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[30]">
+</td>
             </tr>
 			
 			
@@ -479,10 +727,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.4(a)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[31]">
+</td>
             </tr>
 			
 			
@@ -492,10 +748,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-1.5.4(b)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[32]">
+</td>
             </tr>
 			
 		<!--	<tr>
@@ -514,10 +778,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.4(d)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[33]">
+</td>
             </tr>
 			
 			<tr>
@@ -526,10 +798,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.5(a)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[34]">
+</td>
             </tr>
 			
 			<tr>
@@ -538,10 +818,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.5(b)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[35]">
+</td>
             </tr>
 			
 			<tr>
@@ -550,10 +838,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-1.5.5(c)
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[36]">
+</td>
             </tr>
 			
 			<tr>
@@ -562,10 +858,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10, 
                     (10-2.1.1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[37]">
+</td>
             </tr>
 			
 			<tr>
@@ -574,10 +878,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10
                     Sec. 10-1.1.1
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[38]">
+</td>
             </tr>
 			
 			<tr>
@@ -586,10 +898,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10, 
                     (10-2.1.1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[39]">
+</td>
             </tr>
 			
 			<tr>
@@ -600,10 +920,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10, 
                     (10-1.2.1.3c1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[40]">
+</td>
             </tr>
 			
 			<tr>
@@ -614,10 +942,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10,
                     (1.2.1.3c2)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[41]">
+</td>
             </tr>
 			
 			<tr>
@@ -626,10 +962,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.3c3)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[42]">
+</td>
             </tr>
 			
 			<tr>
@@ -638,10 +982,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.2c3)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[43]">
+</td>
             </tr>
 			
 			<tr>
@@ -650,10 +1002,18 @@
 				<td style="text-align: center;"><strong>ASME B30.10
                     (10-1.2.1.3c4)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[44]">
+</td>
             </tr>
 			
 			<tr>
@@ -662,10 +1022,18 @@
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.3c5)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[45]">
+</td>
             </tr>
 			
 			<tr>
@@ -674,10 +1042,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.6.1(a)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[46]">
+</td>
             </tr>
 			
 			<tr>
@@ -686,10 +1062,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-2.1.3(a)
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[47]">
+</td>
             </tr>
 			
 			<tr>
@@ -698,10 +1082,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22.1.5.6.1(b)
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[48]">
+</td>
             </tr>
 			
 			<tr>
@@ -710,10 +1102,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-1.8.4(c)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[49]">
+</td>
             </tr>
 			
 			<tr>
@@ -722,10 +1122,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(i)(1)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[50]">
+</td>
             </tr>
 			
 			<tr>
@@ -734,10 +1142,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(i)(2)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[51]">
+</td>
             </tr>
 			
 			<tr>
@@ -746,10 +1162,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(d)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[52]">
+</td>
             </tr>
 			
 			<tr>
@@ -758,10 +1182,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.4.2(a)(1a)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[53]">
+</td>
             </tr>
 			
 			<tr>
@@ -770,10 +1202,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.2(b-2d)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[54]">
+</td>
             </tr>
 			
 			<tr>
@@ -786,10 +1226,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.3(b 1-7)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[55]">
+</td>
             </tr>
 			
 			<tr>
@@ -798,10 +1246,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.3(b 1-7)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[56]">
+</td>
             </tr>
 			
 			<tr>
@@ -810,10 +1266,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.2(b-2b)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[57]">
+</td>
             </tr>
 
             
@@ -839,10 +1303,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(j-1)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[58]">
+</td>
             </tr>			
 
 
@@ -852,10 +1324,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(j2,3)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[59]">
+</td>
             </tr>			
 
 <tr>
@@ -864,10 +1344,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(j4)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[60]">
+</td>
             </tr>			
 
 <tr>
@@ -876,10 +1364,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(j6)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[61]">
+</td>
             </tr>			
 
 <tr>
@@ -888,10 +1384,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(j7)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[62]">
+</td>
             </tr>			
 
 <tr>
@@ -900,10 +1404,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(k3)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[63]">
+</td>
             </tr>			
 
 <tr>
@@ -912,10 +1424,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(k1)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[64]">
+</td>
             </tr>			
 
 <tr>
@@ -924,10 +1444,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(k5)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[65]">
+</td>
             </tr>			
 
 <tr>
@@ -936,10 +1464,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(l2)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[66]">
+</td>
             </tr>			
 
 <tr>
@@ -948,10 +1484,18 @@
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(l3)
                       </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                      <td class="checkbox-cell">
+    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[67]">
+</td>
             </tr>			
 			
 			
@@ -961,10 +1505,18 @@
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-2.1.4(l5)
                     </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                    <td class="checkbox-cell">
+    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[68]">
+</td>
             </tr>
 <tr>
                 <td><strong>3.12</strong></td>
@@ -972,10 +1524,18 @@
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(l6)
                      </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><input name="remarks" ></td>
+                     <td class="checkbox-cell">
+    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[69]">
+</td>
             </tr>
 			
 			
@@ -996,7 +1556,9 @@
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                    
+                <?php echo htmlspecialchars($row['remarks']); ?></td>
                 
             </tr>
 			</tbody>
@@ -1029,7 +1591,10 @@
            
         </table>
 
-
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form> 
         
     </div>
 	    </div>

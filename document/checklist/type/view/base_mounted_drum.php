@@ -9,7 +9,7 @@ include_once('./view-fetch.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FRM.0601-2.1 (rev.01) - Excavator</title>
+    <title>BASE MOUNTED DRUM HOIST (WINCHES)</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -20,10 +20,8 @@ include_once('./view-fetch.php');
     <div class="container">
 	
 	  <div class="table-responsive">
-    
 
-
-<table class="w-100">
+      <table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
             <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
@@ -35,28 +33,63 @@ include_once('./view-fetch.php');
     </tr>
     <tr>
         <td colspan="3" class="">
-            <strong>INSPECTION CHECKLIST FOR EXCAVATOR</strong>
+            <strong>INSPECTION CHECKLIST FOR BASE MOUNTED DRUM HOIST (WINCHES)</strong>
         </td>
     </tr>
     <tr>
-        <td>FRM.0601-2.1</td>
+        <td>FRM.0601-1.16</td>
         <td>Revision 01</td>
-        <td><b>Issue Date: </b>24/Dec/2020</td>
+        <td>Issue Date: 28/JAN/2021</td>
     </tr>
     <tr>
-        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
-        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
+        <td class="left-align">Prepared By:<br>Operations Manager</td>
+        <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
    
    <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             
+            <!-- <table class="table table-bordered">
+                <tbody>
+				
+				<tr>
+				<td rowspan="4"> <img src="../../logo.png"/></td>
+                <td colspan="3" style="text-align: center;"><strong>
+				CRANE INSPECTION & MAINTENANCE SERVICES<br>
+A DIVISION OF AL-KHOBAR GATE INTERNATIONAL TRADING EST.
+
+</strong></td>
+				</tr>
+				
+				<tr>
+                <td colspan="3" style="text-align: center;"><strong>				INSPECTION CHECKLIST FOR BASE MOUNTED DRUM HOIST (WINCHES)</strong></td>
+				</tr>
+            <tr>
+                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.16</strong></td>
+                <td style="width: 25%; text-align: center;"> <strong>Revision 01</strong></td>
+                
+                <td style="width: 25%; text-align: center;"> <strong>Issue Date: 28/JAN/2021</strong></td>
+            </tr>
+			<tr>
+                <td style="text-align: center; width: 50%;"><strong>Prepared By:<br>
+Operations Manager
+</strong></td>
+                
+                
+                <td colspan="2" style="text-align: center;  width: 50%;"> <strong>Reviewed & Approved By:<br>
+Managing Director
+</strong></td>
+
+
+            </tr>
+			</tbody>
+			</table> -->
 			
 			</div>
 
-        <h4>HYDRAULIC EXCAVATOR</h4>
-        <h4>(EARTH MOVING MACHINERY) </h4>
-        <h4>DS/EN 474-1:2006+A6:2019</h4>
+        <h4>BASE MOUNTED DRUM HOIST (WINCHES) </h4>
+        <h4>ASME B30.7 – 2016 </h4>
+        
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
          <div class="table-responsive">
@@ -101,6 +134,7 @@ include_once('./view-fetch.php');
         </table>
 </div>
         
+
 
 
 <form method="post" action="?">
@@ -149,7 +183,7 @@ include_once('./view-fetch.php');
             </tr>
             <tr>
                 <td><strong>1.2</strong></td>
-                <td><strong> Equipment asset ID Number is prominently marked.</strong></td>
+                <td><strong>The winch rating is clearly marked. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[1]=="PASS"?'checked':''; ?>> 
@@ -168,7 +202,7 @@ include_once('./view-fetch.php');
             </tr>
             <tr>
                 <td><strong>1.3</strong></td>
-                <td><strong> Nameplate, caution, and instruction markings are available on the equipment.</strong></td>
+                <td><strong>The following clearly marked: (a) drum size, consisting of barrel diameter, barrel length, and flange diameter; (b) rope diameter(s); (c) rope speed in meter per second at rated load on specified layer.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[2]=="PASS"?'checked':''; ?>> 
@@ -187,7 +221,7 @@ include_once('./view-fetch.php');
             </tr>
             <tr>
                 <td><strong>1.4</strong></td>
-                <td><strong>All controls are marked for identification of function. </strong></td>
+                <td><strong>Line pull ratings for each layer and a specified rope diameter are provided. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[3]=="PASS"?'checked':''; ?>> 
@@ -204,9 +238,25 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[3];?>" disabled>
     </td>
             </tr>
+            
+			
+			</tbody>
+			
+			<thead class="thead-dark">
             <tr>
-                <td><strong>1.5</strong></td>
-                <td><strong>All safety & warning decals are posted. </strong></td>
+                <th style="text-align: center;">2</th>
+                <th style="text-align: center;">CONSTRUCTION </th>
+                <th style="text-align: center;">PASS</th>
+                <th style="text-align: center;">FAIL</th>
+                <th style="text-align: center;">N/A</th>
+                <th style="text-align: center;">REMARKS</th>
+            </tr>
+			</thead>
+			<tbody>
+			
+			<tr>
+                <td><strong>2.1</strong></td>
+                <td><strong>Cooling, power, and operational characteristics are provided to perform.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[4]=="PASS"?'checked':''; ?>> 
@@ -224,8 +274,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>1.6</strong></td>
-                <td><strong>Nameplate (Manufacturer, capacity, serial number, and model) of Blade, Ripper, Towing winch are available. </strong></td>
+                <td><strong>2.2</strong></td>
+                <td><strong>The rope is anchored to the drum approved by manufacturer. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[5]=="PASS"?'checked':''; ?>> 
@@ -243,8 +293,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>1.7</strong></td>
-                <td><strong> The machine is operated by Qualified Operator. </strong></td>
+                <td><strong>2.3</strong></td>
+                <td><strong> Drum flanges extends a minimum of one-half rope diameter, but not less than 0.5 inches (13mm) above the top layer. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[6]=="PASS"?'checked':''; ?>> 
@@ -262,8 +312,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>1.8</strong></td>
-                <td><strong> Fire extinguisher is provided and has valid inspection tag.  </strong></td>
+                <td><strong>2.4</strong></td>
+                <td><strong>Diameter of the drum provides first layer rope pitch diameter of not less than 15 times the nominal diameter of the rope.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[7]=="PASS"?'checked':''; ?>> 
@@ -280,24 +330,10 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[7];?>" disabled>
     </td>
             </tr>
-			</tbody>
-			
-			<thead class="thead-dark">
             <tr>
-                <th style="text-align: center;">2</th>
-                <th style="text-align: center;">VISUAL INSPECTION & FUNCTIONAL TEST</th>
-                <th style="text-align: center;">PASS</th>
-                <th style="text-align: center;">FAIL</th>
-                <th style="text-align: center;">N/A</th>
-                <th style="text-align: center;">REMARKS</th>
-            </tr>
-			</thead>
-			<tbody>
-			
-			<tr>
-                <td><strong>2.1</strong></td>
-                <td><strong> Cab Mirrors, Glasses, etc. condition  </strong></td>
-                <td class="checkbox-cell">
+                <td><strong>2.5</strong></td>
+                <td><strong> Mechanical holding device, other than brake, capable of holding the rated load.  </strong></td>                
+    <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[8]=="PASS"?'checked':''; ?>> 
     </td>
@@ -314,8 +350,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.2</strong></td>
-                <td><strong>Bucket is in good condition  </strong></td>
+                <td><strong>2.6</strong></td>
+                <td><strong> Each brake is equipped with at least one brake capable of holding not less than 125% of the rated load at the point where the brake is applied. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[9]=="PASS"?'checked':''; ?>> 
@@ -333,8 +369,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.3</strong></td>
-                <td><strong>  No excessive corrosion on frames, anchorages, structures are present. </strong></td>
+                <td><strong>2.7</strong></td>
+                <td><strong>Remote-operated winches is equipped with self-setting brake. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[10]=="PASS"?'checked':''; ?>> 
@@ -352,8 +388,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.4</strong></td>
-                <td><strong>Lift cylinders are operating correctly & without hydraulic oil leaks.  </strong></td>
+                <td><strong>2.8</strong></td>
+                <td><strong>Winch is allowed simultaneous underwind & overwind brake capable of holding 125% of the rated load in those directions.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[11]=="PASS"?'checked':''; ?>> 
@@ -371,8 +407,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.5</strong></td>
-                <td><strong> Dipper cylinders are operating correctly & without hydraulic oil leaks. </strong></td>
+                <td><strong>2.9</strong></td> 
+                <td><strong> Means to control the drum speed when moving the load is provided. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[12]=="PASS"?'checked':''; ?>> 
@@ -390,8 +426,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.6</strong></td>
-                <td><strong> Steering controls are operating correctly   </strong></td>
+                <td><strong>2.10</strong></td>
+                <td><strong>Adjustments to compensate for wear in the braking system is provided.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[13]=="PASS"?'checked':''; ?>> 
@@ -409,8 +445,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.7</strong></td>
-                <td><strong> ROPS or overhead guard is provided and can withstand the drop test based on the applicable table or rated capacity. </strong></td>
+                <td><strong>2.11</strong></td>
+                <td><strong> Guard(s) for exposed moving parts is provided.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[14]=="PASS"?'checked':''; ?>> 
@@ -428,8 +464,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.8</strong></td>
-                <td><strong> Track Chain/ Link condition is good  </strong></td>
+                <td><strong>2.12</strong></td>
+                <td><strong> Guard(s) is capable of supporting the weight of a 200 lbs. (90 kg).</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[15]=="PASS"?'checked':''; ?>> 
@@ -447,8 +483,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.9</strong></td> 
-                <td><strong>  Track Grouser Plates condition is good    </strong></td>
+                <td><strong>2.13</strong></td>
+                <td><strong>Rope size can withstand the minimum breaking force.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[16]=="PASS"?'checked':''; ?>> 
@@ -466,8 +502,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.10</strong></td>
-                <td><strong>  Track Sprocket and Rollers condition is good  </strong></td>
+                <td><strong>2.14</strong></td>
+                <td><strong> Rope winch meets manufacturer or qualified person’s recommendation. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[17]=="PASS"?'checked':''; ?>> 
@@ -485,8 +521,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.11</strong></td>
-                <td><strong> Track Idler condition is good  </strong></td>
+                <td><strong>2.15</strong></td>
+                <td><strong>All controls are marked for identification of function and direction of the drum rotation.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[18]=="PASS"?'checked':''; ?>> 
@@ -504,9 +540,9 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.12</strong></td>
-                <td><strong> Safety belt is provided.   </strong></td>
-                <td class="checkbox-cell">
+                <td><strong>2.16</strong></td>
+                <td><strong>  All winch controls are within reach of operator during the normal operating conditions.  </strong></td>
+               <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[19]=="PASS"?'checked':''; ?>> 
     </td>
@@ -523,8 +559,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.13</strong></td>
-                <td><strong> All control levers are within reach of operator during the normal operating conditions.  </strong></td>
+                <td><strong>2.17</strong></td>
+                <td><strong>  Electric motor-driven winches shall be provided with a device that will disconnect all motors from the power source in the event of a power failure, and will not permit any motor to be restarted until controller handle is brought to the off position or reset switch or button is operated.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[20]=="PASS"?'checked':''; ?>> 
@@ -542,8 +578,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.14</strong></td>
-                <td><strong>All hydraulic hoses are free of tears, and no signs of leaks on their hose fittings.  </strong></td>
+                <td><strong>2.18</strong></td>
+                <td><strong> Remote operated winches shall function so that if the control signal becomes ineffective, winch motion shall stop. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[21]=="PASS"?'checked':''; ?>> 
@@ -561,8 +597,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.15</strong></td>
-                <td><strong>Hydraulic oil tank level is correct and tank is securely fastened, and no signs of oil leakages.   </strong></td>
+                <td><strong>2.19</strong></td>
+                <td><strong>  All prime mover controls shall return to neutral position when released.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[22]=="PASS"?'checked':''; ?>> 
@@ -580,8 +616,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.16</strong></td>
-                <td><strong>Fuel tank is secured & not leaking.  </strong></td>
+                <td><strong>2.20</strong></td>
+                <td><strong> Engine-driven winches are provided with a clutch for disengaging power to winch. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[23]=="PASS"?'checked':''; ?>> 
@@ -598,9 +634,10 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[23];?>" disabled>
     </td>
             </tr>
-            <tr>
-                <td><strong>2.17</strong></td>
-                <td><strong> Steering & transmission oil levels are correct & not leaking.  </strong></td>
+            
+			<tr>
+                <td><strong>2.21</strong></td>
+                <td><strong> Lubrication points are accessible.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[24]=="PASS"?'checked':''; ?>> 
@@ -617,9 +654,25 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[24];?>" disabled>
     </td>
             </tr>
+			
+			
+			</tbody>
+			
+			<thead class="thead-dark">
             <tr>
-                <td><strong>2.18</strong></td>
-                <td><strong> Lubrication points are accessible.  </strong></td>
+                <th style="text-align: center;">3</th>
+                <th style="text-align: center;"> INSPECTION CRITERIA</th>
+                <th style="text-align: center;">PASS</th>
+                <th style="text-align: center;">FAIL</th>
+                <th style="text-align: center;">N/A</th>
+                <th style="text-align: center;">REMARKS</th>
+            </tr>
+		</thead>
+		<tbody>
+ 
+ <tr>
+                <td><strong>3.1</strong></td>
+                <td><strong>Rope is properly spooled on drum. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[25]=="PASS"?'checked':''; ?>> 
@@ -637,8 +690,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.19</strong></td>
-                <td><strong>No deterioration of Hydraulic hoses & fittings or leakage of oil. </strong></td>
+                <td><strong>3.2</strong></td>
+                <td><strong> Control mechanisms are operating properly.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[26]=="PASS"?'checked':''; ?>> 
@@ -656,8 +709,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.20</strong></td>
-                <td><strong>Access and Step Ladders </strong></td>
+                <td><strong>3.3</strong></td>
+                <td><strong> Limit switches are properly working. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[27]=="PASS"?'checked':''; ?>> 
@@ -675,8 +728,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.21</strong></td>
-                <td><strong> No indication of loose, damaged, or missing components including supports and anchorages on under carriage    </strong></td>
+                <td><strong>3.4</strong></td>
+                <td><strong>  No deterioration or leakage in air or hydraulic is found.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[28]=="PASS"?'checked':''; ?>> 
@@ -694,8 +747,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.22</strong></td>
-                <td><strong>Control & drive mechanisms are properly adjusted and without excessive wear.  </strong></td>
+                <td><strong>3.5</strong></td>
+                <td><strong>No indication of loose, damaged, or missing structural components including supports and anchorages.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[29]=="PASS"?'checked':''; ?>> 
@@ -713,8 +766,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.23</strong></td>
-                <td><strong>Seat and back cushions are not torn.  </strong></td>
+                <td><strong>3.6</strong></td>
+                <td><strong> Electrical apparatus properly functioning, without signs of excessive deterioration, and no dirt accumulation.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[30]=="PASS"?'checked':''; ?>> 
@@ -732,8 +785,8 @@ include_once('./view-fetch.php');
     </td>
             </tr>
             <tr>
-                <td><strong>2.24</strong></td>
-                <td><strong>No damage tubing, piping, electrical cables, or hoses, and their fittings. </strong></td>
+                <td><strong>3.7</strong></td>
+                <td><strong>Control & drive mechanisms are properly adjusted and without excessive wear. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[31]=="PASS"?'checked':''; ?>> 
@@ -750,10 +803,9 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[31];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.25</strong></td>
-                <td><strong>Front & Rear Windshields are in good condition & Wiper Motor Assembly is working. </strong></td>
+            <tr>
+                <td><strong>3.8</strong></td>
+                <td><strong> No damage tubing, piping, electrical cables, or hoses, and their fittings.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[32]=="PASS"?'checked':''; ?>> 
@@ -770,10 +822,9 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[32];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.26</strong></td>
-                <td><strong> Limit Switches are properly working. </strong></td>
+            <tr>
+                <td><strong>3.9</strong></td>
+                <td><strong> Pins, bearings, shafts, gears, rollers, and locking and clamping devices have no excessive wear, cracking, distortion, & corrosion.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[33]=="PASS"?'checked':''; ?>> 
@@ -790,24 +841,9 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[33];?>" disabled>
     </td>
             </tr>
-			
-			</tbody>
-			
-			<thead class="thead-dark">
             <tr>
-                <th style="text-align: center;">3</th>
-                <th style="text-align: center;"> ENGINE & ELECTRICAL SYSTEM</th>
-                <th style="text-align: center;">PASS</th>
-                <th style="text-align: center;">FAIL</th>
-                <th style="text-align: center;">N/A</th>
-                <th style="text-align: center;">REMARKS</th>
-            </tr>
-		</thead>
-		<tbody>
- 
- <tr>
-                <td><strong>3.1</strong></td>
-                <td><strong>  Engine oil level is correct </strong></td>
+                <td><strong>3.10</strong></td>
+                <td><strong>Brake & clutch system parts & linings have no excessive wear, sever distortion, & corrosion.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[34]=="PASS"?'checked':''; ?>> 
@@ -824,9 +860,9 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[34];?>" disabled>
     </td>
             </tr>
-            <tr>
-                <td><strong>3.2</strong></td>
-                <td><strong>Engine has no excessive smoke, & engine oil leak. </strong></td>
+			<tr>
+                <td><strong> 3.11</strong></td>
+                <td><strong>Chain & chain drive sprockets have no excessive wear, & excessive chain stretch.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[35]=="PASS"?'checked':''; ?>> 
@@ -843,9 +879,9 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[35];?>" disabled>
     </td>
             </tr>
-            <tr>
-                <td><strong>3.3</strong></td>
-                <td><strong> Fuel is not leaking. </strong></td>
+			<tr>
+                <td><strong>3.12 </strong></td>
+                <td><strong> Winch is operated by a qualified operator.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[36]=="PASS"?'checked':''; ?>> 
@@ -862,271 +898,10 @@ include_once('./view-fetch.php');
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[36];?>" disabled>
     </td>
             </tr>
-            <tr>
-                <td><strong>3.4</strong></td>
-                <td><strong>Engine has no loss of power.   </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[37]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[37]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[37]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[37];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.5</strong></td>
-                <td><strong>Fan, Alternator, & steering belts tension are not loose.   </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[38]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[38]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[38]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[38];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.6</strong></td>
-                <td><strong>  Instrument Panel Indicator Lights are functioning correctly.  </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[39]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[39]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[39]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[39];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.7</strong></td>
-                <td><strong> Strobe light or rotating beacon light is working.  </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[40]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[40]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[40]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[40];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.8</strong></td>
-                <td><strong>Head light & working lights are not broken and are functioning correctly. </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[41]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[41]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[41]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[41];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.9</strong></td>
-                <td><strong> Back-Up (Reverse) Light and alarm are working. </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[42]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[42]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[42]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[42];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>3.10</strong></td>
-                <td><strong>Horn is working. </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[43]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[43]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[43]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[43];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong> 3.11</strong></td>
-                <td><strong>Battery water/electrolyte level is correct.  </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[44]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[44]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[44]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[44];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.12 </strong></td>
-                <td><strong> Radiator coolant level is correct and no sign of water leakage. </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[45]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[45]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[45]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[45];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.13 </strong></td>
-                <td><strong> Housekeeping is satisfactory  </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[46]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[46]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[46]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[46];?>" disabled>
-    </td>
-            </tr>
 			
 			</tbody>
 			
-			 <thead class="thead-dark">
-            <tr>
-                <th style="text-align: center;">4</th>
-                <th style="text-align: center;">   ATTACHMENTS/IMPLEMENTS</th>
-                <th style="text-align: center;">PASS</th>
-                <th style="text-align: center;">FAIL</th>
-                <th style="text-align: center;">N/A</th>
-                <th style="text-align: center;">REMARKS</th>
-            </tr>
-			</thead>
-			
-			<tbody>
-            
-			<tr>
-                <td><strong>4.1</strong></td>
-                <td><strong>Bucket condition is good </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[47]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[47]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[47]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[47];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>4.2</strong></td>
-                <td><strong> Grappler condition is good</strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[48]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[48]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[48]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[48];?>" disabled>
-    </td>
-            </tr>
-            <tr>
-                <td><strong>4.3</strong></td>
-                <td><strong> Rock Breaker condition is good </strong></td>
-                <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[49]=="PASS"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[49]=="FAIL"?'checked':''; ?>> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[49]=="NA"?'checked':''; ?>> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[49];?>" disabled>
-    </td>
-            </tr>
-            
-			</tbody>
+			 
         </table>
 </div>
         
@@ -1163,8 +938,6 @@ include_once('./view-fetch.php');
  <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
 </div>
 </form> 
-
-        
     </div>
 	    </div>
 	  <script>
@@ -1181,6 +954,7 @@ include_once('./view-fetch.php');
       window.print();
     }
   </script>
+	  
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

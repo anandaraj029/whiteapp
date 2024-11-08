@@ -1503,13 +1503,14 @@ sec.2.1.3(c)
             
            
         </table>
+</div>
 
 <div class="col-12">
     <button type="submit" class="btn btn-primary">Update</button>
 </div>
 </form> 
     </div>
-	    </div>
+	    
 	  <script>
     function preparePrint() {
       // Change the headers before printing
