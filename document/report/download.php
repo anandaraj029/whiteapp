@@ -1,6 +1,28 @@
 <?php
 require_once('../../vendor/autoload.php');
 
+include_once('../../file/config.php'); // include your database connection
+
+// Get the project ID from the query parameter
+$project_id = $_GET['project_id'];
+
+// Fetch the data based on the projectid
+$sql = "SELECT * FROM reports WHERE project_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('s', $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+} else {
+    die("No data found for the given project id.");
+}
+
+$stmt->close();
+$conn->close();
+
+
 use Mpdf\Mpdf;
 
 // Load Bootstrap CSS
@@ -235,7 +257,10 @@ $html = <<<HTML
                             </div>
                             <div class="col-md-5">
                                 
-                                <h4 style="font-size: 19px;">JRN: </h4>
+                                <h4 style="font-size: 19px;">JRN:                                 
+                                {$row['jrn']}    
+                            
+                            </h4>
                                 
                             </div>
                             <!-- <div class="col-md-2">
@@ -256,22 +281,47 @@ $html = <<<HTML
                             <tbody>
                                 <tr>
                                     <td colspan="2" rowspan="3" style="vertical-align: top;">
-                                        <b>Client Company / Name & Address</b></td>
-                                    <td><b>Manufacturer : </b></td>
-                                    <td> <b> Equipment Identification Number:</b></td>
-                                    <td><b>Date of Inspection: </b></td>
+                                        <b>Client Company / Name & Address</b><br/>
+                                    
+                                        {$row['client_company_name']}<br/>
+                                        {$row['client_company_address']}
+                                        
+                                    </td>
+                                    <td><b>Manufacturer : </b><br/>
+                                    {$row['manufacturer']}
+                                </td>
+                                    <td> <b> Equipment Identification Number:</b>
+                                <br/>
+                                {$row['equipment_id_no']}
+                                
+                                
+                                </td>
+                                    <td><b>Date of Inspection: </b>
+                                
+                                    {$row['date_of_inspection']}
+                                
+                                </td>
                                     
                                 </tr>
                                 <tr>
-                                    <td><b>Model: </b></td>
-                                    <td><b> Equipment Serial Number : </b></td>
-                                    <td><b>Next Inspection Due Date : </b></td>
+                                    <td><b>Model: </b>
+                                    {$row['model']}
+                                </td>
+                                    <td><b> Equipment Serial Number : </b>
+                                    {$row['equipment_serial_no']}
+                                </td>
+                                    <td><b>Next Inspection Due Date : </b>
+                                    {$row['next_inspection_due_date']}
+                                </td>
                                 </tr>
                                 <tr>
                                     <td  style="vertical-align: top;"> <b> Type:</b></td>
                                     <td style="vertical-align: top;" rowspan="2"> <b>
                                         Location:
-                                    </b></td>
+                                    </b>
+                                    {$row['location']}
+                                    
+                                </td>
                                     <td colspan="2">
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <b>Inspection Status:</b>
@@ -293,10 +343,18 @@ $html = <<<HTML
                                     
                                 </tr>
                                 <tr>
-                                    <td> <b>Previous Sticker S.No.:</b></td>
-                                    <td><b>Issued by: </b></td>
-                                    <td><b>Capacity: </b></td>
-                                    <td> <b>Sticker Number Issued:</b></td>
+                                    <td> <b>Previous Sticker S.No.:</b><br/>
+                                    {$row['prev_sticker_no']}
+                                </td>
+                                    <td><b>Issued by: </b><br/>
+                                    {$row['issued_by']}
+                                </td>
+                                    <td><b>Capacity: </b><br/>
+                                    {$row['capacity']}
+                                </td>
+                                    <td> <b>Sticker Number Issued:</b>
+                                    {$row['sticker_number_issued']}
+                                </td>
                                     
                                 </tr>
                             </tbody>
@@ -320,9 +378,9 @@ $html = <<<HTML
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>1</td>
+                                                <td>{$row['deficiency_1']}</td>
+                                                <td>{$row['corrective_action_1']}</td>
                                                 
                                                 <!-- <td class="description">
                                                     <textarea class="notes" name="corrective" cols="65" rows="10"></textarea>
@@ -333,29 +391,29 @@ $html = <<<HTML
                                             </tr>
 
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>2</td>
+                                                <td>{$row['deficiency_2']}</td>
+                                                <td>{$row['corrective_action_2']}</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>3</td>
+                                                <td>{$row['deficiency_3']}</td>
+                                                <td>{$row['corrective_action_3']}</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>4</td>
+                                                <td>{$row['deficiency_4']}</td>
+                                                <td>{$row['corrective_action_4']}</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>5</td>
+                                                <td>{$row['deficiency_5']}</td>
+                                                <td>{$row['corrective_action_5']}</td>
                                             </tr>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>6</td>
+                                                <td>{$row['deficiency_6']}</td>
+                                                <td>{$row['corrective_action_6']}</td>
                                             </tr>
                                             <tr>
                                                 <td></td>
