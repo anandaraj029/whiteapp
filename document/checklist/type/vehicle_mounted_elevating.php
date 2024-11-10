@@ -1237,6 +1237,11 @@ sec. 6.5.2(3)(4)(9)(11)
         </table>
 
 
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
+
         
     </div>
 	    </div>
