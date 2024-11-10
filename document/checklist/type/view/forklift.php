@@ -12,11 +12,11 @@ include_once('./view-fetch.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INSPECTION CHECKLIST FOR FORKLIFT</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-     <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -26,7 +26,7 @@ include_once('./view-fetch.php');
       <table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
-            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+            <img src="../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
         </td>
         <td colspan="3" class="no-border">
             <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
@@ -47,7 +47,7 @@ include_once('./view-fetch.php');
         <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
-   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">
