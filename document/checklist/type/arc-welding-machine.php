@@ -1,3 +1,10 @@
+<?php 
+
+include_once('./get-checklist.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,21 +97,24 @@
 </div>
         
 
+
+<form method="post" action="./update_checklist.php">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
+
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
 			<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">ELECTRODE HOLDER & RETURN CLAMP</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">NA</th>
@@ -118,11 +128,10 @@
  <tr>
                 <td><strong>1.1</strong></td>
                 <td><strong> Missing or Defective Insulation  </strong></td>
-				<td style="text-align: center;"><strong>
- </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+				<td style="text-align: center;"><strong> </strong></td>
+                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
+                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
                 <td><strong></strong></td>
             </tr>
 			
@@ -503,8 +512,11 @@
 
 
         
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form> 
     </div>
-	    </div>
 	  <script>
     function preparePrint() {
       // Change the headers before printing
