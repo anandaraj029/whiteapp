@@ -825,16 +825,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>Boom Elevating and lowering mechanisms are operable and no evidence of dropping. </strong></td>
 				<td style="text-align: center;"><strong>  ANSI/SAIA A92.2, sec 6.6.1(1) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[38]">
 </td>
             </tr>
 			
@@ -843,16 +843,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>Boom extension/retraction mechanism is operable. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.1(2)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[39]">
 </td>
             </tr>
 			
@@ -861,16 +861,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  Rotating mechanism is functioning correctly and smoothly. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.1(3) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[40]">
 </td>
             </tr>
 			<tr>
@@ -878,16 +878,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Aerial device is stable.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.1(4) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[41]">
 </td>
             </tr>
             <tr>
@@ -895,16 +895,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> All safety devices have been checked and are properly functioning.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.1(5) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[42]">
 </td>
             </tr>
 			<tr>
@@ -912,16 +912,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  No damage or deformation is evident on either the lower or upper structure. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[43]">
 </td>
             </tr>
 			<tr>
@@ -929,16 +929,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  No visible hydraulic oil leak from any component , such as but not limited to; hydraulic motors, hydraulic pumps, hydraulic rams, hydraulic valves, hydraulic tank, etc. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[44]">
 </td>
             </tr>
 			<tr>
@@ -946,16 +946,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> No loose connections were found from both the upper and lower structure.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 6.6.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[45]">
 </td>
             </tr>
 			
@@ -966,16 +966,16 @@ sec. 6.5.2(3)(4)(9)(11)
                     sec. 8.2.4(11)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[46]">
 </td>
             </tr>
 			<tr>
@@ -983,16 +983,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Both service & parking brakes are operable.  </strong></td>
 				<td style="text-align: center;"><strong>ANSI/SAIA A92.2, sec 10.5  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[47]">
 </td>
             </tr>
 			<tr>
@@ -1000,16 +1000,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> All locking pins shall be secured against unintentional disengagement and loss.   </strong></td>
 				<td style="text-align: center;"><strong>ANSI/SAIA A92.2, sec 7.5.1  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[48]">
 </td>
             </tr>
 			<tr>
@@ -1017,16 +1017,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  Interlocks are properly operating. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 7.5.1 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[49]">
 </td>
             </tr>
 			
@@ -1035,16 +1035,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  Visual and audible safety devices are properly operating. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 8.2.3(3) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[50]">
 </td>
             </tr>
 			<tr>
@@ -1052,16 +1052,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Fiberglass and insulating components have no visible damage and contamination  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 8.2.3(4) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[51]">
 </td>
             </tr>
 			<tr>
@@ -1069,16 +1069,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Hydraulic and pneumatic systems have no observable deterioration and excessive leakages.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 8.2.3(6) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[52]">
 </td>
             </tr>
 			<tr>
@@ -1086,16 +1086,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Electrical systems related to the aerial device have no signs of excessive deterioration & malfunctions, dirt and moisture accumulation.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 8.2.3(7) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[53]">
 </td>
             </tr>
 			
@@ -1106,16 +1106,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 Sec. 4.5.7
                 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[54]">
 </td>
             </tr>
 			<tr>
@@ -1123,16 +1123,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Safety harness anchorage is fitted in the platform.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SAIA A92.2, sec 4.9.4.4 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[55]">
 </td>
             </tr>
 			<tr>
@@ -1140,16 +1140,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Spirit level is fitted and is operational.  </strong></td>
 				<td style="text-align: center;"><strong> SAIA/SIA 92.5 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[56]">
 </td>
             </tr>
 			<tr>
@@ -1157,16 +1157,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong>  All moving parts are lubricated. </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SIA 92.2, sec. 6.6.1 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[57]">
 </td>
             </tr>
 			
@@ -1176,16 +1176,16 @@ sec. 6.5.2(3)(4)(9)(11)
                 <td><strong> Upper station does not include drive and steering controls.  </strong></td>
 				<td style="text-align: center;"><strong> ANSI/SIA 92.2, sec. 6.6.1 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
 </td>
 <td>
-    <input type="text" name="checklist_remark[1]">
+    <input type="text" name="checklist_remark[58]">
 </td>
             </tr>
 			
@@ -1236,6 +1236,11 @@ sec. 6.5.2(3)(4)(9)(11)
            
         </table>
 
+
+        <div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
 
         
     </div>

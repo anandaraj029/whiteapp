@@ -1,3 +1,10 @@
+<?php 
+
+include_once('./view-fetch.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,6 +71,10 @@
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
+
+
+         <form method="post" action="?">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />  
          <div class="table-responsive">
             <table class="table table-bordered">
                 
