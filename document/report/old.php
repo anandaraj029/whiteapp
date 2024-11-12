@@ -140,7 +140,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-1">
-                                <img src="../logo.png" alt="CIMS" width="90" height="120">
+                                <img src="../../logo.png" alt="CIMS" width="90" height="120">
                             </div>
                             <div class="col-md-6">
                                 <h3>Crane Inspection & Maintenance Service</h3>
