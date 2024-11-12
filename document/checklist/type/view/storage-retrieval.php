@@ -1724,6 +1724,7 @@ sec.2.1.3(c)
             
            
         </table>
+</div>
 
 <div class="col-12 d-flex justify-content-center mt-4">
   <a href="../../index1.php" class="mr-4 btn btn-primary">Back</a>

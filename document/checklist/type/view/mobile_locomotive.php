@@ -1,29 +1,10 @@
+
+
 <?php 
-include_once('../../../file/config.php'); // include your database connection
 
-// Check if checklist_type parameter is set in the URL, use 'wheel-loader' as default for testing
-$checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
-
-// Debug line to check the checklist_type
-echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
-
-if (!empty($checklist_type)) {
-    // SQL query to fetch data from the 'checklist_information' table based on checklist type
-    $query = "SELECT * FROM checklist_information WHERE checklist_type = '$checklist_type';";
-    
-    $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
-    } else {
-        echo "No record found!";
-        $row = []; // Initialize as an empty array if no record found
-    }
-} else {
-    echo "No checklist type provided!";
-    $row = []; // Initialize as an empty array if checklist type is not provided
-}
+include_once('./view-fetch.php');
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +16,7 @@ if (!empty($checklist_type)) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -130,7 +111,11 @@ if (!empty($checklist_type)) {
             
         </table>
 </div>
-        
+      
+
+
+<form method="post" action="?">
+<input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
 
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -2863,7 +2848,14 @@ if (!empty($checklist_type)) {
 
         
     </div>
-	    </div>
+
+
+    <div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index1.php" class="mr-4 btn btn-primary">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
+</div>
+</form> 
+    </div>
 	  <script>
     function preparePrint() {
       // Change the headers before printing
