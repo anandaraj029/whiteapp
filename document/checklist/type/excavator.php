@@ -26,7 +26,7 @@ include_once('./get-checklist.php');
 <table class="w-100">
             <tr>
         <td rowspan="4" class="logo-cell ">
-            <img src="../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
+            <img src="../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
         </td>
         <td colspan="3" class="no-border">
             <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
