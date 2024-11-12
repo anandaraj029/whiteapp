@@ -47,7 +47,7 @@ include_once('./view-fetch.php');
         <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
-   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">
@@ -2446,7 +2446,7 @@ Sec.1.5.4
         <?php echo $selected_results[106]=="NA"?'checked':''; ?>> 
     </td>
     <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[107];?>" disabled>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[106];?>" disabled>
     </td>
             </tr>
 		<tr>
