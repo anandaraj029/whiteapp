@@ -45,7 +45,7 @@ include_once('./view-fetch.php');
         <td class="left-align">Prepared By:<br>Operations Manager</td>
         <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
    
-   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             

@@ -72,6 +72,7 @@ include_once('../../inc/function.php');
             <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
             <option value="forklift">Forklift</option>
             <option value="bulldozer">Bulldozer</option>
+            <option value="manbaskets">Manbaskets</option>
             <option value="frames-and-mobile-gantries">Frames and Mobile Gantries</option>
                 </select> 
             </div>
