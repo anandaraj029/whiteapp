@@ -64,33 +64,33 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
-                <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+            <th>CLIENT’S NAME:</th>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
-                <td><strong></strong></td>
+            <th>LOCATION:</th>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
-                <th>EQUIP.SERIAL NO.:</th>
-                <td><strong></strong></td>
+            <th>EQUIPMENT NO:</th>
+                <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
+                <th>EQUIP. SERIAL NO.:</th>
+                <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
+            <th>EQUIPMENT TYPE:</th>
+                <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
                 <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
             </tr>
             
         </table>
@@ -129,10 +129,18 @@ include_once('./get-checklist.php');
                 <td><strong>1.1</strong></td>
                 <td><strong> Missing or Defective Insulation  </strong></td>
 				<td style="text-align: center;"><strong> </strong></td>
-                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[1]">
+</td>
             </tr>
 			
 			<tr>
@@ -140,29 +148,53 @@ include_once('./get-checklist.php');
                 <td><strong>Defective Connections </strong></td>
 				<td style="text-align: center;"><strong> 
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[2]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
                 <td><strong>Defective, Damaged Switches </strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[3]">
+</td>
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
                 <td><strong>Other Damage  </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[4]">
+</td>
             </tr>
 			<tr>
                     <th style="text-align: center;">2</th>
@@ -181,10 +213,18 @@ include_once('./get-checklist.php');
                 <td><strong>Defective, Damage Cable  </strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[5]">
+</td>
             </tr>
 			
 			<tr>
@@ -192,39 +232,71 @@ include_once('./get-checklist.php');
                 <td><strong>Deformed, Faulty Plug </strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[6]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
                 <td><strong>Broken or Thermally Damaged Plug Pins </strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[7]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.4</strong></td>
                 <td><strong>Ineffective Cable Anchorage </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[8]">
+</td>
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
                 <td><strong>Cables  &  Couplers  unsuitable  for  the intended use and performance. </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[9]">
+</td>
             </tr>
 			<tr>
                     <th style="text-align: center;">3</th>
@@ -243,10 +315,18 @@ include_once('./get-checklist.php');
                 <td><strong>Defective, Damage Cable  </strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[10]">
+</td>
             </tr>
 			
 			<tr>
@@ -254,29 +334,53 @@ include_once('./get-checklist.php');
                 <td><strong>Deformed,Faulty or Thermally Damaged coupler / sockets.  </strong></td>
 				<td style="text-align: center;"><strong> 
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[11]">
+</td>
             </tr>
 			<tr>
                 <td><strong>3.3</strong></td>
                 <td><strong>Ineffective Cable Anchorage </strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[12]">
+</td>
             </tr>
 			<tr>
                 <td><strong>3.4</strong></td>
                 <td><strong>Cables  &  Couplers  unsuitable  for  the intended use and performance. </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[13]">
+</td>
             </tr>
 			
 			<tr>
@@ -296,10 +400,18 @@ include_once('./get-checklist.php');
                 <td><strong> Missing or Damaged   </strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[14]">
+</td>
             </tr>
 			
 			<tr>
@@ -307,57 +419,105 @@ include_once('./get-checklist.php');
                 <td><strong>Unauthorized Modifications </strong></td>
 				<td style="text-align: center;"><strong> 
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[15]">
+</td>
             </tr>
 			<tr>
                 <td><strong>4.3</strong></td>
                 <td><strong>Cooling  Openings  Blocked  or  Missing Air Filters. </strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[16]">
+</td>
             </tr>
 			<tr>
                 <td><strong>4.4</strong></td>
                 <td><strong>Signs of  Overload & Improper Use </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[17]">
+</td>
             </tr>	
 			<tr>
                 <td><strong>4.5</strong></td>
                 <td><strong>Missing  or  Defective  Wheels,  Lifting Means, Holder, Etc.</strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[18]">
+</td>
             </tr>
 			<tr>
                 <td><strong>4.6</strong></td>
                 <td><strong>Missing or Defective Wheels, Lifting Means,Holder,Etc.</strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[19]">
+</td>
             </tr>
 			<tr>
                 <td><strong>4.7</strong></td>
                 <td><strong>Defective Wire  Reel Mounting Means</strong></td>
 				<td style="text-align: center;"><strong>
 </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[20]">
+</td>
             </tr>
 			
       <tr>
@@ -365,10 +525,18 @@ include_once('./get-checklist.php');
                 <td><strong>Conductive Objects Placed in the Enclosure.</strong></td>
 				<td style="text-align: center;"><strong>
 </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[21]">
+</td>
             </tr>  
 <tr>
                     <th style="text-align: center;">5</th>
@@ -387,10 +555,18 @@ include_once('./get-checklist.php');
                 <td><strong> Defective Switches, Meters & Lamps</strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[22]">
+</td>
             </tr>
 			
 			<tr>
@@ -398,19 +574,35 @@ include_once('./get-checklist.php');
                 <td><strong>Defective Pressure Regulator or F.M </strong></td>
 				<td style="text-align: center;"><strong> 
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[23]">
+</td>
             </tr>
 			<tr>
                 <td><strong>5.3</strong></td>
                 <td><strong>Incorrect Fuses Accessible from Outside the enclosure.</strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[24]">
+</td>
             </tr>			
 			<tr>
                     <th style="text-align: center;">6</th>
@@ -429,10 +621,18 @@ include_once('./get-checklist.php');
                 <td><strong> Cooling Liquid Circuit Leaking </strong></td>
 				<td style="text-align: center;"><strong>
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[25]">
+</td>
             </tr>
 			
 			<tr>
@@ -440,29 +640,53 @@ include_once('./get-checklist.php');
                 <td><strong>Defective Gas Hoses & Connections </strong></td>
 				<td style="text-align: center;"><strong> 
  </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[26]">
+</td>
             </tr>
 			<tr>
                 <td><strong>6.3</strong></td>
                 <td><strong>Poor Legibility of  Markings & Labelling </strong></td>
 				<td style="text-align: center;"><strong></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[27]">
+</td>
             </tr>
 			<tr>
                 <td><strong>6.4</strong></td>
                 <td><strong>Data  Plate & Markings </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                 <td class="checkbox-cell"><strong><input type="checkbox" class="large-checkbox"></strong></td>
-                <td><strong></strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+</td>
+<td>
+    <input type="text" name="checklist_remark[28]">
+</td>
             </tr>	
 				
         </table>
