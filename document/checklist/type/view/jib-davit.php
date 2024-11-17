@@ -1,3 +1,10 @@
+<?php 
+
+include_once('./view-fetch.php');
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,71 +77,70 @@
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
-                <td><strong></strong></td>
-                <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+        <th>LOCATION:</th>
+        <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
+        <th>STICKER NO.:</th>
+        <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
-                <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
-            </tr>
+        <th>EQUIPMENT TYPE:</th>
+        <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
+        <th>CAPACITY (SWL):</th>
+        <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
+    </tr>
             
         </table>
 </div>
         
 
+
+<form method="post" action="?">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
 			<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">GENERAL REQUIREMENTS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">NA</th>
                     <th> </th>
-                </tr>
-				
-				</thead>
- 
+            </tr>				
+				</thead> 
                 <tbody>
 
 		
- <tr>
+<tr>
                 <td><strong>1.1</strong></td>
                 <td><strong> Documentation is available</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.11
- </strong></td>
- <td class="checkbox-cell">
+				<td style="text-align: center;"><strong>ASME B30.11  </strong></td>
+    <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[0]=="PASS"?'checked':''; ?>> 
     </td>
@@ -149,7 +155,7 @@
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
     </td>
-            </tr>
+</tr>
 			<tr>
                 <td><strong>1.2</strong></td>
                 <td><strong> Equipment number is clearly marked for identification purposes.</strong></td>
@@ -995,8 +1001,16 @@ is used in a rope termination (in accordance with the manufacturer's instruction
 
 
         
+        </div>
+
+
+<div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
+</div>
+</form> 
     </div>
-	    </div>
+
 	  <script>
     function preparePrint() {
       // Change the headers before printing
