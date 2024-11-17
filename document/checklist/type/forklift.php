@@ -46,7 +46,7 @@ include_once('./get-checklist.php');
         <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
-   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">
@@ -78,33 +78,33 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
+                <td><strong><?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
         <th>LOCATION:</th>
-        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <td><strong> <?php echo htmlspecialchars($row['location']); ?> </strong></td>
         <th>STICKER NO.:</th>
-        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['sticker_no']); ?> </strong></td>
     </tr>
     <tr>
-        <th>CRANE ASSET NO:</th>
-        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
-        <th>CRANE SERIAL NO.:</th>
-        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+        <th>EQUIPMENT NO:</th>
+        <td><strong><?php echo htmlspecialchars($row['crane_asset_no']); ?> </strong></td>
+        <th>EQUIP. SERIAL NO.:</th>
+        <td><strong><?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
     </tr>
     <tr>
         <th>EQUIPMENT TYPE:</th>
-        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
         <th>CAPACITY (SWL):</th>
-        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
     </tr>
             
         </table>
@@ -1098,12 +1098,14 @@ include_once('./get-checklist.php');
            
         </table>
 
+        </div>
+
         <div class="col-12">
     <button type="submit" class="btn btn-primary">Update</button>
 </div>
 </form>
         
-    </div>
+    
 	    </div>
 	  <script>
     function preparePrint() {
