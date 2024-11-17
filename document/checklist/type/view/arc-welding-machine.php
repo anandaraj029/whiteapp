@@ -79,7 +79,7 @@ include_once('./view-fetch.php');
         <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
         <th>STICKER NO.:</th>
         <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
-    </tr>
+            </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
                 <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
@@ -616,8 +616,7 @@ include_once('./view-fetch.php');
  <tr>
                 <td><strong>5.1</strong></td>
                 <td><strong> Defective Switches, Meters & Lamps</strong></td>
-				<td style="text-align: center;"><strong>
- </strong></td>
+				<td style="text-align: center;"><strong>  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[21]=="PASS"?'checked':''; ?>> 
@@ -638,8 +637,7 @@ include_once('./view-fetch.php');
 			<tr>
                 <td><strong>5.2</strong></td>
                 <td><strong>Defective Pressure Regulator or F.M </strong></td>
-				<td style="text-align: center;"><strong> 
- </strong></td>
+				<td style="text-align: center;"><strong>  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[22]=="PASS"?'checked':''; ?>> 
@@ -679,8 +677,7 @@ include_once('./view-fetch.php');
 			<tr>
                     <th style="text-align: center;">6</th>
                     <th style="text-align: center;">GENERAL CONDITION</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">NA</th>
@@ -778,28 +775,18 @@ include_once('./view-fetch.php');
         
 <div class="table-responsive">
             <table class="table table-bordered">
-                <tbody>
-				
-				<tr>
-                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
-				</tr>
-            <tr>
-                <td style="height: 120px;" colspan="3">
-                    
-                <?php echo htmlspecialchars($row['remarks']); ?>      </td>
-                
-            </tr>
-			</tbody>
-			</table>
-			
-			</div>
-
-       
-        
-
-      	
-
-       
+                <tbody>				
+				   <tr>
+                        <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
+				    </tr>
+                   <tr>
+                        <td style="height: 120px;" colspan="3">                    
+                            <?php echo htmlspecialchars($row['remarks']); ?>
+                        </td>                
+                    </tr>
+			    </tbody>
+			</table>			
+</div> 
 		
 		
 		<div class="table-responsive">
@@ -821,12 +808,12 @@ include_once('./view-fetch.php');
 
 
 <div class="col-12 d-flex justify-content-center mt-4">
-  <a href="../../index1.php" class="mr-4 btn btn-primary">Back</a>
+  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
  <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
 </div>
 </form> 
     </div>
-	    </div>
+	    
 	  <script>
     function preparePrint() {
       // Change the headers before printing

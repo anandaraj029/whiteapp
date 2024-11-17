@@ -3984,7 +3984,7 @@ Sec.10-1.2.
 
 
 <div class="col-12 d-flex justify-content-center mt-4">
-<a href="../../index1.php" class="mr-4 btn btn-primary">Back</a>
+<a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
 <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
 </div>
 </form> 
