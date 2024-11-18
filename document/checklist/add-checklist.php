@@ -80,7 +80,7 @@ include_once('../../inc/function.php');
             <!-- INSPECTION DATE -->
             <div class="form-group">
                 <label class="font-14 bold mb-2">INSPECTION DATE</label>
-                <input type="text" name="inspection_date" class="theme-input-style" placeholder="INSPECTION DATE" required>
+                <input type="date" name="inspection_date" class="theme-input-style" placeholder="INSPECTION DATE" required>
             </div>
             
             <!-- INSPECTED BY -->

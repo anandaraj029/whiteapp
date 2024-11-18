@@ -75,40 +75,40 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?> </strong></td>
                 <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['sticker_no']); ?> </strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['crane_asset_no']); ?> </strong></td>
                 <th>EQUIP. SERIAL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
                 <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
             </tr>
             
         </table>
 </div>
         
 
-<form method="post" action="./update_checklist.php">
+<form method="post" action="./update_checklist.php" id="checklistForm">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -141,13 +141,13 @@ include_once('./get-checklist.php');
 				<td style="text-align: center;"><strong>ASME B30.23 Sec 1.2.1(c)(1,2,3)
  </strong></td>
  <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox1_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox1_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox1_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -160,13 +160,13 @@ include_once('./get-checklist.php');
 				<td style="text-align: center;"><strong> ASME B30.23 SEC 1.1(7)(-c)
  </strong></td>
  <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox2_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox2_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox2_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -177,13 +177,13 @@ include_once('./get-checklist.php');
                 <td><strong> Platform’s SWL is prominently marked Minimum Platform rating is 300 lbs. (136 kg).   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 SEC 1.1.1 (B)(1)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox3_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox3_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox3_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -194,13 +194,13 @@ include_once('./get-checklist.php');
                 <td><strong> Maximum number of persons allowed on the platform is clearly marked.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox4_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox4_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -214,13 +214,13 @@ Sec 1.1.
 (7)(-a)(d)(-e)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox5_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox5_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -231,13 +231,13 @@ Sec 1.1.
                 <td><strong>  Rope sling and chain sling suspension systems shall have each leg of the system permanently marked with the rated load of the leg.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-h)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox6_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox6_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -248,13 +248,13 @@ Sec 1.1.
                 <td><strong>  The master link in the system shall be permanently marked with the suspension system's rated load and identification as a personnel lifting platform suspension component.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-h)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox7_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox7_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox7_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -282,13 +282,13 @@ Sec 1.1.
                 <td><strong>  Shackles shall be of a bolt type with cotter pin.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-i)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox8_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox8_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox8_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -300,13 +300,13 @@ Sec 1.1.
                 <td><strong>  Access system (gate), if provided, shall only open inward. </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(8)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox9_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox9_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox9_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -317,13 +317,13 @@ Sec 1.1.
                 <td><strong>Rope Sling Suspension System with Mechanically spliced Flemish eyes, if used, have thimbles in all eyes.  (Wire rope clips, wedge sockets, or knots shall not be used).    </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(10)(-a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox10_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox10_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox10_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -334,13 +334,13 @@ Sec 1.1.
                 <td><strong> Chain sling, if used, has a minimum of grade 80 chain.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-c) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox11_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox11_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox11_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -351,13 +351,13 @@ Sec 1.1.
                 <td><strong>All sling suspension systems utilized a master link for attachment to the hoisting equipment’s hook or bolt type shackle with cotter pin.   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-d) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox12_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox12_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox12_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -368,13 +368,13 @@ Sec 1.1.
                 <td><strong>  Guard rail protection consists of: Top rail (not less than 39” (990 mm & not more than 45” in 1,140 mm),  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1.1(2)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox13_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox13_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox13_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -385,13 +385,13 @@ Sec 1.1.
                 <td><strong> Intermediate rail, toe board has a min. in height of 3.9”(90 mm) from the top of the platform floor.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1.1(2)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox14_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox14_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox14_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">
@@ -403,13 +403,13 @@ Sec 1.1.
                 <td><strong> Anchorage points are provided within the platform or on the boom tip.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(3)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[15][]" id="checkbox15_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[15][]" id="checkbox15_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[15][]" id="checkbox15_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[15]">
@@ -420,13 +420,13 @@ Sec 1.1.
                 <td><strong> Hand Railings are provided around the platform, with the exception of any access gate or door. Hand railings shall have the clearance of not less than 1.5” (39 mm) between the railings and any other structure.   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(4)(-c)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[16][]" id="checkbox16_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[16][]" id="checkbox16_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[16][]" id="checkbox16_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[16]">
@@ -437,13 +437,13 @@ Sec 1.1.
                 <td><strong> Flooring with a slip-resistant surface and provisions to facilitate the free drainage of fluids and that will stand the forces developed under proof load test. Flooring shall have no opening that will allow a sphere of 0.5” (13 mm) to pass through.   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(5) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[17][]" id="checkbox17_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[17][]" id="checkbox17_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[17][]" id="checkbox17_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[17]">
@@ -454,13 +454,13 @@ Sec 1.1.
                 <td><strong>  Synthetic webbing sling or natural synthetic fiber rope sling is not used for suspension systems.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.23 sec 1.1(10)(-e) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[18][]" id="checkbox18_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[18][]" id="checkbox18_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[18][]" id="checkbox18_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[18]">
@@ -472,13 +472,13 @@ Sec 1.1.
                 <td><strong>  Overhead protection if provided, shall allow for a clear view of the hoist equipment components directly overhead from any position in the platform. Any openings designed in the overhead protection shall not allow a sphere of 0.5” (13 mm) to pass through.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.23 sec 1.1(11)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[19][]" id="checkbox19_1" value="PASS">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[19][]" id="checkbox19_2" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[19][]" id="checkbox19_3" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[19]">
@@ -561,6 +561,74 @@ Sec 1.1.
       window.print();
     }
   </script>
+
+
+
+<script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const remarks = document.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    // Check if at least one checkbox is selected for each question
+    const resultGroups = {};
+    checkboxes.forEach(checkbox => {
+        const name = checkbox.name;
+        if (!resultGroups[name]) resultGroups[name] = false;
+        if (checkbox.checked) resultGroups[name] = true;
+    });
+    for (const group in resultGroups) {
+        if (!resultGroups[group]) {
+            isValid = false;
+            alert(`Please select a result for ${group}`);
+            break;
+        }
+    }
+
+    // Check if all remark fields are filled
+    if (isValid) {
+        remarks.forEach(remark => {
+            if (remark.value.trim() === '') {
+                isValid = false;
+                alert('Please fill in all remarks.');
+                remark.focus();
+                return false;
+            }
+        });
+    }
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checklistForm = document.getElementById("checklistForm");
+
+    if (checklistForm) {
+        // Ensure only one checkbox is selected per row for the result field
+        checklistForm.addEventListener("change", function (event) {
+            if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
+                const currentRow = event.target.closest("tr");
+                const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false; // Uncheck other checkboxes in the same group
+                    }
+                });
+            }
+        });
+    }
+});
+
+
+</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
