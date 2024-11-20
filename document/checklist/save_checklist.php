@@ -49,7 +49,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt_results->close();
 
         // Redirect on successful insertion
-        header("Location: type/$checklist_type.php");
+        // header("Location: type/$checklist_type.php");
+
+        header("Location: index.php");
 
     } else {
         echo "Error: " . $stmt->error;

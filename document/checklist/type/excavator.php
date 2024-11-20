@@ -96,7 +96,7 @@ include_once('./get-checklist.php');
                 <th>EQUIP. MODEL NO.:</th>
                 <td><strong></strong></td>
                 <th>CAPACITY:</th>
-                <td><strong></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
             </tr>
         </table>
 </div>

@@ -46,7 +46,7 @@ include_once('./get-checklist.php');
         <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
    
-   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">
@@ -78,33 +78,33 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
+                <td><strong><?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
         <th>LOCATION:</th>
-        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <td><strong> <?php echo htmlspecialchars($row['location']); ?> </strong></td>
         <th>STICKER NO.:</th>
-        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['sticker_no']); ?> </strong></td>
     </tr>
     <tr>
-        <th>CRANE ASSET NO:</th>
-        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
-        <th>CRANE SERIAL NO.:</th>
-        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+        <th>EQUIPMENT NO:</th>
+        <td><strong><?php echo htmlspecialchars($row['crane_asset_no']); ?> </strong></td>
+        <th>EQUIP. SERIAL NO.:</th>
+        <td><strong><?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
     </tr>
     <tr>
         <th>EQUIPMENT TYPE:</th>
-        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
         <th>CAPACITY (SWL):</th>
-        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+        <td><strong><?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
     </tr>
             
         </table>
@@ -112,7 +112,7 @@ include_once('./get-checklist.php');
         
 
 
-<form method="post" action="./update_checklist.php">
+<form method="post" action="./update_checklist.php" id="checklistForm">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -1098,12 +1098,14 @@ include_once('./get-checklist.php');
            
         </table>
 
+        </div>
+
         <div class="col-12">
     <button type="submit" class="btn btn-primary">Update</button>
 </div>
 </form>
         
-    </div>
+    
 	    </div>
 	  <script>
     function preparePrint() {
@@ -1119,6 +1121,74 @@ include_once('./get-checklist.php');
       window.print();
     }
   </script>
+
+
+
+<script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const remarks = document.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    // Check if at least one checkbox is selected for each question
+    const resultGroups = {};
+    checkboxes.forEach(checkbox => {
+        const name = checkbox.name;
+        if (!resultGroups[name]) resultGroups[name] = false;
+        if (checkbox.checked) resultGroups[name] = true;
+    });
+    for (const group in resultGroups) {
+        if (!resultGroups[group]) {
+            isValid = false;
+            alert(`Please select a result for ${group}`);
+            break;
+        }
+    }
+
+    // Check if all remark fields are filled
+    if (isValid) {
+        remarks.forEach(remark => {
+            if (remark.value.trim() === '') {
+                isValid = false;
+                alert('Please fill in all remarks.');
+                remark.focus();
+                return false;
+            }
+        });
+    }
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checklistForm = document.getElementById("checklistForm");
+
+    if (checklistForm) {
+        // Ensure only one checkbox is selected per row for the result field
+        checklistForm.addEventListener("change", function (event) {
+            if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
+                const currentRow = event.target.closest("tr");
+                const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false; // Uncheck other checkboxes in the same group
+                    }
+                });
+            }
+        });
+    }
+});
+
+
+</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
