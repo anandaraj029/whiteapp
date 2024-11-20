@@ -15,9 +15,9 @@ include_once('../inc/function.php');
                            <div class="contact-header-left media-body d-flex align-items-center mr-4">
                                  <!-- Add New Contact Btn -->
                                  <div class="add-new-contact mr-20">
-                                       <a href="#" class="btn-circle" data-toggle="modal" data-target="#contactAddModal">
-                                          <img src="<?php echo $url; ?>assets/img/svg/plus_white.svg" alt="" class="svg">
-                                       </a>
+                                     <h3>  Customer List  </h3>
+                                      <!-- <img src="<?php echo $url; ?>assets/img/svg/plus_white.svg" alt="" class="svg"> -->
+                                      
                                  </div>
                                  <!-- End Add New Contact Btn -->
 
@@ -34,35 +34,11 @@ include_once('../inc/function.php');
                            </div>
 
                            <div class="contact-header-right d-flex align-items-center justify-content-end mt-3 mt-sm-0">
-                              <!-- Grid -->
-                              <div class="grid">
-                                 <a href="contact-grid.html"><img src="<?php echo $url; ?>assets/img/svg/grid-icon.svg" alt="" class="svg"></a>
-                              </div>
-                              <!-- End Grid -->
-
-                              <!-- Starred -->
-                              <div class="star">
-                                 <a href="#"><img src="<?php echo $url; ?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                              </div>
-                              <!-- End Starred -->
-
-                              <!-- Delete Mail -->
-                              <div class="delete_mail">
-                                 <a href="#"><img src="<?php echo $url; ?>assets/img/svg/delete.svg" alt="" class="svg"></a>
-                              </div>
-                              <!-- End Delete Mail -->
-
-                              <!-- Pagination -->
-                              <div class="pagination style--two d-flex flex-column align-items-center ml-n2">
-                                 <ul class="list-inline d-inline-flex align-items-center">
-                                 <li><a href="#">
-                                       <img src="<?php echo $url; ?>assets/img/svg/left-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 <li><a href="#" class="current">
-                                       <img src="<?php echo $url; ?>assets/img/svg/right-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 </ul>
-                              </div>
+                           <div class="add-new-contact mr-20">
+                                       <a href="#" class="btn" >
+                                         Create New
+                                       </a>
+                                 </div>
                               <!-- End Pagination -->
                            </div>
                         </div>
