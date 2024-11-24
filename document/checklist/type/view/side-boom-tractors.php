@@ -16,6 +16,58 @@ include_once('./view-fetch.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <style>
+/* Custom checkbox styling */
+.custom-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    outline: none;
+    cursor: not-allowed; /* Indicates it's disabled */
+    position: relative;
+}
+
+/* Checked state with blue background */
+.custom-checkbox:checked {
+    /* background-color: #007bff;  */
+    /* Blue background */
+    /* border-color: #007bff; */
+     /* Match the border with the background */
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid blue; /* Checkmark in blue */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Ensure styles are applied when printing */
+@media print {
+    /* .custom-checkbox {
+        border-color: #007bff;
+        background-color: #007bff;
+    } */
+
+    .custom-checkbox:checked::after {
+        border-color: blue;
+    }
+}
+
+</style>
+
+
 </head>
 <body>
     <div class="container">

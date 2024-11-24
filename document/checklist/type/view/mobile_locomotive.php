@@ -17,6 +17,58 @@ include_once('./view-fetch.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="../style.css" rel="stylesheet">
+
+    <style>
+/* Custom checkbox styling */
+.custom-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    outline: none;
+    cursor: not-allowed; /* Indicates it's disabled */
+    position: relative;
+}
+
+/* Checked state with blue background */
+.custom-checkbox:checked {
+    /* background-color: #007bff;  */
+    /* Blue background */
+    /* border-color: #007bff; */
+     /* Match the border with the background */
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid blue; /* Checkmark in blue */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Ensure styles are applied when printing */
+@media print {
+    /* .custom-checkbox {
+        border-color: #007bff;
+        background-color: #007bff;
+    } */
+
+    .custom-checkbox:checked::after {
+        border-color: blue;
+    }
+}
+
+</style>
+
+
 </head>
 <body>
     <div class="container">
@@ -148,15 +200,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.5) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[0]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[0]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
@@ -169,15 +221,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.5)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[1]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[1]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[1];?>" disabled>
@@ -189,15 +241,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.1.1, 5.1.1.3(b) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[2]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[2]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[2];?>" disabled>
@@ -209,15 +261,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.1.3(a), Fig.11)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[3]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[3]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[3];?>" disabled>
@@ -229,15 +281,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.1.1, 5.1.1.2, 5.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[4]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[4]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[4];?>" disabled>
@@ -249,15 +301,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>CIMS QHSE – 06  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[5]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[5]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[5];?>" disabled>
@@ -269,15 +321,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> CIMS QHSE – 06 </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[6]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[6]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[6];?>" disabled>
@@ -289,15 +341,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.3.4.10) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[7]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[7]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[7];?>" disabled>
@@ -309,15 +361,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.6.1, Fig.12, Fig.13) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[8]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[8]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[8];?>" disabled>
@@ -330,15 +382,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 sec.1.2 </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[9]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[9]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[9];?>" disabled>
@@ -367,15 +419,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.3.1d)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[10]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[10]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[10];?>" disabled>
@@ -388,15 +440,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.3.2) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[11]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[11]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[11];?>" disabled>
@@ -408,15 +460,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.4.1) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[12]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[12]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[12];?>" disabled>
@@ -428,15 +480,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.4.2)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[13]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[13]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[13];?>" disabled>
@@ -448,15 +500,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.5.1b) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[14]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[14]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[14];?>" disabled>
@@ -468,15 +520,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.5.1b) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[15]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[15]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[15];?>" disabled>
@@ -488,15 +540,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.5.3a)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[16]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[16]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[16];?>" disabled>
@@ -509,15 +561,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.5.3b) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[17]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[17]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[17];?>" disabled>
@@ -529,15 +581,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.6.3a-d) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[18]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[18]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[18];?>" disabled>
@@ -549,15 +601,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.2c) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[19]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[19]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[19];?>" disabled>
@@ -569,15 +621,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4a) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[20]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[20]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[20];?>" disabled>
@@ -590,15 +642,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4c) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[21]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[21]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[21];?>" disabled>
@@ -610,15 +662,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4d) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[22]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[22]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[22];?>" disabled>
@@ -630,15 +682,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.8.1b) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[23]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[23]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[23];?>" disabled>
@@ -650,15 +702,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.8.1c)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[24]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[24]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[24];?>" disabled>
@@ -671,15 +723,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.8.1e) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[25]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[25]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[25];?>" disabled>
@@ -691,15 +743,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.8.3c)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[26]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[26]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[26];?>" disabled>
@@ -711,15 +763,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.8.31) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[27]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[27]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
@@ -731,15 +783,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1a1)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[28]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[28]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[28];?>" disabled>
@@ -753,15 +805,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.1a2) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[29]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[29]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[29];?>" disabled>
@@ -775,15 +827,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.1a3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[30]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[30]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[30];?>" disabled>
@@ -796,15 +848,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1c)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[31]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[31]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[31];?>" disabled>
@@ -817,15 +869,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.1d) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[32]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[32]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[32];?>" disabled>
@@ -838,15 +890,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.1.9.1e)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[33]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[33]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[33];?>" disabled>
@@ -859,15 +911,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.9.1)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[34]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[34]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[34];?>" disabled>
@@ -880,15 +932,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.9.2)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[35]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[35]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[35];?>" disabled>
@@ -901,15 +953,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.2)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[36]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[36]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[36];?>" disabled>
@@ -922,15 +974,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[37]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[37]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[37]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[37]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[37]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[37]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[37];?>" disabled>
@@ -943,15 +995,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[38]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[38]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[38]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[38]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[38]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[38]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[38];?>" disabled>
@@ -966,15 +1018,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[39]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[39]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[39]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[39]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[39]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[39]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[39];?>" disabled>
@@ -987,15 +1039,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[40]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[40]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[40]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[40]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[40]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[40]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[40];?>" disabled>
@@ -1008,15 +1060,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[41]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[41]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[41]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[41]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[41]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[41]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[41];?>" disabled>
@@ -1029,15 +1081,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[42]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[42]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[42]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[42]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[42]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[42]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[42];?>" disabled>
@@ -1050,15 +1102,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[43]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[43]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[43]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[43]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[43]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[43]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[43];?>" disabled>
@@ -1071,15 +1123,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[44]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[44]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[44]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[44]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[44]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[44]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[44];?>" disabled>
@@ -1092,15 +1144,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[45]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[45]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[45]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[45]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[45]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[45]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[45];?>" disabled>
@@ -1113,15 +1165,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[46]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[46]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[46]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[46]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[46]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[46]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[46];?>" disabled>
@@ -1134,15 +1186,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[47]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[47]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[47]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[47]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[47]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[47]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[47];?>" disabled>
@@ -1155,15 +1207,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[48]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[48]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[48]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[48]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[48]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[48]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[48];?>" disabled>
@@ -1176,15 +1228,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[49]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[49]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[49]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[49]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[49]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[49]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[49];?>" disabled>
@@ -1197,15 +1249,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[50]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[50]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[50]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[50]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[50]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[50]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[50];?>" disabled>
@@ -1218,15 +1270,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[51]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[51]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[51]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[51]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[51]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[51]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[51];?>" disabled>
@@ -1239,15 +1291,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[52]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[52]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[52]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[52]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[52]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[52]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[52];?>" disabled>
@@ -1260,15 +1312,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[53]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[53]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[53]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[53]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[53]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[53]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[53];?>" disabled>
@@ -1281,15 +1333,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[54]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[54]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[54]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[54]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[54]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[54]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[54];?>" disabled>
@@ -1302,15 +1354,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[55]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[55]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[55]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[55]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[55]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[55]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[55];?>" disabled>
@@ -1323,15 +1375,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[56]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[56]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[56]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[56]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[56]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[56]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[56];?>" disabled>
@@ -1344,15 +1396,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[57]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[57]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[57]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[57]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[57]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[57]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[57];?>" disabled>
@@ -1365,15 +1417,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[58]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[58]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[58]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[58]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[58]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[58]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[58];?>" disabled>
@@ -1386,15 +1438,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[59]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[59]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[59]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[59]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[59]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[59]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[59];?>" disabled>
@@ -1407,15 +1459,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[60]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[60]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[60]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[60]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[60]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[60]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[60];?>" disabled>
@@ -1429,15 +1481,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[61]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[61]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[61]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[61]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[61]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[61]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[61];?>" disabled>
@@ -1450,15 +1502,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[62]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[62]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[62]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[62]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[62]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[62]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[62];?>" disabled>
@@ -1471,15 +1523,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[63]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[63]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[63]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[63]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[63]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[63]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[63];?>" disabled>
@@ -1499,15 +1551,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.4.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[64]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[64]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[64]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[64]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[64]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[64]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[64];?>" disabled>
@@ -1527,15 +1579,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.4.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[65]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[65]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[65]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[65]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[65]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[65]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[65];?>" disabled>
@@ -1550,15 +1602,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.4.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[66]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[66]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[66]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[66]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[66]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[66]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[66];?>" disabled>
@@ -1571,15 +1623,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.4.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[67]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[67]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[67]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[67]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[67]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[67]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[67];?>" disabled>
@@ -1592,15 +1644,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[68]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[68]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[68]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[68]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[68]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[68]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[68];?>" disabled>
@@ -1613,15 +1665,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.3.2(a)(5)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[69]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[69]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[69]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[69]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[69]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[69]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[69];?>" disabled>
@@ -1634,15 +1686,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[70]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[70]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[70]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[70]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[70]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[70]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[70];?>" disabled>
@@ -1655,15 +1707,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[71]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[71]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[71]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[71]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[71]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[71]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[71];?>" disabled>
@@ -1676,15 +1728,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[72]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[72]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[72]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[72]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[72]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[72]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[72];?>" disabled>
@@ -1697,15 +1749,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.6) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[73]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[73]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[73]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[73]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[73]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[73]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[73];?>" disabled>
@@ -1719,15 +1771,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[74]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[74]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[74]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[74]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[74]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[74]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[74];?>" disabled>
@@ -1740,15 +1792,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[75]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[75]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[75]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[75]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[75]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[75]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[75];?>" disabled>
@@ -1761,15 +1813,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[76]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[76]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[76]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[76]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[76]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[76]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[76];?>" disabled>
@@ -1782,15 +1834,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[77]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[77]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[77]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[77]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[77]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[77]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[77];?>" disabled>
@@ -1803,15 +1855,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[78]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[78]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[78]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[78]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[78]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[78]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[78];?>" disabled>
@@ -1824,15 +1876,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[79]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[79]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[79]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[79]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[79]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[79]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[79];?>" disabled>
@@ -1845,15 +1897,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.11) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[80]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[80]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[80]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[80]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[80]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[80]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[80];?>" disabled>
@@ -1866,15 +1918,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.11)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[81]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[81]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[81]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[81]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[81]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[81]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[81];?>" disabled>
@@ -1887,15 +1939,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[82]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[82]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[82]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[82]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[82]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[82]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[82];?>" disabled>
@@ -1908,15 +1960,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.6.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[83]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[83]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[83]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[83]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[83]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[83]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[83];?>" disabled>
@@ -1929,15 +1981,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.9.12g) </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[84]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[84]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[84]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[84]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[84]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[84]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[84];?>" disabled>
@@ -1950,15 +2002,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[85]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[85]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[85]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[85]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[85]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[85]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[85];?>" disabled>
@@ -1970,15 +2022,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> QHSE - 06 </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[86]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[86]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[86]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[86]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[86]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[86]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[86];?>" disabled>
@@ -1991,15 +2043,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.7.4)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[87]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[87]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[87]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[87]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[87]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[87]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[87];?>" disabled>
@@ -2012,15 +2064,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4) </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[88]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[88]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[88]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[88]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[88]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[88]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[88];?>" disabled>
@@ -2033,15 +2085,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.6) </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[89]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[89]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[89]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[89]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[89]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[89]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[89];?>" disabled>
@@ -2054,15 +2106,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.10 (10.1.1.1)  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[90]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[90]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[90]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[90]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[90]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[90]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[90];?>" disabled>
@@ -2075,15 +2127,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.10 (10.1.1.1)  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[91]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[91]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[91]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[91]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[91]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[91]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[91];?>" disabled>
@@ -2096,15 +2148,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.1.1) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[92]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[92]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[92]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[92]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[92]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[92]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[92];?>" disabled>
@@ -2117,15 +2169,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.2c3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[93]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[93]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[93]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[93]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[93]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[93]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[93];?>" disabled>
@@ -2140,15 +2192,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.1.3c1) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[94]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[94]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[94]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[94]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[94]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[94]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[94];?>" disabled>
@@ -2163,15 +2215,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.1.3c2) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[95]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[95]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[95]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[95]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[95]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[95]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[95];?>" disabled>
@@ -2184,15 +2236,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.1.3c3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[96]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[96]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[96]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[96]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[96]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[96]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[96];?>" disabled>
@@ -2205,15 +2257,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.10 (10.1.2.1.2c3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[97]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[97]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[97]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[97]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[97]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[97]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[97];?>" disabled>
@@ -2226,15 +2278,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.1.3c4) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[98]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[98]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[98]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[98]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[98]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[98]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[98];?>" disabled>
@@ -2247,15 +2299,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.10 (10.1.2.1.3c5) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[99]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[99]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[99]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[99]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[99]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[99]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[99];?>" disabled>
@@ -2268,15 +2320,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4) </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[100]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[100]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[100]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[100]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[100]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[100]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[100];?>" disabled>
@@ -2289,15 +2341,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.7.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[101]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[101]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[101]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[101]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[101]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[101]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[101];?>" disabled>
@@ -2310,15 +2362,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[102]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[102]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[102]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[102]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[102]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[102]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[102];?>" disabled>
@@ -2331,15 +2383,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[103]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[103]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[103]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[103]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[103]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[103]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[103];?>" disabled>
@@ -2352,15 +2404,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[104]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[104]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[104]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[104]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[104]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[104]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[104];?>" disabled>
@@ -2373,15 +2425,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[105]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[105]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[105]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[105]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[105]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[105]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[105];?>" disabled>
@@ -2394,15 +2446,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.5.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[106]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[106]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[106]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[106]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[106]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[106]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[106];?>" disabled>
@@ -2415,15 +2467,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[107]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[107]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[107]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[107]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[107]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[107]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[107];?>" disabled>
@@ -2436,15 +2488,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[108]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[108]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[108]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[108]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[108]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[108]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[108];?>" disabled>
@@ -2457,15 +2509,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[109]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[109]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[109]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[109]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[109]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[109]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[109];?>" disabled>
@@ -2479,15 +2531,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[110]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[110]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[110]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[110]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[110]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[110]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[110];?>" disabled>
@@ -2501,15 +2553,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[111]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[111]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[111]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[111]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[111]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[111]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[111];?>" disabled>
@@ -2523,15 +2575,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[112]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[112]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[112]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[112]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[112]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[112]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[112];?>" disabled>
@@ -2544,15 +2596,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[113]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[113]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[113]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[113]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[113]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[113]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[113];?>" disabled>
@@ -2565,15 +2617,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[114]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[114]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[114]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[114]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[114]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[114]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[114];?>" disabled>
@@ -2586,15 +2638,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[115]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[115]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[115]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[115]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[115]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[115]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[115];?>" disabled>
@@ -2607,15 +2659,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.3.2)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[116]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[116]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[116]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[116]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[116]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[116]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[116];?>" disabled>
@@ -2628,15 +2680,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.1.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[117]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[117]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[117]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[117]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[117]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[117]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[117];?>" disabled>
@@ -2649,15 +2701,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.7.4) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[118]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[118]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[118]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[118]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[118]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[118]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[118];?>" disabled>
@@ -2670,15 +2722,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.2.4.2) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[119]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[119]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[119]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[119]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[119]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[119]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[119];?>" disabled>
@@ -2691,15 +2743,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.1.5.3) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[120]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[120]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[120]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[120]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[120]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[120]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[120];?>" disabled>
@@ -2713,15 +2765,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.6)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[121]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[121]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[121]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[121]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[121]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[121]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[121];?>" disabled>
@@ -2733,15 +2785,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>ASME B30.5 (5.2.1.3)  </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[122]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[122]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[122]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[122]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[122]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[122]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[122];?>" disabled>
@@ -2753,15 +2805,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong>  ASME B30.5 (5.2.1.3)</strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[123]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[123]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[123]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[123]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[123]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[123]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[123];?>" disabled>
@@ -2773,15 +2825,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (1.9.10.2) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[124]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[124]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[124]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[124]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[124]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[124]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[124];?>" disabled>
@@ -2793,15 +2845,15 @@ include_once('./view-fetch.php');
 				<td style="text-align: center;"><strong> ASME B30.5 (5.3.2.1.6) </strong></td>
                  <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[125]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[125]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[125]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[125]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[125]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[125]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[125];?>" disabled>
