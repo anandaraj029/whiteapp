@@ -35,7 +35,7 @@ include_once('../inc/function.php');
 
                            <div class="contact-header-right d-flex align-items-center justify-content-end mt-3 mt-sm-0">
                            <div class="add-new-contact mr-20">
-                                       <a href="#" class="btn" >
+                                       <a href="./create-customer.php" class="btn" >
                                          Create New
                                        </a>
                                  </div>
@@ -72,46 +72,57 @@ include_once('../inc/function.php');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>
-                                            <!-- Custom Checkbox -->
-                                            <label class="custom-checkbox">
-                                                <input type="checkbox">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <!-- End Custom Checkbox -->
+<?php 
+include ('../file/config.php');
 
-                                            <!-- Star -->
-                                            <div class="star">
-                                                <a href="#"><img src="<?php echo $url; ?>assets/img/svg/chat-icon.svg" alt="" class="svg"></a>
-                                            </div>
-                                            <!-- End Star -->
-                                        </td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="img mr-20">
-                                                    <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                                                </div>
-                                                <div class="name bold">
-                                                   MSI
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>Evangeline62@yahoo.com</td>
-                                        <td>(023) 708-6818 x4267</td>
-                                        <td>Kobar</td>
-                                        <td>2342,asdad,asda asasd</td>
-                                        <td>June 20, 2015</td>
-                                        <td>representive</td>
-                                        <td class="actions">
-                                            <span class="contact-edit" data-toggle="modal" data-target="#contactEditModal">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                                            </span>
-                                            <span class="contact-close">
-                                                <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                                            </span>
-                                        </td>
-                                    </tr>
+$sql = "SELECT company, email, mobile, city, address, created_at, rep_name FROM customers";
+$result = $conn->query($sql);
+
+// Check if records exist
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>
+            <td>
+                <label class='custom-checkbox'>
+                    <input type='checkbox'>
+                    <span class='checkmark'></span>
+                </label>
+            </td>
+            <td>
+                <div class='d-flex align-items-center'>
+                    <div class='img mr-20'>
+                        <img src='$url/assets/img/avatar/m16.png' class='img-40' alt=''>
+                    </div>
+                    <div class='name bold'>
+                       {$row['company']}
+                    </div>
+                </div>
+            </td>
+            <td>{$row['email']}</td>
+            <td>{$row['mobile']}</td>
+            <td>{$row['city']}</td>
+            <td>{$row['address']}</td>
+            <td>" . date('F d, Y', strtotime($row['created_at'])) . "</td>
+            <td>{$row['rep_name']}</td>
+            <td class='actions'>
+                <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
+                    <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
+                </span>
+                <span class='contact-close'>
+                    <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
+                </span>
+            </td>
+        </tr>";
+    }
+} else {
+    echo "<tr><td colspan='9' class='text-center'>No customers found.</td></tr>";
+}
+
+?>
+
+
+
+                                    
                                 </tbody>
                             </table>
                             <!-- End Invoice List Table -->

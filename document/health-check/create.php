@@ -255,10 +255,10 @@
                                             <div class="form-group">
                                                 <label class="font-14 bold mb-2">Auto Moment Limiter (LMI):</label>
                                                <!-- Auto Moment Limiter (LMI) -->
-<select class="form-control" name="auto_moment_limiter">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
+                                                <select class="form-control" name="auto_moment_limiter">
+                                                    <option value="SATISFACTORY">SATISFACTORY</option>
+                                                    <option value="NA">N/A</option>
+                                                </select>
                                                  </div>
                                             <!-- End Form Group -->
                                             
