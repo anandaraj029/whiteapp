@@ -539,6 +539,7 @@ Sec 1.1.
             
            
         </table>
+</div>
 
         <div class="col-12">
     <button type="submit" class="btn btn-primary">Update</button>

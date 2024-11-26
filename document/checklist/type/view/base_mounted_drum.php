@@ -15,6 +15,57 @@ include_once('./view-fetch.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <style>
+/* Custom checkbox styling */
+.custom-checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    outline: none;
+    cursor: not-allowed; /* Indicates it's disabled */
+    position: relative;
+}
+
+/* Checked state with blue background */
+.custom-checkbox:checked {
+    /* background-color: #007bff;  */
+    /* Blue background */
+    /* border-color: #007bff; */
+     /* Match the border with the background */
+}
+
+.custom-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid blue; /* Checkmark in blue */
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Ensure styles are applied when printing */
+@media print {
+    /* .custom-checkbox {
+        border-color: #007bff;
+        background-color: #007bff;
+    } */
+
+    .custom-checkbox:checked::after {
+        border-color: blue;
+    }
+}
+
+</style>
+
 </head>
 <body>
     <div class="container">
@@ -167,15 +218,15 @@ Managing Director
                 <td><strong>Documentation is available.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[0]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[0]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
@@ -186,15 +237,15 @@ Managing Director
                 <td><strong>The winch rating is clearly marked. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[1]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[1]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[1]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[1];?>" disabled>
@@ -205,15 +256,15 @@ Managing Director
                 <td><strong>The following clearly marked: (a) drum size, consisting of barrel diameter, barrel length, and flange diameter; (b) rope diameter(s); (c) rope speed in meter per second at rated load on specified layer.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[2]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[2]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[2]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[2];?>" disabled>
@@ -224,15 +275,15 @@ Managing Director
                 <td><strong>Line pull ratings for each layer and a specified rope diameter are provided. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[3]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[3]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[3]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[3];?>" disabled>
@@ -259,15 +310,15 @@ Managing Director
                 <td><strong>Cooling, power, and operational characteristics are provided to perform.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[4]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[4]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[4]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[4];?>" disabled>
@@ -278,15 +329,15 @@ Managing Director
                 <td><strong>The rope is anchored to the drum approved by manufacturer. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[5]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[5]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[5]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[5];?>" disabled>
@@ -297,15 +348,15 @@ Managing Director
                 <td><strong> Drum flanges extends a minimum of one-half rope diameter, but not less than 0.5 inches (13mm) above the top layer. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[6]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[6]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[6]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[6];?>" disabled>
@@ -316,15 +367,15 @@ Managing Director
                 <td><strong>Diameter of the drum provides first layer rope pitch diameter of not less than 15 times the nominal diameter of the rope.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[7]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[7]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[7]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[7];?>" disabled>
@@ -335,15 +386,15 @@ Managing Director
                 <td><strong> Mechanical holding device, other than brake, capable of holding the rated load.  </strong></td>                
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[8]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[8]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[8]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[8];?>" disabled>
@@ -354,15 +405,15 @@ Managing Director
                 <td><strong> Each brake is equipped with at least one brake capable of holding not less than 125% of the rated load at the point where the brake is applied. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[9]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[9]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[9]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[9];?>" disabled>
@@ -373,15 +424,15 @@ Managing Director
                 <td><strong>Remote-operated winches is equipped with self-setting brake. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[10]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[10]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[10]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[10];?>" disabled>
@@ -392,15 +443,15 @@ Managing Director
                 <td><strong>Winch is allowed simultaneous underwind & overwind brake capable of holding 125% of the rated load in those directions.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[11]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[11]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[11]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[11];?>" disabled>
@@ -411,15 +462,15 @@ Managing Director
                 <td><strong> Means to control the drum speed when moving the load is provided. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[12]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[12]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[12]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[12];?>" disabled>
@@ -430,15 +481,15 @@ Managing Director
                 <td><strong>Adjustments to compensate for wear in the braking system is provided.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[13]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[13]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[13]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[13];?>" disabled>
@@ -449,15 +500,15 @@ Managing Director
                 <td><strong> Guard(s) for exposed moving parts is provided.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[14]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[14]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[14]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[14];?>" disabled>
@@ -468,15 +519,15 @@ Managing Director
                 <td><strong> Guard(s) is capable of supporting the weight of a 200 lbs. (90 kg).</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[15]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[15]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[15]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[15];?>" disabled>
@@ -487,15 +538,15 @@ Managing Director
                 <td><strong>Rope size can withstand the minimum breaking force.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[16]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[16]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[16]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[16];?>" disabled>
@@ -506,15 +557,15 @@ Managing Director
                 <td><strong> Rope winch meets manufacturer or qualified person’s recommendation. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[17]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[17]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[17]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[17];?>" disabled>
@@ -525,15 +576,15 @@ Managing Director
                 <td><strong>All controls are marked for identification of function and direction of the drum rotation.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[18]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[18]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[18]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[18];?>" disabled>
@@ -544,15 +595,15 @@ Managing Director
                 <td><strong>  All winch controls are within reach of operator during the normal operating conditions.  </strong></td>
                <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[19]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[19]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[19]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[19];?>" disabled>
@@ -563,15 +614,15 @@ Managing Director
                 <td><strong>  Electric motor-driven winches shall be provided with a device that will disconnect all motors from the power source in the event of a power failure, and will not permit any motor to be restarted until controller handle is brought to the off position or reset switch or button is operated.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[20]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[20]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[20]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[20];?>" disabled>
@@ -582,15 +633,15 @@ Managing Director
                 <td><strong> Remote operated winches shall function so that if the control signal becomes ineffective, winch motion shall stop. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[21]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[21]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[21]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[21];?>" disabled>
@@ -601,15 +652,15 @@ Managing Director
                 <td><strong>  All prime mover controls shall return to neutral position when released.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[22]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[22]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[22]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[22];?>" disabled>
@@ -620,15 +671,15 @@ Managing Director
                 <td><strong> Engine-driven winches are provided with a clutch for disengaging power to winch. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[23]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[23]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[23]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[23];?>" disabled>
@@ -640,15 +691,15 @@ Managing Director
                 <td><strong> Lubrication points are accessible.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[24]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[24]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[24]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[24];?>" disabled>
@@ -675,15 +726,15 @@ Managing Director
                 <td><strong>Rope is properly spooled on drum. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[25]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[25]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[25]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[25];?>" disabled>
@@ -694,15 +745,15 @@ Managing Director
                 <td><strong> Control mechanisms are operating properly.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[26]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[26]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[26]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[26];?>" disabled>
@@ -713,15 +764,15 @@ Managing Director
                 <td><strong> Limit switches are properly working. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[27]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[27]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
@@ -732,15 +783,15 @@ Managing Director
                 <td><strong>  No deterioration or leakage in air or hydraulic is found.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[28]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[28]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[28]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[28];?>" disabled>
@@ -751,15 +802,15 @@ Managing Director
                 <td><strong>No indication of loose, damaged, or missing structural components including supports and anchorages.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[29]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[29]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[29]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[29];?>" disabled>
@@ -770,15 +821,15 @@ Managing Director
                 <td><strong> Electrical apparatus properly functioning, without signs of excessive deterioration, and no dirt accumulation.   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[30]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[30]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[30]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[30];?>" disabled>
@@ -789,15 +840,15 @@ Managing Director
                 <td><strong>Control & drive mechanisms are properly adjusted and without excessive wear. </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[31]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[31]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[31]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[31];?>" disabled>
@@ -808,15 +859,15 @@ Managing Director
                 <td><strong> No damage tubing, piping, electrical cables, or hoses, and their fittings.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[32]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[32]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[32]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[32];?>" disabled>
@@ -827,15 +878,15 @@ Managing Director
                 <td><strong> Pins, bearings, shafts, gears, rollers, and locking and clamping devices have no excessive wear, cracking, distortion, & corrosion.</strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[33]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[33]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[33]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[33];?>" disabled>
@@ -846,15 +897,15 @@ Managing Director
                 <td><strong>Brake & clutch system parts & linings have no excessive wear, sever distortion, & corrosion.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[34]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[34]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[34]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[34];?>" disabled>
@@ -865,15 +916,15 @@ Managing Director
                 <td><strong>Chain & chain drive sprockets have no excessive wear, & excessive chain stretch.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[35]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[35]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[35]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[35];?>" disabled>
@@ -884,15 +935,15 @@ Managing Director
                 <td><strong> Winch is operated by a qualified operator.  </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[36]=="PASS"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[36]=="NA"?'checked':''; ?>> 
+        <?php echo $selected_results[36]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[36];?>" disabled>
@@ -931,6 +982,7 @@ Managing Director
             
            
         </table>
+</div>
 
 
         <div class="col-12 d-flex justify-content-center mt-4">

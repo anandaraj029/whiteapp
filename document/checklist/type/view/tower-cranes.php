@@ -1,8 +1,7 @@
 <?php 
 
-include_once('./view-fetch.php');
+include_once('./get-checklist.php');
 ?>
-
 
 
 <!DOCTYPE html>
@@ -10,115 +9,36 @@ include_once('./view-fetch.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES  </title>
+    <title>INSPECTION CHECKLIST FOR TOWER CRANES</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
-
-
-    <style>
-/* Custom checkbox styling */
-.custom-checkbox {
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #ccc;
-    border-radius: 3px;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    outline: none;
-    cursor: not-allowed; /* Indicates it's disabled */
-    position: relative;
-}
-
-/* Checked state with blue background */
-.custom-checkbox:checked {
-    /* background-color: #007bff;  */
-    /* Blue background */
-    /* border-color: #007bff; */
-     /* Match the border with the background */
-}
-
-.custom-checkbox:checked::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 4px;
-    height: 9px;
-    border: solid blue; /* Checkmark in blue */
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-/* Ensure styles are applied when printing */
-@media print {
-    /* .custom-checkbox {
-        border-color: #007bff;
-        background-color: #007bff;
-    } */
-
-    .custom-checkbox:checked::after {
-        border-color: blue;
-    }
-}
-
-</style>
-
 </head>
 <body>
     <div class="container">
 	
 	  <div class="table-responsive">
-      <table class="w-100">
-            <tr>
-        <td rowspan="4" class="logo-cell ">
-            <img src="../../logo.png"  alt="CIMS Logo" width="100"> <!-- Replace 'logo.png' with actual image path -->
-        </td>
-        <td colspan="3" class="no-border">
-            <span class="main-title">CRANE INSPECTION & MAINTENANCE SERVICES</span><br>
-            A DIVISION OF AL-KHOBAR GATE INTERNATIONAL TRADING EST.
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="">
-            <strong>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES  </strong>
-        </td>
-    </tr>
-    <tr>
-        <td>FRM.0601-1.4</td>
-        <td>Revision 02</td>
-        <td><b>Issue Date: </b>30/SEP/2020</td>
-    </tr>
-    <tr>
-        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
-        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
-   
-   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
-</tr>
-</table>
-            <!-- <table class="table table-bordered">
+            <table class="table table-bordered">
                 <tbody>
 				
 				<tr>
-                <td colspan="3" style="text-align: center;"><strong>INSPECTION CHECKLIST FOR MARINE & OFFSHORE CRANES </strong></td>
+                <td colspan="3" style="text-align: center;"><strong>INSPECTION CHECKLIST FOR TOWER CRANES</strong></td>
 				</tr>
             <tr>
-                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.4</strong></td>
+                <td style="width: 25%; text-align: center;"><strong>FRM.0601-1.13</strong></td>
                 <td style="width: 25%; text-align: center;"> <strong>Revision 02</strong></td>
                 
                 <td style="width: 25%; text-align: center;"> <strong>Issue Date: 30/SEP/2020</strong></td>
             </tr>
 			</tbody>
-			</table> -->
+			</table>
 			
 			</div>
 
-        <h4>MARINE & OFFSHORE CRANES</h4>
-        <h4>ASME B30.2-2016, ASME B30.3-2016, ASME B30.4-2015, ASME B30.5-2018, ASME B30.8-2015, ASME B30.16-2017, ASME B30.17-2015, ASME B30.22-2016, API SPEC 2C-2012, API RP 2D-2015</h4>
+        <h4>TOWER CRANES</h4>
+        <h4>ASME B30.3-2016</h4>
 		
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
@@ -160,11 +80,10 @@ include_once('./view-fetch.php');
             
         </table>
 </div>
-      
+        
 
-<form method="post" action="./update_checklist.php">
+<form method="post" action="./update_checklist.php" id="checklistForm">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
-
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -177,7 +96,7 @@ include_once('./view-fetch.php');
                 </tr>
 			<tr>
                     <th style="text-align: center;">1</th>
-                    <th style="text-align: center;">GENERAL REQUIREMENTS</th>
+                    <th style="text-align: center;">MARKINGS, DOCUMENTS</th>
 					<th style="text-align: center;"> </th>
                     
                     <th style="text-align: center;">PASS</th>
@@ -192,17 +111,16 @@ include_once('./view-fetch.php');
 
  <tr>
                 <td><strong>1.1</strong></td>
-                <td><strong> Equipment documentation is available </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.5
-Sec.8-2.1.5
+                <td><strong>Documentation is available such as but not limited to; operator’s manual, manufacturer’s informal literature, etc.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec.1.9(a)
  </strong></td>
- <td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -215,17 +133,16 @@ Sec.8-2.1.5
 			
 			<tr>
                 <td><strong>1.2</strong></td>
-                <td><strong>Previous inspection reports are checked </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.5
-Sec.8-2.4.5
+                <td><strong>An installation preparation instruction is provided. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec.1.9.1(a)
  </strong></td>
- <td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[1]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[1]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -237,19 +154,15 @@ Sec.8-2.4.5
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
-                <td><strong> Operator is certified or qualified for the specific type of equipment.</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.5
-Sec.5-3.1.3.3.1
-ASME B30.8 
-Sec.8-3.1.2
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>Structure or anchor has the information data plate bearing the Manufacturer Name, Type/Model Number, Serial Number, & Year of Manufacture.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.5(h)(2)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[2]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[2]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -261,17 +174,15 @@ Sec.8-3.1.2
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
-                <td><strong> Crane manufacturer name, address, serial number and power rates are marked or tagged </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.22
-Sec. 22-2.1.4n
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>Structure has an identification number / asset number marked on it.</strong></td>
+				<td style="text-align: center;"><strong>CIMS QHSE 06</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[3]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[3]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -283,17 +194,15 @@ Sec. 22-2.1.4n
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
-                <td><strong>Operator manuals are available</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.2.2
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>Crane’s SWL (Rated Load) is prominently marked on the structure.</strong></td>
+				<td style="text-align: center;"><strong>CIMS QHSE 06</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[4]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[4]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -305,15 +214,15 @@ Sec.8-1.2.2
             </tr>
 			<tr>
                 <td><strong>1.6</strong></td>
-                <td><strong>A sign is posted warning the operator not to rely solely on any automatic device as a substitute for safe operating practice</strong></td>
-				<td style="text-align: center;"><strong>CIMS QHSE-06</strong></td>
-                <td class="checkbox-cell">
+                <td><strong>Load Rating chart of the crane is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.9.2</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[5]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[5]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -325,15 +234,17 @@ Sec.8-1.2.2
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
-                <td><strong>Rated capacity of crane is marked </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.22 Sec. 22-1.1.3a</strong></td>
-                <td class="checkbox-cell">
+                <td><strong>General erection & dismantling requirements are met (Drawings & Calculations).</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.2-4
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[6]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[6]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -346,17 +257,16 @@ Sec.8-1.2.2
 			
       <tr>
                 <td><strong>1.8</strong></td>
-                <td><strong>A durable rating chart with legible letters and figures is provided and fixed at a location visible to the operator while seated at his control station</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.1.3
-</strong></td>
-<td class="checkbox-cell">
+                <td><strong>The crane is operated by the qualified, competent, or certified operator.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 3.1.1(a-1,2,3,4(b)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[7]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[7]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -366,19 +276,28 @@ Sec.8-1.1.3
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[7];?>" disabled>
     </td>
             </tr>  
+			<tr>
+                    <th style="text-align: center;">2</th>
+                    <th style="text-align: center;">INSPECTION & TESTING</th>
+					<th style="text-align: center;"> </th>
+                    
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> </th>
+                </tr>
+				
  <tr>
-                <td><strong>1.9</strong></td>
-                <td><strong>Erection and dismantling procedures are based on manufacturer recommendations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.1.2 (a)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.1</strong></td>
+                <td><strong>Structures such as but not limited to, tower masts, knee braces, cross beams, climbing ladders, climbing cross sections have no signs of cracks, corrosions, bends, deformations.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.6.1</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[8]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[8]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -390,18 +309,17 @@ Sec.8-1.1.2 (a)
             </tr>
 			
 			<tr>
-                <td><strong>1.10</strong></td>
-                <td><strong>Main structure components are free of defects (bolts, pins, mast sections for cracks, bent structural members, etc.)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3
-Sec.3-1.1.2
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.2</strong></td>
+                <td><strong>Tie-in braces and pins are secured.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.6.1</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[9]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[9]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -412,18 +330,18 @@ Sec.3-1.1.2
     </td>
             </tr>
 			<tr>
-                <td><strong>1.11</strong></td>
-                <td><strong>Flags and/or markers with high visibility are placed and visible to the operator</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.1.4 (f)
+                <td><strong>2.3</strong></td>
+                <td><strong>Climbing pawls and wedges are secured.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.6.2
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[10]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[10]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -434,18 +352,18 @@ Sec.3-1.1.4 (f)
     </td>
             </tr>
 			<tr>
-                <td><strong>1.12</strong></td>
-                <td><strong> Essential precautionary or warning notes relative to limitations on equipment, operating procedures, and stability factors are provided on the rating chart or the operating manual</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.1.3 (d)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>2.4</strong></td>
+                <td><strong>Tower’s anchor bolts at base are properly mounted and secured.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.3
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[11]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[11]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -455,30 +373,19 @@ Sec.8-1.1.3 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[11];?>" disabled>
     </td>
             </tr>
-		<tr>
-                    <th style="text-align: center;">2</th>
-                    <th style="text-align: center;">INSPECTION POINTS</th>
-					<th style="text-align: center;"> </th>
-                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-                </tr>
-				
- <tr>
-                <td><strong>2.1</strong></td>
-                <td><strong> Access ladders to cab are provided (platform surfaces to be skid resistant) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.15.2a)
- </strong></td>
- <td class="checkbox-cell">
+			<tr>
+                <td><strong>2.5</strong></td>
+                <td><strong>Expendable base and knee-braced base are installed properly.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.5
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[12]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[12]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -488,20 +395,19 @@ Sec.4-1.15.2a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[12];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.2</strong></td>
-                <td><strong>Foot walks and ladders are provided where appropriate (foot walks to be minimum of 18" wide, with slip resistant surface) </strong></td>
+		<tr>
+                <td><strong>2.6</strong></td>
+                <td><strong>Load & luffing/jib boom hoist drives are provided with a clutch or power disengaging device unless directly coupled to an electric or hydraulic power motor source.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.18.1
- </strong></td>
- <td class="checkbox-cell">
+Sec 1.7
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[13]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[13]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -511,19 +417,19 @@ Sec.3-1.18.1
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[13];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.3</strong></td>
-                <td><strong> Navigational lights are provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (g)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.7</strong></td>
+                <td><strong>All functions are checked and working correctly, i.e., but not limited to, luffing/jib booms’ hoisting & lowering, structure’s slewing, load block’s lowering & hoisting, trolley traversing.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+Sec 1.7(3.a-f)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[14]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[14]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -533,19 +439,19 @@ Sec.8-1.4.3 (g)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[14];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.4</strong></td>
-                <td><strong> Flame arrester on fill and vent lines of gasoline tank is provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (d)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.8</strong></td>
+                <td><strong>Motion limiting devices and brakes of load hoist, luffing/jib boom hoist are checked.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+Sec 1.7(4.a-c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[15]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[15]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -555,19 +461,19 @@ Sec.8-1.4.3 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[15];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.5</strong></td>
-                <td><strong>Fuel tank is equipped with self-closing filler cap</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (c)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.9</strong></td>
+                <td><strong>All controls, drives, and braking means devices are checked which include; load block hoisting & lowering; luffing boom hoisting and lowering; swinging of the upper structure; brake and clutch functioning; limit, locking, and safety device functioning; and load-limiting devices for proper operation.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+Sec 1.7(4.a-c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[16]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[16]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -577,20 +483,19 @@ Sec.8-1.4.3 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[16];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.6</strong></td>
-                <td><strong>A fire extinguisher is provided in the cab (minimum rating is 10 BC)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 
-Sec.4-1.15.4, ASME
-B30.3, Sec.3.1.18.4
+					<tr>
+                <td><strong>2.10</strong></td>
+                <td><strong>Over-speed protection is provided for hoist and luffing boom mechanisms.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+Sec 1.10(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[17]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[17]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -600,20 +505,19 @@ B30.3, Sec.3.1.18.4
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[17];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.7</strong></td>
-                <td><strong>Exhaust piping is guarded or insulated (where personnel could contact it) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4-1.16.4, ASME
-B30.3 Sec.3.1.18.4
+			 <tr>
+                <td><strong>2.11</strong></td>
+                <td><strong>Luffing/jib boom and load hoist free-fall lowering is not provided. Ensure that they shall be done only under power control.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+Sec 1.10(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[18]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[18]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -624,20 +528,19 @@ B30.3 Sec.3.1.18.4
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.8</strong></td>
-                <td><strong>Fuel filler pipes are located or protected so as to avoid spillage</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 
-Sec.4-1.16.7, ASME B30.3 Sec.3.1.18.8
-
+			<tr>
+                <td><strong>2.12</strong></td>
+                <td><strong>Luffing/jib boom hoist powered by hydraulic is not dropping.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.10(3)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[19]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[19]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -646,21 +549,20 @@ Sec.4-1.16.7, ASME B30.3 Sec.3.1.18.8
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[19];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.9</strong></td>
-                <td><strong>Guards are fitted to exposed moving parts and can support 90 kg without deformation</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec. 4-1.16.2, ASME
-B30.3 Sec.3.1.18.2
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.13</strong></td>
+                <td><strong>Luffing boom back stop switch is provided for the maximum boom angle.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+ sec 1.10(4)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[20]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[20]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -670,21 +572,19 @@ B30.3 Sec.3.1.18.2
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[20];?>" disabled>
     </td>
             </tr>
-			
 			<tr>
-                <td><strong>2.10</strong></td>
-                <td><strong>Limiting devices are fully operational for trolley travel, boom luffing, upper hoist limit, crane travel, lifted load and radius</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3
-Sec. 3-1.11, ASME
-B30.4 Sec.4.1.9
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.14</strong></td>
+                <td><strong>The luffing/jib hoist rope is securely anchored on the drum as per the manufacturer recommendation. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.10.2 (a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[21]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[21]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -693,21 +593,20 @@ B30.4 Sec.4.1.9
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[21];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.11</strong></td>
-                <td><strong>Slewing (swing) motion of the crane is smooth for both start and stop</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.3 
-Sec. 3-1.6.1, ASME
-B30.4 Sec.4.1.6.1
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.15</strong></td>
+                <td><strong>The diameter of the drum is sufficient to provide a first layer rope pitch diameter of not less than 18 times the nominal diameter of the rope used.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+ sec 1.10(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[22]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[22]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -717,20 +616,19 @@ B30.4 Sec.4.1.6.1
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[22];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.12</strong></td>
-                <td><strong>Slewing brakes are operational and can be set to hold the position without further operator action</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3	
-Sec. 3-1.6.1b, ASME B30.4 Sec.4.1.6.1 (b)
- </strong></td>
- <td class="checkbox-cell">
+		<tr>
+                <td><strong>2.16</strong></td>
+                <td><strong>The remaining rope on load hoist drum shall not be less than three full wraps when the hook is in its extreme lowest position.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.10(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[23]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[23]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -740,20 +638,19 @@ Sec. 3-1.6.1b, ASME B30.4 Sec.4.1.6.1 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[23];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.13</strong></td>
-                <td><strong> Counterweight values are correct</strong></td>
+					<tr>
+                <td><strong>2.17</strong></td>
+                <td><strong>The remaining rope on luffing/jib boom hoist shall not be less than three full wraps when the luffing/jib boom is at its maximum permissible radius.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.14, ASME
-B30.4 Sec.4.1.12
-  </strong></td>
-  <td class="checkbox-cell">
+sec 1.10(e)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[24]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[24]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -763,20 +660,18 @@ B30.4 Sec.4.1.12
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[24];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.14</strong></td>
-                <td><strong> Counterweight is fixed in place and (for movable weights uncontrolled movement is not possible) </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.3
-Sec.3-1.14, ASME
-B30.4 Sec.4.1.12
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.18</strong></td>
+                <td><strong>Load hoist drum and luffing boom hoist drums are provided with a positive holding device, such as ratchets and pawls, unless directly coupled to electric or hydraulic drives.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.10(f)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[25]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[25]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -786,19 +681,18 @@ B30.4 Sec.4.1.12
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[25];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.15</strong></td>
-                <td><strong>Welded members/Joints are free of defects (cracks, corrosion, etc.)</strong></td>
+					<tr>
+                <td><strong>2.19</strong></td>
+                <td><strong>Positive holding devices are controlled only from the operator’s station; hold the drums from rotating in the lowering direction, and capable of holding the rated load indefinitely, or luffing boom and rated load indefinitely, as applicable without further attention from the operator.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.18.5, ASME B30.4 (4.2.1.4a1)
-  </strong></td>
-  <td class="checkbox-cell">
+sec 1.10(g)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[26]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[26]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -808,20 +702,17 @@ Sec.3-1.18.5, ASME B30.4 (4.2.1.4a1)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[26];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.16</strong></td>
-                <td><strong>A metal receptacle is in place for storage of small hand tools and lubricating equipment (in cab or machinery housing)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.15.3 ASME
-B30.3, Sec.3.1.17.3
-</strong></td>
-<td class="checkbox-cell">
+					<tr>
+                <td><strong>2.20</strong></td>
+                <td><strong>Luffing boom hoist rope and load hoist rope shall be equipped with at least one braking means that is capable of providing minimum of 125 % of the full load hoisting torque at the point of where the braking is applied.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.3(a)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -831,19 +722,17 @@ B30.3, Sec.3.1.17.3
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.17</strong></td>
-                <td><strong>Vertical clearance between crane lowest point and floor level of boat or barge is at least 7 feet (if less than 7 feet, barricading is to be provided to protect personnel from rotating Sections) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.5.
-</strong></td>
-<td class="checkbox-cell">
+			 <tr>
+                <td><strong>2.21</strong></td>
+                <td><strong>A secondary emergency brake is provided on the luffing boom hoist drum for use in the event of a main drive failure.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.3(a)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[28]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[28]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -854,19 +743,17 @@ Sec.8-1.5.
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.18</strong></td>
-                <td><strong>All controls are within the reach of operator and clearly marked with functions and modes of </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (a)
-</strong></td>
-<td class="checkbox-cell">
+			<tr>
+                <td><strong>2.22</strong></td>
+                <td><strong>Load hoist and luffing boom hoist mechanisms are equipped with braking means capable of providing controlled lowering speeds. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.3(b)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[29]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[29]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -875,20 +762,18 @@ Sec.8-1.8.1 (a)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[29];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.19</strong></td>
-                <td><strong>Remote control of the crane is properly working and crane stops if control signal becomes ineffective (if fitted)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (b)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.23</strong></td>
+                <td><strong>An automatic means is provided for controlling the load hoist or the luffing boom hoist to stop and hold the load in the event of loss of brake actuating power.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.3(c)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[30]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[30]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -898,20 +783,17 @@ Sec.8-1.8.1 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[30];?>" disabled>
     </td>
             </tr>
-			
 			<tr>
-                <td><strong>2.20</strong></td>
-                <td><strong>Electrical motors disconnect on power failure</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.24</strong></td>
+                <td><strong>If foot pedal is provided, it is holding the brakes in the applied position without further attention from the operator.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.3(c)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[31]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[31]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -920,20 +802,18 @@ Sec.8-1.8.1 (c)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[31];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.21</strong></td>
-                <td><strong>Electrical motors do not start on power return </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.25</strong></td>
+                <td><strong>Sheave bearings are provided with a means for lubrication, except for those that are permanently lubricated.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.4(c)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[32]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[32]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -943,20 +823,17 @@ Sec.8-1.8.1 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[32];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.22</strong></td>
-                <td><strong>Over-speeding preventing device is provided for electric motor operated cranes </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.1 (d)
- </strong></td>
- <td class="checkbox-cell">
+		<tr>
+                <td><strong>2.26</strong></td>
+                <td><strong>The pitch diameter of the load block sheaves are not less than 18 times the nominal diameter of the rope used.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.4(d)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[33]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[33]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -966,24 +843,17 @@ Sec.8-1.8.1 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[33];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.23</strong></td>
-                <td><strong> Power plant controls are provided to
-•	Control start, stop and lock in off position
-•	Control engine speed
-•	Stop diesel engines in emergency, and
-Shift selective transmissions
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.2
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.27</strong></td>
+                <td><strong>The pitch diameter of luffing boom hoist sheaves are not less than 15 times the nominal diameter of the rope used.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.4(d)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[34]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[34]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -993,19 +863,17 @@ Sec.8-1.8.2
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[34];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.24</strong></td>
-                <td><strong> Control forces are acceptable and within the capabilities of operator</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.3 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.28</strong></td>
+                <td><strong>The load block sheaves are equipped with close fitting guard to prevent ropes from becoming fouled when the block is lying on the ground. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.4(e)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[35]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[35]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1015,22 +883,17 @@ Sec.8-1.8.3 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[35];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.25</strong></td>
-                <td><strong>Controls’ travel distances are:
-•	Hand levers not greater than 14” (356 mm) from neutral position on two- way and not greater than 24 (610 mm) on one-way levers
-Foot pedals not greater than 10” (254 mm)
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.3 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.29</strong></td>
+                <td><strong>Rope end socketing is as per the manufacturer.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.5(g)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[36]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[36]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1040,19 +903,17 @@ Sec.8-1.8.3 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[36];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.26</strong></td>
-                <td><strong>Clutch is operating properly and within the reach of operator station</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.4
-</strong></td>
-<td class="checkbox-cell">
+					<tr>
+                <td><strong>2.30</strong></td>
+                <td><strong>Rotation-resistant rope is not used for luffing boom hoist.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.5(h)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[37]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[37]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[37]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1062,19 +923,17 @@ Sec.8-1.8.4
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[37];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.27</strong></td>
-                <td><strong>Electrical control panels are fixed, protected and free of any damages </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.5
-</strong></td>
-<td class="checkbox-cell">
+			 <tr>
+                <td><strong>2.31</strong></td>
+                <td><strong>Design factor for luffing boom hoist rope is not less than 3.5</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.5(c)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[38]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[38]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[38]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1085,19 +944,17 @@ Sec.8-1.8.5
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.28</strong></td>
-                <td><strong>Resistors and connectors are corrosion free, protected, ventilated and installed to prevent the accumulation of combustible matter near hot parts</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (a)
-</strong></td>
-<td class="checkbox-cell">
+			<tr>
+                <td><strong>2.32</strong></td>
+                <td><strong>Design factor for load hoist rope is not less than 5.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.10.5(b)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[39]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[39]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[39]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1106,20 +963,18 @@ Sec.8-1.8.6 (a)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[39];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.29</strong></td>
-                <td><strong>Resistor units are supported and do not vibrate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (b)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.33</strong></td>
+                <td><strong>Load hook is equipped with safety latches and working properly.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 sec 1.11(a), ASME B30.10 sec 1 & 5 (i) </strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[40]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[40]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[40]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1129,20 +984,17 @@ Sec.8-1.8.6 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[40];?>" disabled>
     </td>
             </tr>
-			
 			<tr>
-                <td><strong>2.30</strong></td>
-                <td><strong>Cab is provided with safety glazing glass</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.6 (b)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.34</strong></td>
+                <td><strong>No pitting or corrosion is visible.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(c)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[41]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[41]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[41]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1151,20 +1003,18 @@ Sec.8-1.8.6 (b)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[41];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.31</strong></td>
-                <td><strong>Cab door swings out to open or slides rearward for sliding door type (door operation is restrained during machine operation) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.35</strong></td>
+                <td><strong>No signs of cracks, nicks, or gouges are visible.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(d)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[42]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[42]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[42]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1174,20 +1024,17 @@ Sec.8-1.8.10.1 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[42];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.32</strong></td>
-                <td><strong>Cab wipers are in good condition and operating </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+		<tr>
+                <td><strong>2.36</strong></td>
+                <td><strong>Load hook is marked with its SWL and weight.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(a)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[43]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[43]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[43]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1197,19 +1044,17 @@ Sec.8-1.8.10.1 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[43];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.33</strong></td>
-                <td><strong> A clear passageway is provided from operator's position to outside the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.1 (d)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.37</strong></td>
+                <td><strong>The wear on the hook does not exceed 10% from the original.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(e)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[44]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[44]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[44]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1219,19 +1064,17 @@ Sec.8-1.8.10.1 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[44];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.34</strong></td>
-                <td><strong> Platform to cab walkway is skid resistance </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.8.10.2 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.38</strong></td>
+                <td><strong>There is no deformation that is visibly apparent bend or twist from the plane of the unbent hook.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(f)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[45]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[45]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[45]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1241,19 +1084,17 @@ Sec.8-1.8.10.2 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[45];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.35</strong></td>
-                <td><strong>Handholds/steps are provided to facilitate access to the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.8.10.3
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.39</strong></td>
+                <td><strong>No any distortion causing an increase in the throat opening of 5% that exceeded ¼ in. (6mm) or as recommended by the manufacturer.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(g)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[46]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[46]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[46]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1263,27 +1104,17 @@ Sec.8-1.8.10.3
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[46];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.36</strong></td>
-                <td><strong>Communication method is one of the following:
-•	Hand signals (standard chart is posted in visible location to the operator)
-•	Radio/telephone
-•	Bell signal
-Special signals (to be understood and agreed upon by operator and signalperson)
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-3.3.1 
-Sec.8-3-3.2 
-Sec.8-3-3.3 
-Sec.8-3-3.4
-</strong></td>
-<td class="checkbox-cell">
+					<tr>
+                <td><strong>2.40</strong></td>
+                <td><strong>Self-locking hook is able to lock.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(h)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[47]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[47]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[47]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1293,19 +1124,17 @@ Sec.8-3-3.4
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[47];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.37</strong></td>
-                <td><strong>Load trolley can brake in travel mode (automatically in case of power loss and drive rope breakage) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.5.4
-</strong></td>
-<td class="checkbox-cell">
+			 <tr>
+                <td><strong>2.41</strong></td>
+                <td><strong>No damaged, missing, or malfunctioning hook attachment.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(j)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[48]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[48]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[48]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1316,20 +1145,17 @@ Sec.4-1.5.4
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.38</strong></td>
-                <td><strong>Clutch is in good condition and protected against weather and oil contaminations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.5, ASME
-B30.3 Sec.3.1.18.6
-</strong></td>
-<td class="checkbox-cell">
+			<tr>
+                <td><strong>2.42</strong></td>
+                <td><strong>No thread wear or corrosion is evident.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(k)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[49]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[49]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[49]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1338,20 +1164,18 @@ B30.3 Sec.3.1.18.6
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[49];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.39</strong></td>
-                <td><strong>Brakes are protected from weather and other industrial liquids</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.8.3
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.43</strong></td>
+                <td><strong>No evidence of heat exposure or unauthorized welding.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(l)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[50]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[50]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[50]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1361,20 +1185,17 @@ Sec.4-1.8.3
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[50];?>" disabled>
     </td>
             </tr>
-			
 			<tr>
-                <td><strong>2.40</strong></td>
-                <td><strong>Wire rope clips are correctly located and secured</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8. 
-Sec.8-2.4.2 (b-5)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.44</strong></td>
+                <td><strong>No evidence of unauthorized alteration such as drilling, machining, grinding or other modifications.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.10 sec 1 & 5(m)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[51]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[51]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[51]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1383,20 +1204,20 @@ Sec.8-2.4.2 (b-5)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[51];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.41</strong></td>
-                <td><strong> The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.4.3 (b-1)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.45</strong></td>
+                <td><strong>Swing mechanism is capable of smooth starts and stops and of providing variable degrees of acceleration and deceleration.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.12.1(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[52]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[52]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[52]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1406,20 +1227,19 @@ Sec.8-2.4.3 (b-1)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[52];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.42</strong></td>
-                <td><strong>The rope does not have more than 6 randomly distributed broken wires in 1 lay or 3 in 1 strand in 1 lay (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8,
- Sec.8-2.4.3(b-2)
- </strong></td>
- <td class="checkbox-cell">
+		<tr>
+                <td><strong>2.46</strong></td>
+                <td><strong>Crane is equipped with means to rotate freely when it is out of service in order to weathervane.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.1.1(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[53]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[53]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[53]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1429,19 +1249,19 @@ Sec.8-2.4.3 (b-1)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[53];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.43</strong></td>
-                <td><strong>The rope wear does not exceed 1/3 of the original diameter (for running ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8,
- Sec.8-2.4.3 (b-3)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.47</strong></td>
+                <td><strong>Braking means with holding power in both directions is provided. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.12.2(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[54]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[54]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[54]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1451,19 +1271,19 @@ Sec.8-2.4.3 (b-1)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[54];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.44</strong></td>
-                <td><strong>The rope does not have kinking, crunching, bird caging, evidence of heat damage, upstanding, core corrosion, main strand displacement or any other damages</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, Sec.8-2.4.3 (b4/5)
-Sec.8-2.4.1 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.48</strong></td>
+                <td><strong>Brakes apply automatically when electrical power or actuating force is lost.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3 
+sec 1.12.2(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[55]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[55]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[55]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1473,19 +1293,19 @@ Sec.8-2.4.1 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[55];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.45</strong></td>
-                <td><strong>The ropes do not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8 2.4.3 (b-7)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.49</strong></td>
+                <td><strong>Travel drives are capable of smooth starts and stops, and providing variable degrees of acceleration and deceleration.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+ sec 1.13.1(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[56]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[56]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[56]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1495,19 +1315,19 @@ Sec.8 2.4.3 (b-7)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[56];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.46</strong></td>
-                <td><strong>Wire rope is not corroded</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8. 
-Sec.8-2.4.1(b)
+					<tr>
+                <td><strong>2.50</strong></td>
+                <td><strong>Cable spooling is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.1(b)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[57]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[57]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[57]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1517,19 +1337,19 @@ Sec.8-2.4.1(b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[57];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.47</strong></td>
-                <td><strong>Rope lubrication is adequate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.4.6 (e)
+			 <tr>
+                <td><strong>2.51</strong></td>
+                <td><strong>Audible signal automatically sounds continuously whenever the crane travels.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.1(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[58]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[58]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[58]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1540,19 +1360,19 @@ Sec.8-2.4.6 (e)
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.48</strong></td>
-                <td><strong>Sheaves and drums are not cracked or show worn surfaces</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.3 (a3)
+			<tr>
+                <td><strong>2.52</strong></td>
+                <td><strong>Crane bogies are fitted with sweeps at each end of the bogie and extending below the top of the rail.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.2(a)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[59]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[59]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[59]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1561,20 +1381,20 @@ Sec.8-2.1.3 (a3)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[59];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.49</strong></td>
-                <td><strong>Bolts and rivets around the structure are tight</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.3 (a2)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.53</strong></td>
+                <td><strong>Bogie wheels are guarded.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.2(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[60]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[60]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[60]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1584,20 +1404,19 @@ Sec.8-2.1.3 (a2)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[60];?>" disabled>
     </td>
             </tr>
-			
 			<tr>
-                <td><strong>2.50</strong></td>
-                <td><strong>Clutch system parts, linings, pawls and ratchet are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a11)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>2.54</strong></td>
+                <td><strong>Means are provided to limit the drop of bogie frames to a distance that will not cause the crane to overturn in case of wheel or axle breakage.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.2(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[61]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[61]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[61]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1606,20 +1425,20 @@ Sec.8-2.1.2 (a11)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[61];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.51</strong></td>
-                <td><strong> Brake system parts are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a5)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.55</strong></td>
+                <td><strong>Braking means are provided to hold the crane In position when not travelling and to lock the wheels against rotation.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.3(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[62]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[62]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[62]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1629,20 +1448,19 @@ Sec.8-2.1.2 (a5)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[62];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.52</strong></td>
-                <td><strong>Rope reeving is in compliance with manufacturer's recommendations </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8, 
-Sec.8-2.1.2 (a7) 
- </strong></td>
- <td class="checkbox-cell">
+		<tr>
+                <td><strong>2.56</strong></td>
+                <td><strong>Brakes automatically engaged on loss of electrical power or actuating force to the brake. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.13.3(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[63]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[63]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[63]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1652,19 +1470,19 @@ Sec.8-2.1.2 (a7)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[63];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.53</strong></td>
-                <td><strong> Sheave sizes are not less than 18 times the nominal rope diameter for load hoist</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.9.5 (b)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.57</strong></td>
+                <td><strong>Guides are provided to hold the ladders in position for engagement of the climbing dogs.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[64]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[64]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[64]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1674,19 +1492,19 @@ Sec.8-1.9.5 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[64];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.54</strong></td>
-                <td><strong> Sheave sizes are not less than 16 times the nominal rope diameter for load blocks.</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.9
-Sec.8-1.9.5 (c)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.58</strong></td>
+                <td><strong>Hydraulic cylinders used to support the crane during climbing are equipped with check valves.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(b)1
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[65]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[65]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[65]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1696,19 +1514,19 @@ Sec.8-1.9.5 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[65];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.55</strong></td>
-                <td><strong>Eye splices are in accordance with the manufacturer's recommendations and rope thimbles are used</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.9.3 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>2.59</strong></td>
+                <td><strong>Hydraulic system is provided with pressure gauges and over pressure relief valves.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(b)3
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[66]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[66]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[66]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1718,19 +1536,19 @@ Sec.8-1.9.3 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[66];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.56</strong></td>
-                <td><strong>Brakes and clutches are provided with adjustments to compensate for wear</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (b)
+					<tr>
+                <td><strong>2.60</strong></td>
+                <td><strong>Positive means to hold the raised portion of the crane in position at the completion of an intermediate climbing step. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[67]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[67]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[67]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1740,19 +1558,20 @@ Sec.8-1.6.1 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[67];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.57</strong></td>
-                <td><strong>Boom hoist drum is provided with an auxiliary a locking device controllable from the operator’s station to hold the drum from rotating in the lowering direction and to hold the rated load</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (f)
+
+ <tr>
+                <td><strong>2.61</strong></td>
+                <td><strong>Pressurized hydraulic cylinders are not used to support the crane when in service.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[68]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[68]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[68]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1763,19 +1582,19 @@ Sec.8-1.6.1 (f)
     </td>
             </tr>
 			
-      <tr>
-                <td><strong>2.58</strong></td>
-                <td><strong>Boom hoist drum has at least 2 full wraps remaining on the drum when the boom is at lowest position</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.1 (g-1)
+			<tr>
+                <td><strong>2.62</strong></td>
+                <td><strong>Wedges when used shall be provided with means to hold them in place and prevent them from becoming dislodged.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(d)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[69]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[69]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[69]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1784,20 +1603,20 @@ Sec.8-1.6.1 (g-1)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[69];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.59</strong></td>
-                <td><strong>The load hoist mechanism is provided with a suitable clutching or power engaging device, unless directly coupled</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.6.2
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			<tr>
+                <td><strong>2.63</strong></td>
+                <td><strong>Ropes have a minimum breaking force not less than 3.5 times the load applied to the rope.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.14.(e)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[70]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[70]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[70]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1807,20 +1626,19 @@ Sec.8-1.6.2
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[70];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.60</strong></td>
-                <td><strong>Over hoist limit devices are operable</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.2.1 (a)
- </strong></td>
- <td class="checkbox-cell">
+				<tr>
+                <td><strong>2.64</strong></td>
+                <td><strong>Trolley is capable of smooth starts and stops and providing variable degrees of acceleration and deceleration when traversing the jib during operations.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[71]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[71]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[71]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1829,20 +1647,20 @@ Sec.8-2.2.1 (a)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[71];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.61</strong></td>
-                <td><strong>All welded members and joints have no cracks, distortions, corrosion or other defects</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.2.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+				<tr>
+                <td><strong>2.65</strong></td>
+                <td><strong>Trolley stops or buffers are provided on both ends of the jib.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[72]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[72]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[72]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1852,20 +1670,19 @@ Sec.8-1.2.1 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[72];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.62</strong></td>
-                <td><strong>Boom stops are provided and in good condition (one of the following; fixed or telescopic bumper, shock absorbing umber, hydraulic boom elevation cylinder, or derrick masts)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.11 (a)
- </strong></td>
- <td class="checkbox-cell">
+				<tr>
+                <td><strong>2.66</strong></td>
+                <td><strong>The body or frame of the trolley is fitted with means to retrain the trolley from becoming detached from its guide rails.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[73]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[73]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[73]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1875,19 +1692,19 @@ Sec.8-1.11 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[73];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.63</strong></td>
-                <td><strong> Boom angle indicator is provided and readable from operator's cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.11 (b)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>2.67</strong></td>
+                <td><strong>Braking means is provided and capable of stopping in both directions.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[74]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[74]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[74]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1897,19 +1714,19 @@ Sec.8-1.11 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[74];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.64</strong></td>
-                <td><strong>Boom hoist disconnect, shutoff, or hydraulic relief is provided to stop the boom hoist automatically when the boom reaches a predetermined angle</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.11.1 (d)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>2.68</strong></td>
+                <td><strong>A brake is holding the trolley without further action when power or pressure is lost.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[75]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[75]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[75]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1919,19 +1736,19 @@ Sec.8-1.11.1 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[75];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.65</strong></td>
-                <td><strong>Cords and lacings have no damage</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a2)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>2.69</strong></td>
+                <td><strong>Trolley is equipped with an automatic braking device in case of the rope breakage.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.15.(e)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[76]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[76]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[76]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1941,19 +1758,31 @@ Sec.8-2.1.2. (a2)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[76];?>" disabled>
     </td>
             </tr>
+			
 			<tr>
-                <td><strong>2.66</strong></td>
-                <td><strong>Guy ropes are correctly tensioned</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a9)
+                    <th style="text-align: center;">3</th>
+                    <th style="text-align: center;">OPERATOR AIDS</th>
+					<th style="text-align: center;"> </th>
+                    
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> </th>
+                </tr>
+				
+ <tr>
+                <td><strong>3.1</strong></td>
+                <td><strong>Indicating device shall be provided to display the load on the hook.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(a)1
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[77]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[77]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[77]=="FAIL"?'check6ed':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1963,19 +1792,20 @@ Sec.8-2.1.2. (a9)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[77];?>" disabled>
     </td>
             </tr>
+			
 			<tr>
-                <td><strong>2.67</strong></td>
-                <td><strong>Derrick mast fittings and connections are in compliance with the manufacturer's </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.2. (a10)
+                <td><strong>3.2</strong></td>
+                <td><strong>Indicating device shall be provided to display the luffing boom angle, hook radius, or trolley operating radius, as appropriate.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(a)2
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[78]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[78]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[78]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -1985,20 +1815,19 @@ Sec.8-2.1.2. (a10)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[78];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>2.68</strong></td>
-                <td><strong>Clutch system parts, linings, pawls and ratchet are not excessively worn</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a5)
+			<tr>
+                <td><strong>3.3</strong></td>
+                <td><strong>Indicating device shall be provided to display the ambient wind velocity</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(a)3
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[79]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[79]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[79]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2007,20 +1836,20 @@ Sec.8-2.1.3 (a5)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[79];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.69</strong></td>
-                <td><strong>Load, boom angle, and other indicators, over their full range, are accurately functioning</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a6)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+				<tr>
+                <td><strong>3.4</strong></td>
+                <td><strong>Limiting device shall be provided to decelerate the trolley travel at both ends of the jib prior to final limit activation.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)1
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[80]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[80]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[80]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2030,20 +1859,19 @@ Sec.8-2.1.3 (a6)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[80];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.70</strong></td>
-                <td><strong>Chain drive sprockets do not show excessive wear and is not stretched</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a8)
- </strong></td>
- <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.5</strong></td>
+                <td><strong>Limiting device shall be provided to decelerate the luffing boom travel at minimum and maximum radius prior to final limit activation.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)2
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[81]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[81]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[81]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2052,20 +1880,20 @@ Sec.8-2.1.3 (a8)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[81];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.71</strong></td>
-                <td><strong> Gudgeon pins do not have cracks, wear or distortion </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a11)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+				<tr>
+                <td><strong>3.6</strong></td>
+                <td><strong>Limiting device shall limit trolley travel at both ends of the jib.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)3
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[82]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[82]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[82]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2075,20 +1903,19 @@ Sec.8-2.1.3 (a11)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[82];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.72</strong></td>
-                <td><strong>Supports do not have any defects and have continued ability to sustain the imposed loads </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a12)
- </strong></td>
- <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.7</strong></td>
+                <td><strong>Limiting device shall stop the luffing boom travel at minimum and maximum radius of luffing boom.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)4
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[83]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[83]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[83]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2098,19 +1925,19 @@ Sec.8-2.1.3 (a12)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[83];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.73</strong></td>
-                <td><strong> Hydraulic and pneumatic hoses, fittings and tubes are not damaged and not leaking</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a13)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.8</strong></td>
+                <td><strong>Limiting device shall decelerate the load block travel prior to final limit activation.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)5
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[84]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[84]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[84]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2120,19 +1947,19 @@ Sec.8-2.1.3 (a13)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[84];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.74</strong></td>
-                <td><strong> Hydraulic/Pneumatic pumps and motors are correctly functioning </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a14)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.9</strong></td>
+                <td><strong>Limiting device shall stop load block upward motion before two blocking occurs.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)6
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[85]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[85]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[85]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2142,19 +1969,19 @@ Sec.8-2.1.3 (a14)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[85];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.75</strong></td>
-                <td><strong>Hydraulic/Pneumatic pumps and motors have no leaks, excess vibrations, unusual noises, loss of pressure or loss of speed</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a14)
-  </strong></td>
-  <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.10</strong></td>
+                <td><strong>Limiting device shall stop load block downward motion to prevent from spooling off the drum.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)7
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[86]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[86]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[86]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2164,19 +1991,19 @@ Sec.8-2.1.3 (a14)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[86];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.76</strong></td>
-                <td><strong>Hydraulic/Pneumatic valves and motors are correctly functioning</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a15)
+				<tr>
+                <td><strong>3.11</strong></td>
+                <td><strong>Limiting device shall limit the crane travel at both ends of the running tracks.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)8
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[87]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[87]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[87]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2186,19 +2013,19 @@ Sec.8-2.1.3 (a15)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[87];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.77</strong></td>
-                <td><strong>Hydraulic/Pneumatic valves and motors have no leaks, corrosion, excess vibrations, unusual noises or loss of pressure</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a15)
+				<tr>
+                <td><strong>3.12</strong></td>
+                <td><strong>Limiting device shall limit the load lifted.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)9
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[88]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[88]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[88]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2208,20 +2035,19 @@ Sec.8-2.1.3 (a15)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[88];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>2.78</strong></td>
-                <td><strong>Hydraulic/ Pneumatic cylinders do not leak (external and internal) at seals and welded joints or any other locations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a16)
+				<tr>
+                <td><strong>3.13</strong></td>
+                <td><strong>Limiting device shall limit operating radius in accordance with crane’s rated capacity, i.e. load moment.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)10
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[89]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[89]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[89]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2230,20 +2056,20 @@ Sec.8-2.1.3 (a16)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[89];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.79</strong></td>
-                <td><strong>Hydraulic/ Pneumatic cylinders are free of scores, dents or nicks on piston rods or cylinder barrels and loose/deformed rod eyes or connecting joints</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.1.3 (a16)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+				<tr>
+                <td><strong>3.14</strong></td>
+                <td><strong>Limiting device shall limit pressures in hydraulic or pneumatic circuits.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(b)11
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[90]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[90]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[90]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2253,20 +2079,19 @@ Sec.8-2.1.3 (a16)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[90];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.80</strong></td>
-                <td><strong>Hydraulic filters are clean and free from debris such as rubber or metal particles</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a17)
- </strong></td>
- <td class="checkbox-cell">
+				<tr>
+                <td><strong>3.15</strong></td>
+                <td><strong>Motion limiting devices, should be provided with means to permit the operator to override them under controlled conditions.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.17.(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[91]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[91]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[91]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2275,20 +2100,30 @@ Sec.8-2.1.3 (a17)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[91];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.81</strong></td>
-                <td><strong>Boom cradle is available and can secure the boom if required</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-3.2.6 (b)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+		<tr>
+                    <th style="text-align: center;">4</th>
+                    <th style="text-align: center;">PENDANTS, STAY ROPES, AND GUYS, COUNTERWEIGHTS, COUNTER JIBS</th>
+					<th style="text-align: center;"> </th>
+                    
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> </th>
+                </tr>
+	 <tr>
+                <td><strong>4.1</strong></td>
+                <td><strong>Fiber core ropes with swayed fittings and rotation-resistant ropes shall not be used for pendants, guy ropes and stay ropes.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.18.(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[92]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[92]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[92]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2300,18 +2135,18 @@ Sec.8-3.2.6 (b)
             </tr>
 			
 			<tr>
-                <td><strong>2.82</strong></td>
-                <td><strong>Pins, bearings, shafts, gears, rollers, and locking devices are free of wear, cracks, and distortion</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-2.1.3 (a4)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>4.2</strong></td>
+                <td><strong>Rotation-resistant ropes shall be used for luffing boom.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.18.(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[93]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[93]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[93]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2322,18 +2157,18 @@ Sec.8-2.1.3 (a4)
     </td>
             </tr>
 			<tr>
-                <td><strong>2.83</strong></td>
-                <td><strong> The swing mechanism is controlling the swing of the rated load under all operating conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.1
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.3</strong></td>
+                <td><strong>Wire rope clips are drop-forged steel of the single (U-bolt) or double saddle type clip.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.19.(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[94]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[94]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[94]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2344,18 +2179,18 @@ Sec.8-1.7.1
     </td>
             </tr>
 			<tr>
-                <td><strong>2.84</strong></td>
-                <td><strong> Swing braking operates and capable of restrict the movement of the rotating structure </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.7.2 (a)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.4</strong></td>
+                <td><strong>Means to prevent the shifting or dislodgement of superstructure and counterjib’s counter weight during crane operation is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.20.(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[95]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[95]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[95]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2366,18 +2201,18 @@ Sec.8-1.7.2 (a)
     </td>
             </tr>
 			<tr>
-                <td><strong>2.85</strong></td>
-                <td><strong>Swing brake locking device is provided and capable of locking the rotation of rotating structure</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.2 (b)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.5</strong></td>
+                <td><strong>Counterweights and ballast blocks are individually marked with their actual weights and visible when they are in installed position.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.20.(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[96]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[96]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[96]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2387,19 +2222,19 @@ Sec.8-1.7.2 (b)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[96];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.86</strong></td>
-                <td><strong>Swing brakes are adjustable to compensate for wear</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.7.2 (d)
+		<tr>
+                <td><strong>4.6</strong></td>
+                <td><strong>Only steel-framed concrete or solid steel counterweights suspended from the superstructure are used.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.20.(c)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[97]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[97]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[97]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2409,19 +2244,19 @@ Sec.8-1.7.2 (d)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[97];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.87</strong></td>
-                <td><strong>All swing moving parts are lubricated </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-2.3.4
+					<tr>
+                <td><strong>4.7</strong></td>
+                <td><strong>Movable counterweights, if provided, are moving automatically.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.20.(d)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[98]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[98]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[98]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2431,20 +2266,19 @@ Sec.8-2.3.4
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[98];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>2.88</strong></td>
-                <td><strong>Exhaust pipes are insulated and gases are properly discharged away from the operator's cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.10.5
+					<tr>
+                <td><strong>4.8</strong></td>
+                <td><strong>Means to prevent uncontrolled movement in the event of rope failure for counterweights controlled by ropes is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.20.(d)1
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[99]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[99]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[99]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2453,20 +2287,20 @@ Sec.8-1.10.5
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[99];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.89</strong></td>
-                <td><strong>A portable fire extinguisher is in place inside cab and outside machinery (minimum rating of 10 BC)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (a)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+					<tr>
+                <td><strong>4.9</strong></td>
+                <td><strong>Controls are within the reach of the operator.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[100]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[100]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[100]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2476,20 +2310,19 @@ Sec.8-1.4.3 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[100];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>2.90</strong></td>
-                <td><strong>A tool box with basic maintenance tools is placed inside the cab</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.4.3 (b)
- </strong></td>
- <td class="checkbox-cell">
+					<tr>
+                <td><strong>4.10</strong></td>
+                <td><strong>All controls are labeled of their mode of functions.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[101]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[101]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[101]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2498,20 +2331,20 @@ Sec.8-1.4.3 (b)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[101];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>2.91</strong></td>
-                <td><strong>An audible warning device is in place and within reach of the operator</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.4.3 (c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			 <tr>
+                <td><strong>4.11</strong></td>
+                <td><strong>Hoisting, trolleying, luffing, slewing, and travel motions are stopping when control actuation pressure is released.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[102]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[102]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[102]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2523,18 +2356,18 @@ Sec.8-1.4.3 (c)
             </tr>
 			
 			<tr>
-                <td><strong>2.92</strong></td>
-                <td><strong>The load moment indicator (LMI) is installed and properly working </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.8
-Sec.8-1.4.3 (f)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>4.12</strong></td>
+                <td><strong>An interlock that prevents the re-actuation, except from the neutral position, of controls is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[103]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[103]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[103]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2545,18 +2378,18 @@ Sec.8-1.4.3 (f)
     </td>
             </tr>
 			<tr>
-                <td><strong>2.93</strong></td>
-                <td><strong> The cab and operating enclosures have good housekeeping</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-3.4.4 (b)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.13</strong></td>
+                <td><strong>The crane stops when signal is lost for remote operated cranes. </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[104]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[104]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[104]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2567,19 +2400,18 @@ Sec.8-3.4.4 (b)
     </td>
             </tr>
 			<tr>
-                <td><strong>2.94</strong></td>
-                <td><strong> Control levers and/or pedals functions are labeled </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.13.1(a)   
-ASME B30.3 Sec.3.1.15.1(b)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.14</strong></td>
+                <td><strong>The device that will disconnect all motors from the line on failure of power and will not permit any motor to be restarted until the operational control is brought to the neutral position and a manual reset is activated is provided for electric motor powered cranes.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(e)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[105]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[105]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[105]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2590,19 +2422,18 @@ ASME B30.3 Sec.3.1.15.1(b)
     </td>
             </tr>
 			<tr>
-                <td><strong>2.95</strong></td>
-                <td><strong>Engine exhaust gases are piped and discharged away from the operator cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.4
-ASME B30.3  Sec.3.1.18.4
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.15</strong></td>
+                <td><strong>An electric motor powered crane is provided with means for operator to interrupt the main power circuit from the operating position.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(f)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[106]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[106]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[106]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2612,19 +2443,19 @@ ASME B30.3  Sec.3.1.18.4
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[106];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.96</strong></td>
-                <td><strong>Operator cab has a safety glazing glass</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.15.1(e) ASME B30.3 Sec.3.1.17.1(e)
+		<tr>
+                <td><strong>4.16</strong></td>
+                <td><strong>A remote control station is provided with emergency stop button.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(g)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[107]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[107]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[107]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2634,20 +2465,19 @@ Sec.4- 1.15.1(e) ASME B30.3 Sec.3.1.17.1(e)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[107];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>2.97</strong></td>
-                <td><strong>Cab lighting (artificial or natural) is sufficient to enable the operator to observe the controls </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.
-Sec.4- 1.15.1(g)
-ASME B30.3 Sec.3.1.17.1(g)
+					<tr>
+                <td><strong>4.17</strong></td>
+                <td><strong>Simultaneous activation of controls is not possible when more than one operator’s station (remote control) is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(h)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[108]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[108]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[108]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2657,21 +2487,19 @@ ASME B30.3 Sec.3.1.17.1(g)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[108];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>2.98</strong></td>
-                <td><strong>Emergency stop is effective (when there is a remote-control device malfunction)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.13.1(f)   
-ASME B30.3 Sec.3.1.15.1(g)
+					<tr>
+                <td><strong>4.18</strong></td>
+                <td><strong>Cranes powered by hydraulic motors shall stop the main power supply system when hydraulic pressure is lost.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.1(i)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[109]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[109]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[109]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2680,21 +2508,20 @@ ASME B30.3 Sec.3.1.15.1(g)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[109];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>2.99</strong></td>
-                <td><strong>Simultaneous activation of controls is not possible when more than one operator station (remote control) is provided</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4.1.13.1(g)
-ASME B30.3 Sec.3.1.15.1(h)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+					<tr>
+                <td><strong>4.19</strong></td>
+                <td><strong>Controls for the main power supply system shall be within the reach of the operator, and will include the following: controlling the speed of the engine, means to control in stopping the engine, means for shifting the transmission’s gear selection.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.21.2(a)1,2,3,4
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[110]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[110]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[110]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2704,29 +2531,19 @@ ASME B30.3 Sec.3.1.15.1(h)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[110];?>" disabled>
     </td>
             </tr>
-		<tr>
-                    <th style="text-align: center;">3</th>
-                    <th style="text-align: center;">INSPECTION POINTS</th>
-					<th style="text-align: center;"> </th>
-                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-                </tr>
-<tr>
-                <td><strong>3.0</strong></td>
-                <td><strong>Pilot lights at boom tip, jib tip and topmost sheave are working and in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.2.1.4(a8)
- ASME B30.3 Sec.3.2.1.4(a8)
-  </strong></td>
-  <td class="checkbox-cell">
+					<tr>
+                <td><strong>4.20</strong></td>
+                <td><strong>Cabs should be provided for the operator’s station.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.1(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[111]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[111]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[111]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2736,20 +2553,19 @@ ASME B30.3 Sec.3.1.15.1(h)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[111];?>" disabled>
     </td>
             </tr>
- <tr>
-                <td><strong>3.1</strong></td>
-                <td><strong> Remaining rope on the drum (load hoist and/or boom hoist) in the extreme low position is at least 2 full wraps </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec. 4- 1.5.2 (b1)
-ASME B30.3 Sec.3.1.5.2 (a)
- </strong></td>
- <td class="checkbox-cell">
+			 <tr>
+                <td><strong>4.21</strong></td>
+                <td><strong>Cab doors are opening outward or sliding.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.1(d)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[112]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[112]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[112]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2761,19 +2577,18 @@ ASME B30.3 Sec.3.1.5.2 (a)
             </tr>
 			
 			<tr>
-                <td><strong>3.2</strong></td>
-                <td><strong>The drum end of the rope is attached to the drum as per manufacturer recommendations </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.5.2b2  
-ASME B30.3 Sec.3.1.5.2b
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>4.22</strong></td>
+                <td><strong>An adjustable operator seat is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.1(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[113]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[113]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[113]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2784,19 +2599,18 @@ ASME B30.3 Sec.3.1.5.2b
     </td>
             </tr>
 			<tr>
-                <td><strong>3.3</strong></td>
-                <td><strong> Hoist brakes are working and can provide 125% or more of the full load hoisting torque and can provide controlled lowering speeds</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4 1.4.3(a)
-ASME B30.3 Sec.3.1.5.3(b)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.23</strong></td>
+                <td><strong>Windshield is of safety glazing glass.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.1(e)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[114]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[114]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[114]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2807,19 +2621,18 @@ ASME B30.3 Sec.3.1.5.3(b)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.4</strong></td>
-                <td><strong> Relief valves in the hydraulic pneumatic circuits limit the circuit pressure for the correct rated load conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.16.8(a)   
-ASME B30.3 3.1.18.9a)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.24</strong></td>
+                <td><strong>The operator cab shall be on the operating portion of the crane.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.1(g)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[115]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[115]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[115]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2830,26 +2643,18 @@ ASME B30.3 3.1.18.9a)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.5</strong></td>
-                <td><strong>Rope is free of damages
-•	Max of 12 randomly broken wires in 1 lay
-•	4 broken wires in 1 strand of 1 lay
-•	1 broken wire protruding from the core (2 for rotation resistant ropes)
-•	Wear of 1/3 of the original diameter of outside individual wires
-Kinking, crushing, bird caging or other distortion
+                <td><strong>4.25</strong></td>
+                <td><strong>An access ladder to the cab is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.2(a)
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 2.4.2a2a
-ASME B30.3
-Sec.3.2.4.2a2a
-  </strong></td>
-  <td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[116]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[116]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[116]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2859,20 +2664,19 @@ Sec.3.2.4.2a2a
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[116];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.6</strong></td>
-                <td><strong>Sheaves are smooth in their grooves and well lubricated</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.41.4.4(a)
-ASME B30.3 Se.3.1.5.4(a)
+		<tr>
+                <td><strong>4.26</strong></td>
+                <td><strong>Outside platforms have walking surfaces of a skid resistant type.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.2(b)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[117]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[117]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[117]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2882,20 +2686,19 @@ ASME B30.3 Se.3.1.5.4(a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[117];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.7</strong></td>
-                <td><strong>Sheave are fitted with close fittings guards when liable to unload momentarily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.4.4b  
-ASME B30.3 Sec.3.1.5.4b
+				<tr>
+                <td><strong>4.27</strong></td>
+                <td><strong>Tool box is available for storage of small tools.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.3 
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[118]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[118]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[118]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2905,21 +2708,19 @@ ASME B30.3 Sec.3.1.5.4b
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[118];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>3.8</strong></td>
-                <td><strong>Lower load block sheaves have close fitting guards</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.4.4e  
-ASME B30.3 Sec.3.1.5.4e
+					<tr>
+                <td><strong>4.28</strong></td>
+                <td><strong>Fire extinguisher with a basic minimum classification of 10-BC is provided in the cab or at the machinery housing..</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.23.4
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[119]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[119]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[119]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2928,21 +2729,20 @@ ASME B30.3 Sec.3.1.5.4e
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[119];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>3.9</strong></td>
-                <td><strong>Over hoist limit (anti-2-Block) device is operational</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4-1.9.1	
-ASME B30.3 Sec.3.1.5.1f/3.1.11.1b
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+					<tr>
+                <td><strong>4.29</strong></td>
+                <td><strong>Footwalks and ladders: 18in. or more in width and a slip resistant surface and with handrails or a platform attached to the trolley having a slip resistant surface and handrails.ded</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.1
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[120]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[120]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[120]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2952,20 +2752,18 @@ ASME B30.3 Sec.3.1.5.1f/3.1.11.1b
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[120];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>3.10</strong></td>
-                <td><strong>Lower over travel limiting devices are fitted where hook is in areas not visible to the operators</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.9.2
- </strong></td>
- <td class="checkbox-cell">
+					<tr>
+                <td><strong>4.30</strong></td>
+                <td><strong>Guards are installed for exposed moving parts such as gears, drive chains, sprockets, and other rotating parts.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.2(a)</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[121]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[121]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[121]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -2974,22 +2772,20 @@ Sec.4-1.9.2
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[121];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>3.11</strong></td>
-                <td><strong>Standing ropes are not fiber core or rotation resistant ropes</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.10.1
-ASME B30.3
-Sec.3.1.12.1
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			 <tr>
+                <td><strong>4.31</strong></td>
+                <td><strong>Each guard shall be capable of supporting the weight of a 300-lb (136 kg) person without permanent distortion.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.2(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[122]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[122]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[122]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3001,18 +2797,18 @@ Sec.3.1.12.1
             </tr>
 			
 			<tr>
-                <td><strong>3.12</strong></td>
-                <td><strong>Sagged or poured sockets (pendant ropes) are in good condition</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4-1.10.5
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>4.32</strong></td>
+                <td><strong>Lubrication points should be accessible without the necessity of removing guards or other parts with tools unless equipped with centralized lubrication.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.3
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[123]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[123]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[123]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3023,20 +2819,18 @@ Sec.4-1.10.5
     </td>
             </tr>
 			<tr>
-                <td><strong>3.13</strong></td>
-                <td><strong> Welded members/Joints are free of defects (cracks, corrosion, etc.</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-2.3.4
-ASME B30.3
-Sec.3.1.18.5
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.33</strong></td>
+                <td><strong>Engine exhaust gas is to be piped and discharged away from the operator’s cabin.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.4
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[124]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[124]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[124]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3047,19 +2841,18 @@ Sec.3.1.18.5
     </td>
             </tr>
 			<tr>
-                <td><strong>3.14</strong></td>
-                <td><strong> Boom is free of damage/deformation (cracks, corrosion, dents, etc. </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 2.1.4(a1)   ASME B30.3
-Sec.3.2.1.4(1)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.34</strong></td>
+                <td><strong>Dry friction clutches are protected against rain and other liquids, such as oil and lubricants.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.6(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[125]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[125]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[125]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3070,18 +2863,18 @@ Sec.3.2.1.4(1)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.15</strong></td>
-                <td><strong>Boom stops are in good working condition (fixed, telescopic, shock absorbing or hydraulic)</strong></td>
+                <td><strong>4.35</strong></td>
+                <td><strong>Clutches are configured to permit adjustments where necessary to compensate wear.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3-1.5.1(f)
-  </strong></td>
-  <td class="checkbox-cell">
+sec 1.24.6(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[126]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[126]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[126]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3091,19 +2884,19 @@ Sec.3-1.5.1(f)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[126];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.16</strong></td>
-                <td><strong>Luffing boom brake can provide 125% or more of the full load torque</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.5.1(c)   ASME B30.3 Sec.3.15.3(a)
+		<tr>
+                <td><strong>4.36</strong></td>
+                <td><strong>An anemometer is installed.(Wind Velocity Device)</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.7
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[127]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[127]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[127]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3113,21 +2906,19 @@ Sec.4- 1.5.1(c)   ASME B30.3 Sec.3.15.3(a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[127];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.17</strong></td>
-                <td><strong>Wind velocity measuring device (Anemometer) is rotating freely and sending a signal to the display in the cab</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4-1.16.6
-ASME B30.3
-Sec.3.1.18.7
+					<tr>
+                <td><strong>4.37</strong></td>
+                <td><strong>Fuel tank filler pipes are located or protected to prevent spillage or overflow.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.8
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[128]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[128]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[128]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3137,20 +2928,19 @@ Sec.3.1.18.7
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[128];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>3.18</strong></td>
-                <td><strong>Stabilizers are undamaged and secure </strong></td>
+					<tr>
+                <td><strong>4.38</strong></td>
+                <td><strong>Relief valves are provided in hydraulic and pneumatic circuits carrying fluids pressurized by a power driven pump.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.3
-Sec.3- 1.3.3(a)
+sec 1.24.9(a)
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[129]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[129]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[129]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3159,21 +2949,20 @@ Sec.3- 1.3.3(a)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[129];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>3.19</strong></td>
-                <td><strong>Travel rails are level and secure</strong></td>
-				<td style="text-align: center;"><strong>AASME B30.4
-Sec.4- 1.1.1(c)
-ASME B30.3   Sec.3.1.1.1(c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+					<tr>
+                <td><strong>4.39</strong></td>
+                <td><strong>Means to prevent unauthorized adjustment or tampering is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.9(b)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[130]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[130]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[130]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3183,20 +2972,19 @@ ASME B30.3   Sec.3.1.1.1(c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[130];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>3.20</strong></td>
-                <td><strong>Rails are grounded (for electrically powered cranes)</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec. 4- 1.1.1(f)
- </strong></td>
- <td class="checkbox-cell">
+					<tr>
+                <td><strong>4.40</strong></td>
+                <td><strong>Means for checking the manufacturer’s specified pressure settings in each circuit is provided.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 1.24.9(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[131]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[131]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[131]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3205,21 +2993,20 @@ Sec. 4- 1.1.1(f)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[131];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>3.21</strong></td>
-                <td><strong>Stops or buffers are correctly adjusted for simultaneous contact with both sides of the travel base (stops to be fitted not less that 1 meter inboard of last rail support) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.1.1(g)
-ASME B30.3 Sec.3.1.1.3(i)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+			 <tr>
+                <td><strong>4.41</strong></td>
+                <td><strong>Ropes have no loss of rope diameter in a short rope length or unevenness of outer strands.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.1.2(a)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[132]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[132]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[132]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3231,19 +3018,18 @@ ASME B30.3 Sec.3.1.1.3(i)
             </tr>
 			
 			<tr>
-                <td><strong>3.22</strong></td>
-                <td><strong>Rail sweeps are in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.7.2(a) 
-ASME B30.3   Sec.3.1.7.29(a)
- </strong></td>
- <td class="checkbox-cell">
+                <td><strong>4.42</strong></td>
+                <td><strong>Rope has broken or cut strands.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.1.2(b)(c)
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[133]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[133]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[133]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3254,19 +3040,18 @@ ASME B30.3   Sec.3.1.7.29(a)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.23</strong></td>
-                <td><strong> Means to limit drop of a travel truck are in place and in good condition (in case of axle or wheel failure)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.7.2(c)
-ASME B30.3 Sec.3.1.7.2(c)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.43</strong></td>
+                <td><strong>In running ropes, 12 randomly distributed broken wires in one lay, or four broken wires in one strand in one lay.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)1
+g</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[134]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[134]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[134]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3277,19 +3062,18 @@ ASME B30.3 Sec.3.1.7.2(c)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.24</strong></td>
-                <td><strong> Truck wheels are guarded</strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.7.2(b)
-ASME B30.3 Sec.3.1.7.2(b)
-  </strong></td>
-  <td class="checkbox-cell">
+                <td><strong>4.44</strong></td>
+                <td><strong>In rotation-resistant ropes, two randomly distributed broken wires in six rope diameters, or four randomly distributed broken wires in 30 rope diameters.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)2
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[135]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[135]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[135]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3300,20 +3084,18 @@ ASME B30.3 Sec.3.1.7.2(b)
     </td>
             </tr>
 			<tr>
-                <td><strong>3.25</strong></td>
-                <td><strong>Travel brakes can lock the wheels
+                <td><strong>4.45</strong></td>
+                <td><strong>One outer wire broken at the contact point with the core of the rope indicated by an externally protruding wire or loop of loose wires.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)3
 </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.7.3(a)
- ASME B30.3 Sec.3.1.7.3(a)
-  </strong></td>
-  <td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[136]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[136]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[136]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3323,19 +3105,19 @@ Sec.4- 1.7.3(a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[136];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.26</strong></td>
-                <td><strong>Stairs/access ladders are secure and in good condition</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.15.2(a) ASME B30.3 Sec.3.1.17.2(a)
+		<tr>
+                <td><strong>4.46</strong></td>
+                <td><strong>Wear of one-third the original diameter of outside individual wires.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)4
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[137]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[137]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[137]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3345,19 +3127,19 @@ Sec.4- 1.15.2(a) ASME B30.3 Sec.3.1.17.2(a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[137];?>" disabled>
     </td>
             </tr>
-			<tr>
-                <td><strong>3.27</strong></td>
-                <td><strong>The machinery and electrical equipment are located clear of deck loading areas</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (a)
+					<tr>
+                <td><strong>4.47</strong></td>
+                <td><strong>Kinking, crushing, birdcaging, or any other damage resulting to distortion of the rope structure.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)5
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[138]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[138]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[138]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3367,20 +3149,19 @@ Sec.8-1.3.1 (a)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[138];?>" disabled>
     </td>
             </tr>
-			
-      <tr>
-                <td><strong>3.28</strong></td>
-                <td><strong>Work areas, companion ways and ladders are equipped with anti-slip surface materials</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (b)
+					<tr>
+                <td><strong>4.48</strong></td>
+                <td><strong>Evidence of heat damage from any cause.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)6
 </strong></td>
-<td class="checkbox-cell">
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[139]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[139]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[139]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3389,20 +3170,20 @@ Sec.8-1.3.1 (b)
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[139];?>" disabled>
     </td>
-            </tr>  
- <tr>
-                <td><strong>3.29</strong></td>
-                <td><strong>Electrical wiring and equipment are free of damages and of the specified type for shipboard</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.1 (c)
- </strong></td>
- <td class="checkbox-cell">
+            </tr>
+					<tr>
+                <td><strong>4.49</strong></td>
+                <td><strong>Reduction from nominal diameter greater than 5%.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)7
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[140]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[140]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[140]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3412,20 +3193,19 @@ Sec.8-1.3.1 (c)
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[140];?>" disabled>
     </td>
             </tr>
-			
-			<tr>
-                <td><strong>3.30</strong></td>
-                <td><strong>Manholes and hatches are not less than 15"x22"and raised above the deck to prevent accidental entry of spilled liquids</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.8
-Sec.8-1.3.3
- </strong></td>
- <td class="checkbox-cell">
+					<tr>
+                <td><strong>4.50</strong></td>
+                <td><strong>More than two broken wires adjacent to the socketed end connection, the rope shall be re-socketed or replaced.</strong></td>
+				<td style="text-align: center;"><strong>ASME B30.3
+sec 2.4.3(b)8
+</strong></td>
+                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
         <?php echo $selected_results[141]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[141]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+        <?php echo $selected_results[141]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox">  
     </td>
     <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
@@ -3434,555 +3214,9 @@ Sec.8-1.3.3
     <td>
         <input type="text" name="remarks[0]" value="<?php echo $chek_remark[141];?>" disabled>
     </td>
-            </tr>	
-<tr>
-                <td><strong>3.31</strong></td>
-                <td><strong>Engine speed control is working satisfactorily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.1.13.2(b2) 
-ASME B30.3 Sec3.1.15.1(a2)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[142]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[142]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[142]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[142];?>" disabled>
-    </td>
             </tr>
-			
-			<tr>
-                <td><strong>3.32</strong></td>
-                <td><strong>Transmission selector can be operated satisfactorily </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 Sec.4.1.13.2(b4) 
-ASME B30.3 Sec.3.1.15.1(a4
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[143]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[143]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[143]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[143];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.33</strong></td>
-                <td><strong> Engine emergency stop switch is working properly</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4 (4.1.13.2b3) 
-ASME B30.3 Sec.3.1.15.1(a3)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[144]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[144]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[144]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[144];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.34</strong></td>
-                <td><strong> Pedals and hand levers are easily operated and well-functioning </strong></td>
-				<td style="text-align: center;"><strong> ASME B30.4
-Sec.4- 1.13.3(a) ASME B30.3 Sec.3.1.15.3(a)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[145]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[145]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[145]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[145];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.35</strong></td>
-                <td><strong>Travel distance extremes of hand levers and pedals are acceptable
-•	14”-24” for hand levers
-10” for pedals
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4	
-Sec.4- 1.13.3(b)   
-ASME B.30.3
-Sec.3.1.15.3(b)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[146]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[146]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[146]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[146];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.36</strong></td>
-                <td><strong>Electrical crane has a main disconnect switch at or near the initial base of the crane
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(a) ASME B30.3 Sec.3.1.16.1(a)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[147]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[147]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[147]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[147];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.37</strong></td>
-                <td><strong>Electrical equipment is so located or guarded that live parts are not exposed to inadvertent contact under normal operating conditions </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(b)  
- ASME B30.3 Sec.3.1.16.1(b)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[148]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[148]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[148]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[148];?>" disabled>
-    </td>
-            </tr>
-			
-      <tr>
-                <td><strong>3.38</strong></td>
-                <td><strong>Electrical equipment is protected from dirt, grease, oil, moisture and other weather conditions</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(c)   ASME B30.3 Sec.3.1.16.1(c)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[149]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[149]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[149]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[149];?>" disabled>
-    </td>
-            </tr>  
- <tr>
-                <td><strong>3.39</strong></td>
-                <td><strong>An overload device is in place for each motor</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(g) ASME B30.3 Sec.3.1.16.1(g)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[150]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[150]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[150]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[150];?>" disabled>
-    </td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.40</strong></td>
-                <td><strong>Lighting protection is in place</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.1(h) ASME B30.3 Sec.3.1.16.1(h)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[151]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[151]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[151]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[151];?>" disabled>
-    </td>
-            </tr>	
-<tr>
-                <td><strong>3.41</strong></td>
-                <td><strong> Resistor units are supported to minimize vibrations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.14.2(b) ASME B30.3 Sec.3.1.16.2(a)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[152]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[152]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[152]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[152];?>" disabled>
-    </td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.42</strong></td>
-                <td><strong>Resistor parts are not suffering from corrosion</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.41.14.2(a)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[153]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[153]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[153]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[153];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.43</strong></td>
-                <td><strong>A separate circuit is in place for the lifting magnet alone (if magnet is used)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.9.3(a)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[154]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[154]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[154]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[154];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.44</strong></td>
-                <td><strong>An indication light is in place to magnet is energized (if magnet is used)</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.4
-Sec.4- 1.9.3(c)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[155]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[155]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[155]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[155];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.45</strong></td>
-                <td><strong>Labeling and manufacturer data are available and legible</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-2.1.1)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[156]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[156]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[156]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[156];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.46</strong></td>
-                <td><strong>Hook's weight is clearly marked/printed on the hook</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-1.1.1)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[157]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[157]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[157]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[157];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.47</strong></td>
-                <td><strong>Safe working load is clearly marked on the hook</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10-2.1.1)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[158]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[158]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[158]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[158];?>" disabled>
-    </td>
-            </tr>
-			
-      <tr>
-                <td><strong>3.48</strong></td>
-                <td><strong>Hook is not bent or twisted
-•	Max. bending or twisting not to exceed 10 degrees from plane of unbent hook or as per manufacturer recommendations
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c1)
-</strong></td>
-<td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[159]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[159]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[159]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[159];?>" disabled>
-    </td>
-            </tr>  
- <tr>
-                <td><strong>3.49</strong></td>
-                <td><strong>Hook is not distorted in the throat opening
-•	Max. allowable throat opening is 15% compared to new hook, or as per manufacturer recommendations
-</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c2)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[160]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[160]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[160]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[160];?>" disabled>
-    </td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.50</strong></td>
-                <td><strong>Maximum wear in the hook bowl is not exceeding 10% (compared to new hook) or as per manufacturer recommendations</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c3)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[161]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[161]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[161]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[161];?>" disabled>
-    </td>
-            </tr>	
-<tr>
-                <td><strong>3.51</strong></td>
-                <td><strong> Hook is not cracked, gouged or shows nicks</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.2c3)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[162]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[162]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[162]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[162];?>" disabled>
-    </td>
-            </tr>
-			
-			<tr>
-                <td><strong>3.52</strong></td>
-                <td><strong>Hook can lock (if it is a self-locking hook) </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c4)
- </strong></td>
- <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[163]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[163]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[163]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[163];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.53</strong></td>
-                <td><strong>Hook latch is operative</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-(10.1.2.1.3c5)
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[164]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[164]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[164]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[164];?>" disabled>
-    </td>
-            </tr>
-			<tr>
-                <td><strong>3.54</strong></td>
-                <td><strong> Hook is free to rotate</strong></td>
-				<td style="text-align: center;"><strong>ASME B30.10
-Sec.10-1.2.
-  </strong></td>
-  <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
-        <?php echo $selected_results[165]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
-        <?php echo $selected_results[165]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td class="checkbox-cell">
-        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
-        <?php echo $selected_results[165]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
-    </td>
-    <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[165];?>" disabled>
-    </td>
-            </tr>
-			
-        </table>
+			 
+         </table>
 </div>
         
 
@@ -3995,25 +3229,13 @@ Sec.10-1.2.
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3">
-                    
-            
-                <?php echo htmlspecialchars($row['remarks']); ?>        
-            </td>
+                <td style="height: 120px;" colspan="3"> </td>
                 
             </tr>
 			</tbody>
 			</table>
 			
-			</div>
-
-       
-        
-
-      	
-
-       
-		
+</div>	
 		
 		<div class="table-responsive">
             <table class="table table-bordered">
@@ -4032,18 +3254,19 @@ Sec.10-1.2.
             
            
         </table>
-        </div>
 
 
-<div class="col-12 d-flex justify-content-center mt-4">
+        
+    </div>
 
-<a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
 
-
-<button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
+	<div class="col-12">
+    <button type="submit" class="btn btn-primary">Update</button>
 </div>
-</form> 
-</div>
+</form>
+        
+    </div>
+	    </div>
 	  <script>
     function preparePrint() {
       // Change the headers before printing
@@ -4058,6 +3281,74 @@ Sec.10-1.2.
       window.print();
     }
   </script>
+
+
+
+<script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const remarks = document.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    // Check if at least one checkbox is selected for each question
+    const resultGroups = {};
+    checkboxes.forEach(checkbox => {
+        const name = checkbox.name;
+        if (!resultGroups[name]) resultGroups[name] = false;
+        if (checkbox.checked) resultGroups[name] = true;
+    });
+    for (const group in resultGroups) {
+        if (!resultGroups[group]) {
+            isValid = false;
+            alert(`Please select a result for ${group}`);
+            break;
+        }
+    }
+
+    // Check if all remark fields are filled
+    if (isValid) {
+        remarks.forEach(remark => {
+            if (remark.value.trim() === '') {
+                isValid = false;
+                alert('Please fill in all remarks.');
+                remark.focus();
+                return false;
+            }
+        });
+    }
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checklistForm = document.getElementById("checklistForm");
+
+    if (checklistForm) {
+        // Ensure only one checkbox is selected per row for the result field
+        checklistForm.addEventListener("change", function (event) {
+            if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
+                const currentRow = event.target.closest("tr");
+                const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false; // Uncheck other checkboxes in the same group
+                    }
+                });
+            }
+        });
+    }
+});
+
+
+</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
