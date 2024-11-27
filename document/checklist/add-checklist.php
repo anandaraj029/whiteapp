@@ -74,6 +74,8 @@ include_once('../../inc/function.php');
             <option value="bulldozer">Bulldozer</option>
             <option value="manbaskets">Manbaskets</option>
             <option value="frames-and-mobile-gantries">Frames and Mobile Gantries</option>
+            <option value="arc-welding-machine">ARC Welding Machine Checklist (2020)</option>
+            
                 </select> 
             </div>
 
