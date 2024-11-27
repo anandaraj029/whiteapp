@@ -148,9 +148,9 @@ Managing Director
                 
             <tr>
                 <th style="width: 25%;">CLIENT’S NAME:</th>
-                <td style="width: 25%;"></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>LOCATION:</th>

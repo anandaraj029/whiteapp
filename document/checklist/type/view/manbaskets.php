@@ -122,8 +122,7 @@ include_once('./view-fetch.php');
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
          <div class="table-responsive">
-            <table class="table table-bordered">
-                
+            <table class="table table-bordered">               
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
@@ -179,8 +178,7 @@ include_once('./view-fetch.php');
 				<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">RATINGS & MARKINGS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">N/A</th>
