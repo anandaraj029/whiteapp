@@ -82,7 +82,7 @@ include_once('./view-fetch.php');
 </div>
         
 
-<form method="post" action="./update_checklist.php" id="checklistForm">
+<form method="post" action="?">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
