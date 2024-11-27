@@ -33,12 +33,7 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
-    /* background-color: #007bff;  */
-    /* Blue background */
-    /* border-color: #007bff; */
-     /* Match the border with the background */
-}
+
 
 .custom-checkbox:checked::after {
     content: '';
