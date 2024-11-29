@@ -72,7 +72,7 @@ include_once('./get-checklist.php');
 		
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
-         <?php if (isset($row)): ?>
+         <!-- <?php if (isset($row)): ?> -->
          <div class="table-responsive">
 
 
@@ -110,10 +110,11 @@ include_once('./get-checklist.php');
         </table>
 
 </div>
-<?php endif; ?>
+<!-- <?php endif; ?> -->
 
         
-
+<form method="post" action="./update_checklist.php" id="checklistForm">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -4590,7 +4591,9 @@ Sec. (2.13.3.4, 2.13.5,
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                <?php echo htmlspecialchars($row['remarks']); ?></td>
+            </td>
                 
             </tr>
 			</tbody>
@@ -4624,27 +4627,100 @@ Sec. (2.13.3.4, 2.13.5,
            
         </table>
 
+        </div>
 
-        
-    </div>
-	    </div>
-	  <script>
-    function preparePrint() {
-      // Change the headers before printing
-      document.querySelectorAll('#data-table thead tr th').forEach((th, index) => {
-        if (index % 4 === 0) {
-          th.textContent = 'Print Header Set ' + (Math.floor(index / 4) + 1);
-        } else {
-          th.textContent = 'Print Column ' + index;
-        }
-      });
-      // Trigger print dialog
-      window.print();
+<div class="col-12">
+<button type="submit" class="btn btn-primary">Update</button>
+</div>
+</form>
+
+
+</div>
+<script>
+function preparePrint() {
+// Change the headers before printing
+document.querySelectorAll('#data-table thead tr th').forEach((th, index) => {
+if (index % 4 === 0) {
+  th.textContent = 'Print Header Set ' + (Math.floor(index / 4) + 1);
+} else {
+  th.textContent = 'Print Column ' + index;
+}
+});
+// Trigger print dialog
+window.print();
+}
+</script>
+
+
+
+<script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const remarks = document.querySelectorAll('input[type="text"]');
+let isValid = true;
+
+// Check if at least one checkbox is selected for each question
+const resultGroups = {};
+checkboxes.forEach(checkbox => {
+const name = checkbox.name;
+if (!resultGroups[name]) resultGroups[name] = false;
+if (checkbox.checked) resultGroups[name] = true;
+});
+for (const group in resultGroups) {
+if (!resultGroups[group]) {
+    isValid = false;
+    alert(`Please select a result for ${group}`);
+    break;
+}
+}
+
+// Check if all remark fields are filled
+if (isValid) {
+remarks.forEach(remark => {
+    if (remark.value.trim() === '') {
+        isValid = false;
+        alert('Please fill in all remarks.');
+        remark.focus();
+        return false;
     }
-  </script>
+});
+}
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+// Prevent form submission if validation fails
+if (!isValid) {
+event.preventDefault();
+}
+});
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+const checklistForm = document.getElementById("checklistForm");
+
+if (checklistForm) {
+// Ensure only one checkbox is selected per row for the result field
+checklistForm.addEventListener("change", function (event) {
+    if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
+        const currentRow = event.target.closest("tr");
+        const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
+        
+        checkboxes.forEach(checkbox => {
+            if (checkbox !== event.target) {
+                checkbox.checked = false; // Uncheck other checkboxes in the same group
+            }
+        });
+    }
+});
+}
+});
+
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

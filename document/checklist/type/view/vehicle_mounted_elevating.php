@@ -33,12 +33,12 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
      /* Match the border with the background */
-}
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
@@ -161,7 +161,7 @@ include_once('./view-fetch.php');
 </div>
         
 <form method="post" action="?">
-        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />    
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
 
         <div class="table-responsive">
             <table class="table table-bordered">

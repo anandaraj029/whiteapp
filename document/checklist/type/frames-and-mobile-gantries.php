@@ -2269,7 +2269,10 @@ Max. allowable throat opening is 15% compared to new hook, or as per manufacture
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </th>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3"> 
+
+                <?php echo htmlspecialchars($row['remarks']); ?>
+                </td>
                 
             </tr>
 			</tbody>

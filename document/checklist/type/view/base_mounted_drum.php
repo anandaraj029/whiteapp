@@ -14,7 +14,7 @@ include_once('./view-fetch.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <style>
 /* Custom checkbox styling */
@@ -33,12 +33,12 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
      /* Match the border with the background */
-}
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
@@ -154,9 +154,9 @@ Managing Director
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>REPORT NO:</th>
-                <td><strong></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
@@ -202,8 +202,7 @@ Managing Director
 				
 				<tr>
                     <th style="text-align: center;">1</th>
-                    <th style="text-align: center;">RATINGS & MARKINGS</th>
-                    
+                    <th style="text-align: center;">RATINGS & MARKINGS</th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">N/A</th>

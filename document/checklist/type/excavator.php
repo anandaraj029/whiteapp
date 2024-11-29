@@ -72,7 +72,7 @@ include_once('./get-checklist.php');
                 <th>LOCATION:</th>
                 <td><strong></strong></td>
                 <th>REPORT NO:</th>
-                <td><strong></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
