@@ -80,6 +80,7 @@ include_once('../../inc/function.php');
             
             <option value="powered-platforms">Powered Platforms (Sky Climbers)</option>
             <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+            <option value="wheel-loader">Wheel Loader</option>
             
             
             

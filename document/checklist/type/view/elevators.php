@@ -146,7 +146,7 @@ include_once('./view-fetch.php');
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong><?php echo $row['equipment_type']; ?></strong></td>
+                <td><strong><?php echo $row['crane_asset_no']; ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
                 <td><strong><?php echo $row['crane_serial_no']; ?></strong></td>
             </tr>
@@ -947,7 +947,7 @@ Sec. (2.8.1, 2.8.2 (3.8), 8.11.3.1.2h)
         <?php echo $selected_results[30]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[30];?>" disabled>
     </td>
             </tr>  
  <tr>
