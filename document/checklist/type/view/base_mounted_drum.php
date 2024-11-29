@@ -154,9 +154,9 @@ Managing Director
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>REPORT NO:</th>
-                <td><strong></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
@@ -202,8 +202,7 @@ Managing Director
 				
 				<tr>
                     <th style="text-align: center;">1</th>
-                    <th style="text-align: center;">RATINGS & MARKINGS</th>
-                    
+                    <th style="text-align: center;">RATINGS & MARKINGS</th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">N/A</th>
