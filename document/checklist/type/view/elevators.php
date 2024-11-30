@@ -16,6 +16,10 @@ include_once('./view-fetch.php');
     <link href="../style.css" rel="stylesheet">
 
     <style>
+        .container{
+            max-width: 926px;
+
+        }
 /* Custom checkbox styling */
 .custom-checkbox {
     appearance: none;
