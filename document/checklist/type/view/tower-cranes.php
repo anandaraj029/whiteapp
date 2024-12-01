@@ -3259,16 +3259,15 @@ sec 2.4.3(b)8
 
 
         
-    </div>
+        </div>
 
-
-	<div class="col-12">
-    <button type="submit" class="btn btn-primary">Update</button>
+<div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
 </div>
-</form>
-        
+</form> 
     </div>
-	    </div>
+	    
 	  <script>
     function preparePrint() {
       // Change the headers before printing
@@ -3283,74 +3282,6 @@ sec 2.4.3(b)8
       window.print();
     }
   </script>
-
-
-
-<script>
-document.getElementById('checklistForm').addEventListener('submit', function(event) {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    const remarks = document.querySelectorAll('input[type="text"]');
-    let isValid = true;
-
-    // Check if at least one checkbox is selected for each question
-    const resultGroups = {};
-    checkboxes.forEach(checkbox => {
-        const name = checkbox.name;
-        if (!resultGroups[name]) resultGroups[name] = false;
-        if (checkbox.checked) resultGroups[name] = true;
-    });
-    for (const group in resultGroups) {
-        if (!resultGroups[group]) {
-            isValid = false;
-            alert(`Please select a result for ${group}`);
-            break;
-        }
-    }
-
-    // Check if all remark fields are filled
-    if (isValid) {
-        remarks.forEach(remark => {
-            if (remark.value.trim() === '') {
-                isValid = false;
-                alert('Please fill in all remarks.');
-                remark.focus();
-                return false;
-            }
-        });
-    }
-
-    // Prevent form submission if validation fails
-    if (!isValid) {
-        event.preventDefault();
-    }
-});
-</script>
-
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-    const checklistForm = document.getElementById("checklistForm");
-
-    if (checklistForm) {
-        // Ensure only one checkbox is selected per row for the result field
-        checklistForm.addEventListener("change", function (event) {
-            if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
-                const currentRow = event.target.closest("tr");
-                const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
-                
-                checkboxes.forEach(checkbox => {
-                    if (checkbox !== event.target) {
-                        checkbox.checked = false; // Uncheck other checkboxes in the same group
-                    }
-                });
-            }
-        });
-    }
-});
-
-
-</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
