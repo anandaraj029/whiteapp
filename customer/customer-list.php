@@ -105,6 +105,9 @@ if ($result->num_rows > 0) {
             <td>" . date('F d, Y', strtotime($row['created_at'])) . "</td>
             <td>{$row['rep_name']}</td>
             <td class='actions'>
+              <span class='contact-edit'>
+                <a href='view-customer.php?mail={$row['email']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
+                </span>
                 <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
                     <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
                 </span>
