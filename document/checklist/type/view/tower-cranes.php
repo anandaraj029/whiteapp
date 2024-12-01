@@ -1,6 +1,6 @@
 <?php 
 
-include_once('./get-checklist.php');
+include_once('./view-fetch.php');
 ?>
 
 
@@ -14,7 +14,7 @@ include_once('./get-checklist.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -49,40 +49,40 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
                 <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
             </tr>
             
         </table>
 </div>
         
 
-<form method="post" action="./update_checklist.php" id="checklistForm">
+<form method="post" action="?">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -90,15 +90,14 @@ include_once('./get-checklist.php');
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
 			<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">MARKINGS, DOCUMENTS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">NA</th>

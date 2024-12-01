@@ -33,12 +33,12 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
      /* Match the border with the background */
-}
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
@@ -122,8 +122,7 @@ include_once('./view-fetch.php');
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
          <div class="table-responsive">
-            <table class="table table-bordered">
-                
+            <table class="table table-bordered">               
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
@@ -160,15 +159,18 @@ include_once('./view-fetch.php');
 </div>
         
 
-<form method="post" action="./update_checklist.php">
+
+<form method="post" action="?">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
+<!-- <form method="post" action="./update_checklist.php">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" /> -->
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
@@ -176,8 +178,7 @@ include_once('./view-fetch.php');
 				<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">RATINGS & MARKINGS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">N/A</th>

@@ -13,7 +13,7 @@ include_once('./view-fetch.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <style>
 /* Custom checkbox styling */
@@ -32,12 +32,12 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
      /* Match the border with the background */
-}
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
@@ -123,10 +123,8 @@ include_once('./view-fetch.php');
 		
         
 		 <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
-         <?php if (isset($row)): ?>
+         
          <div class="table-responsive">
-
-
         <table class="table table-bordered">
             <tr>
                 <th style="width: 25%;">REPORT NO:</th>
@@ -159,11 +157,12 @@ include_once('./view-fetch.php');
                 <td><strong><?php echo $row['capacity_swl']; ?></strong></td>
             </tr>
         </table>
-
 </div>
-<?php endif; ?>
 
-        
+
+
+<form method="post" action="?">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
 
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -5208,9 +5207,7 @@ Sec. (2.13.3.4, 2.13.5,
                 <td><strong>2.6.3</strong></td>
                 <td><strong>Verify / check operation of elevators under fire and other emergency conditions (A17.1- 1984 through A17.1a- 1988 and A17.3)</strong></td>
 				<td style="text-align: center;"><strong>ASME A17.1
-Sec. (2.13.3.4, 2.13.5,
-8.6.10.1, 8.11.2.1.4l,
-8.11.2.2.6)
+Sec. (2.13.3.4, 2.13.5, 8.6.10.1, 8.11.2.1.4l, 8.11.2.2.6)
   </strong></td>
                 <td class="checkbox-cell">
         <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
@@ -5232,8 +5229,7 @@ Sec. (2.13.3.4, 2.13.5,
                 <td><strong>2.6.4</strong></td>
                 <td><strong>Verify Firefighters' service (A17.1b- 1989 and later edition)</strong></td>
 				<td style="text-align: center;"><strong> ASME A17.1
-Sec. (2.13.3.4, 2.13.5,
-8.6.10.1, 8.11.2.1.4l,
+Sec. (2.13.3.4, 2.13.5, 8.6.10.1, 8.11.2.1.4l, 
 8.11.2.2.6)
   </strong></td>
                 <td class="checkbox-cell">
@@ -5265,7 +5261,10 @@ Sec. (2.13.3.4, 2.13.5,
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                    
+                <?php echo htmlspecialchars($row['remarks']); ?>   
+            </td>
                 
             </tr>
 			</tbody>
@@ -5308,7 +5307,7 @@ Sec. (2.13.3.4, 2.13.5,
 </div>
 </form> 
     </div>
-	    </div>
+	    
 	  <script>
     function preparePrint() {
       // Change the headers before printing

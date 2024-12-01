@@ -15,7 +15,7 @@ include_once('./view-fetch.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <style>
 /* Custom checkbox styling */
@@ -34,12 +34,12 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-.custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
      /* Match the border with the background */
-}
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
@@ -133,54 +133,55 @@ include_once('./view-fetch.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td></strong></td>
+                <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
                 <th>INSPECTED BY:</th>
-                <td></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
                 <th>CAPACITY (SWL):</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
             </tr>
             
         </table>
 </div>
         
 
+<form method="post" action="?">
+        <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead class="thead-dark">
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
 			<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">GENERAL REQUIREMENTS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">NA</th>
@@ -194,21 +195,22 @@ include_once('./view-fetch.php');
  <tr>
                 <td><strong>1.1</strong></td>
                 <td><strong> Equipment documentation is available </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.14
-Sec. 2.1.5
- </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[1]">
-</td>
+				<td style="text-align: center;"><strong>ASME B30.14 Sec. 2.1.5 </strong></td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -217,36 +219,42 @@ Sec. 2.1.5
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.5
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[2]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
                 <td><strong>Operator is certified or qualified for the specific type of equipment.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec.3.1.1(a)(1-3)</strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[3]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>1.4</strong></td>
@@ -254,18 +262,21 @@ Sec.3.1.1(a)(1-3)</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.1.3
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[4]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>1.5</strong></td>
@@ -273,53 +284,62 @@ Sec. 1.1.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.1.3 (c)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[5]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>1.6</strong></td>
                 <td><strong>A sign is posted warning the operator not to rely solely on any automatic device as a substitute for safe operating practice</strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06</strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[6]">
-</td>
+                <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>1.7</strong></td>
                 <td><strong>Rated capacity of crane is marked</strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[7]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -329,18 +349,21 @@ Sec. 1.1.3 (c)
 Sec. 3.4.4 (a)
 
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[8]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
 
 		<tr>
@@ -358,18 +381,21 @@ Sec. 3.4.4 (a)
                 <td><strong>Electrical apparatus is working correctly without excessive dirt, deterioration or moisture accumulation</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.2, Sec.1.2.1
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[9]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 				
  <tr>
@@ -378,18 +404,21 @@ Sec. 3.4.4 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.3.1&2
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[10]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -398,18 +427,21 @@ Sec. 1.3.1&2
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.3.1&2
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[11]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.3</strong></td>
@@ -417,18 +449,21 @@ Sec. 1.3.1&2
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.1
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[12]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.4</strong></td>
@@ -436,18 +471,21 @@ Sec. 1.4.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.5
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[13]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.5</strong></td>
@@ -455,18 +493,21 @@ Sec. 1.7.5
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.5
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[14]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.6</strong></td>
@@ -474,18 +515,21 @@ Sec. 1.7.5
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.4 (b)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[15]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.7</strong></td>
@@ -493,18 +537,21 @@ Sec. 2.3.4 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[16]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -513,18 +560,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[17]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.9</strong></td>
@@ -532,18 +582,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[18]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -552,18 +605,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[19]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.11</strong></td>
@@ -571,18 +627,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[20]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -591,18 +650,21 @@ Sec. 1.4.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (c)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[21]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.13</strong></td>
@@ -610,18 +672,21 @@ Sec. 1.4.3 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec.1.4.3 (b)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[22]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.14</strong></td>
@@ -629,18 +694,21 @@ Sec.1.4.3 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (f)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[23]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.15</strong></td>
@@ -648,18 +716,21 @@ Sec. 2.1.3 (f)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c7)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[24]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.16</strong></td>
@@ -667,18 +738,21 @@ Sec. 2.1.2 (c7)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.2
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[25]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.17</strong></td>
@@ -686,18 +760,21 @@ Sec. 1.7.2
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.1
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[26]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -706,18 +783,21 @@ Sec. 2.3.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[27]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.19</strong></td>
@@ -725,38 +805,44 @@ Sec. 2.1.2 (c3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c3)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[28]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
                 <td><strong>2.20</strong></td>
                 <td><strong>Hydraulic/Pneumatic systems are not leaking (pumps, valves, lines, etc.</strong></td>
 				<td style="text-align: center;"><strong>ASME B30.14
-Sec. 2.1.2 (c3
+Sec. 2.1.2 (c3)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[29]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.21</strong></td>
@@ -764,18 +850,21 @@ Sec. 2.1.2 (c3
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.1.1
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[30]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -784,18 +873,21 @@ Sec. 1.1.1
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.1.1
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[31]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.23</strong></td>
@@ -804,18 +896,21 @@ Sec. 1.1.1
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.1.1
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[32]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.24</strong></td>
@@ -823,18 +918,21 @@ Sec. 1.1.1
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.2 (c3)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[33]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.25</strong></td>
@@ -843,18 +941,21 @@ Max. bending or twisting not to exceed 10 degrees from plane of unbent hook or a
 </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.10 Sec.10-1.2.1.3(c1)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[34]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.26</strong></td>
@@ -864,18 +965,21 @@ Max. allowable throat opening is 15% compared to new hook, or as per manufacture
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.3 (c2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[35]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.27</strong></td>
@@ -883,18 +987,21 @@ Sec. 1.2.1.3 (c2)
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.3 (c3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[36]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -903,18 +1010,21 @@ Sec. 1.2.1.3 (c3)
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.2 (c3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[37]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.29</strong></td>
@@ -922,18 +1032,21 @@ Sec. 1.2.1.2 (c3)
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.3 (c4)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[38]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -942,18 +1055,21 @@ Sec. 1.2.1.3 (c4)
 				<td style="text-align: center;"><strong>ASME B30.10
 Sec. 1.2.1.3 (c5)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[39]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.31</strong></td>
@@ -961,18 +1077,21 @@ Sec. 1.2.1.3 (c5)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.4
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[40]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -981,18 +1100,21 @@ Sec. 1.7.4
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3(d)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[41]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.33</strong></td>
@@ -1000,18 +1122,21 @@ Sec. 2.1.3(d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[42]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.34</strong></td>
@@ -1019,18 +1144,21 @@ Sec. 2.1.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[43]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.35</strong></td>
@@ -1038,18 +1166,21 @@ Sec. 2.1.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.1
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[44]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.36</strong></td>
@@ -1058,18 +1189,21 @@ Sec. 1.2.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3 (a)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[45]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.37</strong></td>
@@ -1077,18 +1211,21 @@ Sec. 1.7.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3 (a)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[46]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -1097,18 +1234,21 @@ Sec. 1.7.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3 (d)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[47]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.39</strong></td>
@@ -1116,18 +1256,21 @@ Sec. 1.7.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.5.4 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[48]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1136,18 +1279,21 @@ Sec. 1.5.4 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.5.4 (b)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[49]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.41</strong></td>
@@ -1155,18 +1301,21 @@ Sec. 1.5.4 (b)
 				<td style="text-align: center;"><strong>ASME B30.14 
 Sec. 1.5.4(c)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[50]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1175,18 +1324,21 @@ Sec. 1.5.4(c)
 				<td style="text-align: center;"><strong>ASME B30.14
  Sec. 2.1.3(a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[51]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.43</strong></td>
@@ -1194,18 +1346,21 @@ Sec. 1.5.4(c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.4 (a)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[52]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.44</strong></td>
@@ -1213,18 +1368,21 @@ Sec. 2.1.4 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[53]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.45</strong></td>
@@ -1232,18 +1390,21 @@ Sec. 2.1.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[54]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.46</strong></td>
@@ -1251,18 +1412,21 @@ Sec. 2.1.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.5.4
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[55]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.47</strong></td>
@@ -1270,18 +1434,21 @@ Sec. 1.5.4
 				<td style="text-align: center;"><strong>ASME B30.14 Sec.1.7.1 (a)
 Sec. 2.2.1 (3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[56]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -1290,18 +1457,21 @@ Sec. 2.2.1 (3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (b)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[57]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.49</strong></td>
@@ -1309,18 +1479,21 @@ Sec. 1.2.2 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[58]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1329,18 +1502,21 @@ Sec. 1.2.2 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[59]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.51</strong></td>
@@ -1348,18 +1524,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[60]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1368,18 +1547,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[61]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.53</strong></td>
@@ -1387,18 +1569,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (c)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[62]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.54</strong></td>
@@ -1406,18 +1591,21 @@ Sec. 1.2.2 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a4)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[63]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.55</strong></td>
@@ -1425,18 +1613,21 @@ Sec. 1.2.2 (a4)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b1)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[64]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.56</strong></td>
@@ -1444,18 +1635,21 @@ Sec. 2.4.2 (b1)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b6)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[65]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.57</strong></td>
@@ -1463,18 +1657,21 @@ Sec. 2.4.2 (b6)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[66]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -1483,18 +1680,21 @@ Sec. 2.4.2 (b2)
 				<td style="text-align: center;"><strong>ASME B30.14 Sec. 2.4.1 (a)
 Sec. 2.4.2 (b3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[67]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.59</strong></td>
@@ -1502,18 +1702,21 @@ Sec. 2.4.2 (b3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.1
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[68]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1522,18 +1725,21 @@ Sec. 1.2.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.1 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[69]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.61</strong></td>
@@ -1541,18 +1747,21 @@ Sec. 1.2.1 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.1 (b)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[70]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1561,18 +1770,21 @@ Sec. 1.2.1 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.1 (c)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[71]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.63</strong></td>
@@ -1580,18 +1792,21 @@ Sec. 1.2.1 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[72]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.64</strong></td>
@@ -1599,18 +1814,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[73]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.65</strong></td>
@@ -1618,18 +1836,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.2.2 (a2)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[74]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.66</strong></td>
@@ -1637,18 +1858,21 @@ Sec. 1.2.2 (a2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b1)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[75]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.67</strong></td>
@@ -1656,18 +1880,21 @@ Sec. 2.4.2 (b1)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b6)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[76]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -1676,18 +1903,21 @@ Sec. 2.4.2 (b6)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.4.2 (b2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[77]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.69</strong></td>
@@ -1696,18 +1926,21 @@ Sec. 2.4.2 (b2)
 Sec. 2.4.1 (a)
 Sec. 2.4.2 (b3)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[78]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1717,18 +1950,21 @@ Sec. 2.4.2 (b3)
 Sec. 2.1.2 (c3)
 
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[79]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.71</strong></td>
@@ -1736,18 +1972,21 @@ Sec. 2.1.2 (c3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c3)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[80]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1756,18 +1995,21 @@ Sec. 2.1.2 (c3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a, b, d)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[81]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.73</strong></td>
@@ -1775,18 +2017,21 @@ Sec. 2.1.3 (a, b, d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a, b, d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[82]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.74</strong></td>
@@ -1794,18 +2039,21 @@ Sec. 2.1.3 (a, b, d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a, b, d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[83]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.75</strong></td>
@@ -1813,18 +2061,21 @@ Sec. 2.1.3 (a, b, d)
 				<td style="text-align: center;"><strong>ASME B30.14 S
 Sec. 2.1.3 (g)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[84]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.76</strong></td>
@@ -1832,18 +2083,21 @@ Sec. 2.1.3 (g)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (g)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[85]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.77</strong></td>
@@ -1851,18 +2105,21 @@ Sec. 2.1.3 (g)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.3 (1)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[86]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -1871,18 +2128,21 @@ Sec. 2.3.3 (1)
 				<td style="text-align: center;"><strong>ASME B30.14 S
 Sec. 2.1.3 (g)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[87]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.79</strong></td>
@@ -1890,18 +2150,21 @@ Sec. 2.1.3 (g)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (b)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[88]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1910,18 +2173,21 @@ Sec. 2.1.3 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (g)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[89]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.81</strong></td>
@@ -1929,18 +2195,21 @@ Sec. 2.1.3 (g)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.2.2 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[90]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -1949,18 +2218,21 @@ Sec. 2.2.2 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.2.2 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[91]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.83</strong></td>
@@ -1968,18 +2240,21 @@ Sec. 2.2.2 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[92]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.84</strong></td>
@@ -1987,18 +2262,21 @@ Sec. 1.4.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (h)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[93]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.85</strong></td>
@@ -2006,18 +2284,21 @@ Sec. 2.1.3 (h)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (h)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[94]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.86</strong></td>
@@ -2025,18 +2306,21 @@ Sec. 2.1.3 (h)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (h)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[95]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.87</strong></td>
@@ -2044,18 +2328,21 @@ Sec. 2.1.3 (h)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.3.2
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[96]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -2064,18 +2351,21 @@ Sec. 1.3.2
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.6.1 (c)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[97]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.89</strong></td>
@@ -2083,18 +2373,21 @@ Sec. 1.6.1 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.6.1 (d)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[98]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2103,18 +2396,21 @@ Sec. 1.6.1 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.6.1 (d)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[99]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>2.91</strong></td>
@@ -2122,18 +2418,21 @@ Sec. 1.6.1 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 3.4.4
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[100]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2142,18 +2441,21 @@ Sec. 3.4.4
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c7)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[101]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.93</strong></td>
@@ -2161,18 +2463,21 @@ Sec. 2.1.2 (c7)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (e)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[102]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.94</strong></td>
@@ -2180,18 +2485,21 @@ Sec. 2.1.3 (e)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (e)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[103]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.95</strong></td>
@@ -2199,18 +2507,21 @@ Sec. 2.1.3 (e)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.3
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[104]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.96</strong></td>
@@ -2218,18 +2529,21 @@ Sec. 2.3.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (d)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[105]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>2.97</strong></td>
@@ -2237,18 +2551,21 @@ Sec. 1.4.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[106]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -2257,18 +2574,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[107]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>2.99</strong></td>
@@ -2276,18 +2596,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[108]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 		<tr>
                     <th style="text-align: center;">3</th>
@@ -2305,18 +2628,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[109]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
  <tr>
                 <td><strong>3.1</strong></td>
@@ -2324,18 +2650,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c2)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[110]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2344,18 +2673,21 @@ Sec. 2.1.2 (c2)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[111]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.3</strong></td>
@@ -2363,18 +2695,21 @@ Sec. 1.4.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.4.3 (b)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[112]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.4</strong></td>
@@ -2382,18 +2717,21 @@ Sec. 1.4.3 (b)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (f)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[113]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.5</strong></td>
@@ -2402,18 +2740,21 @@ Sec. 2.1.3 (f)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c7)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[114]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.6</strong></td>
@@ -2421,18 +2762,21 @@ Sec. 2.1.2 (c7)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.2
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[115]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.7</strong></td>
@@ -2440,18 +2784,21 @@ Sec. 1.7.2
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.1
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[116]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -2460,18 +2807,21 @@ Sec. 2.3.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.3
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[117]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>3.9</strong></td>
@@ -2479,18 +2829,21 @@ Sec. 2.3.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.3
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[118]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2499,18 +2852,21 @@ Sec. 2.3.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.3.3
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[119]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>3.11</strong></td>
@@ -2518,18 +2874,21 @@ Sec. 2.3.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (I)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[120]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2538,18 +2897,21 @@ Sec. 2.1.3 (I)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3 (a)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[121]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.13</strong></td>
@@ -2557,18 +2919,21 @@ Sec. 1.7.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3 (d)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[122]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.14</strong></td>
@@ -2576,18 +2941,21 @@ Sec. 1.7.3 (d)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[123]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.15</strong></td>
@@ -2595,18 +2963,21 @@ Sec. 1.7.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[124]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.16</strong></td>
@@ -2614,18 +2985,21 @@ Sec. 1.7.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.3
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[125]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.17</strong></td>
@@ -2633,18 +3007,21 @@ Sec. 1.7.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (a)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[126]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
       <tr>
@@ -2653,18 +3030,21 @@ Sec. 2.1.3 (a)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.2 (c3)
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[127]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>  
  <tr>
                 <td><strong>3.19</strong></td>
@@ -2672,18 +3052,21 @@ Sec. 2.1.2 (c3)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3 (c)
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[128]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2692,18 +3075,21 @@ Sec. 2.1.3 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.5.4
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[129]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>	
 <tr>
                 <td><strong>3.21</strong></td>
@@ -2711,18 +3097,21 @@ Sec. 1.5.4
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 2.1.3
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[130]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			
 			<tr>
@@ -2731,18 +3120,21 @@ Sec. 2.1.3
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.7.5
  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[131]">
-</td>
+ <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.23</strong></td>
@@ -2750,18 +3142,21 @@ Sec. 1.7.5
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 1.5.3 (c)
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[132]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.24</strong></td>
@@ -2769,18 +3164,21 @@ Sec. 1.5.3 (c)
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 3.4.1
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[133]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.25</strong></td>
@@ -2789,18 +3187,21 @@ Sec. 3.4.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 3.4.1
   </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox4" value="PASS">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[134]">
-</td>
+  <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.26</strong></td>
@@ -2808,18 +3209,21 @@ Sec. 3.4.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 3.4.1
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[135]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			<tr>
                 <td><strong>3.27</strong></td>
@@ -2827,18 +3231,21 @@ Sec. 3.4.1
 				<td style="text-align: center;"><strong>ASME B30.14
 Sec. 3.4.1
 </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox4" value="PASS">
-</td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox5" value="FAIL">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox6" value="NA">
-</td>
-<td>
-    <input type="text" name="checklist_remark[136]">
-</td>
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[0]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[0]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[0]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[0];?>" disabled>
+    </td>
             </tr>
 			  
 			
@@ -2855,7 +3262,10 @@ Sec. 3.4.1
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                <?php echo htmlspecialchars($row['remarks']); ?>
+            
+            </td>
                 
             </tr>
 			</tbody>
@@ -2891,8 +3301,12 @@ Sec. 3.4.1
 
 
         
-        <div class="col-12">
-    <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+
+
+<div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
 </div>
 </form> 
     </div>

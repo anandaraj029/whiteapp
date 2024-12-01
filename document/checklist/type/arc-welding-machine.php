@@ -98,7 +98,7 @@ include_once('./get-checklist.php');
         
 
 
-<form method="post" action="./update_checklist.php">
+<form method="post" action="./update_checklist.php" id="checklistForm">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
 
         <div class="table-responsive">
@@ -700,7 +700,11 @@ include_once('./get-checklist.php');
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3"> </td>
+                <td style="height: 120px;" colspan="3">
+                <?php echo htmlspecialchars($row['remarks']); ?>
+            </td>        
+            
+            
                 
             </tr>
 			</tbody>
@@ -732,15 +736,18 @@ include_once('./get-checklist.php');
             </tr>
             
            
-        </table>
+        </table>        
 
+        </div>
 
-        
         <div class="col-12">
     <button type="submit" class="btn btn-primary">Update</button>
 </div>
-</form> 
-    </div>
+</form>       
+    
+	    </div>
+
+        
 	  <script>
     function preparePrint() {
       // Change the headers before printing
@@ -755,6 +762,74 @@ include_once('./get-checklist.php');
       window.print();
     }
   </script>
+
+
+
+<script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const remarks = document.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    // Check if at least one checkbox is selected for each question
+    const resultGroups = {};
+    checkboxes.forEach(checkbox => {
+        const name = checkbox.name;
+        if (!resultGroups[name]) resultGroups[name] = false;
+        if (checkbox.checked) resultGroups[name] = true;
+    });
+    for (const group in resultGroups) {
+        if (!resultGroups[group]) {
+            isValid = false;
+            alert(`Please select a result for ${group}`);
+            break;
+        }
+    }
+
+    // Check if all remark fields are filled
+    if (isValid) {
+        remarks.forEach(remark => {
+            if (remark.value.trim() === '') {
+                isValid = false;
+                alert('Please fill in all remarks.');
+                remark.focus();
+                return false;
+            }
+        });
+    }
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+</script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const checklistForm = document.getElementById("checklistForm");
+
+    if (checklistForm) {
+        // Ensure only one checkbox is selected per row for the result field
+        checklistForm.addEventListener("change", function (event) {
+            if (event.target.type === "checkbox" && event.target.name.startsWith("result")) {
+                const currentRow = event.target.closest("tr");
+                const checkboxes = currentRow.querySelectorAll("input[type='checkbox'][name='" + event.target.name + "']");
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox !== event.target) {
+                        checkbox.checked = false; // Uncheck other checkboxes in the same group
+                    }
+                });
+            }
+        });
+    }
+});
+
+
+</script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

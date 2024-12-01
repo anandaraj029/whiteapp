@@ -62,18 +62,30 @@ include_once('../../inc/function.php');
                 <label class="font-14 bold mb-2">Checklist Type</label>
                 <select name="checklist_type" class="theme-input-style">
                 <option value="">Select Type</option>
+                <option value="arc-welding-machine">ARC Welding Machine Checklist (2020)</option>
+            
             <option value="articulating_boom">Articulating boom</option>
+            <option value="base_mounted_drum">Base Mounted Drum Hoist (Winches)</option>
+            <option value="bulldozer">Bulldozer</option>
             <option value="elevators">Elevators</option>
-            <option value="mobile_locomotive">Mobile & Locomotive Cranes</option>
+            <option value="excavator">Excavator</option>
+            <option value="fixed-cranes-hoist">Fixed Cranes & Hoist</option>
+            <option value="forklift">Forklift</option>
+            <option value="frames-and-mobile-gantries">Frames and Mobile Gantries</option>
+            <option value="jib-davit">JIB & DAVIT</option>
+            <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
+            <option value="manbaskets">Manbaskets</option>
             <option value="marine-offshore-cranes">Marine & Offshore Cranes</option>
             <option value="storage-retrieval">Storage Retrieval</option>            
-            <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
+            
             <option value="powered-platforms">Powered Platforms (Sky Climbers)</option>
             <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
-            <option value="forklift">Forklift</option>
-            <option value="bulldozer">Bulldozer</option>
-            <option value="manbaskets">Manbaskets</option>
-            <option value="frames-and-mobile-gantries">Frames and Mobile Gantries</option>
+            
+            
+            
+            
+            
+            
                 </select> 
             </div>
 
