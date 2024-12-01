@@ -921,7 +921,7 @@ include_once('./view-fetch.php');
             </tr>-->
 			
 			<tr>
-                <td><strong>2.23</strong></td>
+                <td><strong>2.22</strong></td>
                 <td><strong> Sheave bearings are provided with lubrication points (except for self-lubricating bearings)  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.4(d)
@@ -944,7 +944,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.24</strong></td>
+                <td><strong>2.23</strong></td>
                 <td><strong>  Load hoisting sheaves have pitch diameters of not less than 18 times the nominal diameter of the rope used </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.5(a)
@@ -967,7 +967,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.25</strong></td>
+                <td><strong>2.24</strong></td>
                 <td><strong> Lower load block sheaves have pitch diameters of not less than 16 times the nominal diameter of the rope used  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.5(b)
@@ -990,7 +990,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.26</strong></td>
+                <td><strong>2.25</strong></td>
                 <td><strong>  Boom extension system sheaves have a pitch diameter of not less than 15 times the nominal diameter of the rope </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-1.5.5(c)
@@ -1013,7 +1013,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.27</strong></td>
+                <td><strong>2.26</strong></td>
                 <td><strong> Labeling and manufacturer data are available and legible  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10, 
                     (10-2.1.1)
@@ -1036,7 +1036,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.28</strong></td>
+                <td><strong>2.27</strong></td>
                 <td><strong> Hook weight is marked.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10
                     Sec. 10-1.1.1
@@ -1059,7 +1059,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.29</strong></td>
+                <td><strong>2.28</strong></td>
                 <td><strong>  Safe working load is clearly marked on the hook </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10, 
                     (10-2.1.1)
@@ -1082,7 +1082,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.30</strong></td>
+                <td><strong>2.29</strong></td>
                 <td><strong> Hook is not bent or twisted
                     • Max. bending or twisting not to exceed 10 degrees from plane of unbent hook or as per manufacturer recommendations  
                       </strong></td>
@@ -1107,7 +1107,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.31</strong></td>
+                <td><strong>2.30</strong></td>
                 <td><strong> Hook is not distorted in the throat opening
                     • Max. allowable throat opening is 15% compared to new hook, or as per manufacturer recommendations
                       </strong></td>
@@ -1132,7 +1132,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.32</strong></td>
+                <td><strong>2.31</strong></td>
                 <td><strong> Maximum wear in the hook bowl is not exceeding 10% (compared to new hook) or as per manufacturer recommendations  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.3c3)
@@ -1155,7 +1155,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.33</strong></td>
+                <td><strong>2.32</strong></td>
                 <td><strong> Hook is not cracked, gouged or shows nicks  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.2c3)
@@ -1178,7 +1178,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.34</strong></td>
+                <td><strong>2.33</strong></td>
                 <td><strong>  Hook can lock (if it is a self-locking hook) </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.10
                     (10-1.2.1.3c4)
@@ -1201,7 +1201,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.35</strong></td>
+                <td><strong>2.34</strong></td>
                 <td><strong> Hook latch is operative  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.10
                     (10-1.2.1.3c5)
@@ -1224,7 +1224,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.36</strong></td>
+                <td><strong>2.35</strong></td>
                 <td><strong> All controls are labeled and identified  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-1.5.6.1(a)
@@ -1247,7 +1247,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.37</strong></td>
+                <td><strong>2.36</strong></td>
                 <td><strong> All controls are functioning properly  </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22-2.1.3(a)
@@ -1270,7 +1270,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.38</strong></td>
+                <td><strong>2.37</strong></td>
                 <td><strong>  All control levers return to neutral position when force is removed </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.22
                     Sec. 22.1.5.6.1(b)
@@ -1293,7 +1293,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.39</strong></td>
+                <td><strong>2.38</strong></td>
                 <td><strong>Stabilizers extension cylinder holding valve is not passing   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-1.8.4(c)
@@ -1311,12 +1311,12 @@ include_once('./view-fetch.php');
         <?php echo $selected_results[48]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
     </td>
     <td>
-        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[49];?>" disabled>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[48];?>" disabled>
     </td>
             </tr>
 			
 			<tr>
-                <td><strong>2.40</strong></td>
+                <td><strong>2.39</strong></td>
                 <td><strong>  Stabilizer cylinder hoses are not leaking </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.1.4(i)(1)
@@ -1339,7 +1339,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.41</strong></td>
+                <td><strong>2.40</strong></td>
                 <td><strong> Stabilizer cylinder hoses are not deformed  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(i)(2)
@@ -1362,7 +1362,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.42</strong></td>
+                <td><strong>2.41</strong></td>
                 <td><strong>  Stabilizers do not have worn, cracked or distorted parts </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.1.4(d)
@@ -1385,7 +1385,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.43</strong></td>
+                <td><strong>2.42</strong></td>
                 <td><strong> Rope is free of corrosion, kinking, crushing, birdcaging, unstranding, main strand displacement or core protrusion  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.22
                     Sec. 22-2.4.2(a)(1a)
@@ -1408,7 +1408,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.44</strong></td>
+                <td><strong>2.43</strong></td>
                 <td><strong> Rope and connections are free of corrosion, bends, cracks and wear  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.2(b-2d)
@@ -1431,7 +1431,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.45</strong></td>
+                <td><strong>2.44</strong></td>
                 <td><strong>  Rope has no broken or cut strands
                     a). In running ropes:
                     • six randomly distributed broken wires in one lay or three broken wires in one strand in one lay;
@@ -1458,7 +1458,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.46</strong></td>
+                <td><strong>2.45</strong></td>
                 <td><strong>  b). In standing ropes: more than two broken wires in one lay in sections beyond end connections or more than one broken wire at an end connection </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.3(b 1-7)
@@ -1481,7 +1481,7 @@ include_once('./view-fetch.php');
             </tr>
 			
 			<tr>
-                <td><strong>2.47</strong></td>
+                <td><strong>2.46</strong></td>
                 <td><strong>  Rope has no signs of reduction in diameter </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22
                     Sec. 22-2.4.2(b-2b)

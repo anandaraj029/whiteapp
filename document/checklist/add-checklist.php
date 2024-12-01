@@ -54,16 +54,23 @@ include_once('../../inc/function.php');
                 <label class="font-14 bold mb-2">EQUIPMENT TYPE</label>
                 <input type="text" name="equipment_type" class="theme-input-style" placeholder="EQUIPMENT TYPE" required>
             </div>
+
+
+            <!-- MANUFACTURER -->
+            <div class="form-group">
+                <label class="font-14 bold mb-2">MANUFACTURER</label>
+                <input type="text" name="manufacturer" class="theme-input-style" placeholder="MANUFACTURER">
+            </div>
+            
         </div>
 
         <div class="col-lg-6">
             <!-- Checklist Type -->
             <div class="form-group">
-                <label class="font-14 bold mb-2">Checklist Type</label>
-                <select name="checklist_type" class="theme-input-style">
-                <option value="">Select Type</option>
-                <option value="arc-welding-machine">ARC Welding Machine Checklist (2020)</option>
-            
+            <label class="font-14 bold mb-2">Checklist Type</label>
+            <select name="checklist_type" class="theme-input-style">
+            <option value="">Select Type</option>
+            <option value="arc-welding-machine">ARC Welding Machine Checklist (2020)</option>            
             <option value="articulating_boom">Articulating boom</option>
             <option value="base_mounted_drum">Base Mounted Drum Hoist (Winches)</option>
             <option value="bulldozer">Bulldozer</option>
@@ -76,10 +83,14 @@ include_once('../../inc/function.php');
             <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
             <option value="manbaskets">Manbaskets</option>
             <option value="marine-offshore-cranes">Marine & Offshore Cranes</option>
-            <option value="storage-retrieval">Storage Retrieval</option>            
-            
+            <option value="mobile_locomotive">Mobile Locomotive</option>
+            <option value="motor-grade">Motor Grade</option>
             <option value="powered-platforms">Powered Platforms (Sky Climbers)</option>
+            <option value="side-boom-tractors">Side Boom Tractors</option>
+            <option value="storage-retrieval">Storage Retrieval</option>                        
+            <option value="tower-cranes">Tower Cranes</option>                                    
             <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
+            <option value="wheel-loader">Wheel Loader</option>
             
             
             
@@ -118,8 +129,21 @@ include_once('../../inc/function.php');
                 <label class="font-14 bold mb-2">CAPACITY (SWL)</label>
                 <input type="text" name="capacity_swl" class="theme-input-style" placeholder="CAPACITY (SWL)" required>
             </div>
+
+            <div class="form-group">
+                <label class="font-14 bold mb-2">YEAR MODEL</label>
+                <input type="text" name="year_model" class="theme-input-style" placeholder="YEAR MODEL">
+            </div>
+
+
+           
         </div>
     </div>
+
+    <div class="form-group">
+                <label class="font-14 bold mb-2">EQUIPMENT NO</label>
+                <input type="text" name="equipment_no" class="theme-input-style" placeholder="EQUIPMENT NO">
+            </div>
 
     <!-- Remarks / Recommendations -->
     <div class="form-group">

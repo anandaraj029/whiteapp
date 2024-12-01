@@ -14,6 +14,13 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+    <style>
+
+.container{
+            max-width: 926px;
+
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -97,7 +104,7 @@ include_once('./get-checklist.php');
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong><?php echo $row['equipment_type']; ?></strong></td>
+                <td><strong><?php echo $row['crane_asset_no']; ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
                 <td><strong><?php echo $row['crane_serial_no']; ?></strong></td>
             </tr>

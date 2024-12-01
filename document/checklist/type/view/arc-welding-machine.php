@@ -134,12 +134,12 @@ include_once('./view-fetch.php');
                 <th>EQUIP.SERIAL NO.:</th>
                 <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
             </tr>
-            <tr>
+            <!-- <tr>
         <th>EQUIPMENT TYPE:</th>
         <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
         <th>CAPACITY (SWL):</th>
         <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
-    </tr>
+    </tr> -->
             
         </table>
 </div>

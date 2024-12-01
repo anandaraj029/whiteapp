@@ -10,7 +10,7 @@ include_once('./get-checklist.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wheel Loader Inspection Checklist</title>
+    <title>MOTOR GRADER Inspection Checklist</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -75,39 +75,39 @@ include_once('./get-checklist.php');
                 
             <tr>
                 <th style="width: 25%;">CLIENT’S NAME:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['client_name']); ?> </strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong>  <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>LOCATION:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
                 <th>REPORT NO:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
                 <th>STICKER NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
             </tr>
             <tr>
                 <th>EQUIPMENT TYPE:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
                 <th>EQUIP. SERIAL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?> </strong></td>
             </tr>
             <tr>
                 <th>MANUFACTURER:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['manufacturer']); ?> </strong></td>
                 <th>YEAR MODEL:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['year_model']); ?> </strong></td>
             </tr>
             <tr>
                 <th>EQUIP. MODEL NO.:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['equipment_no']); ?> </strong></td>
                 <th>CAPACITY:</th>
-                <td><strong></strong></td>
+                <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?> </strong></td>
             </tr>
         </table>
 </div>
