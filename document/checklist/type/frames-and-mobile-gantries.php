@@ -179,7 +179,7 @@ include_once('./get-checklist.php');
                 <tr>
                     <th style="text-align: center;">S.N</th>
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>
-<th style="text-align: center;">REFERENCE</th>					
+                    <th style="text-align: center;">REFERENCE</th>					
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
                 </tr>
