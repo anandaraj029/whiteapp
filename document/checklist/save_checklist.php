@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $crane_serial_no = $_POST['crane_serial_no'];
     $capacity_swl = $_POST['capacity_swl'];
     $remarks = $_POST['remarks'];
+    $manufacturer = $_POST['manufacturer'];
+    $year_model = $_POST['year_model'];
+    $equipment_no = $_POST['equipment_no'];
 
     // Retrieve arrays of results and remarks
     $results = $_POST['results']; // Expecting an array from the form
@@ -25,11 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Insert main checklist data
     $sql = "INSERT INTO checklist_information 
-            (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks, manufacturer, year_model, equipment_no) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sssssssssssss', $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, $capacity_swl, $remarks);
+    $stmt->bind_param('ssssssssssssssss', $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, $capacity_swl, $remarks, $manufacturer, $year_model, $equipment_no);
 
     if ($stmt->execute()) {
         // Retrieve the newly inserted checklist ID

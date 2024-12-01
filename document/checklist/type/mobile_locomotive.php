@@ -16,6 +16,13 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+    <style>
+
+.container{
+            max-width: 966px;
+
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -79,33 +86,33 @@ include_once('./get-checklist.php');
 				
 				<tr>
                 <th style="width: 25%;">REPORT NO:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 <th style="width: 25%;">INSPECTION DATE:</th>
-                <td style="width: 25%;"> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
+                <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
                 <th>CLIENT’S NAME:</th>
-                <td><?php echo htmlspecialchars($row['client_name']); ?></td>
+                <td><strong> <?php echo htmlspecialchars($row['client_name']); ?> </strong></td>
                 <th>INSPECTED BY:</th>
-                <td><?php echo htmlspecialchars($row['inspected_by']); ?></td>
+                <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?> </strong></td>
             </tr>
             <tr>
         <th>LOCATION:</th>
-        <td><?php echo htmlspecialchars($row['location']); ?></td>
+        <td> <strong><?php echo htmlspecialchars($row['location']); ?> </strong></td>
         <th>STICKER NO.:</th>
-        <td><?php echo htmlspecialchars($row['sticker_no']); ?></td>
+        <td> <strong><?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
     </tr>
     <tr>
         <th>CRANE ASSET NO:</th>
-        <td><?php echo htmlspecialchars($row['crane_asset_no']); ?></td>
+        <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?> </strong></td>
         <th>CRANE SERIAL NO.:</th>
-        <td><?php echo htmlspecialchars($row['crane_serial_no']); ?></td>
+        <td> <strong><?php echo htmlspecialchars($row['crane_serial_no']); ?> </strong></td>
     </tr>
     <tr>
         <th>EQUIPMENT TYPE:</th>
-        <td><?php echo htmlspecialchars($row['equipment_type']); ?></td>
+        <td> <strong> <?php echo htmlspecialchars($row['equipment_type']); ?> </strong></td>
         <th>CAPACITY (SWL):</th>
-        <td><?php echo htmlspecialchars($row['capacity_swl']); ?></td>
+        <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?> </strong></td>
     </tr>
             
         </table>
@@ -1692,6 +1699,7 @@ include_once('./get-checklist.php');
 			<tr>
                 <td><strong>2.75</strong></td>
                 <td><strong>  Swing away fly jib lock pins are secure (with fly jib stowed) </strong></td>
+                <td style="text-align: center;"><strong> ASME B30.5 (5.1.9.12g) </strong></td>
                 <td class="checkbox-cell">
     <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS">
 </td>
@@ -2219,7 +2227,7 @@ include_once('./get-checklist.php');
 <tr>
                 <td><strong>3.4</strong></td>
                 <td><strong> Boom cut-out (at maximum angle) is operable  </strong></td>
-				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1  </strong></td>
+				<td style="text-align: center;"><strong>ASME B30.5 (5.1.9.1)  </strong></td>
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[115][]" id="checkbox4" value="PASS">
 </td>
