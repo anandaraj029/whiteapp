@@ -90,9 +90,9 @@ include_once('./view-fetch.php');
         </td>
     </tr>
     <tr>
-        <td>FRM.0601-1.16</td>
-        <td>Revision 01</td>
-        <td>Issue Date: 28/JAN/2021</td>
+        <td><strong>  FRM.0601-1.16</strong></td>
+        <td><strong> Revision 03</strong></td>
+        <td><strong> Issue Date: 09/DEC/2020</strong></td>
     </tr>
     <tr>
         <td class="left-align">Prepared By:<br>Operations Manager</td>
