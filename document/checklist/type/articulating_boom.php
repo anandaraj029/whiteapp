@@ -38,8 +38,8 @@ include_once('./get-checklist.php');
     </tr>
     <tr>
         <td>FRM.0601-1.16</td>
-        <td>Revision 01</td>
-        <td>Issue Date: 28/JAN/2021</td>
+        <td>Revision 03</td>
+        <td>Issue Date: 09/DEC/2020</td>
     </tr>
     <tr>
         <td class="left-align">Prepared By:<br>Operations Manager</td>
