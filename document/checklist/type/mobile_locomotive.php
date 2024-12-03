@@ -2253,7 +2253,7 @@ include_once('./get-checklist.php');
     <input type="checkbox" name="result[116][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[116][]" id="checkbox6" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[116]">
