@@ -51,7 +51,8 @@ $url= 'http://localhost/whiteapp/';
   <!--  icon -------------------------------->
    <link rel="stylesheet" href="<?php echo $url; ?>assets/fonts/et-lineicon/et-lineicons.css">
    <link rel="stylesheet" href="<?php echo $url; ?>assets/fonts/themify-icons/themify-icons.css">
-
+   
+   <link rel="stylesheet" href="<?php echo $url; ?>assets/plugins/sweetalert2/sweetalert2.min.css">
 
 <style>
   .dataTables_filter{

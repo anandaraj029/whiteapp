@@ -1,6 +1,10 @@
 <?php 
 include_once('../inc/function.php');
 
+
+
+
+
 ?>
 
             <!-- Main Content -->
@@ -39,7 +43,7 @@ include_once('../inc/function.php');
                                       <!-- Form Row -->
                                       <div class="form-row mb-20">
                                         <div class="col-sm-4">
-                                            <label class="font-14 bold">Project No</label>
+                                            <label class="font-14 bold">Project No*</label>
                                         </div>
                                         <div class="col-sm-8">
                                             <input type="text" name="project_no" class="theme-input-style" placeholder="Project No">
@@ -50,7 +54,7 @@ include_once('../inc/function.php');
                                     <!-- Form Row -->
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
-                                            <label class="font-14 bold">Date of Creation</label>
+                                            <label class="font-14 bold">Date of Creation*</label>
                                         </div>
                                         <div class="col-sm-8">
                                             <input type="date" name="creation_date" class="theme-input-style" placeholder="Date of Creation">
@@ -205,10 +209,7 @@ include_once('../inc/function.php');
                                         <input type="text" name="equipment_location" class="theme-input-style" placeholder="Location">
                                         </div>
                                     </div>
-                                    <!-- End Form Row -->
-
-                               
-                                    <!-- End Form Row -->
+                           
                               
                                 <!-- End Form -->
                             </div>
@@ -222,7 +223,7 @@ include_once('../inc/function.php');
                             <!-- Form Row -->
                             <div class="form-row">
                                         <div class="col-12 text-center mt-4">
-                                            <button type="submit" class="btn long">Save</button>
+                                            <button type="submit" id="confirm-text" class="btn long s_alert">Save</button>
                                         </div>
                                     </div>
 
@@ -231,8 +232,38 @@ include_once('../inc/function.php');
                 </div>
             </div>
             <!-- End Main Content -->
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-            <?php 
+            <script>
+   document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get('status');
+    const message = urlParams.get('message');
+
+    if (status === 'success') {
+        swal({
+            icon: "success",
+            title: "Success!",
+            text: "Your project has been created successfully.",
+        });
+    } else if (status === 'error') {
+        swal({
+            icon: "error",
+            title: "Error!",
+            text: "There was an issue creating your project. " + (message || ""),
+        });
+    } else if (status === 'invalid_request') {
+        swal({
+            icon: "warning",
+            title: "Invalid Request!",
+            text: "This page does not accept GET requests.",
+        });
+    }
+});
+
+</script>
+
+<?php 
         include_once('../inc/footer.php');
         ?>
         

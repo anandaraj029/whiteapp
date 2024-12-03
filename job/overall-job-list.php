@@ -60,118 +60,60 @@ $result = $conn->query($sql);
         <!-- Invoice List Table -->
       
         <div class="table-responsive">
-                  <table class="style--three table-centered text-nowrap">
-                     <thead>
-                        <tr>
-                           <th>Project ID</th>
-                           <th>Start Date</th>
-                           <th>Progress</th>
-                           <th>Customer</th>
-                           <th>Status </th>
-                           <th>Equip.type</th>
-                           <th>Location</th>
-                           <th>Inspector</th>
-                           <th>Action</th>
-                        </tr>
-                     </thead>
-                     <tbody>
-
-                     <?php
-            if ($result->num_rows > 0) {
-                // Loop through each row in the result
-                while ($row = $result->fetch_assoc()) {
-                    ?>
-                    <tr>
-                        <td class="bold"><?php echo "#" . str_pad($row["id"], 5, "0", STR_PAD_LEFT); ?></td>
-                        <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
-                        <td>
-                            <div class="product-img">
-                                <img src="../assets/img/product/product1.png" alt="">
-                                <img src="../assets/img/product/product5.png" alt="">
-                                <img src="../assets/img/product/product6.png" alt="">
-                            </div>
-                        </td>
-                        <td><?php echo $row["customer_name"]; ?></td>
-                        <td class="text-danger">Processing</td> <!-- Example status -->
-                        <td class="bold"><?php echo $row["equipment_type"]; ?></td> <!-- Assuming Equip. ID is the project ID -->
-                        <td class="bold"><?php echo $row["equipment_location"]; ?></td>
-                        <td class="bold"><?php echo $row["inspector_name"]; ?></td>
-                        <td>
-                            <a href="job-details.php?id=<?php echo $row['id']; ?>">
-                                <button type="button" class="details-btn">
-                                    Details <i class="icofont-arrow-right"></i>
-                                </button>
-                            </a>
-                        </td>
-                    </tr>
-                    <?php
-                }
-            } else {
-                echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
+        <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
+    <thead>
+        <tr>
+            <th>Project ID</th>
+            <th>Start Date</th>
+            <th>Progress</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Equip. Type</th>
+            <th>Location</th>
+            <th>Inspector</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td class="bold"><?php echo "#" . str_pad($row["project_id"], 5, "0", STR_PAD_LEFT); ?></td>
+                    <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                    <td>
+                        <div class="product-img">
+                        <badge class="primary">
+                       <a href=""><i class="icofont-checked color-primary"></i> Checklist</a> </badge>
+                       <a href=""><i class="icofont-edit color-primary"></i> Report</a> 
+                       <a href=""><i class="icofont-data color-primary"></i> Certificate</a> 
+                            <!-- <img src="../assets/img/product/product1.png" alt="">
+                            <img src="../assets/img/product/product1.png" alt="">
+                            <img src="../assets/img/product/product1.png" alt=""> -->
+                        </div>
+                    </td>
+                    <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
+                    <td class="text-danger">Processing</td>
+                    <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
+                    <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
+                    <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
+                    <td>
+                        <a href="job-details.php?id=<?php echo $row['project_id']; ?>">
+                            <button type="button" class="details-btn">
+                                Details <i class="icofont-arrow-right"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+                <?php
             }
-            ?>
-                        <!-- <tr>
-                           <td class="bold">#01254</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product1.png" alt="">
-                                 <img src="../assets/img/product/product5.png" alt="">
-                                 <img src="../assets/img/product/product6.png" alt="">
-                              </div>
-                           </td>
-                           <td>Kyle Lee</td>
-                           <td class="text-danger">Processing</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><a href="job-details.php">
-                            <button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
-                        </tr> -->
-
-                        <!-- <tr>
-                           <td class="bold">#01365</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img d-flex align-ite">
-                            
-                                 <img src="../assets/img/product/product2.png" alt="">
-                               
-                                 <img src="../assets/img/product/product7.png" alt="">
-                             
-                                 <img src="../assets/img/product/product3.png" alt="">
-                              </div>
-                           </td>
-                           <td>Lindo De Sire</td>
-                           <td class="text-warning">Verified</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><a href="job-details.php"><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></a></td>
-                        </tr> -->
-
-                        <!-- <tr>
-                           <td class="bold">#03654</td>
-                           <td>11 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product8.png" alt="">
-                                 <img src="../assets/img/product/product9.png" alt="">
-                                 <img src="../assets/img/product/product10.png" alt="">
-                              </div>
-                           </td>
-                           <td>Laturi Yasn</td>
-                           <td class="text-success">Completed</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><a href="job-details.php">
-                            <button type="button" class="details-btn">Details 
-                                <i class="icofont-arrow-right"></i></button></a>
-                            </td>
-                        </tr> -->
-                     </tbody>
-                  </table>
+        } else {
+            echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
+        }
+        ?>
+    </tbody>
+</table>
                </div>
         <!-- End Invoice List Table -->
     </div>
@@ -228,7 +170,7 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
-                    title: 'Order List'
+                    title: 'job List'
                 }
             ],
             "searching": true
