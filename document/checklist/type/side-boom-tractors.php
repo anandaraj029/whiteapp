@@ -35,8 +35,8 @@
         <td><b>Issue Date: </b>30/SEP/2020</td>
     </tr>
     <tr>
-        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
-        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
+        <td class="left-align"><b>Prepared By</b><br>Operations Manager</td>
+        <td  class="left-align"><b>Reviewed & Approved By</b><br>Managing Director</td>
    
    <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
@@ -69,33 +69,33 @@
                 
 				
 				<tr>
-                <th style="width: 25%;">REPORT NO:</th>
+                <th style="width: 25%;">REPORT NO</th>
                 <td style="width: 25%;"></strong></td>
-                <th style="width: 25%;">INSPECTION DATE:</th>
+                <th style="width: 25%;">INSPECTION DATE</th>
                 <td style="width: 25%;"></strong></td>
             </tr>
             <tr>
-                <th>CLIENT’S NAME:</th>
+                <th>CLIENT’S NAME</th>
                 <td></strong></td>
-                <th>INSPECTED BY:</th>
+                <th>INSPECTED BY</th>
                 <td></strong></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
+                <th>LOCATION</th>
                 <td><strong></strong></td>
-                <th>STICKER NO.:</th>
+                <th>STICKER NO.</th>
                 <td><strong></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT NO:</th>
+                <th>EQUIPMENT NO</th>
                 <td><strong></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
                 <td><strong></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT TYPE:</th>
+                <th>EQUIPMENT TYPE</th>
                 <td><strong></strong></td>
-                <th>CAPACITY (SWL):</th>
+                <th>CAPACITY (SWL)</th>
                 <td><strong></strong></td>
             </tr>
             
