@@ -3,12 +3,27 @@ include_once('../../inc/function.php');
 
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Form</title>
+    <link rel="stylesheet" href="../../assets/css/custom-style.css"> <!-- Custom Styles -->
+    <style>
+
+        
+    </style>
+</head>
+<body>
+
             <!-- Main Content -->
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
                    
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 col-md-12">
                             <!-- Base Horizontal Form With Icons -->
                             <div class="form-element py-30 multiple-column">
                                 <h4 class="font-20 mb-20">Checklist Information</h4>
@@ -18,7 +33,7 @@ include_once('../../inc/function.php');
                                 <!-- <input type="hidden" name="checklist_type"> Example checklist type -->
 
     <div class="row">
-        <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6 col-sm-12">
             <!-- Checklist NO -->
             <div class="form-group">
                 <label class="font-14 bold mb-2">Checklist NO</label>
@@ -64,7 +79,7 @@ include_once('../../inc/function.php');
             
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <!-- Checklist Type -->
             <div class="form-group">
             <label class="font-14 bold mb-2">Checklist Type</label>
@@ -167,6 +182,9 @@ include_once('../../inc/function.php');
                 </div>
             </div>
             <!-- End Main Content -->
+
+            </body>
+</html>
 
             <?php 
         include_once('../../inc/footer.php');

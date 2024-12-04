@@ -240,7 +240,7 @@ $html = '
       <table class="content-table">
         <thead>
           <tr>
-            <th class="text-center section-title" colspan="2">INSPECTED BY:</th>
+            <th class="text-center section-title" colspan="2">INSPECTED BY</th>
             <th class="text-center section-title" colspan="2">APPROVED BY:</th>
             <th class="text-center section-title" colspan="2">COMPANY SEAL</th>
           </tr>

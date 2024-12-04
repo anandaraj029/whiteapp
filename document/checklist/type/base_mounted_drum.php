@@ -42,8 +42,8 @@ include_once('./get-checklist.php');
         <td>Issue Date: 28/JAN/2021</td>
     </tr>
     <tr>
-        <td class="left-align">Prepared By:<br>Operations Manager</td>
-        <td  class="left-align">Reviewed & Approved By:<br>Managing Director</td>
+        <td class="left-align">Prepared By<br>Operations Manager</td>
+        <td  class="left-align">Reviewed & Approved By<br>Managing Director</td>
    
    <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
@@ -71,12 +71,12 @@ A DIVISION OF AL-KHOBAR GATE INTERNATIONAL TRADING EST.
                 <td style="width: 25%; text-align: center;"> <strong>Issue Date: 28/JAN/2021</strong></td>
             </tr>
 			<tr>
-                <td style="text-align: center; width: 50%;"><strong>Prepared By:<br>
+                <td style="text-align: center; width: 50%;"><strong>Prepared By<br>
 Operations Manager
 </strong></td>
                 
                 
-                <td colspan="2" style="text-align: center;  width: 50%;"> <strong>Reviewed & Approved By:<br>
+                <td colspan="2" style="text-align: center;  width: 50%;"> <strong>Reviewed & Approved By<br>
 Managing Director
 </strong></td>
 
@@ -96,27 +96,27 @@ Managing Director
          <table class="table table-bordered">
                 
                 <tr>
-                    <th style="width: 25%;">CLIENT’S NAME:</th>
+                    <th style="width: 25%;">CLIENT’S NAME</th>
                     <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['client_name']); ?> </strong></td>
-                    <th style="width: 25%;">INSPECTION DATE:</th>
+                    <th style="width: 25%;">INSPECTION DATE</th>
                     <td style="width: 25%;"><strong>  <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
                 </tr>
                 <tr>
-                    <th>LOCATION:</th>
+                    <th>LOCATION</th>
                     <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
-                    <th>REPORT NO:</th>
+                    <th>REPORT NO</th>
                     <td><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 </tr>
                 <tr>
-                    <th>EQUIPMENT NO:</th>
+                    <th>EQUIPMENT NO</th>
                     <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
-                    <th>STICKER NO.:</th>
+                    <th>STICKER NO.</th>
                     <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
                 </tr>
                 <tr>
-                    <th>EQUIPMENT TYPE:</th>
+                    <th>EQUIPMENT TYPE</th>
                     <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
-                    <th>EQUIP. SERIAL NO.:</th>
+                    <th>EQUIP. SERIAL NO.</th>
                     <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?> </strong></td>
                 </tr>
                 <tr>

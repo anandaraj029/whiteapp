@@ -49,8 +49,8 @@ include_once('./get-checklist.php');
         <td><b>Issue Date: </b>22/AUG/2021</td>
     </tr>
     <tr>
-        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
-        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
+        <td class="left-align"><b>Prepared By</b><br>Operations Manager</td>
+        <td  class="left-align"><b>Reviewed & Approved By</b><br>Managing Director</td>
    
    <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
@@ -85,21 +85,21 @@ include_once('./get-checklist.php');
                 
 				
 				<tr>
-                <th style="width: 25%;">REPORT NO:</th>
+                <th style="width: 25%;">REPORT NO</th>
                 <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
-                <th style="width: 25%;">INSPECTION DATE:</th>
+                <th style="width: 25%;">INSPECTION DATE</th>
                 <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
             </tr>
             <tr>
-                <th>CLIENT’S NAME:</th>
+                <th>CLIENT’S NAME</th>
                 <td><strong> <?php echo htmlspecialchars($row['client_name']); ?> </strong></td>
-                <th>INSPECTED BY:</th>
+                <th>INSPECTED BY</th>
                 <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?> </strong></td>
             </tr>
             <tr>
-        <th>LOCATION:</th>
+        <th>LOCATION</th>
         <td> <strong><?php echo htmlspecialchars($row['location']); ?> </strong></td>
-        <th>STICKER NO.:</th>
+        <th>STICKER NO.</th>
         <td> <strong><?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
     </tr>
     <tr>
@@ -109,9 +109,9 @@ include_once('./get-checklist.php');
         <td> <strong><?php echo htmlspecialchars($row['crane_serial_no']); ?> </strong></td>
     </tr>
     <tr>
-        <th>EQUIPMENT TYPE:</th>
+        <th>EQUIPMENT TYPE</th>
         <td> <strong> <?php echo htmlspecialchars($row['equipment_type']); ?> </strong></td>
-        <th>CAPACITY (SWL):</th>
+        <th>CAPACITY (SWL)</th>
         <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?> </strong></td>
     </tr>
             
@@ -2253,7 +2253,7 @@ include_once('./get-checklist.php');
     <input type="checkbox" name="result[116][]" id="checkbox5" value="FAIL">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[116][]" id="checkbox6" value="NA">
 </td>
 <td>
     <input type="text" name="checklist_remark[116]">

@@ -84,7 +84,7 @@ if ($certificate) {
         </div>
         <div class='section'>
             <table>
-                <tr><td>INSPECTED BY:</td><td>{$certificate['inspected_by']}</td><td>SIGNATURE:</td><td>___________________</td></tr>
+                <tr><td>INSPECTED BY</td><td>{$certificate['inspected_by']}</td><td>SIGNATURE:</td><td>___________________</td></tr>
                 <tr><td>APPROVED BY:</td><td>{$certificate['approved_by']}</td><td>SIGNATURE:</td><td>___________________</td></tr>
             </table>
         </div>

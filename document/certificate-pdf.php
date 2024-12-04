@@ -106,7 +106,7 @@ if ($certificate) {
     <p>The latest date by which the next inspection shall be carried out: <strong>{$certificate['next_inspection_date']}</strong></p>
     <table cellspacing='0' cellpadding='1' border='1'>
         <tr>
-            <td>INSPECTED BY:</td><td>{$certificate['inspected_by']}</td>
+            <td>INSPECTED BY</td><td>{$certificate['inspected_by']}</td>
             <td>SIGNATURE:</td><td>___________________</td>
         </tr>
         <tr>

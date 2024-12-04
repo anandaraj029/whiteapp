@@ -120,27 +120,27 @@
             <table class="table table-bordered">
                 
             <tr>
-                <th style="width: 25%;">CLIENT’S NAME:</th>
+                <th style="width: 25%;">CLIENT’S NAME</th>
                 <td style="width: 25%;"></strong></td>
-                <th style="width: 25%;">INSPECTION DATE:</th>
+                <th style="width: 25%;">INSPECTION DATE</th>
                 <td style="width: 25%;"></strong></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
+                <th>LOCATION</th>
                 <td><strong></strong></td>
-                <th>REPORT NO:</th>
-                <td><strong></strong></td>
-            </tr>
-            <tr>
-                <th>EQUIPMENT NO:</th>
-                <td><strong></strong></td>
-                <th>STICKER NO.:</th>
+                <th>REPORT NO</th>
                 <td><strong></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT TYPE:</th>
+                <th>EQUIPMENT NO</th>
                 <td><strong></strong></td>
-                <th>EQUIP. SERIAL NO.:</th>
+                <th>STICKER NO.</th>
+                <td><strong></strong></td>
+            </tr>
+            <tr>
+                <th>EQUIPMENT TYPE</th>
+                <td><strong></strong></td>
+                <th>EQUIP. SERIAL NO.</th>
                 <td><strong></strong></td>
             </tr>
             <tr>

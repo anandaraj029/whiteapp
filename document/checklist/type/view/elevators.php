@@ -98,8 +98,8 @@ include_once('./view-fetch.php');
         <td><b>Issue Date: </b>30/SEP/2020</td>
     </tr>
     <tr>
-        <td class="left-align"><b>Prepared By:</b><br>Operations Manager</td>
-        <td  class="left-align"><b>Reviewed & Approved By:</b><br>Managing Director</td>
+        <td class="left-align"><b>Prepared By</b><br>Operations Manager</td>
+        <td  class="left-align"><b>Reviewed & Approved By</b><br>Managing Director</td>
    
    <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
@@ -131,33 +131,33 @@ include_once('./view-fetch.php');
          <div class="table-responsive">
         <table class="table table-bordered">
             <tr>
-                <th style="width: 25%;">REPORT NO:</th>
+                <th style="width: 25%;">REPORT NO</th>
                 <td style="width: 25%;"><strong><?php echo $row['report_no']; ?></strong></td>
-                <th style="width: 25%;">INSPECTION DATE:</th>
+                <th style="width: 25%;">INSPECTION DATE</th>
                 <td style="width: 25%;"><strong><?php echo date('F j, Y', strtotime($row['inspection_date'])); ?></strong></td>
             </tr>
             <tr>
-                <th>CLIENT’S NAME:</th>
+                <th>CLIENT’S NAME</th>
                 <td><strong><?php echo $row['client_name']; ?></strong></td>
-                <th>INSPECTED BY:</th>
+                <th>INSPECTED BY</th>
                 <td><strong><?php echo $row['inspected_by']; ?></strong></td>
             </tr>
             <tr>
-                <th>LOCATION:</th>
+                <th>LOCATION</th>
                 <td><strong><?php echo $row['location']; ?></strong></td>
-                <th>STICKER NO.:</th>
+                <th>STICKER NO.</th>
                 <td><strong><?php echo $row['sticker_no']; ?></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT NO:</th>
+                <th>EQUIPMENT NO</th>
                 <td><strong><?php echo $row['crane_asset_no']; ?></strong></td>
                 <th>EQUIP.SERIAL NO.:</th>
                 <td><strong><?php echo $row['crane_serial_no']; ?></strong></td>
             </tr>
             <tr>
-                <th>EQUIPMENT TYPE:</th>
+                <th>EQUIPMENT TYPE</th>
                 <td><strong><?php echo $row['equipment_type']; ?></strong></td>
-                <th>CAPACITY (SWL):</th>
+                <th>CAPACITY (SWL)</th>
                 <td><strong><?php echo $row['capacity_swl']; ?></strong></td>
             </tr>
         </table>
