@@ -1,4 +1,33 @@
 <?php 
+include_once('../file/config.php');
+$_GET['cusid'] = $customer_id;
+
+$sql = "SELECT `id`, `cus_id`, `customer_name`, `email`, `company`, `rep_name`, 
+        `mobile`, `password`, `address`, `city`, `info_correct`, `created_at` 
+        FROM `customers` 
+        WHERE `cus_id` = ?";
+
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $customer_id); // "s" specifies the variable type is string
+
+// Execute query
+$stmt->execute();
+
+// Get result
+$result = $stmt->get_result();
+
+// Fetch data
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+
+        $cus_name = $row['name'];
+    
+    }
+} else {
+    echo "No customer found with ID: $customer_id";
+}
+
+
 include_once('../inc/customer-option.php');
 
 ?>
@@ -45,7 +74,7 @@ include_once('../inc/customer-option.php');
                                          </div>
  
                                          <div>
-                                             <h3>Sathish Kumar</h3>
+                                             <h3><?php echo $cus_name; ?></h3>
                                              <p class="font-14">Head Of Business Development</p>
                                          </div>
                                      </div>

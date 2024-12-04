@@ -26,7 +26,7 @@ ob_start();
     <title>Inspection Report</title>
     <style>
         /* Include styles for the PDF */
-        body { font-family: Arial, sans-serif; }
+        body { font-family: Arial, sans-serif; font-size: 14px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { border: 1px solid black; padding: 8px; text-align: left; }
         h3, h4 { margin: 0; }
@@ -231,9 +231,9 @@ ob_start();
                                 
                                 
                             </div>
-                            <!-- <div class="col-md-2">
+                            <div class="col-md-2">
                                 <img src="../code.png" alt="CIMS" width="120" height="120">
-                            </div> -->
+                            </div>
                         </div>
 
                         <div class="row">
@@ -339,7 +339,7 @@ ob_start();
                                 foreach ($deficiencies as $index => $deficiency) {
                                     echo "<tr>
                                         <td>" . ($index + 1) . "</td>
-                                        <td style='height:260px;'>" . htmlspecialchars(trim($deficiency)) . "</td>
+                                        <td style='height:200px;'>" . htmlspecialchars(trim($deficiency)) . "</td>
                                         <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? 'N/A')) . "</td>
                                     </tr>";
                                 }
@@ -355,20 +355,23 @@ ob_start();
                           
                            <div class="col-md-12 estimate-html-note">
                                 <p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
-                                <div class="col-md-12" style="border:2px solid #d0cece;padding:10px;">
+                                <div class="col-md-12" style="border:2px solid #d0cece;padding:2px;">
                                     <div class="form-group1">
                                         <div class="form-check">
-                                            <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;margin-right:10px">
-                                            <label class="form-check-label" for="gridCheck">
-                                                <h6>I agree to take full responsibility for this inspection
-                                                    <span style="margin-left:30px;float:right;">اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص</span>
-                                                </h6>
-                                            </label>
+
+                                        <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;margin-right:2px">
+                               
+                                               <h6>I agree to take full responsibility for this inspection
+                                                   <span> اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص</span>
+                                               </h6> 
+                                            
+                                          
+                                            
                                         </div>
                                     </div>
                                 </div>
                                 <br>
-                                <!-- <div class="row">
+                                <div class="row">
                             <div class="col-md-12">
                             <table class="table table-responsive" style="width:100%";>
                             <tr>
@@ -384,9 +387,9 @@ ob_start();
 
                             </table>
                             </div>
-                                </div> -->
+                                </div>
 
-                                 <div class="row">
+                                 <!-- <div class="row">
                                     <div class="col-md-4">
                                         Receiver Name : <b></b><br>
                                         Badge : <b></b>
@@ -399,7 +402,7 @@ ob_start();
                                         Issued By : <b></b><br>
                                         Signature : <b></b>
                                     </div>
-                                </div> 
+                                </div>  -->
                             </div>
                         </div>
                         <br>
