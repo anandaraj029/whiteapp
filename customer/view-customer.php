@@ -2,10 +2,7 @@
 include_once('../file/config.php');
 $_GET['cusid'] = $customer_id;
 
-$sql = "SELECT `id`, `cus_id`, `customer_name`, `email`, `company`, `rep_name`, 
-        `mobile`, `password`, `address`, `city`, `info_correct`, `created_at` 
-        FROM `customers` 
-        WHERE `cus_id` = ?";
+$sql = "SELECT * FROM `customers` WHERE `cus_id` = ?";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $customer_id); // "s" specifies the variable type is string
