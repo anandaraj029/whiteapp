@@ -90,11 +90,11 @@ $result = $conn->query($sql);
                                                         <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
                                                     </span>
                                                 </a>
-                                                <a href='#'>
-                                                    <span class='contact-close'>
-                                                        <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
-                                                    </span>
-                                                </a>
+                                                <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
+                                                <span class='contact-close'>
+                                                    <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
+                                                </span>
+                                            </a>
                                             </td>";
                                         echo "</tr>";
                                     }
@@ -140,6 +140,37 @@ include_once('../../inc/footer.php');
                 }
             ],
             "searching": true
+        });
+
+        // Delete functionality
+        $(document).on('click', '.delete-checklist', function(e) {
+            e.preventDefault();
+
+            // Confirm before deletion
+            if (confirm("Are you sure you want to delete this checklist?")) {
+                const row = $(this).closest('tr'); // Get the row
+                const checklistNo = $(this).data('checklist-no'); // Get the checklist number
+
+                // Send AJAX request to delete the checklist
+                $.ajax({
+                    url: './delete_checklist.php', // Backend URL
+                    type: 'POST',
+                    data: { checklist_no: checklistNo }, // Data to send
+                    dataType: 'json', // Expect JSON response
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            row.fadeOut(300, function() { // Remove row from DOM
+                                $(this).remove();
+                            });
+                        } else {
+                            alert('Failed to delete the checklist: ' + response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('An error occurred while processing your request.');
+                    }
+                });
+            }
         });
     });
 </script>
