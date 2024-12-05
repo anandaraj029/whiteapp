@@ -215,7 +215,7 @@ if (mysqli_num_rows($result) > 0) {
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-1">
-                                <img src="../../logo.png" alt="CIMS" width="90" height="120">
+                                <img src="../logo.png" alt="CIMS" width="90" height="150">
                             </div>
                             <div class="col-md-6">
                                 <h3>Crane Inspection & Maintenance Services</h3>
@@ -225,7 +225,7 @@ if (mysqli_num_rows($result) > 0) {
                                     <b>Email: office@cims.com.sa - info@cims.com.sa</b>                               </p>
                                 
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 <h4 style="font-size: 19px;" class="bold estimate-html-number" >
                                 Report No: <?php echo htmlspecialchars($row['report_no']); ?>
                                     <span class="alert-success"></span></h4>
@@ -241,11 +241,11 @@ if (mysqli_num_rows($result) > 0) {
                             <div class="col-md-1">
                               
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 
-                                    <h4 style="font-size: 19px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h4>
+                                    <h3 style="font-size: 22px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-3">
                                 
                                 <h4 style="font-size: 19px;">JRN: <?php echo htmlspecialchars($row['jrn']); ?> </h4>
                                 
@@ -290,11 +290,11 @@ if (mysqli_num_rows($result) > 0) {
         <div style="display: flex; flex-direction: column; margin-left: 20px;">
             <div>
                 <label for="pass"><b>Passed</b></label>
-                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php // echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
             </div>
             <div>
                 <label for="fail"><b>Failed</b></label>
-                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php // echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
             </div>
         </div>
     </div>
@@ -314,22 +314,23 @@ if (mysqli_num_rows($result) > 0) {
                         </table>
                         
                         <!-- <br> -->
+                         <p>
                      <b>
                            Above Equipment was visually inspected in accordance with local and international standards. Deficiencies that require corrective actions are listed below. Specific repairs to correct each deficiency should be noted in the right column.
-    </b>
+    </b></p>
                         <br>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
                                 <table class="table items items-preview estimate-items-preview" style="border:1px solid black; width: 100%;"> 
-    <thead>
-        <tr>
-            <th>#</th>
-            <th class="description" style="text-align: center;">DEFICIENCIES</th>
-            <th style="text-align: center;">CORRECTIVE ACTION TAKEN</th>
-        </tr>
-    </thead>
-    <tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th class="description" style="text-align: center;">DEFICIENCIES</th>
+                                            <th style="text-align: center;">CORRECTIVE ACTION TAKEN</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                 <?php
                                 // Parse deficiencies and corrective actions into arrays
                                 $deficiencies = explode("\n", trim($row['deficiency'] ?? ''));
@@ -339,7 +340,7 @@ if (mysqli_num_rows($result) > 0) {
                                 foreach ($deficiencies as $index => $deficiency) {
                                     echo "<tr>
                                         <td>" . ($index + 1) . "</td>
-                                        <td>" . htmlspecialchars(trim($deficiency)) . "</td>
+                                        <td style='height:260px;'>" . htmlspecialchars(trim($deficiency)) . "</td>
                                         <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? 'N/A')) . "</td>
                                     </tr>";
                                 }
@@ -351,21 +352,41 @@ if (mysqli_num_rows($result) > 0) {
                                     
                                 </div>
                             </div>
-                           <!-- <div class="col-md-12 estimate-html-note">
+                            </div>
+                          
+                           <div class="col-md-12 estimate-html-note">
                                 <p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
                                 <div class="col-md-12" style="border:2px solid #d0cece;padding:10px;">
-                                    <div class="form-group">
+                                    <div class="form-group1">
                                         <div class="form-check">
-                                            <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:2;">
+                                            <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;margin-right:10px">
                                             <label class="form-check-label" for="gridCheck">
-                                                <h3>I agree to take full responsibility for this inspection
+                                                <h6>I agree to take full responsibility for this inspection
                                                     <span style="margin-left:30px;float:right;">اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص</span>
-                                                </h3>
+                                                </h6>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
+                                <!-- <div class="row">
+                            <div class="col-md-12">
+                            <table class="table table-responsive" style="width:100%";>
+                            <tr>
+                            <td>Report Receiver's Name & Signature</td>
+                            <td>Contact Tel. / Mobile Number</td>
+                            <td> Inspector Name & Signature</td>
+                            </tr>
+                            <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            </tr>
+
+                            </table>
+                            </div>
+                                </div> -->
+
                                  <div class="row">
                                     <div class="col-md-4">
                                         Receiver Name : <b></b><br>
@@ -380,7 +401,7 @@ if (mysqli_num_rows($result) > 0) {
                                         Signature : <b></b>
                                     </div>
                                 </div> 
-                            </div>-->
+                            </div>
                         </div>
                         <br>
                         <!-- <center>

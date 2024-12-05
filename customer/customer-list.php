@@ -75,7 +75,7 @@ include_once('../inc/function.php');
 <?php 
 include ('../file/config.php');
 
-$sql = "SELECT company, email, mobile, city, address, created_at, rep_name FROM customers";
+$sql = "SELECT * FROM customers";
 $result = $conn->query($sql);
 
 // Check if records exist
@@ -106,7 +106,7 @@ if ($result->num_rows > 0) {
             <td>{$row['rep_name']}</td>
             <td class='actions'>
               <span class='contact-edit'>
-                <a href='view-customer.php?mail={$row['email']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
+                <a href='view-customer.php?cusid={$row['cus_id']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
                 </span>
                 <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
                     <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
