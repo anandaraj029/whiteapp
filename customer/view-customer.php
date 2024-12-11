@@ -1,81 +1,86 @@
 <?php 
 include_once('../file/config.php');
-$_GET['cusid'] = $customer_id;
 
-$sql = "SELECT `id`, `cus_id`, `customer_name`, `email`, `company`, `rep_name`, 
-        `mobile`, `password`, `address`, `city`, `info_correct`, `created_at` 
-        FROM `customers` 
-        WHERE `cus_id` = ?";
+$cus_name = ""; // Initialize customer name
+$profilePhoto = ""; // Initialize profile photo
+// $mobileNew = "";
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $customer_id); // "s" specifies the variable type is string
+// Ensure cus_id is passed and valid
+if (isset($_GET['cusid'])) {
+    $customer_id = $_GET['cusid'];
 
-// Execute query
-$stmt->execute();
+    $sql = "SELECT * FROM customers WHERE cus_id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $customer_id); // "s" specifies the variable type is string
 
-// Get result
-$result = $stmt->get_result();
+    // Execute query
+    $stmt->execute();
 
-// Fetch data
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
+    // Get result
+    $result = $stmt->get_result();
 
-        $cus_name = $row['name'];
-    
+    // Fetch data
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $cus_name = $row['customer_name']; // Get customer name
+      //   $mobileNew = $row['mobile'];
+        
+        
+        $profilePhoto = $row['profile_photo'] ?: $url . 'assets/img/media/profile-pic.jpg'; // Default photo if not set
+    } else {
+        echo "No customer found with ID: $customer_id";
     }
 } else {
-    echo "No customer found with ID: $customer_id";
+    echo "Customer ID not provided.";
 }
 
-
 include_once('../inc/customer-option.php');
-
 ?>
+
  
- <!-- Main Content -->
- <div class="main-content3">
-             
-             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <!-- User Profile Image -->
-                            <div class="user-profile-img">
-                                <div class="cover-img">
-                                     <img src="<?php echo $url; ?>assets/img/media/cover.jpg" class="w-100" alt="">
- 
-                                     <!-- Upload Photo -->
-                                     <div class="upload-button">
-                                         <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                         <span>Upload Photo</span>
-                                         <input class="file-input" type="file" id="fileUpload3" accept="image/*">
-                                      </div>
-                                     <!-- End Upload Photo -->
+<!-- Main Content -->
+<div class="main-content3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <!-- User Profile Image -->
+                    <div class="user-profile-img">
+                        <div class="cover-img">
+                            <img src="<?php echo $url; ?>assets/img/media/cover.jpg" class="w-100" alt="">
+
+                            <!-- Upload Photo -->
+                            <div class="upload-button">
+                                <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
+                                <span>Upload Photo</span>
+                                <input class="file-input" type="file" id="fileUpload3" accept="image/*">
+                            </div>
+                            <!-- End Upload Photo -->
+                        </div>
+                    </div>
+                    <!-- End User Profile Image -->
+                </div>
+                <div class="mx-2 mx-lg-4 mx-xl-5">
+                    <div class="card mt-1">
+                        <!-- User Profile Nav -->
+                        <div class="user-profile-nav d-flex justify-content-xl-between align-items-xl-center flex-column flex-xl-row">
+                            <!-- Profile Info -->
+                            <div class="profile-info d-flex align-items-center">
+                                <div class="profile-pic mr-3">
+                                <img src="<?php echo $profilePhoto; ?>" alt="Profile Picture">
+
+                                    <!-- Upload Photo -->
+                                    <!-- <div class="upload-button">
+                                        <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
+                                        <span>Upload Photo</span>
+                                        <input class="file-input" type="file" id="fileUpload2" accept="image/*">
+                                    </div> -->
+                                    <!-- End Upload Photo -->
                                 </div>
-                             </div>
-                             <!-- End User Profile Image -->
-                         </div>
-                         <div class="mx-2 mx-lg-4 mx-xl-5">
-                             <div class="card mt-1">
-                                 <!-- User Profile Nav -->
-                                 <div class="user-profile-nav d-flex justify-content-xl-between align-items-xl-center flex-column flex-xl-row">
-                                     <!-- Profile Info -->
-                                     <div class="profile-info d-flex align-items-center">
-                                         <div class="profile-pic mr-3">
-                                             <img src="<?php echo $url; ?>assets/img/media/profile-pic.jpg" alt="">
-     
-                                             <!-- Upload Photo -->
-                                             <div class="upload-button">
-                                                 <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                 <span>Upload Photo</span>
-                                                 <input class="file-input" type="file" id="fileUpload2" accept="image/*">
-                                             </div>
-                                             <!-- End Upload Photo -->
-                                         </div>
- 
-                                         <div>
-                                             <h3><?php echo $cus_name; ?></h3>
-                                             <p class="font-14">Head Of Business Development</p>
+
+                                <div>
+                                    <h3><?php echo htmlspecialchars($cus_name); ?></h3>
+                                    <p class="font-14">Head Of Business Development</p>
                                          </div>
                                      </div>
                                      <!-- End Profile Info -->
@@ -179,20 +184,21 @@ include_once('../inc/customer-option.php');
                                          </div>
  
  
-                                         <div class="row mt-5">
-                                            <div class="col-md-3">
+<div class="row mt-5">
+<div class="col-md-3">
                                               <nav>
                                                  <div class="nav flex-md-column about-nav-tab">
  
                                                      <a class="active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview">Overview</a>
  
-                                                     <a id="nav-work-tab" data-toggle="tab" href="#nav-work">Work</a>
- 
-                                                     <a id="nav-education-tab" data-toggle="tab" href="#nav-education">Education</a>
- 
+                                                     <!-- <a id="nav-work-tab" data-toggle="tab" href="#nav-work">Work</a> -->
                                                      <a id="nav-basic-tab" data-toggle="tab" href="#nav-basic">Contact And Basic Info</a>
  
-                                                     <a id="nav-skill-tab" data-toggle="tab" href="#nav-skill">Skills</a>
+                                                     <a id="nav-education-tab" data-toggle="tab" href="#nav-education">Equipments</a>
+ 
+                                                     
+ 
+                                                     <!-- <a id="nav-skill-tab" data-toggle="tab" href="#nav-skill">Skills</a> -->
                                                  </div>
                                              </nav>
                                            </div>
@@ -256,8 +262,10 @@ include_once('../inc/customer-option.php');
                                                                             <i class="icofont-mobile-phone"></i>
                                                                       </div>
                                                                       <div class="content">
-                                                                            <a href="tel:01725588588" class="text_color">01725-588588</a>
-                                                                      </div>
+                <a href="tel:<?php echo htmlspecialchars($row['mobile']); ?>" class="text_color">
+                <?php echo htmlspecialchars($row['mobile']); ?>
+                </a>
+            </div>
                                                                    </div>
                                                                 </li>
                                                                 <li>
@@ -266,7 +274,7 @@ include_once('../inc/customer-option.php');
                                                                             <i class="icofont-globe"></i>
                                                                       </div>
                                                                       <div class="content">
-                                                                            <a href="https://themelooks.com" class="text_color">https://themelooks.com</a>
+                                                                            <a href="<?php echo htmlspecialchars($row['email']); ?>" class="text_color"><?php echo htmlspecialchars($row['email']); ?></a>
                                                                       </div>
                                                                    </div>
                                                                 </li>

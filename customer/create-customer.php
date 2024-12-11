@@ -20,7 +20,7 @@
 
     <div class="container-fluid">
         
-            <form action="./add-customer.php" method="POST">
+            <form action="./add-customer.php" method="POST" enctype="multipart/form-data">
               
                 <div class="row">
 
@@ -31,7 +31,7 @@
 
                             
     <div class="row">
-        <div class="col-lg-6">
+    <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
                 <label class="font-14 bold mb-2">Customer Name</label>
                 <input type="text" class="theme-input-style" name="customer_name" placeholder="Type Your Name">
@@ -49,7 +49,7 @@
                 <input type="text" class="theme-input-style" name="rep_name" placeholder="Rep Name">
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
                 <label class="font-14 bold mb-2">Mobile</label>
                 <input type="text" class="theme-input-style" name="mobile" placeholder="Contact Number">
@@ -69,6 +69,11 @@
                     <option value="Riyadh">Riyadh</option>
                 </select>
             </div>
+
+            <div class="form-group">
+        <label for="profile_photo">Upload Profile Photo</label>
+        <input type="file" class="form-control" name="profile_photo" accept="image/*" required>
+    </div>
         </div>
     </div>
     <div class="form-group pt-1">
@@ -76,7 +81,7 @@
             <input type="checkbox" name="info_correct">
             <span class="checkmark"></span>
         </label>
-        <label for="check5">All information Correct</label>
+        <label for="check5">Confirm whether the provided details are correct</label>
     </div>
   
 
