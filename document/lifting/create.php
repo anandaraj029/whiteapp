@@ -285,7 +285,15 @@ include_once('../../inc/function.php');
 
                     
                 </div>
+          
             </div>
+
+                   <!-- Add More Button -->
+    <div class="text-center mb-4">
+        <button id="add-form-btn" class="btn btn-primary">
+            <i class="fa fa-plus"></i> Add More
+        </button>
+    </div>
             </div>
             <div class="form-group text-center mt-3">
                         <button type="submit" class="btn long" name="save_data_lifting">Save All</button>
@@ -294,5 +302,27 @@ include_once('../../inc/function.php');
         
     </div>
 </div>
+
+
+<!-- FontAwesome for Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<!-- JavaScript -->
+<script>
+    document.getElementById("add-form-btn").addEventListener("click", function () {
+        const formContainer = document.getElementById("form-container");
+        const formSection = document.querySelector(".form-section");
+
+        // Clone the form section
+        const clonedForm = formSection.cloneNode(true);
+
+        // Append the cloned form to the form container
+        formContainer.appendChild(clonedForm);
+    });
+</script>
+
 
 <?php include_once('../../inc/footer.php'); ?>
