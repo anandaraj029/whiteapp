@@ -49,7 +49,7 @@ include_once('../inc/function.php');
                      <!-- Invoice Top -->
                      <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
                         <div class="row">
-                           <div class="col-md-8">
+                           <div class="col-md-4">
                               <!-- Invoice Left -->
                               <div class="invoice-left">
                               <h3 class="white font-20 mb-3">Customer Details</h3>
@@ -80,6 +80,15 @@ include_once('../inc/function.php');
                               </div>
                               <!-- End Invoice Right -->
                            </div>
+                           <div class="col-md-4">
+                              <!-- Invoice Right -->
+                              <div class="invoice-right mt-5 mt-md-0">
+                                 <h3 class="white font-20 mb-3">QR Status</h3>
+                           <img class="img-responsive" src="../document/code.png" alt="Qr code" width="150px">
+                              
+                              </div>
+                              <!-- End Invoice Right -->
+                           </div>
                         </div>
                      </div>
                      <!-- End Invoice Top -->
@@ -87,44 +96,10 @@ include_once('../inc/function.php');
                      <!-- Invois Wrapper -->
                      <div class="bg-white invoice-pd">
                         <div class="row">
-                           <div class="col-xl-4 col-md-6">
-                              <!-- Invoice Form -->
-                              <div class="invoice invoice-form">
-                                 <div class="invoice-title c4 bold font-14 mb-3">Checklist Details</div>
-      
-                                 <ul class="list-invoice">
-                                    <li class="user bold black font-17">Adam Hudson</li>
-                                    <li class="location">712 Clarkson Ave Brooklyn,<br />
-                                       NY 11203, USA</li>
-                                    <li class="call">
-                                       <a href="tel:+01234567891">+0 (123) 456 7891</a>
-                                    </li>
-                                    <li class="mail"><a href="mailto:asdad@email.com">adamhud@email.com</a></li>
-                                 </ul>
-                              </div>
-                              <!-- End Invoice Form -->
-                           </div>
-                           <div class="col-xl-4 col-md-6">
-                              <!-- Invoice To -->
-                              <div class="invoice invoice-to mt-5 mt-md-0">
-                                 <div class="invoice-title c4 bold font-14 mb-3">Certificate Details</div>
-      
-                                 <ul class="list-invoice">
-                                    <li class="user bold black font-17">Nicolas McDonald</li>
-                                    <li class="location">712 Clarkson Ave Brooklyn,<br />
-                                       NY 11203, USA</li>
-                                    <li class="call">
-                                       <a href="tel:+01234567891">+0 (123) 456 7891</a>
-                                    </li>
-                                    <li class="mail"><a href="mailto:adamhud@email.com">adamhud@email.com</a></li>
-                                 </ul>
-                              </div>
-                              <!-- End Invoice To -->
-                           </div>
-                           <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-4 col-md-6">
                               <!-- Invoice Payment Details -->
                               <div class="invoice payment-details mt-5 mt-xl-0">
-                                 <div class="invoice-title c4 bold font-14 mb-3">Equipment Details:</div>
+                                 <div class=" bold black font-17 mb-3">Equipment Details:</div>
       
                                  <ul class="status-list">
                                     <li><span class="key">Total Due</span> <span class="black font-17 black bold">Staus</span></li>
@@ -137,6 +112,39 @@ include_once('../inc/function.php');
                               </div>
                               <!-- End Invoice Payment Details -->
                            </div>
+                           <div class="col-xl-4 col-md-6">
+                              <!-- Invoice Form -->
+                              <div class="invoice invoice-form">
+                                 <div class="bold black font-17 mb-3">Checklist Details:</div>
+      
+                                 <ul class="status-list">
+                                    <li><span class="key">Total Due</span> <span class="black font-17 black bold">Staus</span></li>
+                                    <li><span class="key">Bank name</span> <span class="black">DR International Bank</span></li>
+                                    <li><span class="key">SWIFT code</span> <span class="black">AS4F1</span></li>
+                                    <li><span class="key">IBAN</span> <span class="black">ETD85039283901259</span></li>
+                                    <li><span class="key">Country</span> <span class="black">Canada</span></li>
+                                    <li><span class="key">Address</span> <span class="black">West New York, NJ 07093 23 <br /> Sussex Ave.</span></li>
+                                 </ul>
+                              </div>
+                              <!-- End Invoice Form -->
+                           </div>
+                           <div class="col-xl-4 col-md-6">
+                              <!-- Invoice To -->
+                              <div class="invoice invoice-to mt-5 mt-md-0">
+                                 <div class="black bold font-17 mb-3">Certificate Details :</div>
+      
+                                 <ul class="status-list">
+                                    <li><span class="key">Total Due</span> <span class="black font-17 black bold">Staus</span></li>
+                                    <li><span class="key">Bank name</span> <span class="black">DR International Bank</span></li>
+                                    <li><span class="key">SWIFT code</span> <span class="black">AS4F1</span></li>
+                                    <li><span class="key">IBAN</span> <span class="black">ETD85039283901259</span></li>
+                                    <li><span class="key">Country</span> <span class="black">Canada</span></li>
+                                    <li><span class="key">Address</span> <span class="black">West New York, NJ 07093 23 <br /> Sussex Ave.</span></li>
+                                 </ul>
+                              </div>
+                              <!-- End Invoice To -->
+                           </div>
+                          
                         </div>
                      </div>
                      <!-- End Invois Wrapper -->
@@ -148,46 +156,43 @@ include_once('../inc/function.php');
                            <table class="invoice-list-table style-two some-center text-nowrap">
                               <thead>
                                  <tr>
-                                    <th>#</th>
-                                    <th>Description</th>
-                                    <th>Hours</th>
-                                    <th>Rate</th>
-                                    <th>Amount</th>
+                                    <th>Doc ID</th>
+                                    <th>Document Type</th>
+                                    <th>Date of Creation</th>
+                                    <th>Create By</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
                                  </tr>
                               </thead>
 
                               <tbody class="bg-white">
                                  <tr>
                                     <td class="bold">#01</td>
-                                    <td>PSD to html conversion</td>
-                                    <td>26</td>
-                                    <td>$64.3</td>
-                                    <td>$2654.36</td>
+                                    <td>Crane Checklist</td>
+                                    <td>26/12/2024</td>
+                                    <td>Inspector</td>
+                                    <td>Complete</td>
+                                    
+                                    <td> 
+                                       <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                       <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                                 
+                                 </td>
                                  </tr>
-
                                  <tr>
                                     <td class="bold">#01</td>
-                                    <td>PSD to html conversion</td>
-                                    <td>26</td>
-                                    <td>$64.3</td>
-                                    <td>$2654.36</td>
+                                    <td>Crane Checklist</td>
+                                    <td>26/12/2024</td>
+                                    <td>Inspector</td>
+                                    <td>Complete</td>
+                                    
+                                    <td> 
+                                       <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                       <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                                 
+                                 </td>
                                  </tr>
-
-                                 <tr>
-                                    <td class="bold">#01</td>
-                                    <td>PSD to html conversion</td>
-                                    <td>26</td>
-                                    <td>$64.3</td>
-                                    <td>$2654.36</td>
-                                 </tr>
-
-                                 <tr>
-                                    <td class="bold">#01</td>
-                                    <td>PSD to html conversion</td>
-                                    <td>26</td>
-                                    <td>$64.3</td>
-                                    <td>$2654.36</td>
-                                 </tr>
+                                 
                               </tbody>
                            </table>
                            <!-- End Invoice List Table -->
@@ -234,7 +239,7 @@ include_once('../inc/function.php');
                               <div class="proceed-to-checkout d-flex align-items-center justify-content-end mr-20 mt-4">
                                  <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
                                  <a href="#" class="print-btn mr-20"><img src="<?php echo $url;?>assets/img/svg/print-yellow.svg" alt="" class="svg"></a>
-                                 <a href="#" class="btn">View Now</a>
+                                 <!-- <a href="#" class="btn">View Now</a> -->
                               </div>
                            </div>
                         </div>
