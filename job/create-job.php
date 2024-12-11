@@ -1,9 +1,10 @@
 <?php 
 include_once('../inc/function.php');
+include_once('../file/config.php');
 
-
-
-
+// Fetch student names from the database
+$customerQuery = "SELECT * FROM customers";
+$customerResult = $conn->query($customerQuery);
 
 ?>
 
@@ -135,41 +136,63 @@ include_once('../inc/function.php');
 
                         
                                      <!-- Form Row -->
-                                     <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Select Customer</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                        <select name="customer_name" class="theme-input-style">
-                                        <option value="Customer name 1">Customer name 1</option>
-                                        <option value="Customer name 2">Customer name 2</option>
-                                    </select>
-                                                                    
-                                        </div>
-                                    </div>
+                                     <!-- Customer Information -->
+<div class="form-row mb-20">
+    <div class="col-sm-4">
+        <label for="customer_id" class="font-14 bold">Select Customer</label>
+    </div>
+    <div class="col-sm-8">
+
+
+    
+    
+
+                    
+
+    <select name="customer_id" id="customer-select" class="theme-input-style">
+    <option value="">Select Customer</option>
+
+    <?php
+                                            // Check if customers exist
+                        if ($customerResult && $customerResult->num_rows > 0) {
+                                                // Loop through the student records and populate the dropdown
+                                                while ($row = $customerResult->fetch_assoc()) {
+                                                    echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['customer_name']) . "</option>";
+                                                }
+                                            } else {
+                                                echo "<option value='' disabled>No students found</option>";
+                                            }
+                                            ?>    
+</select>
+
+    </div>
+</div>
+
+<!-- Customer Email -->
+<div class="form-row mb-20">
+    <div class="col-sm-4">
+        <label class="font-14 bold">Customer Email</label>
+    </div>
+    <div class="col-sm-8">
+        <input type="email" id="customer-email" name="email" class="theme-input-style" placeholder="Customer Email" readonly>
+    </div>
+</div>
+
+<!-- Customer Mobile -->
+<div class="form-row mb-20">
+    <div class="col-sm-4">
+        <label class="font-14 bold">Customer Mobile</label>
+    </div>
+    <div class="col-sm-8">
+        <input type="number" id="customer-mobile" name="mobile" class="theme-input-style" placeholder="Customer Mobile" readonly>
+    </div>
+</div>
+
+
                                     <!-- End Form Row -->
 
                                     <!-- Form Row -->
-                                    <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Customer Email</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
-                                                    </div>
-                                                </div>
-                                                <input type="email" name="customer_email" class="form-control pl-1" placeholder="Type Email Address">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
-
-                                    <!-- Form Row -->
-                                    <div class="form-row mb-20">
+                                    <!-- <div class="form-row mb-20">
                                         <div class="col-sm-4">
                                             <label class="font-14 bold">Mobile</label>
                                         </div>
@@ -183,7 +206,7 @@ include_once('../inc/function.php');
                                                 <input type="number" name="customer_mobile" class="form-control pl-1" placeholder="Contact Number">
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
 
                                      <!-- Form Row -->
@@ -232,6 +255,11 @@ include_once('../inc/function.php');
                 </div>
             </div>
             <!-- End Main Content -->
+
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
             <script>
@@ -263,6 +291,46 @@ include_once('../inc/function.php');
 
 </script>
 
+
+
+
+<script>
+        $(document).ready(function () {
+            $('#customer-select').change(function () {
+                var customerId = $(this).val(); // Get selected customer ID
+                console.log("Selected Customer ID:", customerId);
+
+                if (customerId) {
+                    $.ajax({
+                        url: 'fetch-customer-details.php', // PHP script to fetch details
+                        type: 'GET',
+                        data: { customer_id: customerId },
+                        dataType: 'json',
+                        success: function (response) {
+                            console.log("Response from server:", response); // Debugging
+
+                            if (response.success) {
+                                $('#customer-email').val(response.email);
+                                $('#customer-mobile').val(response.mobile);
+                            } else {
+                                alert(response.message || "Customer details not found.");
+                                $('#customer-email').val('');
+                                $('#customer-mobile').val('');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("AJAX Error:", status, error);
+                            alert("Error fetching customer details.");
+                        }
+                    });
+                } else {
+                    $('#customer-email').val('');
+                    $('#customer-mobile').val('');
+                    console.warn("No customer ID selected.");
+                }
+            });
+        });
+    </script>
 <?php 
         include_once('../inc/footer.php');
         ?>

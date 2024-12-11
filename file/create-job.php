@@ -2,47 +2,46 @@
 include './config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Collect and sanitize data from the form
-    $project_no = $conn->real_escape_string($_POST['project_no']);
+    // Collect and sanitize form data
+    $customer_id = $conn->real_escape_string($_POST['customer_id']);
     $creation_date = $conn->real_escape_string($_POST['creation_date']);
     $equipment_type = $conn->real_escape_string($_POST['equipment_type']);
     $sticker_status = $conn->real_escape_string($_POST['sticker_status']);
     $checklist_type = $conn->real_escape_string($_POST['checklist_type']);
-    $customer_name = $conn->real_escape_string($_POST['customer_name']);
-    $customer_email = $conn->real_escape_string($_POST['customer_email']);
-    $customer_mobile = $conn->real_escape_string($_POST['customer_mobile']);
     $inspector_name = $conn->real_escape_string($_POST['inspector_name']);
     $equipment_location = $conn->real_escape_string($_POST['equipment_location']);
 
-    // Check if project_no already exists
-    $check_stmt = $conn->prepare("SELECT project_no FROM project_info WHERE project_no = ?");
-    $check_stmt->bind_param("s", $project_no);
-    $check_stmt->execute();
-    $check_stmt->store_result();
-
-    if ($check_stmt->num_rows > 0) {
-        header("Location: ../job/create-job.php?status=error&message=" . urlencode("Project No already exists. Please use a unique value."));
-        $check_stmt->close();
+    // Fetch customer details based on customer_id
+    $customerQuery = $conn->prepare("SELECT customer_name, email, mobile FROM customers WHERE id = ?");
+    $customerQuery->bind_param("i", $customer_id);
+    $customerQuery->execute();
+    $customerQuery->bind_result($customer_name, $customer_email, $customer_mobile);
+    
+    if (!$customerQuery->fetch()) {
+        // Handle missing customer
+        header("Location: ../job/create-job.php?status=error&message=" . urlencode("Customer not found. Please select a valid customer."));
         exit();
     }
-    $check_stmt->close();
+    $customerQuery->close();
 
-    // Ensure project_no is not empty
-    if (empty($project_no)) {
-        header("Location: ../job/create-job.php?status=error&message=" . urlencode("Project No cannot be empty."));
-        exit();
-    }
+    // Auto-generate project number
+    $project_no_query = "SELECT MAX(CAST(project_no AS UNSIGNED)) AS max_project_no FROM project_info";
+    $result = $conn->query($project_no_query);
+    $row = $result->fetch_assoc();
+    $last_project_no = $row['max_project_no'];
+    $project_no = $last_project_no ? $last_project_no + 1 : 1;
 
-    // Use prepared statements for secure insertion
-    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, checklist_type, customer_name, customer_email, customer_mobile, inspector_name, equipment_location) 
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Insert data into project_info table
+    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, checklist_type, customer_id, customer_name, customer_email, customer_mobile, inspector_name, equipment_location) 
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param(
-        "ssssssssss",
+        "issssisssss",
         $project_no,
         $creation_date,
         $equipment_type,
         $sticker_status,
         $checklist_type,
+        $customer_id,
         $customer_name,
         $customer_email,
         $customer_mobile,
@@ -50,14 +49,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $equipment_location
     );
 
-    // Execute and handle the result
     if ($stmt->execute()) {
         header("Location: ../job/overall-job-list.php?status=success");
         exit();
     } else {
         $error_message = $stmt->error;
 
-        // Customize error messages
+        // Handle duplicate or other errors
         if (strpos($error_message, 'Duplicate entry') !== false) {
             $error_message = "The Project ID already exists. Please use a unique Project ID.";
         } elseif (strpos($error_message, 'cannot be null') !== false) {
@@ -68,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Close statement and connection
+    // Close connections
     $stmt->close();
     $conn->close();
 }

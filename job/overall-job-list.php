@@ -82,17 +82,42 @@ $result = $conn->query($sql);
                 <tr>
                     <td class="bold"><?php echo "#" . str_pad($row["project_id"], 5, "0", STR_PAD_LEFT); ?></td>
                     <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
-                    <td>
+                    <!-- <td>
                         <div class="product-img">
                         <badge class="primary">
                        <a href=""><i class="icofont-checked color-primary"></i> Checklist</a> </badge>
                        <a href=""><i class="icofont-edit color-primary"></i> Report</a> 
                        <a href=""><i class="icofont-data color-primary"></i> Certificate</a> 
-                            <!-- <img src="../assets/img/product/product1.png" alt="">
+                             <img src="../assets/img/product/product1.png" alt="">
                             <img src="../assets/img/product/product1.png" alt="">
-                            <img src="../assets/img/product/product1.png" alt=""> -->
+                            <img src="../assets/img/product/product1.png" alt=""> 
                         </div>
-                    </td>
+                    </td> -->
+
+
+                    <td>
+    <div class="product-img">
+        <?php if ($row['checklist_created'] == 0) { ?>
+            <!-- Checklist Creation Allowed -->
+            <a href="create-checklist.php?id=<?php echo $row['project_id']; ?>" onclick="return confirm('Are you sure you want to create the checklist?');">
+                <i class="icofont-checked color-primary"></i> Checklist
+            </a>
+        <?php } else { ?>
+            <!-- Checklist Already Created -->
+            <span class="text-muted">
+                <i class="icofont-check color-success"></i> Checklist Created
+            </span>
+        <?php } ?>
+        <!-- Report and Certificate Links -->
+        <a href="generate-report.php?id=<?php echo $row['project_id']; ?>">
+            <i class="icofont-edit color-primary"></i> Report
+        </a> 
+        <a href="generate-certificate.php?id=<?php echo $row['project_id']; ?>">
+            <i class="icofont-data color-primary"></i> Certificate
+        </a> 
+    </div>
+</td>
+
                     <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
                     <td class="text-danger">Processing</td>
                     <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>

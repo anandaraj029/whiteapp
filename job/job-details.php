@@ -6,6 +6,32 @@ include '../file/auth.php';
 include_once('../inc/function.php');
 
 
+
+
+
+// Check if project_id is set in the URL
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+   $project_id = $_GET['id'];
+   
+   // SQL query to fetch details based on project_id
+   $query = "SELECT * FROM project_info WHERE project_id = ?";
+   $stmt = $conn->prepare($query);
+   $stmt->bind_param("i", $project_id); // Bind the project_id as an integer
+   $stmt->execute();
+   $result = $stmt->get_result();
+   
+   if ($result->num_rows > 0) {
+       $project = $result->fetch_assoc();
+   } else {
+       echo "No details found for this project.";
+       exit;
+   }
+} else {
+   echo "Invalid Project ID.";
+   exit;
+}
+
+
 ?>
 
          <div class="main-content d-flex flex-column flex-md-row">
@@ -55,12 +81,18 @@ include_once('../inc/function.php');
                               <h3 class="white font-20 mb-3">Customer Details</h3>
                                  <ul class="list-invoice">
                                     <li class="location">330, North Brand Boulevard Glendale, CA <br />
-                                       91203, USA</li>
+                                    <?php echo htmlspecialchars($project['equipment_location']); ?></li>
                                     <li class="call">
                                        <a href="tel:+01234567891">+0 (123) 456 7891</a> <br />
-                                       <a href="tel:+01234567891">+9 (876) 543 2198</a>
+                                       <a href="tel:+01234567891">
+                                       <?php echo htmlspecialchars($project['customer_mobile']); ?>
+                                       </a>
                                     </li>
-                                    <li class="mail">customer@gmail.com</li>
+                                    <li class="mail">
+                                    <?php echo htmlspecialchars($project['customer_email']); ?>
+                                 </li>
+                                    </li>
+                                    
                                  </ul>
                               </div>
                               <!-- End Invoice Left -->
@@ -71,11 +103,19 @@ include_once('../inc/function.php');
                                  <h3 class="white font-20 mb-3">Project Status</h3>
 
                                  <ul class="status-list">
-                                    <li><span class="key font-14">Serial No:</span> <span class="white bold font-17">#256987</span></li>
-                                    <li><span class="key font-14">Project No:</span> <span class="white bold font-17">#0165</span></li>
+                                    <li><span class="key font-14">Serial No:</span> <span class="white bold font-17">
+                                       #256987
+                                    </span></li>
+                                    <li><span class="key font-14">Project No:</span> <span class="white bold font-17">
+                                    <?php echo htmlspecialchars($project['project_id']); ?>
+                                    
+                                    </span></li>
                                     <li><span class="key font-14">Start Date:</span> <span class="white bold font-17">08/12/2019</span></li>
                                     <li><span class="key font-14">End Date:</span> <span class="white bold font-17">07/03/2019</span></li>
-                                    <li><span class="key font-14">Status:</span> <span class="white status-btn completed">Completed</span></li>
+                                    <li><span class="key font-14">Status:</span> <span class="white status-btn completed">
+                                       
+                                    
+                                    Completed</span></li>
                                  </ul>
                               </div>
                               <!-- End Invoice Right -->
