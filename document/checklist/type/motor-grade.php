@@ -1017,6 +1017,49 @@ window.print();
 
 <script>
 document.getElementById('checklistForm').addEventListener('submit', function(event) {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const remarks = document.querySelectorAll('input[type="text"]');
+    let isValid = true;
+
+    // Check if at least one checkbox is selected for each question
+    const resultGroups = {};
+    checkboxes.forEach(checkbox => {
+        const name = checkbox.name;
+        if (!resultGroups[name]) resultGroups[name] = false;
+        if (checkbox.checked) resultGroups[name] = true;
+    });
+
+    for (const group in resultGroups) {
+        if (!resultGroups[group]) {
+            isValid = false;
+            alert(`Please select a result for ${group}`);
+            break;
+        }
+    }
+
+    // Collect remarks: Optional validation - empty remarks result in an empty array
+    const remarksArray = [];
+    remarks.forEach(remark => {
+        if (remark.value.trim() !== '') {
+            remarksArray.push(remark.value.trim()); // Push non-empty remarks to the array
+        } else {
+            remarksArray.push(''); // Push an empty string for empty remarks
+        }
+    });
+
+    console.log('Remarks Array:', remarksArray); // Log the remarks for debugging
+
+    // Prevent form submission if validation fails
+    if (!isValid) {
+        event.preventDefault();
+    }
+});
+</script>
+
+
+
+<!-- <script>
+document.getElementById('checklistForm').addEventListener('submit', function(event) {
 const checkboxes = document.querySelectorAll('input[type="checkbox"]');
 const remarks = document.querySelectorAll('input[type="text"]');
 let isValid = true;
@@ -1053,7 +1096,7 @@ if (!isValid) {
 event.preventDefault();
 }
 });
-</script>
+</script> -->
 
 
 <script>
