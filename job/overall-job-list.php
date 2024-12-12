@@ -97,17 +97,16 @@ $result = $conn->query($sql);
 
                     <td>
     <div class="product-img">
-        <?php if ($row['checklist_created'] == 0) { ?>
-            <!-- Checklist Creation Allowed -->
-            <a href="create-checklist.php?id=<?php echo $row['project_id']; ?>" onclick="return confirm('Are you sure you want to create the checklist?');">
-                <i class="icofont-checked color-primary"></i> Checklist
-            </a>
-        <?php } else { ?>
-            <!-- Checklist Already Created -->
-            <span class="text-muted">
-                <i class="icofont-check color-success"></i> Checklist Created
-            </span>
-        <?php } ?>
+    <?php if ($row['checklist_status'] === 'Pending') { ?>
+        
+    <a href="../document/checklist/add-checklist.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
+        <i class="icofont-checked color-primary"></i> Create Checklist
+    </a>
+<?php } else { ?>
+    <span class="text-success">
+        <i class="icofont-check color-success"></i> Checklist Created
+    </span>
+<?php } ?>
         <!-- Report and Certificate Links -->
         <a href="generate-report.php?id=<?php echo $row['project_id']; ?>">
             <i class="icofont-edit color-primary"></i> Report
