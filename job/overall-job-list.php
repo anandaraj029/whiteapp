@@ -97,20 +97,39 @@ $result = $conn->query($sql);
 
                     <td>
     <div class="product-img">
-    <?php if ($row['checklist_status'] === 'Pending') { ?>
-        
-    <a href="../document/checklist/add-checklist.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
-        <i class="icofont-checked color-primary"></i> Create Checklist
-    </a>
+        <?php if ($row['checklist_status'] === 'Pending') { ?>
+            <a href="../document/checklist/add-checklist.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
+                <i class="icofont-checked color-primary"></i> Create Checklist
+            </a>
+        <?php } else { ?>
+            <span class="text-success">
+                <i class="icofont-check color-success"></i> Checklist Created
+            </span>
+        <?php } ?>
+
+        <!-- Report Button Logic -->
+        <!-- Report Button Logic -->
+        <?php if ($row['checklist_status'] === 'Created') { ?>
+    <?php if ($row['report_status'] === 'Pending') { ?>
+        <a href="../document/report/create.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
+            <i class="icofont-edit color-primary"></i> Create Report
+        </a>
+    <?php } elseif ($row['report_status'] === 'Generated') { ?>
+        <span class="text-success">
+            <i class="icofont-check color-success"></i> Report Created
+        </span>
+    <?php } else { ?>
+        <span class="text-muted">
+            <i class="icofont-lock"></i> Report Locked
+        </span>
+    <?php } ?>
 <?php } else { ?>
-    <span class="text-success">
-        <i class="icofont-check color-success"></i> Checklist Created
+    <span class="text-muted">
+        <i class="icofont-lock"></i> Checklist Pending
     </span>
 <?php } ?>
-        <!-- Report and Certificate Links -->
-        <a href="generate-report.php?id=<?php echo $row['project_id']; ?>">
-            <i class="icofont-edit color-primary"></i> Report
-        </a> 
+
+        <!-- Certificate Link -->
         <a href="generate-certificate.php?id=<?php echo $row['project_id']; ?>">
             <i class="icofont-data color-primary"></i> Certificate
         </a> 

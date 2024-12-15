@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt_results->close();
 
                     // Update checklist_status to 'Completed' in project_info
-                    $update_status = $conn->prepare("UPDATE project_info SET checklist_status = 'Completed' WHERE project_id = ?");
+                    $update_status = $conn->prepare("UPDATE project_info SET checklist_status = 'Created' WHERE project_id = ?");
                     $update_status->bind_param("i", $project_id);
                     $update_status->execute();
                     $update_status->close();

@@ -6,6 +6,10 @@ include_once('../file/config.php');
 $customerQuery = "SELECT * FROM customers";
 $customerResult = $conn->query($customerQuery);
 
+// Fetch inspector names from the inspector table
+$sql = "SELECT inspector_name FROM inspectors"; // Assuming 'inspector_name' is the column
+$result = mysqli_query($conn, $sql); // Execute query
+
 ?>
 
             <!-- Main Content -->
@@ -94,7 +98,7 @@ $customerResult = $conn->query($customerQuery);
                                     <!-- End Form Row -->
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
-                                            <label class="font-14 bold">Checklist Type</label>
+                                            <label class="font-14 bold">Handle Crane</label>
                                         </div>
                                         <div class="col-sm-8">
 
@@ -215,12 +219,20 @@ $customerResult = $conn->query($customerQuery);
                                             <label class="font-14 bold">Select Inspector</label>
                                         </div>
                                         <div class="col-sm-8">
-                                        <select name="inspector_name" class="theme-input-style">
-                                        <option value="Inspector name 1">Inspector name 1</option>
-                                        <option value="Inspector name 2">Inspector name 2</option>
-                                    </select>
-                                                                    
-                                        </div>
+        <select name="inspector_name" class="theme-input-style">
+            <option value="" disabled selected>Select an Inspector</option>
+            <?php
+            // Loop through the results and populate the dropdown
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value="' . htmlspecialchars($row['inspector_name']) . '">' . htmlspecialchars($row['inspector_name']) . '</option>';
+                }
+            } else {
+                echo '<option value="">No Inspectors Found</option>';
+            }
+            ?>
+        </select>
+    </div>
                                     </div>
                                     <!-- End Form Row -->
                                          <!-- Form Row -->

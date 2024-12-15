@@ -1,4 +1,3 @@
-
 <?php 
 include_once('../inc/function.php');
 
@@ -75,58 +74,48 @@ include_once('../inc/function.php');
 <?php 
 include ('../file/config.php');
 
-$sql = "SELECT * FROM customers";
+$sql = "SELECT * FROM inspectors";
 $result = $conn->query($sql);
 
-// Check if records exist
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+
+      // Deserialize handle_crane if it's not null
+      $handle_crane_list = $row['handle_crane'] ? unserialize($row['handle_crane']) : [];
+
+      // Convert handle_crane array into a comma-separated string
+      $handle_crane_display = !empty($handle_crane_list) ? implode(", ", $handle_crane_list) : "N/A";
+
+      // Status - You can add your logic here (e.g., fetched from the DB or a default value)
+      $status = "Active"; // Change this as per your requirement
+
         echo "<tr>
             <td>
                 <label class='custom-checkbox'>
-                    <input type='checkbox'>
+                    <input type='checkbox' class='select-checkbox'>
                     <span class='checkmark'></span>
                 </label>
             </td>
-            <td>
-                <div class='d-flex align-items-center'>
-                    <div class='img mr-20'>
-                        <img src='$url/assets/img/avatar/m16.png' class='img-40' alt=''>
-                    </div>
-                    <div class='name bold'>
-                       {$row['company']}
-                    </div>
-                </div>
-            </td>
+            <td>{$row['inspector_name']}</td>
+            <td>{$row['emp_id']}</td>
             <td>{$row['email']}</td>
-            <td>{$row['mobile']}</td>
-            <td>{$row['city']}</td>
+            <td>{$row['mobile']}</td>                        
             <td>{$row['address']}</td>
-            <td>" . date('F d, Y', strtotime($row['created_at'])) . "</td>
-            <td>{$row['rep_name']}</td>
-            <td class='actions'>
-              <span class='contact-edit'>
-                <a href='index.php?cusid={$row['cus_id']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
-                </span>
-                <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
-                    <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
-                </span>
-                <span class='contact-close'>
-                    <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
-                </span>
+            <td>{$handle_crane_display}</td>
+                    <td>{$status}</td>
+            
+            <td>
+                <a href='edit-inspector.php?email={$row['email']}' class='btn btn-sm'>Edit</a>
+                <a href='delete-inspector.php?email={$row['email']}' class='btn btn-sm text-danger'>Delete</a>
             </td>
         </tr>";
     }
 } else {
-    echo "<tr><td colspan='9' class='text-center'>No customers found.</td></tr>";
+    echo "<tr><td colspan='9' class='text-center'>No inspectors found.</td></tr>";
 }
-
 ?>
+</tbody>
 
-
-
-                                    
-                                </tbody>
                             </table>
                             <!-- End Invoice List Table -->
                         </div>
