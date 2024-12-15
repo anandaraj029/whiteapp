@@ -52,7 +52,7 @@
                         <li><a href="">NDT Equipment</a></li> -->
                       </ul>
                      <!-- End Sub Menu -->
-                  </li>
+                  </li> General Election to Assembly Constituencies: Trends & Results November-2024
                   <li>
                      <a href="#">
                         <i class="icofont-navigation-menu"></i>

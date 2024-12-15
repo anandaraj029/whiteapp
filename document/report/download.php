@@ -426,11 +426,22 @@ ob_start();
 $html = ob_get_clean();
 
 // Create an instance of mPDF
-$mpdf = new \Mpdf\Mpdf();
+$mpdf = new \Mpdf\Mpdf([
+    'orientation' => 'L',
+    'margin_left' => 5,
+    'margin_right' => 5,
+    'margin_top' => 5,
+    'margin_bottom' => 5,
+    'margin_header' => 5,
+    'margin_footer' => 5
+]);
 
 // Write HTML content to the PDF
 $mpdf->WriteHTML($html);
 
+
 // Output as a PDF
 $mpdf->Output('inspection_report.pdf', 'D'); // Download the PDF
+
+
 ?>
