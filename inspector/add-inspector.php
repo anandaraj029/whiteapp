@@ -4,7 +4,7 @@ include_once('../file/config.php');
 // Include your database connection file
 
 if (isset($_POST['save_inspector'])) {
-    $customer_name = $_POST['customer_name'];
+    $customer_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? serialize($_POST['handle_crane']) : null;
     $emp_id = $_POST['emp_id'];
@@ -20,11 +20,11 @@ if (isset($_POST['save_inspector'])) {
     move_uploaded_file($_FILES['signature_photo']['tmp_name'], "../uploads/$signature_photo");
 
     // Insert data into the database
-    $sql = "INSERT INTO inspectors (customer_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
+    $sql = "INSERT INTO inspectors (inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssss", $customer_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
+    $stmt->bind_param("ssssssssss", $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
 
     if ($stmt->execute()) {
         echo "<script>alert('Inspector added successfully!'); window.location.href = './all-inspector.php';</script>";

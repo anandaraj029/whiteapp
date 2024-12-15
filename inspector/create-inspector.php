@@ -27,7 +27,7 @@ include_once('../inc/function.php'); ?>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Inspector Name</label>
-                                    <input type="text" class="theme-input-style" name="customer_name" placeholder="Type Your Name" required>
+                                    <input type="text" class="theme-input-style" name="inspector_name" placeholder="Type Your Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Email</label>

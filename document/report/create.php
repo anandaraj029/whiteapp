@@ -1,7 +1,28 @@
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php');
 
+// Check if 'project_id' is passed
+if (isset($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
+
+    // Query to fetch checklist_no based on project_id
+    $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
+    $result = mysqli_query($conn, $query);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $checklist_no = $row['checklist_no'];
+    } else {
+        echo "No checklist found for the provided Project ID!";
+        exit;
+    }
+} else {
+    echo "No project ID provided!";
+    exit;
+}
 ?>
+
 
             <!-- Main Content -->
             <div class="main-content">
@@ -130,13 +151,18 @@ include_once('../../inc/function.php');
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Project ID</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter Project ID" name="project_id" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($project_id); ?>" name="project_id" readonly required>
+
+
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Checklist No</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter Checklist No" name="checklist_no" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($checklist_no); ?>" name="checklist_no" readonly required>
                 </div>
+
+              
+
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">JRN</label>

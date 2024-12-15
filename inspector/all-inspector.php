@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
                     <span class='checkmark'></span>
                 </label>
             </td>
-            <td>{$row['customer_name']}</td>
+            <td>{$row['inspector_name']}</td>
             <td>{$row['emp_id']}</td>
             <td>{$row['email']}</td>
             <td>{$row['mobile']}</td>                        
