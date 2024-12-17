@@ -149,7 +149,7 @@ $result = $conn->query($sql);
                 
                 <td><?php echo $row['report_no']; ?></td>
                 <td><?php echo $row['project_id']; ?></td>
-                <td><?php echo $row['report_no']; ?></td>
+                <td><?php echo $row['checklist_no']; ?></td>
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="img mr-20">
