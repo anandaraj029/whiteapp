@@ -36,10 +36,27 @@ include_once('../inc/function.php'); ?>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Handle Crane</label>
                                     <div class="form-control" style="height:auto;">
-                                        <label><input type="checkbox" name="handle_crane[]" value="Crane Type A"> Crane Type A</label><br>
-                                        <label><input type="checkbox" name="handle_crane[]" value="Crane Type B"> Crane Type B</label><br>
-                                        <label><input type="checkbox" name="handle_crane[]" value="Crane Type C"> Crane Type C</label><br>
-                                        <label><input type="checkbox" name="handle_crane[]" value="Crane Type D"> Crane Type D</label>
+                                        <label><input type="checkbox" name="handle_crane[]" value="arc-welding-machine"> Arc Welding Machine</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="articulating_boom"> Articulating Boom</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="base_mounted_drum"> Base Mounted Drum Hoist (Winches)</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="bulldozer"> Bulldozer</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="elevators"> Elevators</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="excavator"> Excavator</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="fixed-cranes-hoist"> Fixed Cranes & Hoist</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="forklift"> Forklift</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="frames-and-mobile-gantries"> Frames and Mobile Gantries</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="jib-davit"> JIB & DAVIT</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="lifting-beam-spreader-bar"> Lifting Beam Spreader Bar</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="manbaskets"> Manbaskets</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="marine-offshore-cranes"> Marine & Offshore Cranes</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="mobile_locomotive"> Mobile Locomotive</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="motor-grade"> Motor Grade</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="powered-platforms">Powered Platforms (Sky Climbers)</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="side-boom-tractors">Side Boom Tractors</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="storage-retrieval">Storage Retrieval</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="tower-cranes">Tower Cranes</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</label><br>
+                                        <label><input type="checkbox" name="handle_crane[]" value="wheel-loader">Wheel Loader</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
