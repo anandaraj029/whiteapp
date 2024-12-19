@@ -4,7 +4,7 @@ include_once('../file/config.php');
 // Include your database connection file
 
 if (isset($_POST['save_inspector'])) {
-    $customer_name = $_POST['inspector_name'];
+    $inspector_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? serialize($_POST['handle_crane']) : null;
     $emp_id = $_POST['emp_id'];
