@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $project_no = $last_project_no ? $last_project_no + 1 : 1;
 
     // Insert data into project_info table
-    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, checklist_type, customer_id, customer_name, customer_email, customer_mobile, inspector_name, equipment_location) 
+    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, equipment_location, customer_id, customer_name, customer_email, customer_mobile, inspector_name, checklist_type) 
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param(
         "issssisssss",
@@ -40,13 +40,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $creation_date,
         $equipment_type,
         $sticker_status,
-        $checklist_type,
+        $equipment_location,        
         $customer_id,
         $customer_name,
         $customer_email,
         $customer_mobile,
         $inspector_name,
-        $equipment_location
+        $checklist_type
+        
     );
 
     if ($stmt->execute()) {

@@ -4,11 +4,19 @@ include_once('../../file/config.php');  // Include your database connection file
 // Fetch the record based on report_no
 $project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
 
+// Initialize deficiencies and corrective actions arrays
+$deficiencies = [];
+$corrective_actions = [];
+
 $query = "SELECT * FROM reports WHERE project_id = '$project_id'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+
+    // Parse deficiencies and corrective actions into arrays
+    $deficiencies = explode("\n", trim($row['deficiency'] ?? ''));
+    $corrective_actions = explode("\n", trim($row['corrective_action'] ?? ''));
 } else {
     echo "No record found!";
 }

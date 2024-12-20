@@ -1,14 +1,37 @@
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php');
 
 // Check if 'project_id' is passed
 if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
+    
+    // Query to fetch data from project_info table
+    $stmt = $conn->prepare("SELECT equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Fetch data
+        $row = $result->fetch_assoc();
+        $equipment_type = $row['equipment_type'];  // Example: Equipment Type (e.g., Generator, Transformer, etc.)
+        $checklist_type = $row['checklist_type'];
+        $inspected_by = $row['inspector_name'];
+        $client_name = $row['customer_name'];
+        $location = $row['equipment_location'];
+    } else {
+        echo "Invalid Project ID!";
+        exit;
+    }
+
+    $stmt->close();
 } else {
     echo "No project ID provided!";
     exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,13 +76,15 @@ if (isset($_GET['project_id'])) {
                                     <!-- CLIENT’S NAME -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">CLIENT’S NAME</label>
-                                        <input type="text" name="client_name" class="theme-input-style" placeholder="CLIENT’S NAME" required>
+                                        <!-- <input type="text" name="client_name" class="theme-input-style" placeholder="CLIENT’S NAME" required> -->
+                                        <input type="text" name="client_name" class="theme-input-style" placeholder="CLIENT’S NAME" value="<?php echo htmlspecialchars($client_name); ?>" readonly required>
                                     </div>
                                     
                                     <!-- LOCATION -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">LOCATION</label>
-                                        <input type="text" name="location" class="theme-input-style" placeholder="LOCATION" required>
+                                        <!-- <input type="text" name="location" class="theme-input-style" placeholder="LOCATION" required> -->
+                                        <input type="text" name="location" class="theme-input-style" placeholder="LOCATION" value="<?php echo htmlspecialchars($location); ?>" readonly required>
                                     </div>
                                     
                                     <!-- CRANE ASSET NO -->
@@ -71,7 +96,7 @@ if (isset($_GET['project_id'])) {
                                     <!-- EQUIPMENT TYPE -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">EQUIPMENT TYPE</label>
-                                        <input type="text" name="equipment_type" class="theme-input-style" placeholder="EQUIPMENT TYPE" required>
+                                        <input type="text" name="equipment_type" class="theme-input-style" placeholder="Equipment Type" value="<?php echo htmlspecialchars($equipment_type); ?>" readonly required>
                                     </div>
 
                                     <!-- MANUFACTURER -->
@@ -86,7 +111,7 @@ if (isset($_GET['project_id'])) {
                                     <!-- Checklist Type -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">Checklist Type</label>
-                                        <select name="checklist_type" class="theme-input-style">
+                                        <!-- <select name="checklist_type" class="theme-input-style">
                                             <option value="">Select Type</option>
                                             <option value="arc-welding-machine">ARC Welding Machine Checklist (2020)</option>            
                                             <option value="articulating_boom">Articulating boom</option>
@@ -109,7 +134,12 @@ if (isset($_GET['project_id'])) {
                                             <option value="tower-cranes">Tower Cranes</option>                                    
                                             <option value="vehicle_mounted_elevating">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
                                             <option value="wheel-loader">Wheel Loader</option>
-                                        </select> 
+                                        </select>  -->
+
+
+
+                                        <input type="text" name="checklist_type" class="theme-input-style" placeholder="Checklist Type" value="<?php echo htmlspecialchars($checklist_type); ?>" readonly required>
+
                                     </div>
 
                                     <!-- INSPECTION DATE -->
@@ -121,7 +151,8 @@ if (isset($_GET['project_id'])) {
                                     <!-- INSPECTED BY -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">INSPECTED BY</label>
-                                        <input type="text" name="inspected_by" class="theme-input-style" placeholder="INSPECTED BY" required>
+                                        <!-- <input type="text" name="inspected_by" class="theme-input-style" placeholder="INSPECTED BY" required> -->
+                                        <input type="text" name="inspected_by" class="theme-input-style" placeholder="INSPECTED BY" value="<?php echo htmlspecialchars($inspected_by); ?>" readonly required>
                                     </div>
                                     
                                     <!-- STICKER NO -->
