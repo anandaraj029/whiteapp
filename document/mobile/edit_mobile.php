@@ -3,8 +3,8 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // Fetch existing data (assuming the certificate_no is passed via GET)
-$report_no = $_GET['report_no']; // Get the certificate number from URL
-$query = "SELECT * FROM mobile_crane_loadtest WHERE report_no = '$report_no'";
+$project_id = $_GET['project_id']; // Get the certificate number from URL
+$query = "SELECT * FROM mobile_crane_loadtest WHERE project_id = '$project_id'";
 $result = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 ?>
@@ -29,7 +29,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
             </div>
                 <div class="container-fluid">
                 <form action="update_mobile_load_test_certificate.php" method="POST">
-                <input type="hidden" name="report_no" value="<?php echo $data['report_no']; ?>" />
+                <input type="hidden" name="project_id" value="<?php echo $data['project_id']; ?>" />
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
