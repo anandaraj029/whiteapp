@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
     $certificate_no = $_POST['certificate_no'];
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
-    $projectid = $_POST['projectid'];
+    $project_id = $_POST['project_id'];
     $companyName = $_POST['companyName'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
@@ -53,7 +53,7 @@ if (isset($_POST['update'])) {
                 certificate_no = '$certificate_no',
                 report_no = '$report_no',
                 jrn = '$jrn',
-                projectid = '$projectid',
+                project_id = '$project_id',
                 companyName = '$companyName',
                 customer_name = '$customer_name',
                 customer_email = '$customer_email',
@@ -81,7 +81,7 @@ if (isset($_POST['update'])) {
                 hook_block_assembly = '$hook_block_assembly',
                 boom_angle_indicator = '$boom_angle_indicator',
                 emergency_shutdown = '$emergency_shutdown'
-            WHERE report_no = '$report_no'";
+            WHERE project_id = '$project_id'";
 
     // Execute query and check if update is successful
     if ($conn->query($sql) === TRUE) {

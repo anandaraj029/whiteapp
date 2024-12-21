@@ -7,7 +7,7 @@ if (isset($_POST['save_all'])) {
     $certificate_no = $_POST['certificate_no'];
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
-    $projectid = $_POST['projectid'];
+    $project_id = $_POST['project_id'];
     $companyName = $_POST['companyName'];    
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
@@ -39,9 +39,9 @@ if (isset($_POST['save_all'])) {
 
     // Insert into the database
     $query = "INSERT INTO crane_health_check_certificate (
-        inspection_date, certificate_no, report_no, jrn, projectid, companyName, customer_name, customer_email, mobile, inspector, vessel_name_location, manufacturer, crane_type, asset_number, serial_number, model, manufacturing_year, address, capacity_swl, previous_test_date, crane_structure_condition, swinging_slewing_function, hydraulic_pneumatic_system, wire_ropes_condition, boom_lifting_extending_retracting, emergency_boom_lowering, auto_moment_limiter, anti_two_block, winch_drum_lock_pawls, hook_block_assembly, boom_angle_indicator, emergency_shutdown
+        inspection_date, certificate_no, report_no, jrn, project_id, companyName, customer_name, customer_email, mobile, inspector, vessel_name_location, manufacturer, crane_type, asset_number, serial_number, model, manufacturing_year, address, capacity_swl, previous_test_date, crane_structure_condition, swinging_slewing_function, hydraulic_pneumatic_system, wire_ropes_condition, boom_lifting_extending_retracting, emergency_boom_lowering, auto_moment_limiter, anti_two_block, winch_drum_lock_pawls, hook_block_assembly, boom_angle_indicator, emergency_shutdown
     ) VALUES (
-        '$inspection_date', '$certificate_no', '$report_no', '$jrn', '$projectid', '$companyName', '$customer_name', '$customer_email', '$mobile', '$inspector', '$vessel_name_location', '$manufacturer', '$crane_type', '$asset_number', '$serial_number', '$model', '$manufacturing_year', '$address', '$capacity_swl', '$previous_test_date', '$crane_structure_condition', '$swinging_slewing_function', '$hydraulic_pneumatic_system', '$wire_ropes_condition', '$boom_lifting_extending_retracting', '$emergency_boom_lowering', '$auto_moment_limiter', '$anti_two_block', '$winch_drum_lock_pawls', '$hook_block_assembly', '$boom_angle_indicator', '$emergency_shutdown'
+        '$inspection_date', '$certificate_no', '$report_no', '$jrn', '$project_id', '$companyName', '$customer_name', '$customer_email', '$mobile', '$inspector', '$vessel_name_location', '$manufacturer', '$crane_type', '$asset_number', '$serial_number', '$model', '$manufacturing_year', '$address', '$capacity_swl', '$previous_test_date', '$crane_structure_condition', '$swinging_slewing_function', '$hydraulic_pneumatic_system', '$wire_ropes_condition', '$boom_lifting_extending_retracting', '$emergency_boom_lowering', '$auto_moment_limiter', '$anti_two_block', '$winch_drum_lock_pawls', '$hook_block_assembly', '$boom_angle_indicator', '$emergency_shutdown'
     )";
 
     if (mysqli_query($conn, $query)) {
