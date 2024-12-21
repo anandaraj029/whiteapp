@@ -247,7 +247,8 @@ margin: 5px;
             </div>
 
             <div class="text-center">
-    <a href="download.php" ><button>download</button></a>
+            <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+        <button>download</button></a>
   </div>
     </div>
    
