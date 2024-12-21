@@ -298,15 +298,18 @@ if (mysqli_num_rows($result) > 0) {
         <div style="display: flex; flex-direction: column; margin-left: 20px;">
             <div>
                 <label for="pass"><b>Passed</b></label>
-                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php // echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Passed') ? 'checked' : ''; ?> disabled>
             </div>
             <div>
                 <label for="fail"><b>Failed</b></label>
-                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php // echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Failed') ? 'checked' : ''; ?> disabled>
             </div>
         </div>
     </div>
 </td>
+
 
 
                                     
