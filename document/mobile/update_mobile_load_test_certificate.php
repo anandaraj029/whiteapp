@@ -13,12 +13,13 @@ include_once('../../file/config.php');
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Collect form data
-    $report_no = $_POST['report_no']; // The report_no field to identify the record
+    $project_id = $_POST['project_id'];
+     // The report_no field to identify the record
     // Collect other form data...
     $examination_date = $_POST['examination_date'];
     $report_date = $_POST['report_date'];
     $sticker_no = $_POST['sticker_no'];
-    $project_id = $_POST['project_id'];
+    $report_no = $_POST['report_no'];    
     $company_name = $_POST['company_name'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 examination_date = ?, 
                 report_date = ?,
                 sticker_no = ?,
-                project_id = ?,
+                report_no = ?,                
                 company_name = ?,
                 customer_name = ?, 
                 customer_email = ?,
@@ -140,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 hook_block_assembly = ?,
                 boom_angle_indicator = ?, 
                 wind_speed_indicator = ? 
-            WHERE report_no = ?";
+            WHERE project_id = ?";
 
     // Prepare the statement
     $stmt = $conn->prepare($sql);
@@ -154,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $examination_date, 
         $report_date,
         $sticker_no,
-        $project_id,
+        $report_no,
         $company_name,
         $customer_name,
         $customer_email,
@@ -212,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $hook_block_assembly,
         $boom_angle_indicator,
         $wind_speed_indicator,
-        $report_no
+        $project_id
     );
 
     // Execute the query

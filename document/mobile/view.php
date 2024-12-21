@@ -1,10 +1,10 @@
 <?php
 include_once('../../file/config.php');  // Include your database connection file
 
-// Fetch the record based on report_no
-$report_no = $_GET['report_no'];  // Assuming report_no is passed via URL
+// Fetch the record based on project_id
+$project_id = $_GET['project_id'];  // Assuming project_id is passed via URL
 
-$query = "SELECT * FROM mobile_crane_loadtest WHERE report_no = '$report_no'";
+$query = "SELECT * FROM mobile_crane_loadtest WHERE project_id = '$project_id'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -484,7 +484,7 @@ margin: 5px;
         </div>
 <br>
         <div class="text-center">
-        <a href="download.php?report_no=<?php echo $row['report_no']; ?>" >
+        <a href="download.php?project_id=<?php echo $row['project_id']; ?>" >
         <button>Download</button></a>
   </div>
 
