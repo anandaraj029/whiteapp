@@ -197,54 +197,23 @@ if (isset($_GET['project_id'])) {
         <h4 class="font-20 mb-20">B. DEFICIENCIES</h4>
         <div class="row">
             <div class="col-lg-12">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Deficiencies</th>
-                            <th>Corrective Action Taken</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Rows for deficiencies and corrective actions -->
-                        <tr>
-                            <td>1</td>
-                            <td><textarea class="theme-input-style" name="deficiency_1" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_1" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td><textarea class="theme-input-style" name="deficiency_2" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_2" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td><textarea class="theme-input-style" name="deficiency_3" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_3" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td><textarea class="theme-input-style" name="deficiency_4" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_4" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td><textarea class="theme-input-style" name="deficiency_5" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_5" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td><textarea class="theme-input-style" name="deficiency_6" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_6" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-                        <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Deficiencies</th>
+                        <th>Corrective Action Taken</th>
+                    </tr>
+                </thead>
+                <tbody id="deficiencyTable">
+                    <tr>
+                        <td>1</td>
+                        <td><textarea class="theme-input-style" name="deficiency[]" placeholder="Enter deficiency"></textarea></td>
+                        <td><textarea class="theme-input-style" name="corrective_action[]" placeholder="Enter corrective action"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow()">Add Row</button>
             </div>
         </div>
     </div>
@@ -258,6 +227,23 @@ if (isset($_GET['project_id'])) {
 </div>
 </form>
 
+
+ <!-- JavaScript for Adding Rows -->
+ <script>
+            function addRow() {
+                const table = document.getElementById('deficiencyTable');
+                const rowCount = table.rows.length + 1;
+                const newRow = `
+                    <tr>
+                        <td>${rowCount}</td>
+                        <td><textarea class="theme-input-style" name="deficiency[]" placeholder="Enter deficiency"></textarea></td>
+                        <td><textarea class="theme-input-style" name="corrective_action[]" placeholder="Enter corrective action"></textarea></td>
+                    </tr>
+                `;
+                table.insertAdjacentHTML('beforeend', newRow);
+            }
+        </script>
+        
 </div>
 
 </div>
