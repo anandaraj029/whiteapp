@@ -22,7 +22,7 @@ include_once('../../inc/function.php');
 
     <div class="container-fluid">
         
-        <form action="save_data_lifting.php" method="POST">
+        <form action="save_form.php" method="POST">
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-element py-30 mb-30">
@@ -37,14 +37,23 @@ include_once('../../inc/function.php');
                             </div>
                         </div>
 
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="certificate_no" class="theme-input-style" required>
                             </div>
-                        </div>
+                        </div> -->
+
+                        <!-- <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Certificate No</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="certificate_no[]" class="theme-input-style certificate-no" value="24403-1" readonly>
+                            </div>
+                        </div> -->
 
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
@@ -155,6 +164,11 @@ include_once('../../inc/function.php');
             </div>
             </div>
 
+
+            <div id="form-container">
+                <div class="form-section">
+                    <!-- General Information A -->
+
             <!-- General Information A -->
             <div class="row">
             <div class="col-lg-12">
@@ -163,61 +177,68 @@ include_once('../../inc/function.php');
 
                     <div class="row">
                         <div class="col-lg-6">
+
+                        <div class="form-group">
+                        <label for="certificate_no">Certificate No:</label>
+                        <input type="text" name="certificate_no[]" class="certificate-no" value="24403-1" readonly>
+                            </div>
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Name & Address of Employer</label>
-                                <input type="text" name="employer_name_address" class="theme-input-style">
+                                <input type="text" name="employer_name_address[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Identification No./Serial No.</label>
-                                <input type="text" name="identification_no" class="theme-input-style">
+                                <input type="text" name="identification_no[]" class="theme-input-style">
                             </div>
+
+                            
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Working Load Limit / Safe Working Load (WLL/SWL)</label>
-                                <input type="text" name="wll_swl" class="theme-input-style">
+                                <input type="text" name="wll_swl[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">QTY</label>
-                                <input type="text" name="qty" class="theme-input-style">
+                                <input type="text" name="qty[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Type</label>
-                                <input type="text" name="type" class="theme-input-style">
+                                <input type="text" name="type[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Date of Last Examination</label>
-                                <input type="date" name="date_last_examination" class="theme-input-style">
+                                <input type="date" name="date_last_examination[]" class="theme-input-style">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Manufacturer</label>
-                                <input type="text" name="manufacturer" class="theme-input-style">
+                                <input type="text" name="manufacturer[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Size</label>
-                                <input type="text" name="size" class="theme-input-style">
+                                <input type="text" name="size[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Length</label>
-                                <input type="text" name="length" class="theme-input-style">
+                                <input type="text" name="length[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Color</label>
-                                <input type="text" name="color" class="theme-input-style">
+                                <input type="text" name="color[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">No. of PLY (if any)</label>
-                                <input type="text" name="ply" class="theme-input-style">
+                                <input type="text" name="ply[]" class="theme-input-style">
                             </div>
                         </div>
                     </div>
@@ -233,29 +254,29 @@ include_once('../../inc/function.php');
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Address of Premises</label>
-                                <input type="text" name="address_of_premises" class="theme-input-style">
+                                <input type="text" name="address_of_premises[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Next Examination Due Date</label>
-                                <input type="date" name="next_examination_date" class="theme-input-style">
+                                <input type="date" name="next_examination_date[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Reason for Examination</label>
-                                <input type="text" name="reason_for_examination" class="theme-input-style">
+                                <input type="text" name="reason_for_examination[]" class="theme-input-style">
                             </div>
 
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Date of Examination</label>
-                                <input type="date" name="date_of_this_examination" class="theme-input-style">
+                                <input type="date" name="date_of_this_examination[]" class="theme-input-style">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Details of Any Test Applied</label>
-                                <textarea name="test_details" class="theme-input-style"></textarea>
+                                <textarea name="test_details[]" class="theme-input-style"></textarea>
                             </div>
                         </div>
                     </div>
@@ -271,14 +292,14 @@ include_once('../../inc/function.php');
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Status</label>
-                                <input type="text" name="status" class="theme-input-style">
+                                <input type="text" name="status[]" class="theme-input-style">
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Safe to Use</label>
-                                <input type="text" name="safe_to_use" class="theme-input-style">
+                                <input type="text" name="safe_to_use[]" class="theme-input-style">
                             </div>
                         </div>
                     </div>
@@ -288,13 +309,17 @@ include_once('../../inc/function.php');
           
             </div>
 
-                   <!-- Add More Button -->
+                   
+            </div>
+            </div>
+            </div>
+
+            <!-- Add More Button -->
     <div class="text-center mb-4">
         <button id="add-form-btn" class="btn btn-primary">
             <i class="fa fa-plus"></i> Add More
         </button>
     </div>
-            </div>
             <div class="form-group text-center mt-3">
                         <button type="submit" class="btn long" name="save_data_lifting">Save All</button>
                     </div>
@@ -312,17 +337,33 @@ include_once('../../inc/function.php');
 
 <!-- JavaScript -->
 <script>
-    document.getElementById("add-form-btn").addEventListener("click", function () {
-        const formContainer = document.getElementById("form-container");
-        const formSection = document.querySelector(".form-section");
+        let certificateCounter = 1; // Starting counter for certificate numbers
+document.getElementById("add-form-btn").addEventListener("click", function (e) {
+    e.preventDefault(); // Prevent default form submission
 
-        // Clone the form section
-        const clonedForm = formSection.cloneNode(true);
+    const formContainer = document.getElementById("form-container");
+    const formSection = document.querySelector(".form-section");
+    const clonedForm = formSection.cloneNode(true); // Clone the form section
 
-        // Append the cloned form to the form container
-        formContainer.appendChild(clonedForm);
+    // Increment the certificate counter and update the certificate number
+    certificateCounter++;
+    const certField = clonedForm.querySelector(".certificate-no");
+    if (certField) {
+        certField.value = `24403-${certificateCounter}`;
+    }
+
+    // Clear input values in the cloned form except for the certificate number
+    clonedForm.querySelectorAll("input, textarea").forEach(input => {
+        if (!input.classList.contains("certificate-no")) {
+            input.value = "";
+        }
     });
-</script>
+
+    // Append the cloned form to the container
+    formContainer.appendChild(clonedForm);
+});
+
+    </script>
 
 
 <?php include_once('../../inc/footer.php'); ?>

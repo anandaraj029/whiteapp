@@ -1,29 +1,27 @@
 <?php
-include_once('../../file/config.php'); // include your database connection
+include_once('../../file/config.php'); // Include your database connection
 
 // Get the project ID from the query parameter (assuming it's passed via URL)
 $projectid = $_GET['projectid']; // Adjust this according to how you are passing the projectid
 
 // Fetch the data based on the projectid
-$sql = "SELECT * FROM lifting_gears_certificate WHERE projectid = ?";
+$sql = "SELECT * FROM lifting_gear_certificates WHERE projectid = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $projectid);
 $stmt->execute();
 $result = $stmt->get_result();
 
-// Check if a record is found
+// Check if records are found
 if ($result->num_rows > 0) {
-    // Fetch the data as an associative array
-    $row = $result->fetch_assoc();
+    $certificates = $result->fetch_all(MYSQLI_ASSOC);
 } else {
-    echo "No data found for the given project ID.";
+    echo "No certificates found for the given project ID.";
     exit();
 }
 
 $stmt->close();
 $conn->close();
 ?>
-
 
 
 <!DOCTYPE html>
@@ -133,18 +131,22 @@ margin: 5px;
         <img src="../head2.jpg" alt="Header Image" style="width: 100%;">
         <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
+    <?php foreach ($certificates as $certificate): ?>
+
         <table class="table no-border">
             <tr>
                 <td colspan="3"></td>
-                <td colspan="3"><strong>Job Ref. No.:</strong> <?= $row['jrn']; ?></td>
-                <td colspan="3"><strong>Certificate No.:</strong> <?= $row['certificate_no']; ?></td>
+                <!-- <td colspan="3"><strong>Job Ref. No.:</strong> <?= $certificate['jrn']; ?></td> -->
+
+                <td colspan="3"><strong>Job Ref. No.:</strong> <?= $certificate['jrn']; ?></td>
+                <td colspan="3"><strong>Certificate No.:</strong> <?= $certificate['certificate_no']; ?></td>
                 <td colspan="3"></td>
             </tr>
             <tr>
-            <td colspan="3"><strong>Report No.:</strong> <?= $row['report_no']; ?></td>
-            <td colspan="3"><strong>Date of Report:</strong> <?= $row['date_of_report']; ?></td>
-            <td colspan="3"><strong>Color Code (if required):</strong> <?= $row['color_code']; ?></td>
-            <td colspan="3"><strong>Applicable Standard(s):</strong> <?= $row['applicable_standards']; ?></td>
+            <td colspan="3"><strong>Report No.:</strong> <?= $certificate['report_no']; ?></td>
+            <td colspan="3"><strong>Date of Report:</strong> <?= $certificate['date_of_report']; ?></td>
+            <td colspan="3"><strong>Color Code (if required):</strong> <?= $certificate['color_code']; ?></td>
+            <td colspan="3"><strong>Applicable Standard(s):</strong> <?= $certificate['applicable_standards']; ?></td>
             </tr>
         </table>
         <div class="table-responsive">
@@ -176,18 +178,18 @@ margin: 5px;
                 </thead>
                 <tbody>
                     <tr style="height: 150px">
-                    <td><?= $row['identification_no']; ?></td>
-                    <td><?= $row['qty']; ?></td>
-                    <td><?= $row['type']; ?></td>
-                    <td>Manufacturer: <?= $row['manufacturer']; ?><br>Size: <?= $row['size']; ?><br>Length: <?= $row['length']; ?><br>Color: <?= $row['color']; ?><br>Ply: <?= $row['ply']; ?></td>
-                    <td><?= $row['wll_swl']; ?></td>
-                    <td><?= $row['date_last_examination']; ?></td>
-                    <td><?= $row['date_of_this_examination']; ?></td>
-                    <td><?= $row['next_examination_date']; ?></td>
-                    <td><?= $row['reason_for_examination']; ?></td>
-                    <td><?= $row['test_details']; ?></td>
-                    <td><?= $row['status']; ?></td>
-                    <td><?= $row['safe_to_use']; ?></td>
+                    <td><?= $certificate['identification_no']; ?></td>
+                    <td><?= $certificate['qty']; ?></td>
+                    <td><?= $certificate['type']; ?></td>
+                    <td>Manufacturer: <?= $certificate['manufacturer']; ?><br>Size: <?= $certificate['size']; ?><br>Length: <?= $certificate['length']; ?><br>Color: <?= $certificate['color']; ?><br>Ply: <?= $certificate['ply']; ?></td>
+                    <td><?= $certificate['wll_swl']; ?></td>
+                    <td><?= $certificate['date_last_examination']; ?></td>
+                    <td><?= $certificate['date_of_this_examination']; ?></td>
+                    <td><?= $certificate['next_examination_date']; ?></td>
+                    <td><?= $certificate['reason_for_examination']; ?></td>
+                    <td><?= $certificate['test_details']; ?></td>
+                    <td><?= $certificate['status']; ?></td>
+                    <td><?= $certificate['safe_to_use']; ?></td>
                     </tr>
                     <tr>
                         <td colspan="2">Reason for Examination</td>
@@ -217,6 +219,7 @@ margin: 5px;
                 </tbody>
             </table>
         </div>
+        <?php endforeach; ?>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tbody>
@@ -232,7 +235,7 @@ margin: 5px;
             </div>
 
             <div class="text-center">
-    <a href="download.php?projectid=<?php echo $row['projectid']; ?>" >
+    <a href="download.php?projectid=<?php echo $certificate['projectid']; ?>" >
         <button>Download</button>
     </a>
 </div>
