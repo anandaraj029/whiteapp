@@ -7,7 +7,7 @@ $customerQuery = "SELECT * FROM customers";
 $customerResult = $conn->query($customerQuery);
 
 // Fetch inspector names from the inspector table
-$sql = "SELECT inspector_name FROM inspectors"; // Assuming 'inspector_name' is the column
+$sql = "SELECT * FROM inspectors"; // Assuming 'inspector_name' is the column
 $result = mysqli_query($conn, $sql); // Execute query
 
 ?>
@@ -96,27 +96,17 @@ $result = mysqli_query($conn, $sql); // Execute query
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
+
+
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
-                                            <label class="font-14 bold">Handle Crane</label>
+                                            <label class="font-14 bold">Equipment Location</label>
                                         </div>
                                         <div class="col-sm-8">
-
-                                        <select name="checklist_type" class="theme-input-style">
-                                            <option value="Articulating boom">Articulating boom</option>
-                                            <option value="Elevators">Elevators</option>
-                                            <option value="Mobile & Locomotive Cranes">Mobile & Locomotive Cranes</option>
-                                            <option value="Marine & Offshore Cranes">Marine & Offshore Cranes</option>
-                                            <option value="Storage Retrieval">Storage Retrieval</option>
-                                            <option value="Articulating Boom Cranes">Articulating Boom Cranes</option>
-                                            <option value="Lifting Beam Spreader Bar">Lifting Beam Spreader Bar</option>
-                                            <option value="Powered Platforms (Sky Climbers)">Powered Platforms (Sky Climbers)</option>
-                                            <option value="Vehicle-Mounted Elevating & Aerial Rotating Devices">Vehicle-Mounted Elevating & Aerial Rotating Devices</option>
-                                        </select>
-                                       
-                                    
+                                        <input type="text" name="equipment_location" class="theme-input-style" placeholder="Location">
                                         </div>
                                     </div>
+                                   
                                     <!-- End Form Row -->
                                     
                            
@@ -219,31 +209,59 @@ $result = mysqli_query($conn, $sql); // Execute query
                                             <label class="font-14 bold">Select Inspector</label>
                                         </div>
                                         <div class="col-sm-8">
-        <select name="inspector_name" class="theme-input-style">
-            <option value="" disabled selected>Select an Inspector</option>
-            <?php
-            // Loop through the results and populate the dropdown
-            if ($result && mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<option value="' . htmlspecialchars($row['inspector_name']) . '">' . htmlspecialchars($row['inspector_name']) . '</option>';
-                }
-            } else {
-                echo '<option value="">No Inspectors Found</option>';
-            }
-            ?>
-        </select>
+                                        <select name="inspector_name" id="inspector_select" class="theme-input-style">
+    <option value="" disabled selected>Select an Inspector</option>
+    <?php
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<option value="' . htmlspecialchars($row['inspector_name']) . '">' . htmlspecialchars($row['inspector_name']) . '</option>';
+        }
+    } else {
+        echo '<option value="">No Inspectors Found</option>';
+    }
+    ?>
+</select>
     </div>
+                                    </div>
+
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Handle Crane</label>
+                                        </div>
+
+
+                                        <div class="col-sm-8">
+    <select id="crane_select" name="checklist_type" class="theme-input-style">
+        <option value="" disabled selected>Select a Crane</option>
+    </select>
+</div>
+
+                                        <!-- <div class="col-sm-8">
+
+                                        <select name="checklist_type" class="theme-input-style">
+                                            <option value="arc-welding-machine">Arc Welding Machine</option>
+                                            <option value="articulating_boom">Articulating Boom</option>
+                                            <option value="base_mounted_drum">Base Mounted Drum Hoist (Winches)</option>
+                                            <option value="bulldozer">Bulldozer</option>
+                                            <option value="elevators">Elevators</option>
+                                            <option value="excavator">Excavator</option>
+                                            <option value="fixed-cranes-hoist">Fixed Cranes & Hoist</option>
+                                            <option value="forklift">Forklift</option>
+                                            <option value="frames-and-mobile-gantries"> Frames and Mobile Gantries</option>
+                                            <option value="jib-davit">JIB & DAVIT</option>
+                                            <option value="lifting-beam-spreader-bar">Lifting Beam Spreader Bar</option>
+                                            <option value="manbaskets">Manbaskets</option>
+                                            <option value="marine-offshore-cranes">Marine & Offshore Cranes</option>
+                                            <option value="mobile_locomotive">Mobile Locomotive</option>
+                                        </select>
+                                       
+                                    
+                                        </div> -->
                                     </div>
                                     <!-- End Form Row -->
                                          <!-- Form Row -->
-                                         <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Equipment Location</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                        <input type="text" name="equipment_location" class="theme-input-style" placeholder="Location">
-                                        </div>
-                                    </div>
+                                        
                            
                               
                                 <!-- End Form -->
@@ -343,6 +361,42 @@ $result = mysqli_query($conn, $sql); // Execute query
             });
         });
     </script>
+
+
+
+<script>
+$(document).ready(function() {
+    $('#inspector_select').change(function() {
+        let inspectorName = $(this).val(); // Get selected inspector name
+
+        if (inspectorName) {
+            $.ajax({
+                url: 'fetch_cranes.php', // Path to your PHP script
+                type: 'GET',
+                data: { inspector_name: inspectorName }, // Pass inspector name as parameter
+                dataType: 'json',
+                success: function(response) {
+                    // Populate the crane dropdown
+                    let optionsHtml = '<option value="">Select Crane</option>';
+                    response.forEach(function(item) {
+                        optionsHtml += `<option value="${item.value}">${item.label}</option>`;
+                    });
+                    $('#crane_select').html(optionsHtml);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching cranes: " + error);
+                    alert("Error fetching cranes. Please try again.");
+                }
+            });
+        } else {
+            // Clear the crane dropdown if no inspector is selected
+            $('#crane_select').html('<option value="">Select Crane</option>');
+        }
+    });
+});
+
+
+</script>
 <?php 
         include_once('../inc/footer.php');
         ?>

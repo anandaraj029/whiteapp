@@ -1,16 +1,23 @@
 <?php
-include_once('../../file/config.php');  // Include your database connection file
+include_once('../../file/config.php');
 
-// Fetch the record based on report_no
-$project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
+// Ensure the project_id is provided
+if (isset($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
 
-$query = "SELECT * FROM reports WHERE project_id = '$project_id'";
-$result = mysqli_query($conn, $query);
+    // Query to fetch deficiencies JSON column
+    $query = "SELECT * FROM reports WHERE project_id = '$project_id'";
+    $result = mysqli_query($conn, $query);
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $deficiencies = json_decode($row['deficiencies'], true); // Decode JSON to PHP array
+    } else {
+        $deficiencies = []; // Empty array if no data found
+    }
 } else {
-    echo "No record found!";
+    echo "No project ID provided!";
+    exit;
 }
 ?>
 
@@ -290,15 +297,18 @@ if (mysqli_num_rows($result) > 0) {
         <div style="display: flex; flex-direction: column; margin-left: 20px;">
             <div>
                 <label for="pass"><b>Passed</b></label>
-                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php // echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Passed') ? 'checked' : ''; ?> disabled>
             </div>
             <div>
                 <label for="fail"><b>Failed</b></label>
-                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php // echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
+                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Failed') ? 'checked' : ''; ?> disabled>
             </div>
         </div>
     </div>
 </td>
+
 
 
                                     
@@ -322,31 +332,30 @@ if (mysqli_num_rows($result) > 0) {
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="table-responsive">
-                                <table class="table items items-preview estimate-items-preview" style="border:1px solid black; width: 100%;"> 
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th class="description" style="text-align: center;">DEFICIENCIES</th>
-                                            <th style="text-align: center;">CORRECTIVE ACTION TAKEN</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                <?php
-                                // Parse deficiencies and corrective actions into arrays
-                                $deficiencies = explode("\n", trim($row['deficiency'] ?? ''));
-                                $corrective_actions = explode("\n", trim($row['corrective_action'] ?? ''));
-
-                                // Display each deficiency and action
-                                foreach ($deficiencies as $index => $deficiency) {
-                                    echo "<tr>
-                                        <td>" . ($index + 1) . "</td>
-                                        <td style='height:260px;'>" . htmlspecialchars(trim($deficiency)) . "</td>
-                                        <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? 'N/A')) . "</td>
-                                    </tr>";
-                                }
-                                ?>
-                                </tbody>
-</table>
+                                <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Deficiencies</th>
+                    <th>Corrective Action Taken</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($deficiencies)): ?>
+                    <?php foreach ($deficiencies as $index => $entry): ?>
+                        <tr>
+                            <td><?php echo $index + 1; ?></td>
+                            <td><?php echo htmlspecialchars($entry['deficiency']); ?></td>
+                            <td><?php echo htmlspecialchars($entry['corrective_action']); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">No deficiencies recorded for this project.</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
 
 
                                     

@@ -2,6 +2,8 @@
 <?php 
 include_once('../inc/function.php');
 
+
+
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -26,7 +28,8 @@ include_once('../inc/function.php');
                                     <div class="theme-input-group style--two">
                                     <input type="text" class="theme-input-style" placeholder="Search Here">
 
-                                    <button type="submit"><img src="<?php echo $url; ?>assets/img/svg/search-icon.svg" alt=""
+                                    <button type="submit">
+                                       <img src="<?php echo $url; ?>assets/img/svg/search-icon.svg" alt=""
                                           class="svg"></button>
                                     </div>
                                  </form>
@@ -287,8 +290,9 @@ if ($result->num_rows > 0) {
                                           </div>
 
                                           <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
+                                             
+                                             <a href="#" class="cancel font-14 bold mr-4" data-dismiss="modal">Cancel</a>
+                                             <a href="#" class="btn ">Save Changes</a>
                                           </div>
                                        </div>
                                     </div>

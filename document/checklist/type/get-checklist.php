@@ -1,30 +1,56 @@
 <?php 
-include_once('../../../file/config.php'); // include your database connection
+include_once('../../../file/config.php'); // Include your database connection
 
-// Check if checklist_type parameter is set in the URL, use 'wheel-loader' as default for testing
-$checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : 'wheel-loader';
+// Fetch checklist_type and checklist_no from GET parameters
+$checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : '';
+$checklist_no = isset($_GET['checklist_no']) ? $_GET['checklist_no'] : '';
 
-// Debug line to check the checklist_type
+// Debug lines to check input parameters
 echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
+echo "Checklist No: " . htmlspecialchars($checklist_no) . "<br>";
 
-if (!empty($checklist_type)) {
-    // SQL query to fetch data from the 'checklist_information' table based on checklist type
-    $query = "SELECT * FROM checklist_information WHERE checklist_type = '$checklist_type';";
+// Initialize variables
+$row = [];
+
+// Check if both checklist_type and checklist_no are provided
+if (!empty($checklist_type) && !empty($checklist_no)) {
+    // SQL query to fetch data based on checklist_type and checklist_no using prepared statements
+    $query = "SELECT * FROM checklist_information WHERE checklist_type = ? AND checklist_id = ?";
     
-    $result = mysqli_query($conn, $query);
+    // Prepare the SQL query
+    $stmt = $conn->prepare($query);
+    
+    if ($stmt) {
+        // Bind the parameters to prevent SQL injection
+        $stmt->bind_param("si", $checklist_type, $checklist_no); // 's' for string, 'i' for integer
+        
+        // Execute the query
+        $stmt->execute();
+        
+        // Get the result
+        $result = $stmt->get_result();
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $cheklist_no = $row['checklist_id'];  // Fetch record into $row array
+        // Check if data is retrieved
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc(); // Fetch the result as an associative array
+
+            // Display fetched data
+            echo "Checklist Type: " . htmlspecialchars($row['checklist_type']) . "<br>";
+            echo "Checklist No: " . htmlspecialchars($row['checklist_id']) . "<br>";
+            // echo "Other Details: " . htmlspecialchars($row['other_column']) . "<br>"; // Adjust this line for other columns
+        } else {
+            echo "No record found!";
+        }
+
+        // Close the statement
+        $stmt->close();
     } else {
-        echo "No record found!";
-        $row = []; // Initialize as an empty array if no record found
+        echo "Error preparing the SQL statement: " . $conn->error;
     }
 } else {
-    echo "No checklist type provided!";
-    $row = []; // Initialize as an empty array if checklist type is not provided
+    echo "Checklist Type or Checklist No is missing!";
 }
 
-
-
+// Close the database connection
+$conn->close();
 ?>

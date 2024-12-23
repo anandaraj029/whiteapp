@@ -7,12 +7,31 @@ if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
 
     // Query to fetch checklist_no based on project_id
-    $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
+    // $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
+
+    $query = "
+    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date,
+           p.project_no, p.creation_date, p.sticker_status, p.customer_name, p.equipment_location,
+           p.inspector_name, p.checklist_type
+    FROM checklist_information c
+    JOIN project_info p ON c.project_id = p.project_id
+    WHERE c.project_id = '$project_id' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
         $checklist_no = $row['checklist_no'];
+        $client_name = $row['client_name'];
+        $location = $row['location'];
+        $equipment_type = $row['equipment_type'];
+        $inspection_date = $row['inspection_date'];
+        $project_no = $row['project_no'];
+        $creation_date = $row['creation_date'];
+        $sticker_status = $row['sticker_status'];
+        $customer_name = $row['customer_name'];
+        $equipment_location = $row['equipment_location'];
+        $inspector_name = $row['inspector_name'];
+        $checklist_type = $row['checklist_type'];
     } else {
         echo "No checklist found for the provided Project ID!";
         exit;
@@ -31,7 +50,7 @@ if (isset($_GET['project_id'])) {
                         <div class="card-body bg-white ">
                             <div class="row">
                                <div class="col-6">
-                        <h4 class="pl-2 pt-3 pb-2 font-20">WITH LOAD TEST</h4>
+                        <h4 class="pl-2 pt-3 pb-2 font-20">REPORT</h4>
                                 </div>
                         <!-- <div class="col-6 text-right">
                        <button type="button" class="btn" >View List</button>               
@@ -65,7 +84,8 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Client Company / Name</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter client company name" name="client_company_name" required>
+                    <!-- <input type="text" class="theme-input-style" placeholder="Enter client company name" name="client_company_name" required> -->
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($client_name); ?>" name="client_company_name" required>
                 </div>
 
                 <div class="form-group">
@@ -123,12 +143,14 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Location</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter location" name="location" required>
+                    <!-- <input type="text" class="theme-input-style" placeholder="Enter location" name="location" required> -->
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($location); ?>" name="location" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Date of Inspection</label>
-                    <input type="date" class="theme-input-style" name="date_of_inspection" required>
+                    <!-- <input type="date" class="theme-input-style" name="date_of_inspection" required> -->                    
+                    <input type="date" class="theme-input-style" value="<?php echo htmlspecialchars($inspection_date); ?>" name="date_of_inspection" required>
                 </div>
 
                 <div class="form-group">
@@ -175,54 +197,23 @@ if (isset($_GET['project_id'])) {
         <h4 class="font-20 mb-20">B. DEFICIENCIES</h4>
         <div class="row">
             <div class="col-lg-12">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Deficiencies</th>
-                            <th>Corrective Action Taken</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Rows for deficiencies and corrective actions -->
-                        <tr>
-                            <td>1</td>
-                            <td><textarea class="theme-input-style" name="deficiency_1" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_1" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>2</td>
-                            <td><textarea class="theme-input-style" name="deficiency_2" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_2" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td><textarea class="theme-input-style" name="deficiency_3" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_3" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td><textarea class="theme-input-style" name="deficiency_4" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_4" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td><textarea class="theme-input-style" name="deficiency_5" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_5" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td><textarea class="theme-input-style" name="deficiency_6" placeholder="Enter deficiency"></textarea></td>
-                            <td><textarea class="theme-input-style" name="corrective_action_6" placeholder="Enter corrective action"></textarea></td>
-                        </tr>
-                        <!-- Add more rows as needed -->
-                    </tbody>
-                </table>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Deficiencies</th>
+                        <th>Corrective Action Taken</th>
+                    </tr>
+                </thead>
+                <tbody id="deficiencyTable">
+                    <tr>
+                        <td>1</td>
+                        <td><textarea class="theme-input-style" name="deficiency[]" placeholder="Enter deficiency"></textarea></td>
+                        <td><textarea class="theme-input-style" name="corrective_action[]" placeholder="Enter corrective action"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addRow()">Add Row</button>
             </div>
         </div>
     </div>
@@ -236,6 +227,23 @@ if (isset($_GET['project_id'])) {
 </div>
 </form>
 
+
+ <!-- JavaScript for Adding Rows -->
+ <script>
+            function addRow() {
+                const table = document.getElementById('deficiencyTable');
+                const rowCount = table.rows.length + 1;
+                const newRow = `
+                    <tr>
+                        <td>${rowCount}</td>
+                        <td><textarea class="theme-input-style" name="deficiency[]" placeholder="Enter deficiency"></textarea></td>
+                        <td><textarea class="theme-input-style" name="corrective_action[]" placeholder="Enter corrective action"></textarea></td>
+                    </tr>
+                `;
+                table.insertAdjacentHTML('beforeend', newRow);
+            }
+        </script>
+        
 </div>
 
 </div>

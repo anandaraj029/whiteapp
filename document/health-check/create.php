@@ -63,7 +63,7 @@
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="projectid" placeholder="Project ID">
+                                <input type="text" class="theme-input-style" name="project_id" placeholder="Project ID">
                             </div>
                         </div>
                         <div class="form-row mb-20">

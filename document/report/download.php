@@ -3,16 +3,22 @@ require_once('../../vendor/autoload.php');
 
 include_once('../../file/config.php');  // Include your database connection file
 
-// Fetch the record based on report_no
-$project_id = $_GET['project_id']; // Assuming report_no is passed via URL
+// Ensure the project_id is provided
+if (!isset($_GET['project_id'])) {
+    die("Project ID not provided!");
+}
 
+$project_id = $_GET['project_id'];
+
+// Fetch the record based on project_id
 $query = "SELECT * FROM reports WHERE project_id = '$project_id'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result); // Fetch record into $row array
+    $row = mysqli_fetch_assoc($result);
+    $deficiencies = json_decode($row['deficiencies'], true); // Decode JSON into PHP array
 } else {
-    die("No record found!");
+    die("No record found for the provided project ID!");
 }
 
 // Start capturing output
@@ -176,19 +182,16 @@ ob_start();
                                         Location:
                                     </b><?php echo htmlspecialchars($row['location']); ?></td>
                                     <td colspan="2">
-                                <div >
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <b>Inspection Status:</b>
-                                    <div class="row">
-                                       
-                                    <div class="col-6">
+                                    <div style="display: flex; flex-direction: column; margin-left: 20px;">
+                                        <div>
                                             <label for="pass"><b>Passed</b></label>
                                             <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php // echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
-                                        
+                                        </div>
+                                        <div>
                                             <label for="fail"><b>Failed</b></label>
                                             <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php // echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
-                                        </div>
-                                        <div  class="col-6">
-                                           
                                         </div>
                                     </div>
                                 </div>
