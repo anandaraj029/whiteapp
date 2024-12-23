@@ -132,7 +132,7 @@ ob_start();
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-1">
-                                <img src="../logo.png" alt="CIMS" width="70" height="90">
+                                <img src="../logo.png" alt="CIMS" width="60" height="80">
                             </div>
                             <div class="col-md-6">
                                 <h3>Crane Inspection & Maintenance Services</h3>
@@ -140,41 +140,22 @@ ob_start();
                                 <b>P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia</b><br>
                                     <b>TEL.: 013 814 6861 - 013 814 6862 Ext.109 - Fax: 013 814 6863</b><br>
                                     <b>Email: office@cims.com.sa - info@cims.com.sa</b>  <br>                             </p>
-                                    <h3 style="font-size: 18px;margin-top:15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
+                                    <h4 style="font-size: 18px;margin-top:15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h4>
                             </div>
                             <div class="col-md-3">
-                                <h4 style="font-size: 18px;" class="bold estimate-html-number" >
+                                <h5 style="font-size: 16px;" class="bold " >
                                 Report No: <?php echo htmlspecialchars($row['report_no']); ?><br>
-                               JRN: <?php echo htmlspecialchars($row['jrn']); ?> 
-                                   </h4>
-                                
+                               JRN: <?php echo htmlspecialchars($row['jrn']); ?> <br>
+                               <img src="../code.png" alt="CIMS" width="90" height="90" style="margin-top: -5px;">
+                                   </h5>
+                                  
                                 
                             </div>
-                            <div class="col-md-2">
-                                <img src="../code.png" alt="CIMS" width="90" height="90">
-                            </div>
+                            
                         </div>
 
-                        <div class="row">
-                            <!-- <div class="col-md-1">
-                              
-                            </div>
-                            <div class="col-md-6">
-                                
-                                    <h3 style="font-size: 22px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
-                            </div>
-                            <div class="col-md-5">
-                                
-                                <h4 style="font-size: 19px;text-align:right">JRN: <?php echo htmlspecialchars($row['jrn']); ?> </h4>
-                                
-                            </div> -->
-                            <!-- <div class="col-md-2">
-                                <img src="../code.png" alt="CIMS" width="120" height="120">
-                            </div> -->
-                        </div>
-
-                     
-                        <table style="border:1px solid black; width: 100%; height: 164px;">
+                   
+                        <table style="border:1px solid black; width: 100%; height: 154px;margin-top:-20px;">
                             <tbody>
                                 <tr>
                                     <td colspan="2" rowspan="3" style="vertical-align: top;">
@@ -195,16 +176,19 @@ ob_start();
                                         Location:
                                     </b><?php echo htmlspecialchars($row['location']); ?></td>
                                     <td colspan="2">
-                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div >
                                     <b>Inspection Status:</b>
-                                    <div style="display: flex; flex-direction: column; margin-left: 20px;">
-                                        <div>
+                                    <div class="row">
+                                       
+                                    <div class="col-6">
                                             <label for="pass"><b>Passed</b></label>
                                             <input type="checkbox" id="pass" name="ins_result_pass" value="pass" <?php // echo ($row['ins_result_pass'] == 'pass') ? 'checked' : ''; ?> disabled>
-                                        </div>
-                                        <div>
+                                        
                                             <label for="fail"><b>Failed</b></label>
                                             <input type="checkbox" id="fail" name="ins_result_fail" value="fail" <?php // echo ($row['ins_result_fail'] == 'fail') ? 'checked' : ''; ?> disabled>
+                                        </div>
+                                        <div  class="col-6">
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -249,8 +233,8 @@ ob_start();
                                 // Display each deficiency and action
                                 foreach ($deficiencies as $index => $deficiency) {
                                     echo "<tr>
-                                        <td>" . ($index + 1) . "</td>
-                                        <td style='height:100px;'>" . htmlspecialchars(trim($deficiency)) . "</td>
+                                        <td style='width: 50px;'>" . ($index + 1) . "</td>
+                                        <td style='height:170px; width:700px'>" . htmlspecialchars(trim($deficiency)) . "</td>
                                         <td>" . htmlspecialchars(trim($corrective_actions[$index] ?? 'N/A')) . "</td>
                                     </tr>";
                                 }
@@ -266,22 +250,10 @@ ob_start();
                           
                            <div class="col-md-12 estimate-html-note">
                                 <p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
-                                <div class="col-md-12" style="border:2px solid #d0cece;">
-                                    <div class="form-group1">
-                                        <div class="form-check2">
-
-                                        <!-- <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;"> -->
-                               
-                                               <h6> <input type="checkbox" style="padding-right: 5px;">I agree to take full responsibility for this inspection
+                                <h4 style="padding: 5px;"> <input type="checkbox" style="padding-right: 5px;">I agree to take full responsibility for this inspection
                                                    <span> اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص</span>
-                                               </h6> 
-                                            
-                                          
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
+                                               </h4> 
+                               
                                 <div class="row">
                             <div class="col-md-12">
                             <table class="table table-responsive" style="width:100%";>
