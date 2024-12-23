@@ -5,7 +5,7 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'lifting_gears_certificate' table
-$sql = "SELECT * FROM lifting_gears_certificate";
+$sql = "SELECT * FROM lifting_gear_certificates";
 $result = $conn->query($sql);
 ?>
         <!-- Main Content -->
