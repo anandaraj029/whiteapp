@@ -8,7 +8,7 @@ include_once('../../file/config.php'); // include your database connection
 $projectid = $_GET['projectid'];
 
 // Fetch the data based on the projectid
-$sql = "SELECT * FROM lifting_gears_certificate WHERE projectid = ?";
+$sql = "SELECT * FROM lifting_gear_certificates WHERE projectid = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $projectid);
 $stmt->execute();

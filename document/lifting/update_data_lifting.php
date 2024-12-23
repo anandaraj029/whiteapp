@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $safe_to_use = $_POST['safe_to_use'];
 
     // Prepare the SQL update query
-    $query = "UPDATE lifting_gears_certificate SET 
+    $query = "UPDATE lifting_gear_certificates SET 
         date_of_report = '$date_of_report',
         certificate_no = '$certificate_no',
         report_no = '$report_no',
