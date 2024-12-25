@@ -5,72 +5,46 @@ include_once('../inc/function.php');
 
 // Check if project_id is set in the URL
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $project_id = $_GET['id'];
+    $data_id = $_GET['id'];
 
-    // Query to fetch project details
-    $queryProject = "SELECT * FROM project_info WHERE project_id = ?";
-    $stmtProject = $conn->prepare($queryProject);
-    $stmtProject->bind_param("i", $project_id);
-    $stmtProject->execute();
-    $resultProject = $stmtProject->get_result();
+    // Query to fetch project, checklist, and report details using JOIN
+    $query = "
+        SELECT 
+            p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status,
+            c.checklist_no, c.inspected_by,
+            r.report_no, r.sticker_number_issued
+        FROM project_info p
+        LEFT JOIN checklist_information c ON p.project_id = c.project_id
+        LEFT JOIN reports r ON p.project_id = r.project_id
+        WHERE p.project_id = ?
+    ";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $data_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($resultProject->num_rows > 0) {
-        $project = $resultProject->fetch_assoc();
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
 
-        // Retrieve checklist_status and report_status directly from the project_info table
-        $checklistStatus = $project['checklist_status'];
-        $reportStatus = $project['report_status'];
+         // Determine checklist and report creation status
+         $checklistCreated = isset($data['checklist_no']);
+         $reportCreated = isset($data['report_no']);
+
+        // Retrieve checklist_status and report_status directly from the joined data
+        $checklistStatus = $data['checklist_status'];
+        $dataStatus = $data['report_status'];
 
         // Determine if the "Add Certificate" button should be enabled
-        $enableAddCertificate = ($checklistStatus === "Created" && $reportStatus === "Generated");
+        $enableAddCertificate = ($checklistStatus === "Created" && $dataStatus === "Generated");
     } else {
         echo "No details found for this project.";
         exit;
     }
-
-    // Query to fetch checklist data
-    $queryChecklist = "SELECT * FROM checklist_information WHERE project_id = ?";
-    $stmtChecklist = $conn->prepare($queryChecklist);
-    $stmtChecklist->bind_param("i", $project_id);
-    $stmtChecklist->execute();
-    $resultChecklist = $stmtChecklist->get_result();
-
-   //  $checklistStatus = "Incomplete";
-   //  if ($resultChecklist->num_rows > 0) {
-   //      while ($checklist = $resultChecklist->fetch_assoc()) {
-   //          if (in_array($checklist['status'], ['Created', 'Generated'])) {
-   //              $checklistStatus = "Complete";
-   //              break;
-   //          }
-   //      }
-   //  }
-
-
-    // Query to fetch report data
-    $queryReport = "SELECT * FROM reports WHERE project_id = ?";
-    $stmtReport = $conn->prepare($queryReport);
-    $stmtReport->bind_param("i", $project_id);
-    $stmtReport->execute();
-    $resultReport = $stmtReport->get_result();
-
-   //  $reportStatus = "Incomplete";
-   //  if ($resultReport->num_rows > 0) {
-   //      while ($report = $resultReport->fetch_assoc()) {
-   //          if (in_array($report['status'], ['Created', 'Generated'])) {
-   //              $reportStatus = "Complete";
-   //              break;
-   //          }
-   //      }
-   //  }
-
-    // Determine if the button should be enabled
-   //  $enableAddCertificate = ($checklistStatus === "Complete" && $reportStatus === "Complete");
 } else {
     echo "Invalid Project ID.";
     exit;
 }
 ?>
-
 
          <div class="main-content d-flex flex-column flex-md-row">
             <div class="container-fluid">
@@ -119,15 +93,15 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                               <h3 class="white font-20 mb-3">Customer Details</h3>
                                  <ul class="list-invoice">
                                     <li class="location">CA <br />
-                                    <?php echo htmlspecialchars($project['equipment_location']); ?></li>
+                                    <?php echo htmlspecialchars($data['equipment_location']); ?></li>
                                     <li class="call">
                                        <a href="tel:+01234567891">+0 (123) 456 7891</a> <br />
                                        <a href="tel:+01234567891">
-                                       <?php echo htmlspecialchars($project['customer_mobile']); ?>
+                                       <?php echo htmlspecialchars($data['customer_mobile']); ?>
                                        </a>
                                     </li>
                                     <li class="mail">
-                                    <?php echo htmlspecialchars($project['customer_email']); ?>
+                                    <?php echo htmlspecialchars($data['customer_email']); ?>
                                  </li>
                                     </li>
                                     
@@ -145,7 +119,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                        #256987
                                     </span></li>
                                     <li><span class="key font-14">Project No:</span> <span class="white bold font-17">
-                                    <?php echo htmlspecialchars($project['project_id']); ?>
+                                    <?php echo htmlspecialchars($data['project_id']); ?>
                                     
                                     </span></li>
                                     <li><span class="key font-14">Start Date:</span> <span class="white bold font-17">08/12/2019</span></li>
@@ -184,41 +158,35 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         <!-- Checklist Details -->
         <div class="invoice payment-details mt-5 mt-xl-0">
             <div class="bold black font-17 mb-3">Checklist Details:</div>
-            
-                <ul class="status-list">
-                <li><span class="key">Checklist Status:</span> <span class="black"><?php echo htmlspecialchars($project['checklist_status']); ?></span></li>
-                <?php if ($resultChecklist->num_rows > 0): ?>
-                    <?php while ($checklist = $resultChecklist->fetch_assoc()): ?>
-                        <li><span class="key">Checklist No:</span> <span class="black"><?php echo htmlspecialchars($checklist['checklist_no']); ?></span></li>
-                        
-                        <!-- <li><span class="key">Equipment ID:</span> <span class="black"><?php echo htmlspecialchars($checklist['equipment_id']); ?></span></li> -->
-                        <li><span class="key">Inspector:</span> <span class="black"><?php echo htmlspecialchars($checklist['inspected_by']); ?></span></li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php else: ?>
-                <p>No checklist data found.</p>
-            <?php endif; ?>
+             <?php if ($checklistCreated): ?>
+            <ul class="status-list">
+                                    <li><span class="key">Checklist No:</span> <span class="black"><?php echo htmlspecialchars($data['checklist_no']); ?></span></li>
+                                    <li><span class="key">Inspector:</span> <span class="black"><?php echo htmlspecialchars($data['inspected_by']); ?></span></li>
+                                </ul>
+                                <?php else: ?>
+                    <p class="black">Checklist not created.</p>
+                <?php endif; ?>
         </div>
     </div>
     <div class="col-xl-4 col-md-6">
         <!-- Report Details -->
         <div class="invoice invoice-form">
             <div class="bold black font-17 mb-3">Report Details:</div>
+            <?php if ($reportCreated): ?>
             
-                <ul class="status-list">
-                <li><span class="key">Report Status:</span> <span class="black"><?php echo htmlspecialchars($project['report_status']); ?></span></li>
-                <?php if ($resultReport->num_rows > 0): ?>
-                    <?php while ($report = $resultReport->fetch_assoc()): ?>
-                        <li><span class="key">Report No:</span> <span class="black"><?php echo htmlspecialchars($report['report_no']); ?></span></li>
-                        <li><span class="key">Sticker:</span> <span class="black"><?php echo htmlspecialchars($report['sticker_number_issued']); ?></span></li>
-                        <li><span class="key">Date of Creation:</span> <span class="black"><?php echo htmlspecialchars($report['date_of_creation']); ?></span></li>
-                        
-                        <li><span class="key">Rep. Name:</span> <span class="black"><?php echo htmlspecialchars($report['rep_name']); ?></span></li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php else: ?>
-                <p>No report data found.</p>
-            <?php endif; ?>
+            <ul class="status-list">
+                                    <li><span class="key">Report No:</span> <span class="black"><?php echo htmlspecialchars($data['report_no']); ?></span></li>
+                                    <li><span class="key">Sticker:</span> <span class="black"><?php echo htmlspecialchars($data['sticker_number_issued']); ?></span></li>
+                                    <!-- <li><span class="key">Date of Creation:</span> <span class="black"><?php echo htmlspecialchars($data['date_of_creation']); ?></span></li>
+                                    <li><span class="key">Rep. Name:</span> <span class="black"><?php echo htmlspecialchars($data['rep_name']); ?></span></li> -->
+                                </ul>
+
+                                <?php else: ?>
+                    <p class="black">Report not created.</p>
+                <?php endif; ?>
+            
+                <!-- <p>No report data found.</p> -->
+            
         </div>
     </div>
                            <div class="col-xl-4 col-md-6">
@@ -254,23 +222,27 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <div class="modal-body">
                 <div class="form-group">
                     <label for="projectId">Project ID</label>
-                    <input type="text" class="form-control" id="projectId" value="<?php echo htmlspecialchars($project['project_id']); ?>" readonly>
+                    <input type="text" class="form-control" id="projectId" value="<?php echo htmlspecialchars($data['project_id']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="checklistNo">Checklist No</label>
-                    <input type="text" class="form-control" id="checklistNo" value="<?php echo htmlspecialchars($checklist['checklist_no']); ?>" readonly>
+                    <input type="text" class="form-control" id="checklistNo" value="<?php echo htmlspecialchars($data['checklist_no']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="reportNo">Report No</label>
-                    <input type="text" class="form-control" id="reportNo" value="<?php echo htmlspecialchars($project['report_no']); ?>" readonly>
+                    <input type="text" class="form-control" id="reportNo" value="<?php echo htmlspecialchars($data['report_no']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="certificateType">Certificate Type</label>
                     <select class="form-control" id="certificateType" required>
                         <option value="" disabled selected>Select Certificate Type</option>
-                        <option value="type1">Type 1</option>
-                        <option value="type2">Type 2</option>
-                        <option value="type3">Type 3</option>
+                        <option value="healthcheck">Health Check</option>
+                        <option value="lifting">Lifting</option>
+                        <option value="loadtestwithload">With Load</option>
+                        <option value="loadtestwithoutload">Without Load</option>
+                        <option value="mobile">Mobile</option>
+                        <option value="mpi">MPI</option>
+
                         <!-- Add more options as required -->
                     </select>
                 </div>
@@ -392,15 +364,15 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
       <!-- End Main Wrapper -->
 
       <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const addCertificateButton = document.querySelector("button[data-target='#addCertificateModal']");
-        if (<?php echo json_encode($enableAddCertificate); ?>) {
-            addCertificateButton.removeAttribute("disabled");
-        } else {
-            addCertificateButton.setAttribute("disabled", "true");
-        }
-    });
-</script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const addCertificateButton = document.querySelector("button[data-target='#addCertificateModal']");
+                        if (<?php echo json_encode($enableAddCertificate); ?>) {
+                            addCertificateButton.removeAttribute("disabled");
+                        } else {
+                            addCertificateButton.setAttribute("disabled", "true");
+                        }
+                    });
+                </script>
 
       <script>
     document.getElementById('createCertificateBtn').addEventListener('click', function () {
@@ -417,10 +389,12 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         // Define redirection URLs for each certificate type
         const certificateLinks = {
-            type1: '../document/health-check/create.php',
-            type2: '../document/lifting/create.php',
-            type3: '../document/loadtest/with_load.php',
-            type4: '../document/loadtest/with_load.php',
+            healthcheck: '../document/health-check/create.php',
+            lifting: '../document/lifting/create.php',
+            loadtestwithload: '../document/loadtest/with_load.php',
+            loadtestwithoutload: '../document/loadtest/without_load.php',
+            mobile: '../document/mobile/create.php',
+            mpi: '../document/mpi/create.php',
             // Add more mappings as needed
         };
 
