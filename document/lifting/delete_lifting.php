@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['projectid'])) {
     $projectid = $_POST['projectid'];
     
     // SQL to delete a record from the table
-    $sql = "DELETE FROM lifting_gears_certificate WHERE projectid = ?";
+    $sql = "DELETE FROM lifting_gear_certificates WHERE projectid = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $projectid);
     

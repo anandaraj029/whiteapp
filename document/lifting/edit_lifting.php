@@ -4,7 +4,7 @@ include_once('../../file/config.php'); // include your database connection
 
 // Fetch existing data (assuming the certificate_no is passed via GET)
 $projectid = $_GET['projectid']; // Get the certificate number from URL
-$query = "SELECT * FROM lifting_gears_certificate WHERE projectid = '$projectid'";
+$query = "SELECT * FROM lifting_gear_certificates WHERE projectid = '$projectid'";
 $result = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 ?>

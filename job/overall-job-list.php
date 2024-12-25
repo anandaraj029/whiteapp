@@ -33,7 +33,7 @@ $result = $conn->query($sql);
 
             <div class="d-flex flex-wrap">
                 <!-- Date Picker -->
-                <div class=" mr-20 mt-3 mt-sm-0">
+                <div class="mr-20 mt-3 mt-sm-0">
                    <!-- <span class="input-group-addon">
                       <img src="../../assets/img/svg/calender-color.svg" alt="" class="svg">
                     </span> -->
@@ -130,9 +130,9 @@ $result = $conn->query($sql);
 <?php } ?>
 
         <!-- Certificate Link -->
-        <a href="generate-certificate.php?id=<?php echo $row['project_id']; ?>">
+        <!-- <a href="generate-certificate.php?id=<?php echo $row['project_id']; ?>">
             <i class="icofont-data color-primary"></i> Certificate
-        </a> 
+        </a>  -->
     </div>
 </td>
 
