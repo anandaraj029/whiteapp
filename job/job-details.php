@@ -76,11 +76,20 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             lc.certificate_no
         FROM lifting_gear_certificates lc
         WHERE lc.project_id = ?
+
+
+        UNION
+
+        SELECT 
+            'mpi' AS certificate_type,
+            mp.certificate_no
+        FROM mpi_certificates mp
+        WHERE mp.project_id = ?
        
     ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iiii", $data_id, $data_id, $data_id, $data_id);
+    $stmt->bind_param("iiiii", $data_id, $data_id, $data_id, $data_id, $data_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -301,7 +310,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <option value="loadtestwithload">With Load</option>                        
                         <option value="mobile">Mobile</option>
                         <option value="lifting">Lifting</option>
-                        
+                        <option value="mpi">MPI</option>                       
 
                         <!-- Add more options as required -->
                     </select>
@@ -419,7 +428,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             lifting: '../document/lifting/create.php',
             loadtestwithload: '../document/loadtest/with_load.php',            
             mobile: '../document/mobile/create.php',
-            
+            mpi: '../document/mpi/create.php',
             // Add more mappings as needed
         };
 

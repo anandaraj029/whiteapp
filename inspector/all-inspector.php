@@ -96,7 +96,10 @@ if ($result->num_rows > 0) {
                     <span class='checkmark'></span>
                 </label>
             </td>
-            <td>{$row['inspector_name']}</td>
+          <td>
+                <img src='../uploads/{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                {$row['inspector_name']}
+            </td>
             <td>{$row['emp_id']}</td>
             <td>{$row['email']}</td>
             <td>{$row['mobile']}</td>                        
