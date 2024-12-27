@@ -2,12 +2,12 @@
 include_once('../../file/config.php'); // Include your database connection
 
 // Get the project ID from the query parameter (assuming it's passed via URL)
-$projectid = $_GET['projectid']; // Adjust this according to how you are passing the projectid
+$project_id = $_GET['project_id']; // Adjust this according to how you are passing the project_id
 
-// Fetch the data based on the projectid
-$sql = "SELECT * FROM lifting_gear_certificates WHERE projectid = ?";
+// Fetch the data based on the project_id
+$sql = "SELECT * FROM lifting_gear_certificates WHERE project_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('s', $projectid);
+$stmt->bind_param('s', $project_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -235,7 +235,7 @@ margin: 5px;
             </div>
 
             <div class="text-center">
-    <a href="download.php?projectid=<?php echo $certificate['projectid']; ?>" >
+    <a href="download.php?project_id=<?php echo $certificate['project_id']; ?>" >
         <button>Download</button>
     </a>
 </div>

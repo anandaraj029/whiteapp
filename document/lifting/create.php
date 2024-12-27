@@ -1,7 +1,60 @@
 <?php
 include_once('../../inc/function.php');
+include_once('../../file/config.php');
 
+// Ensure `project_id` is set in the request
+if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
+
+    // SQL query to join tables
+    // $query = "
+    //     SELECT 
+    //         p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.company_name,
+    //         c.checklist_no, c.inspected_by,
+    //         r.report_no, r.sticker_number_issued, r.date_of_creation, r.rep_name
+    //     FROM 
+    //         project_info p
+    //     LEFT JOIN 
+    //         checklist_information c ON p.project_id = c.project_id
+    //     LEFT JOIN 
+    //         report r ON p.project_id = r.project_id
+    //     WHERE 
+    //         p.project_id = ?
+    // ";
+
+
+
+    $query = "
+    SELECT 
+        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        c.checklist_no,
+        r.report_no
+    FROM 
+        project_info p
+    LEFT JOIN 
+        checklist_information c ON p.project_id = c.project_id
+    LEFT JOIN 
+        reports r ON p.project_id = r.project_id
+    WHERE 
+        p.project_id = ?
+";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+    } else {
+        $data = null;
+    }
+} else {
+    echo "Invalid or missing project ID.";
+    exit;
+}
 ?>
+
 
 <!-- Main Content -->
 <div class="main-content">
@@ -102,7 +155,7 @@ include_once('../../inc/function.php');
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="projectid" class="theme-input-style">
+                            <input type="text" class="theme-input-style" name="project_id" value="<?php echo $data['project_id'] ?? ''; ?>" placeholder="Project ID">
                             </div>
                         </div>
 

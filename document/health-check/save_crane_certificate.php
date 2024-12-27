@@ -45,9 +45,15 @@ if (isset($_POST['save_all'])) {
     )";
 
     if (mysqli_query($conn, $query)) {
-        $msg = "Health check created successfully";
-                header('Location: index.php?msg=' . $msg); 
-        // echo "Form details saved successfully!";
+        // Update the status in the project_info table
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
+
+        if (mysqli_query($conn, $update_query)) {
+            $msg = "Health check created successfully, and project status updated.";
+            header('Location: index.php?msg=' . $msg); 
+        } else {
+            echo "Error updating project status: " . mysqli_error($conn);
+        }
     } else {
         echo "Error: " . mysqli_error($conn);
     }

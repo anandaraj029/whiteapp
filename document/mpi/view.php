@@ -71,6 +71,7 @@ $conn->close();
                 
             </tbody>
         </table>
+        
     </div>
 	
 	<div class="table-responsive">
