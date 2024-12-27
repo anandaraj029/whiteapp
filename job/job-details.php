@@ -201,9 +201,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                      <div class="bg-white invoice-pd position-relative">
                         <!-- Button in the top-right corner -->
     <div class="position-absolute" style="top: 10px; right: 10px;">
+    <?php if (!isset($certificateStatus) || $certificateStatus !== "Certificate Created"): ?>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCertificateModal">
         Add Certificate
     </button>
+<?php endif; ?>
     </div>
                         <div class="row">
                         <div class="col-xl-4 col-md-6">

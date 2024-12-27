@@ -7,12 +7,12 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Fetch the record based on report_no
-if (isset($_GET['report_no'])) {
-    $report_no = $_GET['report_no']; // Assuming report_no is passed via URL
+if (isset($_GET['project_id'])) {
+    $project_id = $_GET['project_id']; // Assuming project_id is passed via URL
 
-    $query = "SELECT * FROM mpi_certificates WHERE report_no = ?";
+    $query = "SELECT * FROM mpi_certificates WHERE project_id = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $report_no);
+    $stmt->bind_param('s', $project_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -47,7 +47,7 @@ if (isset($_GET['report_no'])) {
             </div>
                 <div class="container-fluid">
                 <form action="update_mpi.php" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="report_no" value="<?php echo $row['report_no']; ?>" />
+                <input type="hidden" name="project_id" value="<?php echo $row['project_id']; ?>" />
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -104,7 +104,7 @@ if (isset($_GET['report_no'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="projectid" class="theme-input-style" value="<?php echo $row['projectid']; ?>">
+                                <input type="text" name="project_id" class="theme-input-style" value="<?php echo $row['project_id']; ?>">
                             </div>
                         </div>
 

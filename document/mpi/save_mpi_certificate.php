@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comments = $_POST['comments'];
     $ndt_inspector = $_POST['ndt_inspector'];
     $ndt_level = $_POST['ndt_level'];
-    $projectid = $_POST['projectid'];
+    $project_id = $_POST['project_id'];
     $companyName = $_POST['companyName'];
 
 
@@ -84,14 +84,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 reference_no, next_inspection_date, inspected_item, serial_numbers, id_numbers, 
                 manufacturer, standards, swl, mpi_equip_type, current, contrast_paint, 
                 particle_medium, calibration_expiry_date, brand, prod_spacing, ink, 
-                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, image_path, projectid, companyName
+                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, image_path, project_id, companyName
             ) VALUES (
                 '$date_of_report', '$certificate_no', '$report_no', '$jrn', '$customer_name', 
                 '$customer_email', '$mobile', '$inspector', '$location', '$inspection_date', 
                 '$reference_no', '$next_inspection_date', '$inspected_item', '$serial_numbers', '$id_numbers',
                 '$manufacturer', '$standards', '$swl', '$mpi_equip_type', '$current', '$contrast_paint', 
                 '$particle_medium', '$calibration_expiry_date', '$brand', '$prod_spacing', '$ink', 
-                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$projectid', '$companyName'
+                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$project_id', '$companyName'
             )";
 
     if ($conn->query($sql) === TRUE) {

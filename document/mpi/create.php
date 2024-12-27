@@ -78,7 +78,7 @@ include_once('../../inc/function.php');
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="projectid" class="theme-input-style">
+                                <input type="text" name="project_id" class="theme-input-style">
                             </div>
                         </div>
 

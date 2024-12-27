@@ -1,13 +1,13 @@
 <?php
 include_once('../../file/config.php'); // include your database connection
 
-// Get the report_no from the request (GET method)
-$report_no = $_GET['report_no'] ?? ''; // Ensure that it is set
+// Get the project_id from the request (GET method)
+$project_id = $_GET['project_id'] ?? ''; // Ensure that it is set
 
-// Fetch the data based on report_no
-$sql = "SELECT * FROM mpi_certificates WHERE report_no = ?";
+// Fetch the data based on project_id
+$sql = "SELECT * FROM mpi_certificates WHERE project_id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $report_no); // Assuming report_no is a string
+$stmt->bind_param("s", $project_id); // Assuming project_id is a string
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -216,7 +216,7 @@ $conn->close();
         </div>
     </div>-->
     <div class="text-center">
-    <a href="download.php?report_no=<?php echo $row['report_no']; ?>" >
+    <a href="download.php?project_id=<?php echo $row['project_id']; ?>" >
         <button>Download</button>
     </a>
 </div>
