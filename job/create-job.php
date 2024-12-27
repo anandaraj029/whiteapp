@@ -2,6 +2,18 @@
 include_once('../inc/function.php');
 include_once('../file/config.php');
 
+// Fetch the latest project number from the database
+$projectQuery = "SELECT MAX(project_no) AS last_project_no FROM project_info"; // Replace 'projects' with your actual table name
+$projectResult = $conn->query($projectQuery);
+
+if ($projectResult && $projectResult->num_rows > 0) {
+    $row = $projectResult->fetch_assoc();
+    $lastProjectNo = $row['last_project_no'];
+    $newProjectNo = intval($lastProjectNo) + 1; // Increment project number
+} else {
+    $newProjectNo = 1; // Default to 1 if no project exists
+}
+
 // Fetch student names from the database
 $customerQuery = "SELECT * FROM customers";
 $customerResult = $conn->query($customerQuery);
@@ -51,8 +63,9 @@ $result = mysqli_query($conn, $sql); // Execute query
                                             <label class="font-14 bold">Project No*</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" name="project_no" class="theme-input-style" placeholder="Project No">
-                                        </div>
+                                <input type="text" name="project_no" class="theme-input-style" 
+                                       value="<?php echo htmlspecialchars($newProjectNo); ?>" readonly>
+                            </div>
                                     </div>
                                     <!-- End Form Row -->
 

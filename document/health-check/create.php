@@ -128,7 +128,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                             </div>
                             <div class="col-sm-8">
                                 
-                            <input type="text" class="theme-input-style" name="company_name" placeholder="Company Name">
+                            <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
                             </div>
                         </div>
                         

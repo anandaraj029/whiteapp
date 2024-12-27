@@ -1,11 +1,11 @@
-<?php 
+<?php
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
 // Check if 'project_id' is passed
 if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
-    
+
     // Query to fetch data from project_info table
     $stmt = $conn->prepare("SELECT equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
     $stmt->bind_param("i", $project_id);
@@ -13,9 +13,8 @@ if (isset($_GET['project_id'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Fetch data
         $row = $result->fetch_assoc();
-        $equipment_type = $row['equipment_type'];  // Example: Equipment Type (e.g., Generator, Transformer, etc.)
+        $equipment_type = $row['equipment_type'];
         $checklist_type = $row['checklist_type'];
         $inspected_by = $row['inspector_name'];
         $client_name = $row['customer_name'];
@@ -29,6 +28,18 @@ if (isset($_GET['project_id'])) {
 } else {
     echo "No project ID provided!";
     exit;
+}
+
+// Fetch the latest checklist_no from the database
+$checklistQuery = "SELECT MAX(checklist_no) AS last_checklist_no FROM checklist_information"; // Replace 'checklists' with your actual table name
+$checklistResult = $conn->query($checklistQuery);
+
+if ($checklistResult && $checklistResult->num_rows > 0) {
+    $row = $checklistResult->fetch_assoc();
+    $lastChecklistNo = $row['last_checklist_no'];
+    $newChecklistNo = intval($lastChecklistNo) + 1; // Increment checklist number
+} else {
+    $newChecklistNo = 1; // Default to 1 if no checklist exists
 }
 ?>
 
@@ -64,7 +75,7 @@ if (isset($_GET['project_id'])) {
                                     <!-- Checklist NO -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">Checklist NO</label>
-                                        <input type="text" name="checklist_no" class="theme-input-style" placeholder="Checklist NO" required>
+                                        <input type="text" name="checklist_no" class="theme-input-style" placeholder="Checklist NO" value="<?php echo htmlspecialchars($newChecklistNo); ?>" readonly required>
                                     </div>
                                     
                                     <!-- REPORT NO -->

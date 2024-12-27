@@ -10,7 +10,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Query to fetch project, checklist, and report details using JOIN
     $query = "
         SELECT 
-            p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status,
+            p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
             c.checklist_no, c.inspected_by,
             r.report_no, r.sticker_number_issued
         FROM project_info p
@@ -26,11 +26,14 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
 
-         // Determine checklist and report creation status
-         $checklistCreated = isset($data['checklist_no']);
-         $reportCreated = isset($data['report_no']);
+        // Determine checklist and report creation status
+        $checklistCreated = isset($data['checklist_no']);
+        $reportCreated = isset($data['report_no']);
 
+        // Extract the certificatestatus from the database
+    $certificateStatus = $data['certificatestatus'];
         // Retrieve checklist_status and report_status directly from the joined data
+        
         $checklistStatus = $data['checklist_status'];
         $dataStatus = $data['report_status'];
 
@@ -39,6 +42,55 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     } else {
         echo "No details found for this project.";
         exit;
+    }
+
+    // Query to fetch certificate data
+    $query = "
+        SELECT 
+            'healthcheck' AS certificate_type,
+            hc.certificate_no
+        FROM crane_health_check_certificate hc
+        WHERE hc.project_id = ?        
+
+        UNION
+
+        SELECT 
+            'loadtestwithload' AS certificate_type,
+            lw.certificate_no
+        FROM loadtest_certificate lw
+        WHERE lw.project_id = ?
+
+        UNION
+
+        SELECT 
+            'mobile' AS certificate_type,
+            mc.certificate_no
+        FROM mobile_crane_loadtest mc
+        WHERE mc.project_id = ?
+
+
+        UNION
+
+        SELECT 
+            'lifting' AS certificate_type,
+            lc.certificate_no
+        FROM lifting_gear_certificates lc
+        WHERE lc.project_id = ?
+       
+    ";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("iiii", $data_id, $data_id, $data_id, $data_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $certificates = [];
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $certificates[] = $row;
+        }
+    } else {
+        echo "No certificates found for this project.";
     }
 } else {
     echo "Invalid Project ID.";
@@ -194,14 +246,21 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                               <div class="invoice invoice-to mt-5 mt-md-0">
                                  <div class="black bold font-17 mb-3">Certificate Details :</div>
       
-                                 <ul class="status-list">
-                                    <li><span class="key">Certificate no</span> <span class="black font-17 black bold">12</span></li>
-                                    <li><span class="key">Status</span> <span class="black">Created</span></li>
-                                    <li><span class="key">Date of Creation</span> <span class="black">01/12/2024</span></li>
-                                    <li><span class="key">Certificate Type</span> <span class="black"> Health Check</span></li>
-                                    <li><span class="key">Equipment ID</span> <span class="black">123466</span></li>
-                                    <li><span class="key">Prepare by</span> <span class="black">West New York, NJ 07093 23 <br /> Sussex Ave.</span></li>
-                                 </ul>
+                                 <?php if (!empty($certificates)) : ?>
+                                    <ul class="status-list">
+                            <?php foreach ($certificates as $certificate) : ?>
+                                <li>
+                                    <!-- <strong>Type:</strong> <?php echo htmlspecialchars($certificate['certificate_type']); ?>, -->
+                                    <strong>Number:</strong> <?php echo htmlspecialchars($certificate['certificate_no']); ?>;
+                                    <!-- <strong>Status:</strong> <?php echo htmlspecialchars($certificate['status']); ?>,
+                                    <strong>Created On:</strong> <?php echo htmlspecialchars($certificate['date_of_creation']); ?>,
+                                    <strong>Prepared By:</strong> <?php echo htmlspecialchars($certificate['prepared_by']); ?> -->
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php else : ?>
+                        <p>Certificates not available for this project.</p>
+                    <?php endif; ?>
                               </div>
                               <!-- End Invoice To -->
                            </div>
@@ -236,12 +295,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <label for="certificateType">Certificate Type</label>
                     <select class="form-control" id="certificateType" required>
                         <option value="" disabled selected>Select Certificate Type</option>
-                        <option value="healthcheck">Health Check</option>
-                        <option value="lifting">Lifting</option>
-                        <option value="loadtestwithload">With Load</option>
-                        <option value="loadtestwithoutload">Without Load</option>
+                        <option value="healthcheck">Health Check</option>                        
+                        <option value="loadtestwithload">With Load</option>                        
                         <option value="mobile">Mobile</option>
-                        <option value="mpi">MPI</option>
+                        <option value="lifting">Lifting</option>
+                        
 
                         <!-- Add more options as required -->
                     </select>
@@ -259,101 +317,67 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                      <!-- End Invois Wrapper -->
 
                      <!-- Invoice Details List Wrapper -->
-                     <div class="bg-white details-list-wrap">
-                        <div class="table-responsive">
-                           <!-- Invoice List Table -->
-                           <table class="invoice-list-table style-two some-center text-nowrap">
-                              <thead>
-                                 <tr>
-                                    <th>Doc ID</th>
-                                    <th>Document Type</th>
-                                    <th>Date of Creation</th>
-                                    <th>Create By</th>
-                                    <th>Status</th>
-                                    <th>Actions</th>
-                                 </tr>
-                              </thead>
+                      
+                     <?php if (isset($certificateStatus) && $certificateStatus === "Certificate Created"): ?>
+    <div class="bg-white details-list-wrap">
+        <div class="table-responsive">
+            <!-- Invoice List Table -->
+            <table class="invoice-list-table style-two some-center text-nowrap">
+                <thead>
+                    <tr>
+                        <th>Doc ID</th>
+                        <th>Document Type</th>
+                        <th>Date of Creation</th>
+                        <th>Create By</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
-                              <tbody class="bg-white">
-                                 <tr>
-                                    <td class="bold">#01</td>
-                                    <td>Crane Checklist</td>
-                                    <td>26/12/2024</td>
-                                    <td>Inspector</td>
-                                    <td>Complete</td>
-                                    
-                                    <td> 
-                                       <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                       <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
-                                 
-                                 </td>
-                                 </tr>
-                                 <tr>
-                                    <td class="bold">#01</td>
-                                    <td>Crane Checklist</td>
-                                    <td>26/12/2024</td>
-                                    <td>Inspector</td>
-                                    <td>Complete</td>
-                                    
-                                    <td> 
-                                       <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                       <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
-                                 
-                                 </td>
-                                 </tr>
-                                 
-                              </tbody>
-                           </table>
-                           <!-- End Invoice List Table -->
-                        </div>
+                <tbody class="bg-white">
+                    <tr>
+                        <td class="bold">#01</td>
+                        <td>Crane Checklist</td>
+                        <td>26/12/2024</td>
+                        <td>Inspector</td>
+                        <td>Complete</td>
+                        <td> 
+                            <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                            <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bold">#01</td>
+                        <td>Crane Checklist</td>
+                        <td>26/12/2024</td>
+                        <td>Inspector</td>
+                        <td>Complete</td>
+                        <td> 
+                            <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                            <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- End Invoice List Table -->
+        </div>
 
-                        <!-- Cart Collaterals -->
-                        <div class="cart-collaterals">
-                           <div class="cart_totals calculated_shipping">
-                              <!-- <table class="shop_table style-two">
-                                 <tbody>
-                                    <tr class="cart-subtotal">
-                                       <th>Subtotal</th>
-                                       <th>
-                                          <span class="Price-amount amount">
-                                             <span class="Price-currencySymbol">$</span>2654.36</span>
-                                       </th>
-                                    </tr>
-                                    <tr class="cart-tax">
-                                       <td>Tax (19%)</td>
-                                       <td>
-                                          <span class="Price-amount amount">
-                                             <span class="Price-currencySymbol">$</span>154.45</span>
-                                       </td>
-                                    </tr>
-                                    <tr class="cart-tax">
-                                       <td>Discount (5%)</td>
-                                       <td>
-                                          <span class="Price-amount amount">
-                                             <span class="Price-currencySymbol">-$</span>54.45</span>
-                                       </td>
-                                    </tr>
-                     
-                                    <tr class="order-total">
-                                       <td>Total</td>
-                                       <td>
-                                          <strong>
-                                             <span class="Price-amount amount"><span class="Price-currencySymbol">$</span>3654.45</span>
-                                          </strong> 
-                                       </td>
-                                    </tr>
-                                 </tbody>
-                              </table> -->
-                     
-                              <div class="proceed-to-checkout d-flex align-items-center justify-content-end mr-20 mt-4">
-                                 <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                 <a href="#" class="print-btn mr-20"><img src="<?php echo $url;?>assets/img/svg/print-yellow.svg" alt="" class="svg"></a>
-                                 <!-- <a href="#" class="btn">View Now</a> -->
-                              </div>
-                           </div>
-                        </div>
-                        <!-- End Cart Collaterals -->
-                     </div>
+        <!-- Cart Collaterals -->
+        <div class="cart-collaterals">
+            <div class="cart_totals calculated_shipping">
+                <div class="proceed-to-checkout d-flex align-items-center justify-content-end mr-20 mt-4">
+                    <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                    <a href="#" class="print-btn mr-20"><img src="<?php echo $url;?>assets/img/svg/print-yellow.svg" alt="" class="svg"></a>
+                </div>
+            </div>
+        </div>
+        <!-- End Cart Collaterals -->
+    </div>
+    
+<?php else: ?>
+    <p class="bg-white details-list-wrap">Certificate not yet created for this project.</p>
+<?php endif; ?>
+
                      <!-- End Invoice Details List Wrapper -->
                   </div>
                </div>
@@ -391,10 +415,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         const certificateLinks = {
             healthcheck: '../document/health-check/create.php',
             lifting: '../document/lifting/create.php',
-            loadtestwithload: '../document/loadtest/with_load.php',
-            loadtestwithoutload: '../document/loadtest/without_load.php',
+            loadtestwithload: '../document/loadtest/with_load.php',            
             mobile: '../document/mobile/create.php',
-            mpi: '../document/mpi/create.php',
+            
             // Add more mappings as needed
         };
 
