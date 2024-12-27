@@ -64,7 +64,7 @@ include_once('../inc/function.php');
                                          
                                             <!-- End Star -->
                                         </th>
-                                        <th class="text-center">Company Name </th>
+                                        <th class="text-center">Customer Name </th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>City</th>
@@ -94,10 +94,10 @@ if ($result->num_rows > 0) {
             <td>
                 <div class='d-flex align-items-center'>
                     <div class='img mr-20'>
-                        <img src='$url/assets/img/avatar/m16.png' class='img-40' alt=''>
+                        <img src='{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
                     </div>
                     <div class='name bold'>
-                       {$row['company']}
+                       {$row['customer_name']}
                     </div>
                 </div>
             </td>
