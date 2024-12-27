@@ -129,7 +129,7 @@ $result = $conn->query($sql);
 
                     <!-- Star -->
                     <div class="star">
-                        <a href="./view.php?report_no=<?php echo $row['report_no']; ?>">
+                        <a href="./view.php?project_id=<?php echo $row['project_id']; ?>">
                             <div class="icon text-primary">
                                 <i class="et-clipboard"></i>
                             </div>
@@ -138,13 +138,13 @@ $result = $conn->query($sql);
 
 
                     <div class="star">
-                                                <a href="./download.php?report_no=<?php echo $row['report_no']; ?>"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                                <a href="./download.php?project_id=<?php echo $row['project_id']; ?>"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
                                             </div>
                     <!-- End Star -->
                 </td>
 
                 <td><?php echo $row['certificate_no']; ?></td>
-                <td><?php echo $row['projectid']; ?></td>
+                <td><?php echo $row['project_id']; ?></td>
                 <td><?php echo $row['report_no']; ?></td>
                 <td>
                     <div class="d-flex align-items-center">
@@ -158,7 +158,7 @@ $result = $conn->query($sql);
                 <td><?php echo $row['companyName']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-                <a href="edit.php?report_no=<?php echo $row['report_no']; ?>" class="contact-edit">
+                <a href="edit.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
 

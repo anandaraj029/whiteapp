@@ -4,9 +4,9 @@ require_once('../../vendor/autoload.php');
 include_once('../../file/config.php');  // Include your database connection file
 
 // Fetch the record based on report_no
-$report_no = $_GET['report_no'];  // Assuming report_no is passed via URL
+$project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
 
-$query = "SELECT * FROM mpi_certificates WHERE report_no = '$report_no'";
+$query = "SELECT * FROM mpi_certificates WHERE project_id = '$project_id'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {

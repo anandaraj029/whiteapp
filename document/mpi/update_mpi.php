@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $certificate_no = $_POST['certificate_no'];    
     $jrn = $_POST['jrn'];
     $report_no = $_POST['report_no'];
-    $projectid = $_POST['projectid'];
+    $project_id = $_POST['project_id'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
@@ -97,7 +97,7 @@ if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
 
     // Prepare the SQL update query
     $query = "UPDATE mpi_certificates SET 
-        projectid = '$projectid',
+        report_no = '$report_no',
         date_of_report = '$date_of_report',
         certificate_no = '$certificate_no',        
         jrn = '$jrn',
@@ -131,7 +131,7 @@ if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
         ndt_level = '$ndt_level',
         companyName = '$companyName',
         image_path = '$image_path'
-        WHERE report_no = '$report_no'"; // Removed the extra comma before WHERE clause
+        WHERE project_id = '$project_id'"; // Removed the extra comma before WHERE clause
 
     // Execute the query
     if ($conn->query($query) === TRUE) { // Changed $sql to $query
