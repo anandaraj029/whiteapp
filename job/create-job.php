@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $sql); // Execute query
 
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
-                            <div class="form-element py-30 mb-30">
+                            <div class="form-element py-30 mb-30" style="height: 410px;">
                                 <h4 class="font-20 mb-30">Project Data</h4>
 
                                 <!-- Form -->
@@ -70,14 +70,14 @@ $result = mysqli_query($conn, $sql); // Execute query
                                     <!-- End Form Row -->
 
                                     <!-- Form Row -->
-                                    <div class="form-row mb-20">
+                                    <!-- <div class="form-row mb-20">
                                         <div class="col-sm-4">
                                             <label class="font-14 bold">Date of Creation*</label>
                                         </div>
                                         <div class="col-sm-8">
                                             <input type="date" name="creation_date" class="theme-input-style" placeholder="Date of Creation">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- End Form Row -->
 
                                     <!-- Form Row -->

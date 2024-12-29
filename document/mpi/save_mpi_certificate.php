@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ndt_level = $_POST['ndt_level'];
     $project_id = $_POST['project_id'];
     $companyName = $_POST['companyName'];
+    $created_at = date('Y-m-d H:i:s');
 
 
     // Image upload handling
@@ -84,14 +85,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 reference_no, next_inspection_date, inspected_item, serial_numbers, id_numbers, 
                 manufacturer, standards, swl, mpi_equip_type, current, contrast_paint, 
                 particle_medium, calibration_expiry_date, brand, prod_spacing, ink, 
-                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, image_path, project_id, companyName
+                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, image_path, project_id, companyName, created_at
             ) VALUES (
                 '$date_of_report', '$certificate_no', '$report_no', '$jrn', '$customer_name', 
                 '$customer_email', '$mobile', '$inspector', '$location', '$inspection_date', 
                 '$reference_no', '$next_inspection_date', '$inspected_item', '$serial_numbers', '$id_numbers',
                 '$manufacturer', '$standards', '$swl', '$mpi_equip_type', '$current', '$contrast_paint', 
                 '$particle_medium', '$calibration_expiry_date', '$brand', '$prod_spacing', '$ink', 
-                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$project_id', '$companyName'
+                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$project_id', '$companyName', '$created_at'
             )";
 
     if ($conn->query($sql) === TRUE) {

@@ -1,6 +1,6 @@
 <?php
 include_once('../file/config.php');
-include '../file/auth.php';
+// include '../file/auth.php';
 include_once('../inc/function.php');
 
 // Check if project_id is set in the URL
@@ -48,7 +48,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             'healthcheck' AS certificate_type,
-            hc.certificate_no
+            hc.certificate_no, hc.created_at
         FROM crane_health_check_certificate hc
         WHERE hc.project_id = ?        
 
@@ -56,7 +56,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'loadtestwithload' AS certificate_type,
-            lw.certificate_no
+            lw.certificate_no, lw.created_at
         FROM loadtest_certificate lw
         WHERE lw.project_id = ?
 
@@ -64,7 +64,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'mobile' AS certificate_type,
-            mc.certificate_no
+            mc.certificate_no, mc.created_at
         FROM mobile_crane_loadtest mc
         WHERE mc.project_id = ?
 
@@ -73,7 +73,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'lifting' AS certificate_type,
-            lc.certificate_no
+            lc.certificate_no, lc.created_at
         FROM lifting_gear_certificates lc
         WHERE lc.project_id = ?
 
@@ -82,7 +82,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'mpi' AS certificate_type,
-            mp.certificate_no
+            mp.certificate_no, mp.created_at
         FROM mpi_certificates mp
         WHERE mp.project_id = ?
        
@@ -200,7 +200,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <?php endif; ?>
     </div>
                         <div class="row">
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-4 col-md-6 mt-5">
         <!-- Checklist Details -->
         <div class="invoice payment-details mt-5 mt-xl-0">
             <div class="bold black font-17 mb-3">Checklist Details:</div>
@@ -214,7 +214,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <?php endif; ?>
         </div>
     </div>
-    <div class="col-xl-4 col-md-6">
+    <div class="col-xl-4 col-md-6 mt-5">
         <!-- Report Details -->
         <div class="invoice invoice-form">
             <div class="bold black font-17 mb-3">Report Details:</div>
@@ -235,21 +235,25 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             
         </div>
     </div>
-                           <div class="col-xl-4 col-md-6">
+                           <div class="col-xl-4 col-md-6 mt-5">
                               <!-- Invoice To -->
-                              <div class="invoice invoice-to mt-5 mt-md-0">
+                              <div class="invoice invoice-form mt-5 mt-md-0">
                                  <div class="black bold font-17 mb-3">Certificate Details :</div>
       
                                  <?php if (!empty($certificates)) : ?>
                                     <ul class="status-list">
                             <?php foreach ($certificates as $certificate) : ?>
-                                <li>
-                                    <!-- <strong>Type:</strong> <?php echo htmlspecialchars($certificate['certificate_type']); ?>, -->
+                                <!-- <li> -->
+                                
+                                     <!-- <strong>Type:</strong> <?php echo htmlspecialchars($certificate['certificate_type']); ?>, 
                                     <strong>Number:</strong> <?php echo htmlspecialchars($certificate['certificate_no']); ?>;
-                                    <!-- <strong>Status:</strong> <?php echo htmlspecialchars($certificate['status']); ?>,
-                                    <strong>Created On:</strong> <?php echo htmlspecialchars($certificate['date_of_creation']); ?>,
-                                    <strong>Prepared By:</strong> <?php echo htmlspecialchars($certificate['prepared_by']); ?> -->
-                                </li>
+                                     <strong>Status:</strong> <?php echo htmlspecialchars($certificate['status']); ?>, 
+                                    <strong>Created On:</strong> <?php echo htmlspecialchars($certificate['created_at']); ?>,
+                                     <strong>Prepared By:</strong> <?php echo htmlspecialchars($certificate['prepared_by']); ?>  -->
+                                <!-- </li> -->
+
+                                <li><span class="key">Number:</span> <span class="black"><?php echo htmlspecialchars($certificate['certificate_no']); ?></span></li>
+                                <li><span class="key">Created On:</span> <span class="black"><?php echo htmlspecialchars($certificate['created_at']); ?></span></li>
                             <?php endforeach; ?>
                         </ul>
                     <?php else : ?>

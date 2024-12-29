@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $authenticating_person_name = $_POST['authenticating_person_name'];
     $latest_date_exam = $_POST['latest_date_exam'];
     $name_address_of_employer = $_POST['name_address_of_employer'];
+    $created_at = date('Y-m-d H:i:s');
     
 
 
@@ -62,14 +63,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 examination_scheme, exceptional_circumstances, identification_any_part, defect,
                 date_defect, repair_details, test_particulars, equipment_fit, name_qualifications_person,
                 report_making_person_qualifications, authenticating_person_name, latest_date_exam,
-                name_address_of_employer
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                name_address_of_employer, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);
     
     // Bind parameters
-    $stmt->bind_param('ssssssssssssssssssssssssssssssssssssssssss', 
+    $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $project_id, $serial_numbers,
         $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name,
         $employer_address, $equipment_description, $manufacturer, $model,
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $interval_6_months, $interval_12_months, $examination_scheme, $exceptional_circumstances, $identification_any_part, $defect,
         $date_defect, $repair_details, $test_particulars, $equipment_fit, $name_qualifications_person,
         $report_making_person_qualifications, $authenticating_person_name, $latest_date_exam,
-        $name_address_of_employer 
+        $name_address_of_employer, $created_at 
     );
 
     // Execute the query
