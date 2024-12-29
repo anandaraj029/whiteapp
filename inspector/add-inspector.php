@@ -4,6 +4,7 @@ include_once('../file/config.php');
 // Include your database connection file
 
 if (isset($_POST['save_inspector'])) {
+    $inspector_id = $_POST['inspector_id'];
     $inspector_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? serialize($_POST['handle_crane']) : null;
@@ -20,7 +21,7 @@ if (isset($_POST['save_inspector'])) {
     move_uploaded_file($_FILES['signature_photo']['tmp_name'], "../uploads/$signature_photo");
 
     // Insert data into the database
-    $sql = "INSERT INTO inspectors (inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
+    $sql = "INSERT INTO inspectors (inspector_id, inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);

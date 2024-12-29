@@ -1,5 +1,9 @@
 <?php
-include_once('../inc/function.php'); ?>
+include_once('../inc/function.php'); 
+
+ include_once('./get-inspector.php');
+
+?>
 
 <!-- Main Content -->
 <div class="main-content">
@@ -25,6 +29,12 @@ include_once('../inc/function.php'); ?>
                     <div class="form-element py-30 multiple-column">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                    <label class="font-14 bold mb-2">Inspector ID</label>
+                                    <input type="text" name="inspector_id" class="theme-input-style" 
+                                    value="<?php echo htmlspecialchars($new_id); ?>" readonly>
+                                    
+                                </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Inspector Name</label>
                                     <input type="text" class="theme-input-style" name="inspector_name" placeholder="Type Your Name" required>
