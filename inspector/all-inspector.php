@@ -60,6 +60,7 @@ include_once('../inc/function.php');
                                          
                                             <!-- End Star -->
                                         </th>
+                                        <th class="text-center">Inspector ID </th>
                                         <th class="text-center">Inspector Name </th>
                                         <th>Emp.ID</th>
                                         <th>Email</th>
@@ -96,6 +97,7 @@ if ($result->num_rows > 0) {
                     <span class='checkmark'></span>
                 </label>
             </td>
+            <td>{$row['inspector_id']}</td>
           <td>
                 <img src='../uploads/{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
                 {$row['inspector_name']}
