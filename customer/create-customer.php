@@ -74,6 +74,12 @@
         <label for="profile_photo">Upload Profile Photo</label>
         <input type="file" class="form-control" name="profile_photo" accept="image/*" required>
     </div>
+
+    <div class="form-group">
+    <label>Customer Signature</label>
+    <input type="file" class="form-control" name="signature_photo" accept="image/*" required>
+</div>
+
         </div>
     </div>
     <div class="form-group pt-1">
