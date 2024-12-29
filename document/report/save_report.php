@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $next_inspection_due_date = $_POST['next_inspection_due_date'];
     $inspection_status = $_POST['inspection_status'];
     $sticker_number_issued = $_POST['sticker_number_issued'];
+    $created_at = date('Y-m-d H:i:s');
     
     // Deficiencies and Corrective Actions
     // $deficiency_1 = $_POST['deficiency_1'];
@@ -65,16 +66,16 @@ $deficiencyJson = json_encode($deficiencyData);
     $insertQuery = "INSERT INTO reports (
         project_id, jrn, checklist_no, report_no, client_company_name, client_company_address, manufacturer, model, type, prev_sticker_no, issued_by, capacity, 
         equipment_id_no, equipment_serial_no, location, date_of_inspection, next_inspection_due_date, 
-        inspection_status, sticker_number_issued, deficiencies) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        inspection_status, sticker_number_issued, created_at, deficiencies) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare statement
     $stmt = $conn->prepare($insertQuery);
 
     // Bind parameters
-    $stmt->bind_param("ssssssssssssssssssss", 
+    $stmt->bind_param("sssssssssssssssssssss", 
         $project_id, $jrn, $checklist_no, $report_no, $client_company_name, $client_company_address, $manufacturer, $model, $type, $prev_sticker_no, $issued_by, $capacity,
         $equipment_id_no, $equipment_serial_no, $location, $date_of_inspection, $next_inspection_due_date, 
-        $inspection_status, $sticker_number_issued, $deficiencyJson);
+        $inspection_status, $sticker_number_issued, $created_at, $deficiencyJson);
 
     // Execute statement and check for errors
     if ($stmt->execute()) {

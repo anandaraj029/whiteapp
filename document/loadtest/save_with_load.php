@@ -49,9 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name_address_of_employer = $_POST['name_address_of_employer'];
     $created_at = date('Y-m-d H:i:s');
     
-
-
-
     // Prepare SQL statement
     $sql = "INSERT INTO loadtest_certificate (
                 examination_date, report_date, report_no, sticker_no, project_id, serial_numbers, company_name, customer_name, customer_email,
@@ -65,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 report_making_person_qualifications, authenticating_person_name, latest_date_exam,
                 name_address_of_employer, created_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+    
     // Prepare statement
     $stmt = $conn->prepare($sql);
     
@@ -85,8 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Execute the query
     if ($stmt->execute()) {
-        $msg = "Loadtest created successfully";
-        header('Location: index.php?msg=' . $msg); 
+        // Update project status
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param('s', $project_id);
+        
+        if ($update_stmt->execute()) {
+            $msg = "Loadtest created successfully, and project status updated.";
+            header('Location: index.php?msg=' . $msg);
+        } else {
+            echo "Error updating project status: " . $update_stmt->error;
+        }
+
+        $update_stmt->close();
     } else {
         echo "Error: " . $stmt->error;
     }
