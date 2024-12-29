@@ -19,6 +19,13 @@ if ($result->num_rows > 0) {
     exit;
 }
 
+// Fetch associated images from the mpi_images table
+$image_sql = "SELECT image_path FROM mpi_images WHERE certificate_id = ?";
+$image_stmt = $conn->prepare($image_sql);
+$image_stmt->bind_param("i", $row['id']); // Use the certificate's id
+$image_stmt->execute();
+$image_result = $image_stmt->get_result();
+
 $conn->close();
 ?>
 
@@ -142,7 +149,29 @@ $conn->close();
     </div>
 	
 	
-	<div class="table-responsive">
+
+    <div class="table-responsive">
+    <table class="content-table">
+        <tbody>
+            <tr>
+                <?php 
+                if ($image_result->num_rows > 0) {
+                    while ($image_row = $image_result->fetch_assoc()) {
+                        echo '<td style="text-align: center;">
+                                <img src="' . $image_row['image_path'] . '" alt="Certificate Image" style="display: block; margin: 0 auto; height: 150px;">
+                              </td>';
+                    }
+                } else {
+                    echo '<td style="text-align: center;">No images found for this certificate.</td>';
+                }
+                ?>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+	<!-- <div class="table-responsive">
         <table class="content-table">
             <tbody>
 			<tr>
@@ -156,7 +185,7 @@ $conn->close();
                 			
             </tbody>
         </table>
-    </div>
+    </div> -->
 
 		
 	

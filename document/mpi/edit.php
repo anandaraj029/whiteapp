@@ -6,10 +6,11 @@ include_once('../../file/config.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Fetch the record based on report_no
+// Fetch the record based on project_id
 if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id']; // Assuming project_id is passed via URL
 
+    // Fetch certificate record
     $query = "SELECT * FROM mpi_certificates WHERE project_id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param('s', $project_id);
@@ -17,16 +18,31 @@ if (isset($_GET['project_id'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();  // Fetch record into $row array
+        $row = $result->fetch_assoc(); // Fetch certificate record
     } else {
         echo "No record found!";
         exit; // Stop further execution
     }
+
+    // Fetch associated images from mpi_images table
+    $imageQuery = "SELECT id, image_path FROM mpi_images WHERE certificate_id = ?";
+    $imageStmt = $conn->prepare($imageQuery);
+    $imageStmt->bind_param('i', $row['id']); // Use the certificate's ID
+    $imageStmt->execute();
+    $imageResult = $imageStmt->get_result();
+
+    $images = [];
+    if ($imageResult->num_rows > 0) {
+        while ($imageRow = $imageResult->fetch_assoc()) {
+            $images[] = $imageRow; // Store image data
+        }
+    }
 } else {
-    echo "Invalid request! No report number provided.";
+    echo "Invalid request! No project_id provided.";
     exit; // Stop further execution
 }
 ?>
+
 
             <!-- Main Content -->
             <div class="main-content">
@@ -396,15 +412,15 @@ if (isset($_GET['project_id'])) {
     <div class="form-element py-30 multiple-column">       
         <!-- Form -->
         
-        <div class="row">
+        <!-- <div class="row">
     <div class="col-lg-12">
         <div class="form-group">
             <label class="font-14 bold mb-2">Upload Image</label>
             
-            <!-- File input for uploading a new image -->
+            
             <input type="file" name="image" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
 
-            <!-- Show the current image if it exists -->
+            
             <?php if (!empty($row['image_path'])): ?>
                 <div class="mt-3">
                     <img src="<?php echo $row['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
@@ -412,9 +428,30 @@ if (isset($_GET['project_id'])) {
             <?php endif; ?>
         </div>
     </div>
+</div> -->
+
+
+<div class="col-lg-12">
+    <div class="form-group">
+        <label class="font-14 bold mb-2">Upload Images</label>
+
+        <!-- Loop through existing images -->
+        <?php foreach ($images as $image): ?>
+            <div class="mt-3">
+                <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
+                <br>
+                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_id=<?php echo $project_id; ?>" 
+                   onclick="return confirm('Are you sure you want to delete this image?');" 
+                   class="btn btn-danger btn-sm mt-2">Delete</a>
+            </div>
+        <?php endforeach; ?>
+
+        <!-- File input for uploading new images -->
+        <div class="mt-4">
+            <input type="file" name="images[]" id="images" class="theme-input-style" accept="image/*" multiple>
+        </div>
+    </div>
 </div>
-
-
             
         
         <!-- End Form -->

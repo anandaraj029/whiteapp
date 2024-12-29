@@ -1,21 +1,51 @@
 <?php
 require_once('../../vendor/autoload.php');
-
 include_once('../../file/config.php');  // Include your database connection file
 
-// Fetch the record based on report_no
-$project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
+// Fetch the project_id from the request
+$project_id = $_GET['project_id'] ?? '';  // Ensure that it is set
 
-$query = "SELECT * FROM mpi_certificates WHERE project_id = '$project_id'";
-$result = mysqli_query($conn, $query);
+// Fetch the record based on project_id
+$sql = "SELECT * FROM mpi_certificates WHERE project_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);  // Fetch record into $row array
+if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();  // Fetch record into $row array
 } else {
     echo "No record found!";
     exit;
 }
 
+// Fetch images from mpi_images table
+$image_sql = "SELECT image_path FROM mpi_images WHERE certificate_id = ?";
+$image_stmt = $conn->prepare($image_sql);
+$image_stmt->bind_param("i", $row['id']); // Use the certificate's id
+$image_stmt->execute();
+$image_result = $image_stmt->get_result();
+
+$imagePaths = [];
+if ($image_result->num_rows > 0) {
+    while ($imageRow = $image_result->fetch_assoc()) {
+        $imagePaths[] = $imageRow['image_path'];
+    }
+}
+
+// Close the database connection
+$conn->close();
+
+// Ensure each path is valid or use a default placeholder
+$imagePaths = array_map(function($path) {
+    return file_exists($path) ? $path : '../default-image.jpg';
+}, $imagePaths);
+
+// Generate dynamic HTML for images
+$imageHtml = '';
+foreach ($imagePaths as $imagePath) {
+    $imageHtml .= "<td style='text-align: center;'><img src='$imagePath' alt='Image' style='height: 150px; margin: auto; display: block;'></td>";
+}
 
 use Mpdf\Mpdf;
 $title = "MAGNETIC PARTICLE INSPECTION CERTIFICATE";
@@ -255,7 +285,15 @@ $html = <<<HTML
 	
 	
 	<div class="table-responsive">
-        <table class="content-table">
+
+    <table class="content-table">
+        <tbody>
+            <tr>
+                $imageHtml
+            </tr>
+        </tbody>
+    </table>
+        <!-- <table class="content-table">
             <tbody>
 			<tr>
 
@@ -270,7 +308,7 @@ $html = <<<HTML
     </tr>
                 			
             </tbody>
-        </table>
+        </table> -->
     </div>
 
 		

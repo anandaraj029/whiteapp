@@ -39,42 +39,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $companyName = $_POST['companyName'];
     $created_at = date('Y-m-d H:i:s');
 
-
-    // Image upload handling
+    // Image upload handling for multiple images
     $target_dir = "./img/";
-    $image_path = null;
+    $image_paths = [];
 
-    if (!empty($_FILES['image']['name'])) {
-        $image_name = basename($_FILES["image"]["name"]);
-        $target_file = $target_dir . uniqid() . "_" . $image_name;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    if (!empty($_FILES['image']['name'][0])) { // Check if at least one image is uploaded
+        foreach ($_FILES['image']['tmp_name'] as $key => $tmp_name) {
+            $image_name = basename($_FILES['image']['name'][$key]);
+            $unique_file_name = uniqid() . "_" . $image_name;
+            $target_file = $target_dir . $unique_file_name;
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        // Check if image file is a valid image type
-        $check = getimagesize($_FILES["image"]["tmp_name"]);
-        if ($check !== false) {
-            // Check file size (limit to 5MB)
-            if ($_FILES["image"]["size"] > 5000000) {
-                echo "Sorry, your file is too large.";
-                exit;
-            }
+            // Check if image file is valid
+            $check = getimagesize($tmp_name);
+            if ($check !== false) {
+                // Check file size (limit to 5MB)
+                if ($_FILES['image']['size'][$key] > 5000000) {
+                    echo "Sorry, file $image_name is too large.";
+                    exit;
+                }
 
-            // Allow certain file formats
-            $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
-            if (!in_array($imageFileType, $allowed_formats)) {
-                echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-                exit;
-            }
+                // Allow certain file formats
+                $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
+                if (!in_array($imageFileType, $allowed_formats)) {
+                    echo "Sorry, file $image_name has an invalid format.";
+                    exit;
+                }
 
-            // Try to upload file
-            if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-                $image_path = $target_file;  // Store the file path
+                // Try to upload file
+                if (move_uploaded_file($tmp_name, $target_file)) {
+                    $image_paths[] = $target_file; // Store the file path
+                } else {
+                    echo "Sorry, there was an error uploading file $image_name.";
+                    exit;
+                }
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                echo "File $image_name is not a valid image.";
                 exit;
             }
-        } else {
-            echo "File is not an image.";
-            exit;
         }
     }
 
@@ -85,30 +87,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 reference_no, next_inspection_date, inspected_item, serial_numbers, id_numbers, 
                 manufacturer, standards, swl, mpi_equip_type, current, contrast_paint, 
                 particle_medium, calibration_expiry_date, brand, prod_spacing, ink, 
-                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, image_path, project_id, companyName, created_at
+                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, project_id, companyName, created_at
             ) VALUES (
                 '$date_of_report', '$certificate_no', '$report_no', '$jrn', '$customer_name', 
                 '$customer_email', '$mobile', '$inspector', '$location', '$inspection_date', 
                 '$reference_no', '$next_inspection_date', '$inspected_item', '$serial_numbers', '$id_numbers',
                 '$manufacturer', '$standards', '$swl', '$mpi_equip_type', '$current', '$contrast_paint', 
                 '$particle_medium', '$calibration_expiry_date', '$brand', '$prod_spacing', '$ink', 
-                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$project_id', '$companyName', '$created_at'
+                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$project_id', '$companyName', '$created_at'
             )";
 
-if ($conn->query($sql) === TRUE) {
-    // Update the certificatestatus in project_info table
-    $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
-    
-    if ($conn->query($updateStatusSql) === TRUE) {
-        echo "Certificate created and status updated successfully.";
-        header("Location: index.php?message=Record uploaded successfully");
-    } else {
-        echo "Error updating certificatestatus: " . $conn->error;
-    }
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    if ($conn->query($sql) === TRUE) {
+        $certificate_id = $conn->insert_id; // Get the ID of the inserted record
 
+        // Insert image paths into a separate table (mpi_images)
+        foreach ($image_paths as $path) {
+            $image_sql = "INSERT INTO mpi_images (certificate_id, image_path) VALUES ('$certificate_id', '$path')";
+            if (!$conn->query($image_sql)) {
+                echo "Error inserting image: " . $conn->error;
+                exit;
+            }
+        }
+
+        // Update the certificatestatus in the project_info table
+        $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
+        if ($conn->query($updateStatusSql) === TRUE) {
+            echo "Certificate created and images uploaded successfully.";
+            header("Location: index.php?message=Record uploaded successfully");
+        } else {
+            echo "Error updating certificatestatus: " . $conn->error;
+        }
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 
     $conn->close();
 }

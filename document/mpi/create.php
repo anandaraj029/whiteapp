@@ -376,14 +376,15 @@ include_once('../../inc/function.php');
     <div class="form-element py-30 multiple-column">       
         <!-- Form -->
         
-<div class="row">
-<div class="col-lg-12">
-<div class="form-group">
-  <label class="font-14 bold mb-2">Upload Image</label>
-  <input type="file" name="image" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
-</div>
-
-</div>
+        <div class="row">
+  <div class="col-lg-12">
+    <div class="form-group">
+      <label class="font-14 bold mb-2">Upload Image</label>
+      <input type="file" name="image[]" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
+    </div>
+    <div id="additional-images"></div>
+    <button type="button" id="add-image-button" class="btn btn-primary mt-3">Add Another Image</button>
+  </div>
 </div>
 
             
@@ -468,3 +469,14 @@ include_once('../../inc/function.php');
         include_once('../../inc/footer.php');
         ?>
         
+        <script>
+  document.getElementById('add-image-button').addEventListener('click', function() {
+    const additionalImagesContainer = document.getElementById('additional-images');
+    const newFormGroup = document.createElement('div');
+    newFormGroup.className = 'form-group mt-3';
+    newFormGroup.innerHTML = `
+      <input type="file" name="image[]" class="theme-input-style" accept="image/*" placeholder="Upload Image">
+    `;
+    additionalImagesContainer.appendChild(newFormGroup);
+  });
+</script>

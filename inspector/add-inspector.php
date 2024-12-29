@@ -22,10 +22,10 @@ if (isset($_POST['save_inspector'])) {
 
     // Insert data into the database
     $sql = "INSERT INTO inspectors (inspector_id, inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssss", $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
+    $stmt->bind_param("sssssssssss", $inspector_id, $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
 
     if ($stmt->execute()) {
         echo "<script>alert('Inspector added successfully!'); window.location.href = './all-inspector.php';</script>";
