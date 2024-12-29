@@ -64,7 +64,8 @@ include_once('../inc/function.php');
                                          
                                             <!-- End Star -->
                                         </th>
-                                        <th class="text-center">Customer Name </th>
+                                        <th class="text-center">Customer ID </th>
+                                        <th class="text-center">Customer Name </th>                                        
                                         <th class="text-center">Signature </th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -92,6 +93,7 @@ if ($result->num_rows > 0) {
                     <span class='checkmark'></span>
                 </label>
             </td>
+             <td>{$row['cus_id']}</td>
             <td>
                 <div class='d-flex align-items-center'>
                     <div class='img mr-20'>
@@ -128,7 +130,10 @@ if ($result->num_rows > 0) {
                 </a>
               </span>
                 <span class='contact-close'>
+                <a href='delete_customer.php?cusid={$row['cus_id']}'> 
                     <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
+                </a>
+                    
                 </span>
             </td>
         </tr>";
@@ -327,3 +332,43 @@ if ($result->num_rows > 0) {
         include_once('../inc/footer.php');
         ?>
         
+        <script>
+function confirmDelete() {
+    return confirm("Are you sure you want to delete this customer?");
+}
+</script>
+
+        <!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add event listener to delete buttons
+        document.querySelectorAll('.btn-delete').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const customerId = this.getAttribute('data-id');
+
+                if (confirm('Are you sure you want to delete this customer?')) {
+                    // Send AJAX request
+                    fetch('delete_customer.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ cus_id: customerId }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Customer deleted successfully.');
+                            location.reload(); // Reload the page to reflect changes
+                        } else {
+                            alert('Error deleting customer: ' + data.error);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred while deleting the customer.');
+                    });
+                }
+            });
+        });
+    });
+</script> -->

@@ -253,7 +253,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 <!-- </li> -->
 
                                 <li><span class="key">Number:</span> <span class="black"><?php echo htmlspecialchars($certificate['certificate_no']); ?></span></li>
-                                <li><span class="key">Created On:</span> <span class="black"><?php echo htmlspecialchars($certificate['created_at']); ?></span></li>
+                                <li><span class="key">Created On:</span> <span class="black"><?php echo date('F d, Y', strtotime($certificate['created_at'])); ?></span></li>
+
                             <?php endforeach; ?>
                         </ul>
                     <?php else : ?>
