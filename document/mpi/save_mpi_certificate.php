@@ -95,12 +95,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$image_path', '$project_id', '$companyName', '$created_at'
             )";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Certificate and image uploaded successfully.";
+if ($conn->query($sql) === TRUE) {
+    // Update the certificatestatus in project_info table
+    $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
+    
+    if ($conn->query($updateStatusSql) === TRUE) {
+        echo "Certificate created and status updated successfully.";
         header("Location: index.php?message=Record uploaded successfully");
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error updating certificatestatus: " . $conn->error;
     }
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
 
     $conn->close();
 }

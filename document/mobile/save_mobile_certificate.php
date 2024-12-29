@@ -69,8 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $wind_speed_indicator = $_POST['wind_speed_indicator'];
     $created_at = date('Y-m-d H:i:s');
 
-
-
     // Prepare SQL statement
     $sql = "INSERT INTO mobile_crane_loadtest (
                 examination_date, report_date, report_no, sticker_no, project_id, company_name, customer_name, customer_email, customer_mobile, inspector_name, 
@@ -79,10 +77,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 premises_address, safe_working_load, manufacture_date, last_exam_date, 
                 first_examination, installed_correctly, interval_6_months, interval_12_months, examination_scheme, exceptional_circumstances, identification_any_part, defect, date_defect, repair_details, test_particulars, equipment_fit, name_qualifications_person, report_making_person_qualifications, authenticating_person_name, latest_date_exam, name_address_of_employer, boom_length, boom_angle, swl_test_weight, radius, comments, boom_lifting, m_winch_hoist, aux_winch_hoist, boom_extending, outriggers, swings_slew, hydraulic_system, auto_moment_limiter, swing_winch_brake, winch_drum_lock, leveling_device, hook_block_assembly, boom_angle_indicator, wind_speed_indicator, created_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+    
     // Prepare statement
     $stmt = $conn->prepare($sql);
-    
+
     // Bind parameters
     $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $project_id, $company_name,
@@ -95,8 +93,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Execute the query
     if ($stmt->execute()) {
-        $msg = "Mobile Crane created successfully";
-        header('Location: index.php?msg=' . $msg); 
+        // Update project status
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param('s', $project_id);
+
+        if ($update_stmt->execute()) {
+            $msg = "Mobile Crane created successfully, and project status updated.";
+            header('Location: index.php?msg=' . $msg);
+        } else {
+            echo "Error updating project status: " . $update_stmt->error;
+        }
+
+        $update_stmt->close();
     } else {
         echo "Error: " . $stmt->error;
     }

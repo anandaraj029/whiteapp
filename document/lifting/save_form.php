@@ -40,6 +40,9 @@ if (isset($_POST['save_data_lifting'])) {
     $status = $_POST['status'];
     $safe_to_use = $_POST['safe_to_use'];
 
+    // Flag to check if any insert was successful
+    $insert_successful = false;
+
     foreach ($certificate_no as $index => $cert_no) {
         // Prepare SQL to insert data
         $sql = "INSERT INTO lifting_gear_certificates (
@@ -111,13 +114,24 @@ if (isset($_POST['save_data_lifting'])) {
         // Execute query
         if (mysqli_query($conn, $sql)) {
             echo "Record for Certificate No: $cert_no saved successfully!<br>";
+            $insert_successful = true;  // Mark as successful if at least one record is saved
         } else {
             echo "Error: " . mysqli_error($conn);
+        }
+    }
+
+    // If insertion was successful, update the project status
+    if ($insert_successful) {
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
+
+        if (mysqli_query($conn, $update_query)) {
+            echo "Project status updated to 'Certificate Created'.<br>";
+        } else {
+            echo "Error updating project status: " . mysqli_error($conn);
         }
     }
 
     // Close the database connection
     mysqli_close($conn);
 }
-
 ?>
