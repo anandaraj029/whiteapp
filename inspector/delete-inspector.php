@@ -10,6 +10,8 @@ if (isset($_GET['id'])) {
 
         if ($conn->query($sql) === TRUE) {
             echo "Inspector deleted successfully.";
+            header("Location: all-inspector.php"); // Redirect to the list page
+            exit();
         } else {
             echo "Error: " . $conn->error;
         }
