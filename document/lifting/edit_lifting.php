@@ -47,14 +47,14 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                         <!-- Repeat similar structure for other fields, pre-populating values from $data -->
 
 
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="certificate_no" class="theme-input-style"  value="<?php echo $data['certificate_no']; ?>" required>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
@@ -182,6 +182,12 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 
                         <div class="row">
                         <div class="col-lg-6">
+
+                        <div class="form-group">
+                                <label class="font-14 bold mb-2">Certificate No</label>
+                                <input type="text" name="certificate_no" class="theme-input-style" value="<?php echo $data['certificate_no']; ?>">
+                            </div>
+                        
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Name & Address of Employer</label>
                                 <input type="text" name="employer_name_address" class="theme-input-style" value="<?php echo $data['employer_name_address']; ?>">
