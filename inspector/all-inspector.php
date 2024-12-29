@@ -111,6 +111,7 @@ if ($result->num_rows > 0) {
             
             <td>
     <a href='index.php?id={$row['id']}' class='btn btn-sm btn-primary'>View</a>
+
     <a href='edit-inspector.php?id={$row['id']}' class='btn btn-sm'>Edit</a>
     <a href='delete-inspector.php?id={$row['id']}' class='btn btn-sm text-danger'>Delete</a>
 </td>
