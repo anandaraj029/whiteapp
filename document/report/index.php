@@ -173,6 +173,7 @@ $result = $conn->query($sql);
     <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
 </span>
 
+
                 </td>
             </tr>
         <?php } ?>
@@ -349,4 +350,27 @@ $result = $conn->query($sql);
       <?php 
         include_once('../../inc/footer.php');
         ?>
-        
+
+
+<script>
+    function deleteRow(project_id, element) {
+        if (confirm("Are you sure you want to delete this row?")) {
+            // Remove the row from the frontend
+            var row = element.closest('tr');
+            row.parentNode.removeChild(row);
+
+            // Send an AJAX request to delete the row from the database
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "delete_report.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    alert("Row deleted successfully");
+                } else if (xhr.status != 200) {
+                    alert("Failed to delete row. Please try again.");
+                }
+            };
+            xhr.send("project_id=" + project_id);
+        }
+    }
+</script>

@@ -65,6 +65,7 @@ include_once('../inc/function.php');
                                             <!-- End Star -->
                                         </th>
                                         <th class="text-center">Customer Name </th>
+                                        <th class="text-center">Signature </th>
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>City</th>
@@ -101,6 +102,15 @@ if ($result->num_rows > 0) {
                     </div>
                 </div>
             </td>
+
+            <td>
+                <div class='d-flex align-items-center'>
+                    <div class='img mr-20'>
+                        <img src='{$row['signature_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                    </div>
+                 
+                </div>
+            </td>
             <td>{$row['email']}</td>
             <td>{$row['mobile']}</td>
             <td>{$row['city']}</td>
@@ -111,9 +121,12 @@ if ($result->num_rows > 0) {
               <span class='contact-edit'>
                 <a href='view-customer.php?cusid={$row['cus_id']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
                 </span>
-                <span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
+                <span class='contact-edit'>
+                <!-- Link to the edit page -->
+                <a href='edit.php?cusid={$row['cus_id']}'> 
                     <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
-                </span>
+                </a>
+              </span>
                 <span class='contact-close'>
                     <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
                 </span>

@@ -111,100 +111,83 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <div class="container-fluid">
                <div class="row">
                   <div class="col-12">
-                     <!-- Invoice Header -->
-                     <div class="invoice-details-header bg-white d-flex align-items-sm-center flex-column flex-sm-row mb-30 justify-content-sm-between">
-                        <div class="d-flex align-items-center">
-                           <a href="#" class="mr-2"><img src="<?php echo $url;?>assets/img/svg/angle-left.svg" alt="" class="svg"></a>
-                           <h2 class="regular mr-3 font-30">JOB ID</h2>
-                           <h4 class="c4">#256987</h4>
+                    <!-- Invoice Header -->
+                <div class="invoice-details-header bg-white d-flex flex-column flex-sm-row mb-30 justify-content-between">
+                    <div class="d-flex align-items-center mb-3 mb-sm-0">
+                        <a href="#" class="mr-2">
+                            <img src="<?php echo $url;?>assets/img/svg/angle-left.svg" alt="" class="svg">
+                        </a>
+                        <h2 class="regular mr-3 font-30">JOB ID</h2>
+                        <h4 class="c4">#256987</h4>
+                    </div>
+                    <div class="invoice-header-right d-flex align-items-center justify-content-end">
+                        <div class="delete_mail mr-20">
+                            <a href="#"><img src="<?php echo $url;?>assets/img/svg/delete.svg" alt="" class="svg"></a>
                         </div>
-
-                        <div class="invoice-header-right d-flex align-items-center justify-content-around justify-content-sm-end mt-3 mt-sm-0">
-                           <!-- Starred -->
-                           <!-- <div class="star mr-20">
-                              <a href="#"><img src="<?php echo $url;?>assets/img/svg/star.svg" alt="" class="svg"></a>
-                           </div> -->
-                           <!-- End Starred -->
-
-                           <!-- Delete Mail -->
-                           <div class="delete_mail mr-20">
-                              <a href="#"><img src="<?php echo $url;?>assets/img/svg/delete.svg" alt="" class="svg"></a>
-                           </div>
-                           <!-- End Delete Mail -->
-
-                           <!-- Edit Invoice Button -->
-                           <div class="edit-invoice-btn pr-1">
-                              <a href="invoice-add-new.html" class="btn-circle">
-                                 <img src="<?php echo $url;?>assets/img/svg/writing.svg" alt="" class="svg">
-                              </a>
-                           </div>
-                           <!-- End Edit Invoice Button -->
-
-                        
+                        <div class="edit-invoice-btn pr-1">
+                            <a href="invoice-add-new.html" class="btn-circle">
+                                <img src="<?php echo $url;?>assets/img/svg/writing.svg" alt="" class="svg">
+                            </a>
                         </div>
-                     </div>
-                     <!-- End Invoice Header -->
+                    </div>
+                </div>
+                <!-- End Invoice Header -->
 
-                     <!-- Invoice Top -->
-                     <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
-                        <div class="row">
-                           <div class="col-md-4">
-                              <!-- Invoice Left -->
-                              <div class="invoice-left">
-                              <h3 class="white font-20 mb-3">Customer Details</h3>
-                                 <ul class="list-invoice">
+                <!-- Invoice Top -->
+                <div class="invoice-pd c2-bg" data-bg-img="../../../assets/img/media/invoice-pattern.png">
+                    <div class="row">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <!-- Invoice Left -->
+                            <div class="invoice-left">
+                                <h3 class="white font-20 mb-3">Customer Details</h3>
+                                <ul class="list-invoice">
                                     <li class="location">CA <br />
-                                    <?php echo htmlspecialchars($data['equipment_location']); ?></li>
+                                        <?php echo htmlspecialchars($data['equipment_location']); ?>
+                                    </li>
                                     <li class="call">
-                                       <a href="tel:+01234567891">+0 (123) 456 7891</a> <br />
-                                       <a href="tel:+01234567891">
-                                       <?php echo htmlspecialchars($data['customer_mobile']); ?>
-                                       </a>
+                                        <a href="tel:+01234567891">+0 (123) 456 7891</a> <br />
+                                        <a href="tel:+01234567891"><?php echo htmlspecialchars($data['customer_mobile']); ?></a>
                                     </li>
-                                    <li class="mail">
-                                    <?php echo htmlspecialchars($data['customer_email']); ?>
-                                 </li>
-                                    </li>
-                                    
-                                 </ul>
-                              </div>
-                              <!-- End Invoice Left -->
-                           </div>
-                           <div class="col-md-4">
-                              <!-- Invoice Right -->
-                              <div class="invoice-right mt-5 mt-md-0">
-                                 <h3 class="white font-20 mb-3">Project Status</h3>
-
-                                 <ul class="status-list">
-                                    <li><span class="key font-14">Serial No:</span> <span class="white bold font-17">
-                                       #256987
-                                    </span></li>
-                                    <li><span class="key font-14">Project No:</span> <span class="white bold font-17">
-                                    <?php echo htmlspecialchars($data['project_id']); ?>
-                                    
-                                    </span></li>
-                                    <li><span class="key font-14">Start Date:</span> <span class="white bold font-17">08/12/2019</span></li>
-                                    <li><span class="key font-14">End Date:</span> <span class="white bold font-17">07/03/2019</span></li>
-                                    <li><span class="key font-14">Status:</span> <span class="white status-btn completed">
-                                       
-                                    
-                                    Completed</span></li>
-                                 </ul>
-                              </div>
-                              <!-- End Invoice Right -->
-                           </div>
-                           <div class="col-md-4">
-                              <!-- Invoice Right -->
-                              <div class="invoice-right mt-5 mt-md-0">
-                                 <h3 class="white font-20 mb-3">QR Status</h3>
-                           <img class="img-responsive" src="../document/code.png" alt="Qr code" width="150px">
-                              
-                              </div>
-                              <!-- End Invoice Right -->
-                           </div>
+                                    <li class="mail"><?php echo htmlspecialchars($data['customer_email']); ?></li>
+                                </ul>
+                            </div>
+                            <!-- End Invoice Left -->
                         </div>
-                     </div>
-                     <!-- End Invoice Top -->
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <!-- Invoice Right -->
+                            <div class="invoice-right">
+                                <h3 class="white font-20 mb-3">Project Status</h3>
+                                <ul class="status-list">
+                                    <li><span class="key font-14">Serial No:</span>
+                                        <span class="white bold font-17">#256987</span>
+                                    </li>
+                                    <li><span class="key font-14">Project No:</span>
+                                        <span class="white bold font-17"><?php echo htmlspecialchars($data['project_id']); ?></span>
+                                    </li>
+                                    <li><span class="key font-14">Start Date:</span>
+                                        <span class="white bold font-17">08/12/2019</span>
+                                    </li>
+                                    <li><span class="key font-14">End Date:</span>
+                                        <span class="white bold font-17">07/03/2019</span>
+                                    </li>
+                                    <li><span class="key font-14">Status:</span>
+                                        <span class="white status-btn completed">Completed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Invoice Right -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Invoice Right -->
+                            <div class="invoice-right">
+                                <h3 class="white font-20 mb-3">QR Status</h3>
+                                <img class="img-fluid" src="../document/code.png" alt="QR Code" width="150px">
+                            </div>
+                            <!-- End Invoice Right -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End Invoice Top -->
 
                      <!-- Invois Wrapper -->
                      <div class="bg-white invoice-pd position-relative">
@@ -364,8 +347,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <td>Inspector</td>
                         <td>Complete</td>
                         <td> 
-                            <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                            <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                            <a href="../document/report/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                            <a href="../document/report/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
                         </td>
                     </tr>
                 </tbody>

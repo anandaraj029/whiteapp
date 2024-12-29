@@ -47,6 +47,9 @@ if (isset($_POST['update'])) {
     $boom_angle_indicator = $_POST['boom_angle_indicator'];
     $emergency_shutdown = $_POST['emergency_shutdown'];
 
+      // Get the current timestamp for updated_at
+    $updated_at = date('Y-m-d H:i:s');
+
     // Build update query
     $sql = "UPDATE crane_health_check_certificate SET
                 inspection_date = '$inspection_date',
@@ -80,7 +83,9 @@ if (isset($_POST['update'])) {
                 winch_drum_lock_pawls = '$winch_drum_lock_pawls',
                 hook_block_assembly = '$hook_block_assembly',
                 boom_angle_indicator = '$boom_angle_indicator',
-                emergency_shutdown = '$emergency_shutdown'
+                emergency_shutdown = '$emergency_shutdown',
+                updated_at = '$updated_at' -- Update the timestamp
+
             WHERE project_id = '$project_id'";
 
     // Execute query and check if update is successful
