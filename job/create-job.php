@@ -14,6 +14,13 @@ if ($projectResult && $projectResult->num_rows > 0) {
     $newProjectNo = 1; // Default to 1 if no project exists
 }
 
+// Format the project ID as "P001"
+$formattedProjectNo = "P" . str_pad($newProjectNo, 3, "0", STR_PAD_LEFT);
+
+// Return the generated ID
+echo $formattedProjectNo;
+
+
 // Fetch student names from the database
 $customerQuery = "SELECT * FROM customers";
 $customerResult = $conn->query($customerQuery);
@@ -63,8 +70,10 @@ $result = mysqli_query($conn, $sql); // Execute query
                                             <label class="font-14 bold">Project No*</label>
                                         </div>
                                         <div class="col-sm-8">
+                                        
+
                                 <input type="text" name="project_no" class="theme-input-style" 
-                                       value="<?php echo htmlspecialchars($newProjectNo); ?>" readonly>
+                                       value="<?php echo htmlspecialchars($formattedProjectNo); ?>" readonly>
                             </div>
                                     </div>
                                     <!-- End Form Row -->

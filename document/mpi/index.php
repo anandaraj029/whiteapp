@@ -138,7 +138,8 @@ $result = $conn->query($sql);
 
 
                     <div class="star">
-                                                <a href="./download.php?project_id=<?php echo $row['project_id']; ?>"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+         <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+            <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
                                             </div>
                     <!-- End Star -->
                 </td>
@@ -163,9 +164,9 @@ $result = $conn->query($sql);
 </a>
 
 
-                    <span class="contact-close">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                    </span>
+<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $project_id; ?>')">
+    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
+</span>
                 </td>
             </tr>
             <?php endwhile; ?>
@@ -347,3 +348,33 @@ $result = $conn->query($sql);
         include_once('../../inc/footer.php');
         ?>
         
+        <script>
+    function confirmDeleteCertificate(projectId) {
+        // Show confirmation dialog
+        const userConfirmed = confirm('Are you sure you want to delete this certificate? This action cannot be undone.');
+
+        if (userConfirmed) {
+            // If confirmed, proceed with deletion
+            fetch('delete_certificate.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ project_id: projectId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Certificate deleted successfully!');
+                    window.location.href = 'index.php'; // Redirect to the certificates list
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An unexpected error occurred!');
+            });
+        }
+    }
+</script>
