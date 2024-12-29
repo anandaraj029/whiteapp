@@ -3,8 +3,7 @@ include './config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect and sanitize form data
-    $customer_id = $conn->real_escape_string($_POST['customer_id']);
-    $creation_date = $conn->real_escape_string($_POST['creation_date']);
+    $customer_id = $conn->real_escape_string($_POST['customer_id']);    
     $equipment_type = $conn->real_escape_string($_POST['equipment_type']);
     $sticker_status = $conn->real_escape_string($_POST['sticker_status']);
     $checklist_type = $conn->real_escape_string($_POST['checklist_type']);

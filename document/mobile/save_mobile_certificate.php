@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $hook_block_assembly = $_POST['hook_block_assembly'];
     $boom_angle_indicator = $_POST['boom_angle_indicator'];
     $wind_speed_indicator = $_POST['wind_speed_indicator'];
+    $created_at = date('Y-m-d H:i:s');
 
 
 
@@ -76,20 +77,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 employer_address, equipment_description, manufacturer, model, 
                 equipment_id, equipment_serial_no, main_hook_block_swl, serial_numbers, rope_dia, falls, certificate_no, jrn, 
                 premises_address, safe_working_load, manufacture_date, last_exam_date, 
-                first_examination, installed_correctly, interval_6_months, interval_12_months, examination_scheme, exceptional_circumstances, identification_any_part, defect, date_defect, repair_details, test_particulars, equipment_fit, name_qualifications_person, report_making_person_qualifications, authenticating_person_name, latest_date_exam, name_address_of_employer, boom_length, boom_angle, swl_test_weight, radius, comments, boom_lifting, m_winch_hoist, aux_winch_hoist, boom_extending, outriggers, swings_slew, hydraulic_system, auto_moment_limiter, swing_winch_brake, winch_drum_lock, leveling_device, hook_block_assembly, boom_angle_indicator, wind_speed_indicator
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                first_examination, installed_correctly, interval_6_months, interval_12_months, examination_scheme, exceptional_circumstances, identification_any_part, defect, date_defect, repair_details, test_particulars, equipment_fit, name_qualifications_person, report_making_person_qualifications, authenticating_person_name, latest_date_exam, name_address_of_employer, boom_length, boom_angle, swl_test_weight, radius, comments, boom_lifting, m_winch_hoist, aux_winch_hoist, boom_extending, outriggers, swings_slew, hydraulic_system, auto_moment_limiter, swing_winch_brake, winch_drum_lock, leveling_device, hook_block_assembly, boom_angle_indicator, wind_speed_indicator, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);
     
     // Bind parameters
-    $stmt->bind_param('ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', 
+    $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $project_id, $company_name,
         $customer_name, $customer_email, $customer_mobile, $inspector_name,
         $employer_address, $equipment_description, $manufacturer, $model,
         $equipment_id, $equipment_serial_no, $main_hook_block_swl, $serial_numbers, $rope_dia, $falls, $certificate_no, $jrn,
         $premises_address, $safe_working_load, $manufacture_date, $last_exam_date,
-        $first_examination, $installed_correctly, $interval_6_months, $interval_12_months, $examination_scheme, $exceptional_circumstances, $identification_any_part, $defect, $date_defect, $repair_details, $test_particulars, $equipment_fit, $name_qualifications_person, $report_making_person_qualifications, $authenticating_person_name, $latest_date_exam, $name_address_of_employer, $boom_length, $boom_angle, $swl_test_weight, $radius, $comments, $boom_lifting, $m_winch_hoist, $aux_winch_hoist, $boom_extending, $outriggers, $swings_slew, $hydraulic_system, $auto_moment_limiter, $swing_winch_brake, $winch_drum_lock, $leveling_device, $hook_block_assembly, $boom_angle_indicator, $wind_speed_indicator
+        $first_examination, $installed_correctly, $interval_6_months, $interval_12_months, $examination_scheme, $exceptional_circumstances, $identification_any_part, $defect, $date_defect, $repair_details, $test_particulars, $equipment_fit, $name_qualifications_person, $report_making_person_qualifications, $authenticating_person_name, $latest_date_exam, $name_address_of_employer, $boom_length, $boom_angle, $swl_test_weight, $radius, $comments, $boom_lifting, $m_winch_hoist, $aux_winch_hoist, $boom_extending, $outriggers, $swings_slew, $hydraulic_system, $auto_moment_limiter, $swing_winch_brake, $winch_drum_lock, $leveling_device, $hook_block_assembly, $boom_angle_indicator, $wind_speed_indicator, $created_at
     );
 
     // Execute the query

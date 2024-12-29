@@ -48,6 +48,10 @@
                 <label class="font-14 bold mb-2">Rep.Name</label>
                 <input type="text" class="theme-input-style" name="rep_name" placeholder="Rep Name">
             </div>
+            <div class="form-group">
+        <label for="profile_photo">Upload Profile Photo</label>
+        <input type="file" class="form-control" name="profile_photo" accept="image/*" required>
+    </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="form-group">
@@ -70,10 +74,7 @@
                 </select>
             </div>
 
-            <div class="form-group">
-        <label for="profile_photo">Upload Profile Photo</label>
-        <input type="file" class="form-control" name="profile_photo" accept="image/*" required>
-    </div>
+            
 
     <div class="form-group">
     <label>Customer Signature</label>
