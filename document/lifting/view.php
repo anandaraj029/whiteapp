@@ -153,8 +153,14 @@ margin: 5px;
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">Name & Address of the employer for whom the examination was made:</th>
-                        <th colspan="4">Address of the premises at which the examination was made:</th>
+                        <th colspan="6">Name & Address of the employer for whom the examination was made:
+                            <?= $certificate['employer_name_address']; ?>
+
+                        </th>
+                        <th colspan="4">Address of the premises at which the examination was made:
+
+                        <?= $certificate['address_of_premises']; ?>
+                        </th>
                         <th colspan="2">Status:<br/>
                             ND-No Defect<br/>
                             SDR-See Defect Report<br/>
