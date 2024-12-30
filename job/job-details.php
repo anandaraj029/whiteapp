@@ -11,7 +11,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
-            c.checklist_no, c.inspected_by,
+            c.checklist_no, c.inspected_by, c.created_at,
             r.report_no, r.sticker_number_issued
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_id = c.project_id
@@ -208,6 +208,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <ul class="status-list">
                                     <li><span class="key">Checklist No:</span> <span class="black"><?php echo htmlspecialchars($data['checklist_no']); ?></span></li>
                                     <li><span class="key">Inspector:</span> <span class="black"><?php echo htmlspecialchars($data['inspected_by']); ?></span></li>
+                                    <li><span class="key">Created At:</span> <span class="black"><?php echo date('F d, Y', strtotime($data['created_at'])); ?></span></li>
                                 </ul>
                                 <?php else: ?>
                     <p class="black">Checklist not created.</p>
@@ -317,7 +318,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                      <!-- Invoice Details List Wrapper -->
                       
-                     <?php if (isset($certificateStatus) && $certificateStatus === "Certificate Created"): ?>
+                     <?php if ($checklistCreated || $reportCreated || !empty($certificates)) : ?>
     <div class="bg-white details-list-wrap">
         <div class="table-responsive">
             <!-- Invoice List Table -->
@@ -327,55 +328,62 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         <th>Doc ID</th>
                         <th>Document Type</th>
                         <th>Date of Creation</th>
-                        <th>Create By</th>
+                        <th>Created By</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-
                 <tbody class="bg-white">
-                    <tr>
-                        <td class="bold">#01</td>
-                        <td>Crane Checklist</td>
-                        <td>26/12/2024</td>
-                        <td>Inspector</td>
-                        <td>Complete</td>
-                        <td> 
-                            <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                            <a href="#" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="bold">#01</td>
-                        <td>Crane Checklist</td>
-                        <td>26/12/2024</td>
-                        <td>Inspector</td>
-                        <td>Complete</td>
-                        <td> 
-                            <a href="../document/report/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                            <a href="../document/report/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url;?>assets/img/svg/copy.svg" alt="" class="svg"></a>
-                        </td>
-                    </tr>
+                    <?php if ($checklistCreated): ?>
+                        <tr>
+                            <td class="bold">#<?php echo htmlspecialchars($data['checklist_no']); ?></td>
+                            <td>Checklist</td>
+                            <td><?php echo date('F d, Y', strtotime($data['created_at'])); ?></td>
+                            <td><?php echo htmlspecialchars($data['inspected_by']); ?></td>
+                            <td>Completed</td>
+                            <td>
+                                <a href="../document/checklist/download.php?checklist_no=<?php echo $data['checklist_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                <a href="../document/checklist/type/view/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
+                    <?php if ($reportCreated): ?>
+                        <tr>
+                            <td class="bold">#<?php echo htmlspecialchars($data['report_no']); ?></td>
+                            <td>Report</td>
+                            <td><?php echo date('F d, Y', strtotime($data['created_at'])); ?></td>
+                            <td><?php echo htmlspecialchars($data['inspected_by']); ?></td>
+                            <td>Generated</td>
+                            <td>
+                                <a href="../document/report/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                <a href="../document/report/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                            </td>
+                        </tr>
+                    <?php endif; ?>
+
+                    <?php foreach ($certificates as $certificate) : ?>
+                        <tr>
+                            <td class="bold">#<?php echo htmlspecialchars($certificate['certificate_no']); ?></td>
+                            <td><?php echo ucfirst(htmlspecialchars($certificate['certificate_type'])); ?> Certificate</td>
+                            <td><?php echo date('F d, Y', strtotime($certificate['created_at'])); ?></td>
+                            <td><?php echo htmlspecialchars($certificate['created_by'] ?? 'N/A'); ?></td>
+                            <td>Created</td>
+                            <td>
+                                <a href="../document/certificate/download.php?certificate_no=<?php echo $certificate['certificate_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                <a href="../document/certificate/view.php?certificate_no=<?php echo $certificate['certificate_no']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
             <!-- End Invoice List Table -->
         </div>
-
-        <!-- Cart Collaterals -->
-        <div class="cart-collaterals">
-            <div class="cart_totals calculated_shipping">
-                <div class="proceed-to-checkout d-flex align-items-center justify-content-end mr-20 mt-4">
-                    <a href="#" class="download-btn mr-3"><img src="<?php echo $url;?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                    <a href="#" class="print-btn mr-20"><img src="<?php echo $url;?>assets/img/svg/print-yellow.svg" alt="" class="svg"></a>
-                </div>
-            </div>
-        </div>
-        <!-- End Cart Collaterals -->
     </div>
-    
 <?php else: ?>
-    <p class="bg-white details-list-wrap">Certificate not yet created for this project.</p>
+    <p class="bg-white details-list-wrap">No documents created for this project yet.</p>
 <?php endif; ?>
+
 
                      <!-- End Invoice Details List Wrapper -->
                   </div>

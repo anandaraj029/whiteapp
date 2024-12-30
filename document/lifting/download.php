@@ -34,6 +34,8 @@ $mpdf = new \Mpdf\Mpdf([
     'margin_footer' => 5
 ]);
 
+// Loop through each certificate and generate HTML content
+while ($row = $result->fetch_assoc()) {
 // HTML content
 $html = <<<HTML
 <!DOCTYPE html>
@@ -234,6 +236,11 @@ $html = <<<HTML
 </html>
 
 HTML;
+
+// Add the HTML content to the PDF
+$mpdf->AddPage();
+$mpdf->WriteHTML($html);
+}
 
 // Write the HTML content to the PDF
 $mpdf->WriteHTML($html);
