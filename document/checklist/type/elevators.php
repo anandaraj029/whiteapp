@@ -20,6 +20,12 @@ include_once('./get-checklist.php');
             max-width: 926px;
 
         }
+
+        .large-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
     </style>
 </head>
 <body>
@@ -171,13 +177,13 @@ Sec. (2.13(3.13),
 
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -192,13 +198,13 @@ Sec. (2.13(3.13),
 
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -212,13 +218,13 @@ Sec. (2.26.1.1(3.26.1),
   3.26.3, 8.11.3.1.1c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -232,13 +238,13 @@ Sec. (2.5.1(3.5), 2.11.10.3 (3.11), 2.11.11.1,
 2.11.13.1, 2.15.16 (3.15), 8.11.3.1.1d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -252,13 +258,13 @@ Sec. (2.5.1(3.5), 2.11.10.3 (3.11), 2.11.11.1,
 8.11.3.1.1a)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -272,13 +278,13 @@ Sec. (2.5.1(3.5), 2.11.10.3 (3.11), 2.11.11.1,
 8.11.3.1.1b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -293,13 +299,13 @@ Sec.(2.26.1.1(3.26.1),
 8.11.3.1.1c)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -316,13 +322,13 @@ Sec. (2.5.1(3.5),
 2.11.13.1, 2.15.16
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -335,13 +341,13 @@ Sec. (2.5.1(3.5),
 Sec. (3.14, 8.11.3.1.1e)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -357,13 +363,13 @@ Sec. (2.27.1 (3.27),
 
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -379,13 +385,13 @@ Sec. (2.12.7.3 (3.12),
 (3.14), 2.26.2
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -399,13 +405,13 @@ Sec. (2.12.7.3 (3.12),
 8.11.3.1.1h)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -419,13 +425,13 @@ Sec. (2.13.3 (3.13),
 8.11.3.1.1i)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -441,13 +447,13 @@ Sec. (2.12.5 (3.12),
 8.11.3.1.1j)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">
@@ -461,13 +467,13 @@ Sec. (2.12.5 (3.12),
 (3.14), 8.11.3.1.1k)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[15]">
@@ -484,13 +490,13 @@ Sec. (2.14 (3.14),
 8.7.3.13,8.11.3.1.1l)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[16]">
@@ -504,13 +510,13 @@ Sec. (2.14.2.3, 2.14.3.3
 (3.14), 8.11.3.1.1n)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[17]">
@@ -523,13 +529,13 @@ Sec. (2.14.2.3, 2.14.3.3
 				<td style="text-align: center;"><strong>ASME A17.1 (2.26.12, 8.11.3.1.1b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[18]">
@@ -542,13 +548,13 @@ Sec. (2.14.2.3, 2.14.3.3
 Sec. (2.26.12, 8.11.3.1.1b)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[19]">
@@ -562,13 +568,13 @@ Sec. (2.16 (3.16),
 8.11.3.1.1p)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[20]">
@@ -586,13 +592,13 @@ Sec. (2.27.2 (3.27),
 
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[21]">
@@ -606,13 +612,13 @@ Sec. (2.12.5 (3.12),
 8.11.3.1.1r)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[22]">
@@ -627,13 +633,13 @@ Sec. (3.15, 3.23.1,
 8.11.3.1.1s)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[23]">
@@ -661,13 +667,13 @@ Sec. (3.15, 3.23.1,
 Sec. (3.1,3.7, 8.11.3.1.2a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[24]">
@@ -682,13 +688,13 @@ Sec. (2.4.7 (3.7),
 8.11.3.1.2b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[25]">
@@ -702,13 +708,13 @@ Sec. (2.7.5.1 (3.7),
 8.11.3.1.2c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[26]">
@@ -723,13 +729,13 @@ Sec. (2.7.1.1 (3.7),
 8.11.3.1.2d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[27]">
@@ -743,13 +749,13 @@ Sec. (8.6.1.2, 8.6.4.8
 (8.6.5), 8.6.10.3, 8.11.3.1.2e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[28]">
@@ -763,13 +769,13 @@ Sec. (8.6.1.2, 8.6.4.8
 2.8.4, 8.11.3.1.2f)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[29]">
@@ -783,13 +789,13 @@ Sec. (8.11.3.1.2g,
 (8.6.5))
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[30]">
@@ -803,13 +809,13 @@ Sec. (8.11.3.1.2g,
 Sec. (2.8.1, 2.8.2 (3.8), 8.11.3.1.2h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[31]">
@@ -823,13 +829,13 @@ Sec. (2.10.1 (3.10),
 8.11.3.1.2i)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[32]">
@@ -844,13 +850,13 @@ Sec. (2.10.1 (3.10),
 (3.27), 3.26)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[33]">
@@ -863,13 +869,13 @@ Sec. (2.10.1 (3.10),
 Sec. (3.26, 3.26.3.1 (3.26.3.1.4b), 8.11.3.1.2k)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[34]">
@@ -884,13 +890,13 @@ Sec. (2.8.1 (3.8), 3.26,
 8.6.5, 8.11.3.1.2l)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[35]">
@@ -907,13 +913,13 @@ Sec. (2.17, 2.18,
 8.11.3.2.3,
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[36]">
@@ -926,13 +932,13 @@ Sec. (2.17, 2.18,
 Sec. (8.7.1.8, 8.9)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[37]">
@@ -946,13 +952,13 @@ Sec. (3.24, 8.6.5,
 8.11.3.1.2m)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[38]">
@@ -969,13 +975,13 @@ Sec. (3.19.1, 3.19.2,
 8.11.3.2.1)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[39]">
@@ -988,13 +994,13 @@ Sec. (3.19.1, 3.19.2,
 Sec. (3.19, 8.11.3.1.2o)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[40]">
@@ -1011,13 +1017,13 @@ Sec. (3.24, 8.6.5.1,
 8.11.3.1.2p, 8.11.3.3.2)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[41]">
@@ -1031,13 +1037,13 @@ Sec.
 (3.19.3.3,8.11.3.1.2q,8.11.3.2.4)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[42]">
@@ -1050,13 +1056,13 @@ Sec.
   Sec. (3.19, 8.11.3.1.2r)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[43]">
@@ -1070,13 +1076,13 @@ Sec. (3.18.3, 8.11.3.1.2s,
 8.11.3.2.2)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[44]">
@@ -1090,13 +1096,13 @@ Sec.(3.26.8,8.11.3.1.2t,
 8.11.3.2.5)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[45]">
@@ -1110,13 +1116,13 @@ Sec. (3.26.8,8.11.3.1.2t,
 8.11.3.2.5)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[46]">
@@ -1144,13 +1150,13 @@ Sec. (3.26.8,8.11.3.1.2t,
 Sec. (3.26.4, 8.11.3.1.3a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[47]">
@@ -1165,13 +1171,13 @@ Sec. (2.14.7 (3.14),
 8.11.3.1.3b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[48]">
@@ -1184,13 +1190,13 @@ Sec. (2.14.7 (3.14),
 Sec. (3.26.2, 8.11.3.1.3c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[49]">
@@ -1206,13 +1212,13 @@ Sec. (3.4, 3.18.4,
 8.11.3.1.3d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[50]">
@@ -1228,13 +1234,13 @@ Sec. (3.25.1.1,8.10.2.3.2k,
 8.11.3.1.3e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[51]">
@@ -1249,13 +1255,13 @@ Sec. (3.25.1.1,8.10.2.3.2k,
 2.8.4, 8.11.3.1.2f)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[52]">
@@ -1268,13 +1274,13 @@ Sec. (3.25.1.1,8.10.2.3.2k,
 8.11.3.1.3g)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[53]">
@@ -1288,13 +1294,13 @@ Sec. (3.25.1.1,8.10.2.3.2k,
 Sec. (2.14.1.5 (3.14), 8.11.3.1.3i)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[54]">
@@ -1309,13 +1315,13 @@ Sec. (2.29.1 (3.27),
 8.11.3.1.3j)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[55]">
@@ -1329,13 +1335,13 @@ Sec. (2.29.1 (3.27),
 Sec. (3.1, 8.11.3.1.3k)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[56]">
@@ -1349,13 +1355,13 @@ Sec. (2.1.4 (3.1),
 8.11.3.1.3l)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[57]">
@@ -1369,13 +1375,13 @@ Sec. (2.8(3.8),
 8.11.3.1.3m)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[58]">
@@ -1390,13 +1396,13 @@ Sec. (2.1.5, 2.1.6 (3.1),
 8.11.3.1.3n)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[59]">
@@ -1410,13 +1416,13 @@ Sec. (2.5(3.5), 2.11
 (3.11), 8.11.3.1.3o)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[60]">
@@ -1429,13 +1435,13 @@ Sec. (2.5(3.5), 2.11
 Sec. (2.1.1.4 (3.1), 8.11.3.1.3p)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[61]">
@@ -1449,13 +1455,13 @@ Sec. (2.1.1.4 (3.1), 8.11.3.1.3p)
 8.11.3.1.3q)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[62]">
@@ -1470,13 +1476,13 @@ Sec. (2.11 (3.11), 2.12
 (3.26.3), 8.11.3.1.3r)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[63]">
@@ -1490,13 +1496,13 @@ Sec. (2.11 (3.11), 2.12
 Sec. (3.15, 8.8 (3.18.5), 8.11.3.1.3s)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[64]">
@@ -1511,13 +1517,13 @@ Sec. (2.23 (3.23.2),
 8.11.3.1.3t)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[65]">
@@ -1533,13 +1539,13 @@ Sec. (2.18.5, 3.17.1,
 8.11.3.1.3w)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[66]">
@@ -1554,13 +1560,13 @@ Sec. (2.17.15, 3.17.1,
 8.11.3.4)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[67]">
@@ -1575,13 +1581,13 @@ Sec. (2.9.3.3, 2.15.13,
 8.6.3, 8.11.3.1.3x)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[68]">
@@ -1596,13 +1602,13 @@ Sec. (2.20, 8.2.7, 8.6.2.5, 8.7.2.21, 8.7.3.25,
 8.11.3.1.3y)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[69]">
@@ -1617,13 +1623,13 @@ Sec. (2.17.16, 3.4,
 8.11.3.1.3h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[70][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[70][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[70]">
@@ -1636,13 +1642,13 @@ Sec. (2.17.16, 3.4,
 Sec. (3.18.1.2, 3.26.4, 8.11.3.1.3z)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[71][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[71][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[71]">
@@ -1658,13 +1664,13 @@ Sec. (2.20, 2.24.2,
 8.7.3.25,8.11.3.1.3aa)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[72][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[72][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[72]">
@@ -1678,13 +1684,13 @@ Sec. (2.20, 2.24.2,
 3.22.2, 8.2.3)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[73][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[73][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[73]">
@@ -1712,13 +1718,13 @@ Sec. (2.20, 2.24.2,
 Sec. (3.15, 8.11.3.1.4a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[74][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[74][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[74][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[74][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[74]">
@@ -1736,13 +1742,13 @@ Sec. (2.11 (3.11),
 8.11.3.1.4b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[75][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[75][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[75][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[75][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[75]">
@@ -1756,13 +1762,13 @@ Sec. (2.11.7 (3.11),
 8.11.3.1.4c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[76][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[76][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[76][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[76][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[76]">
@@ -1776,13 +1782,13 @@ Sec.(2.12 (3.12),
 8.11.3.1.4d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[77][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[77][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[77][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[77][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[77]">
@@ -1796,13 +1802,13 @@ Sec. (2.12.6, 2.12.7
 (3.12), 8.11.3.1.4e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[78][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[78][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[78][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[78][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[78]">
@@ -1816,13 +1822,13 @@ Sec. (2.12.6, 2.12.7
  (3.13), 8.11.3.1.4f)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[79][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[79][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[79][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[79][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[79]">
@@ -1836,13 +1842,13 @@ Sec. (2.13.3.4 (3.13),
 2.13.6, 8.11.3.1.4g)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[80][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[80][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[80][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[80][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[80]">
@@ -1857,13 +1863,13 @@ Sec.(2.1.1, 2.1.4, 2.1.5
 (3.1), 8.11.3.1.4h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[81][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[81][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[81][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[81][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[81]">
@@ -1876,13 +1882,13 @@ Sec.(2.1.1, 2.1.4, 2.1.5
 Sec. (8.11.3.1.4i)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[82][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[82][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[82][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[82][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[82]">
@@ -1897,13 +1903,13 @@ Sec. (8.11.3.1.4i)
 Sec. (2.11.1.1,2.11.1.2)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[83][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[83][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[83][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[83][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[83]">
@@ -1920,13 +1926,13 @@ Sec. (2.16.8 (3.16),
 8.11.3.2.3)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[84][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[84][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[84][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[84][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[84]">
@@ -1955,13 +1961,13 @@ Sec. (2.8 (3.8), 3.6, 3.26.4, 8.6.4.7,
 8.11.3.1.5a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[85][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[85][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[85][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[85][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[85]">
@@ -1976,13 +1982,13 @@ Sec.(3.4, 3.18.3.3, 8.10.3.2.5c,
 8.11.3.1.5b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[86]">
@@ -1996,13 +2002,13 @@ Sec. (3.25.1,8.11.2.2.5
 (8.11.3.2.3), 8.11.3.1.5e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[87][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[87][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[87][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[87][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[87]">
@@ -2016,13 +2022,13 @@ Sec. (2.8.2 (3.8),
 8.11.3.1.5f)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[88][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[88][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[88][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[88][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[88]">
@@ -2036,13 +2042,13 @@ Sec. (2.18.7, 3.17.1,
 8.6.1.6.2, 8.11.3.1.5k)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[89][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[89][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[89][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[89][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[89]">
@@ -2056,13 +2062,13 @@ Sec. (3.15, 2.18.2.3,
 3.28, 8.11.3.1.5g)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[90][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[90][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[90][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[90][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[90]">
@@ -2076,13 +2082,13 @@ Sec. (2.17, 3.17.1,
 8.2.6, 8.11.3.1.5j)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[91][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[91]">
@@ -2098,13 +2104,13 @@ Sec. (3.18, 8.6.5.1,
 8.6.5.6, 8.11.3.1.5c)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[92][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[92][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[92][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[92][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[92]">
@@ -2119,13 +2125,13 @@ Sec. (3.18, 8.6.5.1,
 8.6.5.6, 8.11.3.1.5c)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[93][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[93][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[93][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[93][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[93]">
@@ -2140,13 +2146,13 @@ Sec. (3.22.1, 3.26.4,
 8.11.3.1.5d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[94][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[94][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[94][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[94][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[94]">
@@ -2160,13 +2166,13 @@ Sec. (3.23, 3.28,
 8.6.4.3, 8.11.3.1.5h)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[95][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[95][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[95][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[95][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[95]">
@@ -2179,13 +2185,13 @@ Sec. (3.23, 3.28,
 Sec. (2.24, 8.10.3.2.2r, 8.11.3.1.5i)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[96][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[96][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[96][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[96][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[96]">
@@ -2215,13 +2221,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[97][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[97][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[97][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[97][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[97]">
@@ -2237,13 +2243,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[98][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[98][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[98][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[98][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[98]">
@@ -2258,13 +2264,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[99][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[99][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[99][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[99][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[99]">
@@ -2279,13 +2285,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[100][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[100][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[100][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[100][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[100]">
@@ -2323,13 +2329,13 @@ Sec. (8.11.2.1.1a)
 
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[101][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[101][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[101][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[101][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[101]">
@@ -2344,13 +2350,13 @@ Sec. (2.26.2.5,
 2.26.2.21, 8.11.2.1.1b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[102][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[102][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[102][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[102][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[102]">
@@ -2364,13 +2370,13 @@ Sec. (2.26.1.1,
 2.26.1.6, 8.11.2.1.1c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[103][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[103][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[103][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[103][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[103]">
@@ -2385,13 +2391,13 @@ Sec.(2.5.1.4 ,2.11.10.3,
 2.15.16, 8.11.2.1.1d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[104][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[104][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[104][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[104][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[104]">
@@ -2406,13 +2412,13 @@ ASME A17.3
 Sec. (3.4.5, 3.4.6)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[105][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[105][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[105][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[105][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[105]">
@@ -2428,13 +2434,13 @@ ASME A17.3
 Sec. (3.4.5, 3.4.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[106][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[106][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[106][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[106][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[106]">
@@ -2450,13 +2456,13 @@ ASME A17.3
 Sec. (3.11.1)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[107][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[107][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[107][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[107][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[107]">
@@ -2472,13 +2478,13 @@ Sec. (2.13.2.1, 2.14.4,
 2.26.2.15, 8.11.2.1.1g
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[108][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[108][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[108][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[108][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[108]">
@@ -2493,13 +2499,13 @@ Sec. (2.13.4.2.3,
 8.11.2.2.8)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[109][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[109][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[109][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[109][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[109]">
@@ -2514,13 +2520,13 @@ Sec. (2.13.3,
 8.11.2.1.1i)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[110][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[110][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[110][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[110][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[110]">
@@ -2536,13 +2542,13 @@ Sec. (2.26.1.6, 2.26.9,
 8.11.2.3.9)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[111][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[111][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[111][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[111][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[111]">
@@ -2556,13 +2562,13 @@ Sec. (2.26.1.6, 2.26.9,
 8.11.2.1.1k)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[112][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[112][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[112][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[112][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[112]">
@@ -2576,13 +2582,13 @@ Sec. (2.14.2.5,
 2.14.5.8, 8.11.2.1.1k)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[113][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[113][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[113][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[113][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[113]">
@@ -2597,13 +2603,13 @@ Sec. (2.14, 2.16.2.2,
 8.11.2.1.1m)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[114][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[114][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[114][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[114][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[114]">
@@ -2617,13 +2623,13 @@ Sec. (2.14.1.5,
 2.14.1.10, 8.11.2.1.1m)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[115][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[115][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[115][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[115][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[115]">
@@ -2638,13 +2644,13 @@ Sec. (2.14.2.3, 2.14.3.3,
 8.11.2.1.1n)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[116][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[116][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[116][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[116][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[116]">
@@ -2658,13 +2664,13 @@ Sec. (2.16.12,
 8.11.2.1.1o)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[117][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[117][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[117][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[117][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[117]">
@@ -2678,13 +2684,13 @@ Sec. (2.16.12,
 Sec. (2.16, 8.11.2.1.1p)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[118][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[118][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[118][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[118][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[118]">
@@ -2699,13 +2705,13 @@ Sec. (2.16.18, 2.26.10,
 8.11.2.2.7, 8.11.2.3.5)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[119][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[119][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[119][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[119][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[119]">
@@ -2718,13 +2724,13 @@ Sec. (2.16.18, 2.26.10,
 Sec. (8.11.2.1.1r)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[120][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[120][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[120][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[120][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[120]">
@@ -2738,13 +2744,13 @@ Sec. (2.15.2, 2.23,
 8.11.2.1.1s)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[121][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[121][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[121][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[121][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[121]">
@@ -2773,13 +2779,13 @@ Sec. (2.7.1.1, 2.7.3.1,
 2.7.3.4, 8.11.2.1.2a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[122][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[122][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[122][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[122][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[122]">
@@ -2793,13 +2799,13 @@ Sec. (2.7.1.1, 2.7.3.1,
 Sec. (2.7.4, 8.11.2.1.2c)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[123][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[123][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[123][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[123][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[123]">
@@ -2813,13 +2819,13 @@ Sec. (2.7.5.1,
 8.11.2.1.2c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[124][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[124][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[124][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[124][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[124]">
@@ -2835,13 +2841,13 @@ Sec.(2.1.3.3, 2.1.3.4,
 8.11.2.1.2d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[125][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[125][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[125][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[125][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[125]">
@@ -2854,13 +2860,13 @@ Sec.(2.1.3.3, 2.1.3.4,
 Sec. (8.6.4.8, 8.6.10.3, 8.11.2.1.2e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[126][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[126][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[126][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[126][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[126]">
@@ -2874,13 +2880,13 @@ Sec. (2.7.5.2, 2.8.4,
 8.11.2.1.2g)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[127][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[127][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[127][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[127][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[127]">
@@ -2894,13 +2900,13 @@ Sec. (8.6.1.6.5,
 8.11.2.1.2g)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[128][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[128][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[128][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[128][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[128]">
@@ -2915,13 +2921,13 @@ Sec. (2.8.1, 2.8.2,
 8.11.2.1.2h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[129][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[129][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[129][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[129][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[129]">
@@ -2935,13 +2941,13 @@ Sec. (2.10.1,
 8.11.2.1.2i)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[130][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[130][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[130][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[130][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[130]">
@@ -2956,13 +2962,13 @@ Sec. (2.26.4, 2.29.1,
 8.11.2.1.2j)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[131][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[131][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[131][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[131][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[131]">
@@ -2976,13 +2982,13 @@ Sec. (2.26.4,
 8.11.2.1.2k)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[132][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[132][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[132][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[132][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[132]">
@@ -2996,13 +3002,13 @@ Sec. (2.8.1, 2.26.4,
 8.6.1.6.3,
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[133][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[133][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[133][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[133][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[133]">
@@ -3019,13 +3025,13 @@ Sec. (2.17.15, 2.18,
 8.11.2.1.2bb, 8.11.2.3.1, 8.11.2.3.2)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[134][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[134][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[134][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[134][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[134]">
@@ -3038,13 +3044,13 @@ Sec. (2.17.15, 2.18,
 Sec. (8.7.1.8, 8.9)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[135][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[135][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[135][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[135][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[135]">
@@ -3058,13 +3064,13 @@ Sec. (2.26.2, 2.26.9.5, 8.10.2.2.2m,
 8.11.2.1.2m)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[136][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[136][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[136][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[136][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[136]">
@@ -3079,13 +3085,13 @@ Sec. (2.9.1, 2.9.2,
 2.9.3, 8.11.2.1.2n)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[137][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[137][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[137][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[137][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[137][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[137][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[137]">
@@ -3101,13 +3107,13 @@ Sec. (2.16.2.2, 2.16.8,
 8.11.2.3.4)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[138][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[138][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[138][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[138][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[138][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[138][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[138]">
@@ -3124,13 +3130,13 @@ Sec. (2.16.2.2, 2.16.8,
 8.11.2.3.4)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[139][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[139][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[139][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[139][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[139][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[139][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[139]">
@@ -3144,13 +3150,13 @@ Sec. (8.6.1.6.2,
 8.11.2.1.2q)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[140][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[140][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[140][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[140][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[140][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[140][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[140]">
@@ -3165,13 +3171,13 @@ Sec. (2.20.10, 2.24.10,
 8.11.2.1.2r,8.11.2.2.4)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[141][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[141][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[141][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[141][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[141][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[141][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[141]">
@@ -3185,13 +3191,13 @@ Sec. (2.24.9,
 8.11.2.1.2s)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[142][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[142][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[142][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[142][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[142][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[142][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[142]">
@@ -3206,13 +3212,13 @@ Sec. (2.26.9.7,
 8.11.2.1.2t)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[143][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[143][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[143][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[143][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[143][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[143][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[143]">
@@ -3227,13 +3233,13 @@ Sec.(2.26.10,
 8.11.2.1.2u)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[144][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[144][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[144][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[144][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[144][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[144][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[144]">
@@ -3244,13 +3250,13 @@ Sec.(2.26.10,
                 <td><strong>AC drives from DC source use a static inverter and other devices as a means of control</strong></td>
 				<td style="text-align: center;"><strong>ASME A17.1 Sec.(2.26.2, 2.26.9.6, 8.11.2.1.2v, </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[145][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[145][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[145][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[145][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[145][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[145][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[145]">
@@ -3266,13 +3272,13 @@ Sec. (2.16.8, 2.20,
 8.11.2.1.2w)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[146][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[146][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[146][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[146][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[146][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[146][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[146]">
@@ -3285,13 +3291,13 @@ Sec. (2.16.8, 2.20,
 Sec. (2.24, 8.6.1.6.2, 8.11.2.1.2x)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[147][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[147][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[147][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[147][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[147][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[147][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[147]">
@@ -3305,13 +3311,13 @@ Sec. (2.9.3.3, 2.20,
 8.11.2.1.2y)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[148][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[148][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[148][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[148][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[148][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[148][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[148]">
@@ -3325,13 +3331,13 @@ Sec. (2.25,8.11.2.1.2Z,
 8.11.2.3.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[149][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[149][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[149][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[149][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[149][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[149][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[149]">
@@ -3348,13 +3354,13 @@ Sec.(2.27, table
 8.11.2.2.2, 8.11.2.3.1)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[150][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[150][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[150][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[150][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[150][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[150][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[150]">
@@ -3382,13 +3388,13 @@ Sec. (2.26.2.8,
 8.11.2.1.3a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[151][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[151][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[151][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[151][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[151][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[151][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[151]">
@@ -3403,13 +3409,13 @@ Sec. (2.14.7,
 8.11.2.1.3b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[152][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[152][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[152][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[152][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[152][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[152][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[152]">
@@ -3423,13 +3429,13 @@ Sec. (2.14.1.7,
 2.26.1.4, 8.11.2.1.3c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[153][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[153][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[153][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[153][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[153][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[153][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[153]">
@@ -3443,13 +3449,13 @@ Sec. (2.4, 8.2.4,
 8.6.4.11)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[154][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[154][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[154][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[154][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[154][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[154][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[154]">
@@ -3466,13 +3472,13 @@ Sec.(2.16.4, 2.25.2,
 8.11.2.2.5)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[155][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[155][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[155][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[155][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[155][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[155][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[155]">
@@ -3487,13 +3493,13 @@ Sec. (2.25.3,
 8.11.2.2.5)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[156][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[156][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[156][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[156][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[156][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[156][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[156]">
@@ -3507,13 +3513,13 @@ Sec. (2.26.1.6,
 8.11.2.1.3j)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[157][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[157][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[157][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[157][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[157][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[157][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[157]">
@@ -3528,13 +3534,13 @@ Sec. (2.14.1.5,
 8.11.2.1.3l)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[158][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[158][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[158][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[158][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[158][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[158][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[158]">
@@ -3548,13 +3554,13 @@ Sec. (2.29.1, 2.29.2,
 8.11.2.1.3o)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[159][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[159][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[159][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[159][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[159][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[159][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[159]">
@@ -3568,13 +3574,13 @@ Sec. (2.29.1, 2.29.2,
 Sec. (2.1, 8.11.2.1.3p)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[160][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[160][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[160][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[160][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[160][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[160][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[160]">
@@ -3588,13 +3594,13 @@ Sec. (2.1.4,
 8.11.2.1.3q)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[161][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[161][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[161][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[161][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[161][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[161][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[161]">
@@ -3607,13 +3613,13 @@ Sec. (2.1.4,
 Sec. (2.8, 8.11.2.1.3r)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[162][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[162][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[162][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[162][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[162][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[162][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[162]">
@@ -3627,13 +3633,13 @@ Sec. (2.1.5, 2.1.6,
 2.11.10, 8.11.2.1.3s)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[163][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[163][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[163][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[163][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[163][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[163][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[163]">
@@ -3646,13 +3652,13 @@ Sec. (2.1.5, 2.1.6,
 Sec.(2.4, 2.5, 8.11.2.1.3t)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[164][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[164][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[164][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[164][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[164][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[164][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[164]">
@@ -3666,13 +3672,13 @@ Sec. (2.1.1.4,
 8.11.2.1.3u)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[165][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[165][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[165][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[165][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[165][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[165][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[165]">
@@ -3686,13 +3692,13 @@ Sec. (2.1.1.4,
 Sec. (2.8.1, 8.11.2.1.3v)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[166][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[166][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[166][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[166][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[166][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[166][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[166]">
@@ -3706,13 +3712,13 @@ Sec.(2.11, 2.12,
 2.26.1.6, 8.11.2.1.3w)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[167][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[167][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[167][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[167][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[167][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[167][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[167]">
@@ -3726,13 +3732,13 @@ Sec.(2.11, 2.12,
 8.7.2.15.1, 8.8)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[168][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[168][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[168][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[168][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[168][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[168][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[168]">
@@ -3746,13 +3752,13 @@ Sec.(2.17.16, 8.6.4.3,
 8.11.2.1.3y)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[169][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[169][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[169][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[169][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[169][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[169][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[169]">
@@ -3766,13 +3772,13 @@ Sec. (2.18.5, 8.6.4.2,
 8.7.2.19, 8.11.2.1.3z)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[170][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[170][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[170][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[170][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[170][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[170][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[170]">
@@ -3786,13 +3792,13 @@ Sec. (2.17.15,
 8.11.2.1.3aa)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[171][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[171][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[171][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[171][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[171][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[171][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[171]">
@@ -3807,13 +3813,13 @@ Sec. (2.9.3.3, 2.15.13,
 8.11.2.1.3bb)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[172][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[172][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[172][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[172][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[172][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[172][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[172]">
@@ -3828,13 +3834,13 @@ Sec. (2.18.7, 2.20,
 8.11.2.1.3cc)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[173][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[173][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[173][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[173][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[173][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[173][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[173]">
@@ -3845,13 +3851,13 @@ Sec. (2.18.7, 2.20,
                 <td><strong>Top counterweight clearance is not less than the sum of all other relevant clearances such as bottom run by, car buffer stroke, 50% of gravity stopping distance, plus 150mm</strong></td>
 				<td style="text-align: center;"><strong>ASME A17.1 Sec. (2.4.9,8.11.2.1.3e)</strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[174][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[174][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[174][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[174][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[174][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[174][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[174]">
@@ -3864,13 +3870,13 @@ Sec. (2.18.7, 2.20,
 Sec. (2.24)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[175][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[175][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[175][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[175][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[175][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[175][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[175]">
@@ -3885,13 +3891,13 @@ Sec. (2.25.2.3.2,
 8.11.2.2.9)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[176][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[176][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[176][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[176][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[176][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[176][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[176]">
@@ -3905,13 +3911,13 @@ Sec. (2.16.3, 2.20.2,
 8.7.2.21, 8.11.2.1.3k)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[177][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[177][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[177][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[177][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[177][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[177][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[177]">
@@ -3925,13 +3931,13 @@ Sec. (2.21, 2.22,
 8.11.2.1.3M)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[178][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[178][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[178][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[178][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[178][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[178][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[178]">
@@ -3946,13 +3952,13 @@ Sec. (2.6,2.17, 8.2.3,
 8.11.2.3.1)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[179][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[179][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[179][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[179][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[179][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[179][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[179]">
@@ -3966,13 +3972,13 @@ Sec. (2.21.4, 8.10.2.2.3w-3,
 8.11.2.1.3dd)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[180][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[180][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[180][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[180][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[180][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[180][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[180]">
@@ -4000,13 +4006,13 @@ Sec. (2.15.9,
 8.11.2.1.4a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[181][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[181][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[181][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[181][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[181][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[181][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[181]">
@@ -4021,13 +4027,13 @@ Sec. (2.12.7, 2.26.2,
 8.11.2.1.4b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[182][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[182][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[182][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[182][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[182][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[182][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[182]">
@@ -4040,13 +4046,13 @@ Sec. (2.12.7, 2.26.2,
 Sec.(2.11.7,8.11.2.1.4c)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[183][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[183][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[183][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[183][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[183][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[183][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[183]">
@@ -4059,13 +4065,13 @@ Sec.(2.11.7,8.11.2.1.4c)
 Sec. (2.12, 8.11.2.1.4d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[184][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[184][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[184][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[184][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[184][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[184][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[184]">
@@ -4079,13 +4085,13 @@ Sec. (2.12.6, 2.12.7,
 8.11.2.1.4e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[185][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[185][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[185][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[185][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[185][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[185][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[185]">
@@ -4098,13 +4104,13 @@ Sec. (2.12.6, 2.12.7,
 Sec. (2.13, 8.11.2.1.4f)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[186][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[186][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[186][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[186][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[186][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[186][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[186]">
@@ -4117,13 +4123,13 @@ Sec. (2.13, 8.11.2.1.4f)
 Sec. (2.13.3.4, 2.13.6, 8.11.2.1.4g)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[187][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[187][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[187][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[187][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[187][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[187][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[187]">
@@ -4138,13 +4144,13 @@ Sec. (2.1.1, 2.1.4,
 2.1.5, 8.11.2.1.4h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[188][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[188][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[188][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[188][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[188][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[188][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[188]">
@@ -4157,13 +4163,13 @@ Sec. (2.1.1, 2.1.4,
 Sec. (8.11.2.1.4i)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[189][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[189][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[189][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[189][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[189][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[189][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[189]">
@@ -4178,13 +4184,13 @@ Sec. (2.11.1.1,
 2.11.1.2, 8.11.2.1.4j)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[190][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[190][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[190][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[190][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[190][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[190][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[190]">
@@ -4198,13 +4204,13 @@ Sec. (2.11.1.1,
 2.11.1.2, 8.11.2.1.4j)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[191][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[191][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[191][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[191][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[191][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[191][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[191]">
@@ -4218,13 +4224,13 @@ Sec. (2.12.6, 2.12.7,
 8.11.2.1.4e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[192][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[192][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[192][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[192][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[192][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[192][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[192]">
@@ -4238,13 +4244,13 @@ Sec. (2.12.6, 2.12.7,
 8.11.2.1.4e)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[193][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[193][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[193][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[193][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[193][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[193][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[193]">
@@ -4257,13 +4263,13 @@ Sec. (2.12.6, 2.12.7,
 Sec. (2.13, 8.11.2.1.4f)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[194][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[194][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[194][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[194][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[194][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[194][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[194]">
@@ -4292,13 +4298,13 @@ Sec. (2.3.2, 2.8,
 8.11.2.1.5a)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[195][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[195][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[195][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[195][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[195][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[195][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[195]">
@@ -4314,13 +4320,13 @@ Sec. (2.3.2, 2.4.1,
 8.6.4.11, 8.11.2.1.5b)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[196][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[196][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[196][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[196][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[196][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[196][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[196]">
@@ -4333,13 +4339,13 @@ Sec. (2.3.2, 2.4.1,
 Sec. (2.25.3,8.10.2.2.5c, 8.11.2.1.5d)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[197][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[197][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[197][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[197][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[197][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[197][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[197]">
@@ -4352,13 +4358,13 @@ Sec. (2.25.3,8.10.2.2.5c, 8.11.2.1.5d)
 Sec. (2.25, 8.11.2.2.5)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[198][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[198][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[198][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[198][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[198][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[198][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[198]">
@@ -4371,13 +4377,13 @@ Sec. (2.25, 8.11.2.2.5)
 Sec. (2.8.1.2)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[199][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[199][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[199][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[199][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[199][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[199][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[199]">
@@ -4390,13 +4396,13 @@ Sec. (2.8.1.2)
 Sec. (2.18.7, 8.6.1.6.2, 8.11.2.1.5g)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[200][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[200][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[200][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[200][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[200][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[200][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[200]">
@@ -4410,13 +4416,13 @@ Sec. (2.15.6, 2.15.8,
 2.16.2.2, 8.11.2.1.5h)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[201][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[201][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[201][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[201][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[201][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[201][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[201]">
@@ -4432,13 +4438,13 @@ Sec. (2.15, 2.17.11,
 8.11.2.1.5j, 8.11.2.3.1)
 </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[202][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[202][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[202][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[202][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[202][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[202][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[202]">
@@ -4453,13 +4459,13 @@ Sec. (2.6,2.22,
 8.11.2.3.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[203][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[203][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[203][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[203][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[203][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[203][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[203]">
@@ -4474,13 +4480,13 @@ Sec. (2.17.17, 2.21.4,
 2.26.2.3, 8.11.2.1.5h)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[204][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[204][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[204][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[204][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[204][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[204][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[204]">
@@ -4509,13 +4515,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[205][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[205][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[205][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[205][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[205][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[205][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[205]">
@@ -4531,13 +4537,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[206][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[206][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[206][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[206][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[206][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[206][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[206]">
@@ -4552,13 +4558,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[207][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[207][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[207][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[207][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[207][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[207][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[207]">
@@ -4573,13 +4579,13 @@ Sec. (2.13.3.4, 2.13.5,
 8.11.2.2.6)
   </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[208][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[208][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[208][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[208][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[208][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[208][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[208]">

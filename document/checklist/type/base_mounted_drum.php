@@ -15,6 +15,13 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+    <style>
+        .large-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -164,13 +171,13 @@ Managing Director
                 <td><strong>1.1</strong></td>
                 <td><strong>Documentation is available.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -180,13 +187,13 @@ Managing Director
                 <td><strong>1.2</strong></td>
                 <td><strong>The winch rating is clearly marked. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -196,13 +203,13 @@ Managing Director
                 <td><strong>1.3</strong></td>
                 <td><strong>The following clearly marked: (a) drum size, consisting of barrel diameter, barrel length, and flange diameter; (b) rope diameter(s); (c) rope speed in meter per second at rated load on specified layer.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -212,13 +219,13 @@ Managing Director
                 <td><strong>1.4</strong></td>
                 <td><strong>Line pull ratings for each layer and a specified rope diameter are provided. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -244,13 +251,13 @@ Managing Director
                 <td><strong>2.1</strong></td>
                 <td><strong>Cooling, power, and operational characteristics are provided to perform.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -260,13 +267,13 @@ Managing Director
                 <td><strong>2.2</strong></td>
                 <td><strong>The rope is anchored to the drum approved by manufacturer. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -276,13 +283,13 @@ Managing Director
                 <td><strong>2.3</strong></td>
                 <td><strong> Drum flanges extends a minimum of one-half rope diameter, but not less than 0.5 inches (13mm) above the top layer. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -292,13 +299,13 @@ Managing Director
                 <td><strong>2.4</strong></td>
                 <td><strong>Diameter of the drum provides first layer rope pitch diameter of not less than 15 times the nominal diameter of the rope.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -308,13 +315,13 @@ Managing Director
                 <td><strong>2.5</strong></td>
                 <td><strong> Mechanical holding device, other than brake, capable of holding the rated load.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -324,13 +331,13 @@ Managing Director
                 <td><strong>2.6</strong></td>
                 <td><strong> Each brake is equipped with at least one brake capable of holding not less than 125% of the rated load at the point where the brake is applied. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -340,13 +347,13 @@ Managing Director
                 <td><strong>2.7</strong></td>
                 <td><strong>Remote-operated winches is equipped with self-setting brake. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -356,13 +363,13 @@ Managing Director
                 <td><strong>2.8</strong></td>
                 <td><strong>Winch is allowed simultaneous underwind & overwind brake capable of holding 125% of the rated load in those directions.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -372,13 +379,13 @@ Managing Director
                 <td><strong>2.9</strong></td> 
                 <td><strong> Means to control the drum speed when moving the load is provided. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -388,13 +395,13 @@ Managing Director
                 <td><strong>2.10</strong></td>
                 <td><strong>Adjustments to compensate for wear in the braking system is provided.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">
@@ -404,13 +411,13 @@ Managing Director
                 <td><strong>2.11</strong></td>
                 <td><strong> Guard(s) for exposed moving parts is provided.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[15]">
@@ -420,13 +427,13 @@ Managing Director
                 <td><strong>2.12</strong></td>
                 <td><strong> Guard(s) is capable of supporting the weight of a 200 lbs. (90 kg).</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[16]">
@@ -436,13 +443,13 @@ Managing Director
                 <td><strong>2.13</strong></td>
                 <td><strong>Rope size can withstand the minimum breaking force.   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[17]">
@@ -452,13 +459,13 @@ Managing Director
                 <td><strong>2.14</strong></td>
                 <td><strong> Rope winch meets manufacturer or qualified person’s recommendation. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[18]">
@@ -468,13 +475,13 @@ Managing Director
                 <td><strong>2.15</strong></td>
                 <td><strong>All controls are marked for identification of function and direction of the drum rotation.   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[19]">
@@ -484,13 +491,13 @@ Managing Director
                 <td><strong>2.16</strong></td>
                 <td><strong>  All winch controls are within reach of operator during the normal operating conditions.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[20]">
@@ -500,13 +507,13 @@ Managing Director
                 <td><strong>2.17</strong></td>
                 <td><strong>  Electric motor-driven winches shall be provided with a device that will disconnect all motors from the power source in the event of a power failure, and will not permit any motor to be restarted until controller handle is brought to the off position or reset switch or button is operated.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[21]">
@@ -516,13 +523,13 @@ Managing Director
                 <td><strong>2.18</strong></td>
                 <td><strong> Remote operated winches shall function so that if the control signal becomes ineffective, winch motion shall stop. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[22]">
@@ -532,13 +539,13 @@ Managing Director
                 <td><strong>2.19</strong></td>
                 <td><strong>  All prime mover controls shall return to neutral position when released.   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[23]">
@@ -548,13 +555,13 @@ Managing Director
                 <td><strong>2.20</strong></td>
                 <td><strong> Engine-driven winches are provided with a clutch for disengaging power to winch. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[24]">
@@ -565,13 +572,13 @@ Managing Director
                 <td><strong>2.21</strong></td>
                 <td><strong> Lubrication points are accessible.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[25]">
@@ -597,13 +604,13 @@ Managing Director
                 <td><strong>3.1</strong></td>
                 <td><strong>Rope is properly spooled on drum. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[26]">
@@ -613,13 +620,13 @@ Managing Director
                 <td><strong>3.2</strong></td>
                 <td><strong> Control mechanisms are operating properly.</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[27]">
@@ -629,13 +636,13 @@ Managing Director
                 <td><strong>3.3</strong></td>
                 <td><strong> Limit switches are properly working. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[28]">
@@ -645,13 +652,13 @@ Managing Director
                 <td><strong>3.4</strong></td>
                 <td><strong>  No deterioration or leakage in air or hydraulic is found.</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[29]">
@@ -661,13 +668,13 @@ Managing Director
                 <td><strong>3.5</strong></td>
                 <td><strong>No indication of loose, damaged, or missing structural components including supports and anchorages.   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[30]">
@@ -677,13 +684,13 @@ Managing Director
                 <td><strong>3.6</strong></td>
                 <td><strong> Electrical apparatus properly functioning, without signs of excessive deterioration, and no dirt accumulation.   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[31]">
@@ -693,13 +700,13 @@ Managing Director
                 <td><strong>3.7</strong></td>
                 <td><strong>Control & drive mechanisms are properly adjusted and without excessive wear. </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[32]">
@@ -709,13 +716,13 @@ Managing Director
                 <td><strong>3.8</strong></td>
                 <td><strong> No damage tubing, piping, electrical cables, or hoses, and their fittings.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[33]">
@@ -725,13 +732,13 @@ Managing Director
                 <td><strong>3.9</strong></td>
                 <td><strong> Pins, bearings, shafts, gears, rollers, and locking and clamping devices have no excessive wear, cracking, distortion, & corrosion.</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[34]">
@@ -741,13 +748,13 @@ Managing Director
                 <td><strong>3.10</strong></td>
                 <td><strong>Brake & clutch system parts & linings have no excessive wear, sever distortion, & corrosion.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[35]">
@@ -757,13 +764,13 @@ Managing Director
                 <td><strong> 3.11</strong></td>
                 <td><strong>Chain & chain drive sprockets have no excessive wear, & excessive chain stretch.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[36]">
@@ -773,13 +780,13 @@ Managing Director
                 <td><strong>3.12 </strong></td>
                 <td><strong> Winch is operated by a qualified operator.  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[37]">
