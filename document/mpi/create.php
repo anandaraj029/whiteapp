@@ -1,6 +1,39 @@
 <?php 
 include_once('../../inc/function.php');
 
+if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
+
+    $query = "
+    SELECT 
+        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        c.checklist_no,
+        r.report_no
+    FROM 
+        project_info p
+    LEFT JOIN 
+        checklist_information c ON p.project_id = c.project_id
+    LEFT JOIN 
+        reports r ON p.project_id = r.project_id
+    WHERE 
+        p.project_id = ?
+";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+    } else {
+        $data = null;
+    }
+} else {
+    echo "Invalid or missing project ID.";
+    exit;
+}
+
 ?>
 
             <!-- Main Content -->

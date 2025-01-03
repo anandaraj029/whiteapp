@@ -14,14 +14,14 @@ $stmt->bind_param('s', $project_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-} else {
-    die("No data found for the given project ID.");
+// If no records are found
+
+if ($result->num_rows == 0) {
+
+    die("No certificates found for the given project ID.");
+
 }
 
-$stmt->close();
-$conn->close();
 
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([
@@ -248,11 +248,14 @@ $mpdf->WriteHTML($html);
 }
 
 // Write the HTML content to the PDF
-$mpdf->WriteHTML($html);
+// $mpdf->WriteHTML($html);
 
 // Add watermark image
 $mpdf->SetWatermarkImage('../logo.png', 0.2, '', [90, 70]);
 $mpdf->showWatermarkImage = true;
 // Output the PDF to the browser for download
 $mpdf->Output('lifting_gears_certificate.pdf', 'D');
+$stmt->close();
+$conn->close();
+
 ?>

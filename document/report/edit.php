@@ -1,46 +1,153 @@
-<?php 
-include_once('../../inc/function.php');
-include_once('../../file/config.php');
+<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-// Check if 'project_id' is passed
+// Include necessary files
+include_once('../../inc/function.php');
+include_once('../../file/config.php'); // Ensure this file initializes $conn
+
+// Check if database connection is working
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
+// Initialize variables
+$jrn = '';
+$checklist_no = '';
+$report_no = '';    
+$client_name = '';
+$client_company_address = '';
+$manufacturer = '';
+$model = '';
+$type = '';
+$prev_sticker_no = '';
+$issued_by = '';
+$capacity = '';
+$equipment_id_no = '';
+$equipment_serial_no = '';
+$location = '';
+$inspection_date = '';
+$next_inspection_due_date = '';
+$inspection_status = '';
+$sticker_number_issued = '';
+$created_at = '';
+$project_id = '';
+
+// Fetch data if `project_id` is provided
 if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
 
-    // Query to fetch checklist_no based on project_id
-    // $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
-
-    $query = "
-    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date,
-           p.project_no, p.creation_date, p.sticker_status, p.customer_name, p.equipment_location,
-           p.inspector_name, p.checklist_type
-    FROM checklist_information c
-    JOIN project_info p ON c.project_id = p.project_id
-    WHERE c.project_id = '$project_id' LIMIT 1";
-    $result = mysqli_query($conn, $query);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $checklist_no = $row['checklist_no'];
-        $client_name = $row['client_name'];
-        $location = $row['location'];
-        $equipment_type = $row['equipment_type'];
-        $inspection_date = $row['inspection_date'];
-        $project_no = $row['project_no'];
-        $creation_date = $row['creation_date'];
-        $sticker_status = $row['sticker_status'];
-        $customer_name = $row['customer_name'];
-        $equipment_location = $row['equipment_location'];
-        $inspector_name = $row['inspector_name'];
-        $checklist_type = $row['checklist_type'];
-    } else {
-        echo "No checklist found for the provided Project ID!";
-        exit;
+    // Prepare SQL query to fetch the report data
+    $query = "SELECT * FROM reports WHERE project_id = ?";
+    $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
     }
+    $stmt->bind_param("i", $project_id);
+
+    if ($stmt->execute()) {
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            $report_data = $result->fetch_assoc();
+
+            // Map data to variables
+            $jrn = $report_data['jrn'];
+            $checklist_no = $report_data['checklist_no'];
+            $report_no = $report_data['report_no'];
+            $client_name = $report_data['client_company_name'];
+            $client_company_address = $report_data['client_company_address'];
+            $manufacturer = $report_data['manufacturer'];
+            $model = $report_data['model'];
+            $type = $report_data['type'];
+            $prev_sticker_no = $report_data['prev_sticker_no'];
+            $issued_by = $report_data['issued_by'];
+            $capacity = $report_data['capacity'];
+            $equipment_id_no = $report_data['equipment_id_no'];
+            $equipment_serial_no = $report_data['equipment_serial_no'];
+            $location = $report_data['location'];
+            $inspection_date = $report_data['date_of_inspection'];
+            $next_inspection_due_date = $report_data['next_inspection_due_date'];
+            $inspection_status = $report_data['inspection_status'];
+            $sticker_number_issued = $report_data['sticker_number_issued'];
+            $created_at = $report_data['created_at'];
+        } else {
+            die("No record found for project ID: $project_id");
+        }
+    } else {
+        die("Error fetching data: " . $stmt->error);
+    }
+
+    $stmt->close();
 } else {
-    echo "No project ID provided!";
-    exit;
+    die("Project ID is not set.");
+}
+
+// Handle form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Collect form data safely
+    $client_name = $_POST['client_company_name'] ?? '';
+    $client_company_address = $_POST['client_company_address'] ?? '';
+    $manufacturer = $_POST['manufacturer'] ?? '';
+    $model = $_POST['model'] ?? '';
+    $type = $_POST['type'] ?? '';
+    $prev_sticker_no = $_POST['prev_sticker_no'] ?? '';
+    $issued_by = $_POST['issued_by'] ?? '';
+    $capacity = $_POST['capacity'] ?? '';
+    $report_no = $_POST['report_no'] ?? '';
+    $equipment_id_no = $_POST['equipment_id_no'] ?? '';
+    $equipment_serial_no = $_POST['equipment_serial_no'] ?? '';
+    $location = $_POST['location'] ?? '';
+    $inspection_date = $_POST['date_of_inspection'] ?? '';
+    $next_inspection_due_date = $_POST['next_inspection_due_date'] ?? '';
+    $inspection_status = $_POST['inspection_status'] ?? '';
+    $sticker_number_issued = $_POST['sticker_number_issued'] ?? '';
+    $jrn = $_POST['jrn'] ?? '';
+
+    // Update the database
+    $query = "UPDATE reports SET 
+        client_company_name = ?, 
+        client_company_address = ?, 
+        manufacturer = ?, 
+        model = ?, 
+        type = ?, 
+        prev_sticker_no = ?, 
+        issued_by = ?, 
+        capacity = ?, 
+        report_no = ?, 
+        equipment_id_no = ?, 
+        equipment_serial_no = ?, 
+        location = ?, 
+        date_of_inspection = ?, 
+        next_inspection_due_date = ?, 
+        inspection_status = ?, 
+        sticker_number_issued = ?, 
+        jrn = ? 
+        WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    if (!$stmt) {
+        die("Prepare failed: " . $conn->error);
+    }
+
+    $stmt->bind_param(
+        "sssssssssssssssssii", 
+        $client_name, $client_company_address, $manufacturer, $model, $type, $prev_sticker_no, 
+        $issued_by, $capacity, $report_no, $equipment_id_no, $equipment_serial_no, 
+        $location, $inspection_date, $next_inspection_due_date, $inspection_status, 
+        $sticker_number_issued, $jrn, $project_id
+    );
+
+    if ($stmt->execute()) {
+        echo "Data updated successfully.";
+    } else {
+        die("Error updating data: " . $stmt->error);
+    }
+
+    $stmt->close();
 }
 ?>
+
 
 
             <!-- Main Content -->
@@ -65,7 +172,8 @@ if (isset($_GET['project_id'])) {
 
             </div>
                 <div class="container-fluid">
-                <form action="save_report.php" method="POST">
+                <form action="" method="POST">
+                <!-- <input type="hidden" name="id" value="<?php echo $row['id']; ?>"> -->
                  <div class="row">
                         
 
@@ -90,42 +198,42 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Client Company Address</label>
-                    <textarea class="theme-input-style" placeholder="Enter company address" name="client_company_address" required></textarea>
+                    <textarea class="theme-input-style" placeholder="Enter company address" value="<?php echo htmlspecialchars($client_company_address); ?>" name="client_company_address" required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Manufacturer</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter manufacturer" name="manufacturer" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter manufacturer" value="<?php echo htmlspecialchars($manufacturer); ?>" name="manufacturer" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Model</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter model" name="model" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter model" value="<?php echo htmlspecialchars($model); ?>" name="model" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Type</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter type" name="type" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter type" value="<?php echo htmlspecialchars($type); ?>" name="type" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Previous Sticker S.No.</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter previous sticker serial number" name="prev_sticker_no" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter previous sticker serial number" value="<?php echo htmlspecialchars($prev_sticker_no); ?>" name="prev_sticker_no" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Issued by</label>
-                    <input type="text" class="theme-input-style" placeholder="Issued by" name="issued_by" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($issued_by); ?>" value="<?php echo htmlspecialchars($issued_by); ?>"  placeholder="Issued by" name="issued_by" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Capacity</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter capacity" name="capacity" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($capacity); ?>" placeholder="Enter capacity" name="capacity" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Report No</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter report no" name="report_no" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_no); ?>" placeholder="Enter report no" name="report_no" required>
                 </div>
 
             </div>
@@ -133,12 +241,12 @@ if (isset($_GET['project_id'])) {
             <div class="col-lg-6">                        
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Equipment Identification Number</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter identification number" name="equipment_id_no" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter identification number" value="<?php echo htmlspecialchars($equipment_id_no); ?>" name="equipment_id_no" required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Equipment Serial Number</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter serial number" name="equipment_serial_no" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter serial number" value="<?php echo htmlspecialchars($equipment_serial_no); ?>" name="equipment_serial_no" required>
                 </div>
 
                 <div class="form-group">
@@ -168,7 +276,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Sticker Number Issued</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter sticker number issued" name="sticker_number_issued" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($sticker_number_issued); ?>" placeholder="Enter sticker number issued" name="sticker_number_issued" required>
                 </div>
 
                 <div class="form-group">
@@ -188,7 +296,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">JRN</label>
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($jrn); ?>"  placeholder="Enter JRN" name="jrn" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($jrn); ?>" placeholder="Enter JRN" name="jrn" required>
                 </div>
 
             </div>

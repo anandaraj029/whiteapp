@@ -14,6 +14,16 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <style>
+        .large-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+    </style>
+
+
 </head>
 <body>
     <div class="container">
@@ -141,13 +151,13 @@ include_once('./get-checklist.php');
 				<td style="text-align: center;"><strong>ASME B30.23 Sec 1.2.1(c)(1,2,3)
  </strong></td>
  <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox1_1" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox1_1" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox1_2" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox1_2" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox1_3" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox1_3" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">

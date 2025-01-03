@@ -164,7 +164,7 @@ $result = $conn->query($sql);
 </a>
 
 
-<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $project_id; ?>')">
+<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_id']; ?>')">
     <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
 </span>
                 </td>
