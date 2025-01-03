@@ -130,13 +130,13 @@ include_once('./get-checklist.php');
                 <td><strong>Equipment Documentation is available  </strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -148,13 +148,13 @@ include_once('./get-checklist.php');
                 <td><strong> Previous Inspection reports are checked   </strong></td>
 				<td style="text-align: center;"><strong> CIMS QHSE 06 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -167,13 +167,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4n
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -186,13 +186,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4n
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -205,13 +205,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.1.3a
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -222,13 +222,13 @@ include_once('./get-checklist.php');
                 <td><strong>  A sign is posted warning the operator not to rely solely on any automatic device as a substitute for safe operating practice  </strong></td>
 				<td style="text-align: center;"><strong>CIMS QHSE 06  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -241,13 +241,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.1.3a
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -273,13 +273,13 @@ include_once('./get-checklist.php');
                 <td><strong> Two-block damage prevention system or anti-two block device.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.1</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -290,13 +290,13 @@ include_once('./get-checklist.php');
                 <td><strong>Overload protection system or rated capacity limiters.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.2</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -307,13 +307,13 @@ include_once('./get-checklist.php');
                 <td><strong> Crane Level Indicator.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 1.8.2.3</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -324,13 +324,13 @@ include_once('./get-checklist.php');
                 <td><strong> Load indicator, rated capacity indicator, minimum wrap limiter.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.22 sec 3.2.2 (b)(2)</strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -361,13 +361,13 @@ include_once('./get-checklist.php');
                     Sec 22-1.2.1(a)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -381,13 +381,13 @@ include_once('./get-checklist.php');
                     Sec 22-1.2.1(b)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -400,13 +400,13 @@ include_once('./get-checklist.php');
                     Sec 22-2.1.4(i)(1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">
@@ -419,13 +419,13 @@ include_once('./get-checklist.php');
                     Sec 22-2.1.4(i)(2)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[15]">
@@ -438,13 +438,13 @@ include_once('./get-checklist.php');
                     Sec 22-2.1.4(d)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[16]">
@@ -457,13 +457,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.2(a)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[17]">
@@ -476,13 +476,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.2(c)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[18]">
@@ -496,13 +496,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(i)(1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[19]">
@@ -515,13 +515,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(i)(2)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[20]">
@@ -534,13 +534,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(d)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[21]">
@@ -553,13 +553,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.3(b)(1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[22]">
@@ -573,13 +573,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.3(b)(2)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[23]">
@@ -592,13 +592,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.3(b)(2)(a)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[24]">
@@ -611,13 +611,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.2.3(b)(2)(b)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[25]">
@@ -630,13 +630,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.3(a)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[26]">
@@ -650,13 +650,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.3(d)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[27]">
@@ -669,13 +669,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.3.1
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[28]">
@@ -688,13 +688,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.3.2(a)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[29]">
@@ -707,13 +707,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.3.2(b)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[30]">
@@ -728,13 +728,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.4(a)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[31]">
@@ -749,13 +749,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.4(b)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[32]">
@@ -779,13 +779,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.4(d)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[33]">
@@ -799,13 +799,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.5(a)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[34]">
@@ -819,13 +819,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.5(b)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[35]">
@@ -839,13 +839,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.5(c)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[36]">
@@ -859,13 +859,13 @@ include_once('./get-checklist.php');
                     (10-2.1.1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[37]">
@@ -879,13 +879,13 @@ include_once('./get-checklist.php');
                     Sec. 10-1.1.1
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[38]">
@@ -899,13 +899,13 @@ include_once('./get-checklist.php');
                     (10-2.1.1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[39]">
@@ -921,13 +921,13 @@ include_once('./get-checklist.php');
                     (10-1.2.1.3c1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[40]">
@@ -943,13 +943,13 @@ include_once('./get-checklist.php');
                     (1.2.1.3c2)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[41]">
@@ -963,13 +963,13 @@ include_once('./get-checklist.php');
                     (10-1.2.1.3c3)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[42]">
@@ -983,13 +983,13 @@ include_once('./get-checklist.php');
                     (10-1.2.1.2c3)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[43]">
@@ -1003,13 +1003,13 @@ include_once('./get-checklist.php');
                     (10-1.2.1.3c4)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[44]">
@@ -1023,13 +1023,13 @@ include_once('./get-checklist.php');
                     (10-1.2.1.3c5)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[45]">
@@ -1043,13 +1043,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.5.6.1(a)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[46]">
@@ -1063,13 +1063,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.3(a)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[47]">
@@ -1083,13 +1083,13 @@ include_once('./get-checklist.php');
                     Sec. 22.1.5.6.1(b)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[48]">
@@ -1103,13 +1103,13 @@ include_once('./get-checklist.php');
                     Sec. 22-1.8.4(c)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[49]">
@@ -1123,13 +1123,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(i)(1)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[50]">
@@ -1143,13 +1143,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(i)(2)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[51]">
@@ -1163,13 +1163,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(d)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[52]">
@@ -1183,13 +1183,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.4.2(a)(1a)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[53]">
@@ -1203,13 +1203,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.4.2(b-2d)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[54]">
@@ -1227,13 +1227,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.4.3(b 1-7)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[55]">
@@ -1247,13 +1247,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.4.3(b 1-7)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[56]">
@@ -1267,13 +1267,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.4.2(b-2b)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[57]">
@@ -1304,13 +1304,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(j-1)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[58]">
@@ -1325,13 +1325,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(j2,3)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[59]">
@@ -1345,13 +1345,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(j4)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[60]">
@@ -1365,13 +1365,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(j6)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[61]">
@@ -1385,13 +1385,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(j7)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[62]">
@@ -1405,13 +1405,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(k3)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[63]">
@@ -1425,13 +1425,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(k1)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[64]">
@@ -1445,13 +1445,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(k5)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[65]">
@@ -1465,13 +1465,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(l2)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[66]">
@@ -1485,13 +1485,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(l3)
                       </strong></td>
                       <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[67]">
@@ -1506,13 +1506,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(l5)
                     </strong></td>
                     <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[68]">
@@ -1525,13 +1525,13 @@ include_once('./get-checklist.php');
                     Sec. 22-2.1.4(l6)
                      </strong></td>
                      <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[69]">

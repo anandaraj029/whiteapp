@@ -1,13 +1,17 @@
 <?php
 include_once('../../file/config.php'); // Include database connection
 
-// Enable error reporting
+// Enable error reporting for debugging
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Get the input data
+// Set JSON header
+header('Content-Type: application/json');
+
+// Decode input data
 $data = json_decode(file_get_contents('php://input'), true);
 
+// Check for project_id in input
 if (isset($data['project_id'])) {
     $project_id = $data['project_id'];
 
@@ -32,7 +36,10 @@ if (isset($data['project_id'])) {
         while ($imageRow = $imageResult->fetch_assoc()) {
             $imagePath = $imageRow['image_path'];
             if (file_exists($imagePath)) {
-                unlink($imagePath); // Delete the image file
+                if (!unlink($imagePath)) {
+                    echo json_encode(['success' => false, 'message' => 'Failed to delete image file: ' . $imagePath]);
+                    exit;
+                }
             }
         }
 

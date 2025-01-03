@@ -19,11 +19,16 @@ include_once('./view-fetch.php');
 
 
     <style>
+
+/* .large-checkbox {
+    width: 20px;
+    height: 20px;
+} */
 /* Custom checkbox styling */
 .custom-checkbox {
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     border: 2px solid #ccc;
     border-radius: 3px;
     display: inline-block;
@@ -35,22 +40,23 @@ include_once('./view-fetch.php');
 }
 
 /* Checked state with blue background */
-/* .custom-checkbox:checked {
+/* .custom-checkbox:checked { */
     /* background-color: #007bff;  */
     /* Blue background */
     /* border-color: #007bff; */
-     /* Match the border with the background 
-} */
+     /* Match the border with the background */
+/* } */
 
 .custom-checkbox:checked::after {
     content: '';
     position: absolute;
-    top: 2px;
-    left: 5px;
-    width: 4px;
-    height: 9px;
-    border: solid blue; /* Checkmark in blue */
-    border-width: 0 2px 2px 0;
+    top: 3px;
+    left: 7px;
+    width: 5px;
+    height: 10px;
+    border: 2px solid blue; 
+    /* Checkmark in blue */
+    border-width: 0 3px 3px 0;
     transform: rotate(45deg);
 }
 
