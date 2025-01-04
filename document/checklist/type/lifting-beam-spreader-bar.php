@@ -13,6 +13,16 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <style>
+
+
+.large-checkbox {
+width: 20px;
+height: 20px;
+}
+
+</style>
 </head>
 <body>
     <div class="container">
@@ -139,13 +149,13 @@ include_once('./get-checklist.php');
                 <td><strong> Documentation is available such as but not limited to; manufacturer test certificate, load test certificate, etc.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.3.8.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -157,13 +167,13 @@ include_once('./get-checklist.php');
                 <td><strong>  Lifter has an identification number / asset number marked on it.  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.20 sec 1.2.1 (b)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -174,13 +184,13 @@ include_once('./get-checklist.php');
                 <td><strong> Lifter has the information data plate bearing the Manufacturer Name, Type/Model Number, Serial Number, & Year of manufacture.    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.2.1 (b)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -191,13 +201,13 @@ include_once('./get-checklist.php');
                 <td><strong> Lifter’s Weight is marked. </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.20 sec 1.2.1 (b)(3)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -208,13 +218,13 @@ include_once('./get-checklist.php');
                 <td><strong> Lifter’s SWL (Rated Load) is prominently marked on each side.</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.2.1 (b)(6)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -225,13 +235,13 @@ include_once('./get-checklist.php');
                 <td><strong>   Structural member has no signs of deformation, cracks, or excessive wear  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.3.3(a) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -242,13 +252,13 @@ include_once('./get-checklist.php');
                 <td><strong> Pad eye lifting lug has no signs of excessive wear </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.20 sec 1.3.4(d)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -260,13 +270,13 @@ include_once('./get-checklist.php');
                 <td><strong>Pad eye weldments have no signs of cracks  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.3.4(a)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -277,13 +287,13 @@ include_once('./get-checklist.php');
                 <td><strong> Slings when employed shall met ASME B30.9 </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.20 sec 1.2.2(e)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -294,13 +304,13 @@ include_once('./get-checklist.php');
                 <td><strong> Hooks when employed shall met ASME B30.10 </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.2.2(f)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -312,13 +322,13 @@ include_once('./get-checklist.php');
                 <td><strong> Rigging Hardware when employed shall met ASME B30.26 </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.20 sec 1.2.2(g)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -332,13 +342,13 @@ include_once('./get-checklist.php');
 Sec 1.4.2(a to c)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -351,13 +361,13 @@ Sec 1.4.2(a to c)
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.3.6 & sec 1.2.3(a)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -370,13 +380,13 @@ Sec 1.4.2(a to c)
 				<td style="text-align: center;"><strong> ASME B30.20 sec 1.2.3(a)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">

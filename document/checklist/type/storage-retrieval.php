@@ -15,6 +15,14 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link href="style.css" rel="stylesheet">
+
+    <style>
+
+        .large-checkbox {
+    width: 20px;
+    height: 20px;
+}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -142,13 +150,13 @@ include_once('./get-checklist.php');
                 <td><strong>Equipment documentation is available</strong></td>
                 <td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
 				<td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[1][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[1][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[1][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[1]">
@@ -160,13 +168,13 @@ include_once('./get-checklist.php');
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.1.5  </strong></td>
 
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[2][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[2][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[2][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[2]">
@@ -178,13 +186,13 @@ include_once('./get-checklist.php');
 				<td style="text-align: center;"><strong> CIMS-QHSE-06 (13.1.1.1)  </strong></td>
               
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[3][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[3][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[3]">
@@ -195,13 +203,13 @@ include_once('./get-checklist.php');
                 <td><strong> Warning and cautionary labels are affixed at aisle entrance points or access positions and are durable and legible </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec. 1.1.2 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[4][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[4][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[4][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[4]">
@@ -212,13 +220,13 @@ include_once('./get-checklist.php');
                 <td><strong> Clearances and tolerances within the system are as determined by the manufacturer or user (specifications) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.2  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[5][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[5][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[5][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[5]">
@@ -229,13 +237,13 @@ include_once('./get-checklist.php');
                 <td><strong> A fire extinguisher with minimum 10BC rating is available (in the cab) </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec..1.4.3  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[6][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[6][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[6][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[6]">
@@ -266,13 +274,13 @@ include_once('./get-checklist.php');
 Sec. 1.3.3
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[7][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[7][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[7][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[7]">
@@ -285,13 +293,13 @@ Sec. 1.3.3
 sec .2.1.3(a)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[8][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[8][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[8]">
@@ -304,13 +312,13 @@ sec .2.1.3(a)
 sec. 1.3.2.1(a2)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[9][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[9][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[9]">
@@ -323,13 +331,13 @@ sec. 1.3.2.1(a2)
 Sec.1.3.2.1(a3)
  </strong></td>
  <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[10][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[10][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[10][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[10]">
@@ -340,13 +348,13 @@ Sec.1.3.2.1(a3)
                 <td><strong>  Stops are provided at the limits of travel of the S/R machine and aisle transfer car  </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 Sec.1.3.2.1(b1),1.7.1 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[11][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[11][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[11]">
@@ -357,13 +365,13 @@ Sec.1.3.2.1(a3)
                 <td><strong>Structure and S/R machine shows no loose bolts or rivets.  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec..2.1.3b  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[12]">
@@ -374,13 +382,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> All devices/controls required for operation are within convenient reach of operator </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.4.1(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[13]">
@@ -391,13 +399,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> The cab interior is free of knobs, edges or corners    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.4.2(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[14][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[14][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[14]">
@@ -408,13 +416,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> The cab door, if fitted, opens inward or slides and is self-closing with a positive latch </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.4.2(c)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[15][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[15][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[15]">
@@ -425,13 +433,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Emergency exits to the floor are available for all positions of a carriage mounted cab </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.4.2(d)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[16][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[16][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[16]">
@@ -442,13 +450,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> All cab glazing is safety glazing material</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.4.2(f)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[17][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[17][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[17]">
@@ -459,13 +467,13 @@ Sec.1.3.2.1(a3)
                 <td><strong>  Cab lighting to be adequate (either natural or artificial) to enable the operator observe the controls    </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.4.4 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[18][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[18][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[18]">
@@ -476,13 +484,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> All ladders and platforms are secure and not corroded or damaged  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.6.2  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[19][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[19][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[19]">
@@ -493,13 +501,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Ladder access opening to platforms is 24"x 27" with hinged cover  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.6.2,1.2.3  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[20][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[20][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[20]">
@@ -510,13 +518,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Platforms have non-slip walking surfaces</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.6.2(b)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[21][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[21][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[21]">
@@ -527,13 +535,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Bumpers provide required stop of an S/R machine or aisle transfer car travelling at rated load and speed from causing structural damage to the equipment</strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.7.2  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[22][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[22][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[22]">
@@ -544,13 +552,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Runway interlocks are provided to prevent travel between the aisle and aisle transfer car unless the tracks are aligned  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.7.3(a)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[23][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[23][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[23]">
@@ -561,13 +569,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Sweeps are fitted in front of the runway wheels    </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.7.4 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[24][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[24][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[24]">
@@ -578,13 +586,13 @@ Sec.1.3.2.1(a3)
                 <td><strong> Guards for hoisting ropes or chains are fitted where appropriate to prevent chafing</strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.7.5 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[25][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[25][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[25]">
@@ -595,13 +603,13 @@ Sec.1.3.2.1(a3)
                 <td><strong>   Guards are fitted over moving parts such as gears, sprockets ,chains and ropes where these constitute a hazard  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.7.5  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[26][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[26][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[26]">
@@ -616,13 +624,13 @@ ASME B30.13 sec.1.8.1(a),
 Sec.1.8.2(a)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[27][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[27][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[27]">
@@ -633,13 +641,13 @@ Sec.1.8.2(a)
                 <td><strong>     </strong></td>
 				<td style="text-align: center;"><strong>   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[28]">
@@ -650,13 +658,13 @@ Sec.1.8.2(a)
                 <td><strong>  Holding brake is applied automatically when power to the brake is removed   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.8.2(c)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[28][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[28][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[28]">
@@ -667,13 +675,13 @@ Sec.1.8.2(a)
                 <td><strong>   Control braking is capable of maintaining controlled travel or lowering speeds  </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.8.3 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[29][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[29][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[29]">
@@ -686,13 +694,13 @@ Sec.1.8.2(a)
                 <td><strong> Wearing surfaces of brake wheels, disks and drums are free of defects that could interfere with their operation    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.8.4(d)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[30][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[30][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[30]">
@@ -704,13 +712,13 @@ Sec.1.8.2(a)
                 <td><strong>  The electrical cables outside of control enclosures are fully protected and insulated (S/R machine or transfer car)   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.1(c2)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[31][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[31][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[31]">
@@ -721,13 +729,13 @@ Sec.1.8.2(a)
                 <td><strong> Traveling cables are suspended at the carriage and S/R machine frame end as to reduce the strain on the individual conductors    </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.9.1(e)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[32][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[32][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[32]">
@@ -738,13 +746,13 @@ Sec.1.8.2(a)
                 <td><strong>    Supporting fillers are used for unsuspended travelling cable lengths exceeding 100ft (30m) </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.9.1(e) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[33][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[33][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[33]">
@@ -755,13 +763,13 @@ Sec.1.8.2(a)
                 <td><strong> The entire S/R machine is electrically grounded    </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.9.1(g)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[34][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[34][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[34]">
@@ -773,13 +781,13 @@ Sec.1.8.2(a)
                 <td><strong>  Any pendant control station is electrically grounded   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.1(i)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[35][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[35][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[35]">
@@ -791,13 +799,13 @@ Sec.1.8.2(a)
                 <td><strong> Live parts of electrical equipment are protected from direct exposure to grease, oil, dirt and moisture    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.2(b)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[36][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[36][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[36]">
@@ -808,13 +816,13 @@ Sec.1.8.2(a)
                 <td><strong>   Any guards fitted over live parts are not deformed  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.2(c)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[37][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[37][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[37]">
@@ -825,13 +833,13 @@ Sec.1.8.2(a)
                 <td><strong>  Power disconnect between the power supply and the aisle contact conductor or travelling cable is provided (motor circuit switch or breaker)   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.3(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[38][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[38][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[38]">
@@ -842,13 +850,13 @@ Sec.1.8.2(a)
                 <td><strong>   Operation of limit sensors, which shut down any drive whose motion passes the extremity of designed travel, is satisfactory  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.4(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[39][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[39][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[39]">
@@ -859,13 +867,13 @@ Sec.1.8.2(a)
                 <td><strong>  Operation of limit sensors where used to reduce speed prior to the machine reaching the extreme travel limit is satisfactory   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.9.4(b)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[40][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[40][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[40]">
@@ -878,13 +886,13 @@ Sec.1.8.2(a)
 sec.1.10.8(b)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[41][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[41][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[41]">
@@ -897,13 +905,13 @@ sec.1.10.8(b)
 sec.1.10.8(c)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[42][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[42][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[42]">
@@ -916,13 +924,13 @@ sec.1.10.8(c)
 sec.1.10.8(d)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[43][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[43][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[43]">
@@ -933,13 +941,13 @@ sec.1.10.8(d)
                 <td><strong>  Over speed switch operation to stop descent of the carriage   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.10.8(e)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[44][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[44][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[44]">
@@ -950,13 +958,13 @@ sec.1.10.8(d)
                 <td><strong>  Actual over speed figure at which the device is set to operate is clearly marked on the device in letters at least 6mm high   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.8(f)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[45][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[45][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[45]">
@@ -968,13 +976,13 @@ sec.1.10.8(d)
                 <td><strong> Over speed device is sealed to prevent readjustment of the trip speed    </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.10.8(g)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[46][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[46][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[46]">
@@ -985,13 +993,13 @@ sec.1.10.8(d)
                 <td><strong>  Control voltages do not exceed 150V AC or 300V DC   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.5  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[47][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[47][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[47]">
@@ -1002,13 +1010,13 @@ sec.1.10.8(d)
                 <td><strong>  Controls at operator's cab are within reach of the operator (for arms and legs)   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.6  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[48][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[48][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[48]">
@@ -1019,13 +1027,13 @@ sec.1.10.8(d)
                 <td><strong>  Sequence of operation for the controls is verified (automatic control operating sequence)   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.6  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[49][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[49][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[49]">
@@ -1039,13 +1047,13 @@ sec.1.9.7
 sec.2.1.2(b4)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[50][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[50][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[50]">
@@ -1057,13 +1065,13 @@ sec.2.1.2(b4)
                 <td><strong>   Emergency stop switch(es) are in good working condition  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.1.3(g)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[51][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[51][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[51]">
@@ -1074,13 +1082,13 @@ sec.2.1.2(b4)
                 <td><strong>  Electrical overload or power failure sensors are fitted   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.8a4-b3  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[52][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[52][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[52]">
@@ -1091,13 +1099,13 @@ sec.2.1.2(b4)
                 <td><strong>   Emergency stop actuator(s) in the aisle(s) are operable  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.9.8(e)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[53][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[53][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[53]">
@@ -1108,13 +1116,13 @@ sec.2.1.2(b4)
                 <td><strong>  Correct sequence of operation under automatic and remote control of S/R machine and aisle transfer car is verified (In auto mode all motion is discontinued if the sequence is interrupted, or the last command is permissible if power is available. In remote mode if the signal is interrupted the machine stops)   </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.9.9 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[54][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[54][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[54]">
@@ -1125,13 +1133,13 @@ sec.2.1.2(b4)
                 <td><strong>   Sheave grooves are smooth with no surface defects  </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.10.1(a)(1) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[55][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[55][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[55]">
@@ -1142,13 +1150,13 @@ sec.2.1.2(b4)
                 <td><strong>  Close fitting rope guides or guards are fitted where required to prevent momentary unloading of the rope   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.1(b)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[56][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[56][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[56]">
@@ -1159,13 +1167,13 @@ sec.2.1.2(b4)
                 <td><strong>  Sheaves have means of lubrication or are permanently lubricated   </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.10.1(d)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[57][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[57][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[57]">
@@ -1176,13 +1184,13 @@ sec.2.1.2(b4)
                 <td><strong> Sheave pitch diameter is not less than 20 times the rope diameter    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.1(e)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[58][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[58][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[58]">
@@ -1193,13 +1201,13 @@ sec.2.1.2(b4)
                 <td><strong>  Rope drums are free from surface defects that could cause rope damage   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.2  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[59][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[59][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[59]">
@@ -1210,13 +1218,13 @@ sec.2.1.2(b4)
                 <td><strong> Rope end socket assemblies are undamaged and are to the manufacturer's specification (where fitted)    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.3(b)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[60][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[60][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[60]">
@@ -1228,13 +1236,13 @@ sec.2.1.2(b4)
                 <td><strong>Two wraps of rope remains on the drum (as a minimum) when the carriage is in the extreme low position</strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.10.3(c1) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[61][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[61][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[61]">
@@ -1245,13 +1253,13 @@ sec.2.1.2(b4)
                 <td><strong>   Rope is correctly clamped to the drum (or with a socket arrangement) as per the rope or S/R machine manufacturers recommendations  </strong></td>
 				<td style="text-align: center;"><strong>ASME B30.13 sec.1.10.3(c2)   </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[62][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[62][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[62]">
@@ -1270,13 +1278,13 @@ Kinking, crushing, bird caging or other distortion
 sec.2.4.2(b2)
   </strong></td>
   <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[63][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[63][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[63]">
@@ -1289,13 +1297,13 @@ sec.2.4.2(b2)
 sec.2.1.3(c)
    </strong></td>
    <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[64][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[64][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[64]">
@@ -1306,13 +1314,13 @@ sec.2.1.3(c)
                 <td><strong> Sprockets, pocket wheels or running chains are adequately lubricated.    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.4(c)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[65][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[65][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[65]">
@@ -1324,13 +1332,13 @@ sec.2.1.3(c)
                 <td><strong> All lines, tanks, valves, pumps, motors and other parts of fluid systems are not leaking    </strong></td>
                 <td style="text-align: center;"><strong>  ASME B30.13 sec.2.1.2(a3/b3) </strong></td>
 				<td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[66][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[66][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[66]">
@@ -1341,13 +1349,13 @@ sec.2.1.3(c)
                 <td><strong>  Bearings, shafts, gears and rollers are not worn, cracked or distorted   </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.1.3(d)  </strong></td>
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[67][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[67][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[67]">
@@ -1358,13 +1366,13 @@ sec.2.1.3(c)
                 <td><strong>  Rope equalizer pulley is free to turn and undamaged (if fitted)   </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.1.10.6 </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[68][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[68][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[68]">
@@ -1375,13 +1383,13 @@ sec.2.1.3(c)
                 <td><strong>   Carriage free fall stops are in place (can be activated mechanically by simulating a slack rope or chain condition)  </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.1.10.7(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[69][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[69][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[69]">
@@ -1394,13 +1402,13 @@ sec.2.1.3(c)
                 <td><strong>  Lifting and lowering function of the cab and carriage is satisfactory   </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.2.2.1(a1) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[70][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[70][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[70][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[70]">
@@ -1412,13 +1420,13 @@ sec.2.1.3(c)
                 <td><strong>  Horizontal travel function of the machine is satisfactory   </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.2.2.1(a2) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[71][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[71][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[71][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[71]">
@@ -1429,13 +1437,13 @@ sec.2.1.3(c)
                 <td><strong>  Shuttle function of the machine is satisfactory   </strong></td>
 				<td style="text-align: center;"><strong>  ASME B30.13 sec.2.2.1(a3) </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[72][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[72][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[72][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[72]">
@@ -1446,13 +1454,13 @@ sec.2.1.3(c)
                 <td><strong> All moving parts of the S/R machine or aisle transfer car for which lubrication is specified, including rope and chain are lubricated    </strong></td>
 				<td style="text-align: center;"><strong> ASME B30.13 sec.2.3.4(a)  </strong></td>
                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS">
+    <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox5" value="FAIL">
+    <input type="checkbox" name="result[73][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[73][]" id="checkbox6" value="NA">
+    <input type="checkbox" name="result[73][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
     <input type="text" name="checklist_remark[73]">

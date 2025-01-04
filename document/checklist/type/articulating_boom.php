@@ -16,6 +16,13 @@ include_once('./get-checklist.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <style>
+        .large-checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+    </style>
 </head>
 <body>
     <div class="container">

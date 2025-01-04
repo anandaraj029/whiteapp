@@ -318,7 +318,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
                      <!-- Invoice Details List Wrapper -->
                       
-                     <?php if ($checklistCreated || $reportCreated || !empty($certificates)) : ?>
+                     <?php if ($checklistCreated && $reportCreated && !empty($certificates)) : ?>
     <div class="bg-white details-list-wrap">
         <div class="table-responsive">
             <!-- Invoice List Table -->

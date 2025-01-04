@@ -124,14 +124,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         inspection_status = ?, 
         sticker_number_issued = ?, 
         jrn = ? 
-        WHERE id = ?";
+        WHERE project_id = ?";
     $stmt = $conn->prepare($query);
     if (!$stmt) {
         die("Prepare failed: " . $conn->error);
     }
 
     $stmt->bind_param(
-        "sssssssssssssssssii", 
+        "ssssssssssssssssssi", 
         $client_name, $client_company_address, $manufacturer, $model, $type, $prev_sticker_no, 
         $issued_by, $capacity, $report_no, $equipment_id_no, $equipment_serial_no, 
         $location, $inspection_date, $next_inspection_due_date, $inspection_status, 
@@ -198,7 +198,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Client Company Address</label>
-                    <textarea class="theme-input-style" placeholder="Enter company address" value="<?php echo htmlspecialchars($client_company_address); ?>" name="client_company_address" required></textarea>
+                    <textarea class="theme-input-style" name="client_company_address" required><?php echo htmlspecialchars($client_company_address); ?></textarea>
+
                 </div>
 
                 <div class="form-group">
