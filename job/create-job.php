@@ -283,7 +283,30 @@ $result = mysqli_query($conn, $sql); // Execute query
                                     </div>
                                     <!-- End Form Row -->
                                          <!-- Form Row -->
-                                        
+                              
+
+                                         <!-- Hidden Fields for Inspector Details -->
+        <input type="hidden" id="inspector_image_url" name="inspector_image">
+        <input type="hidden" id="inspector_signature_url" name="inspector_signature">
+
+                                         <div class="form-row mb-20">
+    <div class="col-sm-4">
+        <label class="font-14 bold">Inspector Image</label>
+    </div>
+    <div class="col-sm-8">
+        <img id="inspector-image" src="" alt="Inspector Image" style="display:none; max-width:100px; max-height:100px;"/>
+    </div>
+</div>
+
+<div class="form-row mb-20">
+    <div class="col-sm-4">
+        <label class="font-14 bold">Inspector Signature</label>
+    </div>
+    <div class="col-sm-8">
+        <img id="inspector-signature" src="" alt="Inspector Signature" style="display:none; max-width:100px; max-height:100px;"/>
+    </div>
+</div>
+
                            
                               
                                 <!-- End Form -->
@@ -417,6 +440,56 @@ $(document).ready(function() {
     });
 });
 
+
+</script>
+
+<script>
+
+$(document).ready(function() {
+    $('#inspector_select').change(function() {
+        let inspectorName = $(this).val(); // Get selected inspector name
+
+        if (inspectorName) {
+            $.ajax({
+                url: 'fetch_inspector_details.php', // Path to your PHP script
+                type: 'GET',
+                data: { inspector_name: inspectorName }, // Pass inspector name as parameter
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        // Display the image and signature
+                        $('#inspector-image').attr('src', response.profile_photo).show();
+                        $('#inspector-signature').attr('src', response.signature_photo).show();
+
+                        // Set the hidden inputs
+                        $('#inspector_image_url').val(response.profile_photo);
+                        $('#inspector_signature_url').val(response.signature_photo);
+                    } else {
+                        alert(response.message || "Inspector details not found.");
+                        $('#inspector-image').hide();
+                        $('#inspector-signature').hide();
+
+                        // Clear the hidden inputs
+                        $('#inspector_image_url').val('');
+                        $('#inspector_signature_url').val('');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching inspector details: " + error);
+                    alert("Error fetching inspector details. Please try again.");
+                }
+            });
+        } else {
+            // Hide image and signature if no inspector is selected
+            $('#inspector-image').hide();
+            $('#inspector-signature').hide();
+
+            // Clear the hidden inputs
+            $('#inspector_image_url').val('');
+            $('#inspector_signature_url').val('');
+        }
+    });
+});
 
 </script>
 <?php 

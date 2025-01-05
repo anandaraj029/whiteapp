@@ -1767,13 +1767,17 @@ sec.2.1.3(c)
             <table class="table table-bordered">
             <tr>
                 <th style="width: 25%;">INSPECTOR’S NAME:</th>
-                <td style="width: 25%;"></strong></td>
+                <td style="width: 25%;"><strong>
+                <?php echo htmlspecialchars($row['inspected_by']); ?>
+                </strong></td>
                 <th style="width: 25%;">CLIENT’S REP. NAME:</th>
                 <td style="width: 25%;"></strong></td>
             </tr>
             <tr>
                 <th>SIGNATURE & DATE:</th>
-                <td><input name="remarks" ></td>
+                <td>
+                <?php echo htmlspecialchars($row['inspected_by']); ?>
+            </td>
                 <th>SIGNATURE & DATE:</th>
                 <td><input name="remarks" ></td>
             </tr>
