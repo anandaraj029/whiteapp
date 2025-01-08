@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $equipment_location = $conn->real_escape_string($_POST['equipment_location']);
     $checklist_type = $conn->real_escape_string($_POST['checklist_type']);
     $inspector_name = $conn->real_escape_string($_POST['inspector_name']);    
-    $inspector_image = $conn->real_escape_string($_POST['inspector_image'] ?? '');
-    $inspector_signature = $conn->real_escape_string($_POST['inspector_signature'] ?? '');
+    // $inspector_image = $conn->real_escape_string($_POST['inspector_image'] ?? '');
+    // $inspector_signature = $conn->real_escape_string($_POST['inspector_signature'] ?? '');
 
     // Fetch customer details
     $customerQuery = $conn->prepare("SELECT customer_name, email, mobile FROM customers WHERE id = ?");
@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert into database
     $creation_date = date('Y-m-d');
-    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, equipment_location, customer_id, customer_name, customer_email, customer_mobile, inspector_name, inspector_image, inspector_signature, checklist_type)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, equipment_location, customer_id, customer_name, customer_email, customer_mobile, inspector_name, checklist_type)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param(
-        "sssssisssssss",
+        "sssssisssss",
         $project_no,
         $creation_date,
         $equipment_type,
@@ -46,9 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $customer_name,
         $customer_email,
         $customer_mobile,
-        $inspector_name,
-        $inspector_image,
-        $inspector_signature,
+        $inspector_name,        
         $checklist_type
     );
 

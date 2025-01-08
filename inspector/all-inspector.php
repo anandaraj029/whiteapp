@@ -90,6 +90,10 @@ if ($result->num_rows > 0) {
       // Status - You can add your logic here (e.g., fetched from the DB or a default value)
       $status = "Active"; // Change this as per your requirement
 
+      // Construct the image path
+      $inspector_folder = strtolower(str_replace(' ', '_', $row['inspector_name']));
+      $profile_photo_path = "./uploads/{$inspector_folder}/images/{$row['profile_photo']}";
+
         echo "<tr>
             <td>
                 <label class='custom-checkbox'>
@@ -99,7 +103,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>{$row['inspector_id']}</td>
           <td>
-                <img src='{$url2}uploads/{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                <img src='{$profile_photo_path}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
                 {$row['inspector_name']}
             </td>
             <td>{$row['emp_id']}</td>

@@ -286,7 +286,7 @@ $result = mysqli_query($conn, $sql); // Execute query
                               
 
                                          <!-- Hidden Fields for Inspector Details -->
-        <input type="hidden" id="inspector_image_url" name="inspector_image">
+        <!-- <input type="hidden" id="inspector_image_url" name="inspector_image">
         <input type="hidden" id="inspector_signature_url" name="inspector_signature">
 
                                          <div class="form-row mb-20">
@@ -305,7 +305,7 @@ $result = mysqli_query($conn, $sql); // Execute query
     <div class="col-sm-8">
         <img id="inspector-signature" src="" alt="Inspector Signature" style="display:none; max-width:100px; max-height:100px;"/>
     </div>
-</div>
+</div> -->
 
                            
                               
@@ -443,7 +443,7 @@ $(document).ready(function() {
 
 </script>
 
-<script>
+<!-- <script>
 
 $(document).ready(function() {
     $('#inspector_select').change(function() {
@@ -491,7 +491,7 @@ $(document).ready(function() {
     });
 });
 
-</script>
+</script> -->
 <?php 
         include_once('../inc/footer.php');
         ?>

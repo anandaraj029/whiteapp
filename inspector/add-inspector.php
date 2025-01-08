@@ -1,9 +1,8 @@
 <?php
 include_once('../file/config.php'); // Include database connection
 
-// Define the upload directory using $url
- // Replace with the actual base path of your application
- $upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/whiteapp/uploads/'; // Local filesystem path
+// Define the base upload directory
+$upload_dir = './uploads/'; // Relative path to the uploads folder
 
 if (isset($_POST['save_inspector'])) {
     $inspector_id = $_POST['inspector_id'];
@@ -16,28 +15,32 @@ if (isset($_POST['save_inspector'])) {
     $address = $_POST['address'];
     $city = $_POST['city'];
 
+    // Create a folder for the inspector by name
+    $inspector_folder = preg_replace('/\s+/', '_', strtolower($inspector_name)); // Replace spaces with underscores
+    $target_dir = $upload_dir . $inspector_folder . '/images/';
+
     // Ensure the upload directory exists
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0777, true);
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     }
 
-    // Profile Photo Upload
-    $profile_photo = time() . '_profile_' . basename($_FILES['profile_photo']['name']);
-    $profile_photo_path = $upload_dir . $profile_photo;
+    // Define common file names
+    $profile_photo = 'profile_image.jpg';
+    $signature_photo = 'signature_image.jpg';
 
+    // Profile Photo Upload
+    $profile_photo_path = $target_dir . $profile_photo;
     if (!move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path)) {
         die("Error uploading profile photo.");
     }
 
     // Signature Photo Upload
-    $signature_photo = time() . '_signature_' . basename($_FILES['signature_photo']['name']);
-    $signature_photo_path = $upload_dir . $signature_photo;
-
+    $signature_photo_path = $target_dir . $signature_photo;
     if (!move_uploaded_file($_FILES['signature_photo']['tmp_name'], $signature_photo_path)) {
         die("Error uploading signature photo.");
     }
 
-    // Database Insert
+    // Database Insert (store only file names)
     $sql = "INSERT INTO inspectors (inspector_id, inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
