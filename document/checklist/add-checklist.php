@@ -7,7 +7,7 @@ if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
 
     // Query to fetch data from project_info table
-    $stmt = $conn->prepare("SELECT equipment_type, checklist_type, inspector_name, inspector_image, inspector_signature, customer_name, equipment_location FROM project_info WHERE project_id = ?");
+    $stmt = $conn->prepare("SELECT equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
     $stmt->bind_param("i", $project_id);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -18,9 +18,7 @@ if (isset($_GET['project_id'])) {
         $checklist_type = $row['checklist_type'];
         $inspected_by = $row['inspector_name'];
         $client_name = $row['customer_name'];
-        $location = $row['equipment_location'];
-        $inspector_image = $row['inspector_image'];
-        $inspector_signature = $row['inspector_signature'];
+        $location = $row['equipment_location'];        
     } else {
         echo "Invalid Project ID!";
         exit;
@@ -71,8 +69,8 @@ if ($checklistResult && $checklistResult->num_rows > 0) {
                         <!-- Form -->
                         <form action="save_checklist.php" method="POST">
                             <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
-                            <input type="hidden" name="inspector_image" value="<?php echo htmlspecialchars($inspector_image); ?>">
-                            <input type="hidden" name="inspector_signature" value="<?php echo htmlspecialchars($inspector_signature); ?>">
+                            <!-- <input type="hidden" name="inspector_image" value="<?php echo htmlspecialchars($inspector_image); ?>">
+                            <input type="hidden" name="inspector_signature" value="<?php echo htmlspecialchars($inspector_signature); ?>"> -->
 
 
                             <div class="row">

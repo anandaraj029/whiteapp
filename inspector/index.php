@@ -34,10 +34,8 @@ if (isset($_GET['id'])) {
             <div class="card-body">
                 <?php if ($inspector): ?>
                     <div class="d-flex flex-column align-items-center mb-3">
-                    <img src="<?php echo $url2 . 'uploads/' . $inspector['profile_photo']; ?>" 
-     alt="Profile Photo" 
-     class="rounded-circle mb-2" 
-     style="width: 100px; height: 100px; object-fit: cover;">
+                    <img src="./uploads/<?php echo strtolower(str_replace(' ', '_', $inspector['inspector_name'])); ?>/images/profile_image.jpg" alt="Profile Photo">
+
 
                         <h5 class="card-title mb-0"><?php echo htmlspecialchars($inspector['inspector_name']); ?></h5>
                     </div>

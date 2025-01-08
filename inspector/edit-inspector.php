@@ -1,9 +1,11 @@
 <?php
+
 include_once('../inc/function.php');
 include_once('../file/config.php'); // Include database connection
 
-// Define the upload directory
-$upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/whiteapp/uploads/';
+
+// Define the base upload directory
+$upload_dir = './uploads/';
 
 if (isset($_GET['id'])) {
     $inspector_id = $_GET['id'];
@@ -37,32 +39,30 @@ if (isset($_POST['update_inspector'])) {
     $address = $_POST['address'];
     $city = $_POST['city'];
 
-    // Ensure the upload directory exists
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0777, true);
+    // Create or retrieve inspector folder
+    $inspector_folder = preg_replace('/\s+/', '_', strtolower($inspector_name)); // Replace spaces with underscores
+    $target_dir = $upload_dir . $inspector_folder . '/images/';
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0777, true);
     }
 
-    // Handle profile photo upload
-    $profile_photo = $row['profile_photo'];
+    // Handle Profile Photo Upload
+    $profile_photo = $row['profile_photo']; // Retain existing photo by default
     if (!empty($_FILES['profile_photo']['name'])) {
-        $profile_photo_name = time() . '_profile_' . basename($_FILES['profile_photo']['name']);
-        $profile_photo_path = $upload_dir . $profile_photo_name;
-
+        $profile_photo_path = $target_dir . 'profile_image.jpg';
         if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path)) {
-            $profile_photo = $profile_photo_name;
+            $profile_photo = 'profile_image.jpg';
         } else {
             die("Error uploading profile photo.");
         }
     }
 
-    // Handle signature photo upload
-    $signature_photo = $row['signature_photo'];
+    // Handle Signature Photo Upload
+    $signature_photo = $row['signature_photo']; // Retain existing photo by default
     if (!empty($_FILES['signature_photo']['name'])) {
-        $signature_photo_name = time() . '_signature_' . basename($_FILES['signature_photo']['name']);
-        $signature_photo_path = $upload_dir . $signature_photo_name;
-
+        $signature_photo_path = $target_dir . 'signature_image.jpg';
         if (move_uploaded_file($_FILES['signature_photo']['tmp_name'], $signature_photo_path)) {
-            $signature_photo = $signature_photo_name;
+            $signature_photo = 'signature_image.jpg';
         } else {
             die("Error uploading signature photo.");
         }
@@ -91,6 +91,7 @@ if (isset($_POST['update_inspector'])) {
     $conn->close();
 }
 ?>
+
 
 
 <!-- Main Content -->
@@ -191,15 +192,30 @@ if (isset($_POST['update_inspector'])) {
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label class="font-14 bold mb-2">Upload Photo</label>
-                                    <input type="file" class="form-control" name="profile_photo" accept="image/*">
-                                    <small>Current: <?= $row['profile_photo'] ?></small>
-                                </div>
-                                <div class="form-group">
-                                    <label class="font-14 bold mb-2">Upload Signature</label>
-                                    <input type="file" class="form-control" name="signature_photo" accept="image/*">
-                                    <small>Current: <?= $row['signature_photo'] ?></small>
-                                </div>
+    <label class="font-14 bold mb-2">Upload Photo</label>
+    <input type="file" class="form-control" name="profile_photo" accept="image/*">
+    <?php if (!empty($row['profile_photo'])): ?>
+        <div>
+            <small>Current:</small><br>
+            <img src="<?= './uploads/' . preg_replace('/\s+/', '_', strtolower($row['inspector_name'])) . '/images/' . $row['profile_photo'] ?>" 
+                 alt="Profile Photo" 
+                 style="max-width: 150px; max-height: 150px; margin-top: 10px; border: 1px solid #ccc;">
+        </div>
+    <?php endif; ?>
+</div>
+<div class="form-group">
+    <label class="font-14 bold mb-2">Upload Signature</label>
+    <input type="file" class="form-control" name="signature_photo" accept="image/*">
+    <?php if (!empty($row['signature_photo'])): ?>
+        <div>
+            <small>Current:</small><br>
+            <img src="<?= './uploads/' . preg_replace('/\s+/', '_', strtolower($row['inspector_name'])) . '/images/' . $row['signature_photo'] ?>" 
+                 alt="Signature Photo" 
+                 style="max-width: 150px; max-height: 150px; margin-top: 10px; border: 1px solid #ccc;">
+        </div>
+    <?php endif; ?>
+</div>
+
                             </div>
                         </div>
                         <div class="form-row">
