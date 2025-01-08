@@ -2292,13 +2292,27 @@ Max. allowable throat opening is 15% compared to new hook, or as per manufacture
             <table class="table table-bordered">
             <tr>
                 <th style="width: 25%;">INSPECTOR’S NAME:</th>
-                <td style="width: 25%;"><strong></strong></td>
+                <td style="width: 25%;"><strong>
+
+                <?php echo htmlspecialchars($row['inspected_by']); ?>
+                </strong></td>
                 <th style="width: 25%;">CLIENT’S REP. NAME:</th>
                 <td style="width: 25%;"><strong></strong></td>
             </tr>
             <tr>
                 <th>SIGNATURE & DATE:</th>
-                <td><strong></strong></td>
+
+                <td>
+    <strong>
+        <img src="<?php echo htmlspecialchars($row['inspector_signature']); ?>" 
+             alt="Inspector Signature" 
+             style="width: 100px; height: auto;">
+    </strong>
+</td>
+                <!-- <td><strong>
+
+                <?php echo htmlspecialchars($row['inspector_signature']); ?>
+                </strong></td> -->
                 <th>SIGNATURE & DATE:</th>
                 <td><strong></strong></td>
             </tr>

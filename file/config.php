@@ -1,4 +1,5 @@
 <?php
+$url2= 'http://localhost/whiteapp/';
 $servername = "localhost";  // Database server
 $username = "root";         // Database username
 $password = "";             // Database password

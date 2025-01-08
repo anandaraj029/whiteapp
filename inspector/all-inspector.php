@@ -99,7 +99,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>{$row['inspector_id']}</td>
           <td>
-                <img src='../uploads/{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                <img src='{$url2}uploads/{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
                 {$row['inspector_name']}
             </td>
             <td>{$row['emp_id']}</td>
