@@ -3249,7 +3249,13 @@ sec 2.4.3(b)8
             </tr>
             <tr>
                 <th>SIGNATURE & DATE:</th>
-                <td><strong></strong></td>
+                <td>
+                <?php if (!empty($row['inspector_signature'])): ?>
+    <img src="<?php echo $url2.$row['inspector_signature']; ?>" alt="Inspector Signature" style="max-width: 200px; height: auto;">
+<?php else: ?>
+    <p>No signature available.</p>
+<?php endif; ?>
+                </td>
                 <th>SIGNATURE & DATE:</th>
                 <td><strong></strong></td>
             </tr>

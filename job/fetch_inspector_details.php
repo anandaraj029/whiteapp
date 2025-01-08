@@ -14,7 +14,7 @@ if (isset($_GET['inspector_name'])) {
         $inspector = $result->fetch_assoc();
 
          // Build full paths to the image and signature
-         $uploadsFolder = "../uploads/";
+         $uploadsFolder = "{$url2}uploads/";
          $profile_photo = $uploadsFolder . $inspector['profile_photo'];
          $signature_photo = $uploadsFolder . $inspector['signature_photo'];
         echo json_encode([

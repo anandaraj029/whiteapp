@@ -1,6 +1,9 @@
 <?php
 include_once('../inc/function.php');
-include_once('../file/config.php');
+include_once('../file/config.php'); // Include database connection
+
+// Define the upload directory
+$upload_dir = $_SERVER['DOCUMENT_ROOT'] . '/whiteapp/uploads/';
 
 if (isset($_GET['id'])) {
     $inspector_id = $_GET['id'];
@@ -34,39 +37,61 @@ if (isset($_POST['update_inspector'])) {
     $address = $_POST['address'];
     $city = $_POST['city'];
 
-    // Handle file uploads
-    $profile_photo = $row['profile_photo'];
-    $signature_photo = $row['signature_photo'];
-
-    if (!empty($_FILES['profile_photo']['name'])) {
-        $profile_photo = $_FILES['profile_photo']['name'];
-        move_uploaded_file($_FILES['profile_photo']['tmp_name'], "../uploads/$profile_photo");
+    // Ensure the upload directory exists
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
     }
 
+    // Handle profile photo upload
+    $profile_photo = $row['profile_photo'];
+    if (!empty($_FILES['profile_photo']['name'])) {
+        $profile_photo_name = time() . '_profile_' . basename($_FILES['profile_photo']['name']);
+        $profile_photo_path = $upload_dir . $profile_photo_name;
+
+        if (move_uploaded_file($_FILES['profile_photo']['tmp_name'], $profile_photo_path)) {
+            $profile_photo = $profile_photo_name;
+        } else {
+            die("Error uploading profile photo.");
+        }
+    }
+
+    // Handle signature photo upload
+    $signature_photo = $row['signature_photo'];
     if (!empty($_FILES['signature_photo']['name'])) {
-        $signature_photo = $_FILES['signature_photo']['name'];
-        move_uploaded_file($_FILES['signature_photo']['tmp_name'], "../uploads/$signature_photo");
+        $signature_photo_name = time() . '_signature_' . basename($_FILES['signature_photo']['name']);
+        $signature_photo_path = $upload_dir . $signature_photo_name;
+
+        if (move_uploaded_file($_FILES['signature_photo']['tmp_name'], $signature_photo_path)) {
+            $signature_photo = $signature_photo_name;
+        } else {
+            die("Error uploading signature photo.");
+        }
     }
 
     // Update query
     $sql = "UPDATE inspectors SET 
             inspector_name = ?, email = ?, handle_crane = ?, emp_id = ?, mobile = ?, 
-            password = ?, address = ?, city = ?, profile_photo = ?, signature_photo = ?
+            password = ?, address = ?, city = ?, profile_photo = ?, signature_photo = ? 
             WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssssi", $inspector_name, $email, $handle_crane, $emp_id, $mobile, 
-                      $password, $address, $city, $profile_photo, $signature_photo, $inspector_id);
+    $stmt->bind_param(
+        "ssssssssssi",
+        $inspector_name, $email, $handle_crane, $emp_id, $mobile,
+        $password, $address, $city, $profile_photo, $signature_photo, $inspector_id
+    );
 
     if ($stmt->execute()) {
         echo "<script>alert('Inspector updated successfully!'); window.location.href = './all-inspector.php';</script>";
     } else {
         echo "Error: " . $stmt->error;
     }
+
     $stmt->close();
     $conn->close();
 }
 ?>
+
 
 <!-- Main Content -->
 <div class="main-content">

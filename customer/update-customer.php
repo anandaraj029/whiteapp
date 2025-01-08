@@ -11,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $address = $_POST['address'];
     $city = $_POST['city'];
 
-    $uploadDir = '../uploads/profile_photos/';
-    $signatureDir = '../uploads/signatures/';
+    $uploadDir = '/uploads/profile_photos/';
+    $signatureDir = '/uploads/signatures/';
     $filePath = null;
     $signaturePath = null;
 
