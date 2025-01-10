@@ -287,7 +287,7 @@ if (isset($_GET['project_id'])) {
                                     <td><b>Next Inspection Due Date : </b> <?php echo htmlspecialchars($row['next_inspection_due_date']); ?></td>
                                 </tr>
                                 <tr>
-                                    <td  style="vertical-align: top;"> <b> Type:</b></td>
+                                    <td  style="vertical-align: top;"> <b> Type: <?php echo htmlspecialchars($row['type']); ?></b></td>
                                     <td style="vertical-align: top;" rowspan="2"> <b>
                                         Location:
                                     </b><?php echo htmlspecialchars($row['location']); ?></td>
@@ -406,8 +406,8 @@ if (isset($_GET['project_id'])) {
                                         Signature : <b></b>
                                     </div>
                                     <div class="col-md-4">
-                                        Issued By : <b></b><br>
-                                        Signature : <b></b>
+                                        Issued By :  <b></b><br>
+                                        Signature : <img src="../uploads/<?php echo $project_id; ?>.png"> <b></b>
                                     </div>
                                 </div> 
                             </div>

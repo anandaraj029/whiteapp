@@ -188,7 +188,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">JRN</label>
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($jrn); ?>"  placeholder="Enter JRN" name="jrn" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter JRN" name="jrn" required>
                 </div>
 
             </div>
