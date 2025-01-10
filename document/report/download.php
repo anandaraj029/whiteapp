@@ -266,7 +266,7 @@ ob_start();
                             <td> Inspector Name & Signature</td>
                             </tr>
                             <tr>
-                            <td><img src="../sign.jpg" alt="" width="70px" height="90px">Sathish Kumar</td>
+                            <td><img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">Sathish Kumar</td>
                             <td><img src="../sign.jpg" alt="" width="70px" height="90px">Sathish Kumar</td>
                             <td><img src="../sign.jpg" alt="" width="70px" height="90px">Sathish Kumar</td>
                             </tr>

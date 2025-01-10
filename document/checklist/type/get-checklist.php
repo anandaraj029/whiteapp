@@ -5,9 +5,11 @@ include_once('../../../file/config.php'); // Include your database connection
 $checklist_type = isset($_GET['checklist_type']) ? $_GET['checklist_type'] : '';
 $checklist_no = isset($_GET['checklist_no']) ? $_GET['checklist_no'] : '';
 
-// Debug lines to check input parameters
-echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
-echo "Checklist No: " . htmlspecialchars($checklist_no) . "<br>";
+// Debug lines to check input parameters (optional for production)
+if (!empty($checklist_type) && !empty($checklist_no)) {
+    echo "Checklist Type: " . htmlspecialchars($checklist_type) . "<br>";
+    echo "Checklist No: " . htmlspecialchars($checklist_no) . "<br>";
+}
 
 // Initialize variables
 $row = [];
@@ -33,11 +35,6 @@ if (!empty($checklist_type) && !empty($checklist_no)) {
         // Check if data is retrieved
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc(); // Fetch the result as an associative array
-
-            // Display fetched data
-            echo "Checklist Type: " . htmlspecialchars($row['checklist_type']) . "<br>";
-            echo "Checklist No: " . htmlspecialchars($row['checklist_id']) . "<br>";
-            // echo "Other Details: " . htmlspecialchars($row['other_column']) . "<br>"; // Adjust this line for other columns
         } else {
             echo "No record found!";
         }
@@ -51,6 +48,9 @@ if (!empty($checklist_type) && !empty($checklist_no)) {
     echo "Checklist Type or Checklist No is missing!";
 }
 
-// Close the database connection
-$conn->close();
+// Don't close the connection here; leave it open for further use
+// $conn->close(); 
+
+// Use global to make $row available to the including script
+global $row;
 ?>
