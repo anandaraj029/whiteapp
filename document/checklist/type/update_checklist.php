@@ -81,6 +81,9 @@ $remarks = [];
 $client_name = $_POST['client_name'] ?? null;
 $client_signature = $_POST['client_signature'] ?? null;
 $checklist_no = $_POST['checklist_no'] ?? null;
+$recommendations = htmlspecialchars($_POST['recommendations'], ENT_QUOTES, 'UTF-8');
+
+
 
 
 if (!$client_name || !$client_signature || !$checklist_no) {
@@ -154,10 +157,10 @@ $checkQuery->store_result();
 
 if ($checkQuery->num_rows > 0) {
     // Update if a record exists
-    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ? WHERE checklist_id = ?");
+    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ?, recommendations = ? WHERE checklist_id = ?");
 } else {
     // Insert a new record if none exists
-    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, checklist_id) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, recommendations, checklist_id) VALUES (?, ?, ?, ?, ?, ?)");
 }
 
 $checkQuery->close();
@@ -167,7 +170,7 @@ if ($stmt === false) {
 }
 
 // Bind parameters and execute the query
-$stmt->bind_param("ssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $checklist_no);
+$stmt->bind_param("sssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $recommendations, $checklist_no);
 
 if (!$stmt->execute()) {
     die("Execution failed: " . $stmt->error);

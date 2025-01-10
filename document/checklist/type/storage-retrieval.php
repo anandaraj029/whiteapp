@@ -1510,9 +1510,10 @@ sec.2.1.3(c)
                 <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
 				</tr>
             <tr>
-                <td style="height: 120px;" colspan="3">
-
-                <?php echo htmlspecialchars($row['remarks']); ?>
+            <td style="height: 120px;" colspan="3">
+                <textarea style="width: 100%; height: 100%; box-sizing: border-box;" name="recommendations">
+                    
+                </textarea>
             </td>
                 
             </tr>

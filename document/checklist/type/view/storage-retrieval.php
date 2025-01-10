@@ -1773,7 +1773,11 @@ sec.2.1.3(c)
                 </strong>
             </td>
             <th style="width: 25%;">CLIENT’S REP. NAME:</th>
-            <td style="width: 25%;"></td>
+            <td style="width: 25%;">
+
+            <?php echo htmlspecialchars($client_name); ?>
+            
+            </td>
         </tr>
         <tr>
             <th>SIGNATURE & DATE:</th>
@@ -1804,7 +1808,8 @@ sec.2.1.3(c)
                 ?>
             </td>
             <th>SIGNATURE & DATE:</th>
-            <td><input name="remarks"></td>
+            <td> <img src="../../../uploads/<?php echo htmlspecialchars($project_id); ?>.png" height="50px" width="100px" alt="Client Signature">
+            </td>
         </tr>
     </table>
 </div>
