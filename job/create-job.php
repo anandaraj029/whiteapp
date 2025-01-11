@@ -3,7 +3,8 @@ include_once('../inc/function.php');
 include_once('../file/config.php');
 
 // Fetch the latest project number from the database
-$projectQuery = "SELECT MAX(project_no) AS last_project_no FROM project_info"; // Replace 'projects' with your actual table name
+// Auto-generate project number
+$projectQuery = "SELECT MAX(CAST(SUBSTRING(project_no, 5) AS UNSIGNED)) AS last_project_no FROM project_info";
 $projectResult = $conn->query($projectQuery);
 
 if ($projectResult && $projectResult->num_rows > 0) {
@@ -14,11 +15,13 @@ if ($projectResult && $projectResult->num_rows > 0) {
     $newProjectNo = 1; // Default to 1 if no project exists
 }
 
-// Format the project ID as "P001"
-$formattedProjectNo = "P" . str_pad($newProjectNo, 3, "0", STR_PAD_LEFT);
+// Format the project ID as "CIMS001"
+$formattedProjectNo = "CIMS" . str_pad($newProjectNo, 3, "0", STR_PAD_LEFT);
 
 // Return the generated ID
 echo $formattedProjectNo;
+
+
 
 
 // Fetch student names from the database
@@ -176,7 +179,7 @@ $result = mysqli_query($conn, $sql); // Execute query
                                                     echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['customer_name']) . "</option>";
                                                 }
                                             } else {
-                                                echo "<option value='' disabled>No students found</option>";
+                                                echo "<option value='' disabled>No customers found</option>";
                                             }
                                             ?>    
 </select>
