@@ -4,7 +4,8 @@ include_once('../../file/config.php'); // include your database connection
 
 // Fetch data from checklist_information table
 
-$sql = "SELECT * FROM checklist_information";
+// Fetch data from checklist_information table in descending order of creation date
+$sql = "SELECT * FROM checklist_information ORDER BY created_at DESC";
 $result = $conn->query($sql);
 ?>
 

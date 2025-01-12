@@ -25,11 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $customerQuery->close();
 
     // Auto-generate project number
-    $project_no_query = "SELECT MAX(CAST(SUBSTRING(project_no, 2) AS UNSIGNED)) AS max_project_no FROM project_info";
-    $result = $conn->query($project_no_query);
-    $row = $result->fetch_assoc();
-    $last_project_no = $row['max_project_no'];
-    $project_no = "P" . str_pad(($last_project_no ? $last_project_no + 1 : 1), 3, "0", STR_PAD_LEFT);
+   // Auto-generate project number
+$project_no_query = "SELECT MAX(CAST(SUBSTRING(project_no, 5) AS UNSIGNED)) AS max_project_no FROM project_info";
+$result = $conn->query($project_no_query);
+$row = $result->fetch_assoc();
+$last_project_no = $row['max_project_no'];
+$project_no = "CIMS" . str_pad(($last_project_no ? $last_project_no + 1 : 1), 3, "0", STR_PAD_LEFT);
+
 
     // Insert into database
     $creation_date = date('Y-m-d');
