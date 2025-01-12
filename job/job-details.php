@@ -11,7 +11,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
-            c.checklist_no, c.inspected_by, c.created_at,
+            c.checklist_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
             r.report_no, r.sticker_number_issued
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_id = c.project_id
@@ -337,13 +337,17 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <?php if ($checklistCreated): ?>
                         <tr>
                             <td class="bold">#<?php echo htmlspecialchars($data['checklist_no']); ?></td>
-                            <td>Checklist</td>
+                            <td class="bold"><?php echo htmlspecialchars($data['checklist_type']); ?> Checklist</td>
+                            
                             <td><?php echo date('F d, Y', strtotime($data['created_at'])); ?></td>
                             <td><?php echo htmlspecialchars($data['inspected_by']); ?></td>
                             <td>Completed</td>
                             <td>
-                                <a href="../document/checklist/download.php?checklist_no=<?php echo $data['checklist_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                <a href="../document/checklist/type/view/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                                <!-- <a href="../document/checklist/download.php?checklist_no=<?php echo $data['checklist_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a> -->
+                                <a href="../document/checklist/type/view/<?php echo htmlspecialchars($data['checklist_type']); ?>.php?checklist_type=<?php echo htmlspecialchars($data['checklist_type']); ?>&checklist_no=<?php echo htmlspecialchars($data['checklist_id']); ?>" class="download-btn mr-3 bg-info">
+    <img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg">
+</a>
+
                             </td>
                         </tr>
                     <?php endif; ?>
@@ -370,8 +374,21 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <td><?php echo htmlspecialchars($certificate['created_by'] ?? 'N/A'); ?></td>
                             <td>Created</td>
                             <td>
-                                <a href="../document/certificate/download.php?certificate_no=<?php echo $certificate['certificate_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                <a href="../document/certificate/view.php?certificate_no=<?php echo $certificate['certificate_no']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                                
+                            <?php
+$certificate_types = [
+    'healthcheck' => 'health-check', // Map `health-check` to `healthcheck`
+];
+
+$certificate_type = isset($certificate_types[$certificate['certificate_type']]) 
+    ? $certificate_types[$certificate['certificate_type']] 
+    : $certificate['certificate_type'];
+?>
+<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3">
+    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+</a>
+
+<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
