@@ -97,7 +97,11 @@ if ($result->num_rows > 0) {
             <td>
                 <div class='d-flex align-items-center'>
                     <div class='img mr-20'>
-                        <img src='{$row['profile_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                        <img src='{$row['profile_photo']}' 
+     alt='Profile Photo' 
+     class='img-thumbnail' 
+     style='max-width: 50px; max-height: 50px; object-fit: contain; margin-right: 10px;'>
+
                     </div>
                     <div class='name bold'>
                        {$row['customer_name']}
