@@ -1,6 +1,11 @@
-<?php 
-
+<?php
 include_once('./get-checklist.php');
+
+// Ensure $row is accessible
+if (!isset($row) || empty($row)) {
+    echo "No checklist data available.";
+    exit;
+}
 ?>
 
 
@@ -19,17 +24,27 @@ include_once('./get-checklist.php');
 
     <style>
 
-
-
         .large-checkbox {
     width: 20px;
     height: 20px;
 }
 
-
-
-
+.modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+    .modal-content {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
     </style>
+    
 </head>
 <body>
     <div class="container">
