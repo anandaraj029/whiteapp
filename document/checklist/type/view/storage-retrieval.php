@@ -1754,7 +1754,7 @@ sec.2.1.3(c)
 				</tr>
             <tr>
                 <td style="height: 120px;" colspan="3">
-                <?php echo htmlspecialchars($row['remarks']); ?>        
+                <?php echo htmlspecialchars($row['recommendations']); ?>        
             </td>
                 
             </tr>

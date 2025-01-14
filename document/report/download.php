@@ -21,6 +21,26 @@ if (mysqli_num_rows($result) > 0) {
     die("No record found for the provided project ID!");
 }
 
+
+$query_client = "SELECT client_name FROM checklist_results WHERE project_id = ?";
+$stmt_client = $conn->prepare($query_client);
+
+if ($stmt_client) {
+    $stmt_client->bind_param("s", $project_id);
+    $stmt_client->execute();
+    $result_client = $stmt_client->get_result();
+
+    if ($result_client && $result_client->num_rows > 0) {
+        $client_row = $result_client->fetch_assoc();
+        $client_name = $client_row['client_name'];
+    } else {
+        $client_name = "No client found for this project ID";
+    }
+} else {
+    die("Failed to prepare the query: " . $conn->error);
+}
+
+
 // Start capturing output
 ob_start();
 ?>
@@ -299,9 +319,53 @@ ob_start();
                             <td> Inspector Name & Signature</td>
                             </tr>
                             <tr>
-                            <td><img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">Sathish Kumar</td>
-                            <td><img src="../sign.jpg" alt="" width="70px" height="90px">Sathish Kumar</td>
-                            <td><img src="../sign.jpg" alt="" width="70px" height="90px">Sathish Kumar</td>
+                            <td><img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">
+                            <?php echo htmlspecialchars($client_name); ?>
+
+                        </td>
+                            <td><img src="../uploads/signatures/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">Sathish Kumar</td>
+                            <?php
+// Include database connection
+include_once('../../file/config.php');
+
+// Retrieve the project ID from the request (GET or POST)
+if (isset($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
+
+    // Query to fetch the inspector_name and signature_photo using the project_id
+    $query = "
+        SELECT pi.inspector_name, i.signature_photo 
+        FROM project_info pi 
+        JOIN inspectors i ON pi.inspector_name = i.inspector_name
+        WHERE pi.project_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $inspector_name = $row['inspector_name'];
+        $signature_photo = $row['signature_photo'];
+
+        // Generate the inspector folder name
+        $inspector_folder = preg_replace('/\s+/', '_', strtolower($inspector_name));
+        $signature_image_path = "../../inspector/uploads/" . $inspector_folder . "/images/" . $signature_photo;
+
+        // Render the table row
+        echo "<td><img src='" . htmlspecialchars($signature_image_path) . "' alt='Signature' width='70px' height='90px'> " . htmlspecialchars($inspector_name) . "</td>";
+    } else {
+        echo "<td>No inspector found for the provided project ID</td>";
+    }
+
+    $stmt->close();
+} else {
+    echo "<td>Project ID not provided</td>";
+}
+
+$conn->close();
+?>
+
                             </tr>
 
                             </table>

@@ -5,6 +5,7 @@ session_start();
 // Check if session is valid
 if (isset($_SESSION['session_id'])) {
     $session_id = $_SESSION['session_id'];
+    // $role_id = $_SESSION['role'];
     $stmt = $conn->prepare("SELECT user_id FROM user_sessions WHERE session_id = ?");
     $stmt->bind_param("s", $session_id);
     $stmt->execute();
