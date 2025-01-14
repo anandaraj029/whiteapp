@@ -157,10 +157,10 @@ $checkQuery->store_result();
 
 if ($checkQuery->num_rows > 0) {
     // Update if a record exists
-    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ?, recommendations = ? WHERE checklist_id = ?");
+    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ?, recommendations = ?, project_id = ? WHERE checklist_id = ?");
 } else {
     // Insert a new record if none exists
-    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, recommendations, checklist_id) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, recommendations, project_id, checklist_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 }
 
 $checkQuery->close();
@@ -170,7 +170,7 @@ if ($stmt === false) {
 }
 
 // Bind parameters and execute the query
-$stmt->bind_param("sssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $recommendations, $checklist_no);
+$stmt->bind_param("ssssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $recommendations, $project_id, $checklist_no);
 
 if (!$stmt->execute()) {
     die("Execution failed: " . $stmt->error);

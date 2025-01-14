@@ -159,8 +159,7 @@ if (!isset($row) || empty($row)) {
 				<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">GENERAL REQUIREMENTS</th>
-					<th style="text-align: center;"> </th>
-                    
+					<th style="text-align: center;"> </th>                    
                     <th style="text-align: center;">PASS</th>
                     <th style="text-align: center;">FAIL</th>
                     <th style="text-align: center;">N/A</th>

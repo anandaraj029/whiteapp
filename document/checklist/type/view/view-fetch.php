@@ -38,10 +38,10 @@ $db_remark = '';
 
 if ($checklist_no) {
     // Fetch checklist data
-    $stmt = $conn->prepare("SELECT result, checklist_remark, client_name FROM checklist_results WHERE checklist_id = ?");
+    $stmt = $conn->prepare("SELECT result, checklist_remark, client_name, recommendations FROM checklist_results WHERE checklist_id = ?");
     $stmt->bind_param("i", $checklist_no);
     $stmt->execute();
-    $stmt->bind_result($db_result, $db_remark, $client_name);
+    $stmt->bind_result($db_result, $db_remark, $client_name, $recommendations);
     $stmt->fetch();
     $stmt->close();
 

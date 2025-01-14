@@ -17,6 +17,7 @@ if (!isset($row) || empty($row)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOTOR GRADER Inspection Checklist</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -141,7 +142,7 @@ if (!isset($row) || empty($row)) {
         </table>
 </div>
         
-<form method="post" action="./update_checklist.php" id="checklistForm">
+<form method="post" action="./update_checklist.php" id="checklistForm"  onsubmit="saveClientDetails()">
         <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -151,8 +152,7 @@ if (!isset($row) || empty($row)) {
                     <th style="text-align: center;">ACCEPTANCE CRITERIA</th>                   
                     <th style="text-align: center;" colspan="3">RESULT</th>                    
                     <th style="text-align: center;">REMARKS</th>
-                </tr>
-				
+                </tr>				
 				<tr>
                     <th style="text-align: center;">1</th>
                     <th style="text-align: center;">RATINGS & MARKINGS</th>                    
@@ -161,8 +161,7 @@ if (!isset($row) || empty($row)) {
                     <th style="text-align: center;">N/A</th>
                     <th> </th>
                 </tr>
-				</thead>
- 
+				</thead> 
                 <tbody>
 
  <tr>
@@ -999,34 +998,124 @@ if (!isset($row) || empty($row)) {
 
         
 		
-		<div class="table-responsive">
+        <div class="table-responsive">
             <table class="table table-bordered">
+                <tbody>
+				
+				<tr>
+                <th colspan="3" style="text-align: center;">REMARKS / RECOMMENDATIONS: </td>
+				</tr>
             <tr>
-                <th style="width: 25%;">INSPECTOR’S NAME:</th>
-                <td style="width: 25%;"></strong></td>
-                <th style="width: 25%;">CLIENT’S REP. NAME:</th>
-                <td style="width: 25%;"></strong></td>
+            <td style="height: 120px;" colspan="3">
+                <textarea style="width: 100%; height: 100%; box-sizing: border-box;" name="recommendations">
+                    
+                </textarea>
+            </td>                
             </tr>
-            <tr>
-                <th>SIGNATURE & DATE:</th>
-                <td><img src="../../sign.jpg" width="140px"></td>
-                <th>SIGNATURE & DATE:</th>
-                <td><img src="../../sign.jpg" width="140px"></td>
-            </tr>
-            
-           
-        </table>
+			</tbody>
+			</table>			
+			</div>            
+		
+            <div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 25%;">INSPECTOR’S NAME:</th>
+            <td style="width: 25%;">
+                <strong>
+                <?php echo htmlspecialchars($row['inspected_by']); ?>
+                </strong>
+            </td>
+            <th style="width: 25%;">CLIENT’S REP. NAME:</th>
+            <td style="width: 25%;" onclick="openModal()">
+        <span id="clientNameDisplay">Click to enter</span>
+    </td>
+        </tr>
+        <tr>
+            <th>SIGNATURE & DATE:</th>
+            <td>
+                <?php
+                if (!empty($row['inspected_by'])) {
+                    $inspector_name = $row['inspected_by'];
+
+                    // Query inspectors table
+                    $sql = "SELECT signature_photo FROM inspectors WHERE inspector_name = ?";
+                    $stmt = $conn->prepare($sql);
+                    
+                    if ($stmt) {
+                        $stmt->bind_param("s", $inspector_name);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        if ($result->num_rows > 0) {
+                            $inspector = $result->fetch_assoc();
+                            $image_path = '../../../inspector/uploads/' . preg_replace('/\s+/', '_', strtolower($inspector_name)) . '/images/' . $inspector['signature_photo'];
+
+                            if (file_exists($image_path)) {
+                                echo "<img src='$image_path' alt='Inspector Signature' style='max-width: 100px; max-height: 50px;'>";
+                            } else {
+                                echo "Image not available.";
+                            }
+                        } else {
+                            echo "Inspector not found.";
+                        }
+                        $stmt->close();
+                    } else {
+                        echo "Error preparing statement: " . $conn->error;
+                    }
+                } else {
+                    echo "Inspector's name is not available.";
+                }
+                ?>
+            </td>
+            <th>SIGNATURE & DATE:</th>
+            <td style="width: 25%;" onclick="openModal()">
+        <img id="clientSignatureDisplay" src="" alt="Click to add signature" style="max-width: 100px; max-height: 50px; cursor: pointer;">
+    </td>
+        </tr>
+    </table>
+</div>
 
 
-        </div>
+<!-- Modal for Client's Name and Signature -->
+<div id="clientSignatureModal" class="modal" style="display: none;">
+    <div class="modal-content" style="padding: 20px; width: 400px; margin: auto; background: #fff; border-radius: 8px;">
+        <span class="close" onclick="closeModal()" style="cursor: pointer; float: right;">&times;</span>
+        <h3>Enter Client's Details</h3>
+        
+            <div>
+                <label for="clientName">Client's Name:</label>
+                <input type="text" id="clientName" name="client_name" required style="width: 100%; padding: 5px; margin-bottom: 15px;">
+            </div>
+            <div>
+                <label>Signature:</label>
+                <canvas id="signaturePad" style="border: 1px solid #ccc; width: 100%; height: 150px;"></canvas>
+                <button type="button" onclick="clearSignature()" style="margin-top: 10px;">Clear Signature</button>
+            </div>
+            <div style="margin-top: 15px;">
+                <button type="button" onclick="saveClientDetails()">Save</button>
+            </div>        
+    </div>
+</div>
+
+
+<input type="hidden" name="client_name" id="hiddenClientName">
+<input type="hidden" name="client_signature" id="hiddenClientSignature">
+
 
 <div class="col-12">
 <button type="submit" class="btn btn-primary">Update</button>
 </div>
 </form>
 
+
 </div>
-</div>
+
+<?php
+// Close the connection at the very end
+$conn->close();
+?>
+
+
 <script>
 function preparePrint() {
 // Change the headers before printing
@@ -1129,7 +1218,6 @@ event.preventDefault();
 
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
 const checklistForm = document.getElementById("checklistForm");
 
@@ -1149,9 +1237,65 @@ checklistForm.addEventListener("change", function (event) {
 });
 }
 });
+</script>
 
+<script>
+    let signaturePad;
+    // Ensure SignaturePad is loaded and ready
+    function openModal() {
+        if (typeof SignaturePad !== "undefined") {
+            document.getElementById("clientSignatureModal").style.display = "block";
+            
+            const canvas = document.getElementById("signaturePad");
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+
+            signaturePad = new SignaturePad(canvas);
+        } else {
+            console.error("SignaturePad library is not loaded.");
+        }
+    }
+
+    function closeModal() {
+        document.getElementById("clientSignatureModal").style.display = "none";
+    }
+
+    function clearSignature() {
+        if (signaturePad) {
+            signaturePad.clear();
+        }
+    }
+
+    function saveClientDetails() {
+    if (!signaturePad) {
+        alert("Signature pad is not initialized. Please try again.");
+        return;
+    }
+
+    if (signaturePad.isEmpty()) {
+        alert("Please provide a signature.");
+        return;
+    }
+
+    const clientName = document.getElementById("clientName").value;
+    if (!clientName) {
+        alert("Please enter the client's name.");
+        return;
+    }
+
+    const signatureData = signaturePad.toDataURL(); // Base64 format
+    document.getElementById("clientNameDisplay").innerText = clientName;
+    document.getElementById("clientSignatureDisplay").src = signatureData;
+
+    // Set hidden inputs for submission
+    document.getElementById("hiddenClientName").value = clientName;
+    document.getElementById("hiddenClientSignature").value = signatureData;
+
+    closeModal();
+}
 
 </script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

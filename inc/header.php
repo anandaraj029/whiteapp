@@ -1,3 +1,4 @@
+   
    <!-- Header -->
    <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
          <!-- Logo -->
@@ -32,7 +33,7 @@
 
                                  <!-- User Info -->
                                  <div class="user-info">
-                                 <h4 class="user-name"><?php echo "Admin Panel"; ?></h4>
+                                 <h4 class="user-name"><?php echo $role_id; ?></h4>
                                     <p class="user-email">Sathish kumar</p>
                                  </div>
                                  <!-- End User Info -->

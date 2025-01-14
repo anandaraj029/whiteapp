@@ -19,6 +19,26 @@ if (isset($_GET['project_id'])) {
     echo "No project ID provided!";
     exit;
 }
+
+
+// Fetch client details
+$query_client = "SELECT client_name FROM checklist_results WHERE project_id = ?";
+$stmt_client = $conn->prepare($query_client);
+
+if ($stmt_client) {
+    $stmt_client->bind_param("s", $project_id);
+    $stmt_client->execute();
+    $result_client = $stmt_client->get_result();
+
+    if ($result_client && $result_client->num_rows > 0) {
+        $client_row = $result_client->fetch_assoc();
+        $client_name = $client_row['client_name'];
+    } else {
+        $client_name = "No client found for this project ID";
+    }
+} else {
+    die("Failed to prepare the query: " . $conn->error);
+}
 ?>
 
 
@@ -398,7 +418,10 @@ if (isset($_GET['project_id'])) {
 
                                  <div class="row">
                                     <div class="col-md-4">
-                                        Receiver Name : <b></b><br>
+                                        Receiver Name : <b>
+                                        <?php echo htmlspecialchars($client_name); ?>
+
+                                        </b><br>
                                         Badge : <b></b>
                                     </div>
                                     <div class="col-md-4">
@@ -406,7 +429,9 @@ if (isset($_GET['project_id'])) {
                                         Signature : <b></b>
                                     </div>
                                     <div class="col-md-4">
-                                        Issued By :  <b></b><br>
+                                        Issued By :  <b>
+                                        <?php echo htmlspecialchars($client_name); ?>
+                                        </b><br>
                                         Signature : <img src="../uploads/<?php echo $project_id; ?>.png"> <b></b>
                                     </div>
                                 </div> 
