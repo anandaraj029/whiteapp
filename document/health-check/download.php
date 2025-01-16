@@ -15,6 +15,15 @@ if (mysqli_num_rows($result) > 0) {
     exit;
 }
 
+
+$inspector_signature_path = "../../inspector/uploads/" . urlencode($row['inspector']) . "/images/signature_image.jpg";
+if (file_exists($inspector_signature_path)) {
+    $inspector_signature_html = '<img src="' . htmlspecialchars($inspector_signature_path) . '" class="sign" alt="Signature Image">';
+} else {
+    // Use a placeholder signature image if the actual one is not found
+    $inspector_signature_html = '<img src="../assets/img/avatar/default-signature.png" class="sign" alt="Default Signature">';
+}
+
 $html = '
 <!DOCTYPE html>
 <html lang="en">
@@ -252,8 +261,8 @@ $html = '
             <td class="section-title" colspan="2"></td>
           </tr>
           <tr>
-            <td class="text-center"><strong>VENANCIO Z. VERA</strong></td>
-            <td> <img src="../sign.jpg" class="sign" alt="Signature Image"></td>
+            <td class="text-center"><strong>' . htmlspecialchars($row['inspector']) . '</strong></td>
+            <td>' . $inspector_signature_html . '</td>
             <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
             <td> <img src="../sign.jpg" class="sign" alt="Signature Image"></td>
             <td class="text-center"><strong>COMPANY SEAL </strong></td>

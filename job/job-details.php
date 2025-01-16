@@ -10,8 +10,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Query to fetch project, checklist, and report details using JOIN
     $query = "
         SELECT 
-            p.project_id, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
-            c.checklist_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
+            p.project_id, p.creation_date, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
+            c.checklist_no, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
             r.report_no, r.sticker_number_issued
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_id = c.project_id
@@ -141,11 +141,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <div class="invoice-left">
                                 <h3 class="white font-20 mb-3">Customer Details</h3>
                                 <ul class="list-invoice">
-                                    <li class="location">CA <br />
+                                    <li class="location"> 
                                         <?php echo htmlspecialchars($data['equipment_location']); ?>
                                     </li>
                                     <li class="call">
-                                        <a href="tel:+01234567891">+0 (123) 456 7891</a> <br />
+                                        <!-- <a href="tel:+01234567891">+0 (123) 456 7891</a> <br /> -->
                                         <a href="tel:+01234567891"><?php echo htmlspecialchars($data['customer_mobile']); ?></a>
                                     </li>
                                     <li class="mail"><?php echo htmlspecialchars($data['customer_email']); ?></li>
@@ -159,14 +159,20 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 <h3 class="white font-20 mb-3">Project Status</h3>
                                 <ul class="status-list">
                                     <li><span class="key font-14">Serial No:</span>
-                                        <span class="white bold font-17">#256987</span>
+                                        <span class="white bold font-17">
+                                        <?php echo htmlspecialchars($data['crane_serial_no']); ?></span>
+
+                                        
                                     </li>
                                     <li><span class="key font-14">Project No:</span>
                                         <span class="white bold font-17"><?php echo htmlspecialchars($data['project_id']); ?></span>
                                     </li>
-                                    <li><span class="key font-14">Start Date:</span>
-                                        <span class="white bold font-17">08/12/2019</span>
-                                    </li>
+                                    <li>
+    <span class="key font-14">Start Date:</span>
+    <span class="white bold font-17">
+        <?php echo htmlspecialchars(date('d/m/Y', strtotime($data['creation_date']))); ?>
+    </span>
+</li>
                                     <li><span class="key font-14">End Date:</span>
                                         <span class="white bold font-17">07/03/2019</span>
                                     </li>

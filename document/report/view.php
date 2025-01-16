@@ -425,14 +425,18 @@ if ($stmt_client) {
                                         Badge : <b></b>
                                     </div>
                                     <div class="col-md-4">
-                                        Inspection Date : <b></b><br>
+                                        Inspection Date : 
+                                        
+                                        <b>
+                                        <?php echo htmlspecialchars($row['date_of_inspection']); ?>
+                                        </b><br>
                                         Signature : <b></b>
                                     </div>
                                     <div class="col-md-4">
-                                        Issued By :  <b>
-                                        <?php echo htmlspecialchars($client_name); ?>
+                                        Issued By :  <b>                                        
+                                        <?php echo htmlspecialchars($row['issued_by']); ?>
                                         </b><br>
-                                        Signature : <img src="../uploads/<?php echo $project_id; ?>.png"> <b></b>
+                                        Signature : <img src="../uploads/<?php echo $project_id; ?>.png" height="40px;" > <b></b>
                                     </div>
                                 </div> 
                             </div>
@@ -443,7 +447,7 @@ if ($stmt_client) {
                         </center> -->
                         <br>
                         <div id="non-printable">
-                            <button type="submit" class="btn btn-primary">Save as PDF</button>
+                        <button type="button" class="btn btn-primary" id="downloadBtn">Save as PDF</button>
                             <button type="button" class="btn btn-danger" onclick="window.print()">Print</button>
                         </div>
                     </div>
@@ -452,5 +456,13 @@ if ($stmt_client) {
         </div>
     </div>
 </body>
+
+<script>
+  document.getElementById('downloadBtn').addEventListener('click', function () {
+    // Navigate to download.php
+    window.location.href = 'download.php';
+  });
+</script>
+
 
 </html>
