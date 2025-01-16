@@ -66,7 +66,7 @@ include_once('../inc/function.php');
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
-                                        <th>Inspect crane</th>
+                                        <!-- <th>Inspect crane</th> -->
                                         <th>Status</th>
                                          <th>Actions</th>
                                     </tr>
@@ -92,7 +92,11 @@ if ($result->num_rows > 0) {
 
       // Construct the image path
       $inspector_folder = strtolower(str_replace(' ', '_', $row['inspector_name']));
-      $profile_photo_path = "./uploads/{$inspector_folder}/images/{$row['profile_photo']}";
+      $profile_photo_path = "./uploads/{$inspector_folder}/images/profile_image.jpg";
+if (file_exists($profile_photo_path)) {
+    $profile_photo_path .= '?v=' . filemtime($profile_photo_path);
+}
+
 
         echo "<tr>
             <td>
@@ -110,7 +114,7 @@ if ($result->num_rows > 0) {
             <td>{$row['email']}</td>
             <td>{$row['mobile']}</td>                        
             <td>{$row['address']}</td>
-            <td>{$handle_crane_display}</td>
+            
                     <td>{$status}</td>
             
             <td>

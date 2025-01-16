@@ -1,3 +1,8 @@
+<?php
+// Example: After login, set the role in the session
+session_start();
+
+?>
    
    <!-- Header -->
    <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
@@ -33,7 +38,15 @@
 
                                  <!-- User Info -->
                                  <div class="user-info">
-                                 <h4 class="user-name"><?php echo $role_id; ?></h4>
+                                 <h4 class="user-name">
+        <?php
+        if (isset($_SESSION['role_id'])) {
+            echo $_SESSION['role_id'];  // Display the role from the session
+        } else {
+            echo 'Guest';  // If the user is not logged in, show 'Guest'
+        }
+        ?>
+    </h4>
                                     <p class="user-email">Sathish kumar</p>
                                  </div>
                                  <!-- End User Info -->

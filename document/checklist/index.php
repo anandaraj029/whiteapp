@@ -38,72 +38,69 @@ $result = $conn->query($sql);
                                     <th>Project ID</th>
                                     <th>Inspect By</th>
                                     <th>Equipment</th>
+                                    <th>Checklist Type</th>
                                     <th>Company</th>
                                     <!-- <th>Shipping</th>
                                     <th>Quantity</th> -->
-                                    <th>Status</th>
+                                    <!-- <th>Status</th> -->
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
-                                <?php 
-                                // Check if records exist
-                                if(mysqli_num_rows($result) > 0) {
-                                    // Loop through each row
-                                    while($row = mysqli_fetch_assoc($result)) {
-                                        $checklist_type = $row['checklist_type']; // Get checklist type for each row
-                                        $checklist_no = $row['checklist_id']; // Get checklist number for each
-                                        echo "<tr>";
-                                        echo "<td> 
-        <div class='star'>
-            <a href='./type/view/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>
+    <?php 
+    // Check if records exist
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            $checklist_type_raw = $row['checklist_type']; // Raw checklist type
+            $checklist_no = $row['checklist_id']; // Get checklist number for each row
             
-                <div class='icon text-primary'>
-                    <i class='et-document'></i>
+            // Format the checklist type: remove hyphens/underscores and capitalize words
+            $formatted_checklist_type = str_replace(['-', '_'], ' ', $checklist_type_raw); // Replace hyphens/underscores with spaces
+            $formatted_checklist_type = ucwords($formatted_checklist_type); // Capitalize each word
+            
+            echo "<tr>";
+            echo "<td> 
+                <div class='star'>
+                    <a href='./type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
+                        <div class='icon text-primary'>
+                            <i class='et-document'></i>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-    </td>";
-                                        echo "<td>{$row['checklist_no']}</td>";
-                                        echo "<td>{$row['project_id']}</td>";
-                                        echo "<td>{$row['inspected_by']}</td>";
-                                        echo "<td>{$row['equipment_type']}</td>";
-                                        echo "<td>{$row['client_name']}</td>";
-                                        
-                                        // Dynamically set button style based on status
-                                        // $statusClass = '';
-                                        // if ($row['status'] == 'Closed') {
-                                        //     $statusClass = 'un_paid';
-                                        // } elseif ($row['status'] == 'Pending') {
-                                        //     $statusClass = 'on_hold';
-                                        // } else {
-                                        //     $statusClass = 'paid';
-                                        // }
-                                        // echo "<td>
-                                        // // <button type='button' class='status-btn {$statusClass}'>{$row['status']}</button></td>";
+            </td>";
+            echo "<td>{$row['checklist_no']}</td>";
+            echo "<td>{$row['project_id']}</td>";
+            echo "<td>{$row['inspected_by']}</td>";
+            echo "<td>{$row['equipment_type']}</td>";
+            
+            // Use the formatted checklist type
+            echo "<td>{$formatted_checklist_type}</td>";
+            
+            echo "<td>{$row['client_name']}</td>";
+            // echo "<td>
+            //     <button type='button' class='status-btn'>{$row['status']}</button>
+            // </td>";
+            echo "<td class='actions'>
+                  <a href='./type/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
+                        <span class='contact-edit'>
+                            <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
+                        </span>
+                    </a>
+                    <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
+                        <span class='contact-close'>
+                            <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
+                        </span>
+                    </a>
+                </td>";
+            echo "</tr>";
+        }
+    } else {
+        echo "<tr><td colspan='8' class='text-center'>No records found</td></tr>";
+    }
+    ?>
+</tbody>
 
-                                        echo "<td>
-                                         <button type='button' class='status-btn'>'status'</button></td>";
-
-                                        echo "<td class='actions'>
-                                              <a href='./type/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_no}'>
-                                                    <span class='contact-edit' >
-                                                        <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
-                                                    </span>
-                                                </a>
-                                                <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
-                                                <span class='contact-close'>
-                                                    <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
-                                                </span>
-                                            </a>
-                                            </td>";
-                                        echo "</tr>";
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='8' class='text-center'>No records found</td></tr>";
-                                }
-                                ?>
-                            </tbody>
                         </table>
                         
                     </div>
@@ -132,16 +129,21 @@ include_once('../../inc/footer.php');
 
 <script>
     $(document).ready(function() {
-        $('.order-list-table').DataTable({
-            dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'excelHtml5',
-                    title: 'Order List'
+    $('.order-list-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                title: 'Order List',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Exclude the last column (Action column)
                 }
-            ],
-            "searching": true
-        });
+            }
+        ],
+        "searching": true
+    });
+
+
 
         // Delete functionality
         $(document).on('click', '.delete-checklist', function(e) {

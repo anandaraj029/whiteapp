@@ -192,8 +192,24 @@ if (mysqli_num_rows($result) > 0) {
             <td class="section-title" colspan="2"></td>
           </tr>
           <tr>
-            <td class="text-center"><strong>VENANCIO Z. VERA</strong></td>
-            <td> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
+          <td class="text-center">
+    <strong><?php echo htmlspecialchars($row['inspector']); ?></strong>
+</td>
+<td>
+    <?php
+    // Construct the signature image path
+    $signature_image_path = "../../inspector/uploads/" . urlencode($row['inspector']) . "/images/signature_image.jpg";
+
+    // Check if the signature file exists
+    if (file_exists($signature_image_path)) {
+        echo "<img src='$signature_image_path' class='sign' alt='Inspector Signature'>";
+    } else {
+        // Placeholder image if the signature doesn't exist
+        echo "<img src='../sign.jpg' class='sign' alt='Default Signature'>";
+    }
+    ?>
+</td>
+
             <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
            <td> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
            <td class="text-center"><strong>COMPANY SEAL </strong></td>

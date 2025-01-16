@@ -27,8 +27,8 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
     $query = "
     SELECT 
         p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
-        c.checklist_no,
-        r.report_no
+        c.checklist_no, c.inspection_date,
+        r.report_no, r.jrn
     FROM 
         project_info p
     LEFT JOIN 
@@ -113,7 +113,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="report_no" class="theme-input-style" required>
+                                <input type="text" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" class="theme-input-style" required>
                             </div>
                         </div>
 
@@ -122,7 +122,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="jrn" class="theme-input-style">
+                                <input type="text" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" class="theme-input-style">
                             </div>
                         </div>
 
@@ -165,7 +165,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="companyName" class="theme-input-style">
+                                <input type="text" name="companyName" value="<?php echo $data['project_id'] ?? ''; ?>" class="theme-input-style">
                             </div>
                         </div>
                     
@@ -181,7 +181,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                             <label class="font-14 bold">Customer Name</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" name="customer_name" class="form-control pl-1" required>
+                            <input type="text" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" class="form-control pl-1" required>
                         </div>
                     </div>
 
@@ -190,7 +190,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                             <label class="font-14 bold">Customer Email</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="email" name="customer_email" class="form-control pl-1" required>
+                            <input type="email" value="<?php echo $data['customer_email'] ?? ''; ?>" name="customer_email" class="form-control pl-1" required>
                         </div>
                     </div>
 
@@ -199,7 +199,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                             <label class="font-14 bold">Mobile</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="number" name="mobile" class="form-control pl-1" required>
+                            <input type="number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" name="mobile" class="form-control pl-1" required>
                         </div>
                     </div>
 
@@ -208,7 +208,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                             <label class="font-14 bold">Inspector</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" name="inspector" class="form-control pl-1" required>
+                            <input type="text" value="<?php echo $data['inspector_name'] ?? ''; ?>" name="inspector" class="form-control pl-1" required>
                         </div>
                     </div>
 

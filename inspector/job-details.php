@@ -1,4 +1,6 @@
 <?php 
+session_start(); // Start the session to access logged-in user data
+
 
 include_once('../inc/function.php');
 
@@ -7,6 +9,24 @@ include '../file/config.php'; // Database connection
 // Fetch data from the project_info table
 $sql = "SELECT * FROM project_info";
 $result = $conn->query($sql);
+
+
+
+// Get the logged-in inspector's ID or name from the session
+$logged_in_inspector = $_SESSION['inspector_name'] ?? null;
+
+if ($logged_in_inspector) {
+    // Fetch data from the project_info table for the logged-in inspector
+    $sql = "SELECT * FROM project_info WHERE inspector_name = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $logged_in_inspector);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    // Redirect to login page or display an error if inspector is not logged in
+    header("Location: ../login.php");
+    exit;
+}
 ?>
 <!-- Main Content -->
 <div class="main-content">
@@ -213,13 +233,11 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
-                    title: 'Project List',
-                    exportOptions: {
-                    columns: ':not(:last-child)' // Exclude the last column (Action column)
-                }
+                    title: 'job List'
                 }
             ],
             "searching": true
         });
-    });    
+    });
 </script>
+

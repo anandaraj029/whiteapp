@@ -27,8 +27,8 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
     $query = "
     SELECT 
         p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
-        c.checklist_no,
-        r.report_no
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn
     FROM 
         project_info p
     LEFT JOIN 
@@ -74,8 +74,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
         </div>
     </div>
 
-    <div class="container-fluid">
-        
+    <div class="container-fluid">        
             <form action="save_crane_certificate.php" method="POST">
                 <div class="row">
                 <div class="col-lg-6">
@@ -87,7 +86,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold">Date of Inspection</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="date" class="theme-input-style" name="inspection_date" placeholder="Date of Inspection">
+                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date'] ?? ''; ?>" placeholder="Date of Inspection">
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -111,7 +110,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="jrn" placeholder="JRN">
+                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN">
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -193,7 +192,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Manufacturer</label>
-                                    <input type="text" class="theme-input-style" name="manufacturer" placeholder="Manufacturer">
+                                    <input type="text" class="theme-input-style" name="manufacturer" value="<?php echo $data['manufacturer'] ?? ''; ?>" placeholder="Manufacturer">
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Type of Crane</label>
@@ -201,11 +200,11 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Asset Number</label>
-                                    <input type="text" class="theme-input-style" name="asset_number" placeholder="Asset Number">
+                                    <input type="text" class="theme-input-style" name="asset_number" value="<?php echo $data['crane_asset_no'] ?? ''; ?>" placeholder="Asset Number">
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Serial Number</label>
-                                    <input type="text" class="theme-input-style" name="serial_number" placeholder="Serial Number">
+                                    <input type="text" class="theme-input-style" name="serial_number" value="<?php echo $data['crane_serial_no'] ?? ''; ?>" placeholder="Serial Number">
                                 </div>
                             </div>
 
@@ -224,7 +223,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Capacity (SWL)</label>
-                                    <input type="text" class="theme-input-style" name="capacity_swl" placeholder="Capacity (SWL)">
+                                    <input type="text" class="theme-input-style" name="capacity_swl" value="<?php echo $data['capacity_swl'] ?? ''; ?>" placeholder="Capacity (SWL)">
                                 </div>
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Date of Previous Test of Crane</label>

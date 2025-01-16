@@ -7,6 +7,16 @@ include_once('../../file/config.php'); // include your database connection
 // SQL query to fetch data from the 'lifting_gears_certificate' table
 $sql = "SELECT * FROM crane_health_check_certificate";
 $result = $conn->query($sql);
+
+// SQL query to fetch data from the 'crane_health_check_certificate' table and join with the 'inspector' table
+// $sql = "SELECT 
+//             chc.*, 
+//             i.profile_photo AS inspector_image 
+//         FROM crane_health_check_certificate chc
+//         LEFT JOIN inspector i 
+//         ON chc.inspector = i.name";
+
+// $result = $conn->query($sql);
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -155,9 +165,20 @@ $result = $conn->query($sql);
                 <td><?php echo $row['report_no']; ?></td>
                 <td>
                     <div class="d-flex align-items-center">
-                        <div class="img mr-20">
-                            <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                        </div>
+                    <div class="img mr-20">
+            <?php
+            // Construct the image path
+            $inspector_image_path = "../../inspector/uploads/" . urlencode($row['inspector']) . "/images/profile_image.jpg";
+
+            // Check if the image file exists
+            if (file_exists($inspector_image_path)) {
+                echo "<img src='$inspector_image_path' class='img-40' alt='Inspector Image'>";
+            } else {
+                // Placeholder image if the file doesn't exist
+                echo "<img src='{$url}assets/img/avatar/default-avatar.png' class='img-40' alt='Default Image'>";
+            }
+            ?>
+        </div>
                         <div class="name bold">
                             <?php echo $row['inspector']; ?>
                         </div>
