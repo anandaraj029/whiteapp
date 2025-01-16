@@ -7,13 +7,14 @@ if (isset($_GET['project_id'])) {
     $project_id = $_GET['project_id'];
 
     // Query to fetch data from project_info table
-    $stmt = $conn->prepare("SELECT equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
+    $stmt = $conn->prepare("SELECT project_no, equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
     $stmt->bind_param("i", $project_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $report_no = $row['project_no'];
         $equipment_type = $row['equipment_type'];
         $checklist_type = $row['checklist_type'];
         $inspected_by = $row['inspector_name'];
@@ -84,7 +85,7 @@ if ($checklistResult && $checklistResult->num_rows > 0) {
                                     <!-- REPORT NO -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">REPORT NO</label>
-                                        <input type="text" name="report_no" class="theme-input-style" placeholder="REPORT NO" required>
+                                        <input type="text" name="report_no" class="theme-input-style" placeholder="REPORT NO" value="<?php echo htmlspecialchars($report_no); ?>" readonly required>
                                     </div>
                                     
                                     <!-- CLIENT’S NAME -->

@@ -58,6 +58,21 @@ $result = $conn->query($sql);
             // Format the checklist type: remove hyphens/underscores and capitalize words
             $formatted_checklist_type = str_replace(['-', '_'], ' ', $checklist_type_raw); // Replace hyphens/underscores with spaces
             $formatted_checklist_type = ucwords($formatted_checklist_type); // Capitalize each word
+
+
+             // Get inspector's name from the database (assuming you already have it in $row['inspected_by'])
+             $inspector_name = $row['inspected_by']; 
+
+             // Define the path to the inspector's image
+             $inspector_image_path = "../../inspector/uploads/{$inspector_name}/images/profile_image.jpg";
+             
+             // Check if the inspector's image exists
+             if (file_exists($inspector_image_path)) {
+                 $inspector_image = $inspector_image_path; // Set the image path if it exists
+             } else {
+                 // Fallback to a default image if the inspector's image doesn't exist
+                 $inspector_image = "../uploads/default_profile_image.jpg";
+             }
             
             echo "<tr>";
             echo "<td> 
@@ -71,7 +86,10 @@ $result = $conn->query($sql);
             </td>";
             echo "<td>{$row['checklist_no']}</td>";
             echo "<td>{$row['project_id']}</td>";
-            echo "<td>{$row['inspected_by']}</td>";
+            echo "<td>";
+            // Display the inspector's image and name
+            echo "<img src='{$inspector_image}' alt='{$inspector_name}' class='inspector-image' style='width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;'>";
+            echo "{$inspector_name}</td>";
             echo "<td>{$row['equipment_type']}</td>";
             
             // Use the formatted checklist type

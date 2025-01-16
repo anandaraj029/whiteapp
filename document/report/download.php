@@ -1,47 +1,38 @@
 <?php
 require_once('../../vendor/autoload.php');
+include_once('../../file/config.php'); // Database connection file
 
-include_once('../../file/config.php');  // Include your database connection file
-
-// Ensure the project_id is provided
 if (!isset($_GET['project_id'])) {
     die("Project ID not provided!");
 }
 
 $project_id = $_GET['project_id'];
 
-// Fetch the record based on project_id
-$query = "SELECT * FROM reports WHERE project_id = '$project_id'";
-$result = mysqli_query($conn, $query);
+// Prepare and execute the main query for report details
+$query = "SELECT * FROM reports WHERE project_id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("s", $project_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if (mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $deficiencies = json_decode($row['deficiencies'], true); // Decode JSON into PHP array
-} else {
+if ($result->num_rows === 0) {
     die("No record found for the provided project ID!");
 }
 
+$row = $result->fetch_assoc();
+$deficiencies = json_decode($row['deficiencies'], true);
+$inspection_status = $row['inspection_status'];  // Fetching the inspection status
 
+// Fetch the client name
 $query_client = "SELECT client_name FROM checklist_results WHERE project_id = ?";
 $stmt_client = $conn->prepare($query_client);
+$stmt_client->bind_param("s", $project_id);
+$stmt_client->execute();
+$result_client = $stmt_client->get_result();
 
-if ($stmt_client) {
-    $stmt_client->bind_param("s", $project_id);
-    $stmt_client->execute();
-    $result_client = $stmt_client->get_result();
+$client_name = $result_client->num_rows > 0 ? $result_client->fetch_assoc()['client_name'] : "No client found for this project ID";
 
-    if ($result_client && $result_client->num_rows > 0) {
-        $client_row = $result_client->fetch_assoc();
-        $client_name = $client_row['client_name'];
-    } else {
-        $client_name = "No client found for this project ID";
-    }
-} else {
-    die("Failed to prepare the query: " . $conn->error);
-}
-
-
-// Start capturing output
+// Start capturing the HTML output
 ob_start();
 ?>
 
@@ -64,9 +55,9 @@ ob_start();
         }
 
     
-        .checkbox input[type="checkbox"]:checked~label::after {
+        /* .checkbox input[type="checkbox"]:checked~label::after {
             transform: rotate(-45deg) scale(1);
-        }
+        } */
 
         .notes {
             background-attachment: local;
@@ -221,23 +212,18 @@ ob_start();
                                         Location:
                                     </b><?php echo htmlspecialchars($row['location']); ?></td>
                                     <td colspan="2">
-                                    <div style="display: flex; justify-content: space-between; align-items: center;">
-    <b>Inspection Status:</b>
-    <div style="display: flex; flex-direction: column; margin-left: 20px;">
-    <div>
-                <label for="pass"><b>Passed</b></label>
-                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" 
-                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Passed') ? 'checked' : ''; ?> disabled>
-            </div>
-            <div>
-                <label for="fail"><b>Failed</b></label>
-                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" 
-                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Failed') ? 'checked' : ''; ?> disabled>
-            </div>
-    </div>
-</div>
-
-                            </td>
+                            <b>Inspection Status: </b>
+                            <?php 
+                                if ($inspection_status === 'Passed') {
+                                    echo "Passed";
+                                } elseif ($inspection_status === 'Failed') {
+                                    echo "Failed";
+                                } else {
+                                    echo "Status not available";
+                                }
+                            ?>
+                        </td>
+                                   
 
 
                                     
@@ -259,38 +245,36 @@ ob_start();
                          </b></p>
                         <br>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="table-responsive">
-                                <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Deficiency</th>
-                <th>Corrective Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($deficiencies)): ?>
-                <?php foreach ($deficiencies as $index => $entry): ?>
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
                     <tr>
-                        <td><?php echo $index + 1; ?></td>
-                        <td><?php echo htmlspecialchars($entry['deficiency']); ?></td>
-                        <td><?php echo htmlspecialchars($entry['corrective_action']); ?></td>
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 65%;">Deficiency</th>
+                        <th style="width: 30%;">Corrective Action</th>
                     </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <tr>
-                    <td colspan="3">No deficiencies recorded.</td>
-                </tr>
-            <?php endif; ?>
-        </tbody>
-    </table>
+                </thead>
+                <tbody>
+                    <?php if (!empty($deficiencies)): ?>
+                        <?php foreach ($deficiencies as $index => $entry): ?>
+                            <tr style="height: 50px;"> <!-- Adjust the row height -->
+                                <td><?php echo $index + 1; ?></td>
+                                <td><?php echo htmlspecialchars($entry['deficiency']); ?></td>
+                                <td><?php echo htmlspecialchars($entry['corrective_action']); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <tr style="height: 50px;"> <!-- Adjust the row height -->
+                            <td colspan="3">No deficiencies recorded.</td>
+                        </tr>
+                    <?php endif; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
-
-                                    
-                                </div>
-                            </div>
-                            </div>
                           
                            <div class="col-md-12 estimate-html-note">
                                 <p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
