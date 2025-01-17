@@ -34,7 +34,7 @@ $project_no = "CIMS" . str_pad(($last_project_no ? $last_project_no + 1 : 1), 3,
 
 
     // Insert into database
-    $creation_date = date('Y-m-d');
+    $creation_date = date('Y-m-d H:i:s');
     $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, equipment_location, customer_id, customer_name, customer_email, customer_mobile, inspector_name, checklist_type)
                             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param(

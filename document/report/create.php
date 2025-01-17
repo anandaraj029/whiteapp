@@ -116,7 +116,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Issued by</label>
-                    <input type="text" class="theme-input-style" placeholder="Issued by" name="issued_by" required>
+                    <input type="text" class="theme-input-style" placeholder="Issued by" value="<?php echo htmlspecialchars($inspector_name); ?>" name="issued_by" required>
                 </div>
 
                 <div class="form-group">

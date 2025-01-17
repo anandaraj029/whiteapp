@@ -46,6 +46,29 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
 
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
+
+        // Generate certificate number logic
+        $currentYear = date('Y');
+        
+        $certQuery = "SELECT certificate_no FROM crane_health_check_certificate ORDER BY id DESC LIMIT 1";
+        $certResult = $conn->query($certQuery);
+
+        if ($certResult->num_rows > 0) {
+            $lastCert = $certResult->fetch_assoc()['certificate_no'];
+            
+            // Extract the numeric part
+            preg_match('/CHC-(\d+)-\d{4}/', $lastCert, $matches);
+            $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
+        } else {
+            $nextNumber = 1; // Start with 1 if no previous certificates exist
+        }
+
+        // Format the new certificate number
+        $newCertificateNo = sprintf("CHC-%03d-%s", $nextNumber, $currentYear);
+
+        // Display or use the certificate number as needed
+        echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";
+        
     } else {
         $data = null;
     }
@@ -94,7 +117,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No">
+                                <input type="text" class="theme-input-style" name="certificate_no"  placeholder="Certificate No" value="<?= $newCertificateNo ?>" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
