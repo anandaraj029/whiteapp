@@ -39,334 +39,175 @@ ob_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspection Report</title>
     <style>
-        /* Include styles for the PDF */
-        body { font-family: Arial, sans-serif; font-size: 14px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid black; padding: 8px; text-align: left; }
-        h3, h4 { margin: 0; }
-        td {
-            /* border: 2px solid #eee; */
-            border: 1px solid black;
-            padding-left: 10px;
-            /* padding-bottom: 30px; */
-        }
-
-    
-        /* .checkbox input[type="checkbox"]:checked~label::after {
-            transform: rotate(-45deg) scale(1);
-        } */
-
-        .notes {
-            background-attachment: local;
-            background-image: linear-gradient(to right, white 10px, transparent 10px),
-            linear-gradient(to left, white 10px, transparent 10px),
-            repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
-            line-height: 31px;
-        }
-
-
-        .card {
-            background-color: #242b75;
-        }
-
-        .fail {
-            color: red;
-        }
-
-        .flex-row {
-            display: flex;
-        }
-
-        .wrapper {
-            border-right: 0;
-        }
-
-
-        /* Example: Adjusting Bootstrap columns for print */
-@media print {
-    .col-md-6, .col-md-5, .col-md-1 {
-        float: left;
-        width: auto;
-    }
-}
-
-
-@media print {
-        .row {
-            display: flex;
-            flex-wrap: nowrap;
-        }
-        .col-md-1,
-        .col-md-6,
-        .col-md-5 {
-            flex: none;
-            max-width: none;
-        }
-        .col-md-1 {
-            width: 10%;
-        }
-        .col-md-6 {
-            width: 60%;
-        }
-        .col-md-5 {
-            width: 30%;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        h3, h4 {
+         body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
             margin: 0;
             padding: 0;
         }
-        p {
-            margin: 0;
+        .inspection-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
-    }
-
-
-.table thead th {
-    vertical-align: bottom;
-    border-bottom: 1px solid black;
-}
-
-
-.table th, .table td {
-    padding: 1rem;
-    vertical-align: top;
-    border-top: 1px solid black; 
-}
+        .inspection-table th, .inspection-table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        .inspection-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 10px;
+        }
     </style>
 </head>
 <body>
-<div class="container-fluid " >
-        <div class="report">
-            <form method="POST">
-                <div class="panel_s ">
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-1">
-                                <img src="../logo.png" alt="CIMS" width="70" height="90">
-                            </div>
-                            <div class="col-md-6">
-                                <h3>Crane Inspection & Maintenance Services</h3>
-                                <p>
-                                <b>P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia</b><br>
-                                    <b>TEL.: 013 814 6861 - 013 814 6862 Ext.109 - Fax: 013 814 6863</b><br>
-                                    <b>Email: office@cims.com.sa - info@cims.com.sa</b>  <br>                             </p>
-                                    <h3 style="font-size: 18px;margin-top:15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
-                            </div>
-                            <div class="col-md-3">
-                                <h4 style="font-size: 18px;" class="bold estimate-html-number" >
-                                Report No: <?php echo htmlspecialchars($row['report_no']); ?><br>
-                               JRN: <?php echo htmlspecialchars($row['jrn']); ?> 
-                                   </h4>
-                                
-                                
-                            </div>
-                            <div class="col-md-2">
-                                <img src="../code.png" alt="CIMS" width="90" height="90">
-                            </div>
-                        </div>
+<div class="header">
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="width: 20%; text-align: left;">
+                    <img src="../checklist/logo.png" height="100px" alt="TUV Rheinland Logo">
+                </td>
+                <td style="width: 60%; text-align: center;">
+                    <h1 style="font-size: 18px; margin: 0;">Crane Inspection & Maintenance Services</h1>
+                    <p style="font-size: 12px; margin: 5px 0;">
+                        <b>P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia</b><br>
+                        <b>TEL.: 013 814 6861 - 013 814 6862 Ext.109 - Fax: 013 814 6863</b><br>
+                        <b>Email: office@cims.com.sa - info@cims.com.sa</b>
+                    </p>
+                    <h3 style="font-size: 18px; margin-top: 15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
+                </td>
+                <td style="width: 20%; text-align: right;">
+                    <img src="../../document/code.png" height="100px" alt="QR Code">
+                </td>
+            </tr>
+        </table>
+    </div>
 
-                        <div class="row">
-                            <!-- <div class="col-md-1">
-                              
-                            </div>
-                            <div class="col-md-6">
-                                
-                                    <h3 style="font-size: 22px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
-                            </div>
-                            <div class="col-md-5">
-                                
-                                <h4 style="font-size: 19px;text-align:right">JRN: <?php echo htmlspecialchars($row['jrn']); ?> </h4>
-                                
-                            </div> -->
-                            <!-- <div class="col-md-2">
-                                <img src="../code.png" alt="CIMS" width="120" height="120">
-                            </div> -->
-                        </div>
+    <table class="inspection-table">
+        <thead>
+            <tr>
+                <th>Client Company / Name & Address:</th>
+                <th>Manufacturer:</th>
+                <th>Equipment Identification Number:</th>
+                <th>Date of Inspection:</th>
+                <th>Model:</th>
+                <th>Equipment Serial Number :</th>
+                <th>Next Inspection Due Date :</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>FA-17009</td>
+                <td>Konecranes</td>
+                <td>Juyamah NSL-MSU</td>
+                <td>Overhead Crane</td>
+                <td>Pass</td>
+                <td>10 T</td>
+                <td>10 T</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>               
+                <th>Type:</th>
+                <th>Location:</th>                
+                <th>Inspection Status:</th>
+                <th>Previous Sticker S.No.:</th>
+                <th>Issued by:</th>
+                <th>Capacity:</th>
+                <th>Sticker Number Issued:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>FA-17009</td>
+                <td>Konecranes</td>
+                <td>Juyamah NSL-MSU</td>
+                <td>Overhead Crane</td>
+                <td>Pass</td>
+                <td>10 T</td>
+                <td>10 T</td>
+            </tr>
+        </tbody>
+    </table>
 
-                     
-                        <table style="border:1px solid black; width: 100%; height: 164px;">
-                            <tbody>
-                                <tr>
-                                    <td colspan="2" rowspan="3" style="vertical-align: top;">
-                                        <b>Client Company / Name & Address:</b> <?php echo htmlspecialchars($row['client_company_address']); ?></td>
-                                    <td><b>Manufacturer : </b> <?php echo htmlspecialchars($row['manufacturer']); ?></td>
-                                    <td> <b> Equipment Identification Number:</b> <?php echo htmlspecialchars($row['equipment_id_no']); ?></td>
-                                    <td><b>Date of Inspection: </b><?php echo htmlspecialchars($row['date_of_inspection']); ?></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><b>Model: </b><?php echo htmlspecialchars($row['model']); ?></td>
-                                    <td><b> Equipment Serial Number : </b> <?php echo htmlspecialchars($row['equipment_serial_no']); ?></td>
-                                    <td><b>Next Inspection Due Date : </b> <?php echo htmlspecialchars($row['next_inspection_due_date']); ?></td>
-                                </tr>
-                                <tr>
-                                    <td  style="vertical-align: top;"> <b> Type:</b></td>
-                                    <td style="vertical-align: top;" rowspan="2"> <b>
-                                        Location:
-                                    </b><?php echo htmlspecialchars($row['location']); ?></td>
-                                    <td colspan="2">
-                            <b>Inspection Status: </b>
-                            <?php 
-                                if ($inspection_status === 'Passed') {
-                                    echo "Passed";
-                                } elseif ($inspection_status === 'Failed') {
-                                    echo "Failed";
-                                } else {
-                                    echo "Status not available";
-                                }
-                            ?>
-                        </td>
-                                   
+    <p>
+    Above Equipment was visually inspected in accordance with local and international standards. Deficiencies that require corrective actions are listed
+below. Specific repairs to correct each deficiency should be noted in the right column.
+    </p>
+
+    <!-- <h3>Deficiencies</h3> -->
+    <table class="inspection-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <!-- <th style="padding: 15px; line-height: 1.5;">#</th> -->
+            <th style="width: 65%; padding: 15px">Deficiency</th>
+            <th style="width: 30%; padding: 15px">Corrective Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- <td style="padding: 15px; line-height: 1.5;">1</td> -->
+            <td style="padding: 5px; height: 100px;">
+            Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful. Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful. Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful.
+</td>
+<td style="padding: 15px; height: 100px;">
+                Tighten all bolts</td>
+        </tr>
+        <!-- <tr>
+            <td style="padding: 15px; line-height: 1.5;">2</td>
+            <td style="padding: 15px; line-height: 1.5;">Wear on lifting cable</td>
+            <td style="padding: 15px; line-height: 1.5;">Replace cable</td>
+        </tr> -->
+    </tbody>
+</table>
 
 
-                                    
-                                </tr>
-                                <tr>
-                                    <td> <b>Previous Sticker S.No.:</b><?php echo htmlspecialchars($row['prev_sticker_no']); ?></td>
-                                    <td><b>Issued by: </b><?php echo htmlspecialchars($row['issued_by']); ?></td>
-                                    <td><b>Capacity: </b><?php echo htmlspecialchars($row['capacity']); ?></td>
-                                    <td> <b>Sticker Number Issued:</b><?php echo htmlspecialchars($row['sticker_number_issued']); ?></td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        <!-- <br> -->
-                         <p>
-                     <b>
-                           Above Equipment was visually inspected in accordance with local and international standards. Deficiencies that require corrective actions are listed below. Specific repairs to correct each deficiency should be noted in the right column.
-                         </b></p>
-                        <br>
-                        <div class="row">
-    <div class="col-md-12">
-        <div class="table-responsive">
-            <table style="width: 100%; border-collapse: collapse;">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="inspection-table" style="width: 100%;">
                 <thead>
                     <tr>
-                        <th style="width: 5%;">#</th>
-                        <th style="width: 65%;">Deficiency</th>
-                        <th style="width: 30%;">Corrective Action</th>
+                        <th>Report Receiver's Name & Signature</th>
+                        <th>Contact Tel. / Mobile Number</th>
+                        <th>Inspector Name & Signature</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (!empty($deficiencies)): ?>
-                        <?php foreach ($deficiencies as $index => $entry): ?>
-                            <tr style="height: 50px;"> <!-- Adjust the row height -->
-                                <td><?php echo $index + 1; ?></td>
-                                <td><?php echo htmlspecialchars($entry['deficiency']); ?></td>
-                                <td><?php echo htmlspecialchars($entry['corrective_action']); ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr style="height: 50px;"> <!-- Adjust the row height -->
-                            <td colspan="3">No deficiencies recorded.</td>
-                        </tr>
-                    <?php endif; ?>
+                    <tr>
+                        <td>
+                            <img src="../../document/uploads/37.png" alt="" height="20px">
+                            <?php echo htmlspecialchars($client_name); ?>
+                        </td>
+                        <td>
+                            <img src="../../document/uploads/37.png" alt="" height="20px">
+                            Sathish Kumar
+                        </td>                          
+                        <td>
+                            <img src="../../document/uploads/37.png" alt="" height="20px">
+                            Sathish Kumar
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
-
-                          
-                           <div class="col-md-12 estimate-html-note">
-                                <p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
-                                <div class="col-md-12" style="border:2px solid #d0cece;">
-                                    <div class="form-group1">
-                                        <div class="form-check2">
-
-                                        <!-- <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;"> -->
-                               
-                                               <h6> <input type="checkbox" style="padding-right: 5px;">I agree to take full responsibility for this inspection
-                                                   <span> اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص</span>
-                                               </h6> 
-                                            
-                                          
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <div class="row">
-                            <div class="col-md-12">
-                            <table class="table table-responsive" style="width:100%";>
-                            <tr>
-                            <td>Report Receiver's Name & Signature</td>
-                            <td>Contact Tel. / Mobile Number</td>
-                            <td> Inspector Name & Signature</td>
-                            </tr>
-                            <tr>
-                            <td><img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">
-                            <?php echo htmlspecialchars($client_name); ?>
-
-                        </td>
-                            <td><img src="../uploads/signatures/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">Sathish Kumar</td>
-                            <?php
-// Include database connection
-include_once('../../file/config.php');
-
-// Retrieve the project ID from the request (GET or POST)
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
-
-    // Query to fetch the inspector_name and signature_photo using the project_id
-    $query = "
-        SELECT pi.inspector_name, i.signature_photo 
-        FROM project_info pi 
-        JOIN inspectors i ON pi.inspector_name = i.inspector_name
-        WHERE pi.project_id = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $project_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $inspector_name = $row['inspector_name'];
-        $signature_photo = $row['signature_photo'];
-
-        // Generate the inspector folder name
-        $inspector_folder = preg_replace('/\s+/', '_', strtolower($inspector_name));
-        $signature_image_path = "../../inspector/uploads/" . $inspector_folder . "/images/" . $signature_photo;
-
-        // Render the table row
-        echo "<td><img src='" . htmlspecialchars($signature_image_path) . "' alt='Signature' width='70px' height='90px'> " . htmlspecialchars($inspector_name) . "</td>";
-    } else {
-        echo "<td>No inspector found for the provided project ID</td>";
-    }
-
-    $stmt->close();
-} else {
-    echo "<td>Project ID not provided</td>";
-}
-
-$conn->close();
-?>
-
-                            </tr>
-
-                            </table>
-                            </div>
-                                </div>
-
-                             
-                            </div>
-                        </div>
-                       
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+    <div class="footer">
+        <p>Generated by TUV Rheinland Arabia LLC</p>
+    </div>    
 </body>
 </html>
+
+
 
 <?php
 $html = ob_get_clean();
@@ -384,10 +225,6 @@ $mpdf = new \Mpdf\Mpdf([
 
 // Write HTML content to the PDF
 $mpdf->WriteHTML($html);
-
-
 // Output as a PDF
 $mpdf->Output('inspection_report.pdf', 'D'); // Download the PDF
-
-
 ?>
