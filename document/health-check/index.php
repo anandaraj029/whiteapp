@@ -6,6 +6,8 @@ include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'lifting_gears_certificate' table
 $sql = "SELECT * FROM crane_health_check_certificate";
+
+// $sql = "SELECT * FROM crane_health_check_certificate ORDER BY created_at DESC";
 $result = $conn->query($sql);
 
 // SQL query to fetch data from the 'crane_health_check_certificate' table and join with the 'inspector' table

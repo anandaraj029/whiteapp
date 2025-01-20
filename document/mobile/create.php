@@ -1,5 +1,56 @@
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php');
+
+// Ensure `project_id` is set in the request
+if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
+    $project_id = $_GET['project_id'];
+    $query = "
+    SELECT 
+        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn
+    FROM 
+        project_info p
+    LEFT JOIN 
+        checklist_information c ON p.project_id = c.project_id
+    LEFT JOIN 
+        reports r ON p.project_id = r.project_id
+    WHERE 
+        p.project_id = ?
+";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $project_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+
+        // Generate certificate number logic
+        $currentYear = date('Y');        
+        $certQuery = "SELECT certificate_no FROM certificates ORDER BY id DESC LIMIT 1";
+        $certResult = $conn->query($certQuery);
+        if ($certResult->num_rows > 0) {
+            $lastCert = $certResult->fetch_assoc()['certificate_no'];            
+            // Extract the numeric part
+            preg_match('/CHC-(\d+)-\d{4}/', $lastCert, $matches);
+            $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
+        } else {
+            $nextNumber = 1; // Start with 1 if no previous certificates exist
+        }
+        // Format the new certificate number
+        $newCertificateNo = sprintf("CHC-%03d-%s", $nextNumber, $currentYear);
+        // Display or use the certificate number as needed
+        echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";        
+    } else {
+        $data = null;
+    }
+} else {
+    echo "Invalid or missing project ID.";
+    exit;
+}
 ?>
 
             <!-- Main Content -->
@@ -304,7 +355,7 @@ include_once('../../inc/function.php');
                                             </label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Enter Certificate No" name="certificate_no">
+                                            <input type="text" class="theme-input-style" placeholder="Enter Certificate No" name="certificate_no" value="<?= $newCertificateNo ?>" readonly>
                                         </div>
                                     </div>
 

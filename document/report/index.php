@@ -119,6 +119,20 @@ $result = $conn->query($sql);
         <?php
         // Loop through the fetched data and populate the table rows
         while ($row = mysqli_fetch_assoc($result)) {
+
+
+         $inspector_name = $row['issued_by']; 
+
+         // Define the path to the inspector's image
+         $inspector_image_path = "../../inspector/uploads/{$inspector_name}/images/profile_image.jpg";
+         
+         // Check if the inspector's image exists
+         if (file_exists($inspector_image_path)) {
+             $inspector_image = $inspector_image_path; // Set the image path if it exists
+         } else {
+             // Fallback to a default image if the inspector's image doesn't exist
+             $inspector_image = "../uploads/default_profile_image.jpg";
+         }
             ?>
             <tr>
                 <td>
@@ -135,11 +149,7 @@ $result = $conn->query($sql);
                             <div class="icon text-primary">
                                 <i class="et-clipboard"></i>
                             </div>
-                        </a>
-                    
-
-
-                    
+                        </a>                    
                     <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
                                     <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
                                 </a>
@@ -151,17 +161,18 @@ $result = $conn->query($sql);
                 <td><?php echo $row['project_id']; ?></td>
                 <td><?php echo $row['checklist_no']; ?></td>
                 <td>
-                    <div class="d-flex align-items-center">
-                        <div class="img mr-20">
-                            <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
-                        </div>
-                        <div class="name bold">
-                            <?php echo $row['client_company_address']; ?>
-                        </div>
-                    </div>
-                </td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="img mr-20">
+                                                <!-- Output the inspector image -->
+                                                <img src="<?php echo $inspector_image; ?>" class="img-40" alt="Inspector Image">
+                                            </div>
+                                            <div class="name bold">
+                                                <?php echo $row['issued_by']; ?>
+                                            </div>
+                                        </div>
+                                    </td>
                 <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
-                <td><?php echo $row['client_company_address']; ?></td>
+                <td><?php echo $row['client_company_name']; ?></td>
                 <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
@@ -352,6 +363,15 @@ $result = $conn->query($sql);
         ?>
 
 
+<!-- DataTables scripts -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
 <script>
     function deleteRow(project_id, element) {
         if (confirm("Are you sure you want to delete this row?")) {
@@ -373,4 +393,24 @@ $result = $conn->query($sql);
             xhr.send("project_id=" + project_id);
         }
     }
+</script>
+
+
+<script>
+    $(document).ready(function() {
+    $('.contact-list-table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                title: 'Report List',
+                exportOptions: {
+                    columns: ':not(:last-child)' // Exclude the last column (Action column)
+                }
+            }
+        ],
+        "searching": true
+    });
+       
+    });
 </script>

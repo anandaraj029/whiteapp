@@ -10,32 +10,43 @@ if ($conn->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
-    $password = md5($_POST['password']); // MD5 is used for example purposes; consider stronger hashing like bcrypt
+    $password = $_POST['password'];
 
-    // Prepare and bind
-    $stmt = $conn->prepare("SELECT u.id, u.username, u.role_id, r.role_name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.username = ? AND u.password = ?");
-    $stmt->bind_param("ss", $username, $password);
+    // Fetch user data
+    $stmt = $conn->prepare("SELECT id, username, password, role_id FROM users_new WHERE username = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
-    $stmt->store_result();
+    $result = $stmt->get_result();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $username, $role_id, $role_name);
-        $stmt->fetch();
-        
-        // Set session variables
-        $_SESSION['user_id'] = $id;
-        $_SESSION['username'] = $username;
-        $_SESSION['role_id'] = $role_id;
-        $_SESSION['role_name'] = $role_name;
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
 
-        header("Location: dashboard.php");
-        exit();
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role_id'] = $user['role_id'];
+
+            // Redirect based on role
+            switch ($user['role_id']) {
+                case 1:
+                    header("Location: dashboard.php");
+                    break;
+                case 2:
+                    header("Location: dashboard.php");
+                    break;
+                case 3:
+                    header("Location: dashboard.php");
+                    break;
+                default:
+                    echo "Invalid role.";
+                    break;
+            }
+        } else {
+            echo "Invalid password.";
+        }
     } else {
-        echo "Invalid username or password.";
+        echo "User not found.";
     }
-
-    $stmt->close();
 }
-
-$conn->close();
 ?>

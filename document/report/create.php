@@ -10,7 +10,7 @@ if (isset($_GET['project_id'])) {
     // $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
 
     $query = "
-    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date,
+    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date, c.report_no,
            p.project_no, p.creation_date, p.sticker_status, p.customer_name, p.equipment_location,
            p.inspector_name, p.checklist_type
     FROM checklist_information c
@@ -25,6 +25,7 @@ if (isset($_GET['project_id'])) {
         $location = $row['location'];
         $equipment_type = $row['equipment_type'];
         $inspection_date = $row['inspection_date'];
+        $report_no = $row['report_no'];
         $project_no = $row['project_no'];
         $creation_date = $row['creation_date'];
         $sticker_status = $row['sticker_status'];
@@ -115,7 +116,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Issued by</label>
-                    <input type="text" class="theme-input-style" placeholder="Issued by" name="issued_by" required>
+                    <input type="text" class="theme-input-style" placeholder="Issued by" value="<?php echo htmlspecialchars($inspector_name); ?>" name="issued_by" required>
                 </div>
 
                 <div class="form-group">
@@ -125,7 +126,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Report No</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter report no" name="report_no" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_no); ?>" name="report_no" required>
                 </div>
 
             </div>
@@ -213,7 +214,7 @@ if (isset($_GET['project_id'])) {
                     </tr>
                 </tbody>
             </table>
-            <button type="button" onclick="addRow()">Add Row</button>
+            <!-- <button type="button" onclick="addRow()">Add Row</button> -->
             </div>
         </div>
     </div>
@@ -229,7 +230,7 @@ if (isset($_GET['project_id'])) {
 
 
  <!-- JavaScript for Adding Rows -->
- <script>
+ <!-- <script>
             function addRow() {
                 const table = document.getElementById('deficiencyTable');
                 const rowCount = table.rows.length + 1;
@@ -242,7 +243,7 @@ if (isset($_GET['project_id'])) {
                 `;
                 table.insertAdjacentHTML('beforeend', newRow);
             }
-        </script>
+        </script> -->
         
 </div>
 
