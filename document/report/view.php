@@ -59,21 +59,80 @@ if ($stmt_client) {
         .inspection-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .inspection-table th, .inspection-table td {
             border: 1px solid black;
-            padding: 8px;
-            text-align: left;
+            padding: 4px;
+            text-align: center;
+            font-size: 11px; /* Consistent font size */
+
         }
         .inspection-table th {
             background-color: #277bbee0;
             color: white;
         }
         .footer {
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: center;
-            font-size: 10px;
+            font-size: 9px;
+        }
+        .manufac{
+            background-color: #277bbee0 !important; /* Print background colors */
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+        .signature-cell {        
+        justify-content: flex-start; /* Align items to the left */
+        height: 50px;
+    }
+
+    .signature-cell img {
+        margin-right: 10px; /* Add some space between the image and the text */
+    }
+
+    .signature-cell span {
+        flex-grow: 1; /* Ensure the name stays aligned correctly */
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center; /* Vertically center the items */
+        gap: 10px; /* Add space between the checkbox and the text */
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        margin: 0; /* Remove default margin from checkbox */
+        padding: 0; /* Remove default padding from checkbox */
+    }
+
+    .checkbox-container span {
+        direction: rtl; /* Ensure proper alignment for Arabic text if needed */
+    }
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+                transform: scale(0.95); /* Slight scaling for single page */
+                transform-origin: top left;
+                color-adjust: exact; /* Ensures color fidelity */
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .footer {
+        color: black; /* Ensure footer text remains visible */
+    }
+            .manufac{
+            background-color: #277bbee0 !important; /* Print background colors */
+            color: #fff !important;
+            font-weight: bold;
+        }
+
+            #non-printable {
+        display: none; /* Hide buttons in print view */
+    }
         }
     </style>
 </head>
@@ -95,8 +154,8 @@ if ($stmt_client) {
                 </td>
                 <td style="width: 20%; text-align: right;">
     <p style="font-size: 12px; margin: 0; text-align: right;">
-        <b>Report No:</b> 156<br>
-        <b>JRN No:</b> 1456
+        <b>Report No:</b> <?php echo htmlspecialchars($row['report_no']); ?><br>
+        <b>JRN No:</b> <?php echo htmlspecialchars($row['jrn']); ?>
     </p>
     <img src="../../document/code.png" height="100px" alt="QR Code">
 </td>
@@ -107,93 +166,72 @@ if ($stmt_client) {
 
 
     <table class="inspection-table">
-        <thead>
-            <tr>
-                <th rowspan="2">Client Company / Name & Address:</th>
-                <th>Manufacturer:</th>
-                <th>Equipment Identification Number:</th>
-                <th>Date of Inspection:</th>
-                <th>Model:</th>                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>   
-                <!-- <td></td>              -->
-                <td>Juyamah NSL-MSU
-                    <br>
-                    P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia
-                </td>
-                <td>Overhead Crane</td>
-                <td>Pass</td>
-                <td>10 T</td>
-                <td>10 T</td>
-            </tr>
-        </tbody>
+    
+    <tbody>
+    <tr>
+            <td rowspan="2">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</td>
+            <td class="manufac">Manufacturer:</td>
+            <td class="manufac">Equipment Identification Number:</td>
+            <td class="manufac">Date of Inspection:</td>
+            <td class="manufac">Model:</td>
+        </tr>
+        <tr>
+            <!-- <td> </td> -->
+            <td><?php echo htmlspecialchars($row['manufacturer']); ?></td>
+            <td><?php echo htmlspecialchars($row['equipment_id_no']); ?></td>
+            <td><?php echo htmlspecialchars($row['date_of_inspection']); ?></td>
+            <td><?php echo htmlspecialchars($row['model']); ?></td>
+        </tr>
+
+        <tr>
+        <td class="manufac">Equipment Serial Number:</td>
+        <td class="manufac">Next Inspection Due Date:</td>
+        <td class="manufac">Type:</td>
+        <td class="manufac">Location:</td>
+        <td class="manufac">Inspection Status:</td>
+        </tr>
+        <tr>
+            <td><b><?php echo htmlspecialchars($row['equipment_serial_no']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['next_inspection_due_date']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['type']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['location']); ?></b></td>
+            <td>
+    
+        <div style="display: flex; flex-direction: column; margin-left: 20px;">
+            <div>
+                <label for="pass"><b>Passed</b></label>
+                <input type="checkbox" id="pass" name="ins_result_pass" value="pass" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Passed') ? 'checked' : ''; ?> disabled>
+            </div>
+            <div>
+                <label for="fail"><b>Failed</b></label>
+                <input type="checkbox" id="fail" name="ins_result_fail" value="fail" 
+                    <?php echo (isset($row['inspection_status']) && $row['inspection_status'] == 'Failed') ? 'checked' : ''; ?> disabled>
+            </div>
+        </div>
+    
+</td>
+        </tr>
+
+        <tr>
+        <td class="manufac">Previous Sticker S.No.:</td>
+        <td class="manufac">Issued by:</td>
+        <td class="manufac">Capacity:</td>
+        <td colspan="2" class="manufac">Sticker Number Issued:</td>
+        </tr>
+        <tr>
+            <td><?php echo htmlspecialchars($row['prev_sticker_no']); ?></td>
+            <td><?php echo htmlspecialchars($row['issued_by']); ?></td>
+            <td><?php echo htmlspecialchars($row['capacity']); ?></td>
+            <td colspan="2"><?php echo htmlspecialchars($row['sticker_number_issued']); ?></td>
+        </tr>
+
         
-
-    </table>
-
-    <table class="inspection-table">
-        <thead>
-            <tr>
-                <th>Client Company / Name & Address:</th>
-                <th>Manufacturer:</th>
-                <th>Equipment Identification Number:</th>
-                <th>Date of Inspection:</th>
-                <th>Model:</th>                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>                
-                <td>Juyamah NSL-MSU
-                    <br>
-                    P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia
-                </td>
-                <td>Overhead Crane</td>
-                <td>Pass</td>
-                <td>10 T</td>
-                <td>10 T</td>
-            </tr>
-        </tbody>
-        <thead>
-            <tr>        
-            <th>Equipment Serial Number :</th>
-            <th>Next Inspection Due Date :</th>       
-            <th>Type:</th>
-            <th>Location:</th>                
-            <th>Inspection Status:</th>                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>FA-17009</td>
-                <td>Konecranes</td>
-                <td>Juyamah NSL-MSU</td>
-                <td>Overhead Crane</td>
-                <td>Pass</td>                
-            </tr>
-        </tbody>
-
-        <thead>
-            <tr>       
-            
-                <th>Previous Sticker S.No.:</th>
-                <th>Issued by:</th>
-                <th>Capacity:</th>
-                <th colspan="2">Sticker Number Issued:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>FA-17009</td>
-                <td>Konecranes</td>
-                <td>Juyamah NSL-MSU</td>
-                <td  colspan="2">Overhead Crane</td>
-                
-            </tr>
-        </tbody>
-    </table>
-
+        <!-- <tr>
+            <td colspan="4">Juyamah NSL-MSU<br>P.O.BOX 74007, AL- Khobar 31952, Saudi Arabia</td>
+        </tr> -->
+    </tbody>
+</table>
     <p>
     <b>Above Equipment was visually inspected in accordance with local and international standards. Deficiencies that require corrective actions are listed
 below. Specific repairs to correct each deficiency should be noted in the right column.</b>
@@ -209,14 +247,24 @@ below. Specific repairs to correct each deficiency should be noted in the right 
         </tr>
     </thead>
     <tbody>
+    <?php if (!empty($deficiencies)): ?>
+        <?php foreach ($deficiencies as $index => $entry): ?>
         <tr>
             <!-- <td style="padding: 15px; line-height: 1.5;">1</td> -->
-            <td style="padding: 5px; height: 100px;">
-            Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful. Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful. Developing writers can often benefit from examining an essay, a paragraph, or even a sentence to determine what makes it effective. On the following pages are several paragraphs for you to evaluate on your own, along with the Writing Center's explanation. Note: These passages are excerpted from actual student papers and retain the original wording. Some of the sentences are imperfect, but we have chosen these passages to highlight areas in which the author was successful.
+            <td style="padding: 5px; height: 100px; text-align: left !important;">
+            <?php echo htmlspecialchars($entry['deficiency']); ?>
 </td>
 <td style="padding: 15px; height: 100px;">
-                Tighten all bolts</td>
+<?php echo htmlspecialchars($entry['corrective_action']); ?>
+            
+            </td>
         </tr>
+        <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">No deficiencies recorded for this project.</td>
+                    </tr>
+                <?php endif; ?>
         <!-- <tr>
             <td style="padding: 15px; line-height: 1.5;">2</td>
             <td style="padding: 15px; line-height: 1.5;">Wear on lifting cable</td>
@@ -224,45 +272,64 @@ below. Specific repairs to correct each deficiency should be noted in the right 
         </tr> -->
     </tbody>
 </table>
+<p>When re-inspected, a complete copy of this report should be ready for review by the inspector.</p>
+<div class="col-md-12" style="border:2px solid #d0cece;">
+                                    <div class="form-group1">
+                                        <div class="form-check2">
 
+                                        <!-- <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;"> -->
+                               
+                                        <h6 class="checkbox-container">
+    <input type="checkbox">
+    <span>اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص
+        <span> I agree to take full responsibility for this inspection</span>
+    </span>
+</h6>
+                                            
+                                          
+                                            
+                                        </div>
+                                    </div>
+                                </div>
 
     <div class="row">
         <div class="col-md-12">
-            <table class="inspection-table" style="width: 100%;">
-                <thead>
-                    <tr>
-                        <th>Report Receiver's Name & Signature</th>
-                        <th>Contact Tel. / Mobile Number</th>
-                        <th>Inspector Name & Signature</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <img src="../../document/uploads/37.png" alt="" height="20px">
-                            <?php echo htmlspecialchars($client_name); ?>
-                        </td>
-                        <td>
-                            <img src="../../document/uploads/37.png" alt="" height="20px">
-                            <?php echo htmlspecialchars($client_name); ?>
-                        </td>                          
-                        <td>
-                            <img src="../../document/uploads/37.png" alt="" height="20px">
-                            Sathish Kumar
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <table class="inspection-table" style="width: 100%;">
+    <thead>
+        <tr>
+            <th>Report Receiver's Name & Signature</th>
+            <th>Contact Tel. / Mobile Number</th>
+            <th>Inspector Name & Signature</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="signature-cell">
+                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
+                <span><?php echo htmlspecialchars($client_name); ?></span>
+            </td>
+            <td class="signature-cell">
+                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
+                <span><?php echo htmlspecialchars($client_name); ?></span>
+            </td>                          
+            <td class="signature-cell">
+                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
+                <span>Sathish Kumar</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
         </div>
     </div>
-    <div class="footer">
+    <!-- <div class="footer">
         <p>Generated by TUV Rheinland Arabia LLC</p>
-    </div>   
+    </div>    -->
     
     <div id="non-printable">
-        <button type="button" class="btn btn-primary" id="downloadBtn">Save as PDF</button>
-        <button type="button" class="btn btn-danger" onclick="window.print()">Print</button>
-    </div>
+    <button type="button" class="btn btn-primary" id="downloadBtn">Save as PDF</button>
+    <button type="button" class="btn btn-danger" onclick="window.print()">Print</button>
+</div>
+
 
     <script>
         document.getElementById('downloadBtn').addEventListener('click', function () {

@@ -1,73 +1,41 @@
 <?php
 session_start();
 
-include_once ('../../index.php');
 // Database connection
 $conn = new mysqli('localhost', 'root', '', '3party');
+
 if ($conn->connect_error) {
-    die("Database connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// Get form data
-$username = trim($_POST['username']);
-$password = trim($_POST['password']);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $password = md5($_POST['password']); // MD5 is used for example purposes; consider stronger hashing like bcrypt
 
-// Check if inputs are empty
-if (empty($username) || empty($password)) {
-    header('Location: index.php?error=empty_fields');
-    exit();
-}
+    // Prepare and bind
+    $stmt = $conn->prepare("SELECT u.id, u.username, u.role_id, r.role_name FROM users u JOIN roles r ON u.role_id = r.id WHERE u.username = ? AND u.password = ?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $stmt->store_result();
 
-// Query the database
-$query = "SELECT * FROM users WHERE username = ?";
-$stmt = $conn->prepare($query);
-if (!$stmt) {
-    die("SQL Error: " . $conn->error);
-}
-$stmt->bind_param('s', $username);
-$stmt->execute();
-$result = $stmt->get_result();
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $username, $role_id, $role_name);
+        $stmt->fetch();
+        
+        // Set session variables
+        $_SESSION['user_id'] = $id;
+        $_SESSION['username'] = $username;
+        $_SESSION['role_id'] = $role_id;
+        $_SESSION['role_name'] = $role_name;
 
-if ($result->num_rows === 1) {
-    $user = $result->fetch_assoc();
-
-    // Verify password
-    if (password_verify($password, $user['password'])) {
-        // Regenerate session ID for security
-        session_regenerate_id(true);
-
-        // Store user info in the session
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role_id'] = $user['role_id'];
-        $_SESSION['username'] = $user['username'];
-
-        // Redirect based on role
-        switch ($user['role_id']) {            
-            case 1:
-                header('Location: dashboard.php');
-                break;
-            case 2:
-                header('Location: dashboard.php');
-                break;
-            case 3:
-                header('Location: dashboard.php');
-                break;
-            default:
-                header('Location: login.php?error=invalid_role');
-        }
+        header("Location: dashboard.php");
         exit();
     } else {
-        // Invalid password
-        header('Location: ../index.php?error=invalid_password');
-        exit();
+        echo "Invalid username or password.";
     }
-} else {
-    // User not found
-    header('Location: login.php?error=user_not_found');
-    exit();
+
+    $stmt->close();
 }
 
-// Close the connection
-$stmt->close();
 $conn->close();
 ?>

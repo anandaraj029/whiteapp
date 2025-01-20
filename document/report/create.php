@@ -214,7 +214,7 @@ if (isset($_GET['project_id'])) {
                     </tr>
                 </tbody>
             </table>
-            <button type="button" onclick="addRow()">Add Row</button>
+            <!-- <button type="button" onclick="addRow()">Add Row</button> -->
             </div>
         </div>
     </div>
@@ -230,7 +230,7 @@ if (isset($_GET['project_id'])) {
 
 
  <!-- JavaScript for Adding Rows -->
- <script>
+ <!-- <script>
             function addRow() {
                 const table = document.getElementById('deficiencyTable');
                 const rowCount = table.rows.length + 1;
@@ -243,7 +243,7 @@ if (isset($_GET['project_id'])) {
                 `;
                 table.insertAdjacentHTML('beforeend', newRow);
             }
-        </script>
+        </script> -->
         
 </div>
 
