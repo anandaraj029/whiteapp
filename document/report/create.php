@@ -2,20 +2,20 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
-// Check if 'project_id' is passed
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+// Check if 'project_no' is passed
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
-    // Query to fetch checklist_no based on project_id
-    // $query = "SELECT checklist_no FROM checklist_information WHERE project_id = '$project_id' LIMIT 1";
+    // Query to fetch checklist_no based on project_no
+    // $query = "SELECT checklist_no FROM checklist_information WHERE project_no = '$project_no' LIMIT 1";
 
     $query = "
     SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date, c.report_no,
            p.project_no, p.creation_date, p.sticker_status, p.customer_name, p.equipment_location,
            p.inspector_name, p.checklist_type
     FROM checklist_information c
-    JOIN project_info p ON c.project_id = p.project_id
-    WHERE c.project_id = '$project_id' LIMIT 1";
+    JOIN project_info p ON c.project_no = p.project_no
+    WHERE c.project_no = '$project_no' LIMIT 1";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -174,7 +174,7 @@ if (isset($_GET['project_id'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Project ID</label>
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($project_id); ?>" name="project_id" readonly required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($project_no); ?>" name="project_no" readonly required>
 
 
                 </div>

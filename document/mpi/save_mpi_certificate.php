@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $comments = $_POST['comments'];
     $ndt_inspector = $_POST['ndt_inspector'];
     $ndt_level = $_POST['ndt_level'];
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $companyName = $_POST['companyName'];
     $created_at = date('Y-m-d H:i:s');
 
@@ -87,14 +87,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 reference_no, next_inspection_date, inspected_item, serial_numbers, id_numbers, 
                 manufacturer, standards, swl, mpi_equip_type, current, contrast_paint, 
                 particle_medium, calibration_expiry_date, brand, prod_spacing, ink, 
-                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, project_id, companyName, created_at
+                yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, project_no, companyName, created_at
             ) VALUES (
                 '$date_of_report', '$certificate_no', '$report_no', '$jrn', '$customer_name', 
                 '$customer_email', '$mobile', '$inspector', '$location', '$inspection_date', 
                 '$reference_no', '$next_inspection_date', '$inspected_item', '$serial_numbers', '$id_numbers',
                 '$manufacturer', '$standards', '$swl', '$mpi_equip_type', '$current', '$contrast_paint', 
                 '$particle_medium', '$calibration_expiry_date', '$brand', '$prod_spacing', '$ink', 
-                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$project_id', '$companyName', '$created_at'
+                '$yoke_sn', '$model_no', '$result', '$comments', '$ndt_inspector', '$ndt_level', '$project_no', '$companyName', '$created_at'
             )";
 
     if ($conn->query($sql) === TRUE) {
@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Update the certificatestatus in the project_info table
-        $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = '$project_id'";
+        $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
         if ($conn->query($updateStatusSql) === TRUE) {
             echo "Certificate created and images uploaded successfully.";
             header("Location: index.php?message=Record uploaded successfully");

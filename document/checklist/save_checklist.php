@@ -4,13 +4,13 @@ include_once('../../file/config.php');  // Include your database connection file
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve and validate project_id
-    $project_id = isset($_POST['project_id']) ? intval($_POST['project_id']) : 0;
+    // Retrieve and validate project_no
+    $project_no = isset($_POST['project_no']) ? trim($_POST['project_no']) : '';
 
-    if ($project_id > 0) {
+    if (!empty($project_no)) {
         // Check if project exists and status is 'Pending'
-        $status_check = $conn->prepare("SELECT checklist_status FROM project_info WHERE project_id = ?");
-        $status_check->bind_param("i", $project_id);
+        $status_check = $conn->prepare("SELECT checklist_status FROM project_info WHERE project_no = ?");
+        $status_check->bind_param("s", $project_no);
         $status_check->execute();
         $status_result = $status_check->get_result();
 
@@ -43,14 +43,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 // Insert main checklist data
                 $sql = "INSERT INTO checklist_information 
-                        (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks, manufacturer, year_model, equipment_no, project_id) 
+                        (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks, manufacturer, year_model, equipment_no, project_no) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param('ssssssssssssssssi', 
+                $stmt->bind_param('sssssssssssssssss', 
     $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, 
     $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, $capacity_swl, 
-    $remarks, $manufacturer, $year_model, $equipment_no, $project_id);
+    $remarks, $manufacturer, $year_model, $equipment_no, $project_no);
 
 
                 if ($stmt->execute()) {
@@ -71,8 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt_results->close();
 
                     // Update checklist_status to 'Completed' in project_info
-                    $update_status = $conn->prepare("UPDATE project_info SET checklist_status = 'Created' WHERE project_id = ?");
-                    $update_status->bind_param("i", $project_id);
+                    $update_status = $conn->prepare("UPDATE project_info SET checklist_status = 'Created' WHERE project_no = ?");
+                    $update_status->bind_param("s", $project_no);
                     $update_status->execute();
                     $update_status->close();
 

@@ -129,7 +129,7 @@ $result = $conn->query($sql);
 
                     <!-- Star -->
                     <div class="star">
-                        <a href="./view.php?project_id=<?php echo $row['project_id']; ?>">
+                        <a href="./view.php?project_no=<?php echo $row['project_no']; ?>">
                             <div class="icon text-primary">
                                 <i class="et-clipboard"></i>
                             </div>
@@ -138,14 +138,14 @@ $result = $conn->query($sql);
 
 
                     <div class="star">
-         <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+         <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
             <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
                                             </div>
                     <!-- End Star -->
                 </td>
 
                 <td><?php echo $row['certificate_no']; ?></td>
-                <td><?php echo $row['project_id']; ?></td>
+                <td><?php echo $row['project_no']; ?></td>
                 <td><?php echo $row['report_no']; ?></td>
                 <td>
                     <div class="d-flex align-items-center">
@@ -159,12 +159,12 @@ $result = $conn->query($sql);
                 <td><?php echo $row['companyName']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-                <a href="edit.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
+                <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
 
 
-<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_id']; ?>')">
+<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_no']; ?>')">
     <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
 </span>
                 </td>
@@ -360,7 +360,7 @@ $result = $conn->query($sql);
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ project_id: projectId })
+                body: JSON.stringify({ project_no: projectId })
             })
             .then(response => response.json())
             .then(data => {

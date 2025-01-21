@@ -2,45 +2,45 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
-// Ensure `project_id` is set in the request
-if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+// Ensure `project_no` is set in the request
+if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
     // SQL query to join tables
     // $query = "
     //     SELECT 
-    //         p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.company_name,
+    //         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.company_name,
     //         c.checklist_no, c.inspected_by,
     //         r.report_no, r.sticker_number_issued, r.date_of_creation, r.rep_name
     //     FROM 
     //         project_info p
     //     LEFT JOIN 
-    //         checklist_information c ON p.project_id = c.project_id
+    //         checklist_information c ON p.project_no = c.project_no
     //     LEFT JOIN 
-    //         report r ON p.project_id = r.project_id
+    //         report r ON p.project_no = r.project_no
     //     WHERE 
-    //         p.project_id = ?
+    //         p.project_no = ?
     // ";
 
 
 
     $query = "
     SELECT 
-        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
         c.checklist_no, c.inspection_date,
         r.report_no, r.jrn
     FROM 
         project_info p
     LEFT JOIN 
-        checklist_information c ON p.project_id = c.project_id
+        checklist_information c ON p.project_no = c.project_no
     LEFT JOIN 
-        reports r ON p.project_id = r.project_id
+        reports r ON p.project_no = r.project_no
     WHERE 
-        p.project_id = ?
+        p.project_no = ?
 ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $project_id);
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -155,7 +155,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="project_id" value="<?php echo $data['project_id'] ?? ''; ?>" placeholder="Project ID">
+                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID">
                             </div>
                         </div>
 
@@ -165,7 +165,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="companyName" value="<?php echo $data['project_id'] ?? ''; ?>" class="theme-input-style">
+                                <input type="text" name="companyName" value="<?php echo $data['project_no'] ?? ''; ?>" class="theme-input-style">
                             </div>
                         </div>
                     

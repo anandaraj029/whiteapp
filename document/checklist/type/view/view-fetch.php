@@ -16,7 +16,7 @@ if (empty($checklist_type) || empty($checklist_no)) {
 }
 
 // SQL query to fetch data from the 'checklist_information' table based on checklist_type and checklist_no
-$query = "SELECT *, project_id FROM checklist_information WHERE checklist_type = ? AND checklist_id = ?;";
+$query = "SELECT *, project_no FROM checklist_information WHERE checklist_type = ? AND checklist_id = ?;";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("si", $checklist_type, $checklist_no); // "s" for string, "i" for integer
 $stmt->execute();
@@ -24,7 +24,7 @@ $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
-    $project_id = $row['project_id']; // Fetch project_id
+    $project_no = $row['project_no']; // Fetch project_no
 } else {
     echo "No record found for the specified checklist type and checklist ID!";
     $row = []; // Initialize as an empty array if no record found

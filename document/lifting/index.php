@@ -124,13 +124,13 @@ $result = $conn->query($sql);
             <span class='checkmark'></span>
         </label>
         <div class='star'>
-            <a href='./view.php?project_id=" . $row['project_id'] . "'>
+            <a href='./view.php?project_no=" . $row['project_no'] . "'>
                 <div class='icon text-primary'>
                     <i class='et-clipboard'></i>
                 </div>
             </a>
 
-            <a href='./download.php?project_id=" . $row['project_id'] . "'>
+            <a href='./download.php?project_no=" . $row['project_no'] . "'>
                                                     <div class='icon text-primary'>
                                                         <i class='et-download'></i>
                                                     </div>
@@ -140,7 +140,7 @@ $result = $conn->query($sql);
       </td>";
 
                 echo "<td>" . $row['certificate_no'] . "</td>";
-                echo "<td>" . $row['project_id'] . "</td>";
+                echo "<td>" . $row['project_no'] . "</td>";
                 echo "<td>" . $row['report_no'] . "</td>";
                 echo "<td>
                         <div class='d-flex align-items-center'>
@@ -154,10 +154,10 @@ $result = $conn->query($sql);
                 echo "<td>" . $row['companyName'] . "</td>";
                 echo "<td>" . $row['identification_no'] . "</td>";
                 echo "<td class='actions'>
-    <span class='contact-edit' onclick='redirectToEditLifting(" . $row['project_id'] . ")'>
+    <span class='contact-edit' onclick='redirectToEditLifting(" . $row['project_no'] . ")'>
         <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg'>
     </span>
-    <span class='contact-close' onclick='deleteRow(" . $row['project_id'] . ")'>
+    <span class='contact-close' onclick='deleteRow(" . $row['project_no'] . ")'>
         <img src='" . $url . "assets/img/svg/c-close.svg' alt='' class='svg'>
     </span>
 </td>";
@@ -358,16 +358,16 @@ function deleteRow(projectId) {
                 alert('Error: Unable to delete record.');
             }
         };
-        xhr.send('project_id=' + projectId);
+        xhr.send('project_no=' + projectId);
     }
 }
 </script>
 
 
 <script>
-    function redirectToEditLifting(project_id) {
-        // Redirect to edit_lifting.php with project_id as a query parameter
-        window.location.href = 'edit_lifting.php?project_id=' + project_id;
+    function redirectToEditLifting(project_no) {
+        // Redirect to edit_lifting.php with project_no as a query parameter
+        window.location.href = 'edit_lifting.php?project_no=' + project_no;
     }
 </script>
 

@@ -1,23 +1,23 @@
 <?php
 include_once('../../file/config.php'); // Include the database connection
 
-if (isset($_POST['project_id'])) {
-    $project_id = $_POST['project_id'];
+if (isset($_POST['project_no'])) {
+    $project_no = $_POST['project_no'];
 
     // Start a transaction to ensure both actions (deleting and updating) are completed atomically
     $conn->begin_transaction();
 
     try {
         // SQL query to delete the record from the crane_health_check_certificate table
-        $sql = "DELETE FROM crane_health_check_certificate WHERE project_id = ?";
+        $sql = "DELETE FROM crane_health_check_certificate WHERE project_no = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $project_id);
+        $stmt->bind_param("s", $project_no);
 
         if ($stmt->execute()) {
             // SQL query to update the status in the project_info table to 'Pending'
-            $update_query = "UPDATE project_info SET certificatestatus = 'Pending' WHERE project_id = ?";
+            $update_query = "UPDATE project_info SET certificatestatus = 'Pending' WHERE project_no = ?";
             $update_stmt = $conn->prepare($update_query);
-            $update_stmt->bind_param("s", $project_id);
+            $update_stmt->bind_param("s", $project_no);
 
             if ($update_stmt->execute()) {
                 // Commit the transaction if both queries are successful

@@ -16,6 +16,14 @@ include_once('./view-fetch.php');
     <link href="../style.css" rel="stylesheet">
 
     <style>
+
+               /* Hide elements with the "no-print" class when printing */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
         .container{
             max-width: 926px;
 
@@ -5313,10 +5321,12 @@ Sec. (2.13.3.4, 2.13.5, 8.6.10.1, 8.11.2.1.4l,
 
         </div>
 
-<div class="col-12 d-flex justify-content-center mt-4">
-  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
- <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
+        <div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index.php" class="mr-4 btn btn-primary no-print">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary no-print">Print</button>
 </div>
+
+
 </form> 
     </div>
 	    

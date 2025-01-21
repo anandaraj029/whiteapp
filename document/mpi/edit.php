@@ -6,14 +6,14 @@ include_once('../../file/config.php');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Fetch the record based on project_id
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id']; // Assuming project_id is passed via URL
+// Fetch the record based on project_no
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no']; // Assuming project_no is passed via URL
 
     // Fetch certificate record
-    $query = "SELECT * FROM mpi_certificates WHERE project_id = ?";
+    $query = "SELECT * FROM mpi_certificates WHERE project_no = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $project_id);
+    $stmt->bind_param('s', $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -38,7 +38,7 @@ if (isset($_GET['project_id'])) {
         }
     }
 } else {
-    echo "Invalid request! No project_id provided.";
+    echo "Invalid request! No project_no provided.";
     exit; // Stop further execution
 }
 ?>
@@ -63,7 +63,7 @@ if (isset($_GET['project_id'])) {
             </div>
                 <div class="container-fluid">
                 <form action="update_mpi.php" method="POST" enctype="multipart/form-data">
-                <input type="hidden" name="project_id" value="<?php echo $row['project_id']; ?>" />
+                <input type="hidden" name="project_no" value="<?php echo $row['project_no']; ?>" />
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -120,7 +120,7 @@ if (isset($_GET['project_id'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="project_id" class="theme-input-style" value="<?php echo $row['project_id']; ?>">
+                                <input type="text" name="project_no" class="theme-input-style" value="<?php echo $row['project_no']; ?>">
                             </div>
                         </div>
 
@@ -440,7 +440,7 @@ if (isset($_GET['project_id'])) {
             <div class="mt-3">
                 <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
                 <br>
-                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_id=<?php echo $project_id; ?>" 
+                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>" 
                    onclick="return confirm('Are you sure you want to delete this image?');" 
                    class="btn btn-danger btn-sm mt-2">Delete</a>
             </div>

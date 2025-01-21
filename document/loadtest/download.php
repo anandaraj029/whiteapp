@@ -4,12 +4,12 @@ require_once('../../vendor/autoload.php');
 include_once('../../file/config.php'); // include your database connection
 
 // Get the project ID from the query parameter
-$project_id = $_GET['project_id'];
+$project_no = $_GET['project_no'];
 
 // Fetch the data based on the projectid
-$sql = "SELECT * FROM loadtest_certificate WHERE project_id = ?";
+$sql = "SELECT * FROM loadtest_certificate WHERE project_no = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('s', $project_id);
+$stmt->bind_param('s', $project_no);
 $stmt->execute();
 $result = $stmt->get_result();
 

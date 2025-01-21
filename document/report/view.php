@@ -1,12 +1,12 @@
 <?php
 include_once('../../file/config.php');
 
-// Ensure the project_id is provided
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+// Ensure the project_no is provided
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
     // Query to fetch deficiencies JSON column
-    $query = "SELECT * FROM reports WHERE project_id = '$project_id'";
+    $query = "SELECT * FROM reports WHERE project_no = '$project_no'";
     $result = mysqli_query($conn, $query);
 
     if ($result && mysqli_num_rows($result) > 0) {
@@ -22,11 +22,11 @@ if (isset($_GET['project_id'])) {
 
 
 // Fetch client details
-$query_client = "SELECT client_name FROM checklist_results WHERE project_id = ?";
+$query_client = "SELECT client_name FROM checklist_results WHERE project_no = ?";
 $stmt_client = $conn->prepare($query_client);
 
 if ($stmt_client) {
-    $stmt_client->bind_param("s", $project_id);
+    $stmt_client->bind_param("s", $project_no);
     $stmt_client->execute();
     $result_client = $stmt_client->get_result();
 
@@ -297,24 +297,28 @@ below. Specific repairs to correct each deficiency should be noted in the right 
         <table class="inspection-table" style="width: 100%;">
     <thead>
         <tr>
-            <th>Report Receiver's Name & Signature</th>
-            <th>Contact Tel. / Mobile Number</th>
-            <th>Inspector Name & Signature</th>
+            <th>Report Receiver's Name: <br> Badge :</th>
+            <th>Inspection Date :  <br>
+            Signature :</th>
+            <th>Issued By : <b> <br> Signature :</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td class="signature-cell">
-                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
+                <!-- <img src="../../document/uploads/37.png" alt="Signature" height="30px"> -->
                 <span><?php echo htmlspecialchars($client_name); ?></span>
             </td>
             <td class="signature-cell">
                 <img src="../../document/uploads/37.png" alt="Signature" height="30px">
-                <span><?php echo htmlspecialchars($client_name); ?></span>
+                <span>
+                <?php echo htmlspecialchars($row['date_of_inspection']); ?>
+                </span>
             </td>                          
             <td class="signature-cell">
-                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
-                <span>Sathish Kumar</span>
+            <?php echo htmlspecialchars($row['issued_by']); ?>
+                <span>
+                    <img src="../uploads/<?php echo $project_no; ?>.png" height="30px;" ></span>
             </td>
         </tr>
     </tbody>

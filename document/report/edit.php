@@ -4,26 +4,26 @@ ob_start();  // Start output buffering
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Database connection
 
-// Check if 'project_id' is provided
-if (!isset($_GET['project_id'])) {
+// Check if 'project_no' is provided
+if (!isset($_GET['project_no'])) {
     die("Project ID is not set.");
 }
 
-$project_id = $_GET['project_id'];
+$project_no = $_GET['project_no'];
 
 // Fetch existing report data
-$query = "SELECT * FROM reports WHERE project_id = ?";
+$query = "SELECT * FROM reports WHERE project_no = ?";
 $stmt = $conn->prepare($query);
 if (!$stmt) {
     die("Prepare failed: " . $conn->error);
 }
-$stmt->bind_param("i", $project_id);
+$stmt->bind_param("s", $project_no);
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $report_data = $result->fetch_assoc();
 } else {
-    die("No record found for project ID: $project_id");
+    die("No record found for project ID: $project_no");
 }
 $stmt->close();
 
@@ -74,14 +74,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         jrn = ?, checklist_no = ?, report_no = ?, client_company_name = ?, client_company_address = ?, manufacturer = ?, 
         model = ?, type = ?, prev_sticker_no = ?, issued_by = ?, capacity = ?, equipment_id_no = ?, equipment_serial_no = ?, 
         location = ?, date_of_inspection = ?, next_inspection_due_date = ?, inspection_status = ?, sticker_number_issued = ?, 
-        deficiencies = ? WHERE project_id = ?";
+        deficiencies = ? WHERE project_no = ?";
 
     $stmt = $conn->prepare($updateQuery);
     $stmt->bind_param("sssssssssssssssssssi", 
         $jrn, $checklist_no, $report_no, $client_company_name, $client_company_address, $manufacturer, 
         $model, $type, $prev_sticker_no, $issued_by, $capacity, $equipment_id_no, $equipment_serial_no, 
         $location, $date_of_inspection, $next_inspection_due_date, $inspection_status, $sticker_number_issued, 
-        $deficiencyJson, $project_id
+        $deficiencyJson, $project_no
     );
 
     if ($stmt->execute()) {
@@ -238,7 +238,7 @@ ob_end_flush();  // Flush the output buffer
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Project ID</label>
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_data['project_id']); ?>" name="project_id" readonly required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_data['project_no']); ?>" name="project_no" readonly required>
 
 
                 </div>

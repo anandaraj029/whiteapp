@@ -133,7 +133,7 @@ $result = $conn->query($sql);
 
                     <!-- Star -->
                     <div class="star">
-                        <a href="./view.php?project_id=<?php echo $row['project_id']; ?>">
+                        <a href="./view.php?project_no=<?php echo $row['project_no']; ?>">
                             <div class="icon text-primary">
                                 <i class="et-clipboard"></i>
                             </div>
@@ -142,7 +142,7 @@ $result = $conn->query($sql);
 
 
                     <div class="star">
-                    <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+                    <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
                                     <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
                                 </a>
                               </div>
@@ -150,7 +150,7 @@ $result = $conn->query($sql);
                 </td>
                 
                 <td><?php echo $row['certificate_no']; ?></td>
-                <td><?php echo $row['project_id']; ?></td>
+                <td><?php echo $row['project_no']; ?></td>
                 <td><?php echo $row['report_no']; ?></td>
                 <td>
                     <div class="d-flex align-items-center">
@@ -167,11 +167,11 @@ $result = $conn->query($sql);
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
                     <!-- Edit action -->
-                    <a href="edit_mobile.php?project_id=<?php echo $row['project_id']; ?>" class="contact-edit">
+                    <a href="edit_mobile.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
 </a>
                     <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_id']; ?>', this)">
+                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
                         <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
                     </span>
                 </td>
@@ -355,7 +355,7 @@ $result = $conn->query($sql);
 
 
         <script>
-    function deleteRow(project_id, element) {
+    function deleteRow(project_no, element) {
         if (confirm("Are you sure you want to delete this row?")) {
             // Remove the row from the frontend
             var row = element.closest('tr');
@@ -372,7 +372,7 @@ $result = $conn->query($sql);
                     alert("Failed to delete row. Please try again.");
                 }
             };
-            xhr.send("project_id=" + project_id);
+            xhr.send("project_no=" + project_no);
         }
     }
 </script>

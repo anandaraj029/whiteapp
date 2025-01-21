@@ -2,26 +2,26 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
-// Ensure `project_id` is set in the request
-if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+// Ensure `project_no` is set in the request
+if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
     $query = "
     SELECT 
-        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
         c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
         r.report_no, r.jrn
     FROM 
         project_info p
     LEFT JOIN 
-        checklist_information c ON p.project_id = c.project_id
+        checklist_information c ON p.project_no = c.project_no
     LEFT JOIN 
-        reports r ON p.project_id = r.project_id
+        reports r ON p.project_no = r.project_no
     WHERE 
-        p.project_id = ?
+        p.project_no = ?
 ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $project_id);
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -131,7 +131,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                             <label class="font-14 bold">Project ID</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_id" required>
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_no" required>
                                         </div>
                                     </div>
                                

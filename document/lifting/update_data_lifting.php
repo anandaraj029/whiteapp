@@ -5,7 +5,7 @@ include_once('../../file/config.php'); // Include your database connection
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $date_of_report = $_POST['date_of_report'];
     $certificate_no = $_POST['certificate_no'];
     $report_no = $_POST['report_no'];
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         test_details = '$test_details',
         status = '$status',
         safe_to_use = '$safe_to_use'
-        WHERE project_id = '$project_id'";
+        WHERE project_no = '$project_no'";
 
     // Execute the query
     if (mysqli_query($conn, $query)) {

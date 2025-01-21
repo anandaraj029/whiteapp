@@ -1,13 +1,13 @@
 <?php
 include_once('../../file/config.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
     // Fetch the report data
-    $query = "SELECT * FROM reports WHERE project_id = ? LIMIT 1";
+    $query = "SELECT * FROM reports WHERE project_no = ? LIMIT 1";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $project_id);
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['project_id'])) {
     $stmt->close();
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Handle form submission
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $jrn = $_POST['jrn'];
     $checklist_no = $_POST['checklist_no'];
     $report_no = $_POST['report_no'];
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['project_id'])) {
         inspection_status = ?,
         sticker_number_issued = ?,
         deficiencies = ?
-        WHERE project_id = ?";
+        WHERE project_no = ?";
 
     $stmt = $conn->prepare($updateQuery);
     $stmt->bind_param(
@@ -98,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['project_id'])) {
         $inspection_status,
         $sticker_number_issued,
         $deficiencyJson,
-        $project_id
+        $project_no
     );
 
     if ($stmt->execute()) {
