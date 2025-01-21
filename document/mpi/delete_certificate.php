@@ -11,14 +11,14 @@ header('Content-Type: application/json');
 // Decode input data
 $data = json_decode(file_get_contents('php://input'), true);
 
-// Check for project_id in input
-if (isset($data['project_id'])) {
-    $project_id = $data['project_id'];
+// Check for project_no in input
+if (isset($data['project_no'])) {
+    $project_no = $data['project_no'];
 
     // Fetch the certificate record
-    $query = "SELECT id FROM mpi_certificates WHERE project_id = ?";
+    $query = "SELECT id FROM mpi_certificates WHERE project_no = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $project_id);
+    $stmt->bind_param('s', $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -50,9 +50,9 @@ if (isset($data['project_id'])) {
         $deleteImageStmt->execute();
 
         // Delete the certificate record
-        $deleteCertQuery = "DELETE FROM mpi_certificates WHERE project_id = ?";
+        $deleteCertQuery = "DELETE FROM mpi_certificates WHERE project_no = ?";
         $deleteCertStmt = $conn->prepare($deleteCertQuery);
-        $deleteCertStmt->bind_param('s', $project_id);
+        $deleteCertStmt->bind_param('s', $project_no);
         $deleteCertStmt->execute();
 
         echo json_encode(['success' => true]);

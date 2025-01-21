@@ -3,8 +3,8 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // Fetch existing data (assuming the certificate_no is passed via GET)
-$project_id = $_GET['project_id']; // Get the certificate number from URL
-$query = "SELECT * FROM lifting_gear_certificates WHERE project_id = '$project_id'";
+$project_no = $_GET['project_no']; // Get the certificate number from URL
+$query = "SELECT * FROM lifting_gear_certificates WHERE project_no = '$project_no'";
 $result = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 ?>
@@ -28,7 +28,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 
     <div class="container-fluid">
         <form action="update_data_lifting.php" method="POST">
-            <input type="hidden" name="project_id" value="<?php echo $data['project_id']; ?>" />
+            <input type="hidden" name="project_no" value="<?php echo $data['project_no']; ?>" />
 
             <div class="row">
                 <!-- Header Data Form Section -->
@@ -106,7 +106,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="project_id" class="theme-input-style" value="<?php echo $data['project_id']; ?>">
+                                <input type="text" name="project_no" class="theme-input-style" value="<?php echo $data['project_no']; ?>">
                             </div>
                         </div>
 

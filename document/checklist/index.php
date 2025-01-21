@@ -85,7 +85,7 @@ $result = $conn->query($sql);
                 </div>
             </td>";
             echo "<td>{$row['checklist_no']}</td>";
-            echo "<td>{$row['project_id']}</td>";
+            echo "<td>{$row['project_no']}</td>";
             echo "<td>";
             // Display the inspector's image and name
             echo "<img src='{$inspector_image}' alt='{$inspector_name}' class='inspector-image' style='width: 30px; height: 30px; border-radius: 50%; margin-right: 10px;'>";

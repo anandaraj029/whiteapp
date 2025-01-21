@@ -4,7 +4,7 @@ include_once('../../file/config.php'); // Assuming your database connection is h
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form data
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $jrn = $_POST['jrn'];
     $checklist_no = $_POST['checklist_no'];
     $report_no = $_POST['report_no'];    
@@ -64,7 +64,7 @@ $deficiencyJson = json_encode($deficiencyData);
 
     // SQL Query using Prepared Statement to insert data into the 'reports' table
     $insertQuery = "INSERT INTO reports (
-        project_id, jrn, checklist_no, report_no, client_company_name, client_company_address, manufacturer, model, type, prev_sticker_no, issued_by, capacity, 
+        project_no, jrn, checklist_no, report_no, client_company_name, client_company_address, manufacturer, model, type, prev_sticker_no, issued_by, capacity, 
         equipment_id_no, equipment_serial_no, location, date_of_inspection, next_inspection_due_date, 
         inspection_status, sticker_number_issued, created_at, deficiencies) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -73,16 +73,16 @@ $deficiencyJson = json_encode($deficiencyData);
 
     // Bind parameters
     $stmt->bind_param("sssssssssssssssssssss", 
-        $project_id, $jrn, $checklist_no, $report_no, $client_company_name, $client_company_address, $manufacturer, $model, $type, $prev_sticker_no, $issued_by, $capacity,
+        $project_no, $jrn, $checklist_no, $report_no, $client_company_name, $client_company_address, $manufacturer, $model, $type, $prev_sticker_no, $issued_by, $capacity,
         $equipment_id_no, $equipment_serial_no, $location, $date_of_inspection, $next_inspection_due_date, 
         $inspection_status, $sticker_number_issued, $created_at, $deficiencyJson);
 
     // Execute statement and check for errors
     if ($stmt->execute()) {
         // Update the project status in 'project_info' table
-        $updateQuery = "UPDATE project_info SET report_status = 'Generated' WHERE project_id = ?";
+        $updateQuery = "UPDATE project_info SET report_status = 'Generated' WHERE project_no = ?";
         $updateStmt = $conn->prepare($updateQuery);
-        $updateStmt->bind_param("s", $project_id);
+        $updateStmt->bind_param("s", $project_no);
 
         if ($updateStmt->execute()) {
             $msg = "Report created successfully, and project status updated.";

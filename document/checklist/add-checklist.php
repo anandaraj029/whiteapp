@@ -2,13 +2,13 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
-// Check if 'project_id' is passed
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+// Check if 'project_no' is passed
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
     // Query to fetch data from project_info table
-    $stmt = $conn->prepare("SELECT project_no, equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_id = ?");
-    $stmt->bind_param("i", $project_id);
+    $stmt = $conn->prepare("SELECT project_no, equipment_type, checklist_type, inspector_name, customer_name, equipment_location FROM project_info WHERE project_no = ?");
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -69,7 +69,7 @@ if ($checklistResult && $checklistResult->num_rows > 0) {
 
                         <!-- Form -->
                         <form action="save_checklist.php" method="POST">
-                            <input type="hidden" name="project_id" value="<?php echo $project_id; ?>">
+                            <input type="hidden" name="project_no" value="<?php echo $project_no; ?>">
                             <!-- <input type="hidden" name="inspector_image" value="<?php echo htmlspecialchars($inspector_image); ?>">
                             <input type="hidden" name="inspector_signature" value="<?php echo htmlspecialchars($inspector_signature); ?>"> -->
 

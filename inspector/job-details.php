@@ -100,7 +100,7 @@ if ($logged_in_inspector) {
             while ($row = $result->fetch_assoc()) {
                 ?>
                 <tr>
-                    <td class="bold"><?php echo "#" . str_pad($row["project_id"], 5, "0", STR_PAD_LEFT); ?></td>
+                    <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
                     <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
                     <!-- <td>
                         <div class="product-img">
@@ -118,7 +118,7 @@ if ($logged_in_inspector) {
                     <td>
     <div class="product-img">
         <?php if ($row['checklist_status'] === 'Pending') { ?>
-            <a href="../document/checklist/add-checklist.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
+            <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
                 <i class="icofont-checked color-primary"></i> Create Checklist
             </a>
         <?php } else { ?>
@@ -131,7 +131,7 @@ if ($logged_in_inspector) {
         <!-- Report Button Logic -->
         <?php if ($row['checklist_status'] === 'Created') { ?>
     <?php if ($row['report_status'] === 'Pending') { ?>
-        <a href="../document/report/create.php?project_id=<?php echo $row['project_id']; ?>" class="text-primary">
+        <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
             <i class="icofont-edit color-primary"></i> Create Report
         </a>
     <?php } elseif ($row['report_status'] === 'Generated') { ?>
@@ -150,7 +150,7 @@ if ($logged_in_inspector) {
 <?php } ?>
 
         <!-- Certificate Link -->
-        <!-- <a href="generate-certificate.php?id=<?php echo $row['project_id']; ?>">
+        <!-- <a href="generate-certificate.php?id=<?php echo $row['project_no']; ?>">
             <i class="icofont-data color-primary"></i> Certificate
         </a>  -->
     </div>
@@ -162,7 +162,7 @@ if ($logged_in_inspector) {
                     <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
                     <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
                     <td>
-                        <a href="job-details.php?id=<?php echo $row['project_id']; ?>">
+                        <a href="job-details.php?id=<?php echo $row['project_no']; ?>">
                             <button type="button" class="details-btn">
                                 Details <i class="icofont-arrow-right"></i>
                             </button>

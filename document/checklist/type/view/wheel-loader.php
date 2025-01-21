@@ -19,6 +19,14 @@ include_once('./view-fetch.php');
     
     <style>
 
+               /* Hide elements with the "no-print" class when printing */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
+
+
 /* .large-checkbox {
     width: 20px;
     height: 20px;
@@ -1337,10 +1345,11 @@ include_once('./view-fetch.php');
         </table>        
         </div>
 
-<div class="col-12 d-flex justify-content-center mt-4">
-  <a href="../../index.php" class="mr-4 btn btn-primary">Back</a>
- <button type="submit" onclick="window.print()" class="btn btn-primary">Print</button>
+        <div class="col-12 d-flex justify-content-center mt-4">
+  <a href="../../index.php" class="mr-4 btn btn-primary no-print">Back</a>
+ <button type="submit" onclick="window.print()" class="btn btn-primary no-print">Print</button>
 </div>
+
 </form> 
     </div>
 	    

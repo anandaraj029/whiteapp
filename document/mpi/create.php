@@ -1,26 +1,26 @@
 <?php 
 include_once('../../inc/function.php');
 
-if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
     $query = "
     SELECT 
-        p.project_id, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
         c.checklist_no,
         r.report_no
     FROM 
         project_info p
     LEFT JOIN 
-        checklist_information c ON p.project_id = c.project_id
+        checklist_information c ON p.project_no = c.project_no
     LEFT JOIN 
-        reports r ON p.project_id = r.project_id
+        reports r ON p.project_no = r.project_no
     WHERE 
-        p.project_id = ?
+        p.project_no = ?
 ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $project_id);
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -111,7 +111,7 @@ if (isset($_GET['project_id']) && !empty($_GET['project_id'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="project_id" class="theme-input-style">
+                                <input type="text" name="project_no" class="theme-input-style">
                             </div>
                         </div>
 

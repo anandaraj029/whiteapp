@@ -2,9 +2,9 @@
 include_once('../../file/config.php');  // Include your database connection file
 
 // Fetch the record based on report_no
-$project_id = $_GET['project_id'];  // Assuming report_no is passed via URL
+$project_no = $_GET['project_no'];  // Assuming report_no is passed via URL
 
-$query = "SELECT * FROM loadtest_certificate WHERE project_id = '$project_id'";
+$query = "SELECT * FROM loadtest_certificate WHERE project_no = '$project_no'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {
@@ -247,7 +247,7 @@ margin: 5px;
             </div>
 
             <div class="text-center">
-            <a href="./download.php?project_id=<?php echo $row['project_id']; ?>">
+            <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
         <button>download</button></a>
   </div>
     </div>

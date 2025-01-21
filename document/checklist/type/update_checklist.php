@@ -90,15 +90,15 @@ if (!$client_name || !$client_signature || !$checklist_no) {
     die("Client name, signature, and checklist number are required.");
 }
 
-// Fetch project_id from the checklistinformation table
-$projectQuery = $conn->prepare("SELECT project_id FROM checklist_information WHERE checklist_id = ?");
+// Fetch project_no from the checklistinformation table
+$projectQuery = $conn->prepare("SELECT project_no FROM checklist_information WHERE checklist_id = ?");
 $projectQuery->bind_param("i", $checklist_no);
 $projectQuery->execute();
-$projectQuery->bind_result($project_id);
+$projectQuery->bind_result($project_no);
 $projectQuery->fetch();
 $projectQuery->close();
 
-if (empty($project_id)) {
+if (empty($project_no)) {
     die("Project ID not found for the given checklist number.");
 }
 
@@ -113,7 +113,7 @@ if (!file_exists($signature_folder)) {
 // $signature_file_path = $signature_folder . $signature_filename;
 
 
-$signature_filename = $project_id . '.png';
+$signature_filename = $project_no . '.png';
 $signature_file_path = $signature_folder . $signature_filename;
 
 // Decode Base64 and save as image
@@ -157,10 +157,10 @@ $checkQuery->store_result();
 
 if ($checkQuery->num_rows > 0) {
     // Update if a record exists
-    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ?, recommendations = ?, project_id = ? WHERE checklist_id = ?");
+    $stmt = $conn->prepare("UPDATE checklist_results SET result = ?, checklist_remark = ?, client_name = ?, client_signature = ?, recommendations = ?, project_no = ? WHERE checklist_id = ?");
 } else {
     // Insert a new record if none exists
-    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, recommendations, project_id, checklist_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO checklist_results (result, checklist_remark, client_name, client_signature, recommendations, project_no, checklist_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
 }
 
 $checkQuery->close();
@@ -170,7 +170,7 @@ if ($stmt === false) {
 }
 
 // Bind parameters and execute the query
-$stmt->bind_param("ssssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $recommendations, $project_id, $checklist_no);
+$stmt->bind_param("ssssssi", $combined_results, $combined_remarks, $client_name, $signature_filename, $recommendations, $project_no, $checklist_no);
 
 if (!$stmt->execute()) {
     die("Execution failed: " . $stmt->error);

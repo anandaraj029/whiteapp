@@ -75,7 +75,7 @@ $result = $conn->query($sql);
 
                     echo "<tr>
                             <td>#{$row['sticker_start_no']}</td>
-                            <td>{$row['project_id']}</td>
+                            <td>{$row['project_no']}</td>
                             <td>{$row['assign_inspector']}</td>
                             <td>" . date("d/m/Y", strtotime($row['created_at'])) . "</td>
                             <td>" . date("d/m/Y", strtotime($row['expiry_date'])) . "</td>

@@ -73,7 +73,7 @@ if ($logged_in_inspector) {
                                                 </div>
                                             </td>";
                                         echo "<td>{$row['checklist_no']}</td>";
-                                        echo "<td>{$row['project_id']}</td>";
+                                        echo "<td>{$row['project_no']}</td>";
                                         echo "<td>{$row['inspected_by']}</td>";
                                         echo "<td>{$row['equipment_type']}</td>";
                                         echo "<td>{$row['client_name']}</td>";

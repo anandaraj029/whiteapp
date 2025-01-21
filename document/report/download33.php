@@ -4,9 +4,9 @@ include_once('../../file/config.php');  // Include your database connection file
 
 
 // Fetch the record based on report_no
-$project_id = $_GET['project_id']; // Assuming report_no is passed via URL
+$project_no = $_GET['project_no']; // Assuming report_no is passed via URL
 
-$query = "SELECT * FROM reports WHERE project_id = '$project_id'";
+$query = "SELECT * FROM reports WHERE project_no = '$project_no'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) > 0) {

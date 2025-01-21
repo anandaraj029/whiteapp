@@ -2,13 +2,13 @@
 require_once('../../vendor/autoload.php');
 include_once('../../file/config.php');  // Include your database connection file
 
-// Fetch the project_id from the request
-$project_id = $_GET['project_id'] ?? '';  // Ensure that it is set
+// Fetch the project_no from the request
+$project_no = $_GET['project_no'] ?? '';  // Ensure that it is set
 
-// Fetch the record based on project_id
-$sql = "SELECT * FROM mpi_certificates WHERE project_id = ?";
+// Fetch the record based on project_no
+$sql = "SELECT * FROM mpi_certificates WHERE project_no = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $project_id);
+$stmt->bind_param("s", $project_no);
 $stmt->execute();
 $result = $stmt->get_result();
 

@@ -2,16 +2,16 @@
 require_once('../../vendor/autoload.php');
 include_once('../../file/config.php'); // Database connection file
 
-if (!isset($_GET['project_id'])) {
+if (!isset($_GET['project_no'])) {
     die("Project ID not provided!");
 }
 
-$project_id = $_GET['project_id'];
+$project_no = $_GET['project_no'];
 
 // Prepare and execute the main query for report details
-$query = "SELECT * FROM reports WHERE project_id = ?";
+$query = "SELECT * FROM reports WHERE project_no = ?";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("s", $project_id);
+$stmt->bind_param("s", $project_no);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -24,9 +24,9 @@ $deficiencies = json_decode($row['deficiencies'], true);
 $inspection_status = $row['inspection_status'];  // Fetching the inspection status
 
 // Fetch the client name
-$query_client = "SELECT client_name FROM checklist_results WHERE project_id = ?";
+$query_client = "SELECT client_name FROM checklist_results WHERE project_no = ?";
 $stmt_client = $conn->prepare($query_client);
-$stmt_client->bind_param("s", $project_id);
+$stmt_client->bind_param("s", $project_no);
 $stmt_client->execute();
 $result_client = $stmt_client->get_result();
 
@@ -302,7 +302,7 @@ below. Specific repairs to correct each deficiency should be noted in the right 
         <tr>
             <td class="signature-cell">
                 <!-- <img src="../../document/uploads/37.png" alt="Signature" height="30px"> -->
-                <img src="../uploads/<?php echo $project_id; ?>.png" alt="" height="30px">
+                <img src="../uploads/<?php echo $project_no; ?>.png" alt="" height="30px">
                 <span><?php echo htmlspecialchars($client_name); ?></span>
             </td>
             <td class="signature-cell">
@@ -314,17 +314,17 @@ below. Specific repairs to correct each deficiency should be noted in the right 
 include_once('../../file/config.php');
 
 // Retrieve the project ID from the request (GET or POST)
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id'];
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
 
-    // Query to fetch the inspector_name and signature_photo using the project_id
+    // Query to fetch the inspector_name and signature_photo using the project_no
     $query = "
         SELECT pi.inspector_name, i.signature_photo 
         FROM project_info pi 
         JOIN inspectors i ON pi.inspector_name = i.inspector_name
-        WHERE pi.project_id = ?";
+        WHERE pi.project_no = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $project_id);
+    $stmt->bind_param("s", $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 

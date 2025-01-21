@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $report_date = $_POST['report_date'];
     $report_no = $_POST['report_no'];
     $sticker_no = $_POST['sticker_no'];
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $serial_numbers = $_POST['serial_numbers'];
     $company_name = $_POST['company_name'];
     $customer_name = $_POST['customer_name'];
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Prepare SQL statement
     $sql = "INSERT INTO loadtest_certificate (
-                examination_date, report_date, report_no, sticker_no, project_id, serial_numbers, company_name, customer_name, customer_email,
+                examination_date, report_date, report_no, sticker_no, project_no, serial_numbers, company_name, customer_name, customer_email,
                 customer_mobile, inspector_name, 
                 employer_address, equipment_description, manufacturer, model, 
                 equipment_id, equipment_serial_no, width, thickness, certificate_no, jrn, 
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Bind parameters
     $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssss', 
-        $examination_date, $report_date, $report_no, $sticker_no, $project_id, $serial_numbers,
+        $examination_date, $report_date, $report_no, $sticker_no, $project_no, $serial_numbers,
         $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name,
         $employer_address, $equipment_description, $manufacturer, $model,
         $equipment_id, $equipment_serial_no, $width, $thickness, $certificate_no, $jrn,
@@ -83,9 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Execute the query
     if ($stmt->execute()) {
         // Update project status
-        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_id = ?";
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
         $update_stmt = $conn->prepare($update_query);
-        $update_stmt->bind_param('s', $project_id);
+        $update_stmt->bind_param('s', $project_no);
         
         if ($update_stmt->execute()) {
             $msg = "Loadtest created successfully, and project status updated.";

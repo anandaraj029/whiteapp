@@ -5,7 +5,7 @@ include_once('../../file/config.php');
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Collect form data
-    $project_id = $_POST['project_id']; // Assuming certificate_id is passed for updating the correct record
+    $project_no = $_POST['project_no']; // Assuming certificate_id is passed for updating the correct record
     $examination_date = $_POST['examination_date'];
     $report_date = $_POST['report_date'];
     $report_no = $_POST['report_no'];
@@ -57,12 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 interval_6_months = ?, interval_12_months = ?, examination_scheme = ?, exceptional_circumstances = ?, identification_any_part = ?, 
                 defect = ?, date_defect = ?, repair_details = ?, test_particulars = ?, equipment_fit = ?, name_qualifications_person = ?, 
                 report_making_person_qualifications = ?, authenticating_person_name = ?, latest_date_exam = ?, name_address_of_employer = ? 
-            WHERE project_id = ?";
+            WHERE project_no = ?";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);
     
-    // Bind parameters (exclude project_id from the values part, add it at the end)
+    // Bind parameters (exclude project_no from the values part, add it at the end)
     $stmt->bind_param('ssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $serial_numbers,
         $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name,
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $interval_6_months, $interval_12_months, $examination_scheme, $exceptional_circumstances, $identification_any_part, $defect,
         $date_defect, $repair_details, $test_particulars, $equipment_fit, $name_qualifications_person,
         $report_making_person_qualifications, $authenticating_person_name, $latest_date_exam,
-        $name_address_of_employer, $project_id // Add project_id here as the last parameter
+        $name_address_of_employer, $project_no // Add project_no here as the last parameter
     );
 
     // Execute the query

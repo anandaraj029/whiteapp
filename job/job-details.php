@@ -3,20 +3,20 @@ include_once('../file/config.php');
 // include '../file/auth.php';
 include_once('../inc/function.php');
 
-// Check if project_id is set in the URL
+// Check if project_no is set in the URL
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $data_id = $_GET['id'];
 
     // Query to fetch project, checklist, and report details using JOIN
     $query = "
         SELECT 
-            p.project_id, p.creation_date, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
+            p.project_no, p.creation_date, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
             c.checklist_no, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
             r.report_no, r.sticker_number_issued
         FROM project_info p
-        LEFT JOIN checklist_information c ON p.project_id = c.project_id
-        LEFT JOIN reports r ON p.project_id = r.project_id
-        WHERE p.project_id = ?
+        LEFT JOIN checklist_information c ON p.project_no = c.project_no
+        LEFT JOIN reports r ON p.project_no = r.project_no
+        WHERE p.project_no = ?
     ";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $data_id);
@@ -50,7 +50,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             'healthcheck' AS certificate_type,
             hc.certificate_no, hc.created_at
         FROM crane_health_check_certificate hc
-        WHERE hc.project_id = ?        
+        WHERE hc.project_no = ?        
 
         UNION
 
@@ -58,7 +58,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             'loadtestwithload' AS certificate_type,
             lw.certificate_no, lw.created_at
         FROM loadtest_certificate lw
-        WHERE lw.project_id = ?
+        WHERE lw.project_no = ?
 
         UNION
 
@@ -66,7 +66,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             'mobile' AS certificate_type,
             mc.certificate_no, mc.created_at
         FROM mobile_crane_loadtest mc
-        WHERE mc.project_id = ?
+        WHERE mc.project_no = ?
 
 
         UNION
@@ -75,7 +75,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             'lifting' AS certificate_type,
             lc.certificate_no, lc.created_at
         FROM lifting_gear_certificates lc
-        WHERE lc.project_id = ?
+        WHERE lc.project_no = ?
 
 
         UNION
@@ -84,7 +84,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             'mpi' AS certificate_type,
             mp.certificate_no, mp.created_at
         FROM mpi_certificates mp
-        WHERE mp.project_id = ?
+        WHERE mp.project_no = ?
        
     ";
 
@@ -165,7 +165,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                         
                                     </li>
                                     <li><span class="key font-14">Project No:</span>
-                                        <span class="white bold font-17"><?php echo htmlspecialchars($data['project_id']); ?></span>
+                                        <span class="white bold font-17"><?php echo htmlspecialchars($data['project_no']); ?></span>
                                     </li>
                                     <li>
     <span class="key font-14">Start Date:</span>
@@ -287,7 +287,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <div class="modal-body">
                 <div class="form-group">
                     <label for="projectId">Project ID</label>
-                    <input type="text" class="form-control" id="projectId" value="<?php echo htmlspecialchars($data['project_id']); ?>" readonly>
+                    <input type="text" class="form-control" id="projectId" value="<?php echo htmlspecialchars($data['project_no']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="checklistNo">Checklist No</label>
@@ -366,8 +366,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <td><?php echo htmlspecialchars($data['inspected_by']); ?></td>
                             <td>Generated</td>
                             <td>
-                                <a href="../document/report/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
-                                <a href="../document/report/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+                                <a href="../document/report/download.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3"><img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg"></a>
+                                <a href="../document/report/view.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
                             </td>
                         </tr>
                     <?php endif; ?>
@@ -390,11 +390,11 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
     ? $certificate_types[$certificate['certificate_type']] 
     : $certificate['certificate_type'];
 ?>
-<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/download.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3">
+<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/download.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3">
     <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
 </a>
 
-<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/view.php?project_id=<?php echo $data['project_id']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
+<a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/view.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3 bg-info"><img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg"></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -454,7 +454,7 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
         // Check if the selected certificate type has a link
         if (certificateLinks[certificateType]) {
             // Redirect to the appropriate link
-            const redirectUrl = `${certificateLinks[certificateType]}?project_id=${projectId}&checklist_no=${checklistNo}&report_no=${reportNo}`;
+            const redirectUrl = `${certificateLinks[certificateType]}?project_no=${projectId}&checklist_no=${checklistNo}&report_no=${reportNo}`;
             window.location.href = redirectUrl;
         } else {
             alert('Invalid certificate type selected.');

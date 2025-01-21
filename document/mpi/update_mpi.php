@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $certificate_no = $_POST['certificate_no'];    
     $jrn = $_POST['jrn'];
     $report_no = $_POST['report_no'];
-    $project_id = $_POST['project_id'];
+    $project_no = $_POST['project_no'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
@@ -131,7 +131,7 @@ if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
         ndt_level = '$ndt_level',
         companyName = '$companyName',
         image_path = '$image_path'
-        WHERE project_id = '$project_id'"; // Removed the extra comma before WHERE clause
+        WHERE project_no = '$project_no'"; // Removed the extra comma before WHERE clause
 
     // Execute the query
     if ($conn->query($query) === TRUE) { // Changed $sql to $query

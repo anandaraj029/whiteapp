@@ -7,12 +7,12 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Fetch the record based on report_no
-if (isset($_GET['project_id'])) {
-    $project_id = $_GET['project_id']; // Assuming report_no is passed via URL
+if (isset($_GET['project_no'])) {
+    $project_no = $_GET['project_no']; // Assuming report_no is passed via URL
 
-    $query = "SELECT * FROM crane_health_check_certificate WHERE project_id = ?";
+    $query = "SELECT * FROM crane_health_check_certificate WHERE project_no = ?";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('s', $project_id);
+    $stmt->bind_param('s', $project_no);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -91,7 +91,7 @@ if (isset($_GET['project_id'])) {
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="project_id" value="<?php echo $row['project_id']; ?>" placeholder="Project ID">
+                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $row['project_no']; ?>" placeholder="Project ID">
                             </div>
                         </div>
                         <div class="form-row mb-20">

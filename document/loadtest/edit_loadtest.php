@@ -3,8 +3,8 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // Fetch existing data (assuming the certificate_no is passed via GET)
-$project_id = $_GET['project_id']; // Get the certificate number from URL
-$query = "SELECT * FROM loadtest_certificate WHERE project_id = '$project_id'";
+$project_no = $_GET['project_no']; // Get the certificate number from URL
+$query = "SELECT * FROM loadtest_certificate WHERE project_no = '$project_no'";
 $result = mysqli_query($conn, $query);
 $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 ?>
@@ -32,7 +32,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
             </div>
                 <div class="container-fluid">
                 <form action="update_with_load.php" method="POST">
-                <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
+                <input type="hidden" name="project_no" value="<?php echo $project_no; ?>" />
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -91,7 +91,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                             <label class="font-14 bold">Project ID</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_id" value="<?php echo $data['project_id']; ?>" required>
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_no" value="<?php echo $data['project_no']; ?>" required>
                                         </div>
                                     </div>                                          
                                     
