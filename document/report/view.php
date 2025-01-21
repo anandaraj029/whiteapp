@@ -169,7 +169,7 @@ if ($stmt_client) {
     
     <tbody>
     <tr>
-            <td rowspan="2">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</td>
+            <td rowspan="2"><b>Heavy Equipment & Elevating / Lifting Equipment Inspection Report</b></td>
             <td class="manufac">Manufacturer:</td>
             <td class="manufac">Equipment Identification Number:</td>
             <td class="manufac">Date of Inspection:</td>
@@ -177,10 +177,10 @@ if ($stmt_client) {
         </tr>
         <tr>
             <!-- <td> </td> -->
-            <td><?php echo htmlspecialchars($row['manufacturer']); ?></td>
-            <td><?php echo htmlspecialchars($row['equipment_id_no']); ?></td>
-            <td><?php echo htmlspecialchars($row['date_of_inspection']); ?></td>
-            <td><?php echo htmlspecialchars($row['model']); ?></td>
+            <td><b><?php echo htmlspecialchars($row['manufacturer']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['equipment_id_no']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['date_of_inspection']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['model']); ?></b></td>
         </tr>
 
         <tr>
@@ -220,10 +220,10 @@ if ($stmt_client) {
         <td colspan="2" class="manufac">Sticker Number Issued:</td>
         </tr>
         <tr>
-            <td><?php echo htmlspecialchars($row['prev_sticker_no']); ?></td>
-            <td><?php echo htmlspecialchars($row['issued_by']); ?></td>
-            <td><?php echo htmlspecialchars($row['capacity']); ?></td>
-            <td colspan="2"><?php echo htmlspecialchars($row['sticker_number_issued']); ?></td>
+            <td><b><?php echo htmlspecialchars($row['prev_sticker_no']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['issued_by']); ?></b></td>
+            <td><b><?php echo htmlspecialchars($row['capacity']); ?></b></td>
+            <td colspan="2"><b><?php echo htmlspecialchars($row['sticker_number_issued']); ?></b></td>
         </tr>
 
         
