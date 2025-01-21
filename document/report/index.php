@@ -159,7 +159,13 @@ $result = $conn->query($sql);
                 
                 <td><?php echo $row['report_no']; ?></td>
                 <td><?php echo $row['project_id']; ?></td>
-                <td><?php echo $row['checklist_no']; ?></td>
+     
+                <td>
+                <a href='../checklist/type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}' class="text-primary">
+        <?php echo htmlspecialchars($row['checklist_no']); ?>
+    </a>
+</td>
+
                 <td>
                                         <div class="d-flex align-items-center">
                                             <div class="img mr-20">

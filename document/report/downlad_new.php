@@ -303,11 +303,14 @@ ob_start();
                             <td> Inspector Name & Signature</td>
                             </tr>
                             <tr>
-                            <td><img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">
+                            <td>
+                                <img src="../uploads/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">
                             <?php echo htmlspecialchars($client_name); ?>
 
                         </td>
-                            <td><img src="../uploads/signatures/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">Sathish Kumar</td>
+                            <td>
+                                <img src="../uploads/signatures/<?php echo $project_id; ?>.png" alt="" width="70px" height="90px">
+                                Sathish Kumar</td>
                             <?php
 // Include database connection
 include_once('../../file/config.php');

@@ -294,7 +294,7 @@ ob_end_flush();  // Flush the output buffer
             ?>
         </tbody>
     </table>
-    <button type="button" onclick="addRow()">Add Row</button>
+    <!-- <button type="button" onclick="addRow()">Add Row</button> -->
     </div>
 </div>
     </div>
