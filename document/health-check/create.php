@@ -67,7 +67,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         $newCertificateNo = sprintf("CHC-%03d-%s", $nextNumber, $currentYear);
 
         // Display or use the certificate number as needed
-        echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";
+        // echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";
         
     } else {
         $data = null;

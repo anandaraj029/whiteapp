@@ -6,7 +6,7 @@ include_once('../../file/config.php'); // include your database connection
 // Get the project ID from the query parameter
 $project_no = $_GET['project_no'];
 
-// Fetch the data based on the projectid
+// Fetch the data based on the projectNo
 $sql = "SELECT * FROM mobile_crane_loadtest WHERE project_no = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('s', $project_no);

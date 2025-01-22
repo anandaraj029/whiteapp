@@ -19,7 +19,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         WHERE p.project_no = ?
     ";
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("i", $data_id);
+    $stmt->bind_param("s", $data_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -89,7 +89,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("iiiii", $data_id, $data_id, $data_id, $data_id, $data_id);
+    $stmt->bind_param("sssss", $data_id, $data_id, $data_id, $data_id, $data_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -98,9 +98,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         while ($row = $result->fetch_assoc()) {
             $certificates[] = $row;
         }
-    } else {
-        echo "No certificates found for this project.";
-    }
+    } 
 } else {
     echo "Invalid Project ID.";
     exit;
@@ -286,8 +284,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="projectId">Project ID</label>
-                    <input type="text" class="form-control" id="projectId" value="<?php echo htmlspecialchars($data['project_no']); ?>" readonly>
+                    <label for="projectNo">Project ID</label>
+                    <input type="text" class="form-control" id="projectNo" value="<?php echo htmlspecialchars($data['project_no']); ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label for="checklistNo">Checklist No</label>
@@ -431,7 +429,7 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
       <script>
     document.getElementById('createCertificateBtn').addEventListener('click', function () {
         // Get form values
-        const projectId = document.getElementById('projectId').value;
+        const projectNo = document.getElementById('projectNo').value;
         const checklistNo = document.getElementById('checklistNo').value;
         const reportNo = document.getElementById('reportNo').value;
         const certificateType = document.getElementById('certificateType').value;
@@ -454,7 +452,7 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
         // Check if the selected certificate type has a link
         if (certificateLinks[certificateType]) {
             // Redirect to the appropriate link
-            const redirectUrl = `${certificateLinks[certificateType]}?project_no=${projectId}&checklist_no=${checklistNo}&report_no=${reportNo}`;
+            const redirectUrl = `${certificateLinks[certificateType]}?project_no=${projectNo}&checklist_no=${checklistNo}&report_no=${reportNo}`;
             window.location.href = redirectUrl;
         } else {
             alert('Invalid certificate type selected.');
