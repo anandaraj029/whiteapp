@@ -345,7 +345,7 @@ $result = $conn->query($sql);
 
 
       <script>
-function deleteRow(projectId) {
+function deleteRow(projectNo) {
     if (confirm('Are you sure you want to delete this row?')) {
         // AJAX call to delete the row from the database
         var xhr = new XMLHttpRequest();
@@ -353,12 +353,12 @@ function deleteRow(projectId) {
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onload = function () {
             if (xhr.status === 200) {
-                document.getElementById('row_' + projectId).remove();
+                document.getElementById('row_' + projectNo).remove();
             } else {
                 alert('Error: Unable to delete record.');
             }
         };
-        xhr.send('project_no=' + projectId);
+        xhr.send('project_no=' + projectNo);
     }
 }
 </script>

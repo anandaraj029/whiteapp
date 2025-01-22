@@ -349,7 +349,7 @@ $result = $conn->query($sql);
         ?>
         
         <script>
-    function confirmDeleteCertificate(projectId) {
+    function confirmDeleteCertificate(projectNo) {
         // Show confirmation dialog
         const userConfirmed = confirm('Are you sure you want to delete this certificate? This action cannot be undone.');
 
@@ -360,7 +360,7 @@ $result = $conn->query($sql);
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ project_no: projectId })
+                body: JSON.stringify({ project_no: projectNo })
             })
             .then(response => response.json())
             .then(data => {

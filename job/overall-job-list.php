@@ -137,7 +137,7 @@ $result = $conn->query($sql);
 </td>
 
                     <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="text-danger">Processing</td>
+                    <td class="status-btn pending">Pending</td>
                     <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
                     <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
                     <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
