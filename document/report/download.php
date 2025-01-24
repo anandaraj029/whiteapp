@@ -306,8 +306,9 @@ below. Specific repairs to correct each deficiency should be noted in the right 
                 <span><?php echo htmlspecialchars($client_name); ?></span>
             </td>
             <td class="signature-cell">
-                <img src="../../document/uploads/37.png" alt="Signature" height="30px">
-                <span><?php echo htmlspecialchars($client_name); ?></span>
+                99789456123
+                <!-- <img src="../../document/uploads/37.png" alt="Signature" height="30px">
+                <span><?php echo htmlspecialchars($client_name); ?></span> -->
             </td>                          
             <?php
 // Include database connection

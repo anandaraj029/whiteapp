@@ -31,8 +31,8 @@ include_once('./view-fetch.php');
 /* Custom checkbox styling */
 .custom-checkbox {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 26px;
     border: 2px solid #ccc;
     border-radius: 3px;
     display: inline-block;

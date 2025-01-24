@@ -19,7 +19,7 @@ if ($projectResult && $projectResult->num_rows > 0) {
 $formattedProjectNo = "CIMS" . str_pad($newProjectNo, 3, "0", STR_PAD_LEFT);
 
 // Return the generated ID
-echo $formattedProjectNo;
+// echo $formattedProjectNo;
 
 
 

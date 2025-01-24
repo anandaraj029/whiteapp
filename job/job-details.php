@@ -204,7 +204,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <?php endif; ?>
     </div>
                         <div class="row">
-                        <div class="col-xl-4 col-md-6 mt-5">
+                        <div class="col-lg-4 col-md-6">
         <!-- Checklist Details -->
         <div class="invoice payment-details mt-5 mt-xl-0">
             <div class="bold black font-17 mb-3">Checklist Details:</div>
@@ -219,7 +219,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                 <?php endif; ?>
         </div>
     </div>
-    <div class="col-xl-4 col-md-6 mt-5">
+    <div class="col-lg-4 col-md-6 mt-5">
         <!-- Report Details -->
         <div class="invoice invoice-form">
             <div class="bold black font-17 mb-3">Report Details:</div>
@@ -240,7 +240,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             
         </div>
     </div>
-                           <div class="col-xl-4 col-md-6 mt-5">
+                           <div class="col-lg-4 col-md-6 mt-5">
                               <!-- Invoice To -->
                               <div class="invoice invoice-form mt-5 mt-md-0">
                                  <div class="black bold font-17 mb-3">Certificate Details :</div>

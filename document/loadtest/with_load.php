@@ -1,6 +1,6 @@
 <?php 
 include_once('../../inc/function.php');
-
+include_once('../../file/config.php');
 ?>
 
             <!-- Main Content -->
