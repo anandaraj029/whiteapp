@@ -110,7 +110,7 @@ $result = $conn->query($sql);
                                             <td>{$row['assign_inspector']}</td>
                                             <td>" . date("d/m/Y", strtotime($row['inspection_date'])) . "</td>
                                             <td>" . date("d/m/Y", strtotime($expiry_date)) . "</td>
-                                            <td><span class='$sticker_status_class'>$sticker_status_text</span></td>
+                                            <td><button type='button' class='status-btn $sticker_status_class'>$sticker_status_text</button></td>
                                             <td><button type='button' class='status-btn $status_class'>$status_text</button></td>
                                             <td class='actions'>
                                                 <a href='#'><span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>

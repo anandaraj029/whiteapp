@@ -1464,24 +1464,57 @@ sec. 6.5.2(3)(4)(9)(11)
 
        
 		
-		<div class="table-responsive">
-            <table class="table table-bordered">
-            <tr>
-                <th style="width: 25%;">INSPECTOR’S NAME:</th>
-                <td style="width: 25%;"></strong></td>
-                <th style="width: 25%;">CLIENT’S REP. NAME:</th>
-                <td style="width: 25%;"></strong></td>
-            </tr>
-            <tr>
-                <th>SIGNATURE & DATE:</th>
-                <td><strong></strong></td>
-                <th>SIGNATURE & DATE:</th>
-                <td><strong></strong></td>
-            </tr>
+            <div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th style="width: 25%;">INSPECTOR’S NAME:</th>
+            <td style="width: 25%;">
+                <strong>
+                <?php echo htmlspecialchars($row['inspected_by']); ?>
+                </strong>
+            </td>
+            <th style="width: 25%;">CLIENT’S REP. NAME:</th>
+            <td style="width: 25%;">
+
+            <?php echo htmlspecialchars($client_name); ?>
             
-           
-        </table>
+            </td>
+        </tr>
+        <tr>
+            <th>SIGNATURE & DATE:</th>
+            <td>
+                <?php 
+                // Query the inspector table for the profile photo
+                $inspector_name = $row['inspected_by'];
+                $sql = "SELECT signature_photo FROM inspectors WHERE inspector_name = ?";
+                $stmt = $conn->prepare($sql);
+                $stmt->bind_param("s", $inspector_name);
+                $stmt->execute();
+                $result = $stmt->get_result();
+
+                if ($result->num_rows > 0) {
+                    $inspector = $result->fetch_assoc();
+                    $image_path = '../../../../inspector/uploads/' . preg_replace('/\s+/', '_', strtolower($inspector_name)) . '/images/' . $inspector['signature_photo'];
+                    
+
+                    // Check if the image exists
+                    if (file_exists($image_path)) {
+                        echo "<img src='$image_path' alt='Inspector Signature' style='max-width: 100px; max-height: 50px;'>";
+                    } else {
+                        echo "Image not available.";
+                    }
+                } else {
+                    echo "Inspector not found.";
+                }
+                ?>
+            </td>
+            <th>SIGNATURE & DATE:</th>
+            <td> <img src="../../../uploads/<?php echo htmlspecialchars($project_no); ?>.png" height="50px" width="100px" alt="Client Signature">
+            </td>
+        </tr>
+    </table>
 </div>
+
 
 
 <div class="col-12 d-flex justify-content-center mt-4">
