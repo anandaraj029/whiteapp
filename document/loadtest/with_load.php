@@ -1,6 +1,62 @@
 <?php 
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
+
+// Ensure `project_no` is set in the request
+if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
+    $query = "
+    SELECT 
+        p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn
+    FROM 
+        project_info p
+    LEFT JOIN 
+        checklist_information c ON p.project_no = c.project_no
+    LEFT JOIN 
+        reports r ON p.project_no = r.project_no
+    WHERE 
+        p.project_no = ?
+";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $project_no);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+
+        // Generate certificate number logic
+        $currentYear = date('Y');
+        
+        $certQuery = "SELECT certificate_no FROM loadtest_certificate ORDER BY id DESC LIMIT 1";
+        $certResult = $conn->query($certQuery);
+
+        if ($certResult->num_rows > 0) {
+            $lastCert = $certResult->fetch_assoc()['certificate_no'];
+            
+            // Extract the numeric part
+            preg_match('/CWL-(\d+)-\d{4}/', $lastCert, $matches);
+            $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
+        } else {
+            $nextNumber = 1; // Start with 1 if no previous certificates exist
+        }
+
+        // Format the new certificate number
+        $newCertificateNo = sprintf("CWL-%03d-%s", $nextNumber, $currentYear);
+
+        // Display or use the certificate number as needed
+        // echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";
+        
+    } else {
+        $data = null;
+    }
+} else {
+    echo "Invalid or missing project ID.";
+    exit;
+}
 ?>
 
             <!-- Main Content -->

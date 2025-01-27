@@ -2,8 +2,6 @@
 <?php 
 include_once('../inc/function.php');
 
-
-
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -273,7 +271,7 @@ if ($result->num_rows > 0) {
                                        </div>
             
             
-                                       <div class="contact-account-setting media-body">
+                                       <!-- <div class="contact-account-setting media-body">
 
                                           <h4 class="mb-4">Account Settings</h4>
 
@@ -316,7 +314,7 @@ if ($result->num_rows > 0) {
                                              <a href="#" class="cancel font-14 bold mr-4" data-dismiss="modal">Cancel</a>
                                              <a href="#" class="btn ">Save Changes</a>
                                           </div>
-                                       </div>
+                                       </div> -->
                                     </div>
                                  </form>
                               </div>

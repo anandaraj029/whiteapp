@@ -8,7 +8,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $query = "
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
-        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl, c.sticker_no,
         r.report_no, r.jrn
     FROM 
         project_info p
@@ -35,13 +35,13 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         if ($certResult->num_rows > 0) {
             $lastCert = $certResult->fetch_assoc()['certificate_no'];            
             // Extract the numeric part
-            preg_match('/CHC-(\d+)-\d{4}/', $lastCert, $matches);
+            preg_match('/CMC-(\d+)-\d{4}/', $lastCert, $matches);
             $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
         } else {
             $nextNumber = 1; // Start with 1 if no previous certificates exist
         }
         // Format the new certificate number
-        $newCertificateNo = sprintf("CHC-%03d-%s", $nextNumber, $currentYear);
+        $newCertificateNo = sprintf("CMC-%03d-%s", $nextNumber, $currentYear);
         // Display or use the certificate number as needed
         // echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";        
     } else {
@@ -80,29 +80,29 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <!-- Form -->
 <!-- Form Row -->
 <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Date of Thorough Examination</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <input type="date" class="theme-input-style" placeholder="Date of Thorough Examination" name="examination_date" required>
-                                        </div>
-                                    </div>
+  <div class="col-sm-4">
+  <label class="font-14 bold">Date of Thorough Examination</label>
+  </div>
+  <div class="col-sm-8">
+<input type="date" class="theme-input-style" placeholder="Date of Thorough Examination" name="examination_date" required>
+</div>
+</div>
                                     <!-- End Form Row -->
                                     <!-- Form Row -->
-                                    <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Date of Report</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <input type="date" class="theme-input-style" placeholder="Date of Report" name="report_date" required>
-                                        </div>
-                                    </div>
+<div class="form-row mb-20">
+<div class="col-sm-4">
+<label class="font-14 bold">Date of Report</label>
+</div>
+<div class="col-sm-8">
+<input type="date" class="theme-input-style" placeholder="Date of Report" name="report_date" required>
+</div>
+</div>
                                     <!-- End Form Row -->                                    
                                     <!-- Form Row -->
-                                    <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Report No</label>
-                                        </div>
+<div class="form-row mb-20">
+<div class="col-sm-4">
+<label class="font-14 bold">Report No</label>
+</div>
                                         <div class="col-sm-8">
                                             <input type="text" class="theme-input-style" placeholder="Report No" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" readonly required>
                                         </div>
@@ -114,7 +114,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Sticker No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Sticker No" value="<?php echo $data['report_no'] ?? ''; ?>" name="sticker_no" required>
+                                            <input type="text" class="theme-input-style" placeholder="Sticker No" value="<?php echo $data['sticker_no'] ?? ''; ?>" name="sticker_no" required>
                                         </div>
                                     </div>
                                
@@ -165,9 +165,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                     <div class="input-group-text">
                                                         <img src="../../assets/img/svg/user3.svg" alt="" class="svg">
                                                     </div>
-                                                </div>
-                                                
-                                                <input type="text" class="form-control pl-1" placeholder="Type Your Name"  name="customer_name" required>
+                                                </div>                                                
+                                                <input type="text" class="form-control pl-1" placeholder="Type Your Name" value="<?php echo $data['customer_name'] ?? ''; ?>" name="customer_name" required>
                                             </div>
                                         </div>
                                     </div>
@@ -185,7 +184,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" name="customer_email" required>
+                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" value="<?php echo $data['customer_email'] ?? ''; ?>" name="customer_email" required>
                                             </div>
                                         </div>
                                     </div>
@@ -203,7 +202,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" name="customer_mobile" required>
+                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" name="customer_mobile" required>
                                             </div>
                                         </div>
                                     </div>
@@ -221,7 +220,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/key3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control pl-1" placeholder="Inspector name"  name="inspector_name" required>
+                                                <input type="text" class="form-control pl-1" placeholder="Inspector name" value="<?php echo $data['inspector_name'] ?? ''; ?>" name="inspector_name" required>
                                             </div>
                                         </div>
                                     </div>

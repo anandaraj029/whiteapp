@@ -25,36 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sticker_number_issued = $_POST['sticker_number_issued'];
     $created_at = date('Y-m-d H:i:s');
     
-    // Deficiencies and Corrective Actions
-    // $deficiency_1 = $_POST['deficiency_1'];
-    // $corrective_action_1 = $_POST['corrective_action_1'];
-    // $deficiency_2 = $_POST['deficiency_2'];
-    // $corrective_action_2 = $_POST['corrective_action_2'];
-    // $deficiency_3 = $_POST['deficiency_3'];
-    // $corrective_action_3 = $_POST['corrective_action_3'];
-    // $deficiency_4 = $_POST['deficiency_4'];
-    // $corrective_action_4 = $_POST['corrective_action_4'];
-    // $deficiency_5 = $_POST['deficiency_5'];
-    // $corrective_action_5 = $_POST['corrective_action_5'];
-    // $deficiency_6 = $_POST['deficiency_6'];
-    // $corrective_action_6 = $_POST['corrective_action_6'];
+    // Combine deficiencies and corrective actions into an array
+    $deficiencies = $_POST['deficiency'];
+    $corrective_actions = $_POST['corrective_action'];
 
+    $deficiencyData = [];
+    foreach ($deficiencies as $index => $deficiency) {
+        $corrective_action = $corrective_actions[$index];
+        $deficiencyData[] = [
+            'deficiency' => $deficiency,
+            'corrective_action' => $corrective_action,
+        ];
+    }
 
-// Combine deficiencies and corrective actions into an array
-$deficiencies = $_POST['deficiency'];
-$corrective_actions = $_POST['corrective_action'];
-
-$deficiencyData = [];
-foreach ($deficiencies as $index => $deficiency) {
-    $corrective_action = $corrective_actions[$index];
-    $deficiencyData[] = [
-        'deficiency' => $deficiency,
-        'corrective_action' => $corrective_action,
-    ];
-}
-
-// Encode the deficiency data as JSON
-$deficiencyJson = json_encode($deficiencyData);
+    // Encode the deficiency data as JSON
+    $deficiencyJson = json_encode($deficiencyData);
 
     // Validate Date Format (optional but recommended)
     if (!strtotime($date_of_inspection) || !strtotime($next_inspection_due_date)) {
@@ -85,9 +70,36 @@ $deficiencyJson = json_encode($deficiencyData);
         $updateStmt->bind_param("s", $project_no);
 
         if ($updateStmt->execute()) {
-            $msg = "Report created successfully, and project status updated.";
-            header('Location: index.php?msg=' . urlencode($msg)); 
-            exit;
+            // Verify if the sticker_number_issued exists in the stickers table
+            $stickerCheckQuery = "SELECT * FROM stickers WHERE sticker_start_no = ?";
+            $stickerCheckStmt = $conn->prepare($stickerCheckQuery);
+            $stickerCheckStmt->bind_param("s", $sticker_number_issued);
+            $stickerCheckStmt->execute();
+            $stickerResult = $stickerCheckStmt->get_result();
+
+            if ($stickerResult->num_rows > 0) {
+                // Sticker exists, update the existing row in the stickers table
+                $stickerUpdateQuery = "UPDATE stickers 
+                                       SET project_no = ?, inspection_date = ?, next_inspection_due_date = ?, equipment_no = ?, equipment_serial_no = ?, sticker_status = ?, status = 'Active'
+                                       WHERE sticker_start_no = ?";
+                $stickerUpdateStmt = $conn->prepare($stickerUpdateQuery);
+                $stickerUpdateStmt->bind_param("sssssss", $project_no, $date_of_inspection, $next_inspection_due_date, $equipment_id_no, $equipment_serial_no, $inspection_status, $sticker_number_issued);
+
+                if ($stickerUpdateStmt->execute()) {
+                    $msg = "Report created successfully, project status updated, and sticker information updated.";
+                    header('Location: index.php?msg=' . urlencode($msg)); 
+                    exit;
+                } else {
+                    error_log("Error updating sticker data: " . $stickerUpdateStmt->error);
+                    echo "Error updating sticker information.";
+                }
+
+                $stickerUpdateStmt->close();
+            } else {
+                echo "Error: Sticker number does not exist in the database.";
+            }
+
+            $stickerCheckStmt->close();
         } else {
             error_log("Error updating project status: " . $updateStmt->error);
             echo "Error updating project status.";
