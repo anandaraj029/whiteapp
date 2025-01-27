@@ -6,24 +6,6 @@ include_once('../../file/config.php');
 if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $project_no = $_GET['project_no'];
 
-    // SQL query to join tables
-    // $query = "
-    //     SELECT 
-    //         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.company_name,
-    //         c.checklist_no, c.inspected_by,
-    //         r.report_no, r.sticker_number_issued, r.date_of_creation, r.rep_name
-    //     FROM 
-    //         project_info p
-    //     LEFT JOIN 
-    //         checklist_information c ON p.project_no = c.project_no
-    //     LEFT JOIN 
-    //         report r ON p.project_no = r.project_no
-    //     WHERE 
-    //         p.project_no = ?
-    // ";
-
-
-
     $query = "
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
@@ -79,8 +61,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         <div class="row">
             <div class="col-lg-6">
                 <div class="form-element py-30 mb-30">
-                    <h4 class="font-20 mb-30">Header Data</h4>
-                    
+                    <h4 class="font-20 mb-30">Header Data</h4>                    
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Date of Report</label>
@@ -88,16 +69,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <div class="col-sm-8">
                                 <input type="date" name="date_of_report" class="theme-input-style" required>
                             </div>
-                        </div>
-
-                        <!-- <div class="form-row mb-20">
-                            <div class="col-sm-4">
-                                <label class="font-14 bold">Certificate No</label>
-                            </div>
-                            <div class="col-sm-8">
-                                <input type="text" name="certificate_no" class="theme-input-style" required>
-                            </div>
-                        </div> -->
+                        </div>                        
 
                         <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
@@ -113,7 +85,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" class="theme-input-style" required>
+                                <input type="text" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" class="theme-input-style" readonly required>
                             </div>
                         </div>
 
@@ -122,7 +94,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" class="theme-input-style">
+                                <input type="text" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" class="theme-input-style" readonly>
                             </div>
                         </div>
 
@@ -155,17 +127,15 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID">
+                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
                             </div>
                         </div>
-
-
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="companyName" value="<?php echo $data['project_no'] ?? ''; ?>" class="theme-input-style">
+                                <input type="text" name="companyName" value="<?php echo $data['project_no'] ?? ''; ?>" class="theme-input-style" readonly>
                             </div>
                         </div>
                     
@@ -181,7 +151,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <label class="font-14 bold">Customer Name</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" class="form-control pl-1" required>
+                            <input type="text" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" class="form-control pl-1" readonly required>
                         </div>
                     </div>
 
@@ -190,7 +160,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <label class="font-14 bold">Customer Email</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="email" value="<?php echo $data['customer_email'] ?? ''; ?>" name="customer_email" class="form-control pl-1" required>
+                            <input type="email" value="<?php echo $data['customer_email'] ?? ''; ?>" name="customer_email" class="form-control pl-1" readonly required>
                         </div>
                     </div>
 
@@ -199,7 +169,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <label class="font-14 bold">Mobile</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" name="mobile" class="form-control pl-1" required>
+                            <input type="number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" name="mobile" class="form-control pl-1" readonly required>
                         </div>
                     </div>
 
@@ -208,7 +178,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <label class="font-14 bold">Inspector</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" value="<?php echo $data['inspector_name'] ?? ''; ?>" name="inspector" class="form-control pl-1" required>
+                            <input type="text" value="<?php echo $data['inspector_name'] ?? ''; ?>" name="inspector" class="form-control pl-1" readonly required>
                         </div>
                     </div>
 
@@ -230,11 +200,23 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
                     <div class="row">
                         <div class="col-lg-6">
+                        <?php
+$year = date('Y'); // Get the current year
+$certificateCounter = 1; // Fetch from a database or initialize dynamically
+$certificateNo = sprintf("CLC-%03d-%s", $certificateCounter, $year);
+?>
+<div class="form-group">
+    <label for="certificate_no">Certificate No:</label>
+    <input 
+        type="text" 
+        name="certificate_no[]" 
+        class="certificate-no theme-input-style" 
+        readonly 
+        value="<?php echo htmlspecialchars($certificateNo); ?>"
+    >
+</div>
 
-                        <div class="form-group">
-                        <label for="certificate_no">Certificate No:</label>
-                        <input type="text" name="certificate_no[]" class="certificate-no" value="24403-1" readonly>
-                            </div>
+
                             <div class="form-group">
                                 <label class="font-14 bold mb-2">Name & Address of Employer</label>
                                 <input type="text" name="employer_name_address[]" class="theme-input-style">
@@ -302,7 +284,6 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
             <div class="col-lg-12">
                 <div class="form-element py-30 multiple-column">
                     <h4 class="font-20 mb-20">B. GENERAL INFORMATION</h4>
-
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -355,14 +336,9 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <input type="text" name="safe_to_use[]" class="theme-input-style">
                             </div>
                         </div>
-                    </div>
-
-                    
-                </div>
-          
-            </div>
-
-                   
+                    </div>                    
+                </div>          
+            </div>                   
             </div>
             </div>
             </div>
@@ -376,12 +352,9 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
             <div class="form-group text-center mt-3">
                         <button type="submit" class="btn long" name="save_data_lifting">Save All</button>
                     </div>
-            </form>
-        
+            </form>        
     </div>
 </div>
-
-
 <!-- FontAwesome for Icons -->
 <link
     rel="stylesheet"
@@ -390,7 +363,9 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
 <!-- JavaScript -->
 <script>
-        let certificateCounter = 1; // Starting counter for certificate numbers
+      let certificateCounter = 1; // Starting counter for certificate numbers
+const currentYear = new Date().getFullYear(); // Get the current year dynamically
+
 document.getElementById("add-form-btn").addEventListener("click", function (e) {
     e.preventDefault(); // Prevent default form submission
 
@@ -398,15 +373,18 @@ document.getElementById("add-form-btn").addEventListener("click", function (e) {
     const formSection = document.querySelector(".form-section");
     const clonedForm = formSection.cloneNode(true); // Clone the form section
 
-    // Increment the certificate counter and update the certificate number
+    // Increment the certificate counter
     certificateCounter++;
     const certField = clonedForm.querySelector(".certificate-no");
+
     if (certField) {
-        certField.value = `24403-${certificateCounter}`;
+        // Generate the new certificate number in the format CLC-XXX-YYYY
+        const newCertificateNo = `CLC-${String(certificateCounter).padStart(3, "0")}-${currentYear}`;
+        certField.value = newCertificateNo;
     }
 
-    // Clear input values in the cloned form except for the certificate number
-    clonedForm.querySelectorAll("input, textarea").forEach(input => {
+    // Clear other input values in the cloned form except for the certificate number
+    clonedForm.querySelectorAll("input, textarea").forEach((input) => {
         if (!input.classList.contains("certificate-no")) {
             input.value = "";
         }
@@ -416,7 +394,6 @@ document.getElementById("add-form-btn").addEventListener("click", function (e) {
     formContainer.appendChild(clonedForm);
 });
 
+
     </script>
-
-
 <?php include_once('../../inc/footer.php'); ?>

@@ -32,8 +32,8 @@ include_once('./view-fetch.php');
 /* Custom checkbox styling */
 .custom-checkbox {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 26px;
     border: 2px solid #ccc;
     border-radius: 3px;
     display: inline-block;
@@ -112,7 +112,7 @@ include_once('./view-fetch.php');
         <td class="left-align">Prepared By<br>Operations Manager</td>
         <td class="left-align">Reviewed & Approved By<br>Managing Director</td>
          
-   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
     </tr>
 </table>
 			</div>

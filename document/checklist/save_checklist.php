@@ -1,6 +1,12 @@
 <?php
+
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+// exit;
+
 // Include database connection
-include_once('../../file/config.php');  // Include your database connection file
+include_once('../../file/config.php'); // Ensure this points to your database connection file
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $manufacturer = $_POST['manufacturer'];
                 $year_model = $_POST['year_model'];
                 $equipment_no = $_POST['equipment_no'];
-                
 
                 // Retrieve arrays of results and remarks
                 $results = $_POST['results']; // Expecting an array from the form
@@ -45,13 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $sql = "INSERT INTO checklist_information 
                         (checklist_no, report_no, client_name, location, crane_asset_no, equipment_type, checklist_type, inspection_date, inspected_by, sticker_no, crane_serial_no, capacity_swl, remarks, manufacturer, year_model, equipment_no, project_no) 
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                
                 $stmt = $conn->prepare($sql);
                 $stmt->bind_param('sssssssssssssssss', 
-    $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, 
-    $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, $capacity_swl, 
-    $remarks, $manufacturer, $year_model, $equipment_no, $project_no);
-
+                    $checklist_no, $report_no, $client_name, $location, $crane_asset_no, $equipment_type, 
+                    $checklist_type, $inspection_date, $inspected_by, $sticker_no, $crane_serial_no, 
+                    $capacity_swl, $remarks, $manufacturer, $year_model, $equipment_no, $project_no);
 
                 if ($stmt->execute()) {
                     // Retrieve the newly inserted checklist ID
@@ -70,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     // Close the second statement
                     $stmt_results->close();
 
-                    // Update checklist_status to 'Completed' in project_info
+                    // Update checklist_status to 'Created' in project_info
                     $update_status = $conn->prepare("UPDATE project_info SET checklist_status = 'Created' WHERE project_no = ?");
                     $update_status->bind_param("s", $project_no);
                     $update_status->execute();
@@ -78,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     // Redirect on successful insertion
                     echo "<script>alert('Checklist created successfully!'); window.location.href='index.php';</script>";
-
                 } else {
                     echo "<script>alert('Error saving checklist information: " . $stmt->error . "'); window.history.back();</script>";
                 }

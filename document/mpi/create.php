@@ -1,5 +1,6 @@
 <?php 
 include_once('../../inc/function.php');
+include_once('../../file/config.php');
 
 if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $project_no = $_GET['project_no'];

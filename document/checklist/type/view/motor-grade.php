@@ -35,8 +35,8 @@ include_once('./view-fetch.php');
 /* Custom checkbox styling */
 .custom-checkbox {
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 26px;
     border: 2px solid #ccc;
     border-radius: 3px;
     display: inline-block;
@@ -1200,11 +1200,7 @@ include_once('./view-fetch.php');
                 <th>SIGNATURE & DATE:</th>
                 <td><img src="../../sign.jpg" width="140px"></td>
             </tr>
-            
-           
         </table>
-
-
         
         <div class="col-12 d-flex justify-content-center mt-4">
   <a href="../../index.php" class="mr-4 btn btn-primary no-print">Back</a>

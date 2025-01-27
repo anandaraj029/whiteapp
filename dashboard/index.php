@@ -6,6 +6,15 @@ include '../file/auth.php';
 include_once('../inc/function.php');
 
 
+// Query to get total projects count
+$result_projects = mysqli_query($conn, "SELECT COUNT(*) AS total_projects FROM project_info");
+$total_projects = mysqli_fetch_assoc($result_projects)['total_projects'];
+
+
+// Query to get total customers count
+$result_customers = mysqli_query($conn, "SELECT COUNT(*) AS total_customers FROM customers");
+$total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
+
 ?>
 
 
@@ -23,7 +32,7 @@ include_once('../inc/function.php');
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Total Projects</p>
-                        <h2>251</h2>
+                        <h2><?php echo $total_projects; ?></h2>
                      </div>
                   </div>
                </div>
@@ -59,7 +68,8 @@ include_once('../inc/function.php');
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Total Customer</p>
-                        <h2>48</h2>
+                        <h2><?php echo $total_customers; ?></h2>
+
                      </div>
                   </div>
                </div>

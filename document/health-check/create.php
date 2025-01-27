@@ -117,7 +117,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="certificate_no"  placeholder="Certificate No" value="<?= $newCertificateNo ?>" readonly>
+                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No" value="<?= $newCertificateNo ?>" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">

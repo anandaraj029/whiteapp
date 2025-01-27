@@ -1,6 +1,10 @@
 <?php 
 include_once('../inc/function.php');
+include_once('../file/config.php');
 
+// Fetch inspector names from the database
+$sql = "SELECT inspector_name FROM inspectors"; // Assuming 'inspector_name' is the column
+$result = mysqli_query($conn, $sql); // Execute query
 ?>
 
             <!-- Main Content -->
@@ -26,28 +30,32 @@ include_once('../inc/function.php');
                                     </div>
                                     <!-- End Form Row -->
 
-                                    <!-- Form Row -->
-                                    <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Assign Inspector</label>
-                                        </div>
-                                        <div class="col-sm-8">
-                                        <div class="form-group ">
-                                    
+                                   <!-- Form Row -->
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Assign Inspector</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="form-group">
                                     <div class="custom-select style--two">
-                                    <select name="assign_inspector" class="theme-input-style" id="exampleSelect3">
-                                        <option value="Inspector name 1	">Inspector name 1	</option>
-                                        <option value="Inspector name 2	">Inspector name 2</option>
-                                        <!-- <option value="03">Inspector 03</option>
-                                        <option value="04">Inspector 04</option>
-                                        <option value="05">Inspector 05</option> -->
-                                    </select>
+                                        <select name="assign_inspector" class="theme-input-style" id="exampleSelect3">
+                                            <?php
+                                            // Check if the query returned any results
+                                            if ($result && mysqli_num_rows($result) > 0) {
+                                                // Fetch and display each inspector name
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo '<option value="' . htmlspecialchars($row['inspector_name']) . '">' . htmlspecialchars($row['inspector_name']) . '</option>';
+                                                }
+                                            } else {
+                                                echo '<option value="">No inspectors available</option>';
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
-                                            <!-- <input type="email" class="theme-input-style" placeholder="Assign Inspector"> -->
-                                        </div>
-                                    </div>
-                                    <!-- End Form Row -->
+                            </div>
+                        </div>
+                        <!-- End Form Row -->
 
                                     <!-- Form Row -->
                                     <div class="form-row mb-20">
