@@ -18,14 +18,14 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
 
 
 
-// session_start();
+session_start();
 
-// if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-//     header('Location: ../index.php');
-//     exit();
-// }
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
 
-// echo "Welcome, Admin!";
+echo "Welcome, Admin!";
 
 ?>
 

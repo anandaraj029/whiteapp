@@ -81,69 +81,79 @@ include ('../file/config.php');
 $sql = "SELECT * FROM customers";
 $result = $conn->query($sql);
 
+
+
 // Check if records exist
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>
-            <td>
-                <label class='custom-checkbox'>
-                    <input type='checkbox'>
-                    <span class='checkmark'></span>
-                </label>
-            </td>
-             <td>{$row['cus_id']}</td>
-            <td>
-                <div class='d-flex align-items-center'>
-                    <div class='img mr-20'>
-                        <img src='{$row['profile_photo']}' 
-     alt='Profile Photo' 
-     class='img-thumbnail' 
-     style='max-width: 50px; max-height: 50px; object-fit: contain; margin-right: 10px;'>
+while ($row = $result->fetch_assoc()) {
+   // Define paths based on customer data
+   $profilePhotoPath = !empty($row['profile_photo']) ? $row['profile_photo'] : 'default-profile.png';
+   $signaturePhotoPath = !empty($row['signature_photo']) ? $row['signature_photo'] : 'default-signature.png';
 
-                    </div>
-                    <div class='name bold'>
-                       {$row['customer_name']}
-                    </div>
-                </div>
-            </td>
+   $profilePhotoUrl = file_exists($profilePhotoPath) 
+       ? "{$profilePhotoPath}?v=" . time() 
+       : 'default-profile.png';
 
-            <td>
-                <div class='d-flex align-items-center'>
-                    <div class='img mr-20'>
-                        <img src='{$row['signature_photo']}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
-                    </div>
-                 
-                </div>
-            </td>
-            <td>{$row['email']}</td>
-            <td>{$row['mobile']}</td>
-            <td>{$row['city']}</td>
-            <td>{$row['address']}</td>
-            <td>" . date('F d, Y', strtotime($row['created_at'])) . "</td>
-            <td>{$row['rep_name']}</td>
-            <td class='actions'>
-              <span class='contact-edit'>
-                <a href='view-customer.php?cusid={$row['cus_id']}'> <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'></a>
-                </span>
-                <span class='contact-edit'>
-                <!-- Link to the edit page -->
-                <a href='edit.php?cusid={$row['cus_id']}'> 
-                    <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
-                </a>
-              </span>
-                <span class='contact-close'>
-                <a href='delete_customer.php?cusid={$row['cus_id']}'> 
-                    <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
-                </a>
-                    
-                </span>
-            </td>
-        </tr>";
-    }
-} else {
-    echo "<tr><td colspan='9' class='text-center'>No customers found.</td></tr>";
-}
+   $signaturePhotoUrl = file_exists($signaturePhotoPath) 
+       ? "{$signaturePhotoPath}?v=" . time() 
+       : 'default-signature.png';
 
+   echo "<tr>
+       <td>
+           <label class='custom-checkbox'>
+               <input type='checkbox'>
+               <span class='checkmark'></span>
+           </label>
+       </td>
+       <td>{$row['cus_id']}</td>
+       <td>
+           <div class='d-flex align-items-center'>
+               <div class='img mr-20'>
+                   <img src='{$profilePhotoUrl}' 
+                       alt='Profile Photo' 
+                       class='img-thumbnail' 
+                       style='max-width: 50px; max-height: 50px; object-fit: contain; margin-right: 10px;'>
+               </div>
+               <div class='name bold'>
+                  {$row['customer_name']}
+               </div>
+           </div>
+       </td>
+
+       <td>
+           <div class='d-flex align-items-center'>
+               <div class='img mr-20'>
+                   <img src='{$signaturePhotoUrl}' 
+                       alt='Signature Photo' 
+                       class='img-thumbnail' 
+                       style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+               </div>
+           </div>
+       </td>
+       <td>{$row['email']}</td>
+       <td>{$row['mobile']}</td>
+       <td>{$row['city']}</td>
+       <td>{$row['address']}</td>
+       <td>" . date('F d, Y', strtotime($row['created_at'])) . "</td>
+       <td>{$row['rep_name']}</td>
+       <td class='actions'>
+           <span class='contact-edit'>
+               <a href='view-customer.php?cusid={$row['cus_id']}'> 
+                   <img src='$url/assets/img/svg/user-icon.svg' alt='' class='svg'>
+               </a>
+           </span>
+           <span class='contact-edit'>
+               <a href='../profile/edit-profile.php?cusid={$row['cus_id']}'> 
+                   <img src='$url/assets/img/svg/c-edit.svg' alt='' class='svg'>
+               </a>
+           </span>
+           <span class='contact-close'>
+               <a href='delete_customer.php?cusid={$row['cus_id']}' onclick='return confirmDelete();'> 
+                   <img src='$url/assets/img/svg/c-close.svg' alt='' class='svg'>
+               </a>
+           </span>
+       </td>
+   </tr>";
+} 
 ?>
 
 
