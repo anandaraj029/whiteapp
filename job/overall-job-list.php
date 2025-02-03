@@ -5,8 +5,36 @@ include_once('../inc/function.php');
 include '../file/config.php'; // Database connection
 
 // Fetch data from the project_info table
-$sql = "SELECT * FROM project_info";
-$result = $conn->query($sql);
+// $sql = "SELECT * FROM project_info";
+// $result = $conn->query($sql);
+
+
+// Check if the user is logged in
+$logged_in_user = $_SESSION['username'] ?? null; // Replace with the appropriate session key
+$user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in the session
+
+if ($logged_in_user) {
+    // Fetch data based on user role
+    if ($user_role === 'admin') {
+        // Fetch all data from the 'project_info' table for admin
+        $sql = "SELECT * FROM project_info ORDER BY creation_date DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    } else {
+        // Fetch data from the 'project_info' table for the logged-in inspector
+        $sql = "SELECT * FROM project_info WHERE inspector_name = ? ORDER BY creation_date DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $logged_in_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    }
+} else {
+    // Redirect to login page if not logged in
+    header("Location: ../../index.php");
+    exit;
+}
+
 ?>
 <!-- Main Content -->
 <div class="main-content">
