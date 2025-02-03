@@ -11,8 +11,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             p.project_no, p.creation_date, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
-            c.checklist_no, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
-            r.report_no, r.sticker_number_issued
+            c.checklist_no, c.client_name, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
+            r.report_no, r.sticker_number_issued, r.inspection_status
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_no = c.project_no
         LEFT JOIN reports r ON p.project_no = r.project_no
@@ -204,7 +204,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 <?php endif; ?>
     </div>
                         <div class="row">
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6 mt-5">
         <!-- Checklist Details -->
         <div class="invoice payment-details mt-5 mt-xl-0">
             <div class="bold black font-17 mb-3">Checklist Details:</div>
@@ -212,6 +212,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <ul class="status-list">
                                     <li><span class="key">Checklist No:</span> <span class="black"><?php echo htmlspecialchars($data['checklist_no']); ?></span></li>
                                     <li><span class="key">Inspector:</span> <span class="black"><?php echo htmlspecialchars($data['inspected_by']); ?></span></li>
+                                    <li><span class="key">Client Name:</span> <span class="black"><?php echo htmlspecialchars($data['client_name']); ?></span></li>
                                     <li><span class="key">Created At:</span> <span class="black"><?php echo date('F d, Y', strtotime($data['created_at'])); ?></span></li>
                                 </ul>
                                 <?php else: ?>
@@ -228,6 +229,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <ul class="status-list">
                                     <li><span class="key">Report No:</span> <span class="black"><?php echo htmlspecialchars($data['report_no']); ?></span></li>
                                     <li><span class="key">Sticker:</span> <span class="black"><?php echo htmlspecialchars($data['sticker_number_issued']); ?></span></li>
+                                    <li><span class="key">Inspection Status:</span> <span class="black"><?php echo htmlspecialchars($data['inspection_status']); ?></span></li>
                                     <!-- <li><span class="key">Date of Creation:</span> <span class="black"><?php echo htmlspecialchars($data['date_of_creation']); ?></span></li>
                                     <li><span class="key">Rep. Name:</span> <span class="black"><?php echo htmlspecialchars($data['rep_name']); ?></span></li> -->
                                 </ul>

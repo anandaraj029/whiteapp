@@ -67,7 +67,8 @@ include_once('../inc/customer-option.php');
                             <!-- Profile Info -->
                             <div class="profile-info d-flex align-items-center">
                                 <div class="profile-pic mr-3">
-                                <img src="<?php echo $profilePhoto; ?>" alt="Profile Picture">
+                                <img src="<?php echo $profilePhoto . '?v=' . time(); ?>" alt="Profile Picture">
+
 
                                     <!-- Upload Photo -->
                                     <!-- <div class="upload-button">

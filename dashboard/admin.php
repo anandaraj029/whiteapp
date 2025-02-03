@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+    header('Location: ../index.php');
+    exit();
+}
+
+echo "Welcome, Admin!";
+
+
 include_once('../file/config.php');
 include '../file/auth.php';
 // include '';
@@ -18,14 +28,7 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
 
 
 
-// session_start();
 
-// if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-//     header('Location: ../index.php');
-//     exit();
-// }
-
-// echo "Welcome, Admin!";
 
 ?>
 

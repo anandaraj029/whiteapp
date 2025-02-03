@@ -1,7 +1,7 @@
 <?php
 // Example: After login, set the role in the session
 session_start();
-
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'user' if not set
 ?>
    
    <!-- Header -->
@@ -40,8 +40,8 @@ session_start();
                                  <div class="user-info">
                                  <h4 class="user-name">
         <?php
-        if (isset($_SESSION['role_id'])) {
-            echo $_SESSION['role_id'];  // Display the role from the session
+        if (isset($_SESSION['role'])) {
+            echo $_SESSION['role'];  // Display the role from the session
         } else {
             echo 'Guest';  // If the user is not logged in, show 'Guest'
         }
