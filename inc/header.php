@@ -2,6 +2,8 @@
 // Example: After login, set the role in the session
 session_start();
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'user' if not set
+$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; // Default to 'Guest' if not set
+
 ?>
    
    <!-- Header -->
@@ -47,7 +49,10 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'us
         }
         ?>
     </h4>
-                                    <p class="user-email">Sathish kumar</p>
+                                    <p class="user-email">
+                                    <?php echo $username; // Display the username from the session or 'Guest' ?>
+
+                                    </p>
                                  </div>
                                  <!-- End User Info -->
                               </div>

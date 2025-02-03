@@ -22,14 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $session_id = session_create_id();
 
             // Save session information in the database, including the role
-            $stmt = $conn->prepare("INSERT INTO user_sessions (session_id, user_id, user_agent, ip_address, login_time, role) VALUES (?, ?, ?, ?, NOW(), ?)");
-            $stmt->bind_param("sisss", $session_id, $user_id, $_SERVER['HTTP_USER_AGENT'], $_SERVER['REMOTE_ADDR'], $role);
+            $stmt = $conn->prepare("INSERT INTO user_sessions (session_id, user_id, user_agent, ip_address, login_time, role, username) VALUES (?, ?, ?, ?, NOW(), ?, ?)");
+            $stmt->bind_param("sissss", $session_id, $user_id, $_SERVER['HTTP_USER_AGENT'], $_SERVER['REMOTE_ADDR'], $role, $username);
             $stmt->execute();
 
             // Set session variables
             $_SESSION['session_id'] = $session_id;
             $_SESSION['user_id'] = $user_id;
             $_SESSION['role'] = $role; // Store role in session
+            $_SESSION['username'] = $username;
 
             header("Location: ../dashboard/index.php"); // Redirect to dashboard or another page
             exit();

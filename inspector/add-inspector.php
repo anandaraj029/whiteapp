@@ -48,7 +48,19 @@ if (isset($_POST['save_inspector'])) {
     $stmt->bind_param("sssssssssss", $inspector_id, $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Inspector added successfully!'); window.location.href = './all-inspector.php';</script>";
+        // Insert into the user table
+        $username = $inspector_name; // Use inspector_name as the username (or customize as needed)
+        $user_sql = "INSERT INTO users (username, password, role, id) VALUES (?, ?, 'inspector', '2')";
+        $user_stmt = $conn->prepare($user_sql);
+        $user_stmt->bind_param("ss", $username, $password);
+
+        if ($user_stmt->execute()) {
+            echo "<script>alert('Inspector added successfully!'); window.location.href = './all-inspector.php';</script>";
+        } else {
+            echo "Error: " . $user_stmt->error;
+        }
+
+        $user_stmt->close();
     } else {
         echo "Error: " . $stmt->error;
     }
