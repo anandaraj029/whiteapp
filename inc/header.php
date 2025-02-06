@@ -1,11 +1,27 @@
 <?php
-// Example: After login, set the role in the session
 session_start();
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'user' if not set
-$username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; // Default to 'Guest' if not set
+// include_once '../index.php';
 
+// Redirect to login if the user is not authenticated
+if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
+$role = $_SESSION['role'];
+$username = $_SESSION['username'];
 ?>
-   
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <!-- Add your CSS and other meta tags here -->
+</head>
+<body>
    <!-- Header -->
    <header class="header white-bg fixed-top d-flex align-content-center flex-wrap">
          <!-- Logo -->
@@ -41,13 +57,7 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; // D
                                  <!-- User Info -->
                                  <div class="user-info">
                                  <h4 class="user-name">
-        <?php
-        if (isset($_SESSION['role'])) {
-            echo $_SESSION['role'];  // Display the role from the session
-        } else {
-            echo 'Guest';  // If the user is not logged in, show 'Guest'
-        }
-        ?>
+        <?php echo htmlspecialchars($_SESSION['role']); ?>
     </h4>
                                     <p class="user-email">
                                     <?php echo $username; // Display the username from the session or 'Guest' ?>
@@ -289,3 +299,5 @@ $username = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'; // D
          <!-- End Main Header -->
       </header>
       <!-- End Header -->
+</body>
+</html>

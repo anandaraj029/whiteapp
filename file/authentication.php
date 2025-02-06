@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php'; // Include your database connection script
+// require ''; // Include your database connection script
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
@@ -32,7 +33,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['role'] = $role; // Store role in session
             $_SESSION['username'] = $username;
 
-            header("Location: ../dashboard/index.php"); // Redirect to dashboard or another page
+            // Redirect based on role
+            switch ($role) {
+                case 'admin':
+                    header("Location: ../dashboard/index.php");
+                    break;
+                case 'customer':
+                    header("Location: ../dashboard/customer.php");
+                    break;
+                case 'inspector':
+                    header("Location: ../dashboard/inspector.php");
+                    break;
+                case 'qcchecker':
+                    header("Location: ../dashboard/qcchecker.php");
+                    break;
+                case 'certified':
+                    header("Location: ../dashboard/certified.php");
+                    break;
+                default:
+                    // Default redirect if role is not recognized
+                    header("Location: ../index.php");
+                    break;
+            }
             exit();
         } else {
             echo "Invalid username or password.";

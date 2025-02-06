@@ -1,30 +1,18 @@
 <?php
-// session_start();
-
-// Debugging: Print session variables
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
-
 include_once('../file/config.php');
+include '../file/auth.php';
 include_once('../inc/function.php');
 
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-   header("Location: ../index.php");
-   exit();
-}
 
-// Check if the user has the 'inspector' role
-if ($_SESSION['role'] !== 'inspector') {
-   // Redirect to a default page or show an error
-   header("Location: ./index.php");
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'qcchecker') {
+   header('Location: ../index.php');
    exit();
 }
 
 // Get the logged-in inspector's name or ID from the session
-$inspector_name = $_SESSION['username']; // Assuming you store the inspector's name in the session
+$inspector_name = $_SESSION['username']; // Assuming you store the inspector's name in the session// or
 $inspector_id = $_SESSION['user_id']; // Assuming you store the inspector's ID in the session
+
 
 // Query to get total projects count for the logged-in inspector
 $stmt_projects = mysqli_prepare($conn, "SELECT COUNT(*) AS total_projects FROM project_info WHERE inspector_name = ?");
@@ -37,20 +25,8 @@ $total_projects = mysqli_fetch_assoc($result_projects)['total_projects'];
 $result_customers = mysqli_query($conn, "SELECT COUNT(*) AS total_customers FROM customers");
 $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
 
-
-// Query to get pending projects count for the logged-in inspector
-$stmt_pending_projects = mysqli_prepare($conn, "SELECT COUNT(*) AS pending_projects FROM project_info WHERE inspector_name = ? AND project_status = 'Pending'");
-mysqli_stmt_bind_param($stmt_pending_projects, "s", $inspector_name);
-mysqli_stmt_execute($stmt_pending_projects);
-$result_pending_projects = mysqli_stmt_get_result($stmt_pending_projects);
-$pending_projects = mysqli_fetch_assoc($result_pending_projects)['pending_projects'];
-
-// Query to get the list of pending projects
-$stmt_pending_list = mysqli_prepare($conn, "SELECT project_no, project_id FROM project_info WHERE inspector_name = ? AND project_status = 'Pending'");
-mysqli_stmt_bind_param($stmt_pending_list, "s", $inspector_name);
-mysqli_stmt_execute($stmt_pending_list);
-$result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
 ?>
+
 
 <!-- Main Content -->
 <div class="main-content">
@@ -84,9 +60,7 @@ $result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Pending Projects</p>
-                        <h2>                           
-                           <?php echo $pending_projects; ?>
-                           </h2>
+                        <h2>25</h2>
                      </div>
                   </div>
                </div>
@@ -189,56 +163,98 @@ $result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
             <!-- End Card -->
          </div>
          <div class="col-xl-6 col-lg-6">
-    <!-- Card -->
-    <div class="card mb-30">
-        <div class="card-body">
-            <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
-                <div class="">
-                    <h4 class="mb-1">Pending Projects</h4>
-                    <p class="font-14">Total pending projects: <?php echo $pending_projects; ?></p>
-                </div>
+            <!-- Card -->
+            <div class="card mb-30">
+               <div class="card-body">
+                  <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
+                     <div class="">
+                        <h4 class="mb-1">Ongoing Projects</h4>
+                        <p class="font-14"> Tell use paid law ever yet new. Meant to learn of vexed he there.</p>
+                     </div>
 
-                <div class="dropdown-button">
-                    <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                        <div class="menu-icon style--two mr-0">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                     <div class="dropdown-button">
+                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
+                           <div class="menu-icon style--two mr-0">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                           </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                           <a href="#">Daily</a>
+                           <a href="#">Sort By</a>
+                           <a href="#">Monthly</a>
                         </div>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="#">Daily</a>
-                        <a href="#">Sort By</a>
-                        <a href="#">Monthly</a>
-                    </div>
-                </div>
-            </div>
+                     </div>
+                  </div>
 
-            <!-- Product List -->
-            <div class="product-list">
-                <?php while ($row = mysqli_fetch_assoc($result_pending_list)): ?>
-                    <!-- Product List Item -->
-                    <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
+                  <!-- Product List -->
+                  <div class="product-list">
+                     <!-- Product List Item -->
+                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            <div class="img mr-3">
-                                <!-- You can add an image related to the project if available -->
-                                <img src="../assets/img/project/default.png" alt="">
-                            </div>
-                            <div class="content">
-                                <p class="black mb-1"><?php echo htmlspecialchars($row['project_no']); ?></p>
-                                <span class="c3 bold font-14">Project ID: <?php echo htmlspecialchars($row['project_id']); ?></span>
-                            </div>
+                           <div class="img mr-3">
+                              <img src="../assets/img/product/product1.png" alt="">
+                           </div>
+                           <div class="content">
+                              <p class="black mb-1">Fastrack Watches</p>
+                              <span class="c3 bold font-14">$245.65</span>
+                           </div>
                         </div>
-                        <p class="font-14">Status: Pending</p>
-                    </div>
-                    <!-- End Product List Item -->
-                <?php endwhile; ?>
+                        <p class="font-14">26584 Selles</p>
+                     </div>
+                     <!-- End Product List Item -->
+
+                     <!-- Product List Item -->
+                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                           <div class="img mr-3">
+                              <img src="../assets/img/product/product2.png" alt="">
+                           </div>
+                           <div class="content">
+                              <p class="black mb-1">Fastrack Watches 2654</p>
+                              <span class="c3 bold font-14">$245.65</span>
+                           </div>
+                        </div>
+                        <p class="font-14">26584 Selles</p>
+                     </div>
+                     <!-- End Product List Item -->
+
+                     <!-- Product List Item -->
+                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                           <div class="img mr-3">
+                              <img src="../assets/img/product/product3.png" alt="">
+                           </div>
+                           <div class="content">
+                              <p class="black mb-1">Fastrack Watches 2654</p>
+                              <span class="c3 bold font-14">$245.65</span>
+                           </div>
+                        </div>
+                        <p class="font-14">26584 Selles</p>
+                     </div>
+                     <!-- End Product List Item -->
+
+                     <!-- Product List Item -->
+                     <div class="product-list-item d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center">
+                           <div class="img mr-3">
+                              <img src="../assets/img/product/product4.png" alt="">
+                           </div>
+                           <div class="content">
+                              <p class="black mb-1">Fastrack Watches 2654</p>
+                              <span class="c3 bold font-14">$245.65</span>
+                           </div>
+                        </div>
+                        <p class="font-14">26584 Selles</p>
+                     </div>
+                     <!-- End Product List Item -->
+                  </div>
+                  <!-- End Product List -->
+               </div>
             </div>
-            <!-- End Product List -->
-        </div>
-    </div>
-    <!-- End Card -->
-</div>
+            <!-- End Card -->
+         </div>
          
 
 

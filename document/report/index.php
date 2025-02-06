@@ -1,4 +1,3 @@
-
 <?php 
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
@@ -13,7 +12,7 @@ $user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in th
 
 if ($logged_in_user) {
     // Fetch data based on user role
-    if ($user_role === 'admin') {
+    if ($user_role === 'admin' || $user_role === 'certified') {
         // Fetch all data from the 'reports' table for admin
         $sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
         $stmt = $conn->prepare($sql);
@@ -207,17 +206,17 @@ if ($logged_in_user) {
                 <td><?php echo $row['client_company_name']; ?></td>
                 <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td class="actions">
-                    <!-- Edit action -->
-                    <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
-    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-</a>
-                    <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
-    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-</span>
-
-
-                </td>
+            <?php if ($user_role === 'admin'): ?>
+                <!-- Edit action (only for admin) -->
+                <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
+                    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                </a>
+                <!-- Delete action (only for admin) -->
+                <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
+                    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+                </span>
+            <?php endif; ?>
+        </td>
             </tr>
         <?php } ?>
     </tbody>
