@@ -48,7 +48,8 @@ if (isset($_POST['save_all'])) {
 
     if (mysqli_query($conn, $query)) {
         // Update the status in the project_info table
-        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
+        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = '$project_no'";
 
         if (mysqli_query($conn, $update_query)) {
             $msg = "Health check created successfully, and project status updated.";

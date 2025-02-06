@@ -2,7 +2,13 @@
 // session_start(); // Start the session
 
 // Check if the role is set in the session
-$role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'user' if not set
+$role = isset($_SESSION['role']) ? $_SESSION['role'] : ''; // Default to empty if not set
+
+// If the role is not set or is 'guest', redirect to login page or another appropriate page
+if ($role == '' || $role == 'guest') {
+    header("Location: ../index.php"); // Redirect to login if the user is not logged in or is a guest
+    exit();
+}
 ?>
 
 
@@ -25,12 +31,35 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'us
          <!-- Nav -->
          <ul class="nav">
             <li class="nav-category">Main</li>
-            <li class="active">
-               <a href="<?php echo $url; ?>dashboard/">
-                  <i class="icofont-pie-chart"></i>
-                  <span class="link-title">Dashboard</span>
-               </a>
-            </li>
+            <!-- Dashboard Link Based on Role -->
+            <!-- <li class="active">
+   <a href="<?php echo $url; ?>dashboard/<?php echo $role; ?>.php">
+      <i class="icofont-pie-chart"></i>
+      <span class="link-title">Dashboard</span>
+   </a>
+</li> -->
+
+
+
+<li class="active">
+   <a href="<?php 
+      // Conditional check for role to link to the correct dashboard
+      if ($role === 'admin') {
+         echo $url . 'dashboard/index.php'; // Admin dashboard
+      } elseif ($role === 'inspector') {
+         echo $url . 'dashboard/inspector.php'; // Inspector dashboard
+      } elseif ($role === 'reviewer') {
+         echo $url . 'dashboard/reviewer.php'; // Reviewer dashboard
+      } else {
+         echo $url . 'dashboard/'; // Default fallback
+      }
+   ?>">
+      <i class="icofont-pie-chart"></i>
+      <span class="link-title">Dashboard</span>
+   </a>
+</li>
+
+
 
             <!-- Sticker Portal (Visible to Admin Only) -->
             <?php if ($_SESSION['role'] === 'admin'): ?>
@@ -122,6 +151,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'us
             </li>
 
             <!-- Customer Portal (Visible to All Users) -->
+            <?php if ($_SESSION['role'] === 'admin'): ?>
             <li>
                <a href="#">
                   <i class="icofont-contacts"></i>
@@ -134,6 +164,7 @@ $role = isset($_SESSION['role']) ? $_SESSION['role'] : 'user'; // Default to 'us
                </ul>
                <!-- End Sub Menu -->
             </li>
+            <?php endif; ?>
 
             <!-- General Setup (Visible to Admin Only) -->
             <?php if ($_SESSION['role'] === 'admin'): ?>

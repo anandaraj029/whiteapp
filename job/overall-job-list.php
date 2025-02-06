@@ -31,7 +31,7 @@ if ($logged_in_user) {
     }
 } else {
     // Redirect to login page if not logged in
-    header("Location: ../../index.php");
+    header("Location: ../index.php");
     exit;
 }
 
@@ -165,7 +165,7 @@ if ($logged_in_user) {
 </td>
 
                     <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="status-btn pending">Pending</td>
+                    <td class="status-btn pending"><?php echo htmlspecialchars($row["project_status"]); ?></td>
                     <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
                     <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
                     <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
