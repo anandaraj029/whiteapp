@@ -3,6 +3,11 @@ include_once('../file/config.php');
 // include '../file/auth.php';
 include_once('../inc/function.php');
 
+$userRole = $_SESSION['user_role'] ?? ''; // Default to empty if not set
+
+// Check if the user is a reviewer
+$isReviewer = ($userRole === 'reviewer');
+
 // Check if project_no is set in the URL
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $data_id = $_GET['id'];
@@ -10,7 +15,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // Query to fetch project, checklist, and report details using JOIN
     $query = "
         SELECT 
-            p.project_no, p.creation_date, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
+            p.project_no, p.creation_date, p.project_status, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus,
             c.checklist_no, c.client_name, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
             r.report_no, r.sticker_number_issued, r.inspection_status
         FROM project_info p
@@ -31,7 +36,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $reportCreated = isset($data['report_no']);
 
         // Extract the certificatestatus from the database
-    $certificateStatus = $data['certificatestatus'];
+        $certificateStatus = $data['certificatestatus'];
         // Retrieve checklist_status and report_status directly from the joined data
         
         $checklistStatus = $data['checklist_status'];
@@ -175,7 +180,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                         <span class="white bold font-17">07/03/2019</span>
                                     </li>
                                     <li><span class="key font-14">Status:</span>
-                                        <span class="white status-btn completed">Completed</span>
+                                        <span class="white status-btn completed"><?php echo htmlspecialchars($data['project_status']); ?></span>
                                     </li>
                                 </ul>
                             </div>
@@ -197,7 +202,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                      <div class="bg-white invoice-pd position-relative">
                         <!-- Button in the top-right corner -->
     <div class="position-absolute" style="top: 10px; right: 10px;">
-    <?php if (!isset($certificateStatus) || $certificateStatus !== "Certificate Created"): ?>
+    
+        <?php if ($isReviewer && (!isset($certificateStatus) || $certificateStatus !== "Certificate Created")): ?>
+
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCertificateModal">
         Add Certificate
     </button>
@@ -214,12 +221,64 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                     <li><span class="key">Inspector:</span> <span class="black"><?php echo htmlspecialchars($data['inspected_by']); ?></span></li>
                                     <li><span class="key">Client Name:</span> <span class="black"><?php echo htmlspecialchars($data['client_name']); ?></span></li>
                                     <li><span class="key">Created At:</span> <span class="black"><?php echo date('F d, Y', strtotime($data['created_at'])); ?></span></li>
+                                    <li><span class="key">Review Status:</span> <span class="text-warning">Pending </span></li>
+                                    <a href="../document/checklist/type/view/<?php echo htmlspecialchars($data['checklist_type']); ?>.php?checklist_type=<?php echo htmlspecialchars($data['checklist_type']); ?>&checklist_no=<?php echo htmlspecialchars($data['checklist_id']); ?>">
+                                        <span class="bg-primary text-white status-btn completed"> View</span></a>
+                                  <a href="#" data-toggle="modal" data-target="#reviewModal" data-project-no="<?php echo htmlspecialchars($data['project_no']); ?>" data-checklist-no="<?php echo htmlspecialchars($data['checklist_no']); ?>" data-checklist-type="<?php echo htmlspecialchars($data['checklist_type']); ?>" data-checklist-type="<?php echo htmlspecialchars($data['client_name']); ?>">
+                                        <span class="white status-btn completed"> Review</span>
+                                        </a>        
                                 </ul>
                                 <?php else: ?>
                     <p class="black">Checklist not created.</p>
                 <?php endif; ?>
         </div>
     </div>
+
+    <!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="reviewModalLabel">Review Checklist</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label for="projectNo">Project No</label>
+                        <input type="text" class="form-control" id="projectNo" name="projectNo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="checklistNo">Checklist No</label>
+                        <input type="text" class="form-control" id="checklistNo" name="checklistNo" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="checklistType">Checklist Type</label>
+                        <input type="text" class="form-control" id="checklistType" name="checklistType" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="reviewStatus">Review Status</label>
+                        <select class="form-control" id="reviewStatus" name="reviewStatus" required>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentBox">Comment</label>
+                        <textarea class="form-control" id="commentBox" name="commentBox" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submitReview">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
     <div class="col-lg-4 col-md-6 mt-5">
         <!-- Report Details -->
         <div class="invoice invoice-form">
@@ -230,6 +289,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                     <li><span class="key">Report No:</span> <span class="black"><?php echo htmlspecialchars($data['report_no']); ?></span></li>
                                     <li><span class="key">Sticker:</span> <span class="black"><?php echo htmlspecialchars($data['sticker_number_issued']); ?></span></li>
                                     <li><span class="key">Inspection Status:</span> <span class="black"><?php echo htmlspecialchars($data['inspection_status']); ?></span></li>
+                                    <li><span class="key">Review Status:</span> <span class="text-warning">Pending </span></li>
+                                    <a href="../document/report/view.php?project_no=<?php echo $data['project_no']; ?>">
+                                        <span class="bg-primary text-white status-btn completed"> View</span></a>
+                                    <span class="white status-btn completed"> Review</span>
                                     <!-- <li><span class="key">Date of Creation:</span> <span class="black"><?php echo htmlspecialchars($data['date_of_creation']); ?></span></li>
                                     <li><span class="key">Rep. Name:</span> <span class="black"><?php echo htmlspecialchars($data['rep_name']); ?></span></li> -->
                                 </ul>
@@ -265,7 +328,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                             <?php endforeach; ?>
                         </ul>
                     <?php else : ?>
-                        <p>Certificates not available for this project.</p>
+                        <p>Certificates not created yet.</p>
                     <?php endif; ?>
                               </div>
                               <!-- End Invoice To -->
@@ -404,7 +467,12 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
         </div>
     </div>
 <?php else: ?>
-    <p class="bg-white details-list-wrap">No documents created for this project yet.</p>
+    <div style="display: block; text-align: center; padding: 20px">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+        QC Controller Review
+    </button>
+    </div>
+    <!-- <p class="bg-white details-list-wrap">No documents created for this project yet.</p> -->
 <?php endif; ?>
 
 
@@ -460,6 +528,47 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
             alert('Invalid certificate type selected.');
         }
     });
+</script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    $('#reviewModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var projectNo = button.data('project-no'); // Extract info from data-* attributes
+        var checklistNo = button.data('checklist-no');
+        var checklistType = button.data('checklist-type');
+
+        // Update the modal's content.
+        var modal = $(this);
+        modal.find('#projectNo').val(projectNo);
+        modal.find('#checklistNo').val(checklistNo);
+        modal.find('#checklistType').val(checklistType);
+    });
+});
+</script>
+
+<script>
+    document.getElementById('submitReview').addEventListener('click', function () {
+    const formData = new FormData(document.getElementById('reviewForm'));
+
+    fetch('submit_review.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Review submitted successfully!');
+            $('#reviewModal').modal('hide');
+        } else {
+            alert('Error submitting review: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
 </script>
 
 

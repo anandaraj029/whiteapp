@@ -60,6 +60,17 @@ if ($logged_in_user) {
             <h4 class="font-20">Job List</h4>
 
             <div class="d-flex flex-wrap">
+
+            <!-- Status Filter Dropdown -->
+    <div class="mr-20 mt-3 mt-sm-0">
+        <select id="status-filter" class="form-control">
+            <option value="">All</option>
+            <option value="Pending">Pending</option>
+            <option value="Completed">Completed</option>
+            <!-- Add more status options as needed -->
+        </select>
+    </div>
+    <!-- End Status Filter Dropdown -->
                 <!-- Date Picker -->
                 <div class="mr-20 mt-3 mt-sm-0">
                    <!-- <span class="input-group-addon">
@@ -284,4 +295,29 @@ include_once('../inc/footer.php');
             "searching": true
         });
     });    
+</script>
+
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const statusFilter = document.getElementById('status-filter');
+        const table = document.getElementById('job-table');
+        const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+        statusFilter.addEventListener('change', function() {
+            const selectedStatus = this.value;
+
+            for (let row of rows) {
+                const statusCell = row.getElementsByClassName('status-btn')[0];
+                if (statusCell) {
+                    const status = statusCell.textContent.trim();
+                    if (selectedStatus === "" || status === selectedStatus) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+        });
+    });
 </script>

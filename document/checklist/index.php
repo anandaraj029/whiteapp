@@ -61,7 +61,7 @@ if ($logged_in_user) {
                         <table class="order-list-table text-nowrap">
                             <thead>
                                 <th></th>
-                                    <th>Checklist No </th>
+                                    <th style="width: 70px;">Checklist No </th>
                                     <th>Project ID</th>
                                     <th>Inspect By</th>
                                     <th>Equipment</th>
@@ -132,11 +132,11 @@ if ($logged_in_user) {
                             <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
                         </span>
                     </a>
-                    <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
+                    <!-- <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
                         <span class='contact-close'>
                             <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
                         </span>
-                    </a>
+                    </a>-->
                 </td>";
             echo "</tr>";
         }
