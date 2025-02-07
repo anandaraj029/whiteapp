@@ -63,7 +63,7 @@ $result = $conn->query($sql);
                                         if ($current_date > $expiry_date) {
                                             $new_status = 'expired';
                                             $status_class = 'un_paid'; // Expired (Red color)
-                                            $status_text = 'Expired';
+                                            $status_text = 'In Active';
                                         } else {
                                             $new_status = $row['status']; // Keep the original status if not expired
                                             switch ($row['status']) {

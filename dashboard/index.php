@@ -256,15 +256,15 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
 </div>
          <div class="col-xl-6 col-lg-6">
     <div class="card mb-30">
-        <div class="card-body">
+        <div class="card-body" style="min-height: 877px;">
             <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
                 <div class="">
-                    <h4 class="mb-1">Ongoing Projects</h4>
+                    <h4 class="mb-3">Ongoing Projects</h4>
                     <p class="font-14">List of recent pending projects.</p>
                 </div>
             </div>
 
-            <div class="product-list">
+            <div class="product-list p-4">
                 <?php while ($row = mysqli_fetch_assoc($result_pending)) { ?>
                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">

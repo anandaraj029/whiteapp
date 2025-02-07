@@ -95,7 +95,7 @@ if ($role == '' || $role == 'guest') {
                <li>
                   <a href="#">
                      <i class="icofont-navigation-menu"></i>
-                     <span class="link-title">Certficate Portal</span>
+                     <span class="link-title">Certificate Portal</span>
                   </a>
                   <!-- Sub Menu -->
                   <ul class="nav sub-menu">

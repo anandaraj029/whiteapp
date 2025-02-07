@@ -2,35 +2,11 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
-// SQL query to fetch data from the 'mobile_crane_certificate' table
-// $sql = "SELECT * FROM reports";
-// $result = $conn->query($sql);
-
-// Check if the user is logged in
-$logged_in_user = $_SESSION['username'] ?? null; // Replace with the appropriate session key
-$user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in the session
-
-if ($logged_in_user) {
-    // Fetch data based on user role
-    if ($user_role === 'admin' || $user_role === 'certified') {
-        // Fetch all data from the 'reports' table for admin
-        $sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    } else {
-        // Fetch data from the 'reports' table for the logged-in inspector
-        $sql = "SELECT * FROM reports WHERE issued_by = ? ORDER BY date_of_inspection DESC";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $logged_in_user);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    }
-} else {
-    // Redirect to login page if not logged in
-    header("Location: ../../index.php");
-    exit;
-}
+// SQL query to fetch all data from the 'reports' table
+$sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -206,16 +182,16 @@ if ($logged_in_user) {
                 <td><?php echo $row['client_company_name']; ?></td>
                 <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td class="actions">
-            <?php if ($user_role === 'admin'): ?>
+            
                 <!-- Edit action (only for admin) -->
                 <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
                     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
                 </a>
                 <!-- Delete action (only for admin) -->
-                <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
+                <!-- <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
                     <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                </span>
-            <?php endif; ?>
+                </span> -->
+            
         </td>
             </tr>
         <?php } ?>

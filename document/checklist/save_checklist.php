@@ -79,8 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $update_status->execute();
                     $update_status->close();
 
+                    // Construct the edit URL dynamically
+    $edit_url = "./type/{$checklist_type}.php?checklist_type={$checklist_type}&&checklist_no={$checklist_id}";
+
+
                     // Redirect on successful insertion
-                    echo "<script>alert('Checklist created successfully!'); window.location.href='index.php';</script>";
+                    // Redirect to the edit page on successful insertion
+    echo "<script>alert('Checklist created successfully!'); window.location.href='{$edit_url}';</script>";
                 } else {
                     echo "<script>alert('Error saving checklist information: " . $stmt->error . "'); window.history.back();</script>";
                 }

@@ -1,11 +1,4 @@
 <?php
-// session_start();
-
-// Debugging: Print session variables
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
-
 include_once('../file/config.php');
 include_once('../inc/function.php');
 
@@ -18,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 // Check if the user has the 'inspector' role
 if ($_SESSION['role'] !== 'inspector') {
    // Redirect to a default page or show an error
-   header("Location: ./index.php");
+   header("Location: ../index.php");
    exit();
 }
 
@@ -45,11 +38,28 @@ mysqli_stmt_execute($stmt_pending_projects);
 $result_pending_projects = mysqli_stmt_get_result($stmt_pending_projects);
 $pending_projects = mysqli_fetch_assoc($result_pending_projects)['pending_projects'];
 
-// Query to get the list of pending projects
-$stmt_pending_list = mysqli_prepare($conn, "SELECT project_no, project_id FROM project_info WHERE inspector_name = ? AND project_status = 'Pending'");
-mysqli_stmt_bind_param($stmt_pending_list, "s", $inspector_name);
+
+// === PAGINATION SETUP ===
+// Set the number of records per page
+$limit = 10;
+
+// Get the current page number from the URL, default is 1
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$page = max($page, 1); // Ensure the page is at least 1
+
+// Calculate the offset for the SQL query
+$offset = ($page - 1) * $limit;
+
+// Calculate total pages needed
+$total_pages = ceil($pending_projects / $limit);
+
+
+// Query to get the list of pending projects with pagination
+$stmt_pending_list = mysqli_prepare($conn, "SELECT project_no, project_id FROM project_info WHERE inspector_name = ? AND project_status = 'Pending' LIMIT ? OFFSET ?");
+mysqli_stmt_bind_param($stmt_pending_list, "sii", $inspector_name, $limit, $offset);
 mysqli_stmt_execute($stmt_pending_list);
 $result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
+
 ?>
 
 <!-- Main Content -->
@@ -216,13 +226,17 @@ $result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
 
             <!-- Product List -->
             <div class="product-list">
-                <?php while ($row = mysqli_fetch_assoc($result_pending_list)): ?>
+            <?php while ($row = $result_pending_list->fetch_assoc()): ?>
                     <!-- Product List Item -->
                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
                         <div class="d-flex align-items-center">
-                            <div class="img mr-3">
+                            <!-- <div class="img mr-3"> -->
                                 <!-- You can add an image related to the project if available -->
-                                <img src="../assets/img/project/default.png" alt="">
+                                <!-- <img src="../assets/img/project/default.png" alt="">
+                            </div> -->
+
+                            <div class="icon mr-3">
+                                <i class="fa-solid fa-file-alt fa-2x text-primary"></i> <!-- Document Icon -->
                             </div>
                             <div class="content">
                                 <p class="black mb-1"><?php echo htmlspecialchars($row['project_no']); ?></p>
@@ -236,6 +250,29 @@ $result_pending_list = mysqli_stmt_get_result($stmt_pending_list);
             </div>
             <!-- End Product List -->
         </div>
+
+         <!-- Pagination Controls -->
+         <nav>
+            <ul class="pagination justify-content-center mt-3">
+                <?php if ($page > 1): ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<?php echo ($page - 1); ?>">Previous</a>
+                    </li>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                    <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
+                        <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                    </li>
+                <?php endfor; ?>
+
+                <?php if ($page < $total_pages): ?>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<?php echo ($page + 1); ?>">Next</a>
+                    </li>
+                <?php endif; ?>
+            </ul>
+        </nav>
     </div>
     <!-- End Card -->
 </div>
