@@ -1,13 +1,30 @@
 <?php 
 include_once('../../inc/function.php');
-include_once('../../file/config.php'); // include your database connection
+include_once('../../file/config.php'); // Include your database connection
+// session_start(); // Start the session
 
-// SQL query to fetch all data from the 'reports' table
-$sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
-$stmt = $conn->prepare($sql);
+// Get logged-in user details
+$user_id = $_SESSION['user_id']; // Assuming you store user ID in session
+$user_role = $_SESSION['role']; // Assuming you store user role in session
+$username = $_SESSION['username']; // Assuming you store user username in session
+
+// Define SQL query based on role
+if ($user_role == 'admin') {
+    // Admin sees all reports
+    $sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
+    $stmt = $conn->prepare($sql);
+} else if ($user_role == 'inspector') {
+    // Inspector sees only their reports
+    $sql = "SELECT * FROM reports WHERE issued_by = ? ORDER BY date_of_inspection DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $username);
+}
+
+// Execute query
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
             <div class="container-fluid">
@@ -107,11 +124,11 @@ $result = $stmt->get_result();
                                         </th>
                                         <th>Report No</th>
                                         <th>Project ID </th>
-                                        <th>Checklist No </th>
-                                        <th class="text-center">Inspector Name </th>
+                                        <th>Checklist No </th>                                        
                                         <th>Date of Inspection</th>                           
                                         <th>Company Name</th>
                                         <th>Serial Number</th>  
+                                        <th class="text-center">Inspector Name </th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -167,6 +184,10 @@ $result = $stmt->get_result();
     </a>
 </td>
 
+                
+                <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
+                <td><?php echo $row['client_company_name']; ?></td>
+                <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td>
                                         <div class="d-flex align-items-center">
                                             <div class="img mr-20">
@@ -178,9 +199,6 @@ $result = $stmt->get_result();
                                             </div>
                                         </div>
                                     </td>
-                <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
-                <td><?php echo $row['client_company_name']; ?></td>
-                <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td class="actions">
             
                 <!-- Edit action (only for admin) -->

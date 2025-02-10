@@ -25,6 +25,16 @@ $result_pending_projects = mysqli_query($conn, "SELECT COUNT(*) AS total_pending
 $total_pending_projects = mysqli_fetch_assoc($result_pending_projects)['total_pending_projects'];
 
 
+// Query to get total pending projects count for the logged-in reviewer
+
+    $result_pending_reviewer = mysqli_query($conn, "SELECT COUNT(*) AS total_pending_reviewer FROM project_info WHERE checklist_status = 'created' 
+          AND report_status = 'generated' 
+          AND review_status = 'pending'");
+    $total_pending_reviewer = mysqli_fetch_assoc($result_pending_reviewer)['total_pending_reviewer'];
+
+
+
+
 
 if ($logged_in_user) {
     // Fetch data based on user role
@@ -116,6 +126,32 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
             <!-- End Card -->
          </div>
 
+
+         <div class="col-xl-3 col-sm-6">
+            <!-- Card -->
+            <div class="card mb-30">
+               <div class="state">
+                  <div class="d-flex align-items-center flex-wrap">
+                     <div class="state-icon d-flex justify-content-center">
+                        <!-- <img src="../assets/img/png-icon/revenue.png" alt=""> -->
+                        <i class="fa-solid fa-hourglass-half fa-3x text-warning"></i> <!-- Pending Icon -->
+                     </div>
+                     <div class="state-content">
+                        <p class="font-14 mb-2">Reviewer Pending Projects</p>
+                        <h2><?php echo $total_pending_reviewer; ?></h2>
+                        <!-- <h2>
+                           25</h2> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- End Card -->
+         </div>
+
+
+
+         
+
          <div class="col-xl-3 col-sm-6">
             <!-- Card -->
             <div class="card mb-30">
@@ -137,24 +173,14 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
             <!-- End Card -->
          </div>
 
-         <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="state">
-                  <div class="d-flex align-items-center flex-wrap">
-                     <div class="state-icon d-flex justify-content-center">
-                        <!-- <img src="../assets/img/png-icon/user.png" alt=""> -->
-                        <i class="fa-solid fa-triangle-exclamation fa-3x text-danger"></i> <!-- Expiring Stickers Icon -->
-                     </div>
-                     <div class="state-content">
-                        <p class="font-14 mb-2">Expiring Sticker</p>
-                        <h2>46</h2>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- End Card -->
-         </div>
+
+        
+
+
+
+         
+
+         
 
         
 
