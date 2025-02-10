@@ -174,7 +174,10 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
-                    title: 'Order List'
+                    title: 'Sticker List',
+                    exportOptions: {
+                    columns: ':not(:last-child)' // Exclude the last column (Action column)
+                }
                 }
             ],
             "searching": true

@@ -44,6 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 case 'inspector':
                     header("Location: ../dashboard/inspector.php");
                     break;
+                case 'document controller':
+                        header("Location: ../dashboard/document controller.php");
+                        break;
+                case 'reviewer':
+                        header("Location: ../dashboard/reviewer.php");
+                        break;    
                 case 'qcchecker':
                     header("Location: ../dashboard/qcchecker.php");
                     break;

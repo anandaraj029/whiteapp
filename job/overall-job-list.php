@@ -1,7 +1,6 @@
 <?php 
 
 include_once('../inc/function.php');
-
 include '../file/config.php'; // Database connection
 
 // Fetch data from the project_info table
@@ -15,7 +14,7 @@ $user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in th
 
 if ($logged_in_user) {
     // Fetch data based on user role
-    if ($user_role === 'admin') {
+    if ($user_role === 'admin' || $user_role === 'reviewer' || $user_role === 'document controller') {
         // Fetch all data from the 'project_info' table for admin
         $sql = "SELECT * FROM project_info ORDER BY creation_date DESC";
         $stmt = $conn->prepare($sql);
@@ -77,7 +76,9 @@ if ($logged_in_user) {
                       <img src="../../assets/img/svg/calender-color.svg" alt="" class="svg">
                     </span> -->
 
-                  <a href="create-job.php"> <button type="button" class="btn" >Create New</button>   </a> 
+                    <a href="create-job.php" id="createJobBtn">
+    <button type="button" class="btn btn-primary">Create New</button>
+</a>
                 </div>
                 <!-- End Date Picker -->
 
@@ -136,42 +137,42 @@ if ($logged_in_user) {
 
                     <td>
     <div class="product-img">
-        <?php if ($row['checklist_status'] === 'Pending') { ?>
-            <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-                <i class="icofont-checked color-primary"></i> Create Checklist
-            </a>
+        <?php if ($user_role === 'inspector') { ?>
+            <?php if ($row['checklist_status'] === 'Pending') { ?>
+                <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
+                    <i class="icofont-checked color-primary"></i> Create Checklist
+                </a>
+            <?php } else { ?>
+                <span class="text-success">
+                    <i class="icofont-check color-success"></i> Checklist Created
+                </span>
+            <?php } ?>
+
+            <!-- Report Button Logic -->
+            <?php if ($row['checklist_status'] === 'Created') { ?>
+                <?php if ($row['report_status'] === 'Pending') { ?>
+                    <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
+                        <i class="icofont-edit color-primary"></i> Create Report
+                    </a>
+                <?php } elseif ($row['report_status'] === 'Generated') { ?>
+                    <span class="text-success">
+                        <i class="icofont-check color-success"></i> Report Created
+                    </span>
+                <?php } else { ?>
+                    <span class="text-muted">
+                        <i class="icofont-lock"></i> Report Locked
+                    </span>
+                <?php } ?>
+            <?php } else { ?>
+                <span class="text-muted">
+                    <i class="icofont-lock"></i> Checklist Pending
+                </span>
+            <?php } ?>
         <?php } else { ?>
-            <span class="text-success">
-                <i class="icofont-check color-success"></i> Checklist Created
+            <span class="text-muted">
+                <i class="icofont-lock"></i> Access Restricted
             </span>
         <?php } ?>
-
-        <!-- Report Button Logic -->
-        <!-- Report Button Logic -->
-        <?php if ($row['checklist_status'] === 'Created') { ?>
-    <?php if ($row['report_status'] === 'Pending') { ?>
-        <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-            <i class="icofont-edit color-primary"></i> Create Report
-        </a>
-    <?php } elseif ($row['report_status'] === 'Generated') { ?>
-        <span class="text-success">
-            <i class="icofont-check color-success"></i> Report Created
-        </span>
-    <?php } else { ?>
-        <span class="text-muted">
-            <i class="icofont-lock"></i> Report Locked
-        </span>
-    <?php } ?>
-<?php } else { ?>
-    <span class="text-muted">
-        <i class="icofont-lock"></i> Checklist Pending
-    </span>
-<?php } ?>
-
-        <!-- Certificate Link -->
-        <!-- <a href="generate-certificate.php?id=<?php echo $row['project_no']; ?>">
-            <i class="icofont-data color-primary"></i> Certificate
-        </a>  -->
     </div>
 </td>
 
@@ -319,5 +320,14 @@ include_once('../inc/footer.php');
                 }
             }
         });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userRole = <?php echo json_encode($user_role); ?>;
+        if (userRole !== "admin") {
+            document.getElementById("createJobBtn").style.display = "none";
+        }
     });
 </script>

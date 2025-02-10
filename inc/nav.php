@@ -49,8 +49,11 @@ if ($role == '' || $role == 'guest') {
       } elseif ($role === 'inspector') {
          echo $url . 'dashboard/inspector.php'; // Inspector dashboard
       } elseif ($role === 'reviewer') {
-         echo $url . 'dashboard/reviewer.php'; // Reviewer dashboard
-      } else {
+         echo $url . 'dashboard/reviewer.php'; // Reviewer dashboard      
+      } elseif ($role === 'document controlller') {
+      echo $url . 'dashboard/document controlller.php'; // Reviewer dashboard
+      }
+      else {
          echo $url . 'dashboard/'; // Default fallback
       }
    ?>">
