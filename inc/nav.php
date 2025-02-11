@@ -66,19 +66,27 @@ if ($role == '' || $role == 'guest') {
 
             <!-- Sticker Portal (Visible to Admin Only) -->
             <?php if ($_SESSION['role'] === 'admin'): ?>
-               <li>
-                  <a href="#">
-                     <i class="icofont-shopping-cart"></i>
-                     <span class="link-title">Sticker Portal</span>
-                  </a>
-                  <!-- Sub Menu -->
-                  <ul class="nav sub-menu">
-                     <li><a href="<?php echo $url; ?>sticker/add-sticker.php">Add Sticker</a></li>
-                     <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
-                  </ul>
-                  <!-- End Sub Menu -->
-               </li>
-            <?php endif; ?>
+    <li>
+        <a href="#">
+            <i class="icofont-shopping-cart"></i>
+            <span class="link-title">Sticker Portal</span>
+        </a>
+        <!-- Sub Menu for Admin -->
+        <ul class="nav sub-menu">
+            <li><a href="<?php echo $url; ?>sticker/add-sticker.php">Add Sticker</a></li>
+            <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
+        </ul>
+        <!-- End Sub Menu -->
+    </li>
+<?php elseif ($_SESSION['role'] === 'inspector'): ?>
+    <li>
+        <a href="<?php echo $url; ?>sticker/sticker-list.php">
+            <i class="icofont-shopping-cart"></i>
+            <span class="link-title">Sticker List</span>
+        </a>
+    </li>
+<?php endif; ?>
+
 
             <!-- Job Portal (Visible to All Users) -->
             <li>

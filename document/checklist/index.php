@@ -179,7 +179,8 @@ include_once('../../inc/footer.php');
         buttons: [
             {
                 extend: 'excelHtml5',
-                title: 'Order List',
+                text: 'Export', // Change button text
+                title: 'Checklist Data',
                 exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)
                 }

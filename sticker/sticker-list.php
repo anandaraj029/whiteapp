@@ -2,10 +2,28 @@
 include_once('../inc/function.php');
 include '../file/config.php'; // Database connection
 
-// Fetch data from the stickers table
-$sql = "SELECT * FROM stickers";
-$result = $conn->query($sql);
+// Get the logged-in user's role and name
+$logged_in_role = $_SESSION['role'];
+$logged_in_user = $_SESSION['username']; // Ensure username is stored in the session
+
+// Modify SQL query based on role
+if ($logged_in_role === 'admin') {
+    $sql = "SELECT * FROM stickers"; // Admin sees all stickers
+} elseif ($logged_in_role === 'inspector') {
+    $sql = "SELECT * FROM stickers WHERE assign_inspector = ?"; // Inspector sees only their assigned stickers
+}
+
+// Prepare statement if filtering is required
+if ($logged_in_role === 'inspector') {
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $logged_in_user);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    $result = $conn->query($sql);
+}
 ?>
+
 <!-- Main Content -->
 <div class="main-content">
     <div class="container-fluid">
@@ -20,7 +38,7 @@ $result = $conn->query($sql);
                                 <h4 class="pl-2 pt-3 pb-2">Sticker List</h4>
                             </div>
                             <div class="col-6 text-right">
-                                <a href="./add-sticker.php">
+                                <a href="./add-sticker.php" id="addStickerBtn">
                                     <button type="button" class="btn">Create New</button>    
                                 </a>           
                             </div>
@@ -174,6 +192,7 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
+                    text: 'Export', // Change button text
                     title: 'Sticker List',
                     exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)
@@ -182,5 +201,15 @@ include_once('../inc/footer.php');
             ],
             "searching": true
         });
+    });
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userRole = <?php echo json_encode($logged_in_role); ?>;
+        if (userRole !== "admin") {
+            document.getElementById("addStickerBtn").style.display = "none";
+        }
     });
 </script>

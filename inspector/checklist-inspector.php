@@ -129,6 +129,7 @@ include_once('../../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
+                    text: 'Export', // Change button text
                     title: 'Checklist List'
                 }
             ],

@@ -287,6 +287,7 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
+                    text: 'Export', // Change button text
                     title: 'Project List',
                     exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)
