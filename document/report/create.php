@@ -10,7 +10,7 @@ if (isset($_GET['project_no'])) {
     // $query = "SELECT checklist_no FROM checklist_information WHERE project_no = '$project_no' LIMIT 1";
 
     $query = "
-    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date, c.report_no,
+    SELECT c.checklist_no, c.client_name, c.location, c.equipment_type, c.inspection_date, c.report_no, c.manufacturer, c.capacity_swl, c.sticker_no,
            p.project_no, p.creation_date, p.sticker_status, p.customer_name, p.equipment_location,
            p.inspector_name, p.checklist_type
     FROM checklist_information c
@@ -26,6 +26,9 @@ if (isset($_GET['project_no'])) {
         $equipment_type = $row['equipment_type'];
         $inspection_date = $row['inspection_date'];
         $report_no = $row['report_no'];
+        $manufacturer = $row['manufacturer'];    
+        $capacity_swl = $row['capacity_swl'];
+        $sticker_no = $row['sticker_no'];
         $project_no = $row['project_no'];
         $creation_date = $row['creation_date'];
         $sticker_status = $row['sticker_status'];
@@ -86,7 +89,7 @@ if (isset($_GET['project_no'])) {
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Client Company / Name</label>
                     <!-- <input type="text" class="theme-input-style" placeholder="Enter client company name" name="client_company_name" required> -->
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($client_name); ?>" name="client_company_name" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($client_name); ?>" name="client_company_name" readonly required>
                 </div>
 
                 <div class="form-group">
@@ -96,7 +99,7 @@ if (isset($_GET['project_no'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Manufacturer</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter manufacturer" name="manufacturer" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter manufacturer" value="<?php echo htmlspecialchars($manufacturer); ?>" name="manufacturer" readonly required>
                 </div>
 
                 <div class="form-group">
@@ -116,17 +119,17 @@ if (isset($_GET['project_no'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Issued by</label>
-                    <input type="text" class="theme-input-style" placeholder="Issued by" value="<?php echo htmlspecialchars($inspector_name); ?>" name="issued_by" required>
+                    <input type="text" class="theme-input-style" placeholder="Issued by" value="<?php echo htmlspecialchars($inspector_name); ?>" name="issued_by" readonly required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Capacity</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter capacity" name="capacity" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter capacity" value="<?php echo htmlspecialchars($capacity_swl); ?>" name="capacity" readonly required>                    
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Report No</label>
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_no); ?>" name="report_no" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($report_no); ?>" name="report_no" readonly required>
                 </div>
 
             </div>
@@ -145,13 +148,13 @@ if (isset($_GET['project_no'])) {
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Location</label>
                     <!-- <input type="text" class="theme-input-style" placeholder="Enter location" name="location" required> -->
-                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($location); ?>" name="location" required>
+                    <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($location); ?>" name="location" readonly required>
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Date of Inspection</label>
                     <!-- <input type="date" class="theme-input-style" name="date_of_inspection" required> -->                    
-                    <input type="date" class="theme-input-style" value="<?php echo htmlspecialchars($inspection_date); ?>" name="date_of_inspection" required>
+                    <input type="date" class="theme-input-style" value="<?php echo htmlspecialchars($inspection_date); ?>" name="date_of_inspection" readonly required>
                 </div>
 
                 <div class="form-group">
@@ -169,14 +172,12 @@ if (isset($_GET['project_no'])) {
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Sticker Number Issued</label>
-                    <input type="text" class="theme-input-style" placeholder="Enter sticker number issued" name="sticker_number_issued" required>
+                    <input type="text" class="theme-input-style" placeholder="Enter sticker number issued" value="<?php echo htmlspecialchars($sticker_no); ?>" name="sticker_number_issued" readonly required>                    
                 </div>
 
                 <div class="form-group">
                     <label class="font-14 bold mb-2">Project ID</label>
                     <input type="text" class="theme-input-style" value="<?php echo htmlspecialchars($project_no); ?>" name="project_no" readonly required>
-
-
                 </div>
 
                 <div class="form-group">

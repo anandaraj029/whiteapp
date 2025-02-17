@@ -50,8 +50,10 @@ if ($role == '' || $role == 'guest') {
          echo $url . 'dashboard/inspector.php'; // Inspector dashboard
       } elseif ($role === 'reviewer') {
          echo $url . 'dashboard/reviewer.php'; // Reviewer dashboard      
-      } elseif ($role === 'document controlller') {
-      echo $url . 'dashboard/document controlller.php'; // Reviewer dashboard
+      } elseif ($role === 'document controller') {
+      echo $url . 'dashboard/document controller.php'; // Reviewer dashboard
+      } elseif ($role === 'quality controller') {
+         echo $url . 'dashboard/quality controller.php'; // Reviewer dashboard
       }
       else {
          echo $url . 'dashboard/'; // Default fallback
@@ -66,19 +68,27 @@ if ($role == '' || $role == 'guest') {
 
             <!-- Sticker Portal (Visible to Admin Only) -->
             <?php if ($_SESSION['role'] === 'admin'): ?>
-               <li>
-                  <a href="#">
-                     <i class="icofont-shopping-cart"></i>
-                     <span class="link-title">Sticker Portal</span>
-                  </a>
-                  <!-- Sub Menu -->
-                  <ul class="nav sub-menu">
-                     <li><a href="<?php echo $url; ?>sticker/add-sticker.php">Add Sticker</a></li>
-                     <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
-                  </ul>
-                  <!-- End Sub Menu -->
-               </li>
-            <?php endif; ?>
+    <li>
+        <a href="#">
+            <i class="icofont-shopping-cart"></i>
+            <span class="link-title">Sticker Portal</span>
+        </a>
+        <!-- Sub Menu for Admin -->
+        <ul class="nav sub-menu">
+            <li><a href="<?php echo $url; ?>sticker/add-sticker.php">Add Sticker</a></li>
+            <li><a href="<?php echo $url; ?>sticker/sticker-list.php">Sticker List</a></li>
+        </ul>
+        <!-- End Sub Menu -->
+    </li>
+<?php elseif ($_SESSION['role'] === 'inspector'): ?>
+    <li>
+        <a href="<?php echo $url; ?>sticker/sticker-list.php">
+            <i class="icofont-shopping-cart"></i>
+            <span class="link-title">Sticker List</span>
+        </a>
+    </li>
+<?php endif; ?>
+
 
             <!-- Job Portal (Visible to All Users) -->
             <li>
@@ -179,6 +189,7 @@ if ($role == '' || $role == 'guest') {
                   <!-- Sub Menu -->
                   <ul class="nav sub-menu">
                      <li><a href="<?php echo $url; ?>/inspector/all-inspector.php">Inspector List</a></li>
+                     <li><a href="<?php echo $url; ?>/user/all-user.php">User List</a></li>
                      <li><a href="<?php echo $url; ?>/setup/timeline.php">Timeline</a></li>
                      <li><a href="">Account Settings</a></li>
                   </ul>

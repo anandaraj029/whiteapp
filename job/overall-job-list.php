@@ -11,10 +11,10 @@ include '../file/config.php'; // Database connection
 // Check if the user is logged in
 $logged_in_user = $_SESSION['username'] ?? null; // Replace with the appropriate session key
 $user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in the session
-
+// $projectNo = $row["project_no"];
 if ($logged_in_user) {
     // Fetch data based on user role
-    if ($user_role === 'admin' || $user_role === 'reviewer' || $user_role === 'document controller') {
+    if ($user_role === 'admin' || $user_role === 'reviewer' || $user_role === 'quality controller' || $user_role === 'document controller') {
         // Fetch all data from the 'project_info' table for admin
         $sql = "SELECT * FROM project_info ORDER BY creation_date DESC";
         $stmt = $conn->prepare($sql);
@@ -189,11 +189,11 @@ if ($logged_in_user) {
                                                     </a>
                                                     <!-- Delete Button (Visible only to Admin) -->
                                                     <?php if ($user_role === 'admin') { ?>
-                                                        <a href="#" class="delete-btn" onclick="deleteProject(<?php echo $row['project_no']; ?>)">
-                                                            <button type="button" class="details-btn" style="background-color: #ff4444; color: white;">
-                                                                Delete <i class="icofont-trash"></i>
-                                                            </button>
-                                                        </a>
+        <a href="delete_project.php?id=<?php echo urlencode($row['project_no']); ?>">
+    <button type="button" class="btn btn-sm text-danger">
+        Delete <i class="icofont-arrow-right"></i>
+    </button>
+</a>
                                                     <?php } ?>
                                                 </td>
                 </tr>
@@ -214,46 +214,6 @@ if ($logged_in_user) {
 $conn->close();
 ?>
 
-<!-- Include the export scripts -->
-<script>
-// document.getElementById('pdf-button').addEventListener('click', function () {
-//     const { jsPDF } = window.jspdf;
-//     const doc = new jsPDF();
-//     doc.autoTable({ html: '#job-table' });
-//     doc.save('job-list.pdf');
-// });
-
-document.getElementById('excel-button').addEventListener('click', function () {
-    var wb = XLSX.utils.table_to_book(document.getElementById('job-table'), { sheet: "Sheet JS" });
-    XLSX.writeFile(wb, 'job-list.xlsx');
-});
-
-
-
-
-// Delete Project Function
-function deleteProject(projectNo) {
-    if (confirm("Are you sure you want to delete this project?")) {
-        // Send an AJAX request to delete the project
-        fetch(`delete_project.php?project_no=${projectNo}`, {
-            method: 'GET',
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.status === 'success') {
-                alert("Project deleted successfully.");
-                location.reload(); // Reload the page to reflect changes
-            } else {
-                alert("Failed to delete project: " + data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert("An error occurred while deleting the project.");
-        });
-    }
-}
-</script>
 
 
                   
@@ -287,6 +247,7 @@ include_once('../inc/footer.php');
             buttons: [
                 {
                     extend: 'excelHtml5',
+                    text: 'Export', // Change button text
                     title: 'Project List',
                     exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)
@@ -330,4 +291,46 @@ include_once('../inc/footer.php');
             document.getElementById("createJobBtn").style.display = "none";
         }
     });
+</script>
+
+
+<!-- Include the export scripts -->
+<script>
+// document.getElementById('pdf-button').addEventListener('click', function () {
+//     const { jsPDF } = window.jspdf;
+//     const doc = new jsPDF();
+//     doc.autoTable({ html: '#job-table' });
+//     doc.save('job-list.pdf');
+// });
+
+document.getElementById('excel-button').addEventListener('click', function () {
+    var wb = XLSX.utils.table_to_book(document.getElementById('job-table'), { sheet: "Sheet JS" });
+    XLSX.writeFile(wb, 'job-list.xlsx');
+});
+</script>
+
+
+<script>
+
+// Delete Project Function
+function deleteProject(projectNo) {
+    if (confirm("Are you sure you want to delete this project?")) {
+        fetch(`delete_project.php?project_no=${projectNo}`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                alert("Project deleted successfully.");
+                location.reload(); // Reload the page to reflect changes
+            } else {
+                alert("Failed to delete project: " + data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("An error occurred while deleting the project.");
+        });
+    }
+}
 </script>

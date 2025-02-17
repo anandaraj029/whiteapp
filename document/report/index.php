@@ -428,6 +428,7 @@ $result = $stmt->get_result();
         buttons: [
             {
                 extend: 'excelHtml5',
+                text: 'Export', // Change button text
                 title: 'Report List',
                 exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)

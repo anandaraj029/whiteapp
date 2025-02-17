@@ -17,12 +17,8 @@ if ($projectResult && $projectResult->num_rows > 0) {
 
 // Format the project ID as "CIMS001"
 $formattedProjectNo = "CIMS" . str_pad($newProjectNo, 3, "0", STR_PAD_LEFT);
-
 // Return the generated ID
 // echo $formattedProjectNo;
-
-
-
 
 // Fetch student names from the database
 $customerQuery = "SELECT * FROM customers";
@@ -34,8 +30,8 @@ $result = mysqli_query($conn, $sql); // Execute query
 
 ?>
 
-            <!-- Main Content -->
-            <div class="main-content">
+<!-- Main Content -->
+<div class="main-content">
 
                         <div class="container-fluid">
                         <div class="card bg-transparent pb-3">
@@ -123,6 +119,7 @@ $result = mysqli_query($conn, $sql); // Execute query
                                     <!-- End Form Row -->
 
 
+                                <!-- Form Row -->
                                     <div class="form-row mb-20">
                                         <div class="col-sm-4">
                                             <label class="font-14 bold">Equipment Location</label>
@@ -132,8 +129,7 @@ $result = mysqli_query($conn, $sql); // Execute query
                                         </div>
                                     </div>
                                    
-                                    <!-- End Form Row -->
-                                    
+                                <!-- End Form Row -->                                  
                            
 
                                     <!-- Form Row -->
@@ -161,19 +157,11 @@ $result = mysqli_query($conn, $sql); // Execute query
         <label for="customer_id" class="font-14 bold">Select Customer</label>
     </div>
     <div class="col-sm-8">
-
-
-    
-    
-
-                    
-
     <select name="customer_id" id="customer-select" class="theme-input-style">
     <option value="">Select Customer</option>
-
     <?php
                                             // Check if customers exist
-                        if ($customerResult && $customerResult->num_rows > 0) {
+    if ($customerResult && $customerResult->num_rows > 0) {
                                                 // Loop through the student records and populate the dropdown
                                                 while ($row = $customerResult->fetch_assoc()) {
                                                     echo "<option value='" . $row['id'] . "'>" . htmlspecialchars($row['customer_name']) . "</option>";
@@ -183,9 +171,9 @@ $result = mysqli_query($conn, $sql); // Execute query
                                             }
                                             ?>    
 </select>
-
     </div>
 </div>
+ <!-- Form Row End -->
 
 <!-- Customer Email -->
 <div class="form-row mb-20">
@@ -196,6 +184,7 @@ $result = mysqli_query($conn, $sql); // Execute query
         <input type="email" id="customer-email" name="email" class="theme-input-style" placeholder="Customer Email" readonly>
     </div>
 </div>
+<!-- Customer Email End-->
 
 <!-- Customer Mobile -->
 <div class="form-row mb-20">
@@ -206,6 +195,7 @@ $result = mysqli_query($conn, $sql); // Execute query
         <input type="number" id="customer-mobile" name="mobile" class="theme-input-style" placeholder="Customer Mobile" readonly>
     </div>
 </div>
+<!-- Customer Mobile End-->
 
 
                                     <!-- End Form Row -->
@@ -247,16 +237,19 @@ $result = mysqli_query($conn, $sql); // Execute query
     ?>
 </select>
     </div>
-                                    </div>
+</div>
+
+<!-- End Form Row -->
 
 
-                                    <div class="form-row mb-20">
-                                        <div class="col-sm-4">
-                                            <label class="font-14 bold">Handle Crane</label>
-                                        </div>
+<!-- Form Row -->
+<div class="form-row mb-20">
+  <div class="col-sm-4">
+    <label class="font-14 bold">Handle Crane</label>
+  </div>
 
 
-                                        <div class="col-sm-8">
+<div class="col-sm-8">
     <select id="crane_select" name="checklist_type" class="theme-input-style">
         <option value="" disabled selected>Select a Crane</option>
     </select>
@@ -283,7 +276,7 @@ $result = mysqli_query($conn, $sql); // Execute query
                                        
                                     
                                         </div> -->
-                                    </div>
+ </div>
                                     <!-- End Form Row -->
                                          <!-- Form Row -->
                               
@@ -326,9 +319,8 @@ $result = mysqli_query($conn, $sql); // Execute query
                                         <div class="col-12 text-center mt-4">
                                             <button type="submit" id="confirm-text" class="btn long s_alert">Save</button>
                                         </div>
-                                    </div>
-
-                                    </form>
+                            </div>
+                            </form>
                     </div>
                 </div>
             </div>
@@ -336,7 +328,6 @@ $result = mysqli_query($conn, $sql); // Execute query
 
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 
             <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 

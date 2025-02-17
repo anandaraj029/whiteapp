@@ -56,9 +56,6 @@ include_once('../inc/function.php');
                                                 <span class="checkmark"></span>
                                             </label>
                                             <!-- End Custom Checkbox -->
-
-                                         
-                                            <!-- End Star -->
                                         </th>
                                         <th class="text-center">Inspector ID </th>
                                         <th class="text-center">Inspector Name </th>
@@ -137,96 +134,6 @@ if (file_exists($profile_photo_path)) {
                         </div>
                     </div>
                     <!-- End Card -->
-
-                    <!-- Contact Add New PopUp -->
-                     <div id="contactAddModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
-
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                          <div class="attach-file style--two mb-3">
-                                             <img src="<?php echo $url; ?>assets/img/img-placeholder.png" class="profile-avatar" alt="">
-                                             <div class="upload-button">
-                                                <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                <span>Upload Logo</span>
-                                                <input class="file-input" type="file" id="fileUpload" accept="image/*">
-                                             </div>
-                                          </div>
-
-                                          <div class="content">
-                                             <h4 class="mb-2">Upload a Photo</h4>
-                                             <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                          </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name">Company Name</label>
-                                             <input type="text" id="as_name" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email">Email</label>
-                                             <input type="email" id="email" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone">Phone</label>
-                                             <input type="number" id="phone" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age">City</label>
-                                             <input type="text" id="city" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post">Address</label>
-                                             <textarea name="address" id="address" class="theme-input-style"  row="2"  placeholder="Type Here" ></textarea>
-                                             <!-- <input type="text" id="address" class="theme-input-style" placeholder="Type Here" required> -->
-                                          </div>
-                                          
-                                          <div class="mb-10">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <div class="date datepicker dashboard-date style--two" id="datePickerExample">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div>
-                                          </div>
-                                          <div class="d-flex align-items-center pb-20">
-                                    <!-- Custom Checkbox -->
-                                    <label class="custom-checkbox position-relative ">
-                                        <input type="checkbox" id="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <!-- End Custom Checkbox -->
-                                    
-                                    <label for="checkbox" class="font-14">Create the Customer profile </label>
-                                </div>
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
-                     <!-- End Contact Add New PopUp -->
-
                     
                   </div>
                </div>

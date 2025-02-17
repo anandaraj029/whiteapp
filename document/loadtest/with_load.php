@@ -9,7 +9,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
         c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
-        r.report_no, r.jrn
+        r.report_no, r.jrn, r.sticker_number_issued
     FROM 
         project_info p
     LEFT JOIN 
@@ -118,7 +118,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Report No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Report No" name="report_no" required>
+                                            <input type="text" class="theme-input-style" placeholder="Report No" value="<?php echo $data['report_no'] ?? ''; ?>" name="report_no" required>
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -129,7 +129,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Sticker No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Sticker No" name="sticker_no" required>
+                                            <input type="text" class="theme-input-style" placeholder="Sticker No" value="<?php echo $data['sticker_number_issued'] ?? ''; ?>" name="sticker_no" required>
                                         </div>
                                     </div>           
                                     <!-- Form Row -->
@@ -140,7 +140,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Project ID</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_no" required>
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" value="<?php echo $data['project_no'] ?? ''; ?>" name="project_no" required readonly>
                                         </div>
                                     </div>                                          
                                     
@@ -193,7 +193,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/user3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>                                                
-                                                <input type="text" class="form-control pl-1" placeholder="Type Customer Name" name="customer_name" required>
+                                                <input type="text" class="form-control pl-1" placeholder="Type Customer Name" value="<?php echo $data['customer_name'] ?? ''; ?>" name="customer_name" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" name="customer_email" required>
+                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" value="<?php echo $data['customer_email'] ?? ''; ?>" name="customer_email" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" name="customer_mobile" required>
+                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" name="customer_mobile" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -366,7 +366,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold"> JRN:</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Enter JRN" name="jrn" required>
+                                            <input type="text" class="theme-input-style" placeholder="Enter JRN" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" required readonly>
                                         </div>
                                     </div>    
                                 <!-- </form> -->
@@ -439,23 +439,22 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         <input type="date" class="theme-input-style" name="last_exam_date">
     </div>
 </div>
-<!-- End Additional Row 2 -->
-                                  
-                                <!-- </form> -->
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Horizontal Form With Icons -->
-                     </div>                                       
+<!-- End Additional Row 2 -->                                  
+<!-- </form> -->
+<!-- End Form -->
+</div>
+<!-- End Horizontal Form With Icons -->
+</div>                                       
                      
                       
                       
                       
 <div class="col-lg-6">
-                            <!-- Base Horizontal Form -->
+<!-- Base Horizontal Form -->
 <div class="form-element py-30 mb-30" style="height: 330px;">
-                                <!-- <h4 class="font-20 mb-30">Header Data</h4> -->
-                                <!-- Form -->
-                                <!-- <form action="#" method="POST"> -->
+<!-- <h4 class="font-20 mb-30">Header Data</h4> -->
+<!-- Form -->
+<!-- <form action="#" method="POST"> -->
 
 
 <!-- Form Row -->
@@ -539,9 +538,9 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 </div>                                   
                                     
                                 <!-- End Form -->
-                            </div>
+</div>
                             <!-- End Horizontal Form With Icons -->
-                        </div>     
+</div>     
                      
 
   <div class="col-lg-12">    
@@ -618,13 +617,10 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     <label class="font-14 bold mb-2">Name and address of employer of persons making and authenticating this report:</label>
     <textarea class="theme-input-style" placeholder="Enter name and address of employer of persons making and authenticating this report" name="name_address_of_employer" required></textarea>
 </div>
-
 </div>
 
 </div>
-  <!-- </form> -->
-        <!-- End Form -->
-    </div>
+</div>
         
 </div>
 

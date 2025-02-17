@@ -85,8 +85,7 @@ if ($logged_in_user) {
             // Format the checklist type: remove hyphens/underscores and capitalize words
             $formatted_checklist_type = str_replace(['-', '_'], ' ', $checklist_type_raw); // Replace hyphens/underscores with spaces
             $formatted_checklist_type = ucwords($formatted_checklist_type); // Capitalize each word
-
-
+            
              // Get inspector's name from the database (assuming you already have it in $row['inspected_by'])
              $inspector_name = $row['inspected_by']; 
 
@@ -179,7 +178,8 @@ include_once('../../inc/footer.php');
         buttons: [
             {
                 extend: 'excelHtml5',
-                title: 'Order List',
+                text: 'Export', // Change button text
+                title: 'Checklist Data',
                 exportOptions: {
                     columns: ':not(:last-child)' // Exclude the last column (Action column)
                 }
