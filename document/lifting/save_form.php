@@ -122,8 +122,8 @@ if (isset($_POST['save_data_lifting'])) {
 
     // If insertion was successful, update the project status
     if ($insert_successful) {
-        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
-        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = '$project_no'";
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
+        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = '$project_no'";
 
         if (mysqli_query($conn, $update_query)) {
             echo "Project status updated to 'Certificate Created'.<br>";

@@ -38,6 +38,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         // Extract the certificatestatus from the database
         $certificateStatus = $data['certificatestatus'];
         // Retrieve checklist_status and report_status directly from the joined data
+        $project_status = $data['project_status'];
         $checklistStatus = $data['checklist_status'];
         $dataStatus = $data['report_status'];
         $reviewStatus = $data['review_status']; // Default to 'Pending' if not set
@@ -394,7 +395,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                     <!-- End Invoice Wrapper -->
 
                     <!-- Invoice Details List Wrapper -->
-                    <?php if ($checklistCreated && $reportCreated && !empty($certificates)): ?>
+                    <?php if ($project_status === 'Completed' && $checklistCreated && $reportCreated && !empty($certificates)): ?>
                         <div class="bg-white details-list-wrap">
                             <div class="table-responsive">
                                 <!-- Invoice List Table -->
@@ -475,14 +476,63 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                         </div>
                     <?php else: ?>
                         <div style="display: block; text-align: center; padding: 20px">
-                            <?php if ($reviewStatus === 'Pending'): ?>
-                                <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reviewModal"> -->
-                                    QC Controller Review
-                                <!-- </button> -->
-                            <?php endif; ?>
+                        <?php if ($userRole === 'quality controller' && $certificateStatus === "Certificate Created"): ?>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#qcReviewModal">
+        QC Controller Review
+    </button>
+<?php endif; ?>
                         </div>
                     <?php endif; ?>
                     <!-- End Invoice Details List Wrapper -->
+
+                    <!-- QC Controller Review Modal -->
+<div class="modal fade" id="qcReviewModal" tabindex="-1" role="dialog" aria-labelledby="qcReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="qcReviewModalLabel">QC Controller Review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="qcReviewForm">
+                    <div class="form-group">
+                        <label for="qcProjectNo">Project No</label>
+                        <input type="text" class="form-control" id="qcProjectNo" name="qcProjectNo" value="<?php echo htmlspecialchars($data['project_no']); ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="qcChecklistNo">Checklist No</label>
+                        <input type="text" class="form-control" id="qcChecklistNo" name="qcChecklistNo" value="<?php echo htmlspecialchars($data['checklist_no']); ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="qcChecklistType">Checklist Type</label>
+                        <input type="text" class="form-control" id="qcChecklistType" name="qcChecklistType" value="<?php echo htmlspecialchars($data['checklist_type']); ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="qcReportNo">Report No</label>
+                        <input type="text" class="form-control" id="qcReportNo" name="qcReportNo" value="<?php echo htmlspecialchars($data['report_no']); ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="qcCertificateType">Certificate Type</label>
+                        <input type="text" class="form-control" id="qcCertificateType" name="qcCertificateType" value="<?php echo htmlspecialchars($certificates[0]['certificate_type']); ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="qcReviewStatus">Review Status</label>
+                        <select class="form-control" id="qcReviewStatus" name="qcReviewStatus" required>
+                            <option value="Completed">Completed</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="submitQcReview">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </div>
@@ -614,6 +664,51 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     </script>
+
+
+<script>
+
+document.getElementById('submitQcReview').addEventListener('click', function () {
+    const formData = new FormData(document.getElementById('qcReviewForm'));
+
+    fetch('submit_qc_review.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('QC Review submitted successfully!');
+            $('#qcReviewModal').modal('hide');
+
+            // Update project status if review is completed
+            if (data.reviewStatus === 'Completed') {
+                fetch('update_project_status.php', {
+                    method: 'POST',
+                    body: new FormData(document.getElementById('qcReviewForm'))
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Project status updated to Completed!');
+                        window.location.reload();
+                    } else {
+                        alert('Error updating project status: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }
+        } else {
+            alert('Error submitting QC review: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
     <?php
     include_once('../inc/footer.php');
     ?>

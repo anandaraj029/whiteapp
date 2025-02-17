@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Execute the query
     if ($stmt->execute()) {
         // Update project status
-        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
-        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = ?";
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
+        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = ?";
         $update_stmt = $conn->prepare($update_query);
         $update_stmt->bind_param('s', $project_no);
         

@@ -8,8 +8,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $query = "
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
-        c.checklist_no,
-        r.report_no
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn, r.sticker_number_issued
     FROM 
         project_info p
     LEFT JOIN 
@@ -38,20 +38,20 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 ?>
 
             <!-- Main Content -->
-            <div class="main-content">
-                <div class="container-fluid">
-                    <div class="card bg-transparent pb-3">
-                        <div class="card-body bg-white ">
-                            <div class="row">
-                               <div class="col-6">
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="card bg-transparent pb-3">
+            <div class="card-body bg-white ">
+                <div class="row">
+                        <div class="col-6">
                         <h4 class="pl-2 pt-3 pb-2 font-20">MAGNETIC PARTICLE INSPECTION CERTIFICATE</h4>
                                 </div>
                         <div class="col-6 text-right">
                        <button type="button" class="btn" >View List</button>               
                         </div>
-                    </div>
-                    </div>
-                    </div>
+                </div>
+            </div>
+        </div>
 
             </div>
                 <div class="container-fluid">
@@ -91,7 +91,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Report No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="report_no" placeholder="Report No">
+                                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" readonly >
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -102,7 +102,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">JRN</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="jrn" placeholder="JRN">
+                                            <input type="text" class="theme-input-style" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" placeholder="JRN" readonly>
                                         </div>
                                     </div>
 
@@ -112,7 +112,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="project_no" class="theme-input-style">
+                                <input type="text" name="project_no" class="theme-input-style" value="<?php echo $data['project_no'] ?? ''; ?>" readonly>
                             </div>
                         </div>
 
@@ -124,11 +124,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <div class="col-sm-8">
                                 <input type="text" name="companyName" class="theme-input-style">
                             </div>
-                        </div>
-                                           
-                                    
-                                    
-                                
+                        </div>  
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
@@ -137,9 +133,6 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <!-- Base Horizontal Form With Icons -->
                             <div class="form-element py-30 mb-30">
                                 <h4 class="font-20 mb-30">Customer Information / Inspector </h4>
-
-                                <!-- Form -->
-                                
 
                                     <!-- Form Row -->
                                     <div class="form-row mb-20">
@@ -154,7 +147,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                     </div>
                                                 </div>
                                                 
-                                                <input type="text" class="form-control pl-1" name="customer_name" placeholder="Type Your Name">
+                                                <input type="text" class="form-control pl-1" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Type Your Name" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +165,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" name="customer_email" placeholder="Type Email Address">
+                                                <input type="email" class="form-control pl-1" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -190,7 +183,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" name="mobile" placeholder="Contact Number">
+                                                <input type="number" class="form-control pl-1" name="mobile" placeholder="Contact Number" value="<?php echo $data['customer_mobile'] ?? ''; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -208,7 +201,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/key3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control pl-1" name="inspector" placeholder="Inspector name">
+                                                <input type="text" class="form-control pl-1" name="inspector" placeholder="Inspector name" value="<?php echo $data['inspector_name'] ?? ''; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -253,8 +246,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
 </div>
 
-                    <div class="col-lg-6">
-                        
+                    <div class="col-lg-6">                        
                     <div class="form-group">
                         <label class="font-14 bold mb-2">REFERENCE NO</label>
                         <input type="text" class="theme-input-style" name="reference_no" placeholder="Enter REFERENCE NO" value="">
@@ -265,11 +257,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                         <input type="date" class="theme-input-style" name="next_inspection_date" placeholder="Next Inspection Date" value="">
                     </div>
 </div>
-</div>
-
-
-
-            
+</div>           
         
         <!-- End Form -->
     </div>

@@ -110,8 +110,8 @@ include_once('../inc/customer-option.php');
                                                  <a class="p_nav-link has-before active" href="about.html">About</a>
                                              </li>
                                              <li>
-                                                 <a class="p_nav-link" href="gallery.html">Gallery</a>
-                                             </li>
+    <a class="p_nav-link" href="project.php?cus_id=<?php echo $customer_id; ?>">Projects</a>
+</li>
                                              <li>
                                                  <a class="p_nav-link" href="news-feed.html">News Feed</a>
                                              </li>
@@ -183,6 +183,13 @@ include_once('../inc/customer-option.php');
                                              <h4 class="mb-3">About Myself</h4>
                                              <p>Fusce at nisi eget dolor rhoncus facilisis. Mauris ante nisl, consectetur et luctus et, porta ut dolor. Curabitur ultricies ultrices nulla. Morbi blandit nec est vitae dictum. Etiam vel consectetur diam. Maecenas vitae egestas dolor. Fusce tempor magna at tortor aliquet finibus. Sed eu nunc sit amet elit euismod faucibus. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
                                          </div>
+
+
+
+                                         
+
+
+
  
  
 <div class="row mt-5">

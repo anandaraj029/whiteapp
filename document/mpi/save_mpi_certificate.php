@@ -110,7 +110,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Update the certificatestatus in the project_info table
-        $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = '$project_no'";
+        $updateStatusSql = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
         if ($conn->query($updateStatusSql) === TRUE) {
             echo "Certificate created and images uploaded successfully.";
             header("Location: index.php?message=Record uploaded successfully");

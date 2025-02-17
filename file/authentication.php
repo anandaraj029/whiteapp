@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 case 'reviewer':
                         header("Location: ../dashboard/reviewer.php");
                         break;    
-                case 'qcchecker':
-                    header("Location: ../dashboard/qcchecker.php");
+                case 'quality controller':
+                    header("Location: ../dashboard/quality controller.php");
                     break;
                 case 'certified':
                     header("Location: ../dashboard/certified.php");

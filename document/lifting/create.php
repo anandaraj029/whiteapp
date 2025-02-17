@@ -9,8 +9,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $query = "
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
-        c.checklist_no, c.inspection_date,
-        r.report_no, r.jrn
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn, r.sticker_number_issued
     FROM 
         project_info p
     LEFT JOIN 
@@ -94,7 +94,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" class="theme-input-style" readonly>
+                                <input type="text" name="jrn" value="<?php echo $data['jrn'] ?? ''; ?>" class="theme-input-style" readonly required>
                             </div>
                         </div>
 
@@ -135,7 +135,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="companyName" value="<?php echo $data['project_no'] ?? ''; ?>" class="theme-input-style" readonly>
+                                <input type="text" name="companyName" class="theme-input-style" readonly>
                             </div>
                         </div>
                     

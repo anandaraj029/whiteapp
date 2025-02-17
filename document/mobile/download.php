@@ -23,6 +23,7 @@ $stmt->close();
 $conn->close();
 
 use Mpdf\Mpdf;
+
 $title = "MAGNETIC PARTICLE INSPECTION CERTIFICATE";
 // Load Bootstrap CSS
 // $bootstrapCSS = file_get_contents('../../assets/css/bootstrap.css');

@@ -125,7 +125,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No">
+                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -133,7 +133,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN">
+                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -141,7 +141,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID">
+                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -168,7 +168,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Name</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name">    
+                            <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" readonly>    
                             <!-- <input type="text" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
@@ -177,7 +177,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Email</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address">    
+                            <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" readonly>    
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
@@ -187,7 +187,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             </div>
                             <div class="col-sm-8">
                                 
-                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number">    
+                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" readonly>    
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -196,7 +196,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             </div>
                             <div class="col-sm-8">
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
-                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name">    
+                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" readonly>    
                             </div>
                         </div>
                     </div>
