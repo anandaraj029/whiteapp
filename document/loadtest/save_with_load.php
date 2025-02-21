@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customer_email = $_POST['customer_email'];
     $customer_mobile = $_POST['customer_mobile'];
     $inspector_name = $_POST['inspector_name'];
+    $technical_manager = $_POST['technical_manager'];
     $employer_address = $_POST['employer_address'];
     $equipment_description = $_POST['equipment_description'];
     $manufacturer = $_POST['manufacturer'];
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Prepare SQL statement
     $sql = "INSERT INTO loadtest_certificate (
                 examination_date, report_date, report_no, sticker_no, project_no, serial_numbers, company_name, customer_name, customer_email,
-                customer_mobile, inspector_name, 
+                customer_mobile, inspector_name, technical_manager,
                 employer_address, equipment_description, manufacturer, model, 
                 equipment_id, equipment_serial_no, width, thickness, certificate_no, jrn, 
                 premises_address, safe_working_load, manufacture_date, last_exam_date, 
@@ -61,15 +62,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 date_defect, repair_details, test_particulars, equipment_fit, name_qualifications_person,
                 report_making_person_qualifications, authenticating_person_name, latest_date_exam,
                 name_address_of_employer, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     
     // Prepare statement
     $stmt = $conn->prepare($sql);
     
     // Bind parameters
-    $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssss', 
+    $stmt->bind_param('ssssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $project_no, $serial_numbers,
-        $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name,
+        $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name, $technical_manager,
         $employer_address, $equipment_description, $manufacturer, $model,
         $equipment_id, $equipment_serial_no, $width, $thickness, $certificate_no, $jrn,
         $premises_address, $safe_working_load,

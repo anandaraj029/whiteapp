@@ -1,5 +1,6 @@
 <?php
 session_start();
+// include_once('../file/config.php');
 // include_once '../index.php';
 
 // Redirect to login if the user is not authenticated
@@ -10,6 +11,16 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['role'])) {
 
 $role = $_SESSION['role'];
 $username = $_SESSION['username'];
+// Query to check for projects that need review
+$query = "SELECT project_no FROM project_info WHERE checklist_status = 'Created' AND report_status = 'Generated' AND review_status = 'Pending'";
+$result = mysqli_query($conn, $query);
+
+$projects_for_review = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $projects_for_review[] = $row['Project_no'];
+    }
+}
 ?>
 
 
@@ -225,7 +236,52 @@ $username = $_SESSION['username'];
                            </li>
                            <li>
                               <!-- Main Header Notification -->
-                              <?php include 'notification-section.php'; ?>
+                             <!-- Main Header Notification -->
+                             <div class="main-header-notification">
+                                 <a href="#" class="header-icon notification-icon" data-toggle="dropdown">
+                                    <span class="count" data-bg-img="assets/img/count-bg.png"><?php echo count($projects_for_review); ?></span>
+                                    <img src="<?php echo $url; ?>assets/img/svg/notification-icon.svg" alt="" class="svg">
+                                 </a>
+                                 <div class="dropdown-menu style--two dropdown-menu-right">
+                                    <!-- Dropdown Header -->
+                                    <div class="dropdown-header d-flex align-items-center justify-content-between">
+                                       <h5><?php echo count($projects_for_review); ?> New notifications</h5>
+                                       <a href="#" class="text-mute d-inline-block">Clear all</a>
+                                    </div>
+                                    <!-- End Dropdown Header -->
+
+                                    <!-- Dropdown Body -->
+                                    <div class="dropdown-body">
+                                       <?php if (!empty($projects_for_review)): ?>
+                                          <?php foreach ($projects_for_review as $project): ?>
+                                             <!-- Item Single -->
+                                             <a href="#" class="item-single d-flex align-items-center">
+                                                <div class="content">
+                                                   <div class="mb-2">
+                                                      <p class="time">Just now</p>
+                                                   </div>	
+                                                   <p class="main-text">Project <?php echo htmlspecialchars($project); ?> is ready for review.</p>
+                                                </div>
+                                             </a>
+                                             <!-- End Item Single -->
+                                          <?php endforeach; ?>
+                                       <?php else: ?>
+                                          <!-- Item Single -->
+                                          <a href="#" class="item-single d-flex align-items-center">
+                                             <div class="content">
+                                                <div class="mb-2">
+                                                   <p class="time">Just now</p>
+                                                </div>	
+                                                <p class="main-text">No projects available for review.</p>
+                                             </div>
+                                          </a>
+                                          <!-- End Item Single -->
+                                       <?php endif; ?>
+                                    </div>
+                                    <!-- End Dropdown Body -->
+                                 </div>
+                              </div>
+                              <!-- End Main Header Notification -->
                               <!-- End Main Header Notification -->
                            </li>
                         </ul>

@@ -251,7 +251,20 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- End Form Row -->                             
+                                    <!-- End Form Row -->      
+                                     
+                                    
+                                    <div class="form-row mb-20">
+            <div class="col-sm-4">
+                <label class="font-14 bold">Technical Manager</label>
+            </div>
+            <div class="col-sm-8">
+                <select class="theme-input-style" name="technical_manager">
+                    <option value="Veera">Veera</option>
+                    <option value="Sathish">Sathish</option>
+                </select>
+            </div>
+        </div>
 
                                     
                                 <!-- </form> -->

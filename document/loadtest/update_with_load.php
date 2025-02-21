@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customer_email = $_POST['customer_email'];
     $customer_mobile = $_POST['customer_mobile'];
     $inspector_name = $_POST['inspector_name'];
+    $technical_manager = $_POST['technical_manager'];
     $employer_address = $_POST['employer_address'];
     $equipment_description = $_POST['equipment_description'];
     $manufacturer = $_POST['manufacturer'];
@@ -51,7 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Prepare SQL statement for updating
     $sql = "UPDATE loadtest_certificate SET
                 examination_date = ?, report_date = ?, report_no = ?, sticker_no = ?, serial_numbers = ?, company_name = ?, 
-                customer_name = ?, customer_email = ?, customer_mobile = ?, inspector_name = ?, employer_address = ?, equipment_description = ?, 
+                customer_name = ?, customer_email = ?, customer_mobile = ?, inspector_name = ?, technical_manager = ?, 
+                employer_address = ?, equipment_description = ?, 
                 manufacturer = ?, model = ?, equipment_id = ?, equipment_serial_no = ?, width = ?, thickness = ?, certificate_no = ?, jrn = ?, 
                 premises_address = ?, safe_working_load = ?, manufacture_date = ?, last_exam_date = ?, first_examination = ?, installed_correctly = ?, 
                 interval_6_months = ?, interval_12_months = ?, examination_scheme = ?, exceptional_circumstances = ?, identification_any_part = ?, 
@@ -63,9 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt = $conn->prepare($sql);
     
     // Bind parameters (exclude project_no from the values part, add it at the end)
-    $stmt->bind_param('ssssssssssssssssssssssssssssssssssssssssss', 
+    $stmt->bind_param('sssssssssssssssssssssssssssssssssssssssssss', 
         $examination_date, $report_date, $report_no, $sticker_no, $serial_numbers,
-        $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name,
+        $company_name, $customer_name, $customer_email, $customer_mobile, $inspector_name, $technical_manager,
         $employer_address, $equipment_description, $manufacturer, $model,
         $equipment_id, $equipment_serial_no, $width, $thickness, $certificate_no, $jrn,
         $premises_address, $safe_working_load,

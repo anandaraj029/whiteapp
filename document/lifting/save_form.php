@@ -17,6 +17,7 @@ if (isset($_POST['save_data_lifting'])) {
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
     $inspector = $_POST['inspector'];
+    $technical_manager = $_POST['technical_manager'];
     $created_at = date('Y-m-d H:i:s');
 
     // Handle dynamic fields
@@ -58,6 +59,7 @@ if (isset($_POST['save_data_lifting'])) {
             customer_email,
             mobile,
             inspector,
+            technical_manager,
             created_at,
             employer_name_address,
             identification_no,
@@ -90,6 +92,7 @@ if (isset($_POST['save_data_lifting'])) {
             '$customer_email',
             '$mobile',
             '$inspector',
+            '$technical_manager',
             '$created_at',            
             '{$employer_name_address[$index]}',
             '{$identification_no[$index]}',

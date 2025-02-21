@@ -17,13 +17,20 @@ if ($logged_in_user) {
     // Fetch data based on user role
     if ($user_role === 'admin') {
         // Fetch all data from checklist_information table for admin
-        $sql = "SELECT * FROM checklist_information ORDER BY created_at DESC";
+        $sql = "SELECT ci.*, pi.project_status 
+                FROM checklist_information ci
+                LEFT JOIN project_info pi ON ci.project_no = pi.project_no
+                ORDER BY ci.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
     } else {
         // Fetch data from checklist_information table for the logged-in inspector
-        $sql = "SELECT * FROM checklist_information WHERE inspected_by = ? ORDER BY created_at DESC";
+        $sql = "SELECT ci.*, pi.project_status 
+                FROM checklist_information ci
+                LEFT JOIN project_info pi ON ci.project_no = pi.project_no
+                WHERE ci.inspected_by = ?
+                ORDER BY ci.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $logged_in_user);
         $stmt->execute();
@@ -125,18 +132,30 @@ if ($logged_in_user) {
             // echo "<td>
             //     <button type='button' class='status-btn'>{$row['status']}</button>
             // </td>";
-            echo "<td class='actions'>
-                  <a href='./type/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
-                        <span class='contact-edit'>
-                            <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
-                        </span>
-                    </a>
-                    <!-- <a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
-                        <span class='contact-close'>
-                            <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
-                        </span>
-                    </a>-->
-                </td>";
+            echo "<td class='actions'>";
+if ($row['project_status'] !== 'Completed') {
+    // Render edit button only if project is not completed
+    echo "<a href='./type/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
+            <span class='contact-edit'>
+                <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
+            </span>
+          </a>";
+    // Render delete button only if project is not completed
+    echo "<a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
+            <span class='contact-close'>
+                <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
+            </span>
+          </a>";
+} else {
+    // Disable buttons if project is completed
+    echo "<span class='contact-edit disabled'>
+            <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
+          </span>";
+    echo "<span class='contact-close disabled'>
+            <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
+          </span>";
+}
+echo "</td>";
             echo "</tr>";
         }
     } else {
