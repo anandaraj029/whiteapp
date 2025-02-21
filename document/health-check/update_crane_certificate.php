@@ -24,6 +24,7 @@ if (isset($_POST['update'])) {
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
     $inspector = $_POST['inspector'];
+    $technical_manager = $_POST['technical_manager'];
     $vessel_name_location = $_POST['vessel_name_location'];
     $manufacturer = $_POST['manufacturer'];
     $crane_type = $_POST['crane_type'];
@@ -62,6 +63,7 @@ if (isset($_POST['update'])) {
                 customer_email = '$customer_email',
                 mobile = '$mobile',
                 inspector = '$inspector',
+                technical_manager = '$technical_manager',
                 vessel_name_location = '$vessel_name_location',
                 manufacturer = '$manufacturer',
                 crane_type = '$crane_type',

@@ -10,20 +10,48 @@ $username = $_SESSION['username']; // Assuming you store user username in sessio
 
 // Define SQL query based on role
 if ($user_role == 'admin') {
-    // Admin sees all reports
-    $sql = "SELECT * FROM reports ORDER BY date_of_inspection DESC";
-    $stmt = $conn->prepare($sql);
+   // Admin sees all reports
+   $sql = "SELECT r.*, p.project_status 
+           FROM reports r
+           JOIN project_info p ON r.project_no = p.project_no
+           ORDER BY r.date_of_inspection DESC";
+   $stmt = $conn->prepare($sql);
 } else if ($user_role == 'inspector') {
-    // Inspector sees only their reports
-    $sql = "SELECT * FROM reports WHERE issued_by = ? ORDER BY date_of_inspection DESC";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $username);
+   // Inspector sees only their reports
+   $sql = "SELECT r.*, p.project_status 
+           FROM reports r
+           JOIN project_info p ON r.project_no = p.project_no
+           WHERE r.issued_by = ? 
+           ORDER BY r.date_of_inspection DESC";
+   $stmt = $conn->prepare($sql);
+   $stmt->bind_param("s", $username);
 }
 
 // Execute query
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.dataTables.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .disabled {
+            pointer-events: none; /* Disable click events */
+            cursor: not-allowed; /* Show not-allowed cursor */
+            opacity: 0.5; /* Make it look faded */
+        }
+    </style>
+</head>
+<body>
 
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -140,6 +168,7 @@ $result = $stmt->get_result();
 
 
          $inspector_name = $row['issued_by']; 
+         $project_status = $row['project_status']; // Fetch project status
 
          // Define the path to the inspector's image
          $inspector_image_path = "../../inspector/uploads/{$inspector_name}/images/profile_image.jpg";
@@ -199,17 +228,18 @@ $result = $stmt->get_result();
                                             </div>
                                         </div>
                                     </td>
-                <td class="actions">
-            
-                <!-- Edit action (only for admin) -->
+                                    <td class="actions">
+            <!-- Edit action (only for admin and if project is not completed) -->
+            <?php if ($project_status !== 'Completed') { ?>
                 <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
                     <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
                 </a>
-                <!-- Delete action (only for admin) -->
-                <!-- <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
-                    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                </span> -->
-            
+            <?php } else { ?>
+                <!-- Disabled Edit Button -->
+                <span class="contact-edit disabled" title="Edit disabled (Project Completed)">
+                    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg" style="opacity: 0.5;">
+                </span>
+            <?php } ?>
         </td>
             </tr>
         <?php } ?>

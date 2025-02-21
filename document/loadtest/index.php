@@ -1,13 +1,16 @@
-
-
 <?php 
 include_once('../../inc/function.php');
-
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'mobile_crane_certificate' table
-$sql = "SELECT * FROM loadtest_certificate";
+// $sql = "SELECT * FROM loadtest_certificate";
+// $result = $conn->query($sql);
+$sql = "SELECT lc.*, pi.project_status 
+        FROM loadtest_certificate lc
+        LEFT JOIN project_info pi ON lc.project_no = pi.project_no";
+
 $result = $conn->query($sql);
+
 ?>
 
         <!-- Main Content -->
@@ -139,16 +142,12 @@ $result = $conn->query($sql);
                             </div>
                         </a>
                     
-
-
-                    
                     <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
                                     <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
                                 </a>
                               </div>
                     <!-- End Star -->
-                </td>
-                
+                </td>                
                 <td><?php echo $row['certificate_no']; ?></td>
                 <td><?php echo $row['project_no']; ?></td>
                 <td><?php echo $row['report_no']; ?></td>
@@ -166,16 +165,19 @@ $result = $conn->query($sql);
                 <td><?php echo $row['company_name']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-                    <!-- Edit action -->
-                    <a href="edit_loadtest.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
-    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-</a>
-                    <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
-    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-</span>
+    <!-- Edit action -->
+    <a href="edit_loadtest.php?project_no=<?php echo $row['project_no']; ?>" 
+       class="contact-edit <?php echo ($row['project_status'] == 'Completed' ? 'disabled' : ''); ?>" 
+       <?php echo ($row['project_status'] == 'Completed' ? 'onclick="return false;" style="pointer-events: none; opacity: 0.5;"' : ''); ?>>
+        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+    </a>
 
-                </td>
+    <!-- Delete action -->
+    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
+        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+    </span>
+</td>
+
             </tr>
         <?php } ?>
     </tbody>
@@ -186,82 +188,7 @@ $result = $conn->query($sql);
                     <!-- End Card -->
 
                     <!-- Contact Add New PopUp -->
-                     <div id="contactAddModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
-
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                          <div class="attach-file style--two mb-3">
-                                             <img src="<?php echo $url; ?>assets/img/img-placeholder.png" class="profile-avatar" alt="">
-                                             <div class="upload-button">
-                                                <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                <span>Upload Photo</span>
-                                                <input class="file-input" type="file" id="fileUpload" accept="image/*">
-                                             </div>
-                                          </div>
-
-                                          <div class="content">
-                                             <h4 class="mb-2">Upload a Photo</h4>
-                                             <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                          </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name">Name</label>
-                                             <input type="text" id="as_name" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email">Email</label>
-                                             <input type="email" id="as_email" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone">Phone</label>
-                                             <input type="number" id="as_phone" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age">Age</label>
-                                             <input type="text" id="as_age" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post">Post</label>
-                                             <input type="text" id="as_post" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-30">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <!-- <div class="date datepicker dashboard-date style--two" id="datePickerExample">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div> -->
-                                          </div>
-
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
+                    
                      <!-- End Contact Add New PopUp -->
 
                      <!-- Contact Edit PopUp -->
@@ -353,9 +280,7 @@ $result = $conn->query($sql);
         ?>
         
 
-        <script>
-
-
+<script>
 function deleteRow(project_no, element) {
     if (confirm("Are you sure you want to delete this row?")) {
         // Send AJAX request to delete the row from the database
@@ -381,5 +306,4 @@ function deleteRow(project_no, element) {
         xhr.send("project_no=" + project_no);
     }
 }
-
-        </script>
+</script>

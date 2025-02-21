@@ -5,8 +5,14 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'mobile_crane_certificate' table
-$sql = "SELECT * FROM mobile_crane_loadtest";
+// $sql = "SELECT * FROM mobile_crane_loadtest";
+// $result = $conn->query($sql);
+$sql = "SELECT mc.*, pi.project_status 
+        FROM mobile_crane_loadtest mc
+        LEFT JOIN project_info pi ON mc.project_no = pi.project_no";
+
 $result = $conn->query($sql);
+
 ?>
 
 
@@ -30,7 +36,6 @@ $result = $conn->query($sql);
                                  <form action="#" class="search-form flex-grow">
                                     <div class="theme-input-group style--two">
                                     <input type="text" class="theme-input-style" placeholder="Search Here">
-
                                     <button type="submit"><img src="<?php echo $url; ?>assets/img/svg/search-icon.svg" alt=""
                                           class="svg"></button>
                                     </div>
@@ -166,15 +171,19 @@ $result = $conn->query($sql);
                 <td><?php echo $row['company_name']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-                    <!-- Edit action -->
-                    <a href="edit_mobile.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
-    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-</a>
-                    <!-- Delete action -->
-                    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
-                        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
-                    </span>
-                </td>
+    <!-- Edit action -->
+    <a href="edit_mobile.php?project_no=<?php echo $row['project_no']; ?>" 
+       class="contact-edit <?php echo ($row['project_status'] == 'Completed' ? 'disabled' : ''); ?>" 
+       <?php echo ($row['project_status'] == 'Completed' ? 'onclick="return false;" style="pointer-events: none; opacity: 0.5;"' : ''); ?>>
+        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+    </a>
+
+    <!-- Delete action -->
+    <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
+        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
+    </span>
+</td>
+
             </tr>
         <?php } ?>
     </tbody>

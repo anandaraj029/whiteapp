@@ -1,12 +1,16 @@
 <?php 
 include_once('../../inc/function.php');
-
-
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'lifting_gears_certificate' table
-$sql = "SELECT * FROM mpi_certificates";
+// $sql = "SELECT * FROM mpi_certificates";
+// $result = $conn->query($sql);
+$sql = "SELECT mc.*, pi.project_status 
+        FROM mpi_certificates mc
+        LEFT JOIN project_info pi ON mc.project_no = pi.project_no";
+
 $result = $conn->query($sql);
+
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
@@ -159,15 +163,17 @@ $result = $conn->query($sql);
                 <td><?php echo $row['companyName']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-                <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
-    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-</a>
+    <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" 
+       class="contact-edit"
+       style="<?php echo ($row['project_status'] === 'Completed') ? 'pointer-events: none; opacity: 0.5; cursor: not-allowed;' : ''; ?>">
+        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+    </a>
 
+    <span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_no']; ?>')">
+        <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
+    </span>
+</td>
 
-<span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_no']; ?>')">
-    <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
-</span>
-                </td>
             </tr>
             <?php endwhile; ?>
         <?php else: ?>

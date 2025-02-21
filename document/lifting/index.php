@@ -1,11 +1,15 @@
-
 <?php 
 include_once('../../inc/function.php');
-
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'lifting_gears_certificate' table
-$sql = "SELECT * FROM lifting_gear_certificates";
+// $sql = "SELECT * FROM lifting_gear_certificates";
+// $result = $conn->query($sql);
+
+$sql = "SELECT lgc.*, pi.project_status 
+        FROM lifting_gear_certificates lgc
+        LEFT JOIN project_info pi 
+        ON lgc.project_no = pi.project_no";
 $result = $conn->query($sql);
 ?>
         <!-- Main Content -->
@@ -67,20 +71,7 @@ $result = $conn->query($sql);
                                     <img src="<?php echo $url; ?>assets/img/svg/delete.svg" alt="" class="svg">
                                 </a>
                               </div>
-                              <!-- End Delete Mail -->
-
-                              <!-- Pagination -->
-                              <!-- <div class="pagination style--two d-flex flex-column align-items-center ml-n2">
-                                 <ul class="list-inline d-inline-flex align-items-center">
-                                 <li><a href="#">
-                                       <img src="<?php echo $url; ?>assets/img/svg/left-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 <li><a href="#" class="current">
-                                       <img src="<?php echo $url; ?>assets/img/svg/right-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 </ul>
-                              </div> -->
-                              <!-- End Pagination -->
+                              <!-- End Delete Mail -->                             
                            </div>
                         </div>
                         <!-- End Contact Header -->
@@ -135,8 +126,7 @@ $result = $conn->query($sql);
                                                         <i class='et-download'></i>
                                                     </div>
                                                 </a>
-        </div>
-        
+        </div>        
       </td>";
 
                 echo "<td>" . $row['certificate_no'] . "</td>";
@@ -153,14 +143,21 @@ $result = $conn->query($sql);
                 echo "<td>" . $row['date_of_this_examination'] . "</td>";
                 echo "<td>" . $row['companyName'] . "</td>";
                 echo "<td>" . $row['identification_no'] . "</td>";
-                echo "<td class='actions'>
-    <span class='contact-edit' onclick='redirectToEditLifting(" . $row['project_no'] . ")'>
-        <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg'>
-    </span>
-    <span class='contact-close' onclick='deleteRow(" . $row['project_no'] . ")'>
+                echo "<td class='actions'>";
+if ($row['project_status'] === 'Completed') {
+    echo "<span class='contact-edit disabled'>
+            <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
+          </span>";
+} else {
+    echo "<span class='contact-edit' onclick='redirectToEditLifting(" . $row['project_no'] . ")'>
+            <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg'>
+          </span>";
+}
+echo "<span class='contact-close' onclick='deleteRow(" . $row['project_no'] . ")'>
         <img src='" . $url . "assets/img/svg/c-close.svg' alt='' class='svg'>
-    </span>
-</td>";
+      </span>";
+echo "</td>";
+
 
                 echo "</tr>";
             }
@@ -172,168 +169,11 @@ $result = $conn->query($sql);
         ?>
     </tbody>
 </table>
-
                             <!-- End Invoice List Table -->
                         </div>
                     </div>
                     <!-- End Card -->
-
-                    <!-- Contact Add New PopUp -->
-                     <div id="contactAddModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
-
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                          <div class="attach-file style--two mb-3">
-                                             <img src="<?php echo $url; ?>assets/img/img-placeholder.png" class="profile-avatar" alt="">
-                                             <div class="upload-button">
-                                                <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                <span>Upload Photo</span>
-                                                <input class="file-input" type="file" id="fileUpload" accept="image/*">
-                                             </div>
-                                          </div>
-
-                                          <div class="content">
-                                             <h4 class="mb-2">Upload a Photo</h4>
-                                             <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                          </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name">Name</label>
-                                             <input type="text" id="as_name" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email">Email</label>
-                                             <input type="email" id="as_email" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone">Phone</label>
-                                             <input type="number" id="as_phone" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age">Age</label>
-                                             <input type="text" id="as_age" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post">Post</label>
-                                             <input type="text" id="as_post" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-30">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <!-- <div class="date datepicker dashboard-date style--two" id="datePickerExample">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div> -->
-                                          </div>
-
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
-                     <!-- End Contact Add New PopUp -->
-
-                     <!-- Contact Edit PopUp -->
-                     <div id="contactEditModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                             <div class="attach-file style--two mb-3">
-                                                <img src="<?php echo $url; ?>assets/img/product/pg2.png" class="profile-avatar" alt="">
-                                                <div class="upload-button">
-                                                   <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                   <span>Upload Photo</span>
-                                                   <input class="file-input" type="file" id="fileUpload2" accept="image/*">
-                                                </div>
-                                             </div>
-
-                                             <div class="content">
-                                                <h4 class="mb-2">Upload a Photo</h4>
-                                                <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                             </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name2">Name</label>
-                                             <input type="text" id="as_name2" class="theme-input-style" value="Arden Spencer" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email2">Email</label>
-                                             <input type="email" id="as_email2" class="theme-input-style" value="Evangeline62@yahoo.com" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone2">Phone</label>
-                                             <input type="text" id="as_phone2" class="theme-input-style" value="(023) 708-6818 x4267" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age2">Age</label>
-                                             <input type="text" id="as_age2" class="theme-input-style" value="28" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post2">Post</label>
-                                             <input type="text" id="as_post2" class="theme-input-style" value="UX Researcher" required>
-                                          </div>
-                                          
-                                          <div class="mb-30">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <!-- <div class="date datepicker dashboard-date style--two" id="datePickerExample2">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div> -->
-                                          </div>
-
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
-                     <!-- End Contact Edit PopUp -->
+                    
                   </div>
                </div>
             </div>
@@ -341,9 +181,6 @@ $result = $conn->query($sql);
          <!-- End Main Content -->
       </div>
       <!-- End Main Wrapper -->
-
-
-
       <script>
 function deleteRow(projectNo) {
     if (confirm('Are you sure you want to delete this row?')) {
@@ -362,8 +199,6 @@ function deleteRow(projectNo) {
     }
 }
 </script>
-
-
 <script>
     function redirectToEditLifting(project_no) {
         // Redirect to edit_lifting.php with project_no as a query parameter
@@ -371,9 +206,7 @@ function deleteRow(projectNo) {
     }
 </script>
 
-
-
-      <?php 
-        include_once('../../inc/footer.php');
-        ?>
+<?php 
+include_once('../../inc/footer.php');
+?>
         
