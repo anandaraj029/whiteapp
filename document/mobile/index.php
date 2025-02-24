@@ -171,18 +171,23 @@ $result = $conn->query($sql);
                 <td><?php echo $row['company_name']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-    <!-- Edit action -->
-    <a href="edit_mobile.php?project_no=<?php echo $row['project_no']; ?>" 
-       class="contact-edit <?php echo ($row['project_status'] == 'Completed' ? 'disabled' : ''); ?>" 
-       <?php echo ($row['project_status'] == 'Completed' ? 'onclick="return false;" style="pointer-events: none; opacity: 0.5;"' : ''); ?>>
-        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-    </a>
+    <!-- Edit action: Only allowed for 'document controller' and if project is not completed -->
+    <?php if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') : ?>
+        <a href="edit_mobile.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
+            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+        </a>
+    <?php else : ?>
+        <a class="contact-edit disabled" style="pointer-events: none; opacity: 0.5;">
+            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+        </a>
+    <?php endif; ?>
 
     <!-- Delete action -->
     <span class="contact-close" onclick="deleteRow('<?php echo $row['project_no']; ?>', this)">
         <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="" class="svg">
     </span>
 </td>
+
 
             </tr>
         <?php } ?>

@@ -169,6 +169,20 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                     </div>
 
 
+                    <!-- Technical Manager Dropdown -->
+<div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Technical Manager</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select class="theme-input-style" name="technical_manager">
+                                    <option value="Veera" <?php echo ($row['technical_manager'] ?? '') === 'Veera' ? 'selected' : ''; ?>>Veera</option>
+                                    <option value="Sathish" <?php echo ($row['technical_manager'] ?? '') === 'Sathish' ? 'selected' : ''; ?>>Sathish</option>
+                                </select>
+                            </div>
+                        </div>     
+
+
                     </div>
                 </div>
             </div>

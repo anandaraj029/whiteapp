@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 
 echo "Welcome, Admin!";
 
-
 include_once('../file/config.php');
 include '../file/auth.php';
 // include '';
@@ -20,16 +19,9 @@ include_once('../inc/function.php');
 $result_projects = mysqli_query($conn, "SELECT COUNT(*) AS total_projects FROM project_info");
 $total_projects = mysqli_fetch_assoc($result_projects)['total_projects'];
 
-
 // Query to get total customers count
 $result_customers = mysqli_query($conn, "SELECT COUNT(*) AS total_customers FROM customers");
 $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
-
-
-
-
-
-
 ?>
 
 
@@ -146,16 +138,7 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
                                                 <h4>Mollitia assumenda aut sit vel</h4>
                                                 <p>Eum dolores nemo quasi repudiandae sunt nesciunt aut possimus.</p>
                                             </li>
-                                            <!-- <li class="event" data-date="">
-                                                <span>11:21 PM</span>
-                                                <h4>Voluptas voluptas aut magnam</h4>
-                                                <p>Rerum repudiandae voluptatem aut.</p>
-                                            </li>
-                                            <li class="event" data-date="15 October 2019">
-                                                <span>7:10 PM</span>
-                                                <h4> dolor excepturi enim.</h4>
-                                                <p>Aperiam eos sint repellat nihil ut fuga autem molestiae accusamus.</p>
-                                            </li> -->
+                                            
                                         </ul>
                                         
                                     </div>
