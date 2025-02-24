@@ -177,7 +177,12 @@ if ($logged_in_user) {
 </td>
 
                     <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="status-btn pending"><?php echo htmlspecialchars($row["project_status"]); ?></td>
+                    <!-- <td class="status-btn pending"><?php echo htmlspecialchars($row["project_status"]); ?></td> -->
+                    <td class="status-btn">
+    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+        <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+    </a>
+</td>
                     <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
                     <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
                     <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>

@@ -134,13 +134,21 @@ if ($logged_in_user) {
             // </td>";
             echo "<td class='actions'>";
 if ($row['project_status'] !== 'Completed') {
-    // Render edit button only if project is not completed
-    echo "<a href='./type/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
-            <span class='contact-edit'>
-                <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
-            </span>
-          </a>";
-    // Render delete button only if project is not completed
+    if ($user_role === 'inspector') {
+        // Allow only inspectors to edit
+        echo "<a href='./type/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}'>
+                <span class='contact-edit'>
+                    <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
+                </span>
+              </a>";
+    } else {
+        // Disable edit button for non-inspectors
+        echo "<span class='contact-edit disabled'>
+                <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
+              </span>";
+    }
+
+    // Render delete button for all roles
     echo "<a href='#' class='delete-checklist' data-checklist-no='{$checklist_no}'>
             <span class='contact-close'>
                 <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>
@@ -156,6 +164,7 @@ if ($row['project_status'] !== 'Completed') {
           </span>";
 }
 echo "</td>";
+
             echo "</tr>";
         }
     } else {

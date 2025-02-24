@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
     $inspector = $_POST['inspector'];
+    $technical_manager = $_POST['technical_manager'];
     $location = $_POST['location'];
     $inspection_date = $_POST['inspection_date'];
     $reference_no = $_POST['reference_no'];
@@ -83,14 +84,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Insert data into the database
     $sql = "INSERT INTO mpi_certificates (
                 date_of_report, certificate_no, report_no, jrn, customer_name, 
-                customer_email, mobile, inspector, location, inspection_date, 
+                customer_email, mobile, inspector, technical_manager, location, inspection_date, 
                 reference_no, next_inspection_date, inspected_item, serial_numbers, id_numbers, 
                 manufacturer, standards, swl, mpi_equip_type, current, contrast_paint, 
                 particle_medium, calibration_expiry_date, brand, prod_spacing, ink, 
                 yoke_sn, model_no, result, comments, ndt_inspector, ndt_level, project_no, companyName, created_at
             ) VALUES (
                 '$date_of_report', '$certificate_no', '$report_no', '$jrn', '$customer_name', 
-                '$customer_email', '$mobile', '$inspector', '$location', '$inspection_date', 
+                '$customer_email', '$mobile', '$inspector', '$technical_manager', 
+                '$location', '$inspection_date', 
                 '$reference_no', '$next_inspection_date', '$inspected_item', '$serial_numbers', '$id_numbers',
                 '$manufacturer', '$standards', '$swl', '$mpi_equip_type', '$current', '$contrast_paint', 
                 '$particle_medium', '$calibration_expiry_date', '$brand', '$prod_spacing', '$ink', 

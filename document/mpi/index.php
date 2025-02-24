@@ -163,16 +163,24 @@ $result = $conn->query($sql);
                 <td><?php echo $row['companyName']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
-    <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" 
-       class="contact-edit"
-       style="<?php echo ($row['project_status'] === 'Completed') ? 'pointer-events: none; opacity: 0.5; cursor: not-allowed;' : ''; ?>">
-        <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-    </a>
+    <!-- Edit action: Only allowed for 'document controller' and if project is not completed -->
+    <?php if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') : ?>
+        <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
+            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+        </a>
+    <?php else : ?>
+        <a class="contact-edit disabled" 
+           style="pointer-events: none; opacity: 0.5; cursor: not-allowed;">
+            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+        </a>
+    <?php endif; ?>
 
+    <!-- Delete action -->
     <span class="contact-close" onclick="confirmDeleteCertificate('<?php echo $row['project_no']; ?>')">
         <img src="<?php echo $url; ?>assets/img/svg/c-close.svg" alt="Close" class="svg">
     </span>
 </td>
+
 
             </tr>
             <?php endwhile; ?>

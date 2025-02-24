@@ -27,10 +27,10 @@ $total_pending_projects = mysqli_fetch_assoc($result_pending_projects)['total_pe
 
 // Query to get total pending projects count for the logged-in reviewer
 
-    $result_pending_reviewer = mysqli_query($conn, "SELECT COUNT(*) AS total_pending_reviewer FROM project_info WHERE checklist_status = 'created' 
+$result_pending_reviewer = mysqli_query($conn, "SELECT COUNT(*) AS total_pending_reviewer FROM project_info WHERE checklist_status = 'created' 
           AND report_status = 'generated' 
           AND review_status = 'pending'");
-    $total_pending_reviewer = mysqli_fetch_assoc($result_pending_reviewer)['total_pending_reviewer'];
+$total_pending_reviewer = mysqli_fetch_assoc($result_pending_reviewer)['total_pending_reviewer'];
 
 
 
@@ -78,6 +78,17 @@ $query_recent_projects = "SELECT project_no, customer_name, project_status, crea
                           LIMIT 5"; // Adjust the limit as needed
 
 $result_recent_projects = mysqli_query($conn, $query_recent_projects);
+
+
+
+// Query to get total pending projects for the logged-in inspector
+$result_pending_inspector = mysqli_query($conn, "SELECT COUNT(*) AS total_pending_inspector 
+    FROM project_info 
+    WHERE checklist_status != 'Created' 
+    OR report_status != 'Generated'");
+
+$total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_pending_inspector'];
+
 
 ?>
 
@@ -153,25 +164,23 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
          
 
          <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="state">
-                  <div class="d-flex align-items-center flex-wrap">
-                     <div class="state-icon d-flex justify-content-center">
-                        <!-- <img src="../assets/img/png-icon/comission.png" alt=""> -->
-                        <i class="fa-solid fa-user fa-3x text-primary"></i> <!-- Customer Icon -->
-
-                     </div>
-                     <div class="state-content">
-                        <p class="font-14 mb-2">Total Customer</p>
-                        <h2><?php echo $total_customers; ?></h2>
-
-                     </div>
-                  </div>
-               </div>
+    <!-- Card -->
+    <div class="card mb-30">
+        <div class="state">
+            <div class="d-flex align-items-center flex-wrap">
+                <div class="state-icon d-flex justify-content-center">
+                    <i class="fa-solid fa-user fa-3x text-primary"></i> <!-- Customer Icon -->
+                </div>
+                <div class="state-content">
+                    <p class="font-14 mb-2">Inspector Pending Projects</p>
+                    <h2><?php echo $total_pending_inspector; ?></h2>
+                </div>
             </div>
-            <!-- End Card -->
-         </div>
+        </div>
+    </div>
+    <!-- End Card -->
+</div>
+
 
 
         
@@ -336,7 +345,7 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
         <tr>
             <th>Project ID</th>
             <th>Start Date</th>
-            <th>Progress</th>
+            <!-- <th>Progress</th> -->
             <th>Customer</th>
             <th>Status</th>
             <th>Equip. Type</th>
@@ -366,7 +375,7 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
                     </td> -->
 
 
-                    <td>
+                    <!-- <td>
     <div class="product-img">
         <?php if ($row['checklist_status'] === 'Pending') { ?>
             <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
@@ -378,8 +387,7 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
             </span>
         <?php } ?>
 
-        <!-- Report Button Logic -->
-        <!-- Report Button Logic -->
+        
         <?php if ($row['checklist_status'] === 'Created') { ?>
     <?php if ($row['report_status'] === 'Pending') { ?>
         <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
@@ -400,15 +408,17 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
     </span>
 <?php } ?>
 
-        <!-- Certificate Link -->
-        <!-- <a href="generate-certificate.php?id=<?php echo $row['project_no']; ?>">
-            <i class="icofont-data color-primary"></i> Certificate
-        </a>  -->
+        
     </div>
-</td>
+</td> -->
 
                     <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="status-btn pending"><?php echo htmlspecialchars($row["project_status"]); ?></td>
+                    <td class="status-btn">
+    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+        <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+    </a>
+</td>
+
                     <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
                     <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
                     <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>

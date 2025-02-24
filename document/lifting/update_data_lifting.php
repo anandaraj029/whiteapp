@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
     $inspector = $_POST['inspector'];
+    $technical_manager = $_POST['technical_manager'];
     $employer_name_address = $_POST['employer_name_address'];
     $identification_no = $_POST['identification_no'];
     $wll_swl = $_POST['wll_swl'];
@@ -49,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         customer_email = '$customer_email',
         mobile = '$mobile',
         inspector = '$inspector',
+        technical_manager = '$technical_manager',
         employer_name_address = '$employer_name_address',
         identification_no = '$identification_no',
         wll_swl = '$wll_swl',

@@ -144,19 +144,25 @@ $result = $conn->query($sql);
                 echo "<td>" . $row['companyName'] . "</td>";
                 echo "<td>" . $row['identification_no'] . "</td>";
                 echo "<td class='actions'>";
-if ($row['project_status'] === 'Completed') {
-    echo "<span class='contact-edit disabled'>
-            <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
-          </span>";
-} else {
+
+// Check if the user is 'document_controller' and the project is not completed
+if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') {
     echo "<span class='contact-edit' onclick='redirectToEditLifting(" . $row['project_no'] . ")'>
             <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg'>
           </span>";
+} else {
+    echo "<span class='contact-edit disabled'>
+            <img src='" . $url . "assets/img/svg/c-edit.svg' alt='' class='svg' style='opacity: 0.5; cursor: not-allowed;'>
+          </span>";
 }
+
+// Delete action remains unchanged
 echo "<span class='contact-close' onclick='deleteRow(" . $row['project_no'] . ")'>
         <img src='" . $url . "assets/img/svg/c-close.svg' alt='' class='svg'>
       </span>";
+
 echo "</td>";
+
 
 
                 echo "</tr>";
