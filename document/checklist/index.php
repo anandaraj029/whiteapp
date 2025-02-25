@@ -1,13 +1,6 @@
 <?php 
 include_once('../../inc/function.php');
-include_once('../../file/config.php'); // include your database connection
-// include_once('../../index.php'); // include your database connection
-
-// Fetch data from checklist_information table
-
-// Fetch data from checklist_information table in descending order of creation date
-// $sql = "SELECT * FROM checklist_information ORDER BY created_at DESC";
-// $result = $conn->query($sql);
+include_once('../../file/config.php'); // Include your database connection
 
 // Check if the user is logged in
 $logged_in_user = $_SESSION['username'] ?? null; // Replace with the appropriate session key
@@ -15,17 +8,15 @@ $user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in th
 
 if ($logged_in_user) {
     // Fetch data based on user role
-    if ($user_role === 'admin') {
-        // Fetch all data from checklist_information table for admin
+    if (in_array($user_role, ['admin', 'document controller', 'quality controller', 'reviewer'])) {
+        // Fetch all data for admin, document controller, and quality controller
         $sql = "SELECT ci.*, pi.project_status 
                 FROM checklist_information ci
                 LEFT JOIN project_info pi ON ci.project_no = pi.project_no
                 ORDER BY ci.created_at DESC";
         $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->get_result();
     } else {
-        // Fetch data from checklist_information table for the logged-in inspector
+        // Fetch data only for the logged-in inspector
         $sql = "SELECT ci.*, pi.project_status 
                 FROM checklist_information ci
                 LEFT JOIN project_info pi ON ci.project_no = pi.project_no
@@ -33,15 +24,17 @@ if ($logged_in_user) {
                 ORDER BY ci.created_at DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $logged_in_user);
-        $stmt->execute();
-        $result = $stmt->get_result();
     }
+
+    $stmt->execute();
+    $result = $stmt->get_result();
 } else {
     // Redirect to login page if not logged in
     header("Location: ../../index.php");
     exit;
 }
 ?>
+
 
 <!-- Main Content -->
 <div class="main-content">
