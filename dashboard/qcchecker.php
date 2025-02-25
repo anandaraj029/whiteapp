@@ -3,30 +3,46 @@ include_once('../file/config.php');
 include '../file/auth.php';
 include_once('../inc/function.php');
 
-
+// Check if the user is logged in and has the role of QC Checker
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'qcchecker') {
-   header('Location: ../index.php');
-   exit();
+    header('Location: ../index.php');
+    exit();
 }
 
-// Get the logged-in inspector's name or ID from the session
-$inspector_name = $_SESSION['username']; // Assuming you store the inspector's name in the session// or
-$inspector_id = $_SESSION['user_id']; // Assuming you store the inspector's ID in the session
+// Get the logged-in QC Checker's name or ID from the session
+$qc_checker_name = $_SESSION['username']; // Assuming you store the QC Checker's name in the session
+$qc_checker_id = $_SESSION['user_id']; // Assuming you store the QC Checker's ID in the session
 
-
-// Query to get total projects count for the logged-in inspector
-$stmt_projects = mysqli_prepare($conn, "SELECT COUNT(*) AS total_projects FROM project_info WHERE inspector_name = ?");
-mysqli_stmt_bind_param($stmt_projects, "s", $inspector_name);
+// Query to get total projects count for the logged-in QC Checker
+$stmt_projects = mysqli_prepare($conn, "SELECT COUNT(*) AS total_projects FROM project_info WHERE qc_checker_name = ?");
+mysqli_stmt_bind_param($stmt_projects, "s", $qc_checker_name);
 mysqli_stmt_execute($stmt_projects);
 $result_projects = mysqli_stmt_get_result($stmt_projects);
 $total_projects = mysqli_fetch_assoc($result_projects)['total_projects'];
 
-// Query to get total customers count
-$result_customers = mysqli_query($conn, "SELECT COUNT(*) AS total_customers FROM customers");
-$total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
+// Query to get total pending QC checks for the logged-in QC Checker
+$stmt_pending_qc = mysqli_prepare($conn, "SELECT COUNT(*) AS total_pending_qc FROM project_info WHERE qc_checker_name = ? AND qc_status = 'Pending'");
+mysqli_stmt_bind_param($stmt_pending_qc, "s", $qc_checker_name);
+mysqli_stmt_execute($stmt_pending_qc);
+$result_pending_qc = mysqli_stmt_get_result($stmt_pending_qc);
+$total_pending_qc = mysqli_fetch_assoc($result_pending_qc)['total_pending_qc'];
+
+// Query to get total completed QC checks for the logged-in QC Checker
+$stmt_completed_qc = mysqli_prepare($conn, "SELECT COUNT(*) AS total_completed_qc FROM project_info WHERE qc_checker_name = ? AND qc_status = 'Completed'");
+mysqli_stmt_bind_param($stmt_completed_qc, "s", $qc_checker_name);
+mysqli_stmt_execute($stmt_completed_qc);
+$result_completed_qc = mysqli_stmt_get_result($stmt_completed_qc);
+$total_completed_qc = mysqli_fetch_assoc($result_completed_qc)['total_completed_qc'];
+
+// Query to get recent projects for the logged-in QC Checker
+$query_recent_projects = "SELECT project_no, customer_name, project_status, creation_date 
+                          FROM project_info 
+                          WHERE qc_checker_name = '$qc_checker_name'
+                          ORDER BY creation_date DESC 
+                          LIMIT 5"; // Adjust the limit as needed
+$result_recent_projects = mysqli_query($conn, $query_recent_projects);
 
 ?>
-
 
 <!-- Main Content -->
 <div class="main-content">
@@ -38,7 +54,7 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/tax.png" alt="">
+                        <i class="fa-solid fa-folder-open fa-3x text-primary"></i> <!-- Folder Open Icon -->
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Total Projects</p>
@@ -56,36 +72,17 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/revenue.png" alt="">
+                        <i class="fa-solid fa-hourglass-half fa-3x text-warning"></i> <!-- Pending Icon -->
                      </div>
                      <div class="state-content">
-                        <p class="font-14 mb-2">Pending Projects</p>
-                        <h2>25</h2>
+                        <p class="font-14 mb-2">Pending QC Checks</p>
+                        <h2><?php echo $total_pending_qc; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
             <!-- End Card -->
          </div>
-<!-- 
-         <div class="col-xl-3 col-sm-6">
-            
-            <div class="card mb-30">
-               <div class="state">
-                  <div class="d-flex align-items-center flex-wrap">
-                     <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/comission.png" alt="">
-                     </div>
-                     <div class="state-content">
-                        <p class="font-14 mb-2">Total Customer</p>
-                        <h2><?php echo $total_customers; ?></h2>
-
-                     </div>
-                  </div>
-               </div>
-            </div>
-            
-         </div> -->
 
          <div class="col-xl-3 col-sm-6">
             <!-- Card -->
@@ -93,10 +90,28 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/user.png" alt="">
+                        <i class="fa-solid fa-check-circle fa-3x text-success"></i> <!-- Completed Icon -->
                      </div>
                      <div class="state-content">
-                        <p class="font-14 mb-2">Expiring Sticker</p>
+                        <p class="font-14 mb-2">Completed QC Checks</p>
+                        <h2><?php echo $total_completed_qc; ?></h2>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- End Card -->
+         </div>
+
+         <div class="col-xl-3 col-sm-6">
+            <!-- Card -->
+            <div class="card mb-30">
+               <div class="state">
+                  <div class="d-flex align-items-center flex-wrap">
+                     <div class="state-icon d-flex justify-content-center">
+                        <i class="fa-solid fa-exclamation-triangle fa-3x text-danger"></i> <!-- Expiring Icon -->
+                     </div>
+                     <div class="state-content">
+                        <p class="font-14 mb-2">Expiring Stickers</p>
                         <h2>46</h2>
                      </div>
                   </div>
@@ -105,158 +120,85 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
             <!-- End Card -->
          </div>
 
-        
-
-         <div class="col-xl-12 col-lg-12">
+         <div class="col-xl-6 col-lg-6">
             <!-- Card -->
             <div class="card pb-2 mb-30">
-                        <div class="p-4">
-                            <div class="row">
-                                <div class="col-xl-12 mb-40">
-                                    <h4 class="mb-3">Timeline</h4>
-                                    <p>Vestibulum blandit viverra convallis.</p>
-                                </div>
+               <div class="p-4">
+                  <div class="row">
+                     <div class="col-xl-12 mb-40">
+                        <h4 class="mb-3">Recent Projects Timeline</h4>
+                        <p>Overview of the most recent projects and their status in a timeline format.</p>
+                     </div>
 
-                                <div class="col-xl-12 p-4">
-                                    <!-- Timeline Wrap -->
-                                    <div id="timeline-wrap">
-                                        <ul class="timeline">
-                                            <li class="event" data-date="12 October 2019">
-                                                <span>1:08 AM</span>
-                                                <h4>Vitae eius reiciendis</h4>
-                                                <p>Recusandae quia explicabo.</p>
-                                            </li>
-                                            <li class="event">
-                                                <span>8:00 PM</span>
-                                                <h4>Est accusamus rerum molestias.</h4>
-                                                <p> Ut illo ut aut. Est exercitationem voluptas optio molestiae modi.</p>
-                                            </li>
-                                            <li class="event" data-date="13 October 2019">
-                                                <span>2:50 PM</span>
-                                                <h4>Quam aut exercitationem adipisci</h4>
-                                                <p> Alias vitae voluptatum et. Aut odit facere iure dolore. Ut consequatur omnis.</p>
-                                            </li>
-                                            <li class="event" data-date="14 October 2019">
-                                                <span>1:06 PM</span>
-                                                <h4>Mollitia assumenda aut sit vel</h4>
-                                                <p>Eum dolores nemo quasi repudiandae sunt nesciunt aut possimus.</p>
-                                            </li>
-                                            <!-- <li class="event" data-date="">
-                                                <span>11:21 PM</span>
-                                                <h4>Voluptas voluptas aut magnam</h4>
-                                                <p>Rerum repudiandae voluptatem aut.</p>
-                                            </li>
-                                            <li class="event" data-date="15 October 2019">
-                                                <span>7:10 PM</span>
-                                                <h4> dolor excepturi enim.</h4>
-                                                <p>Aperiam eos sint repellat nihil ut fuga autem molestiae accusamus.</p>
-                                            </li> -->
-                                        </ul>
-                                        
-                                    </div>
-                                    <a href="../setup/timeline.php" class="d-flex justify-content-center pt-4"><button type="button" class="details-btn">View More <i class="icofont-arrow-right"></i></button></a>
-                                    <!-- End Timeline Wrap -->
-                                </div>
-                            </div>
+                     <div class="col-xl-12 p-4">
+                        <!-- Timeline Wrap -->
+                        <div id="timeline-wrap">
+                           <ul class="timeline">
+                              <?php while ($row = mysqli_fetch_assoc($result_recent_projects)): ?>
+                                 <li class="event" data-date="<?php echo htmlspecialchars($row['creation_date']); ?>">
+                                    <h4><?php echo htmlspecialchars($row['project_no']); ?></h4>
+                                    <p><strong>Customer:</strong> <?php echo htmlspecialchars($row['customer_name']); ?></p>
+                                    <p><strong>Status:</strong> 
+                                       <?php 
+                                          $status = htmlspecialchars($row['project_status']);
+                                          $badgeClass = ($status == 'Pending') ? 'badge-danger' : (($status == 'Completed') ? 'badge-success' : 'badge-secondary'); 
+                                       ?>
+                                       <span class="badge <?php echo $badgeClass; ?>"><?php echo $status; ?></span>
+                                    </p>
+                                 </li>
+                              <?php endwhile; ?>
+                           </ul>
                         </div>
-                    </div>
+                        <!-- End Timeline Wrap -->
+                     </div>
+                  </div>
+               </div>
+            </div>
             <!-- End Card -->
          </div>
+
          <div class="col-xl-6 col-lg-6">
             <!-- Card -->
             <div class="card mb-30">
                <div class="card-body">
                   <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
                      <div class="">
-                        <h4 class="mb-1">Ongoing Projects</h4>
-                        <p class="font-14"> Tell use paid law ever yet new. Meant to learn of vexed he there.</p>
-                     </div>
-
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Daily</a>
-                           <a href="#">Sort By</a>
-                           <a href="#">Monthly</a>
-                        </div>
+                        <h4 class="mb-1">Ongoing QC Checks</h4>
+                        <p class="font-14">List of projects pending QC checks.</p>
                      </div>
                   </div>
 
                   <!-- Product List -->
                   <div class="product-list">
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product1.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
+                     <?php
+                     // Query to get ongoing QC checks for the logged-in QC Checker
+                     $query_ongoing_qc = "SELECT project_no, customer_name, project_status 
+                                          FROM project_info 
+                                          WHERE qc_checker_name = '$qc_checker_name' AND qc_status = 'Pending' 
+                                          ORDER BY creation_date DESC 
+                                          LIMIT 4";
+                     $result_ongoing_qc = mysqli_query($conn, $query_ongoing_qc);
 
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product2.png" alt="">
+                     while ($row = mysqli_fetch_assoc($result_ongoing_qc)): ?>
+                        <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
+                           <div class="d-flex align-items-center">
+                              <div class="icon mr-3">
+                                 <i class="fa-solid fa-file-alt fa-2x text-primary"></i> <!-- Document Icon -->
+                              </div>
+                              <div class="content">
+                                 <p class="black mb-1"><?= htmlspecialchars($row['project_no']) ?></p>
+                                 <span class="c3 bold font-14">Client: <?= htmlspecialchars($row['customer_name']) ?></span>
+                              </div>
                            </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
+                           <p class="font-14"><?= htmlspecialchars($row['project_status']) ?></p>
                         </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product3.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
-
-                     <!-- Product List Item -->
-                     <div class="product-list-item d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
-                           <div class="img mr-3">
-                              <img src="../assets/img/product/product4.png" alt="">
-                           </div>
-                           <div class="content">
-                              <p class="black mb-1">Fastrack Watches 2654</p>
-                              <span class="c3 bold font-14">$245.65</span>
-                           </div>
-                        </div>
-                        <p class="font-14">26584 Selles</p>
-                     </div>
-                     <!-- End Product List Item -->
+                     <?php endwhile; ?>
                   </div>
                   <!-- End Product List -->
                </div>
             </div>
             <!-- End Card -->
          </div>
-         
-
 
          <div class="col-xl-12">
             <!-- Card -->
@@ -265,99 +207,60 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
                   <div class="d-flex justify-content-between">
                      <div class="title-content mb-4">
                         <h4 class="mb-2">Recent Projects</h4>
-                        <p class="font-14">Tell use paid law ever yet new. Meant to learn of vexed if style allow he there.</p>
+                        <p class="font-14">List of recent projects assigned to you for QC checks.</p>
                      </div>
-
-                     <!-- Dropdown Button -->
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0 d-flex justify-content-center">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Report</a>
-                           <a href="#">FAQ</a>
-                           <a href="#">Charts</a>
-                           <a href="#">Chat</a>
-                           <a href="#">Settings</a>
-                        </div>
-                     </div>
-                     <!-- End Dropdown Button -->
                   </div>
                </div>
 
                <div class="table-responsive">
-                  <table class="style--three table-centered text-nowrap">
+                  <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
                      <thead>
                         <tr>
-                           <th>Project ID <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Date <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Document</th>
-                           <th>Customer Name <img src="../assets/img/svg/table-up-arrow.svg" alt="" class="svg"></th>
-                           <th>Status <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Price</th>
-                           <th>Shipping Cost</th>
-                           <th>Total Cost</th>
+                           <th>Project ID</th>
+                           <th>Start Date</th>
+                           <th>Customer</th>
+                           <th>Status</th>
+                           <th>QC Status</th>
                            <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td class="bold">#01254</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product1.png" alt="">
-                                 <img src="../assets/img/product/product5.png" alt="">
-                                 <img src="../assets/img/product/product6.png" alt="">
-                              </div>
-                           </td>
-                           <td>Kyle Lee</td>
-                           <td class="text-danger">Processing</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
+                        <?php
+                        // Query to get recent projects for the logged-in QC Checker
+                        $query_recent = "SELECT * FROM project_info WHERE qc_checker_name = '$qc_checker_name' ORDER BY creation_date DESC LIMIT 10";
+                        $result_recent = mysqli_query($conn, $query_recent);
 
-                        <tr>
-                           <td class="bold">#01365</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product2.png" alt="">
-                                 <img src="../assets/img/product/product7.png" alt="">
-                                 <img src="../assets/img/product/product3.png" alt="">
-                              </div>
-                           </td>
-                           <td>Lindo De Sire</td>
-                           <td class="text-warning">Shipped</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
-
-                        <tr>
-                           <td class="bold">#03654</td>
-                           <td>11 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product8.png" alt="">
-                                 <img src="../assets/img/product/product9.png" alt="">
-                                 <img src="../assets/img/product/product10.png" alt="">
-                              </div>
-                           </td>
-                           <td>Laturi Yasn</td>
-                           <td class="text-success">Delivered</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
+                        if ($result_recent->num_rows > 0) {
+                           while ($row = $result_recent->fetch_assoc()) {
+                              ?>
+                              <tr>
+                                 <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
+                                 <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                                 <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
+                                 <td class="status-btn">
+                                    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+                                       <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+                                    </a>
+                                 </td>
+                                 <td class="status-btn">
+                                    <a href="#" class="btn s_alert <?php echo ($row["qc_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+                                       <?php echo ($row["qc_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+                                    </a>
+                                 </td>
+                                 <td>
+                                    <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
+                                       <button type="button" class="details-btn">
+                                          Details <i class="icofont-arrow-right"></i>
+                                       </button>
+                                    </a>
+                                 </td>
+                              </tr>
+                              <?php
+                           }
+                        } else {
+                           echo "<tr><td colspan='6' class='text-center'>No records found.</td></tr>";
+                        }
+                        ?>
                      </tbody>
                   </table>
                </div>
@@ -368,9 +271,6 @@ $total_customers = mysqli_fetch_assoc($result_customers)['total_customers'];
    </div>
 </div>
 <!-- End Main Content -->
-</div>
-<!-- End Main Wrapper -->
-
 
 <?php
 include_once('../inc/footer.php');

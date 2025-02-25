@@ -1,7 +1,6 @@
 <?php 
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Include your database connection
-// session_start(); // Start the session
 
 // Get logged-in user details
 $user_id = $_SESSION['user_id']; // Assuming you store user ID in session
@@ -9,8 +8,8 @@ $user_role = $_SESSION['role']; // Assuming you store user role in session
 $username = $_SESSION['username']; // Assuming you store user username in session
 
 // Define SQL query based on role
-if ($user_role == 'admin') {
-   // Admin sees all reports
+if (in_array($user_role, ['admin', 'document controller', 'quality controller', 'reviewer'])) {
+   // These roles see all reports
    $sql = "SELECT r.*, p.project_status 
            FROM reports r
            JOIN project_info p ON r.project_no = p.project_no

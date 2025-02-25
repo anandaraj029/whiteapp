@@ -1,4 +1,6 @@
 <?php
+// session_start();
+// Ensure session is started
 include_once('../file/config.php');
 include_once('../inc/function.php');
 
@@ -8,19 +10,27 @@ if (!isset($_SESSION['user_id'])) {
    exit();
 }
 
-// Check if the user has the 'inspector' role
+// Check if the user has the 'reviewer' role
 if ($_SESSION['role'] !== 'reviewer') {
-   // Redirect to a default page or show an error
    header("Location: ../index.php");
    exit();
 }
 
-// Get the logged-in inspector's name or ID from the session
-// $inspector_name = $_SESSION['username']; // Assuming you store the inspector's name in the session
-// $inspector_id = $_SESSION['user_id']; // Assuming you store the inspector's ID in the session
+// Query to get total projects count
+$result_total_projects = mysqli_query($conn, "SELECT COUNT(*) AS total_projects FROM project_info");
+$total_projects = mysqli_fetch_assoc($result_total_projects)['total_projects'];
 
+// Query to get total pending reviews
+$result_pending_reviews = mysqli_query($conn, "SELECT COUNT(*) AS total_pending_reviews FROM project_info WHERE review_status = 'Pending'");
+$total_pending_reviews = mysqli_fetch_assoc($result_pending_reviews)['total_pending_reviews'];
 
+// Query to get total completed reviews
+$result_completed_reviews = mysqli_query($conn, "SELECT COUNT(*) AS total_completed_reviews FROM project_info WHERE review_status = 'Completed'");
+$total_completed_reviews = mysqli_fetch_assoc($result_completed_reviews)['total_completed_reviews'];
 
+// Query to get recent projects requiring reviews
+$query_recent_reviews = "SELECT project_no, customer_name, review_status, creation_date FROM project_info WHERE review_status = 'Pending' ORDER BY creation_date DESC LIMIT 5";
+$result_recent_reviews = mysqli_query($conn, $query_recent_reviews);
 ?>
 
 <!-- Main Content -->
@@ -28,205 +38,113 @@ if ($_SESSION['role'] !== 'reviewer') {
    <div class="container-fluid">
       <div class="row">
          <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/tax.png" alt="">
+                        <i class="fa-solid fa-folder-open fa-3x text-primary"></i>
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Total Projects</p>
-                        <!-- <h2><?php echo $total_projects; ?></h2> -->
-                        <h2> 20 
-
-                        </h2>
+                        <h2><?php echo $total_projects; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            <!-- End Card -->
          </div>
 
          <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/revenue.png" alt="">
+                        <i class="fa-solid fa-hourglass-half fa-3x text-warning"></i>
                      </div>
                      <div class="state-content">
-                        <p class="font-14 mb-2">Pending Projects</p>
-                        <!-- <h2>                           
-                           <?php echo $pending_projects; ?>
-                           </h2> -->
-                           <h2>20</h2>
+                        <p class="font-14 mb-2">Pending Reviews</p>
+                        <h2><?php echo $total_pending_reviews; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            <!-- End Card -->
          </div>
-<!-- 
+
          <div class="col-xl-3 col-sm-6">
-            
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/comission.png" alt="">
+                        <i class="fa-solid fa-check-circle fa-3x text-success"></i>
                      </div>
                      <div class="state-content">
-                        <p class="font-14 mb-2">Total Customer</p>
-                        <h2><?php echo $total_customers; ?></h2>
-
+                        <p class="font-14 mb-2">Completed Reviews</p>
+                        <h2><?php echo $total_completed_reviews; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            
-         </div> -->
-
-         <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="state">
-                  <div class="d-flex align-items-center flex-wrap">
-                     <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/user.png" alt="">
-                     </div>
-                     <div class="state-content">
-                        <p class="font-14 mb-2">Expiring Sticker</p>
-                        <h2>46</h2>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- End Card -->
          </div>
 
-        
+         <div class="col-xl-6 col-lg-6">
+            <div class="card pb-2 mb-30">
+               <div class="p-4">
+                  <h4 class="mb-3">Recent Reviews Timeline</h4>
+                  <p>Overview of the most recent projects requiring review.</p>
+                  <ul class="timeline">
+                     <?php while ($row = mysqli_fetch_assoc($result_recent_reviews)): ?>
+                        <li class="event" data-date="<?php echo htmlspecialchars($row['creation_date']); ?>">
+                           <h4><?php echo htmlspecialchars($row['project_no']); ?></h4>
+                           <p><strong>Customer:</strong> <?php echo htmlspecialchars($row['customer_name']); ?></p>
+                           <p><strong>Status:</strong> <span class="badge badge-warning">Pending</span></p>
+                        </li>
+                     <?php endwhile; ?>
+                  </ul>
+               </div>
+            </div>
+         </div>
 
-         
-         
-         
-
-
-         <!-- <div class="col-xl-12">
-            
+         <div class="col-xl-12">
             <div class="card">
                <div class="card-body pb-0">
                   <div class="d-flex justify-content-between">
                      <div class="title-content mb-4">
-                        <h4 class="mb-2">Recent Projects</h4>
-                        <p class="font-14">Tell use paid law ever yet new. Meant to learn of vexed if style allow he there.</p>
+                        <h4 class="mb-2">Recent Reviews</h4>
+                        <p class="font-14">List of recent projects requiring review.</p>
                      </div>
-
-                     
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0 d-flex justify-content-center">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Report</a>
-                           <a href="#">FAQ</a>
-                           <a href="#">Charts</a>
-                           <a href="#">Chat</a>
-                           <a href="#">Settings</a>
-                        </div>
-                     </div>
-                     
                   </div>
                </div>
-
                <div class="table-responsive">
-                  <table class="style--three table-centered text-nowrap">
+                  <table id="review-table" class="order-list-table style--three table-centered text-nowrap">
                      <thead>
                         <tr>
-                           <th>Project ID <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Date <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Document</th>
-                           <th>Customer Name <img src="../assets/img/svg/table-up-arrow.svg" alt="" class="svg"></th>
-                           <th>Status <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Price</th>
-                           <th>Shipping Cost</th>
-                           <th>Total Cost</th>
+                           <th>Project ID</th>
+                           <th>Start Date</th>
+                           <th>Customer</th>
+                           <th>Review Status</th>
                            <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td class="bold">#01254</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product1.png" alt="">
-                                 <img src="../assets/img/product/product5.png" alt="">
-                                 <img src="../assets/img/product/product6.png" alt="">
-                              </div>
-                           </td>
-                           <td>Kyle Lee</td>
-                           <td class="text-danger">Processing</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
-
-                        <tr>
-                           <td class="bold">#01365</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product2.png" alt="">
-                                 <img src="../assets/img/product/product7.png" alt="">
-                                 <img src="../assets/img/product/product3.png" alt="">
-                              </div>
-                           </td>
-                           <td>Lindo De Sire</td>
-                           <td class="text-warning">Shipped</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
-
-                        <tr>
-                           <td class="bold">#03654</td>
-                           <td>11 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product8.png" alt="">
-                                 <img src="../assets/img/product/product9.png" alt="">
-                                 <img src="../assets/img/product/product10.png" alt="">
-                              </div>
-                           </td>
-                           <td>Laturi Yasn</td>
-                           <td class="text-success">Delivered</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
+                        <?php
+                        $query_recent = "SELECT * FROM project_info ORDER BY creation_date DESC LIMIT 10";
+                        $result_recent = mysqli_query($conn, $query_recent);
+                        while ($row = mysqli_fetch_assoc($result_recent)) {
+                           echo "<tr>
+                                 <td>#" . str_pad($row['project_no'], 5, "0", STR_PAD_LEFT) . "</td>
+                                 <td>" . date("d M Y", strtotime($row['creation_date'])) . "</td>
+                                 <td>" . htmlspecialchars($row['customer_name']) . "</td>
+                                 <td><span class='badge badge-warning'>" . htmlspecialchars($row['review_status']) . "</span></td>
+                                 <td><a href='../job/job-details.php?id=" . $row['project_no'] . "' class='btn btn-primary'>Details</a></td>
+                              </tr>";
+                        }
+                        ?>
                      </tbody>
                   </table>
                </div>
             </div>
-            
-         </div> -->
+         </div>
       </div>
    </div>
 </div>
-<!-- End Main Content -->
-</div>
-<!-- End Main Wrapper -->
 
-
-<?php
-include_once('../inc/footer.php');
-?>
+<?php include_once('../inc/footer.php'); ?>
