@@ -117,6 +117,8 @@ if ($role == '' || $role == 'guest') {
                      <li><a href="<?php echo $url; ?>document/loadtest/">Load test</a></li>
                      <li><a href="<?php echo $url; ?>document/mobile/">Mobile</a></li>
                      <li><a href="<?php echo $url; ?>document/mpi/">MPI</a></li>
+                     <li><a href="<?php echo $url; ?>document/eddycurrent/">Eddy Current</a></li>
+                     <!-- <li><a href="<?php echo $url; ?>document/liquid-penetrant-inspection-certificate/">Liquid Penetrant Inspection Certificate</a></li> -->
                   </ul>
                   <!-- End Sub Menu -->
                </li>
@@ -188,9 +190,9 @@ if ($role == '' || $role == 'guest') {
                   </a>
                   <!-- Sub Menu -->
                   <ul class="nav sub-menu">
-                     <li><a href="<?php echo $url; ?>/inspector/all-inspector.php">Inspector List</a></li>
-                     <li><a href="<?php echo $url; ?>/user/all-user.php">User List</a></li>
-                     <li><a href="<?php echo $url; ?>/setup/timeline.php">Timeline</a></li>
+                     <li><a href="<?php echo $url; ?>inspector/all-inspector.php">Inspector List</a></li>
+                     <li><a href="<?php echo $url; ?>user/all-user.php">User List</a></li>
+                     <li><a href="<?php echo $url; ?>setup/timeline.php">Timeline</a></li>
                      <li><a href="">Account Settings</a></li>
                   </ul>
                   <!-- End Sub Menu -->

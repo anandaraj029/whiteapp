@@ -1,8 +1,6 @@
 <?php
 include_once('../inc/function.php'); 
-
- include_once('./get-inspector.php');
-
+include_once('./get-inspector.php');
 ?>
 
 <!-- Main Content -->
@@ -122,5 +120,4 @@ include_once('../inc/function.php');
         </form>
     </div>
 </div>
-
 <?php include_once('../inc/footer.php'); ?>

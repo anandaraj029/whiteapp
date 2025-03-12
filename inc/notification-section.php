@@ -1,6 +1,7 @@
 <?php
-// Start the session if not already started
-// session_start(); 
+// session_start();
+ // Ensure session is started
+//  $url= 'http://localhost/whiteapp/';
 
 // Ensure user is logged in
 if (!isset($_SESSION['role']) || !isset($_SESSION['username'])) {
@@ -8,7 +9,7 @@ if (!isset($_SESSION['role']) || !isset($_SESSION['username'])) {
 }
 
 $role = $_SESSION['role']; // Get the user's role
-$username = $_SESSION['username']; // Assuming username stores the inspector's name
+$username = $_SESSION['username']; // Assuming username is unique and used as user_id
 
 // Database connection
 $servername = "localhost";  
@@ -23,7 +24,24 @@ if ($conn2->connect_error) {
     die("Connection failed: " . $conn2->connect_error);
 }
 
+// Fetch unread notifications from the notifications table for the current user
+$query = "SELECT message FROM notifications WHERE user_id = ? AND is_read = 0 ORDER BY created_at DESC";
+$stmt = $conn2->prepare($query);
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $notifications = [];
+if ($result && mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $notifications[] = $row['message'];
+    }
+} else {
+    $notifications[] = "No new notifications.";
+}
+
+// Close the statement
+$stmt->close();
 
 // If the user is an "inspector", fetch projects assigned to them that are pending
 if ($role === 'inspector') {
@@ -35,7 +53,15 @@ if ($role === 'inspector') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $notifications[] = "Project " . htmlspecialchars($row['project_no']) . " is created. You can now create checklist and report.";
+            $message = "Project " . htmlspecialchars($row['project_no']) . " is created. You can now create checklist and report.";
+            $notifications[] = $message;
+
+            // Save the notification to the notifications table
+            $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+            $insert_stmt = $conn2->prepare($insert_query);
+            $insert_stmt->bind_param("ss", $username, $message);
+            $insert_stmt->execute();
+            $insert_stmt->close();
         }
     }
     $stmt->close();
@@ -48,7 +74,15 @@ if ($role === 'reviewer') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $notifications[] = "Project " . htmlspecialchars($row['project_no']) . " is ready for review.";
+            $message = "Project " . htmlspecialchars($row['project_no']) . " is ready for review.";
+            $notifications[] = $message;
+
+            // Save the notification to the notifications table
+            $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+            $insert_stmt = $conn2->prepare($insert_query);
+            $insert_stmt->bind_param("ss", $username, $message);
+            $insert_stmt->execute();
+            $insert_stmt->close();
         }
     }
 }
@@ -60,7 +94,15 @@ if ($role === 'document controller') {
 
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $notifications[] = "Review completed, you can now create the document for Project " . htmlspecialchars($row['project_no']) . ".";
+            $message = "Review completed, you can now create the document for Project " . htmlspecialchars($row['project_no']) . ".";
+            $notifications[] = $message;
+
+            // Save the notification to the notifications table
+            $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+            $insert_stmt = $conn2->prepare($insert_query);
+            $insert_stmt->bind_param("ss", $username, $message);
+            $insert_stmt->execute();
+            $insert_stmt->close();
         }
     }
 }
@@ -73,16 +115,48 @@ if ($role === 'admin') {
     if ($result && mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row['checklist_status'] === 'Created') {
-                $notifications[] = "Checklist created for Project " . htmlspecialchars($row['project_no']) . ".";
+                $message = "Checklist created for Project " . htmlspecialchars($row['project_no']) . ".";
+                $notifications[] = $message;
+
+                // Save the notification to the notifications table
+                $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+                $insert_stmt = $conn2->prepare($insert_query);
+                $insert_stmt->bind_param("ss", $username, $message);
+                $insert_stmt->execute();
+                $insert_stmt->close();
             }
             if ($row['report_status'] === 'Generated') {
-                $notifications[] = "Report generated for Project " . htmlspecialchars($row['project_no']) . ".";
+                $message = "Report generated for Project " . htmlspecialchars($row['project_no']) . ".";
+                $notifications[] = $message;
+
+                // Save the notification to the notifications table
+                $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+                $insert_stmt = $conn2->prepare($insert_query);
+                $insert_stmt->bind_param("ss", $username, $message);
+                $insert_stmt->execute();
+                $insert_stmt->close();
             }
             if ($row['review_status'] === 'Completed') {
-                $notifications[] = "Review completed for Project " . htmlspecialchars($row['project_no']) . ".";
+                $message = "Review completed for Project " . htmlspecialchars($row['project_no']) . ".";
+                $notifications[] = $message;
+
+                // Save the notification to the notifications table
+                $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+                $insert_stmt = $conn2->prepare($insert_query);
+                $insert_stmt->bind_param("ss", $username, $message);
+                $insert_stmt->execute();
+                $insert_stmt->close();
             }
             if ($row['certificatestatus'] === 'Created') {
-                $notifications[] = "Certificate created for Project " . htmlspecialchars($row['project_no']) . ".";
+                $message = "Certificate created for Project " . htmlspecialchars($row['project_no']) . ".";
+                $notifications[] = $message;
+
+                // Save the notification to the notifications table
+                $insert_query = "INSERT INTO notifications (user_id, message) VALUES (?, ?)";
+                $insert_stmt = $conn2->prepare($insert_query);
+                $insert_stmt->bind_param("ss", $username, $message);
+                $insert_stmt->execute();
+                $insert_stmt->close();
             }
         }
     }
@@ -90,11 +164,6 @@ if ($role === 'admin') {
 
 // Close the database connection
 $conn2->close();
-
-// If no notifications exist, add a default message
-if (empty($notifications)) {
-    $notifications[] = "No new notifications.";
-}
 ?>
 
 <!-- Main Header Notification -->
@@ -107,7 +176,7 @@ if (empty($notifications)) {
         <!-- Dropdown Header -->
         <div class="dropdown-header d-flex align-items-center justify-content-between">
             <h5><?php echo count($notifications); ?> New notifications</h5>
-            <a href="#" class="text-mute d-inline-block">Clear all</a>
+            <a href="<?php echo $url; ?>inc/clear_notifications.php" class="text-mute d-inline-block">Clear all</a>
         </div>
         <!-- End Dropdown Header -->
 

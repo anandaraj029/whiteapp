@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'loadtestwithload' => "../document/loadtest/with_load.php",
             'mobile' => "../document/mobile/create.php",
             'mpi' => "../document/mpi/create.php",
+            'eddycurrent' => "../document/eddycurrent/create.php",
         ];
 
         $redirectUrl = isset($certificateLinks[$certificate_type]) 

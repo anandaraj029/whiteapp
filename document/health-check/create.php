@@ -6,24 +6,6 @@ include_once('../../file/config.php');
 if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     $project_no = $_GET['project_no'];
 
-    // SQL query to join tables
-    // $query = "
-    //     SELECT 
-    //         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.company_name,
-    //         c.checklist_no, c.inspected_by,
-    //         r.report_no, r.sticker_number_issued, r.date_of_creation, r.rep_name
-    //     FROM 
-    //         project_info p
-    //     LEFT JOIN 
-    //         checklist_information c ON p.project_no = c.project_no
-    //     LEFT JOIN 
-    //         report r ON p.project_no = r.project_no
-    //     WHERE 
-    //         p.project_no = ?
-    // ";
-
-
-
     $query = "
     SELECT 
         p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name,
@@ -49,13 +31,13 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
         // Generate certificate number logic
         $currentYear = date('Y');
-        
+
         $certQuery = "SELECT certificate_no FROM crane_health_check_certificate ORDER BY id DESC LIMIT 1";
         $certResult = $conn->query($certQuery);
 
         if ($certResult->num_rows > 0) {
             $lastCert = $certResult->fetch_assoc()['certificate_no'];
-            
+
             // Extract the numeric part
             preg_match('/CHC-(\d+)-\d{4}/', $lastCert, $matches);
             $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
@@ -68,7 +50,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
         // Display or use the certificate number as needed
         // echo "<h3>Generated Certificate Number: $newCertificateNo</h3>";
-        
+
     } else {
         $data = null;
     }
@@ -89,17 +71,17 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                         <h4 class="pl-2 pt-3 pb-2 font-20">CRANE HEALTH CHECK CERTIFICATE</h4>
                     </div>
                     <div class="col-6 text-right">
-    <a href="index.php" class="btn btn-primary" target="_blank">View List</a>
-</div>
+                        <a href="index.php" class="btn btn-primary" target="_blank">View List</a>
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid">        
-            <form action="save_crane_certificate.php" method="POST">
-                <div class="row">
+    <div class="container-fluid">
+        <form action="save_crane_certificate.php" method="POST">
+            <div class="row">
                 <div class="col-lg-6">
                     <!-- Header Data -->
                     <div class="form-element py-30 mb-30">
@@ -125,7 +107,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" readonly>
+                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -141,7 +123,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
+                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -149,12 +131,12 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                
-                            <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
+
+                                <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
                             </div>
                         </div>
-                        
-                        
+
+
 
                     </div>
                 </div>
@@ -168,8 +150,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Name</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" readonly>    
-                            <!-- <input type="text" class="theme-input-style" name="" placeholder=""> -->
+                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" readonly>
+                                <!-- <input type="text" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -177,7 +159,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Email</label>
                             </div>
                             <div class="col-sm-8">
-                            <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" readonly>    
+                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" readonly>
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
@@ -186,8 +168,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <label class="font-14 bold">Mobile</label>
                             </div>
                             <div class="col-sm-8">
-                                
-                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" readonly>    
+
+                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -196,25 +178,25 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             </div>
                             <div class="col-sm-8">
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
-                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" readonly>    
+                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" readonly>
                             </div>
                         </div>
-                         <!-- Add Technical Manager Dropdown -->
-        <div class="form-row mb-20">
-            <div class="col-sm-4">
-                <label class="font-14 bold">Technical Manager</label>
-            </div>
-            <div class="col-sm-8">
-                <select class="theme-input-style" name="technical_manager">
-                    <option value="Veera">Veera</option>
-                    <option value="Sathish">Sathish</option>
-                </select>
-            </div>
-        </div>
+                        <!-- Add Technical Manager Dropdown -->
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Technical Manager</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select class="theme-input-style" name="technical_manager">
+                                    <option value="Veera">Veera</option>
+                                    <option value="Sathish">Sathish</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-                <div class="row">
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
                     <!-- General Information -->
                     <div class="form-element py-30 multiple-column">
@@ -268,176 +250,176 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                         </div>
                     </div>
                 </div>
-                </div>
+            </div>
 
-                <div class="row">
+            <div class="row">
 
                 <div class="col-lg-12">
-                            <!-- Base Horizontal Form With Icons -->
-                            <div class="form-element py-30 multiple-column">
-                                <h4 class="font-20 mb-20">B. GENERAL INFORMATION</h4>
+                    <!-- Base Horizontal Form With Icons -->
+                    <div class="form-element py-30 multiple-column">
+                        <h4 class="font-20 mb-20">B. GENERAL INFORMATION</h4>
 
-                                <!-- Form -->
-                                <!-- <form action="#" method="POST"> -->
+                        <!-- Form -->
+                        <!-- <form action="#" method="POST"> -->
 
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Crane Structure Condition:</label>
-                                                <!-- Crane Structure Condition -->
-<select class="form-control" name="crane_structure_condition">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                            
-                                               <!-- Form Group -->
-                                               <div class="form-group">
-                                                <label class="font-14 bold mb-2">Swinging / Slewing Function:	</label>
-                                                <!-- Swinging / Slewing Function -->
-<select class="form-control" name="swinging_slewing_function">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Hydraulic & Pneumatic System</label>
-                                                <!-- Hydraulic & Pneumatic System -->
-<select class="form-control" name="hydraulic_pneumatic_system">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Crane Structure Condition:</label>
+                                    <!-- Crane Structure Condition -->
+                                    <select class="form-control" name="crane_structure_condition">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
 
-                                                 <!-- Form Group -->
-                                                 <div class="form-group">
-                                                <label class="font-14 bold mb-2">Wire Ropes Condition:</label>
-                                                <!-- Wire Ropes Condition -->
-<select class="form-control" name="wire_ropes_condition">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Boom Lifting, Extending & Retracting:</label>
-                                                <!-- Boom Lifting, Extending & Retracting -->
-<select class="form-control" name="boom_lifting_extending_retracting">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                   <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Emergency Boom Lowering:</label>
-                                                <!-- Emergency Boom Lowering -->
-<select class="form-control" name="emergency_boom_lowering">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Auto Moment Limiter (LMI):</label>
-                                               <!-- Auto Moment Limiter (LMI) -->
-                                                <select class="form-control" name="auto_moment_limiter">
-                                                    <option value="SATISFACTORY">SATISFACTORY</option>
-                                                    <option value="NA">N/A</option>
-                                                </select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                            
-                                               <!-- Form Group -->
-                                               <div class="form-group">
-                                                <label class="font-14 bold mb-2">Anti-Two-Block (A2B) Function:</label>
-                                                <!-- Anti-Two-Block (A2B) Function -->
-<select class="form-control" name="anti_two_block">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">	Winch Drum Lock / Pawls:</label>
-                                                <!-- Winch Drum Lock / Pawls -->
-<select class="form-control" name="winch_drum_lock_pawls">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Swinging / Slewing Function: </label>
+                                    <!-- Swinging / Slewing Function -->
+                                    <select class="form-control" name="swinging_slewing_function">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Hydraulic & Pneumatic System</label>
+                                    <!-- Hydraulic & Pneumatic System -->
+                                    <select class="form-control" name="hydraulic_pneumatic_system">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
 
-                                                 <!-- Form Group -->
-                                                 <div class="form-group">
-                                                <label class="font-14 bold mb-2">Hook Block Assembly:</label>
-                                                <!-- Hook Block Assembly -->
-<select class="form-control" name="hook_block_assembly">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                  <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Boom Angle Indicator:</label>
-                                                <!-- Boom Angle Indicator -->
-<select class="form-control" name="boom_angle_indicator">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                                   <!-- Form Group -->
-                                            <div class="form-group">
-                                                <label class="font-14 bold mb-2">Emergency Shutdown:</label>
-                                               <!-- Emergency Shutdown -->
-<select class="form-control" name="emergency_shutdown">
-    <option value="SATISFACTORY">SATISFACTORY</option>
-    <option value="NA">N/A</option>
-</select>
-                                                 </div>
-                                            <!-- End Form Group -->
-                                        </div>
-                                      
-                                    </div>
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Wire Ropes Condition:</label>
+                                    <!-- Wire Ropes Condition -->
+                                    <select class="form-control" name="wire_ropes_condition">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Boom Lifting, Extending & Retracting:</label>
+                                    <!-- Boom Lifting, Extending & Retracting -->
+                                    <select class="form-control" name="boom_lifting_extending_retracting">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Emergency Boom Lowering:</label>
+                                    <!-- Emergency Boom Lowering -->
+                                    <select class="form-control" name="emergency_boom_lowering">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Auto Moment Limiter (LMI):</label>
+                                    <!-- Auto Moment Limiter (LMI) -->
+                                    <select class="form-control" name="auto_moment_limiter">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
 
-                               
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Anti-Two-Block (A2B) Function:</label>
+                                    <!-- Anti-Two-Block (A2B) Function -->
+                                    <select class="form-control" name="anti_two_block">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2"> Winch Drum Lock / Pawls:</label>
+                                    <!-- Winch Drum Lock / Pawls -->
+                                    <select class="form-control" name="winch_drum_lock_pawls">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
 
-                                    <!-- Form Row -->
-                                    <!-- <div class="form-row">
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Hook Block Assembly:</label>
+                                    <!-- Hook Block Assembly -->
+                                    <select class="form-control" name="hook_block_assembly">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Boom Angle Indicator:</label>
+                                    <!-- Boom Angle Indicator -->
+                                    <select class="form-control" name="boom_angle_indicator">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                                <!-- Form Group -->
+                                <div class="form-group">
+                                    <label class="font-14 bold mb-2">Emergency Shutdown:</label>
+                                    <!-- Emergency Shutdown -->
+                                    <select class="form-control" name="emergency_shutdown">
+                                        <option value="SATISFACTORY">SATISFACTORY</option>
+                                        <option value="NA">N/A</option>
+                                    </select>
+                                </div>
+                                <!-- End Form Group -->
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Form Row -->
+                        <!-- <div class="form-row">
                                         <div class="col-12 text-center mt-4">
                                             <button type="submit" class="btn long">Save</button>
                                         </div>
                                     </div> -->
-                                    <!-- End Form Row -->
-                                <!-- </form> -->
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Horizontal Form With Icons -->
-                        </div>
-
-                </div>
-
-                <!-- Entire Save Button -->
-                <div class="form-row">
-                    <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn long" name="save_all">Save All</button>
+                        <!-- End Form Row -->
+                        <!-- </form> -->
+                        <!-- End Form -->
                     </div>
+                    <!-- End Horizontal Form With Icons -->
                 </div>
-            </form>
-        </div>
-    
+
+            </div>
+
+            <!-- Entire Save Button -->
+            <div class="form-row">
+                <div class="col-12 text-center mt-4">
+                    <button type="submit" class="btn long" name="save_all">Save All</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </div>
 
 <?php include_once('../../inc/footer.php'); ?>
