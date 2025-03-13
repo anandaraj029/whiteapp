@@ -242,7 +242,7 @@ include_once('../../file/config.php');
                                     <option value="yes">YES</option>
                                     <option value="no">NO</option>
                                     
-                                </select>
+                            </select>
                             </div>
                         </div>
                         <div class="form-row mb-20">
