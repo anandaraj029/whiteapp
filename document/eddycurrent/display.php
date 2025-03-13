@@ -41,31 +41,31 @@ if (isset($_POST['save_all'])) {
     $reason = $_POST['reason'];
     $inspector_name = $_POST['inspector_name'];
     $authenticating_person_name = $_POST['authenticating_person_name'];
+    $created_at = date('Y-m-d H:i:s');
 
     // Ensure the "uploads" directory exists
-$target_dir = "uploads/";
-if (!is_dir($target_dir)) {
-    mkdir($target_dir, 0755, true); // Create the directory if it doesn't exist
-}
+    $target_dir = "uploads/";
+    if (!is_dir($target_dir)) {
+        mkdir($target_dir, 0755, true);
+    }
 
-// Handle file uploads with names only
-$inspector_signature = '';
-$signature = '';
+    // Handle file uploads
+    $inspector_signature = '';
+    $signature = '';
 
-if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
-    $inspector_filename = $target_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
-    move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
-    $inspector_signature = $inspector_filename;
-}
+    if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
+        $inspector_filename = $target_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
+        $inspector_signature = $inspector_filename;
+    }
 
-if (isset($_FILES['signature']) && $_FILES['signature']['error'] == UPLOAD_ERR_OK) {
-    $signature_filename = $target_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['signature']['name'], PATHINFO_EXTENSION);
-    move_uploaded_file($_FILES['signature']['tmp_name'], $signature_filename);
-    $signature = $signature_filename;
-}
+    if (isset($_FILES['signature']) && $_FILES['signature']['error'] == UPLOAD_ERR_OK) {
+        $signature_filename = $target_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['signature']['name'], PATHINFO_EXTENSION);
+        move_uploaded_file($_FILES['signature']['tmp_name'], $signature_filename);
+        $signature = $signature_filename;
+    }
 
-
-    // Prepare the SQL statement
+    // Insert into the database
     $sql = "INSERT INTO eddy_current_inspection (
         inspection_date, certificate_no, report_no, jrn, project_no, companyName, reference_no, location, next_inspection_date, 
         customer_name, customer_email, mobile, inspector, technical_manager, inspected_item, type_of_joint, specification, 
@@ -73,25 +73,36 @@ if (isset($_FILES['signature']) && $_FILES['signature']['error'] == UPLOAD_ERR_O
         ref_block_type, material, description_1, description_2, description_3, description_of_inspection, inspection_result, 
         reason, inspector_name, inspector_signature, authenticating_person_name, signature, created_at
     ) VALUES (
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW()
+        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
     )";
 
     // Prepare and bind parameters
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssssssssss",
         $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $companyName, $reference_no, $location, $next_inspection_date,
         $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $inspected_item, $type_of_joint, $specification,
         $inspection_method, $calibration_details, $gain, $probe_frequency, $device_maker, $model, $serial_no, $cable_type, $sensor_type,
         $ref_block_type, $material, $description_1, $description_2, $description_3, $description_of_inspection, $inspection_result,
-        $reason, $inspector_name, $inspector_signature, $authenticating_person_name, $signature
+        $reason, $inspector_name, $inspector_signature, $authenticating_person_name, $signature, $created_at
     );
 
-    // Execute the statement
     if ($stmt->execute()) {
-        echo "New record created successfully";
+        // Update the project_info table to mark the certificate as created
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param("s", $project_no);
+
+        if ($update_stmt->execute()) {
+            $msg = "Health check created successfully, and project status updated.";
+            header('Location: index.php?msg=' . urlencode($msg));
+            exit();
+        } else {
+            echo "Error updating project status: " . $conn->error;
+        }
+        $update_stmt->close();
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $conn->error;
     }
 
     // Close the statement and connection
