@@ -15,11 +15,11 @@ include_once('fetch_data.php');
 input[type="checkbox"] {
   width: 10px;
   height: 10px;
-  transform: scale(1.5); /* Adjust the scale factor as needed */
-  margin-right: 5px; /* Space between checkbox and label */  
+  transform: scale(1.5); 
+  margin-right: 5px; 
 }
 	
-    .certificate-title {
+    /* .certificate-title {
       text-align: center;
       margin: 25px;
     }
@@ -93,8 +93,10 @@ input[type="checkbox"] {
       table {
         font-size: 8px;
       }
-    }
+    } */
   </style>
+
+<link rel="stylesheet" href="../style.css" type="text/css">
 </head>
 <body>
 <div class="container">
@@ -255,6 +257,12 @@ input[type="checkbox"] {
     <div class="footer">
         <img src="../foot.jpg" alt="Footer Image">
     </div>
+</div>
+
+<div class="text-center">
+    <a href="download.php?project_no=<?php echo $row['project_no']; ?>" >
+        <button>Download</button>
+    </a>
 </div>
 </body>
 </html>
