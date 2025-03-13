@@ -521,6 +521,7 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
             loadtestwithload: '../document/loadtest/with_load.php',            
             mobile: '../document/mobile/create.php',
             mpi: '../document/mpi/create.php',
+            eddycurrent: '../document/eddycurrent/create.php',
             // Add more mappings as needed
         };
 

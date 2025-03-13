@@ -1,7 +1,5 @@
 <?php
 require_once('../../vendor/autoload.php');
-
-
 include_once('../../file/config.php'); // include your database connection
 
 // Get the project ID from the query parameter

@@ -80,6 +80,14 @@ if (!empty($stickerNo)) {
                 mp.certificate_no, mp.created_at
             FROM mpi_certificates mp
             WHERE mp.project_no = ?
+
+            UNION
+
+            SELECT 
+                'eddycurrent' AS certificate_type,
+                ec.certificate_no, ec.created_at
+            FROM eddy_current_inspection ec
+            WHERE ec.project_no = ?
         ";
 
         $stmt = $conn->prepare($query);

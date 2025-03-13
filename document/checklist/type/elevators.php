@@ -677,7 +677,7 @@ Sec. (3.15, 3.23.1,
                     <th style="text-align: center;">NA</th>
                     <th> </th>
                 </tr>
-				</thead>
+				
  
                 <tbody>
 				<tr>
