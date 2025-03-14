@@ -68,10 +68,10 @@ include_once('./get-inspector.php');
     </div>
 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="font-14 bold mb-2">Emp ID</label>
                                     <input type="text" class="theme-input-style" name="emp_id" placeholder="Employee ID" required>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Mobile</label>
                                     <input type="text" class="theme-input-style" name="mobile" placeholder="Contact Number" required>

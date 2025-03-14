@@ -33,7 +33,7 @@ if (isset($_POST['update_inspector'])) {
     $inspector_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? serialize($_POST['handle_crane']) : null;
-    $emp_id = $_POST['emp_id'];
+    // $emp_id = $_POST['emp_id'];
     $mobile = $_POST['mobile'];
     $password = !empty($_POST['password']) ? password_hash($_POST['password'], PASSWORD_DEFAULT) : $row['password'];
     $address = $_POST['address'];
@@ -70,14 +70,14 @@ if (isset($_POST['update_inspector'])) {
 
     // Update query
     $sql = "UPDATE inspectors SET 
-            inspector_name = ?, email = ?, handle_crane = ?, emp_id = ?, mobile = ?, 
+            inspector_name = ?, email = ?, handle_crane = ?, mobile = ?, 
             password = ?, address = ?, city = ?, profile_photo = ?, signature_photo = ? 
             WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssi",
-        $inspector_name, $email, $handle_crane, $emp_id, $mobile,
+        "sssssssssi",
+        $inspector_name, $email, $handle_crane, $mobile,
         $password, $address, $city, $profile_photo, $signature_photo, $inspector_id
     );
 
@@ -164,11 +164,11 @@ if (isset($_POST['update_inspector'])) {
                                         ?>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="font-14 bold mb-2">Emp ID</label>
                                     <input type="text" class="theme-input-style" name="emp_id" 
                                            value="<?= htmlspecialchars($row['emp_id']) ?>" required>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Mobile</label>
                                     <input type="text" class="theme-input-style" name="mobile" 
