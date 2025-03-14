@@ -32,7 +32,7 @@ if (isset($_GET['project_no'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liquid Penetrant Inspection Certificate</title>
-	<style>
+	<!-- <style>
     .certificate-title {
       text-align: center;
       margin: 8px;
@@ -106,14 +106,14 @@ if (isset($_GET['project_no'])) {
         font-size: 8px;
       }
     }
-  </style>
+  </style> -->
 	
-    
+<link rel="stylesheet" href="../style.css" type="text/css"> 
 </head>
 <body>
 <div class="container">
 <div class="header">
-            <img src="../head.jpg" alt="Header Image">
+<img src="../head.jpg" alt="Header Image">
 </div>
     	<img src="../leea.png" class="leea" alt="Leea">
 		<img src="../code.png" class="qrcode" alt="Qr Code">
@@ -321,6 +321,12 @@ if (isset($_GET['project_no'])) {
     <div class="footer">
         <img src="../foot.jpg" alt="Footer Image">
     </div>
+</div>
+
+<div class="text-center">
+    <a href="download.php?project_no=<?php echo $row['project_no']; ?>" >
+        <button>Download</button>
+    </a>
 </div>
 </body>
 </html>

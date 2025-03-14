@@ -118,7 +118,8 @@ if ($role == '' || $role == 'guest') {
                      <li><a href="<?php echo $url; ?>document/mobile/">Mobile</a></li>
                      <li><a href="<?php echo $url; ?>document/mpi/">MPI</a></li>
                      <li><a href="<?php echo $url; ?>document/eddycurrent/">Eddy Current</a></li>
-                     <!-- <li><a href="<?php echo $url; ?>document/liquid-penetrant-inspection-certificate/">Liquid Penetrant Inspection Certificate</a></li> -->
+                     <li><a href="<?php echo $url; ?>document/liquid-penetrant-inspection-certificate/">Liquid Penetrant Inspection Certificate</a></li>
+                     <li><a href="<?php echo $url; ?>document/rocktest/">Rocking Test</a></li>
                   </ul>
                   <!-- End Sub Menu -->
                </li>

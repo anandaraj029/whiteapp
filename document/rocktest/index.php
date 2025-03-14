@@ -3,7 +3,7 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Include your database connection
 
 // SQL query to fetch data from the 'eddy_current_inspection' table
-$sql = "SELECT certificate_no, project_no, report_no, inspector, inspection_date, companyName FROM liquid_penetrant_inspection";
+$sql = "SELECT certificate_no, project_no, report_no, inspector, inspection_date, companyName FROM rocking_test_certificate";
 $result = $conn->query($sql);
 if (!$result) {
     die("Error fetching data: " . $conn->error); // Handle query errors
