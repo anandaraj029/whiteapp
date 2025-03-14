@@ -8,10 +8,11 @@ $logged_in_user = $_SESSION['username']; // Ensure username is stored in the ses
 
 // Modify SQL query based on role
 if ($logged_in_role === 'admin') {
-    $sql = "SELECT * FROM stickers"; // Admin sees all stickers
+    $sql = "SELECT * FROM stickers ORDER BY created_at DESC"; // Admin sees all stickers, sorted by latest
 } elseif ($logged_in_role === 'inspector') {
-    $sql = "SELECT * FROM stickers WHERE assign_inspector = ?"; // Inspector sees only their assigned stickers
+    $sql = "SELECT * FROM stickers WHERE assign_inspector = ? ORDER BY created_at DESC"; // Inspector sees assigned stickers, sorted by latest
 }
+
 
 // Prepare statement if filtering is required
 if ($logged_in_role === 'inspector') {
@@ -52,6 +53,7 @@ if ($logged_in_role === 'inspector') {
                                     <th>Sticker ID</th>
                                     <th>Project ID</th>
                                     <th>Inspect By</th>
+                                    <th>Created at</th>
                                     <th>Inspection Date</th>                                    
                                     <th>Date of Expiry</th>
                                     <th>Sticker Status</th>
@@ -126,6 +128,7 @@ if ($logged_in_role === 'inspector') {
                                             <td>#{$row['sticker_start_no']}</td>
                                             <td>{$row['project_no']}</td>
                                             <td>{$row['assign_inspector']}</td>
+                                            <td>{$row['created_at']}</td>
                                             <td>" . date("d/m/Y", strtotime($row['inspection_date'])) . "</td>
                                             <td>" . date("d/m/Y", strtotime($expiry_date)) . "</td>
                                             <td><button type='button' class='status-btn $sticker_status_class'>$sticker_status_text</button></td>

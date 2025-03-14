@@ -98,7 +98,9 @@ if ($role == '' || $role == 'guest') {
                </a>
                <!-- Sub Menu -->
                <ul class="nav sub-menu">
+                  <li><a href="<?php echo $url; ?>job/create-job.php">Create New Project</a></li>
                   <li><a href="<?php echo $url; ?>job/overall-job-list.php">Over all Projects</a></li>
+                  <li><a href="<?php echo $url; ?>job/pending_projects.php">Pending Projects</a></li>
                </ul>
                <!-- End Sub Menu -->
             </li>

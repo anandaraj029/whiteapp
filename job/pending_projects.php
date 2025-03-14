@@ -13,16 +13,15 @@ $logged_in_user = $_SESSION['username'] ?? null; // Replace with the appropriate
 $user_role = $_SESSION['role'] ?? null; // Assuming you have a role stored in the session
 // $projectNo = $row["project_no"];
 if ($logged_in_user) {
-    // Fetch data based on user role
     if ($user_role === 'admin' || $user_role === 'reviewer' || $user_role === 'quality controller' || $user_role === 'document controller') {
-        // Fetch all data from the 'project_info' table for admin
-        $sql = "SELECT * FROM project_info ORDER BY creation_date DESC";
+        // Fetch only pending projects
+        $sql = "SELECT * FROM project_info WHERE project_status = 'Pending' ORDER BY project_no DESC";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
     } else {
-        // Fetch data from the 'project_info' table for the logged-in inspector
-        $sql = "SELECT * FROM project_info WHERE inspector_name = ? ORDER BY creation_date DESC";
+        // Fetch only pending projects for the logged-in inspector
+        $sql = "SELECT * FROM project_info WHERE inspector_name = ? AND project_status = 'Pending' ORDER BY project_no DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $logged_in_user);
         $stmt->execute();
@@ -33,7 +32,6 @@ if ($logged_in_user) {
     header("Location: ../index.php");
     exit;
 }
-
 ?>
 <!-- Main Content -->
 <div class="main-content">

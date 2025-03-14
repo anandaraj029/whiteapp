@@ -54,10 +54,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->close();
     }
 
-    // Success message after all stickers are created
-    echo "$created_count stickers created successfully starting from sticker number $sticker_start_no.<br>";
-
     // Close the connection
     $conn->close();
+
+    // Redirect to index.php after completion
+    header("Location: sticker-list.php");
+    exit(); // Ensure script execution stops after redirection
 }
 ?>
