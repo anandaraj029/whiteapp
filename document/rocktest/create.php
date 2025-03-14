@@ -31,34 +31,162 @@ include_once('../../file/config.php');
     <div class="container-fluid">
         <form action="display.php" method="POST">
             <!-- Header Data -->
+
+
             <div class="row">
-                <div class="col-lg-6">
+            <div class="col-lg-6">
+                    <!-- Header Data -->
                     <div class="form-element py-30 mb-30">
                         <h4 class="font-20 mb-30">Header Data</h4>
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
-                                <label class="font-14 bold">CERTIFICATE NO.</label>
+                                <label class="font-14 bold">Date of Inspection</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No">
+                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date'] ?? ''; ?>" placeholder="Date of Inspection">
                             </div>
                         </div>
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
-                                <label class="font-14 bold">JOB REF. NO.</label>
+                                <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="job_ref_no" placeholder="Job Ref. No">
+                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No" >
                             </div>
                         </div>
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
-                                <label class="font-14 bold">REPORT NO.</label>
+                                <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="report_no" placeholder="Report No">
+                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" >
                             </div>
                         </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">JRN</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN" >
+                            </div>
+                        </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Project ID</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project No" >
+                            </div>
+                        </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Company Name</label>
+                            </div>
+                            <div class="col-sm-8">
+
+                                <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
+                            </div>
+                        </div>
+
+
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">REFERENCE NO.</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="theme-input-style" name="reference_no" placeholder="Reference No">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">SITE/LOCATION</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="theme-input-style" name="location" placeholder="Site/Location">
+                            </div>
+                        </div>
+                       
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">NEXT INSPECTION DATE</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="date" class="theme-input-style" name="next_inspection_date" placeholder="Next Inspection Date">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Customer Information / Inspector -->
+                    <div class="form-element py-30 mb-30" style="height: 660px;">
+                        <h4 class="font-20 mb-30">Customer Information / Inspector</h4>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Customer Name</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" >
+                                <!-- <input type="text" class="theme-input-style" name="" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Customer Email</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" >
+                                <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
+                            </div>
+                        </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Mobile</label>
+                            </div>
+                            <div class="col-sm-8">
+
+                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" >
+                            </div>
+                        </div>
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Inspector</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
+                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" >
+                            </div>
+                        </div>
+                        <!-- Add Technical Manager Dropdown -->
+                        <div class="form-row mb-20">
+                            <div class="col-sm-4">
+                                <label class="font-14 bold">Technical Manager</label>
+                            </div>
+                            <div class="col-sm-8">
+                                <select class="theme-input-style" name="technical_manager">
+                                    <option value="Veera">Veera</option>
+                                    <option value="Sathish">Sathish</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-element py-30 mb-30">
+                        <h4 class="font-20 mb-30">Header Data</h4>
+                        
+                        
+                        
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">DATE OF REPORT</label>

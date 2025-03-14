@@ -344,7 +344,7 @@ if (!isset($row) || empty($row)) {
             </tr>
 			<tr>
                 <td><strong>2.2.4</strong></td>
-                <td><strong>	Boom Hoist Rope</strong></td>
+                <td><strong>Boom Hoist Rope</strong></td>
 				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
@@ -363,6 +363,25 @@ if (!isset($row) || empty($row)) {
             <tr>
                 <td><strong>2.2.5</strong></td>
                 <td><strong>	Pendant Rope  </strong></td>
+				<td style="text-align: center;"><strong>
+  </strong></td>
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[12]">
+</td>
+            </tr>
+
+            <tr>
+                <td><strong>2.3</strong></td>
+                <td><strong>	Crane Load Test Certificates.  </strong></td>
 				<td style="text-align: center;"><strong>
   </strong></td>
                  <td class="checkbox-cell">
