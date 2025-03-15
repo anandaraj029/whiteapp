@@ -106,7 +106,7 @@ if ($role == '' || $role == 'guest') {
             </li>
 
             <!-- Certificate Portal (Visible to Admin Only) -->
-            <?php if ($_SESSION['role'] === 'admin'): ?>
+           
                <li>
                   <a href="#">
                      <i class="icofont-navigation-menu"></i>
@@ -125,7 +125,7 @@ if ($role == '' || $role == 'guest') {
                   </ul>
                   <!-- End Sub Menu -->
                </li>
-            <?php endif; ?>
+            
 
             <!-- Checklist Portal (Visible to All Users) -->
             <li>

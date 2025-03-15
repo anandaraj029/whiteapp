@@ -4,7 +4,7 @@ include '../file/config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_name = $_POST['customer_name'];
     $email = $_POST['email'];
-    $company = $_POST['company'];
+    // $company = $_POST['company'];
     $rep_name = $_POST['rep_name'];
     $mobile = $_POST['mobile'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -21,6 +21,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
     if (!is_dir($signatureDir)) mkdir($signatureDir, 0777, true);
 
+    // Check for existing customer by email or mobile number
+    $checkSql = "SELECT cus_id FROM customers WHERE email = ? OR mobile = ?";
+    $checkStmt = $conn->prepare($checkSql);
+    $checkStmt->bind_param("ss", $email, $mobile);
+    $checkStmt->execute();
+    $checkStmt->store_result();
+
+    if ($checkStmt->num_rows > 0) {
+        echo "Error: Customer with this email or mobile number already exists.";
+        $checkStmt->close();
+        $conn->close();
+        exit();
+    }
+    $checkStmt->close();
+
     // Auto-generate customer_id
     $result = $conn->query("SELECT MAX(cus_id) AS last_id FROM customers");
     $row = $result->fetch_assoc();
@@ -31,27 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_FILES['profile_photo']) && $_FILES['profile_photo']['error'] === 0) {
         $filePath = $uploadDir . $new_id . '.png';
         move_uploaded_file($_FILES['profile_photo']['tmp_name'], $filePath);
-    } else {
-        echo "Error uploading profile photo.";
-    }
+    } 
 
     // Signature Photo Upload
     if (isset($_FILES['signature_photo']) && $_FILES['signature_photo']['error'] === 0) {
         $signaturePath = $signatureDir . $new_id . '.png';
         move_uploaded_file($_FILES['signature_photo']['tmp_name'], $signaturePath);
-    } else {
-        echo "Error uploading signature.";
-    }
+    } 
 
     // Insert data into the database
-    $sql = "INSERT INTO customers (cus_id, customer_name, email, company, rep_name, mobile, password, address, city, info_correct, profile_photo, signature_photo) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO customers (cus_id, customer_name, email, rep_name, mobile, password, address, city, info_correct, profile_photo, signature_photo) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssssss", $new_id, $customer_name, $email, $company, $rep_name, $mobile, $password, $address, $city, $info_correct, $filePath, $signaturePath);
+    $stmt->bind_param("sssssssssss", $new_id, $customer_name, $email, $rep_name, $mobile, $password, $address, $city, $info_correct, $filePath, $signaturePath);
 
     if ($stmt->execute()) {
-        echo "Customer added successfully with ID $new_id and files uploaded!";
+        header("Location: customer-list.php"); // Redirect to the list page
+        exit();
     } else {
         echo "Error: " . $stmt->error;
     }

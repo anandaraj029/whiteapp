@@ -63,13 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
         last_forward, last_port_side, actual_aft, actual_stbd, actual_forward, actual_port_side, permitted_aft, permitted_stbd,
         permitted_forward, permitted_port_side, result_aft, result_stbd, result_forward, result_port_side
     ) VALUES (
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
     )";
 
     // Prepare and bind parameters
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssssssssssssssssssssssssssssssssssssss",
+        "ssssssssssssssssssssssssssssssssssssssssssssssss",
         $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $companyName, $reference_no, $location, $next_inspection_date,
         $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $report_date, $color_code, $applicable_standards,
         $employer_address, $premises_address, $inspected_item_type, $identification_no, $quantity, $description, $wll_swl, $last_exam_date,

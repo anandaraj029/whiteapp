@@ -122,3 +122,30 @@ include_once('./get-inspector.php');
     </div>
 </div>
 <?php include_once('../inc/footer.php'); ?>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+        let valid = true;
+
+        document.querySelectorAll("input[required], textarea[required], select[required]").forEach((input) => {
+            if (!input.value.trim()) {
+                valid = false;
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "";
+            }
+        });
+
+        let checkboxes = document.querySelectorAll("input[type='checkbox'][name='handle_crane[]']");
+        let isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        if (!isChecked) {
+            alert("Please select at least one crane type.");
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault();
+            alert("Please fill out all required fields!");
+        }
+    });
+</script>

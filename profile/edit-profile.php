@@ -53,7 +53,7 @@ if (!$customer) {
         <div class="row">
             <div class="col-xl-4 col-lg-6">
                 <div class="form-group mb-20">
-                    <label for="userName" class="mb-2 font-14 bold black">Customer Name</label>
+                    <label for="userName" class="mb-2 font-14 bold black">Company Name</label>
                     <input type="text" id="userName" name="customer_name" class="theme-input-style" value="<?php echo $customer['customer_name']; ?>">
                 </div>
                 <div class="form-group mb-20">
@@ -66,10 +66,10 @@ if (!$customer) {
                     <label for="name" class="mb-2 font-14 bold black">Mobile</label>
                     <input type="text" name="mobile" id="mobile" class="theme-input-style" value="<?php echo $customer['mobile']; ?>">
                 </div>
-                <div class="form-group mb-20">
+                <!-- <div class="form-group mb-20">
                     <label for="company" class="mb-2 font-14 bold black">Company</label>
                     <input type="text" id="company" name="company" class="theme-input-style" value="<?php echo $customer['company']; ?>">
-                </div>
+                </div> -->
             </div>
             <div class="col-xl-4">
     <!-- Profile Photo Upload -->

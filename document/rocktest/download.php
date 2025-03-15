@@ -2,7 +2,7 @@
 require_once('../../vendor/autoload.php');
 include_once('../../file/config.php'); // Include your database configuration file
 
-// Check if certificate_no is provided in the query string
+// Check if project_no is provided in the query string
 if (isset($_GET['project_no'])) {
     $project_no = $_GET['project_no'];
 
@@ -27,42 +27,44 @@ if (isset($_GET['project_no'])) {
 // Assign fetched data to variables
 $certificate_no = $row['certificate_no'];
 $report_no = $row['report_no'];
-$date_of_report = $row['date_of_report'];
-$employer_name_address = $row['employer_name_address'];
+$jrn = $row['jrn'];
+$date_of_report = $row['report_date'];
+$employer_name_address = $row['employer_address'];
 $premises_address = $row['premises_address'];
+$applicable_standards = $row['applicable_standards'];
 $inspected_item_type = $row['inspected_item_type'];
 $identification_no = $row['identification_no'];
 $quantity = $row['quantity'];
 $description = $row['description'];
 $wll_swl = $row['wll_swl'];
-$last_examination_date = $row['last_examination_date'];
-$this_examination_date = $row['this_examination_date'];
-$next_examination_date = $row['next_examination_date'];
-$reason_for_examination = $row['reason_for_examination'];
+$last_examination_date = $row['last_exam_date'];
+$this_examination_date = $row['this_exam_date'];
+$next_examination_date = $row['next_exam_date'];
+$reason_for_examination = $row['reason_for_exam'];
 $details_of_test = $row['details_of_test'];
 $status = $row['status'];
 $safe_to_use = $row['safe_to_use'];
-$grease_sample_condition = $row['grease_sample_condition'];
-$test_positions_aft = $row['test_positions_aft'];
-$test_positions_stbd = $row['test_positions_stbd'];
-$test_positions_forward = $row['test_positions_forward'];
-$test_positions_port_side = $row['test_positions_port_side'];
-$last_measured_limits_aft = $row['last_measured_limits_aft'];
-$last_measured_limits_stbd = $row['last_measured_limits_stbd'];
-$last_measured_limits_forward = $row['last_measured_limits_forward'];
-$last_measured_limits_port_side = $row['last_measured_limits_port_side'];
-$actual_deviation_aft = $row['actual_deviation_aft'];
-$actual_deviation_stbd = $row['actual_deviation_stbd'];
-$actual_deviation_forward = $row['actual_deviation_forward'];
-$actual_deviation_port_side = $row['actual_deviation_port_side'];
-$permitted_limits_aft = $row['permitted_limits_aft'];
-$permitted_limits_stbd = $row['permitted_limits_stbd'];
-$permitted_limits_forward = $row['permitted_limits_forward'];
-$permitted_limits_port_side = $row['permitted_limits_port_side'];
-$result_ok_defect_sgocc_aft = $row['result_ok_defect_sgocc_aft'];
-$result_ok_defect_sgocc_stbd = $row['result_ok_defect_sgocc_stbd'];
-$result_ok_defect_sgocc_forward = $row['result_ok_defect_sgocc_forward'];
-$result_ok_defect_sgocc_port_side = $row['result_ok_defect_sgocc_port_side'];
+$grease_condition = $row['grease_condition'];
+// $test_positions_aft = $row['test_positions_aft'];
+// $test_positions_stbd = $row['test_positions_stbd'];
+// $test_positions_forward = $row['test_positions_forward'];
+// $test_positions_port_side = $row['test_positions_port_side'];
+$last_aft = $row['last_aft'];
+$last_stbd = $row['last_stbd'];
+$last_forward = $row['last_forward'];
+$last_port_side = $row['last_port_side'];
+$actual_aft = $row['actual_aft'];
+$actual_stbd = $row['actual_stbd'];
+$actual_forward = $row['actual_forward'];
+$actual_port_side = $row['actual_port_side'];
+$permitted_aft = $row['permitted_aft'];
+$permitted_stbd = $row['permitted_stbd'];
+$permitted_forward = $row['permitted_forward'];
+$permitted_port_side = $row['permitted_port_side'];
+$result_ok_defect_sgocc_aft = $row['result_aft'];
+$result_ok_defect_sgocc_stbd = $row['result_stbd'];
+$result_ok_defect_sgocc_forward = $row['result_forward'];
+$result_ok_defect_sgocc_port_side = $row['result_port_side'];
 $inspector_name = $row['inspector_name'];
 $authenticating_person_name = $row['authenticating_person_name'];
 
@@ -95,7 +97,7 @@ $html = <<<HTML
     <style>
         .certificate-title {
             text-align: center;
-            margin: 8px;
+            margin: 12px;
         }
         p {
             font-size: 12px;
@@ -123,7 +125,7 @@ $html = <<<HTML
             margin-top: 2px;
         }
         th, td {
-            padding: 2px;
+            padding: 5px;
             border: 1px solid #000;
             text-align: left;
             font-size: 10px;
@@ -185,14 +187,14 @@ $html = <<<HTML
     <table style="margin-top: 38px;">
         <tr>
             <td colspan="7" style="border-top: none; border-left: none;"> </td>
-            <td colspan="7">Job. Ref. No.:</td>
+            <td colspan="7">Job. Ref. No.: <strong>$jrn</strong></td></td>
             <td colspan="5">Certificate No.: <strong>$certificate_no</strong></td>
         </tr>
         <tr>
             <td colspan="3">Report No.: <strong>$report_no</strong></td>
             <td colspan="4">Date of Report: <strong>$date_of_report</strong></td>
             <td colspan="7">Color Code (if required): <em><strong>N/A</strong></em></td>
-            <td colspan="5">Applicable Standard(s):  </td>
+            <td colspan="5">Applicable Standard(s): <strong>$applicable_standards</strong> </td>
         </tr>
         <tr>
             <td colspan="7">Name &amp; Address of the employer for whom the examination was made: <strong>$employer_name_address</strong></td>
@@ -234,44 +236,44 @@ $html = <<<HTML
             <td style="text-align: center;"><strong>$safe_to_use</strong></td>
         </tr>
         <tr>
-            <td colspan="5" style="text-align: center;">Grease Sample Condition After Analyzing: <strong>$grease_sample_condition</strong></td>
+            <td colspan="5" style="text-align: center;">Grease Sample Condition After Analyzing: <strong>$grease_condition</strong></td>
             <td colspan="12" style="text-align: center;"></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;">Test Positions</td>
-            <td colspan="3" style="text-align: center;"><strong>$test_positions_aft</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$test_positions_stbd</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$test_positions_forward</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$test_positions_port_side</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>AFT</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>STBD</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>FORWARD</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>PORT SIDE</strong></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;">Last Measured Limits to be compared</td>
-            <td colspan="3" style="text-align: center;"><strong>$last_measured_limits_aft</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$last_measured_limits_stbd</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$last_measured_limits_forward</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$last_measured_limits_port_side</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$last_aft</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$last_stbd</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$last_forward</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$last_port_side</strong></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Actual Deviation Measured by Dial Gauge Readings</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$actual_deviation_aft</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$actual_deviation_stbd</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$actual_deviation_forward</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$actual_deviation_port_side</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$actual_aft</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$actual_stbd</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$actual_forward</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$actual_port_side</strong></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Permitted Limits to be Compared</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$permitted_limits_aft</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$permitted_limits_stbd</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$permitted_limits_forward</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$permitted_limits_port_side</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$permitted_aft</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$permitted_stbd</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$permitted_forward</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$permitted_port_side</strong></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Result/OK or Defect of SGOCC</strong><br>
             <strong>Required actions for each result is cleared below</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$result_ok_defect_sgocc_aft</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$result_ok_defect_sgocc_stbd</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$result_ok_defect_sgocc_forward</strong></td>
-            <td colspan="3" style="text-align: center;"><strong>$result_ok_defect_sgocc_port_side</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$result_aft</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$result_stbd</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$result_forward</strong></td>
+            <td colspan="3" style="text-align: center;"><strong>$result_port_side</strong></td>
         </tr>
         <tr>
             <td colspan="4" style="text-align: center;"><strong>OK: ACCEPTED</strong></td>

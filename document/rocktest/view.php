@@ -128,7 +128,7 @@ if (isset($_GET['project_no'])) {
     <table style="margin-top: 38px;">
         <tr>
             <td colspan="7" style="border-top: none; border-left: none;"> </td>
-            <td colspan="7">Job. Ref. No.: <?php echo $row['job_ref_no']; ?></td>
+            <td colspan="7">Job. Ref. No.: <?php echo $row['jrn']; ?></td>
             <td colspan="5">Certificate No.: <?php echo $row['certificate_no']; ?></td>
         </tr>
         <tr>

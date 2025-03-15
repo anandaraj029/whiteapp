@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $customer_name = htmlspecialchars($_POST['customer_name']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $mobile = htmlspecialchars($_POST['mobile']);
-    $company = htmlspecialchars($_POST['company']);
+    // $company = htmlspecialchars($_POST['company']);
 
     $uploadDir = '../uploads/profile_photos/';
     $signatureDir = '../uploads/signatures/';
@@ -57,13 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "UPDATE customers SET 
                 customer_name = ?, 
                 email = ?, 
-                mobile = ?, 
-                company = ?, 
+                mobile = ?,                 
                 profile_photo = ?, 
                 signature_photo = ? 
             WHERE cus_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssss", $customer_name, $email, $mobile, $company, $profilePath, $signaturePath, $cus_id);
+    $stmt->bind_param("ssssss", $customer_name, $email, $mobile, $profilePath, $signaturePath, $cus_id);
     if ($stmt->execute()) {
         echo "Profile updated successfully.";
         // Redirect to customer list page
