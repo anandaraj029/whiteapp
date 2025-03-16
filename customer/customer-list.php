@@ -1,7 +1,5 @@
-
 <?php 
 include_once('../inc/function.php');
-
 ?>
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">

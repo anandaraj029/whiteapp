@@ -59,25 +59,25 @@ if ($logged_in_user) {
             <div class="d-flex flex-wrap">
 
             <!-- Status Filter Dropdown -->
-    <div class="mr-20 mt-3 mt-sm-0">
+    <!-- <div class="mr-20 mt-3 mt-sm-0">
         <select id="status-filter" class="form-control">
             <option value="">All</option>
             <option value="Pending">Pending</option>
             <option value="Completed">Completed</option>
-            <!-- Add more status options as needed -->
+            
         </select>
-    </div>
+    </div> -->
     <!-- End Status Filter Dropdown -->
                 <!-- Date Picker -->
-                <div class="mr-20 mt-3 mt-sm-0">
+                <!-- <div class="mr-20 mt-3 mt-sm-0"> -->
                    <!-- <span class="input-group-addon">
                       <img src="../../assets/img/svg/calender-color.svg" alt="" class="svg">
                     </span> -->
 
-                    <a href="create-job.php" id="createJobBtn">
+                    <!-- <a href="create-job.php" id="createJobBtn">
     <button type="button" class="btn btn-primary">Create New</button>
 </a>
-                </div>
+                </div> -->
                 <!-- End Date Picker -->
 
                 <!-- Dropdown Button -->
@@ -338,4 +338,46 @@ function deleteProject(projectNo) {
         });
     }
 }
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+document.getElementById('pdf-button').addEventListener('click', function () {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Define columns (excluding "Action" column)
+    const columns = [];
+    document.querySelectorAll("#job-table thead th").forEach((th, index) => {
+        if (index !== 8) { // Assuming "Action" is the 9th column (index starts at 0)
+            columns.push(th.textContent.trim());
+        }
+    });
+
+    // Extract row data excluding "Action" column
+    const rows = [];
+    document.querySelectorAll("#job-table tbody tr").forEach(tr => {
+        const row = [];
+        tr.querySelectorAll("td").forEach((td, index) => {
+            if (index !== 8) { // Exclude "Action" column
+                row.push(td.textContent.trim());
+            }
+        });
+        rows.push(row);
+    });
+
+    // Generate PDF with autoTable
+    doc.autoTable({
+        head: [columns], 
+        body: rows,
+        startY: 20,
+        theme: 'striped',
+        styles: { fontSize: 10 }
+    });
+
+    doc.save('job-list.pdf');
+});
 </script>

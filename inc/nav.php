@@ -46,6 +46,8 @@ if ($role == '' || $role == 'guest') {
       // Conditional check for role to link to the correct dashboard
       if ($role === 'admin') {
          echo $url . 'dashboard/index.php'; // Admin dashboard
+      } elseif ($role === 'customer') {
+         echo $url . 'dashboard/customer.php'; // Inspector dashboard
       } elseif ($role === 'inspector') {
          echo $url . 'dashboard/inspector.php'; // Inspector dashboard
       } elseif ($role === 'reviewer') {
@@ -98,7 +100,9 @@ if ($role == '' || $role == 'guest') {
                </a>
                <!-- Sub Menu -->
                <ul class="nav sub-menu">
-                  <li><a href="<?php echo $url; ?>job/create-job.php">Create New Project</a></li>
+                  <?php if ($_SESSION['role'] === 'admin'): ?>
+                     <li><a href="<?php echo $url; ?>job/create-job.php">Create New Project</a></li>
+                  <?php endif; ?>
                   <li><a href="<?php echo $url; ?>job/overall-job-list.php">Over all Projects</a></li>
                   <li><a href="<?php echo $url; ?>job/pending_projects.php">Pending Projects</a></li>
                </ul>

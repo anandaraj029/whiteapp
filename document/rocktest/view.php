@@ -128,12 +128,12 @@ if (isset($_GET['project_no'])) {
     <table style="margin-top: 38px;">
         <tr>
             <td colspan="7" style="border-top: none; border-left: none;"> </td>
-            <td colspan="7">Job. Ref. No.: <?php echo $row['jrn']; ?></td>
-            <td colspan="5">Certificate No.: <?php echo $row['certificate_no']; ?></td>
+            <td colspan="7">Job. Ref. No.: <strong><?php echo $row['jrn']; ?></strong></td>
+            <td colspan="5">Certificate No.: <strong><?php echo $row['certificate_no']; ?></strong></td>
         </tr>
         <tr>
             <td colspan="3">Report No. <?php echo $row['report_no']; ?></td>
-            <td colspan="4">Date of Report: <?php echo $row['report_date']; ?></td>
+            <td colspan="4">Date of Report: <strong><?php echo $row['report_date']; ?></strong></td>
             <td colspan="7">Color Code (if required): <em><strong><?php echo $row['color_code']; ?></strong></em></td>
             <td colspan="5">Applicable Standard(s): <?php echo $row['applicable_standards']; ?></td>
         </tr>
@@ -164,17 +164,17 @@ if (isset($_GET['project_no'])) {
             <td style="text-align: center;"><strong>Safe to Use (Yes or No)</strong></td>
         </tr>
         <tr style="height: 100px;">
-            <td style="text-align: center;"><strong><?php echo $row['identification_no']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['quantity']; ?></strong></td>
-            <td colspan="3" style="text-align: center;"><strong><?php echo $row['description']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['wll_swl']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['last_exam_date']; ?></strong></td>
-            <td colspan="2" style="text-align: center;"><strong><?php echo $row['this_exam_date']; ?></strong></td>
-            <td colspan="3" style="text-align: center;"><strong><?php echo $row['next_exam_date']; ?></strong></td>
-            <td colspan="2" style="text-align: center;"><strong><?php echo $row['reason_for_exam']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['details_of_test']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['status']; ?></strong></td>
-            <td style="text-align: center;"><strong><?php echo $row['safe_to_use']; ?></strong></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['identification_no']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['quantity']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['description']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['wll_swl']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['last_exam_date']; ?></strong></em></td>
+            <td colspan="2" style="text-align: center;"><em><strong><?php echo $row['this_exam_date']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['next_exam_date']; ?></strong></em></td>
+            <td colspan="2" style="text-align: center;"><em><strong><?php echo $row['reason_for_exam']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['details_of_test']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['status']; ?></strong></em></td>
+            <td style="text-align: center;"><em><strong><?php echo $row['safe_to_use']; ?></strong></em></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;">Grease Sample Condition After Analyzing: <?php echo $row['grease_condition']; ?></td>
@@ -189,32 +189,32 @@ if (isset($_GET['project_no'])) {
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;">Last Measured Limits to be compared</td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['last_aft']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['last_stbd']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['last_forward']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['last_port_side']; ?></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['last_aft']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['last_stbd']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['last_forward']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['last_port_side']; ?></strong></em></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Actual Deviation Measured by Dial Gauge Readings</strong></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['actual_aft']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['actual_stbd']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['actual_forward']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['actual_port_side']; ?></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['actual_aft']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['actual_stbd']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['actual_forward']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['actual_port_side']; ?></strong></em></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Permitted Limits to be Compared</strong></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['permitted_aft']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['permitted_stbd']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['permitted_forward']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['permitted_port_side']; ?></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['permitted_aft']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['permitted_stbd']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['permitted_forward']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['permitted_port_side']; ?></strong></em></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;"><strong>Result/OK or Defect of SGOCC</strong><br>
                 <strong>Required actions for each result is cleared below</strong></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['result_aft']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['result_stbd']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['result_forward']; ?></td>
-            <td colspan="3" style="text-align: center;"><?php echo $row['result_port_side']; ?></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['result_aft']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['result_stbd']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['result_forward']; ?></strong></em></td>
+            <td colspan="3" style="text-align: center;"><em><strong><?php echo $row['result_port_side']; ?></strong></em></td>
         </tr>
         <tr>
             <td colspan="4" style="text-align: center;"><strong>OK: ACCEPTED</strong></td>
@@ -243,7 +243,7 @@ if (isset($_GET['project_no'])) {
     </table>
 
     <div class="footer">
-        <img src="foot.jpg" alt="Footer Image">
+        <img src="../foot.jpg" alt="Footer Image">
     </div>
 </div>
 

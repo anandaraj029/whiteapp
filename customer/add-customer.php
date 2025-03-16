@@ -4,7 +4,6 @@ include '../file/config.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $customer_name = $_POST['customer_name'];
     $email = $_POST['email'];
-    // $company = $_POST['company'];
     $rep_name = $_POST['rep_name'];
     $mobile = $_POST['mobile'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -54,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($_FILES['signature_photo']['tmp_name'], $signaturePath);
     } 
 
-    // Insert data into the database
+    // Insert data into customers table
     $sql = "INSERT INTO customers (cus_id, customer_name, email, rep_name, mobile, password, address, city, info_correct, profile_photo, signature_photo) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -62,8 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("sssssssssss", $new_id, $customer_name, $email, $rep_name, $mobile, $password, $address, $city, $info_correct, $filePath, $signaturePath);
 
     if ($stmt->execute()) {
-        header("Location: customer-list.php"); // Redirect to the list page
-        exit();
+        // Insert into users table
+        $user_sql = "INSERT INTO users (username, password, role, id) VALUES (?, ?, 'customer', '6')";
+        $user_stmt = $conn->prepare($user_sql);
+        $user_stmt->bind_param("ss", $customer_name, $password);
+
+        if ($user_stmt->execute()) {
+            echo "<script>alert('Customer added successfully!'); window.location.href = 'customer-list.php';</script>";
+        } else {
+            echo "Error: " . $user_stmt->error;
+        }
+
+        $user_stmt->close();
     } else {
         echo "Error: " . $stmt->error;
     }

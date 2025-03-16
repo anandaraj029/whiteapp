@@ -61,10 +61,10 @@ $permitted_aft = $row['permitted_aft'];
 $permitted_stbd = $row['permitted_stbd'];
 $permitted_forward = $row['permitted_forward'];
 $permitted_port_side = $row['permitted_port_side'];
-$result_ok_defect_sgocc_aft = $row['result_aft'];
-$result_ok_defect_sgocc_stbd = $row['result_stbd'];
-$result_ok_defect_sgocc_forward = $row['result_forward'];
-$result_ok_defect_sgocc_port_side = $row['result_port_side'];
+$result_aft = $row['result_aft'];
+$result_stbd = $row['result_stbd'];
+$result_forward = $row['result_forward'];
+$result_port_side = $row['result_port_side'];
 $inspector_name = $row['inspector_name'];
 $authenticating_person_name = $row['authenticating_person_name'];
 
@@ -222,7 +222,7 @@ $html = <<<HTML
             <td style="text-align: center;"><strong>Status (See Above)</strong></td>
             <td style="text-align: center;"><strong>Safe to Use (Yes or No)</strong></td>
         </tr>
-        <tr style="height: 100px;">
+        <tr style="height: 200px;">
             <td style="text-align: center;"><strong>$identification_no</strong></td>
             <td style="text-align: center;"><strong>$quantity</strong></td>
             <td colspan="3" style="text-align: center;"><strong>$description</strong></td>
@@ -236,8 +236,8 @@ $html = <<<HTML
             <td style="text-align: center;"><strong>$safe_to_use</strong></td>
         </tr>
         <tr>
-            <td colspan="5" style="text-align: center;">Grease Sample Condition After Analyzing: <strong>$grease_condition</strong></td>
-            <td colspan="12" style="text-align: center;"></td>
+            <td colspan="5" style="text-align: center;">Grease Sample Condition After Analyzing: </td>
+            <td colspan="12" style="text-align: center;"> <strong>$grease_condition</strong></td>
         </tr>
         <tr>
             <td colspan="5" style="text-align: center;">Test Positions</td>
