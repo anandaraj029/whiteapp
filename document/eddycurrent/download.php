@@ -99,13 +99,35 @@ $reason_wear = ($reason === 'wear') ? $checkedIcon : $uncheckedIcon;
 $reason_other = ($reason === 'other') ? $checkedIcon : $uncheckedIcon;
 
 
-// Define the paths to the signature images
-$inspector_signature_path = "uploads/{$inspector_name}.png";
-$authenticating_signature_path = "uploads/{$authenticating_person_name}.png";
 
-// Check if the signature images exist
-$inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
-$authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+// Function to check for existing signature file in multiple formats
+function getSignaturePath($name) {
+    $formats = ['png', 'jpg', 'jpeg'];
+    foreach ($formats as $format) {
+        $path = "uploads/{$name}.{$format}";
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    return false;
+}
+
+// Get inspector's signature path
+$inspector_signature_path = getSignaturePath($inspector_name);
+$authenticating_signature_path = getSignaturePath($authenticating_person_name);
+
+// Display signatures if found, otherwise show "No Signature"
+$inspector_signature_img = $inspector_signature_path ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
+$authenticating_signature_img = $authenticating_signature_path ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+
+
+// Define the paths to the signature images
+// $inspector_signature_path = "uploads/{$inspector_name}.png";
+// $authenticating_signature_path = "uploads/{$authenticating_person_name}.png";
+
+// // Check if the signature images exist
+// $inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
+// $authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
 
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([

@@ -5,7 +5,7 @@ include_once('../../file/config.php');
 // Fetch the record to be edited based on project_no
 if (isset($_GET['project_no'])) {
     $project_no = $_GET['project_no'];
-    $sql = "SELECT * FROM certificates WHERE project_no = ?";
+    $sql = "SELECT * FROM eddy_current_inspection WHERE project_no = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $project_no);
     $stmt->execute();
