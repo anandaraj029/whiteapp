@@ -179,4 +179,8 @@ if (!$stmt->execute()) {
 echo "Data inserted or updated successfully.";
 $stmt->close();
 $conn->close();
+
+// Redirect to the desired page
+header("Location: ../index.php");
+exit();
 ?>

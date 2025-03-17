@@ -8,7 +8,7 @@ $user_role = $_SESSION['role']; // Assuming you store user role in session
 $username = $_SESSION['username']; // Assuming you store user username in session
 
 // Define SQL query based on role
-if (in_array($user_role, ['admin', 'document controller', 'quality controller', 'reviewer'])) {
+if (in_array($user_role, ['admin', 'document controller', 'quality controller', 'reviewer', 'customer'])) {
    // These roles see all reports
    $sql = "SELECT r.*, p.project_status 
            FROM reports r

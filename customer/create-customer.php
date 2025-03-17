@@ -32,18 +32,19 @@
                             
     <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-12">
+    <!-- <div class="form-group">
+                <label class="font-14 bold mb-2">Company Name</label>
+                <input type="text" class="theme-input-style" name="company" placeholder="Company Name">
+            </div> -->
             <div class="form-group">
-                <label class="font-14 bold mb-2">Customer Name</label>
-                <input type="text" class="theme-input-style" name="customer_name" placeholder="Type Your Name">
+                <label class="font-14 bold mb-2">Company Name</label>
+                <input type="text" class="theme-input-style" name="customer_name" placeholder="Type Company Name">
             </div>
             <div class="form-group">
                 <label class="font-14 bold mb-2">Email</label>
                 <input type="email" class="theme-input-style" name="email" placeholder="Your Email Address">
             </div>
-            <div class="form-group">
-                <label class="font-14 bold mb-2">Company</label>
-                <input type="text" class="theme-input-style" name="company" placeholder="Company Name">
-            </div>
+            
             <div class="form-group">
                 <label class="font-14 bold mb-2">Rep.Name</label>
                 <input type="text" class="theme-input-style" name="rep_name" placeholder="Rep Name">

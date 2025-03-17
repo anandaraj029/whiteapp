@@ -3,12 +3,22 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // include your database connection
 
 // SQL query to fetch data from the 'lifting_gears_certificate' table
-$sql = "SELECT chc.*, pi.project_status 
+
+
+$sql = "SELECT chc.certificate_no, chc.project_no, chc.report_no, chc.inspector, chc.inspection_date, chc.companyName, pi.project_status 
         FROM crane_health_check_certificate chc
         LEFT JOIN project_info pi 
         ON chc.project_no = pi.project_no";
 
 $result = $conn->query($sql);
+
+
+// $sql = "SELECT chc.*, pi.project_status 
+//         FROM crane_health_check_certificate chc
+//         LEFT JOIN project_info pi 
+//         ON chc.project_no = pi.project_no";
+
+// $result = $conn->query($sql);
 
 
 // $sql = "SELECT * FROM crane_health_check_certificate ORDER BY created_at DESC";
@@ -137,7 +147,7 @@ $result = $conn->query($sql);
             <th class="text-center">Inspector Name</th>
             <th>Date of Inspection</th>
             <th>Company Name</th>
-            <th>Serial Number</th>
+            <!-- <th>Serial Number</th> -->
             <th>Actions</th>
         </tr>
     </thead>
@@ -192,7 +202,7 @@ $result = $conn->query($sql);
                 </td>
                 <td><?php echo date('F j, Y', strtotime($row['inspection_date'])); ?></td>
                 <td><?php echo $row['companyName']; ?></td> <!-- Assuming customer_name is the company name -->
-                <td><?php echo $row['serial_number']; ?></td>
+                <!-- <td><?php echo $row['serial_number']; ?></td> -->
                 <td class="actions">
                                             <?php if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') : ?>
                                                 <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">

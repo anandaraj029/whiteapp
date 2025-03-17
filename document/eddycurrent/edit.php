@@ -5,7 +5,7 @@ include_once('../../file/config.php');
 // Fetch the record to be edited based on project_no
 if (isset($_GET['project_no'])) {
     $project_no = $_GET['project_no'];
-    $sql = "SELECT * FROM certificates WHERE project_no = ?";
+    $sql = "SELECT * FROM eddy_current_inspection WHERE project_no = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $project_no);
     $stmt->execute();
@@ -54,7 +54,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Date of Inspection</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date']; ?>" placeholder="Date of Inspection">
+                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date']; ?>" placeholder="Date of Inspection" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -62,7 +62,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="certificate_no" value="<?php echo $data['certificate_no']; ?>" placeholder="Certificate No" >
+                                <input type="text" class="theme-input-style" name="certificate_no" value="<?php echo $data['certificate_no']; ?>" placeholder="Certificate No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -70,7 +70,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no']; ?>" placeholder="Report No" >
+                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no']; ?>" placeholder="Report No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -78,7 +78,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn']; ?>" name="jrn" placeholder="JRN" >
+                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn']; ?>" name="jrn" placeholder="JRN" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -86,7 +86,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no']; ?>" placeholder="Project No" >
+                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no']; ?>" placeholder="Project No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -94,7 +94,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="companyName" value="<?php echo $data['companyName']; ?>" placeholder="Company Name">
+                                <input type="text" class="theme-input-style" name="companyName" value="<?php echo $data['companyName']; ?>" placeholder="Company Name" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -110,7 +110,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">SITE/LOCATION</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="location" value="<?php echo $data['location']; ?>" placeholder="Site/Location">
+                                <input type="text" class="theme-input-style" name="location" value="<?php echo $data['location']; ?>" placeholder="Site/Location" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -118,7 +118,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">NEXT INSPECTION DATE</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="date" class="theme-input-style" name="next_inspection_date" value="<?php echo $data['next_inspection_date']; ?>" placeholder="Next Inspection Date">
+                                <input type="date" class="theme-input-style" name="next_inspection_date" value="<?php echo $data['next_inspection_date']; ?>" placeholder="Next Inspection Date" readonly>
                             </div>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name']; ?>" placeholder="Customer Name" >
+                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name']; ?>" placeholder="Customer Name" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -141,7 +141,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Customer Email</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email']; ?>" placeholder="Type Email Address" >
+                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email']; ?>" placeholder="Type Email Address" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -149,7 +149,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Mobile</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['mobile']; ?>" placeholder="Contact Number" >
+                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['mobile']; ?>" placeholder="Contact Number" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -157,7 +157,7 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold">Inspector</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector']; ?>" placeholder="Inspector Name" >
+                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector']; ?>" placeholder="Inspector Name" readonly>
                             </div>
                         </div>
                         <!-- Add Technical Manager Dropdown -->

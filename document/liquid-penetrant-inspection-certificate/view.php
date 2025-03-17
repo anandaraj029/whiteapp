@@ -293,27 +293,35 @@ if (isset($_GET['project_no'])) {
             
         </tr>
         
-        <tr style="height: 25px;">
-            <td style="text-align: center; width: 25%;">
-            <strong>
-            <?php echo htmlspecialchars($row['inspector_name']); ?>
-</strong>   
- </td>
-			<td style="text-align: center; width: 25%;" class="text-center">
-            <img src="uploads/<?php echo htmlspecialchars($row['inspector_name']); ?>.png" height="33px">
 
-			</td>
-			<td style="text-align: center; width: 25%;">
-            <strong>
-            <?php echo htmlspecialchars($row['authenticating_person_name']); ?>
-</strong>        
-        </td>
-            <td  style="text-align: center; width: 25%;" class="text-center">
-            <img src="uploads/<?php echo htmlspecialchars($row['authenticating_person_name']); ?>.png" height="33px">
-        </td>
-            
-            
-        </tr>
+        <?php
+function getImagePath($name) {
+    $extensions = ['png', 'jpg', 'jpeg'];
+    foreach ($extensions as $ext) {
+        $path = "uploads/{$name}.{$ext}";
+        if (file_exists($path)) {
+            return $path;
+        }
+    }
+    return "uploads/default.png"; // Fallback image
+}
+?>
+
+
+<tr>
+    <td style="text-align: center; width: 25%;">
+        <strong><?php echo htmlspecialchars($row['inspector_name']); ?></strong>
+    </td>
+    <td style="text-align: center; width: 25%;" class="text-center">
+        <img src="<?php echo getImagePath($row['inspector_name']); ?>" height="33px">
+    </td>
+    <td style="text-align: center; width: 25%;">
+        <strong><?php echo htmlspecialchars($row['authenticating_person_name']); ?></strong>
+    </td>
+    <td style="text-align: center; width: 25%;" class="text-center">
+        <img src="<?php echo getImagePath($row['authenticating_person_name']); ?>" height="33px">
+    </td>
+</tr>
         
     </table>
 

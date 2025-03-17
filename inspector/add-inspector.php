@@ -9,7 +9,7 @@ if (isset($_POST['save_inspector'])) {
     $inspector_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? serialize($_POST['handle_crane']) : null;
-    $emp_id = $_POST['emp_id'];
+    // $emp_id = $_POST['emp_id'];
     $mobile = $_POST['mobile'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $address = $_POST['address'];
@@ -41,11 +41,11 @@ if (isset($_POST['save_inspector'])) {
     }
 
     // Database Insert (store only file names)
-    $sql = "INSERT INTO inspectors (inspector_id, inspector_name, email, handle_crane, emp_id, mobile, password, address, city, profile_photo, signature_photo)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO inspectors (inspector_id, inspector_name, email, handle_crane, mobile, password, address, city, profile_photo, signature_photo)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssssssss", $inspector_id, $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
+    $stmt->bind_param("ssssssssss", $inspector_id, $inspector_name, $email, $handle_crane, $mobile, $password, $address, $city, $profile_photo, $signature_photo);
 
     if ($stmt->execute()) {
         // Insert into the user table

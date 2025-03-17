@@ -61,6 +61,7 @@ include_once('./get-inspector.php');
         <label><input type="checkbox" name="handle_crane[]" value="motor-grade" checked> Motor Grade</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="powered-platforms" checked> Powered Platforms (Sky Climbers)</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="side-boom-tractors" checked> Side Boom Tractors</label><br>
+        <label><input type="checkbox" name="handle_crane[]" value="stbd-crane" checked> STBD Crane</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="storage-retrieval" checked> Storage Retrieval</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="tower-cranes" checked> Tower Cranes</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="vehicle_mounted_elevating" checked> Vehicle-Mounted Elevating & Aerial Rotating Devices</label><br>
@@ -68,10 +69,10 @@ include_once('./get-inspector.php');
     </div>
 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="font-14 bold mb-2">Emp ID</label>
                                     <input type="text" class="theme-input-style" name="emp_id" placeholder="Employee ID" required>
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="font-14 bold mb-2">Mobile</label>
                                     <input type="text" class="theme-input-style" name="mobile" placeholder="Contact Number" required>
@@ -122,3 +123,30 @@ include_once('./get-inspector.php');
     </div>
 </div>
 <?php include_once('../inc/footer.php'); ?>
+
+<script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+        let valid = true;
+
+        document.querySelectorAll("input[required], textarea[required], select[required]").forEach((input) => {
+            if (!input.value.trim()) {
+                valid = false;
+                input.style.border = "2px solid red";
+            } else {
+                input.style.border = "";
+            }
+        });
+
+        let checkboxes = document.querySelectorAll("input[type='checkbox'][name='handle_crane[]']");
+        let isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        if (!isChecked) {
+            alert("Please select at least one crane type.");
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault();
+            alert("Please fill out all required fields!");
+        }
+    });
+</script>
