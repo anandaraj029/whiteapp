@@ -1,5 +1,6 @@
 <?php
 // Include the database connection file
+// Include the database connection file
 include_once('../../file/config.php');
 
 // Check if the form is submitted
@@ -45,22 +46,38 @@ if (isset($_POST['update_all'])) {
     // Ensure the "uploads" directory exists
     $target_dir = "uploads/";
     if (!is_dir($target_dir)) {
-        mkdir($target_dir, 0755, true); // Create the directory if it doesn't exist
+        mkdir($target_dir, 0755, true);
     }
 
-    // Handle file uploads with names only
-    $inspector_signature = '';
-    $signature = '';
+    // Fetch the existing file names before updating
+    $stmt = $conn->prepare("SELECT inspector_signature, signature FROM eddy_current_inspection WHERE project_no = ?");
+    $stmt->bind_param("s", $project_no);
+    $stmt->execute();
+    $stmt->bind_result($existing_inspector_signature, $existing_signature);
+    $stmt->fetch();
+    $stmt->close();
 
-    // Update inspector signature if a new file is uploaded
+    // Handle file uploads and delete previous files
+    $inspector_signature = $existing_inspector_signature;
+    $signature = $existing_signature;
+
     if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
+        // Delete old file if it exists
+        if (!empty($existing_inspector_signature) && file_exists($existing_inspector_signature)) {
+            unlink($existing_inspector_signature);
+        }
+        // Upload new file
         $inspector_filename = $target_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
         $inspector_signature = $inspector_filename;
     }
 
-    // Update authenticating person signature if a new file is uploaded
     if (isset($_FILES['signature']) && $_FILES['signature']['error'] == UPLOAD_ERR_OK) {
+        // Delete old file if it exists
+        if (!empty($existing_signature) && file_exists($existing_signature)) {
+            unlink($existing_signature);
+        }
+        // Upload new file
         $signature_filename = $target_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['signature']['name'], PATHINFO_EXTENSION);
         move_uploaded_file($_FILES['signature']['tmp_name'], $signature_filename);
         $signature = $signature_filename;
@@ -102,45 +119,25 @@ if (isset($_POST['update_all'])) {
             inspection_result = ?, 
             reason = ?, 
             inspector_name = ?, 
-            authenticating_person_name = ?";
-
-    // Append file fields to the SQL query if new files are uploaded
-    if (!empty($inspector_signature)) {
-        $sql .= ", inspector_signature = ?";
-    }
-    if (!empty($signature)) {
-        $sql .= ", signature = ?";
-    }
-
-    $sql .= " WHERE project_no = ?"; // Update based on project_no
+            authenticating_person_name = ?,
+            inspector_signature = ?, 
+            signature = ?
+            WHERE project_no = ?";
 
     // Prepare and bind parameters
     $stmt = $conn->prepare($sql);
-
-    // Dynamically bind parameters based on whether files are uploaded
-    $params = [
+    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssss", 
         $inspection_date, $certificate_no, $report_no, $jrn, $companyName, $reference_no, $location, $next_inspection_date,
         $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $inspected_item, $type_of_joint, $specification,
         $inspection_method, $calibration_details, $gain, $probe_frequency, $device_maker, $model, $serial_no, $cable_type,
         $sensor_type, $ref_block_type, $material, $description_1, $description_2, $description_3, $description_of_inspection,
-        $inspection_result, $reason, $inspector_name, $authenticating_person_name
-    ];
-
-    if (!empty($inspector_signature)) {
-        $params[] = $inspector_signature;
-    }
-    if (!empty($signature)) {
-        $params[] = $signature;
-    }
-
-    $params[] = $project_no; // Add project_no for the WHERE clause
-
-    // Bind parameters dynamically
-    $stmt->bind_param(str_repeat('s', count($params)), ...$params);
+        $inspection_result, $reason, $inspector_name, $authenticating_person_name, $inspector_signature, $signature, $project_no
+    );
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "Record updated successfully";
+        header("Location: index.php");
+        exit;
     } else {
         echo "Error updating record: " . $stmt->error;
     }

@@ -151,6 +151,7 @@ if (isset($_POST['update_inspector'])) {
                                             "motor-grade" => "Motor Grade",
                                             "powered-platforms" => "Powered Platforms (Sky Climbers)",
                                             "side-boom-tractors" => "Side Boom Tractors",
+                                            "stbd-crane" => "STBD Crane",
                                             "storage-retrieval" => "Storage Retrieval",
                                             "tower-cranes" => "Tower Cranes",
                                             "vehicle_mounted_elevating" => "Vehicle-Mounted Elevating & Aerial Rotating Devices",                                            

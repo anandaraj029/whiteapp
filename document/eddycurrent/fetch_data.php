@@ -2,6 +2,19 @@
 // Include the database connection file
 include_once('../../file/config.php');
 
+
+// Function to get the correct image format (supports png, jpg, jpeg)
+function getImagePath($baseName) {
+    $image_formats = ['png', 'jpg', 'jpeg'];
+    foreach ($image_formats as $format) {
+        $filePath = "uploads/{$baseName}.{$format}";
+        if (file_exists($filePath)) {
+            return $filePath . "?" . time(); // Append timestamp to avoid caching issues
+        }
+    }
+    return ""; // Return empty if no valid image found
+}
+
 // Check if a certificate number is provided (e.g., via query string)
 if (isset($_GET['project_no'])) {
     $project_no = $_GET['project_no'];

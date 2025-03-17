@@ -1,5 +1,6 @@
 <?php
 // Include necessary files
+ob_start();
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
 
@@ -49,32 +50,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $inspector_name = $_POST['inspector_name'];
     $authenticating_person_name = $_POST['authenticating_person_name'];
 
+    // Handle file uploads
     
 
+ // Fetch existing file paths from the database
+ $stmt = $conn->prepare("SELECT inspector_signature, authenticating_person_signature FROM liquid_penetrant_inspection WHERE project_no = ?");
+ $stmt->bind_param("s", $project_no);
+ $stmt->execute();
+ $stmt->bind_result($existing_inspector_signature, $existing_authenticating_person_signature);
+ $stmt->fetch();
+ $stmt->close();
 
-    // Handle file uploads with only names as filenames
-    $inspector_signature = '';
-    $authenticating_person_signature = '';
+ // Handle file uploads
+ $inspector_signature = $existing_inspector_signature;
+ $authenticating_person_signature = $existing_authenticating_person_signature;
 
-    if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
-        $inspector_filename = $upload_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
-        $inspector_signature = $inspector_filename;
-    } else {
-        $inspector_signature = $_POST['existing_inspector_signature']; // Keep existing file if no new file is uploaded
-    }
+ if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
+     $inspector_filename = $upload_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
 
-    if (isset($_FILES['authenticating_person_signature']) && $_FILES['authenticating_person_signature']['error'] == UPLOAD_ERR_OK) {
-        $authenticating_person_filename = $upload_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['authenticating_person_signature']['name'], PATHINFO_EXTENSION);
-        move_uploaded_file($_FILES['authenticating_person_signature']['tmp_name'], $authenticating_person_filename);
-        $authenticating_person_signature = $authenticating_person_filename;
-    } else {
-        $authenticating_person_signature = $_POST['existing_authenticating_person_signature']; // Keep existing file if no new file is uploaded
-    }
+     // Delete old file if it exists
+     if (!empty($existing_inspector_signature) && file_exists($existing_inspector_signature)) {
+         unlink($existing_inspector_signature);
+     }
+
+     // Move new file
+     move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
+     $inspector_signature = $inspector_filename;
+ }
+
+ if (isset($_FILES['authenticating_person_signature']) && $_FILES['authenticating_person_signature']['error'] == UPLOAD_ERR_OK) {
+     $authenticating_person_filename = $upload_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['authenticating_person_signature']['name'], PATHINFO_EXTENSION);
+
+     // Delete old file if it exists
+     if (!empty($existing_authenticating_person_signature) && file_exists($existing_authenticating_person_signature)) {
+         unlink($existing_authenticating_person_signature);
+     }
+
+     // Move new file
+     move_uploaded_file($_FILES['authenticating_person_signature']['tmp_name'], $authenticating_person_filename);
+     $authenticating_person_signature = $authenticating_person_filename;
+ }
 
 
     // Prepare the SQL query to update the record
-    $query = "UPDATE inspection_certificates SET
+    $query = "UPDATE liquid_penetrant_inspection SET
                 inspection_date = ?,
                 certificate_no = ?,
                 report_no = ?,
@@ -117,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare and execute the statement
     $stmt = $conn->prepare($query);
     $stmt->bind_param(
-        "ssssssssssssssssssssssssssssssssssss",
+        "ssssssssssssssssssssssssssssssssssssss",
         $inspection_date,
         $certificate_no,
         $report_no,
@@ -159,9 +178,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     );
 
     // Execute the query
-    if ($stmt->execute()) {
-        // Redirect to the view page or display a success message
-        header("Location: index.php?status=updated");
+    if ($stmt->execute()) {        
+        header("Location: index.php");
         exit();
     } else {
         // Handle the error
@@ -175,14 +193,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: edit.php?project_no=" . $project_no);
     exit();
 }
-
-// Function to handle file uploads
-function uploadFile($file, $target_dir) {
-    $target_file = $target_dir . basename($file['name']);
-    if (move_uploaded_file($file['tmp_name'], $target_file)) {
-        return $target_file;
-    } else {
-        return null;
-    }
-}
+ob_end_flush();
 ?>

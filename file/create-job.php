@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $equipment_type = $conn->real_escape_string($_POST['equipment_type']);
     $sticker_status = $conn->real_escape_string($_POST['sticker_status']);
     $equipment_location = $conn->real_escape_string($_POST['equipment_location']);
-    // $equipment_id = $conn->real_escape_string($_POST['equipment_id']);
+    $equipment_id = $conn->real_escape_string($_POST['equipment_id']);
     $checklist_type = $conn->real_escape_string($_POST['checklist_type']);
     $inspector_name = $conn->real_escape_string($_POST['inspector_name']);    
     // $inspector_image = $conn->real_escape_string($_POST['inspector_image'] ?? '');
@@ -37,7 +37,7 @@ $project_no = "CIMS" . str_pad(($last_project_no ? $last_project_no + 1 : 1), 3,
     // Insert into database
     $creation_date = date('Y-m-d H:i:s');
     $stmt = $conn->prepare("INSERT INTO project_info (project_no, creation_date, equipment_type, sticker_status, equipment_location, equipment_id, customer_id, customer_name, customer_email, customer_mobile, inspector_name, checklist_type)
-                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param(
         "ssssssisssss",
         $project_no,

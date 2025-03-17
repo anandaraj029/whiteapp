@@ -399,6 +399,8 @@ if (isset($_GET['project_no'])) {
                             </div>
                         </div>
                         <div class="form-row mb-20">
+                        <input type="hidden" name="existing_inspector_signature" value="<?php echo $data['inspector_signature']; ?>">
+                        <input type="hidden" name="existing_authenticating_person_signature" value="<?php echo $data['authenticating_person_signature']; ?>">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Signature</label>
                             </div>
@@ -408,6 +410,7 @@ if (isset($_GET['project_no'])) {
                                     <img src="<?php echo $data['authenticating_person_signature']; ?>" alt="Authenticating Person Signature" width="100">
                                 <?php endif; ?>
                             </div>
+                            
                         </div>
                     </div>
                 </div>

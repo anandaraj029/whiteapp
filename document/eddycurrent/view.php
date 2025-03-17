@@ -245,11 +245,15 @@ input[type="checkbox"] {
                 <?php echo $inspector_name; ?>
         </td>
             <td class="text-center">
-                <img src="uploads/<?php echo $inspector_name; ?>.png" height="33px" alt="Inspector Signature">
+            <img src="uploads/<?php echo $inspector_name; ?>.png?<?php echo time(); ?>" height="33px" alt="Inspector Signature">
+
+
+                <!-- <img src="uploads/<?php echo $inspector_name; ?>.png" height="33px" alt="Inspector Signature"> -->
             </td>
             <td style="text-align: center;"><?php echo $authenticating_person_name; ?></td>
             <td class="text-center">
-                <img src="uploads/<?php echo $authenticating_person_name; ?>.png" height="33px" alt="Authenticating Person Signature">
+                <!-- <img src="uploads/<?php echo $authenticating_person_name; ?>.png" height="33px" alt="Authenticating Person Signature"> -->
+                <img src="uploads/<?php echo $authenticating_person_name; ?>.png?<?php echo time(); ?>" height="33px" alt="Authenticating Person Signature">
             </td>
         </tr>
     </table>

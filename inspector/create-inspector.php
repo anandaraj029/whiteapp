@@ -61,6 +61,7 @@ include_once('./get-inspector.php');
         <label><input type="checkbox" name="handle_crane[]" value="motor-grade" checked> Motor Grade</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="powered-platforms" checked> Powered Platforms (Sky Climbers)</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="side-boom-tractors" checked> Side Boom Tractors</label><br>
+        <label><input type="checkbox" name="handle_crane[]" value="stbd-crane" checked> STBD Crane</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="storage-retrieval" checked> Storage Retrieval</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="tower-cranes" checked> Tower Cranes</label><br>
         <label><input type="checkbox" name="handle_crane[]" value="vehicle_mounted_elevating" checked> Vehicle-Mounted Elevating & Aerial Rotating Devices</label><br>
