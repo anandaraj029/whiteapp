@@ -1,68 +1,86 @@
 <?php
-// Include the database connection and any required functions
-include ('../file/config.php'); // Update with your actual database connection file
-// session_start();
+include_once('../file/config.php');
 
-// Check if user is logged in
-// if (!isset($_SESSION['customer_id'])) {
-//     echo "Access denied. Please log in.";
-//     exit;
-// }
-
-// Fetch customer ID from session
-// $customer_id = $_SESSION['customer_id'];
-
+// Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get form inputs
-    $old_password = $_POST['old_password'];
-    $new_password = $_POST['new_password'];
-    $retype_password = $_POST['retype_password'];
+    $cus_id = htmlspecialchars($_POST['cus_id']);
+    $old_password = htmlspecialchars($_POST['old_password']);
+    $new_password = htmlspecialchars($_POST['new_password']);
+    $retype_password = htmlspecialchars($_POST['retype_password']);
 
     // Validate inputs
     if (empty($old_password) || empty($new_password) || empty($retype_password)) {
-        echo "All fields are required!";
+        echo "All fields are required.";
         exit;
     }
 
     if ($new_password !== $retype_password) {
-        echo "New passwords do not match!";
+        echo "New passwords do not match.";
         exit;
     }
 
-    if (strlen($new_password) < 8) {
-        echo "New password must be at least 8 characters long.";
+    // Fetch the current password and customer_name from the customers table
+    $query = "SELECT password, customer_name FROM customers WHERE cus_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $cus_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $customer = $result->fetch_assoc();
+
+    if (!$customer) {
+        echo "Customer not found.";
         exit;
     }
+
+    $customer_name = $customer['customer_name'];
+
+    // Verify the old password
+    if (!password_verify($old_password, $customer['password'])) {
+        echo "Old password is incorrect.";
+        exit;
+    }
+
+    // Hash the new password
+    $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+
+    // Update the password in the customers table
+    $sql_customers = "UPDATE customers SET password = ? WHERE cus_id = ?";
+    $stmt_customers = $conn->prepare($sql_customers);
+    $stmt_customers->bind_param("ss", $hashed_password, $cus_id);
+
+    // Update the password in the users table based on customer_name (mapped to username)
+    $sql_users = "UPDATE users SET password = ? WHERE username = ? AND role = 'customer'";
+    $stmt_users = $conn->prepare($sql_users);
+    $stmt_users->bind_param("ss", $hashed_password, $customer_name);
+
+    // Start a transaction to ensure both updates succeed or fail together
+    $conn->begin_transaction();
 
     try {
-        // Fetch current password hash from the database
-        $sql = "SELECT password FROM customers WHERE id=?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $customer_id);
-        $stmt->execute();
-        $result = $stmt->get_result()->fetch_assoc();
-
-        if ($result && password_verify($old_password, $result['password'])) {
-            // Hash the new password
-            $new_password_hash = password_hash($new_password, PASSWORD_BCRYPT);
-
-            // Update the password in the database
-            $update_sql = "UPDATE customers SET password=? WHERE id=?";
-            $update_stmt = $conn->prepare($update_sql);
-            $update_stmt->bind_param("ss", $new_password_hash, $customer_id);
-
-            if ($update_stmt->execute()) {
-                echo "Password updated successfully!";
-            } else {
-                echo "Error updating password. Please try again later.";
-            }
-        } else {
-            echo "Old password is incorrect!";
+        // Update customers table
+        if (!$stmt_customers->execute()) {
+            throw new Exception("Error updating password in customers table.");
         }
+
+        // Update users table
+        if (!$stmt_users->execute()) {
+            throw new Exception("Error updating password in users table.");
+        }
+
+        // Commit the transaction if both updates succeed
+        $conn->commit();
+        echo "Password updated successfully.";
+        header("Location: customer-list.php");
+        exit;
     } catch (Exception $e) {
-        echo "An error occurred: " . $e->getMessage();
+        // Rollback the transaction if any update fails
+        $conn->rollback();
+        echo $e->getMessage();
     }
-} else {
-    echo "Invalid request method.";
+
+    // Close statements
+    $stmt_customers->close();
+    $stmt_users->close();
 }
 ?>

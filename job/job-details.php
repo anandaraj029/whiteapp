@@ -16,7 +16,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             p.project_no, p.creation_date, p.project_status, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus, p.review_status,
-            c.checklist_no, c.client_name, c.crane_serial_no, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
+            c.checklist_no, c.client_name, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
             r.report_no, r.sticker_number_issued, r.inspection_status
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_no = c.project_no
@@ -96,10 +96,18 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             mp.certificate_no, mp.created_at
         FROM mpi_certificates mp
         WHERE mp.project_no = ?
+        
+        UNION
+
+        SELECT 
+            'eddycurrent' AS certificate_type,
+            ec.certificate_no, ec.created_at
+        FROM eddy_current_inspection ec
+        WHERE ec.project_no = ?
     ";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("sssss", $data_id, $data_id, $data_id, $data_id, $data_id);
+    $stmt->bind_param("ssssss", $data_id, $data_id, $data_id, $data_id, $data_id, $data_id);
     $stmt->execute();
     $result = $stmt->get_result();
 
@@ -177,9 +185,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 <div class="invoice-right">
                                     <h3 class="white font-20 mb-3">Project Status</h3>
                                     <ul class="status-list">
-                                        <li><span class="key font-14">Serial No:</span>
+                                        <!-- <li><span class="key font-14">Serial No:</span>
                                             <span class="white bold font-17"><?php echo htmlspecialchars($data['crane_serial_no']); ?></span>
-                                        </li>
+                                        </li> -->
                                         <li><span class="key font-14">Project No:</span>
                                             <span class="white bold font-17"><?php echo htmlspecialchars($data['project_no']); ?></span>
                                         </li>
@@ -263,6 +271,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                 <option value="mobile">Mobile</option>
                                                 <option value="lifting">Lifting</option>
                                                 <option value="mpi">MPI</option>
+                                                <option value="eddycurrent">Eddy Current</option>
                                             </select>
                                         </div>
                                     </div>

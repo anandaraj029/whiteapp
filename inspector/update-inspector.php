@@ -9,7 +9,7 @@ if (isset($_POST['update_inspector'])) {
     $inspector_name = $_POST['inspector_name'];
     $email = $_POST['email'];
     $handle_crane = isset($_POST['handle_crane']) ? implode(',', $_POST['handle_crane']) : '';
-    $emp_id = $_POST['emp_id'];
+    // $emp_id = $_POST['emp_id'];
     $mobile = $_POST['mobile'];
     $password = $_POST['password'];
     $address = $_POST['address'];
@@ -35,8 +35,7 @@ if (isset($_POST['update_inspector'])) {
     $sql = "UPDATE inspectors SET 
                 inspector_name = ?, 
                 email = ?, 
-                handle_crane = ?, 
-                emp_id = ?, 
+                handle_crane = ?,                 
                 mobile = ?, 
                 password = ?, 
                 address = ?, 
@@ -46,7 +45,7 @@ if (isset($_POST['update_inspector'])) {
             WHERE id = ?";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssssssssi", $inspector_name, $email, $handle_crane, $emp_id, $mobile, $password, $address, $city, $profile_photo, $signature_photo, $id);
+    $stmt->bind_param("sssssssssi", $inspector_name, $email, $handle_crane, $mobile, $password, $address, $city, $profile_photo, $signature_photo, $id);
 
     if ($stmt->execute()) {
         // Redirect to list page with success message

@@ -62,7 +62,7 @@ include_once('../inc/function.php');
                                         </th>
                                         <th class="text-center">Inspector ID </th>
                                         <th class="text-center">Inspector Name </th>
-                                        <th>Emp.ID</th>
+                                        <!-- <th>Emp.ID</th> -->
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Address</th>
@@ -109,8 +109,7 @@ if (file_exists($profile_photo_path)) {
           <td>
                 <img src='{$profile_photo_path}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
                 {$row['inspector_name']}
-            </td>
-            <td>{$row['emp_id']}</td>
+            </td>            
             <td>{$row['email']}</td>
             <td>{$row['mobile']}</td>                        
             <td>{$row['address']}</td>

@@ -22,8 +22,8 @@ if (!$result) {
                            
                            <div class="card-body bg-white">
                            <div class="main-header-btn ">
-                                 <a href="#" class="btn">Liquid Penetrant Inspection Certificate</a>
-                              </div>
+                                 <a href="#" class="btn">Rocking Test (Certificate of Thorough Examination)</a>
+                            </div>
                             </div>
                                  <!-- Search Form -->
                                  <form action="#" class="search-form flex-grow">

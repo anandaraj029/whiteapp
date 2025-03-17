@@ -128,6 +128,17 @@ $result = mysqli_query($conn, $sql); // Execute query
                                         <input type="text" name="equipment_location" class="theme-input-style" placeholder="Location">
                                         </div>
                                     </div>
+
+
+
+                                    <div class="form-row mb-20">
+                                        <div class="col-sm-4">
+                                            <label class="font-14 bold">Equipment ID</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                        <input type="text" name="equipment_id" class="theme-input-style" placeholder="Enter Equipment ID">
+                                        </div>
+                                    </div>
                                    
                                 <!-- End Form Row -->                                  
                            

@@ -55,12 +55,33 @@ $inspector_name = $row['inspector_name'];
 $authenticating_person_name = $row['authenticating_person_name'];
 
 // Define the paths to the signature images
-$inspector_signature_path = "uploads/{$inspector_name}.png";
-$authenticating_signature_path = "uploads/{$authenticating_person_name}.png";
+// $inspector_signature_path = "uploads/{$inspector_name}.png";
+// $authenticating_signature_path = "uploads/{$authenticating_person_name}.png";
 
 // Check if the signature images exist
-$inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
-$authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+// $inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
+// $authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+
+
+// Directory for signatures
+$signature_directory = "uploads/";
+
+// Function to get the correct image file with any extension
+function getSignatureImage($directory, $filename) {
+    $allowed_extensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp']; // Accepted image formats
+    foreach ($allowed_extensions as $ext) {
+        $file_path = $directory . $filename . '.' . $ext;
+        if (file_exists($file_path)) {
+            return "<img src='$file_path' height='33px' alt='Signature'>";
+        }
+    }
+    return "No Signature"; // Return fallback text if no signature is found
+}
+
+// Get the correct image file for inspector and authenticating person
+$inspector_signature_img = getSignatureImage($signature_directory, $inspector_name);
+$authenticating_signature_img = getSignatureImage($signature_directory, $authenticating_person_name);
+
 
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([
