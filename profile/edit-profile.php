@@ -74,23 +74,24 @@ if (!$customer) {
                         </form>
                     </div>
                     <div class="tab-pane fade" id="c_pass">
-                        <h4 class="mb-4">Change Password</h4>
-                        <form action="../customer/change-password.php" method="POST">
-                            <div class="form-group">
-                                <label>Old Password</label>
-                                <input type="password" name="old_password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>New Password</label>
-                                <input type="password" name="new_password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>Retype Password</label>
-                                <input type="password" name="retype_password" class="form-control">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                        </form>
-                    </div>
+    <h4 class="mb-4">Change Password</h4>
+    <form action="../customer/change-password.php" method="POST">
+        <input type="hidden" name="cus_id" value="<?php echo $customer['cus_id']; ?>">
+        <div class="form-group">
+            <label>Old Password</label>
+            <input type="password" name="old_password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>New Password</label>
+            <input type="password" name="new_password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Retype Password</label>
+            <input type="password" name="retype_password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
                 </div>
             </div>
         </div>

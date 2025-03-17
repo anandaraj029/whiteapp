@@ -167,10 +167,8 @@ if (!isset($row) || empty($row)) {
             </tr>
 			<tr>
                 <td><strong>1.3</strong></td>
-                <td><strong>                    
-                Preventive Maintenance Schedule or Planned Maintenance as per Manufacturer’s recommendation records.
-</strong></td>
-				
+                <td><strong>Preventive Maintenance Schedule or Planned Maintenance as per Manufacturer’s recommendation records.
+</strong></td>				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[3][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -324,11 +322,9 @@ if (!isset($row) || empty($row)) {
             </tr>
 			<tr>
                 <td><strong>2.2.3	</strong></td>
-                <td><strong>No. 2 Auxiliary Hoist Rope                  
-
+                <td><strong>No. 2 Auxiliary Hoist Rope     
  </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[11][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -363,55 +359,25 @@ if (!isset($row) || empty($row)) {
             <tr>
                 <td><strong>2.2.5</strong></td>
                 <td><strong>	Pendant Rope  </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+				
                  <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
+    <input type="checkbox" name="result[13][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
+    <input type="checkbox" name="result[13][]" id="checkbox5" value="FAIL" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
+    <input type="checkbox" name="result[13][]" id="checkbox6" value="NA" class="large-checkbox">
 </td>
 <td>
-    <input type="text" name="checklist_remark[12]">
+    <input type="text" name="checklist_remark[13]">
 </td>
             </tr>
 
             <tr>
                 <td><strong>2.3</strong></td>
                 <td><strong>	Crane Load Test Certificates.  </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
-                 <td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox4" value="PASS" class="large-checkbox">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox5" value="FAIL" class="large-checkbox">
-</td>
-<td class="checkbox-cell">
-    <input type="checkbox" name="result[12][]" id="checkbox6" value="NA" class="large-checkbox">
-</td>
-<td>
-    <input type="text" name="checklist_remark[12]">
-</td>
-            </tr>
-			<tr>
-                    <th style="text-align: center;">3</th>
-                    <th style="text-align: center;">WEDLING CIRCUIT</th>
-					<th style="text-align: center;"> </th>                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-            </tr>
-			
-			<tr>
-                <td><strong>3.2</strong></td>
-                <td><strong>Deformed,Faulty or Thermally Damaged coupler / sockets.  </strong></td>
-				<td style="text-align: center;"><strong> 
- </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[14][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -426,9 +392,18 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>3.3</strong></td>
-                <td><strong>Ineffective Cable Anchorage </strong></td>
-				 
+                    <th style="text-align: center;">2.4</th>
+                    <th style="text-align: center;">NDT/MPI Certificates:</th>					                 
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> REMARKS / RECOMMENDATIONS</th>
+            </tr>
+			
+			<tr>
+                <td><strong>2.4.1</strong></td>
+                <td><strong>Crane Structure Welds     </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[15][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -442,11 +417,11 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[15]">
 </td>
             </tr>
+			
 			<tr>
-                <td><strong>3.4</strong></td>
-                <td><strong>Cables  &  Couplers  unsuitable  for  the intended use and performance. </strong></td>
-				
-                 <td class="checkbox-cell">
+                <td><strong>2.4.2</strong></td>
+                <td><strong>Main Hook Blocks </strong></td>				
+                <td class="checkbox-cell">
     <input type="checkbox" name="result[16][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
@@ -458,25 +433,14 @@ if (!isset($row) || empty($row)) {
 <td>
     <input type="text" name="checklist_remark[16]">
 </td>
-            </tr>
+            </tr>	
 			
-			<tr>
-                    <th style="text-align: center;">4</th>
-                    <th style="text-align: center;">ENCLOSURE</th>
-					<th style="text-align: center;"> </th>
-                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-                </tr>
 				
 
  <tr>
-                <td><strong>4.1</strong></td>
-                <td><strong> Missing or Damaged   </strong></td>
-				<td style="text-align: center;"><strong>
- </strong></td>
+                <td><strong>2.4.3	</strong></td>
+                <td><strong> Auxiliary Hook Blocks                                 </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[17][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -492,10 +456,9 @@ if (!isset($row) || empty($row)) {
             </tr>
 			
 			<tr>
-                <td><strong>4.2</strong></td>
-                <td><strong>Unauthorized Modifications </strong></td>
-				<td style="text-align: center;"><strong> 
- </strong></td>
+                <td><strong>2.5</strong></td>
+                <td><strong>	Operator Certificate for the type/model of crane.  </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[18][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -510,9 +473,8 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>4.3</strong></td>
-                <td><strong>Cooling  Openings  Blocked  or  Missing Air Filters. </strong></td>
-				 
+                <td><strong>2.6	</strong></td>
+                <td><strong>LMI/RCL/SLI/AML Calibration Certificates.            </strong></td>				 
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[19][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -527,11 +489,9 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>4.4</strong></td>
-                <td><strong>Signs of  Overload & Improper Use </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
-                 <td class="checkbox-cell">
+                <td><strong>2.7	 </strong></td>
+                <td><strong>Boom Rocking Test Certificates.           </strong></td>				
+                <td class="checkbox-cell">
     <input type="checkbox" name="result[20][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">
@@ -544,9 +504,19 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[20]">
 </td>
             </tr>	
-			<tr>
-                <td><strong>4.5</strong></td>
-                <td><strong>Missing  or  Defective  Wheels,  Lifting Means, Holder, Etc.</strong></td>
+
+            <tr>
+                    <th style="text-align: center;">3	</th>
+                    <th style="text-align: center;">MARKING AND SAFETY DECALS</th>					               
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> REMARKS / RECOMMENDATIONS</th>
+            </tr>
+			
+            <tr>
+                <td><strong>3.1	</strong></td>
+                <td><strong>Crane asset number/identification is stenciled prominently.</strong></td>
 				 
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[21][]" id="checkbox4" value="PASS" class="large-checkbox">
@@ -562,8 +532,8 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>4.6</strong></td>
-                <td><strong>Missing or Defective Wheels, Lifting Means,Holder,Etc.</strong></td>
+                <td><strong>3.2</strong></td>
+                <td><strong>Crane’s SWL is prominently stenciled/marked.</strong></td>
 				<td style="text-align: center;"><strong>  </strong></td>
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
@@ -578,11 +548,21 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[22]">
 </td>
             </tr>
+
+
+            <tr>
+                    <th style="text-align: center;">3.3		</th>
+                    <th style="text-align: center;">Hook Blocks’ SWL and weights are stenciled on the items.	</th>					               
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th> REMARKS / RECOMMENDATIONS</th>
+            </tr>
+
 			<tr>
-                <td><strong>4.7</strong></td>
-                <td><strong>Defective Wire  Reel Mounting Means</strong></td>
-				<td style="text-align: center;"><strong>
-</strong></td>
+                <td><strong>3.3.1	</strong></td>
+                <td><strong>Main Hook Block </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[23][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -598,10 +578,8 @@ if (!isset($row) || empty($row)) {
             </tr>
 			
       <tr>
-                <td><strong>4.8</strong></td>
-                <td><strong>Conductive Objects Placed in the Enclosure.</strong></td>
-				<td style="text-align: center;"><strong>
-</strong></td>
+                <td><strong>3.3.2	</strong></td>
+                <td><strong>Auxiliary Hook Block</strong></td>				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[24][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -615,22 +593,11 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[24]">
 </td>
             </tr>  
-<tr>
-                    <th style="text-align: center;">5</th>
-                    <th style="text-align: center;">ENCLOSURE</th>
-					<th style="text-align: center;"> </th>                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-                </tr>
-				
 
- <tr>
-                <td><strong>5.1</strong></td>
-                <td><strong> Defective Switches, Meters & Lamps</strong></td>
-				<td style="text-align: center;"><strong>
- </strong></td>
+            <tr>
+                <td><strong>3.4	</strong></td>
+                <td><strong> WARNING SIGN: Operator Should Not Rely Solely on Any Automatic Device as a Substitute for Safe Operating Practice, is posted inside the cabin’s wall or control panel.</strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[25][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -644,12 +611,12 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[25]">
 </td>
             </tr>
-			
-			<tr>
-                <td><strong>5.2</strong></td>
-                <td><strong>Defective Pressure Regulator or F.M </strong></td>
-				<td style="text-align: center;"><strong> 
- </strong></td>
+
+            <tr>
+                <td><strong>3.5	</strong></td>
+                <td><strong>CRANE’S DATA PLATE (Crane Manufacturer Name, Model, Serial Number, and Year of Manufacture) is available and posted or stamped on the crane structure.
+                </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[26][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -664,8 +631,9 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>5.3</strong></td>
-                <td><strong>Incorrect Fuses Accessible from Outside the enclosure.</strong></td>
+                <td><strong>3.6	</strong></td>
+                <td><strong>Warning Decal stating: “Warning! Switch Limit must be tested before the start of Lifting Operation and NO Personnel is allowed to By-pass the Crane Limit at any time.
+                </strong></td>
 				 
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[27][]" id="checkbox4" value="PASS" class="large-checkbox">
@@ -679,23 +647,14 @@ if (!isset($row) || empty($row)) {
 <td>
     <input type="text" name="checklist_remark[27]">
 </td>
-            </tr>			
-			<tr>
-                    <th style="text-align: center;">6</th>
-                    <th style="text-align: center;">GENERAL CONDITION</th>
-					<th style="text-align: center;"> </th>                    
-                    <th style="text-align: center;">PASS</th>
-                    <th style="text-align: center;">FAIL</th>
-                    <th style="text-align: center;">NA</th>
-                    <th> </th>
-                </tr>
-				
+            </tr>	
 
- <tr>
-                <td><strong>6.1</strong></td>
-                <td><strong> Cooling Liquid Circuit Leaking </strong></td>
-				<td style="text-align: center;"><strong>
- </strong></td>
+
+
+            <tr>
+                <td><strong>3.7</strong></td>
+                <td><strong> Hand signal decal is posted on the pedestal or mast and cabin. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[28][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -711,10 +670,9 @@ if (!isset($row) || empty($row)) {
             </tr>
 			
 			<tr>
-                <td><strong>6.2</strong></td>
-                <td><strong>Defective Gas Hoses & Connections </strong></td>
-				<td style="text-align: center;"><strong> 
- </strong></td>
+                <td><strong>3.8</strong></td>
+                <td><strong>Load rating charts and range diagrams are posted on the wall inside the cabin. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[29][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -729,8 +687,8 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>
 			<tr>
-                <td><strong>6.3</strong></td>
-                <td><strong>Poor Legibility of  Markings & Labelling </strong></td>
+                <td><strong>3.9</strong></td>
+                <td><strong>Labels of the directional control levers are marked legibly. </strong></td>
 				 
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[30][]" id="checkbox4" value="PASS" class="large-checkbox">
@@ -745,11 +703,20 @@ if (!isset($row) || empty($row)) {
     <input type="text" name="checklist_remark[30]">
 </td>
             </tr>
-			<tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+
+<tr>
+                    <th style="text-align: center;">4</th>
+                    <th style="text-align: center;">VISUAL INSPECTION & FUNCTIONAL TEST</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+</tr>			
+ 
+<tr>
+    <td><strong>4.1</strong></td>
+                <td><strong>BOOM STRUCTURE: There have no signs of excessive wear in the boom pivot shafts, boom cylinder anchor bushings & shafts, & boom telescopic wear surfaces & strips/pads. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[31][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -764,13 +731,10 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>	
 
-
-
-            <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+<tr>
+                <td><strong>	4.1.1	</strong></td>
+                <td><strong>Main Boom              </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[32][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -783,14 +747,13 @@ if (!isset($row) || empty($row)) {
 <td>
     <input type="text" name="checklist_remark[32]">
 </td>
-            </tr>	
+</tr>	
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.1.2	</strong></td>
+                <td><strong>	Lattice Boom: Chords, Lacings, Splices, and bridle have no   bent, corroded, deformed, damaged, and dents.  </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[33][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -807,10 +770,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.1.3	</strong></td>
+                <td><strong>Knuckle Boom </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[34][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -826,11 +788,11 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
 
+
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.2	</strong></td>
+                <td><strong>The boom assembly has no signs of corrosion, distortion, deformation, cracks, & wear. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[35][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -847,10 +809,21 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                    <th style="text-align: center;">4.3</th>
+                    <th style="text-align: center;">HYDRAULIC CYLINDERS are properly working and no signs of leakages; There is no noticeable boom dropping:</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>
+
+            
+
+
+            <tr>
+                <td><strong>4.3.1	</strong></td>
+                <td><strong>Boom Lift </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[36][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -867,10 +840,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.3.2</strong></td>
+                <td><strong>	Boom Telescopic </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[37][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -888,10 +860,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.3.3	</strong></td>
+                <td><strong>Boom Articulating </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[38][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -908,10 +879,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.4	</strong></td>
+                <td><strong>The HOLDING VALVES of boom lifting, telescoping, and articulating/ knuckling are in good working condition and have no signs of boom dropping. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[39][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -928,10 +898,18 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                    <th style="text-align: center;">4.5</th>
+                    <th style="text-align: center;">HOISTING OPERATION:  Properly working including their brakes.</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>
+
+
+            <tr>
+                <td><strong>4.5.1	</strong></td>
+                <td><strong>Boom Hoist </strong></td>				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[40][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -946,10 +924,9 @@ if (!isset($row) || empty($row)) {
 </td>
 </tr>	
 <tr>
-<td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+<td><strong>4.5.2	</strong></td>
+                <td><strong>Main Load Hoist </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[41][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -966,10 +943,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.5.3	</strong></td>
+                <td><strong>Auxiliary Load Hoist </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[42][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -986,10 +962,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.6	</strong></td>
+                <td><strong>No leakages are visible on the hydraulic hoses, fittings, valves, & manifolds. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[43][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1006,10 +981,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.7	</strong></td>
+                <td><strong>Nothing was deformed on the tubing, fittings, & other related components. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[44][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1026,10 +1000,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.8	</strong></td>
+                <td><strong>Boom angle indicator is provided and working properly.</strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[45][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1046,10 +1019,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.9	</strong></td>
+                <td><strong>BOOM BACK STOPS:  Fixed bumper, Shock absorbing bumper, or Hydraulic bumper, is provided and in good condition. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[46][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1066,10 +1038,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.10	</strong></td>
+                <td><strong>WINCH DRUM’S LOCK (PAWLS) is in good condition & properly functioning (as applicable): </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[47][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1086,10 +1057,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.10.1	</strong></td>
+                <td><strong>Boom Hoist Drum </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[48][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1106,10 +1076,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.10.2	</strong></td>
+                <td><strong>	Main Hoist Drum </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[49][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1126,10 +1095,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.10.3	</strong></td>
+                <td><strong>Auxiliary Hoist Drum </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[50][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1146,10 +1114,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.11	</strong></td>
+                <td><strong>Automatic Boom Back Stops:  Maximum boom angle is     82       degrees. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[51][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1166,10 +1133,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.12	</strong></td>
+                <td><strong>Automatic stop limit for minimum boom angle is  9.32 degrees. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[52][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1186,10 +1152,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.13	</strong></td>
+                <td><strong>Minimum Boom Length is  37.9 m   <br>  Maximum Boom Length is 39.9 m                                     </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[53][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1206,10 +1171,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.14	</strong></td>
+                <td><strong>Boom cradle is provided and can secure the boom at rest. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[54][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1226,10 +1190,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.15</strong></td>
+                <td><strong>Sheaves are free from deformation, dent, bent, or damage and their bearings sufficiently lubricated. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[55][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1246,10 +1209,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>4.16</strong></td>
+                <td><strong>Aviation or pilot light is provided and is working. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[56][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1264,11 +1226,21 @@ if (!isset($row) || empty($row)) {
 </td>
             </tr>	
 
+
+
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                    <th style="text-align: center;">5</th>
+                    <th style="text-align: center;">CRANE STRUCTURE AND SWING COMPONENTS</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>     
+
+            <tr>
+                <td><strong>5.1</strong></td>
+                <td><strong>Base Structure/Pedestal/mast has no signs of loose bolts and fasteners.</strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[57][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1284,10 +1256,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.2	</strong></td>
+                <td><strong>Base Structure/Pedestal/mast’s welds and joints are free from corrosion and cracks.</strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[58][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1303,10 +1274,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.3	</strong></td>
+                <td><strong>Pins, bearings, shafts, gears, and locking devices are free from distortion, cracks and corrosion. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[59][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1323,10 +1293,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.4</strong></td>
+                <td><strong>Swing brakes operate and can restrict further movement of the rotating structure. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[60][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1343,10 +1312,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.5</strong></td>
+                <td><strong>Swing positive locking device is provided and can lock the structure from further movement.</strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[61][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1363,10 +1331,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.6	</strong></td>
+                <td><strong>Swing brake is adjustable to compensate its wear. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[62][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1383,10 +1350,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.7	</strong></td>
+                <td><strong>All swing moving parts are sufficiently lubricated. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[63][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1403,10 +1369,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.8	</strong></td>
+                <td><strong>Platforms and walkways are skid resistant. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[64][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1423,10 +1388,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>5.9	</strong></td>
+                <td><strong>Access ladders, & guard rails are free from rust, damage, & corrosion </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[65][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1442,11 +1406,21 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
 
+
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                    <th style="text-align: center;">6	</th>
+                    <th style="text-align: center;">MACHINERY POWER, ELECTRICAL COMPONENTS & HYDRAULIC COMPONENTS</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>               
+
+
+            <tr>
+                <td><strong>6.1	</strong></td>
+                <td><strong>Work areas, companion ways, access ladders, are equipped with anti-slip surface materials. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[66][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1463,10 +1437,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.2</strong></td>
+                <td><strong>	Electrical wirings and related equipment are free of damages. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[67][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1483,10 +1456,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.3	</strong></td>
+                <td><strong>Manholes and hatches’ covers are provided to protect personnel from accidental fall. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[68][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1503,10 +1475,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.4	</strong></td>
+                <td><strong>Electrical and hydraulic motors & pumps are in good working condition. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[69][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1524,10 +1495,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.5	</strong></td>
+                <td><strong>Hydraulic hoses, fittings, tubes, and manifold joints have no evidence of leakages and not damage. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[70][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1544,10 +1514,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.6</strong></td>
+                <td><strong>Hydraulic/pneumatic cylinders, pumps and motors have no leaks and working properly. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[71][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1563,10 +1532,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.7</strong></td>
+                <td><strong>Engine power driven motors and pumps are working properly and have no signs of leaks. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[72][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1582,10 +1550,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.8</strong></td>
+                <td><strong>Machinery compartment is free from spills and obstruction. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[73][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1601,10 +1568,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.9</strong></td>
+                <td><strong>Fire extinguisher is provided in the compartment with minimum rating of 10BC. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[74][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1621,10 +1587,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>6.10</strong></td>
+                <td><strong>An emergency lowering system, if provided, shall be checked for proper function. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[75][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1640,11 +1605,21 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
 
+
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                    <th style="text-align: center;">7	</th>
+                    <th style="text-align: center;">CABIN</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>             
+
+
+            <tr>
+                <td><strong>7.1	</strong></td>
+                <td><strong>Portable fire extinguisher is provided. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[76][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1661,10 +1636,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.2	</strong></td>
+                <td><strong>Toolbox with basic tools are available. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[77][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1681,10 +1655,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.3	</strong></td>
+                <td><strong>An Emergency stop button shall be available and working effectively. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[78][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1701,10 +1674,9 @@ if (!isset($row) || empty($row)) {
 
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.4	</strong></td>
+                <td><strong>Wipers are installed and working properly. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[79][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1720,10 +1692,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.5	</strong></td>
+                <td><strong>An audible warning device is provided for any errors in the system. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[80][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1739,10 +1710,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.6	</strong></td>
+                <td><strong>Cabin has a good housekeeping. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[81][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1758,10 +1728,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.7	</strong></td>
+                <td><strong>Cabin door is open outward or sliding backward. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[82][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1777,10 +1746,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.8</strong></td>
+                <td><strong>	Windshield is of Safety glazing glass. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[83][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1796,10 +1764,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.9	</strong></td>
+                <td><strong>Operator seat condition (torn seat or back cushions). </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[84][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1815,10 +1782,9 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.10	</strong></td>
+                <td><strong>Cabin A/C is provided and is working. </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[85][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
@@ -1834,10 +1800,108 @@ if (!isset($row) || empty($row)) {
             </tr>	
 
             <tr>
-                <td><strong>6.4</strong></td>
-                <td><strong>Data  Plate & Markings </strong></td>
-				<td style="text-align: center;"><strong>
-  </strong></td>
+                <td><strong>7.11	</strong></td>
+                <td><strong>The Installed anemometer is working. </strong></td>
+				
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[86]">
+</td>
+            </tr>	
+
+            <tr>
+                <td><strong>7.12		</strong></td>
+                <td><strong>The installed view camera is working </strong></td>
+				
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[86]">
+</td>
+            </tr>	
+            <tr>
+                <td><strong>7.13	</strong></td>
+                <td><strong>	All applicable indicators like but not limited to; oil or water temperature gauge, hydraulic oil pressure gauge, etc. are working correctly. </strong></td>
+				
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[86]">
+</td>
+            </tr>
+
+            <tr>
+                    <th style="text-align: center;">8</th>
+                    <th style="text-align: center;">HOIST ROPES</th>					
+                    <th style="text-align: center;">PASS</th>
+                    <th style="text-align: center;">FAIL</th>
+                    <th style="text-align: center;">NA</th>
+                    <th>REMARKS / RECOMMENDATIONS </th>
+                </tr>  
+
+
+            <tr>
+                <td><strong>8.1.1	</strong></td>
+                <td><strong>Boom Hoist </strong></td>				
+                <td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[86]">
+</td>
+            </tr>	
+
+            <tr>
+                <td><strong>8.1.2		</strong></td>
+                <td><strong>Main Load Hoist </strong></td>
+				
+                 <td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+</td>
+<td class="checkbox-cell">
+    <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+</td>
+<td>
+    <input type="text" name="checklist_remark[86]">
+</td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>8.1.3		</strong></td>
+                <td><strong>Auxiliary Load Hoist </strong></td>
+				
                  <td class="checkbox-cell">
     <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
