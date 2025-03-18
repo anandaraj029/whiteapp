@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $model_no = $_POST['model_no'];
     $result = $_POST['result'];
     $comments = $_POST['comments'];
-    $ndt_inspector = $_POST['ndt_inspector'];
-    $ndt_level = $_POST['ndt_level'];    
-    $companyName = $_POST['companyName'];
+    // $ndt_inspector = $_POST['ndt_inspector'];
+    // $ndt_level = $_POST['ndt_level'];    
+    // $companyName = $_POST['companyName'];
 
     // Image upload handling
 $target_dir = "./img/";
@@ -129,9 +129,6 @@ if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
         model_no = '$model_no',
         result = '$result',
         comments = '$comments',
-        ndt_inspector = '$ndt_inspector',
-        ndt_level = '$ndt_level',
-        companyName = '$companyName',
         image_path = '$image_path'
         WHERE project_no = '$project_no'"; // Removed the extra comma before WHERE clause
 

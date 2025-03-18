@@ -69,7 +69,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                             <label class="font-14 bold">Report No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Report No" name="report_no" value="<?php echo $data['report_no']; ?>" required>
+                                            <input type="text" class="theme-input-style" placeholder="Report No" name="report_no" value="<?php echo $data['report_no']; ?>" required readonly>
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -80,7 +80,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                             <label class="font-14 bold">Sticker No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Sticker No" name="sticker_no" value="<?php echo $data['sticker_no']; ?>" required>
+                                            <input type="text" class="theme-input-style" placeholder="Sticker No" name="sticker_no" value="<?php echo $data['sticker_no']; ?>" required readonly>
                                         </div>
                                     </div>           
                                     <!-- Form Row -->
@@ -91,7 +91,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                             <label class="font-14 bold">Project ID</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_no" value="<?php echo $data['project_no']; ?>" required>
+                                            <input type="text" class="theme-input-style" placeholder="Project ID" name="project_no" value="<?php echo $data['project_no']; ?>" required readonly>
                                         </div>
                                     </div>                                          
                                     
@@ -115,7 +115,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                             <label class="font-14 bold">Company Name</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" placeholder="Company Name" name="company_name" value="<?php echo $data['company_name']; ?>" required>
+                                            <input type="text" class="theme-input-style" placeholder="Company Name" name="company_name" value="<?php echo $data['company_name']; ?>" required readonly>
                                         </div>
                                     </div>       
                                     
@@ -144,7 +144,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                                         <img src="../../assets/img/svg/user3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>                                                
-                                                <input type="text" class="form-control pl-1" placeholder="Type Customer Name" name="customer_name" value="<?php echo $data['customer_name']; ?>" required>
+                                                <input type="text" class="form-control pl-1" placeholder="Type Customer Name" name="customer_name" value="<?php echo $data['customer_name']; ?>" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -162,7 +162,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" name="customer_email" value="<?php echo $data['customer_email']; ?>" required>
+                                                <input type="email" class="form-control pl-1" placeholder="Type Email Address" name="customer_email" value="<?php echo $data['customer_email']; ?>" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" name="customer_mobile" value="<?php echo $data['customer_mobile']; ?>" required>
+                                                <input type="number" class="form-control pl-1" placeholder="Contact Number" name="customer_mobile" value="<?php echo $data['customer_mobile']; ?>" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                                         <img src="../../assets/img/svg/key3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control pl-1" placeholder="Inspector name" name="inspector_name" value="<?php echo $data['inspector_name']; ?>" required>
+                                                <input type="text" class="form-control pl-1" placeholder="Inspector name" name="inspector_name" value="<?php echo $data['inspector_name']; ?>" required readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -215,9 +215,8 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
                                     <option value="Sathish" <?php echo ($data['technical_manager'] ?? '') === 'Sathish' ? 'selected' : ''; ?>>Sathish</option>
                                 </select>
                             </div>
-                        </div>
-                                    
-                                <!-- </form> -->
+                        </div>                                 
+                               
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
@@ -231,8 +230,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
                             <div class="form-element py-30 mb-30">
-                                <!-- <h4 class="font-20 mb-30">Header Data</h4> -->
-                                <!-- Form -->
+                                                              <!-- Form -->
                                 <!-- <form action="#" method="POST"> -->
 
 
@@ -401,18 +399,12 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
     <div class="col-sm-8">
         <input type="date" class="theme-input-style" name="last_exam_date" value="<?php echo $data['last_exam_date']; ?>">
     </div>
-</div>
-<!-- End Additional Row 2 -->
-                                  
+</div>                                  
                                 <!-- </form> -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form With Icons -->
-                     </div>                                       
-                     
-                      
-                      
-                      
+                     </div>                        
 <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
 <div class="form-element py-30 mb-30" style="height: 330px;">
@@ -501,11 +493,10 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
     </div>
 </div>                                   
                                     
-                                <!-- End Form -->
-                            </div>
-                            <!-- End Horizontal Form With Icons -->
-                        </div>     
-                     
+<!-- End Form -->
+</div>
+<!-- End Horizontal Form With Icons -->
+</div>                          
 
   <div class="col-lg-12">    
     <div class="form-element py-30 multiple-column">
@@ -513,13 +504,11 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
         <!-- Form -->
         <!-- <form action="#" method="POST"> -->
 <div class="row">    
-<div class="col-lg-6">                    
-
+<div class="col-lg-6">
 <div class="form-group">
     <label class="font-14 bold mb-2">Identification of any part found to have a defect which is or could become a danger to persons and a description of the defect (If none state NONE)</label>
     <textarea class="theme-input-style" placeholder="Enter details" name="identification_any_part" required><?php echo htmlspecialchars($data['identification_any_part']); ?></textarea>
 </div>
-
 <div class="form-group">
     <label class="font-14 bold mb-2">Is the above a defect which is of immediate danger to persons</label>
     <select class="theme-input-style" name="defect">
@@ -528,23 +517,18 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
         <option value="no" <?php echo ($data['defect'] == 'no') ? 'selected' : ''; ?>>No</option>
     </select>
 </div>
-
 <div class="form-group">
     <label class="font-14 bold mb-2">Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)</label>
     <input type="date" class="theme-input-style" name="date_defect" value="<?php echo $data['date_defect']; ?>">
 </div>
-
 <div class="form-group">
     <label class="font-14 bold mb-2">Particulars of any repair, renewal or alteration required to remedy the defect identified above:</label>
     <textarea class="theme-input-style" placeholder="Enter details" name="repair_details" required><?php echo htmlspecialchars($data['repair_details']); ?></textarea>
 </div>
-
 <div class="form-group">
     <label class="font-14 bold mb-2">Particulars of any tests carried out as part of the examination: (If none state NONE) (SEE ATTACHED PAGE 2)</label>
     <textarea class="theme-input-style" placeholder="Enter details" name="test_particulars" required><?php echo htmlspecialchars($data['test_particulars']); ?></textarea>
 </div>
-
-
 <div class="form-group">
     <label class="font-14 bold mb-2">IS THIS EQUIPMENT FIT FOR PURPOSE?</label>
     <select class="theme-input-style"  name="equipment_fit">
@@ -556,6 +540,7 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 </div>
 
 <div class="col-lg-6">                        
+
 <div class="form-group">
     <label class="font-14 bold mb-2">Name of person making this report:</label>
     <input type="text" class="theme-input-style" placeholder="Enter name" name="name_qualifications_person" value="<?php echo $data['name_qualifications_person']; ?>" required>
@@ -586,10 +571,8 @@ $data = mysqli_fetch_assoc($result); // Fetch data into an associative array
 </div>
   <!-- </form> -->
         <!-- End Form -->
-    </div>
-        
+</div>        
 </div>
-
 </div>
 
 <div class="form-group text-center mt-3">

@@ -25,7 +25,7 @@ $result = $conn->query($sql);
                            
                            <div class="card-body bg-white">
                            <div class="main-header-btn ">
-                                 <a href="#" class="btn">lifting Gears Certificate</a>
+                                 <a href="#" class="btn">MPI Certificate</a>
                               </div>
                             </div>
                                  <!-- Search Form -->

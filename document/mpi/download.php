@@ -47,6 +47,13 @@ foreach ($imagePaths as $imagePath) {
     $imageHtml .= "<td style='text-align: center;'><img src='$imagePath' alt='Image' style='height: 150px; margin: auto; display: block;'></td>";
 }
 
+// Fix Inspector Signature Path
+$inspector_name = strtolower(str_replace(' ', '_', $row['inspector']));
+$signature_path = "../../inspector/uploads/$inspector_name/images/signature_image.jpg";
+if (!file_exists($signature_path)) {
+    $signature_path = "../default-signature.jpg"; // Fallback image
+}
+
 use Mpdf\Mpdf;
 $title = "MAGNETIC PARTICLE INSPECTION CERTIFICATE";
 // Load Bootstrap CSS
@@ -193,17 +200,17 @@ $html = <<<HTML
             <tbody>
                 <tr >
                     <td class="section-title" style="text-align: center; width: 25%;">CERTIFICATE NO.</td>
-                    <td><strong>{$row['certificate_no']}</strong></td>
+                    <td style="text-align: center"><strong>{$row['certificate_no']}</strong></td>
                     <td class="section-title" style="text-align: center">REFERENCE NO.</td>
                     <td  style="text-align: center"><strong>{$row['reference_no']}</strong></td>
                 </tr>
                 <tr>
                     <td class="section-title" style="text-align: center">CUSTOMER NAME</td>
-                    <td colspan="3"><strong>{$row['customer_name']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['customer_name']}</strong></td>
                 </tr>
                 <tr>
                     <td class="section-title" style="text-align: center">LOCATION</td>
-                    <td colspan="3"><strong>{$row['location']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['location']}</strong></td>
                 </tr>
                 <tr>
                     <td  class="section-title" style="text-align: center">INSPECTION DATE</td>
@@ -222,19 +229,19 @@ $html = <<<HTML
                 
                 <tr>
                     <td  class="section-title" style="text-align: center; width: 25%;">INSPECTED ITEM</td>
-                    <td colspan="3"><strong>{$row['inspected_item']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['inspected_item']}</strong></td>
                 </tr>
                 <tr>
                     <td  class="section-title" style="text-align: center">SERIAL NUMBERS</td>
-                    <td colspan="3"><strong>{$row['serial_numbers']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['serial_numbers']}</strong></td>
                 </tr>
                 <tr>
                     <td  class="section-title" style="text-align: center">MANUFACTURER / EQUIP. NO.</td>
-                    <td colspan="3"><strong>{$row['manufacturer']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['manufacturer']}</strong></td>
                 </tr>
                 <tr>
                     <td  class="section-title" style="text-align: center">STANDARDS</td>
-                    <td colspan="3"><strong>{$row['standards']}</strong></td>
+                    <td colspan="3" style="text-align: center"><strong>{$row['standards']}</strong></td>
                 </tr>
             </tbody>
         </table>
@@ -341,13 +348,15 @@ $html = <<<HTML
             </thead>
             <tbody>
                 <tr>
-                    <td   style="text-align: center"><strong>SHAROON B. MASIH</strong></td>
-                    <td  style="text-align: center"><strong>SIGNATURE</strong></td>
+                    <td style="text-align: center"><strong>{$row['inspector']}</strong></td>
+
+                    <td style="text-align: center"><img src="$signature_path" class="sign" alt="Inspector Signature"></td>
+
                 </tr>
-                <tr>
+                <!-- <tr>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>

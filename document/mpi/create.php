@@ -117,14 +117,14 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                         </div>
 
 
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="companyName" class="theme-input-style">
                             </div>
-                        </div>  
+                        </div>   -->
                                 <!-- End Form -->
                             </div>
                             <!-- End Horizontal Form -->
@@ -461,31 +461,31 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
 
 
-<div class="col-lg-12">    
+<!-- <div class="col-lg-12">    
     <div class="form-element py-30 multiple-column">       
-        <!-- Form -->
+       
 
 <div class="row">
-    <div class="col-lg-6">
-        <div class="form-group">
-                        <label class="font-14 bold mb-2">NDT Inspector</label>
-                        <input type="text" class="theme-input-style" name="ndt_inspector" placeholder="Enter NDT Inspector" value="">
+<div class="col-lg-6">
+<div class="form-group">
+<label class="font-14 bold mb-2">NDT Inspector</label>
+<input type="text" class="theme-input-style" name="ndt_inspector" placeholder="Enter NDT Inspector" value="">
         </div>                   
     </div>
 <div class="col-lg-6">
         <div class="form-group">
-                        <label class="font-14 bold mb-2">NDT Level III</label>
-                        <input type="text" class="theme-input-style" name="ndt_level" placeholder="Enter NDT Level III" value="">
+<label class="font-14 bold mb-2">NDT Level III</label>
+<input type="text" class="theme-input-style" name="ndt_level" placeholder="Enter NDT Level III" value="">
         </div>                   
 </div>
 </div>
 
             
         
-        <!-- End Form -->
+       
     </div>
-       <!-- End Horizontal Form With Icons -->
-</div>
+       
+</div> -->
 
                         </div>
                         

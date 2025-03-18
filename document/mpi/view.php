@@ -217,15 +217,17 @@ $conn->close();
             </thead>
             <tbody>
                 <tr>
-                    <td  style="text-align: center"><strong>SHAROON B. MASIH</strong></td>
-                    
-                    <td style="text-align: center"><strong>SIGNATURE</strong></td>
+                    <td  style="text-align: center"><strong><?php echo $row['inspector'] ?? 'N/A'; ?></strong></td>                    
+                    <td style="text-align: center">
+                    <img src="../../inspector/uploads/<?php echo strtolower($row['inspector']); ?>/images/signature_image.jpg" class="sign" alt="Inspector Signature">
+
+    </td>
                     
                 </tr>
-                <tr>
+                <!-- <tr>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
