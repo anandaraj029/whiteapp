@@ -74,7 +74,7 @@ if (mysqli_num_rows($result) > 0) {
             </tr>
             <tr>
                 <th>Company Name</th>
-                <td><?php echo $row['companyName']; ?></td>
+                <td><?php echo $row['customer_name']; ?></td>
             </tr>
             <tr>
                 <th>Manufacturer</th>

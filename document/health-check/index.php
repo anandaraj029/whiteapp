@@ -5,7 +5,7 @@ include_once('../../file/config.php'); // include your database connection
 // SQL query to fetch data from the 'lifting_gears_certificate' table
 
 
-$sql = "SELECT chc.certificate_no, chc.project_no, chc.report_no, chc.inspector, chc.inspection_date, chc.companyName, pi.project_status 
+$sql = "SELECT chc.certificate_no, chc.project_no, chc.report_no, chc.inspector, chc.inspection_date, pi.project_status 
         FROM crane_health_check_certificate chc
         LEFT JOIN project_info pi 
         ON chc.project_no = pi.project_no";

@@ -24,6 +24,17 @@ if (file_exists($inspector_signature_path)) {
     $inspector_signature_html = '<img src="../assets/img/avatar/default-signature.png" class="sign" alt="Default Signature">';
 }
 
+
+// Technical Manager Signature
+$technical_manager_name = urlencode($row['technical_manager']);
+$technical_manager_signature_path = "../uploads/{$technical_manager_name}.png";
+if (file_exists($technical_manager_signature_path)) {
+    $technical_manager_signature_html = '<img src="' . htmlspecialchars($technical_manager_signature_path) . '" class="sign" alt="Technical Manager Signature">';
+} else {
+    // Use a placeholder signature image if the actual one is not found
+    $technical_manager_signature_html = '<img src="../sign.jpg" class="sign" alt="Default Signature">';
+}
+
 $html = '
 <!DOCTYPE html>
 <html lang="en">
@@ -148,7 +159,7 @@ $html = '
           </tr>
           <tr>
             <th>Company Name</th>
-            <td>' . htmlspecialchars($row['companyName']) . '</td>
+            <td>' . htmlspecialchars($row['customer_name']) . '</td>
           </tr>
           <tr>
             <th>Manufacturer</th>
@@ -264,7 +275,7 @@ $html = '
             <td class="text-center"><strong>' . htmlspecialchars($row['inspector']) . '</strong></td>
             <td>' . $inspector_signature_html . '</td>
             <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
-            <td> <img src="../sign.jpg" class="sign" alt="Signature Image"></td>
+            <td>' . $technical_manager_signature_html . '</td>
             <td class="text-center"><strong>COMPANY SEAL </strong></td>
            <td> <img src="../seal.png" class="sign" alt="Header Image"></td>
           </tr>
