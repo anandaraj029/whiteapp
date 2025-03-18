@@ -111,7 +111,7 @@ include_once('./view-fetch.php');
         <td class="left-align">Prepared By<br>Operations Manager</td>
         <td class="left-align">Reviewed & Approved By<br>Managing Director</td>
          
-   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
     </tr>
 </table>
 			</div>
@@ -813,6 +813,1657 @@ include_once('./view-fetch.php');
     </td>
             </tr>
 			<tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
+                <td><strong>6.4</strong></td>
+                <td><strong>Data  Plate & Markings </strong></td>
+				
+                 <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS" 
+        <?php echo $selected_results[27]=="PASS"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox2" value="FAIL" 
+        <?php echo $selected_results[27]=="FAIL"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td class="checkbox-cell">
+        <input type="checkbox" name="checked_arr[0][]" id="checkbox3" value="NA" 
+        <?php echo $selected_results[27]=="NA"?'checked':''; ?> disabled class="custom-checkbox"> 
+    </td>
+    <td>
+        <input type="text" name="remarks[0]" value="<?php echo $chek_remark[27];?>" disabled>
+    </td>
+            </tr>	
+
+
+            <tr>
                 <td><strong>6.4</strong></td>
                 <td><strong>Data  Plate & Markings </strong></td>
 				

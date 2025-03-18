@@ -20,6 +20,12 @@ if ($logged_in_user) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
+    } elseif ($user_role === 'customer') {
+        $sql = "SELECT * FROM project_info WHERE customer_name = ? ORDER BY creation_date DESC";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $logged_in_user);
+        $stmt->execute();
+        $result = $stmt->get_result();
     } else {
         // Fetch data from the 'project_info' table for the logged-in inspector
         $sql = "SELECT * FROM project_info WHERE inspector_name = ? ORDER BY creation_date DESC";

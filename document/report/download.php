@@ -117,6 +117,9 @@ ob_start();
             .footer {
         color: black; /* Ensure footer text remains visible */
     }
+
+
+    
             .manufac{
             background-color: #277bbee0 !important; /* Print background colors */
             color: #fff !important;
@@ -143,7 +146,7 @@ ob_start();
                         <b>TEL.: 013 814 6861 - 013 814 6862 Ext.109 - Fax: 013 814 6863</b><br>
                         <b>Email: office@cims.com.sa - info@cims.com.sa</b>
                     </p>
-                    <!-- <h3 style="font-size: 18px; margin-top: 15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3> -->
+                    <h3 style="font-size: 18px; margin-top: 15px;">Heavy Equipment & Elevating / Lifting Equipment Inspection Report</h3>
                 </td>
                 <td style="width: 20%; text-align: right;">
     <p style="font-size: 12px; margin: 0; text-align: right;">
@@ -165,7 +168,8 @@ ob_start();
     
     <tbody>
     <tr>
-            <td rowspan="2"><b>Heavy Equipment & Elevating / Lifting Equipment Inspection Report</b></td>
+            <!-- <td rowspan="2"><b>Heavy Equipment & Elevating / Lifting Equipment Inspection Report</b></td> -->
+            <td class="manufac"> Client Company / Name & Address:</td>
             <td class="manufac">Manufacturer:</td>
             <td class="manufac">Equipment Identification Number:</td>
             <td class="manufac">Date of Inspection:</td>
@@ -173,6 +177,7 @@ ob_start();
         </tr>
         <tr>
             <!-- <td> </td> -->
+            <td><b> <?php echo htmlspecialchars($row['client_company_address']); ?></b> </td>
             <td><b><?php echo htmlspecialchars($row['manufacturer']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['equipment_id_no']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['date_of_inspection']); ?></b></td>
@@ -276,7 +281,7 @@ below. Specific repairs to correct each deficiency should be noted in the right 
                                         <!-- <input type="checkbox" name="terms" id="terms" onchange="activateButton(this)" checked style="zoom:1;"> -->
                                
                                         <h6 class="checkbox-container">
-    <input type="checkbox">
+    <input type="checkbox" checked>
     <span>اواوافق الى تحمل المسؤليه الكامله عن هذا الفحص
         <span> I agree to take full responsibility for this inspection</span>
     </span>

@@ -161,25 +161,24 @@ $result = $stmt->get_result();
                                 </thead>
                                 
                                 <tbody>
+        
+         <!-- Loop through the fetched data and populate the table rows -->
         <?php
-        // Loop through the fetched data and populate the table rows
         while ($row = mysqli_fetch_assoc($result)) {
-
-
-         $inspector_name = $row['issued_by']; 
-         $project_status = $row['project_status']; // Fetch project status
-
-         // Define the path to the inspector's image
-         $inspector_image_path = "../../inspector/uploads/{$inspector_name}/images/profile_image.jpg";
-         
-         // Check if the inspector's image exists
-         if (file_exists($inspector_image_path)) {
-             $inspector_image = $inspector_image_path; // Set the image path if it exists
-         } else {
-             // Fallback to a default image if the inspector's image doesn't exist
-             $inspector_image = "../uploads/default_profile_image.jpg";
-         }
-            ?>
+            $inspector_name = $row['issued_by']; 
+            $project_status = $row['project_status']; // Fetch project status
+        
+            // Define the path to the inspector's image
+            $inspector_image_path = "../../inspector/uploads/{$inspector_name}/images/profile_image.jpg";
+            
+            // Check if the inspector's image exists
+            if (file_exists($inspector_image_path)) {
+                $inspector_image = $inspector_image_path; // Set the image path if it exists
+            } else {
+                // Fallback to a default image if the inspector's image doesn't exist
+                $inspector_image = "../uploads/default_profile_image.jpg";
+            }
+        ?>
             <tr>
                 <td>
                     <!-- Custom Checkbox -->
@@ -188,7 +187,7 @@ $result = $stmt->get_result();
                         <span class="checkmark"></span>
                     </label>
                     <!-- End Custom Checkbox -->
-
+        
                     <!-- Star -->
                     <div class="star">
                         <a href="./view.php?project_no=<?php echo $row['project_no']; ?>">
@@ -196,50 +195,47 @@ $result = $stmt->get_result();
                                 <i class="et-clipboard"></i>
                             </div>
                         </a>                    
-                    <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
-                                    <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
-                                </a>
-                              </div>
+                        <a href="./download.php?project_no=<?php echo $row['project_no']; ?>">
+                            <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" style="margin-left: 10px; margin-top: -10px;">
+                        </a>
+                    </div>
                     <!-- End Star -->
                 </td>
                 
                 <td><?php echo $row['report_no']; ?></td>
                 <td><?php echo $row['project_no']; ?></td>
-     
                 <td>
-                <a href='../checklist/type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}' class="text-primary">
-        <?php echo htmlspecialchars($row['checklist_no']); ?>
-    </a>
-</td>
-
-                
+                    <a href='../checklist/type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}' class="text-primary">
+                        <?php echo htmlspecialchars($row['checklist_no']); ?>
+                    </a>
+                </td>
                 <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
                 <td><?php echo $row['client_company_name']; ?></td>
                 <td><?php echo $row['equipment_serial_no']; ?></td>
                 <td>
-                                        <div class="d-flex align-items-center">
-                                            <div class="img mr-20">
-                                                <!-- Output the inspector image -->
-                                                <img src="<?php echo $inspector_image; ?>" class="img-40" alt="Inspector Image">
-                                            </div>
-                                            <div class="name bold">
-                                                <?php echo $row['issued_by']; ?>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="actions">
-            <!-- Edit action (only for admin and if project is not completed) -->
-            <?php if ($project_status !== 'Completed') { ?>
-                <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
-                    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
-                </a>
-            <?php } else { ?>
-                <!-- Disabled Edit Button -->
-                <span class="contact-edit disabled" title="Edit disabled (Project Completed)">
-                    <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg" style="opacity: 0.5;">
-                </span>
-            <?php } ?>
-        </td>
+                    <div class="d-flex align-items-center">
+                        <div class="img mr-20">
+                            <!-- Output the inspector image -->
+                            <img src="<?php echo $inspector_image; ?>" class="img-40" alt="Inspector Image">
+                        </div>
+                        <div class="name bold">
+                            <?php echo $row['issued_by']; ?>
+                        </div>
+                    </div>
+                </td>
+                <td class="actions">
+                    <!-- Edit action (only for the assigned inspector and if project is not completed) -->
+                    <?php if ($username === $row['issued_by'] && $project_status !== 'Completed') { ?>
+                        <a href="edit.php?project_no=<?php echo $row['project_no']; ?>" class="contact-edit">
+                            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg">
+                        </a>
+                    <?php } else { ?>
+                        <!-- Disabled Edit Button -->
+                        <span class="contact-edit disabled" title="Edit disabled (Not assigned inspector or Project Completed)">
+                            <img src="<?php echo $url; ?>assets/img/svg/c-edit.svg" alt="" class="svg" style="opacity: 0.5;">
+                        </span>
+                    <?php } ?>
+                </td>
             </tr>
         <?php } ?>
     </tbody>
@@ -249,162 +245,9 @@ $result = $stmt->get_result();
                     </div>
                     <!-- End Card -->
 
-                    <!-- Contact Add New PopUp -->
-                     <div id="contactAddModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
+                  
 
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                          <div class="attach-file style--two mb-3">
-                                             <img src="<?php echo $url; ?>assets/img/img-placeholder.png" class="profile-avatar" alt="">
-                                             <div class="upload-button">
-                                                <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                <span>Upload Photo</span>
-                                                <input class="file-input" type="file" id="fileUpload" accept="image/*">
-                                             </div>
-                                          </div>
-
-                                          <div class="content">
-                                             <h4 class="mb-2">Upload a Photo</h4>
-                                             <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                          </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name">Name</label>
-                                             <input type="text" id="as_name" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email">Email</label>
-                                             <input type="email" id="as_email" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone">Phone</label>
-                                             <input type="number" id="as_phone" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age">Age</label>
-                                             <input type="text" id="as_age" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post">Post</label>
-                                             <input type="text" id="as_post" class="theme-input-style" placeholder="Type Here" required>
-                                          </div>
-                                          
-                                          <div class="mb-30">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <!-- <div class="date datepicker dashboard-date style--two" id="datePickerExample">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div> -->
-                                          </div>
-
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
-                     <!-- End Contact Add New PopUp -->
-
-                     <!-- Contact Edit PopUp -->
-                     <div id="contactEditModal" class="modal fade">
-                        <div class="modal-dialog modal-dialog-centered">
-                           <div class="modal-content">
-                              <!-- Modal Body -->
-                              <div class="modal-body">
-                                 <form action="#">
-                                    <div class="media flex-column flex-sm-row">
-                                       <div class="modal-upload-avatar mr-0 mr-sm-3 mr-md-5 mb-5 mb-sm-0">
-
-                                             <div class="attach-file style--two mb-3">
-                                                <img src="<?php echo $url; ?>assets/img/product/pg2.png" class="profile-avatar" alt="">
-                                                <div class="upload-button">
-                                                   <img src="<?php echo $url; ?>assets/img/svg/gallery.svg" alt="" class="svg mr-2">
-                                                   <span>Upload Photo</span>
-                                                   <input class="file-input" type="file" id="fileUpload2" accept="image/*">
-                                                </div>
-                                             </div>
-
-                                             <div class="content">
-                                                <h4 class="mb-2">Upload a Photo</h4>
-                                                <p class="font-12 c4">Allowed JPG, GIF or PNG. Max size <br /> of 800kB</p>
-                                             </div>
-                                       </div>
-            
-            
-                                       <div class="contact-account-setting media-body">
-
-                                          <h4 class="mb-4">Account Settings</h4>
-
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_name2">Name</label>
-                                             <input type="text" id="as_name2" class="theme-input-style" value="Arden Spencer" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_email2">Email</label>
-                                             <input type="email" id="as_email2" class="theme-input-style" value="Evangeline62@yahoo.com" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2"  for="as_phone2">Phone</label>
-                                             <input type="text" id="as_phone2" class="theme-input-style" value="(023) 708-6818 x4267" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_age2">Age</label>
-                                             <input type="text" id="as_age2" class="theme-input-style" value="28" required>
-                                          </div>
-                                          
-                                          <div class="mb-4">
-                                             <label class="bold black mb-2" for="as_post2">Post</label>
-                                             <input type="text" id="as_post2" class="theme-input-style" value="UX Researcher" required>
-                                          </div>
-                                          
-                                          <div class="mb-30">
-                                             <label class="bold black mb-2">Joining Date</label>
-                                             
-                                             <!-- <div class="date datepicker dashboard-date style--two" id="datePickerExample2">
-                                                <span class="input-group-addon mr-0"><img src="<?php echo $url; ?>assets/img/svg/calender.svg" alt="" class="svg"></span>
-                                                <input type="text" class="pl-2" required>
-                                             </div> -->
-                                          </div>
-
-                                          <div class="">
-                                             <a href="#" class="btn mr-4">Save Changes</a>
-                                             <a href="#" class="cancel font-14 bold" data-dismiss="modal">Cancel</a>
-                                          </div>
-                                       </div>
-                                    </div>
-                                 </form>
-                              </div>
-                              <!-- End Modal Body -->
-                           </div>
-                        </div>
-                     </div>
-                     <!-- End Contact Edit PopUp -->
+                     
                   </div>
                </div>
             </div>

@@ -78,8 +78,10 @@ if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
             $image_path = $target_file;
 
             // Remove old image if new image is uploaded
-            if (!empty($current_image_path) && file_exists($current_image_path)) {
-                unlink($current_image_path);
+            if (!empty($current_image_path)) {
+                if (file_exists($current_image_path)) {
+                    unlink($current_image_path);
+                }
             }
         } else {
             echo "Sorry, there was an error uploading your file.";
