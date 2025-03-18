@@ -72,7 +72,7 @@ if (!isset($row) || empty($row)) {
         <td class="left-align"><b>Prepared By</b><br>Operations Manager</td>
         <td  class="left-align"><b>Reviewed & Approved By</b><br>Managing Director</td>
    
-   <td><img src="../../../code.png" width="80px" height="80px" alt="" /></td>
+   <td><img src="../../code.png" width="80px" height="80px" alt="" /></td>
 </tr>
 </table>
             <!-- <table class="table table-bordered">

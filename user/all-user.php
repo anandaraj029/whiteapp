@@ -53,7 +53,7 @@ include_once('../inc/function.php');
                                     <th>Emp.ID</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Address</th>
+                                    <th>Role</th>
                                     <th>Status</th>
                                     <!-- <th>Actions</th> -->
                                 </tr>
@@ -63,13 +63,12 @@ include_once('../inc/function.php');
                                 include('../file/config.php');
 
                                 // Fetch data from the new_users table
-                                $sql = "SELECT * FROM new_users";
+                                $sql = "SELECT user_id, user_name, emp_id, email, mobile, role FROM new_users";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
-                                        // Construct the image path (if applicable)
-                                        
+                                        // Construct the image path (if applicable)                                       
 
                                         // Status - You can add your logic here (e.g., fetched from the DB or a default value)
                                         $status = "Active"; // Change this as per your requirement
@@ -82,14 +81,11 @@ include_once('../inc/function.php');
                                                 </label>
                                             </td>
                                             <td>{$row['user_id']}</td>
-                                            <td>
-                                                
-                                                {$row['user_name']}
-                                            </td>
+                                            <td>{$row['user_name']}</td>
                                             <td>{$row['emp_id']}</td>
                                             <td>{$row['email']}</td>
                                             <td>{$row['mobile']}</td>
-                                            <td>{$row['address']}</td>
+                                            <td>{$row['role']}</td>
                                             <td>{$status}</td>
                                             
                                         </tr>";

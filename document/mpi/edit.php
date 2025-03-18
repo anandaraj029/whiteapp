@@ -248,16 +248,7 @@ if (isset($_GET['project_no'])) {
         <!-- Form -->
         
 <div class="row">    
-<div class="col-lg-6">
-                    <!-- <div class="form-group">
-                        <label class="font-14 bold mb-2">CERTIFICATE NO.</label>
-                        <input type="text" class="theme-input-style" name="" placeholder="Enter CERTIFICATE NO." value="">
-                    </div>
-  
-                    <div class="form-group">
-                        <label class="font-14 bold mb-2">CUSTOMER NAME</label>
-                        <input type="text" class="theme-input-style" name="" placeholder="Enter CUSTOMER NAME" value="">
-                    </div> -->
+<div class="col-lg-6">                    
 
                     <div class="form-group">
                         <label class="font-14 bold mb-2">LOCATION</label>
@@ -523,7 +514,7 @@ if (isset($_GET['project_no'])) {
                         <button type="submit" class="btn btn-success">Update Certificate</button>
                     </div>
                 </div>
-            </div>
+</div>
 
             
         
@@ -532,18 +523,14 @@ if (isset($_GET['project_no'])) {
        <!-- End Horizontal Form With Icons -->
 </div>
 
-                        </div>
-                        
-                    </div>
-
-                    
+                        </div>                        
+                    </div>                    
 
                     </form>            
                 </div>
             </div>
             <!-- End Main Content -->
 
-            <?php 
+<?php 
         include_once('../../inc/footer.php');
-        ?>
-        
+?>        
