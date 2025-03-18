@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
     $project_no = $_POST['project_no'];
-    $companyName = $_POST['companyName'];
+    // $companyName = $_POST['companyName'];
     $reference_no = $_POST['reference_no'];
     $location = $_POST['location'];
     $next_inspection_date = $_POST['next_inspection_date'];
@@ -56,21 +56,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
 
     // Prepare the SQL statement
     $sql = "INSERT INTO rocking_test_certificate (
-        inspection_date, certificate_no, report_no, jrn, project_no, companyName, reference_no, location, next_inspection_date,
+        inspection_date, certificate_no, report_no, jrn, project_no, reference_no, location, next_inspection_date,
         customer_name, customer_email, mobile, inspector, technical_manager, report_date, color_code, applicable_standards,
         employer_address, premises_address, inspected_item_type, identification_no, quantity, description, wll_swl, last_exam_date,
         this_exam_date, next_exam_date, reason_for_exam, details_of_test, status, safe_to_use, grease_condition, last_aft, last_stbd,
         last_forward, last_port_side, actual_aft, actual_stbd, actual_forward, actual_port_side, permitted_aft, permitted_stbd,
         permitted_forward, permitted_port_side, result_aft, result_stbd, result_forward, result_port_side
     ) VALUES (
-        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+        ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
     )";
 
     // Prepare and bind parameters
     $stmt = $conn->prepare($sql);
     $stmt->bind_param(
-        "ssssssssssssssssssssssssssssssssssssssssssssssss",
-        $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $companyName, $reference_no, $location, $next_inspection_date,
+        "sssssssssssssssssssssssssssssssssssssssssssssss",
+        $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $reference_no, $location, $next_inspection_date,
         $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $report_date, $color_code, $applicable_standards,
         $employer_address, $premises_address, $inspected_item_type, $identification_no, $quantity, $description, $wll_swl, $last_exam_date,
         $this_exam_date, $next_exam_date, $reason_for_exam, $details_of_test, $status, $safe_to_use, $grease_condition, $last_aft, $last_stbd,
@@ -79,8 +79,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
     );
 
     // Execute the statement
+    
     if ($stmt->execute()) {
-        echo "New record created successfully";
+        // Update the project_info table to mark the certificate as created
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param("s", $project_no);
+
+        if ($update_stmt->execute()) {
+            $msg = "New record created successfully, and project status updated.";
+            header('Location: index.php?msg=' . urlencode($msg));
+            exit();
+        } else {
+            echo "Error updating project status: " . $conn->error;
+        }
+        $update_stmt->close();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
