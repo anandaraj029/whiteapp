@@ -26,6 +26,8 @@ $reference_no = $row['reference_no'];
 $customer_name = $row['customer_name'];
 $site_location = $row['location'];
 $inspection_date = $row['inspection_date'];
+$inspector = $row['inspector'];
+$technical_manager = $row['technical_manager'];
 $next_inspection_date = $row['next_inspection_date'];
 $inspected_item = $row['inspected_item'];
 $type_of_joint = $row['type_of_joint'];
@@ -47,10 +49,10 @@ $description_3 = $row['description_3'];
 $description_of_inspection = $row['description_of_inspection'];
 $inspection_result = $row['inspection_result'];
 $reason = $row['reason'];
-$inspector_name = $row['inspector_name'];
-$inspector_signature = $row['inspector_signature'];
-$authenticating_person_name = $row['authenticating_person_name'];
-$signature = $row['signature'];
+// $inspector_name = $row['inspector_name'];
+// $inspector_signature = $row['inspector_signature'];
+// $authenticating_person_name = $row['authenticating_person_name'];
+// $signature = $row['signature'];
 
 // SVG icons for checkboxes
 // $checkedIcon = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
@@ -59,6 +61,26 @@ $signature = $row['signature'];
 // SVG icons for checkboxes with boxes
 // $checkedIcon = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><polyline points="20 6 9 17 4 12"></polyline></svg>';
 // $uncheckedIcon = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>';
+
+
+
+
+// Convert inspector and technical manager names to lowercase
+$inspector_name = strtolower($row['inspector']);
+$technical_manager_name = strtolower($row['technical_manager']);
+
+// Define the correct paths as per your requirement
+$inspector_signature_img = "../../inspector/uploads/$inspector_name/images/signature_image.jpg";
+$authenticating_signature_img = "../uploads/$technical_manager_name.png";
+
+// Check if the files exist, otherwise show a default image
+if (!file_exists($inspector_signature_img)) {
+    $inspector_signature_img = "../default-signature.png"; // Set a fallback image if not found
+}
+if (!file_exists($authenticating_signature_img)) {
+    $authenticating_signature_img = "../default-signature.png"; // Set a fallback image if not found
+}
+
 
 // SVG icons for checkboxes with different colors
 // SVG icons for checkboxes with different colors
@@ -101,24 +123,24 @@ $reason_other = ($reason === 'other') ? $checkedIcon : $uncheckedIcon;
 
 
 // Function to check for existing signature file in multiple formats
-function getSignaturePath($name) {
-    $formats = ['png', 'jpg', 'jpeg'];
-    foreach ($formats as $format) {
-        $path = "uploads/{$name}.{$format}";
-        if (file_exists($path)) {
-            return $path;
-        }
-    }
-    return false;
-}
+// function getSignaturePath($name) {
+//     $formats = ['png', 'jpg', 'jpeg'];
+//     foreach ($formats as $format) {
+//         $path = "uploads/{$name}.{$format}";
+//         if (file_exists($path)) {
+//             return $path;
+//         }
+//     }
+//     return false;
+// }
 
 // Get inspector's signature path
-$inspector_signature_path = getSignaturePath($inspector_name);
-$authenticating_signature_path = getSignaturePath($authenticating_person_name);
+// $inspector_signature_path = getSignaturePath($inspector_name);
+// $authenticating_signature_path = getSignaturePath($authenticating_person_name);
 
 // Display signatures if found, otherwise show "No Signature"
-$inspector_signature_img = $inspector_signature_path ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
-$authenticating_signature_img = $authenticating_signature_path ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+// $inspector_signature_img = $inspector_signature_path ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
+// $authenticating_signature_img = $authenticating_signature_path ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
 
 
 // Define the paths to the signature images
@@ -359,13 +381,14 @@ $html = <<<HTML
                 <td style="width: 50%;" colspan="2" class="text-center section-title">AUTHENTICATING PERSON</td>
             </tr>
             <tr style="height: 25px;">
-                <td style="text-align: center;">$inspector_name</td>
+                <td style="text-align: center;">$inspector</td>
                 <td class="text-center">
-                    $inspector_signature_img
+                <img src="$inspector_signature_img" height="33px" alt="Inspector Signature">
                 </td>
-                <td style="text-align: center;">$authenticating_person_name</td>
+                <td style="text-align: center;">$technical_manager</td>
                 <td class="text-center">
-                    $authenticating_signature_img
+                <img src="$authenticating_signature_img" height="33px" alt="Authenticating Person Signature">
+
                 </td>
             </tr>
         </table>

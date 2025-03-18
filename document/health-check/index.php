@@ -5,7 +5,7 @@ include_once('../../file/config.php'); // include your database connection
 // SQL query to fetch data from the 'lifting_gears_certificate' table
 
 
-$sql = "SELECT chc.certificate_no, chc.project_no, chc.report_no, chc.inspector, chc.inspection_date, pi.project_status 
+$sql = "SELECT chc.certificate_no, chc.project_no, chc.report_no, chc.inspector, chc.inspection_date, chc.customer_name, pi.project_status 
         FROM crane_health_check_certificate chc
         LEFT JOIN project_info pi 
         ON chc.project_no = pi.project_no";
@@ -146,7 +146,7 @@ $result = $conn->query($sql);
             <th>Report No</th>
             <th class="text-center">Inspector Name</th>
             <th>Date of Inspection</th>
-            <th>Company Name</th>
+            <th>Client Name</th>
             <!-- <th>Serial Number</th> -->
             <th>Actions</th>
         </tr>
@@ -201,7 +201,8 @@ $result = $conn->query($sql);
                     </div>
                 </td>
                 <td><?php echo date('F j, Y', strtotime($row['inspection_date'])); ?></td>
-                <td><?php echo $row['companyName']; ?></td> <!-- Assuming customer_name is the company name -->
+                <td><?php echo $row['customer_name']; ?></td>
+                 <!-- Assuming customer_name is the company name -->
                 <!-- <td><?php echo $row['serial_number']; ?></td> -->
                 <td class="actions">
                                             <?php if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') : ?>

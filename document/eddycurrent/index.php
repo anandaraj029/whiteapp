@@ -3,7 +3,7 @@ include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Include your database connection
 
 // SQL query to fetch data from the 'eddy_current_inspection' table
-$sql = "SELECT ec.certificate_no, ec.project_no, ec.report_no, ec.inspector, ec.inspection_date, ec.companyName, pi.project_status 
+$sql = "SELECT ec.certificate_no, ec.project_no, ec.report_no, ec.inspector, ec.inspection_date, pi.project_status 
         FROM eddy_current_inspection ec
         LEFT JOIN project_info pi 
         ON ec.project_no = pi.project_no";
@@ -125,7 +125,7 @@ if (!$result) {
                 <th>Report No</th>
                 <th class="text-center">Inspector Name</th>
                 <th>Date of Inspection</th>
-                <th>Company Name</th>
+                <!-- <th>Company Name</th> -->
                 <!-- <th>Serial Number</th> -->
                 <th>Actions</th>
             </tr>
@@ -180,7 +180,7 @@ if (!$result) {
                         </div>
                     </td>
                     <td><?php echo date('F j, Y', strtotime($row['inspection_date'])); ?></td>
-                    <td><?php echo $row['companyName']; ?></td>
+                    <!-- <td><?php echo $row['companyName']; ?></td> -->
                     <!-- <td><?php echo $row['serial_no']; ?></td> -->
                     <td class="actions">
                         <?php if ($_SESSION['role'] === 'document controller' && $row['project_status'] !== 'Completed') : ?>
