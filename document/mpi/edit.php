@@ -64,6 +64,7 @@ if (isset($_GET['project_no'])) {
                 <div class="container-fluid">
                 <form action="update_mpi.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="project_no" value="<?php echo $row['project_no']; ?>" />
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -409,57 +410,32 @@ if (isset($_GET['project_no'])) {
 
 
 
-
-<div class="col-lg-12">    
-    <div class="form-element py-30 multiple-column">       
-        <!-- Form -->
-        
-        <!-- <div class="row">
-    <div class="col-lg-12">
-        <div class="form-group">
-            <label class="font-14 bold mb-2">Upload Image</label>
-            
-            
-            <input type="file" name="image" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
-
-            
-            <?php if (!empty($row['image_path'])): ?>
-                <div class="mt-3">
-                    <img src="<?php echo $row['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</div> -->
-
-
+<!-- Image Upload Section -->
 <div class="col-lg-12">
-    <div class="form-group">
-        <label class="font-14 bold mb-2">Upload Images</label>
+                    <div class="form-group">
+                        <label class="font-14 bold mb-2">Upload Images</label>
 
-        <!-- Loop through existing images -->
-        <?php foreach ($images as $image): ?>
-            <div class="mt-3">
-                <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
-                <br>
-                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>" 
-                   onclick="return confirm('Are you sure you want to delete this image?');" 
-                   class="btn btn-danger btn-sm mt-2">Delete</a>
-            </div>
-        <?php endforeach; ?>
+                        <!-- Loop through existing images -->
+                        <?php foreach ($images as $image): ?>
+                            <div class="mt-3">
+                                <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
+                                <br>
+                                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>" 
+                                   onclick="return confirm('Are you sure you want to delete this image?');" 
+                                   class="btn btn-danger btn-sm mt-2">Delete</a>
+                            </div>
+                        <?php endforeach; ?>
 
-        <!-- File input for uploading new images -->
-        <div class="mt-4">
-            <input type="file" name="images[]" id="images" class="theme-input-style" accept="image/*" multiple>
-        </div>
-    </div>
-</div>
-            
-        
-        <!-- End Form -->
-    </div>
-       <!-- End Horizontal Form With Icons -->
-</div>
+                        <!-- File input for uploading new images -->
+                        <div class="mt-4">
+                            <input type="file" name="images[]" id="images" class="theme-input-style" accept="image/*" multiple>
+                        </div>
+                        <button type="button" id="add-image-button" class="btn btn-primary mt-3">Add Another Image</button>
+                    </div>
+                </div>
+
+
+
 
 
 
@@ -547,3 +523,17 @@ if (isset($_GET['project_no'])) {
 <?php 
         include_once('../../inc/footer.php');
 ?>        
+
+
+<!-- Script to Add More File Inputs -->
+<script>
+  document.getElementById('add-image-button').addEventListener('click', function() {
+    const additionalImagesContainer = document.getElementById('additional-images');
+    const newFormGroup = document.createElement('div');
+    newFormGroup.className = 'form-group mt-3';
+    newFormGroup.innerHTML = `
+      <input type="file" name="images[]" class="theme-input-style" accept="image/*" placeholder="Upload Image">
+    `;
+    additionalImagesContainer.appendChild(newFormGroup);
+  });
+</script>

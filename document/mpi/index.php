@@ -160,7 +160,7 @@ $result = $conn->query($sql);
                     </div>
                 </td>
                 <td><?php echo $row['inspection_date']; ?></td>
-                <td><?php echo $row['companyName']; ?></td>
+                <td><?php echo $row['customer_name']; ?></td>
                 <td><?php echo $row['serial_numbers']; ?></td>
                 <td class="actions">
     <!-- Edit action: Only allowed for 'document controller' and if project is not completed -->

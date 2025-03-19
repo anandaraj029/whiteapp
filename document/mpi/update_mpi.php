@@ -5,7 +5,6 @@ include_once('../../file/config.php'); // Include your database connection
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
-    
     $date_of_report = $_POST['date_of_report'];
     $certificate_no = $_POST['certificate_no'];    
     $jrn = $_POST['jrn'];
@@ -37,112 +36,95 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $model_no = $_POST['model_no'];
     $result = $_POST['result'];
     $comments = $_POST['comments'];
-    // $ndt_inspector = $_POST['ndt_inspector'];
-    // $ndt_level = $_POST['ndt_level'];    
-    // $companyName = $_POST['companyName'];
 
-    // Image upload handling
-$target_dir = "./img/";
-$image_path = null;
+    // Prepare the SQL update query for mpi_certificates
+    $query = "UPDATE mpi_certificates SET 
+        date_of_report = ?,
+        certificate_no = ?,        
+        jrn = ?,
+        report_no = ?,
+        customer_name = ?,
+        customer_email = ?,
+        mobile = ?,
+        inspector = ?,
+        location = ?,
+        inspection_date = ?,
+        reference_no = ?,
+        next_inspection_date = ?,
+        inspected_item = ?,
+        serial_numbers = ?,
+        id_numbers = ?,
+        manufacturer = ?,
+        standards = ?,
+        swl = ?,
+        mpi_equip_type = ?,
+        current = ?,
+        contrast_paint = ?,
+        particle_medium = ?,
+        calibration_expiry_date = ?,
+        brand = ?,
+        prod_spacing = ?,
+        ink = ?,
+        yoke_sn = ?,
+        model_no = ?,
+        result = ?,
+        comments = ?
+        WHERE project_no = ?";
 
-// Fetch current image path from the database
-$sql_current_image = "SELECT image_path FROM mpi_certificates WHERE report_no = '$report_no'";
-$result_current_image = $conn->query($sql_current_image);
-$current_image_path = '';
+    // Use prepared statements to prevent SQL injection
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param(
+        'sssssssssssssssssssssssssssssss',
+        $date_of_report, $certificate_no, $jrn, $report_no, $customer_name, $customer_email, $mobile,
+        $inspector, $location, $inspection_date, $reference_no, $next_inspection_date, $inspected_item,
+        $serial_numbers, $id_numbers, $manufacturer, $standards, $swl, $mpi_equip_type, $current,
+        $contrast_paint, $particle_medium, $calibration_expiry_date, $brand, $prod_spacing, $ink,
+        $yoke_sn, $model_no, $result, $comments, $project_no
+    );
 
-if ($result_current_image->num_rows > 0) {
-    $row = $result_current_image->fetch_assoc();
-    $current_image_path = $row['image_path'];
-}
+    // Execute the update query
+    if ($stmt->execute()) {
+        // Handle multiple image uploads
+        if (!empty($_FILES['images']['name'][0])) {
+            $target_dir = "../../uploads/"; // Ensure this directory exists and is writable
 
-if (!empty($_FILES['image']['name'])) { // Changed 'image_path' to 'image'
-    $image_name = basename($_FILES["image"]["name"]);
-    $target_file = $target_dir . uniqid() . "_" . $image_name;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                $file_name = basename($_FILES['images']['name'][$key]);
+                $file_tmp = $_FILES['images']['tmp_name'][$key];
+                $file_path = $target_dir . uniqid() . "_" . $file_name;
 
-    // Check if image file is a valid image type
-    $check = getimagesize($_FILES["image"]["tmp_name"]);
-    if ($check !== false) {
-        if ($_FILES["image"]["size"] > 5000000) {
-            echo "Sorry, your file is too large.";
-            exit;
-        }
+                // Validate file type and size
+                $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
+                $imageFileType = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
 
-        $allowed_formats = ['jpg', 'jpeg', 'png', 'gif'];
-        if (!in_array($imageFileType, $allowed_formats)) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            exit;
-        }
-
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-            $image_path = $target_file;
-
-            // Remove old image if new image is uploaded
-            if (!empty($current_image_path)) {
-                if (file_exists($current_image_path)) {
-                    unlink($current_image_path);
+                if (in_array($imageFileType, $allowed_formats) && $_FILES['images']['size'][$key] <= 5000000) {
+                    if (move_uploaded_file($file_tmp, $file_path)) {
+                        // Insert image path into mpi_images table
+                        $imageQuery = "INSERT INTO mpi_images (certificate_id, image_path) VALUES (?, ?)";
+                        $imageStmt = $conn->prepare($imageQuery);
+                        $imageStmt->bind_param('is', $project_no, $file_path);
+                        $imageStmt->execute();
+                    } else {
+                        echo "Error uploading file: " . $_FILES['images']['name'][$key];
+                    }
+                } else {
+                    echo "Invalid file format or size for: " . $_FILES['images']['name'][$key];
                 }
             }
-        } else {
-            echo "Sorry, there was an error uploading your file.";
-            exit;
         }
-    } else {
-        echo "File is not an image.";
-        exit;
-    }
-} else {
-    // If no new image is uploaded, use the current image
-    $image_path = $current_image_path;
-}
 
-
-    // Prepare the SQL update query
-    $query = "UPDATE mpi_certificates SET 
-        report_no = '$report_no',
-        date_of_report = '$date_of_report',
-        certificate_no = '$certificate_no',        
-        jrn = '$jrn',
-        customer_name = '$customer_name',
-        customer_email = '$customer_email',
-        mobile = '$mobile',
-        inspector = '$inspector',
-        location = '$location',
-        inspection_date = '$inspection_date',
-        reference_no = '$reference_no',
-        next_inspection_date = '$next_inspection_date',
-        inspected_item = '$inspected_item',
-        serial_numbers = '$serial_numbers',
-        id_numbers = '$id_numbers',
-        manufacturer = '$manufacturer',
-        standards = '$standards',
-        swl = '$swl',
-        mpi_equip_type = '$mpi_equip_type',
-        current = '$current',
-        contrast_paint = '$contrast_paint',
-        particle_medium = '$particle_medium',
-        calibration_expiry_date = '$calibration_expiry_date',
-        brand = '$brand',
-        prod_spacing = '$prod_spacing',
-        ink = '$ink',
-        yoke_sn = '$yoke_sn',
-        model_no = '$model_no',
-        result = '$result',
-        comments = '$comments',
-        image_path = '$image_path'
-        WHERE project_no = '$project_no'"; // Removed the extra comma before WHERE clause
-
-    // Execute the query
-    if ($conn->query($query) === TRUE) { // Changed $sql to $query
         // Redirect to the list page after successful update
         header("Location: index.php?msg=MPI updated successfully");
-        exit(); // Ensure the script stops executing after redirect
+        exit();
     } else {
-        echo "Error updating record: " . $conn->error;
+        echo "Error updating record: " . $stmt->error;
     }
+
+    // Close the statements
+    $stmt->close();
 }
 
 // Close the database connection
-// mysqli_close($conn);
+$conn->close();
 ob_end_flush();
 ?>
