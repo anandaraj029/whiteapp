@@ -29,11 +29,6 @@ $image_result = $image_stmt->get_result();
 $conn->close();
 ?>
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,23 +46,23 @@ $conn->close();
     </div>
     <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
-    <h4 class="text-center" style="text-align: center; margin-top: 20px">MAGNETIC PARTICLE INSPECTION CERTIFICATE</h4>
+    <h4 class="text-center" style="text-align: center; margin-top: 20px"><strong>MAGNETIC PARTICLE INSPECTION CERTIFICATE</strong></h4>
     <div class="table-responsive">
         <table class="content-table">
             <tbody>
                 <tr >
                 <td class="section-title" style="text-align: center; width: 25%;">CERTIFICATE NO.</td>
-                <td><strong><?php echo $row['certificate_no'] ?? 'N/A'; ?></strong></td>
+                <td style="text-align: center"><strong><?php echo $row['certificate_no'] ?? 'N/A'; ?></strong></td>
                 <td class="section-title" style="text-align: center">REFERENCE NO.</td>
                 <td style="text-align: center"><strong><?php echo $row['reference_no'] ?? 'N/A'; ?></strong></td>
                 </tr>
                 <tr>
                 <td class="section-title" style="text-align: center">CUSTOMER NAME</td>
-                <td colspan="3"><strong><?php echo $row['customer_name'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['customer_name'] ?? 'N/A'; ?></strong></td>
                 </tr>
                 <tr>
                 <td class="section-title" style="text-align: center">LOCATION</td>
-                <td colspan="3"><strong><?php echo $row['location'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['location'] ?? 'N/A'; ?></strong></td>
             </tr>
             <tr>
                 <td class="section-title" style="text-align: center">INSPECTION DATE</td>
@@ -87,19 +82,19 @@ $conn->close();
                 
             <tr>
                 <td class="section-title" style="text-align: center; width: 25%;">INSPECTED ITEM</td>
-                <td colspan="3"><strong><?php echo $row['inspected_item'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['inspected_item'] ?? 'N/A'; ?></strong></td>
             </tr>
             <tr>
                 <td class="section-title" style="text-align: center">SERIAL NUMBERS</td>
-                <td colspan="3"><strong><?php echo $row['serial_numbers'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['serial_numbers'] ?? 'N/A'; ?></strong></td>
             </tr>
             <tr>
                 <td class="section-title" style="text-align: center">MANUFACTURER / EQUIP. NO.</td>
-                <td colspan="3"><strong><?php echo $row['manufacturer'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['manufacturer'] ?? 'N/A'; ?></strong></td>
             </tr>
             <tr>
                 <td class="section-title" style="text-align: center">STANDARDS</td>
-                <td colspan="3"><strong><?php echo $row['standards'] ?? 'N/A'; ?></strong></td>
+                <td colspan="3" style="text-align: center"><strong><?php echo $row['standards'] ?? 'N/A'; ?></strong></td>
             </tr>
             </tbody>
         </table>
@@ -217,15 +212,17 @@ $conn->close();
             </thead>
             <tbody>
                 <tr>
-                    <td  style="text-align: center"><strong>SHAROON B. MASIH</strong></td>
-                    
-                    <td style="text-align: center"><strong>SIGNATURE</strong></td>
+                    <td  style="text-align: center"><strong><?php echo $row['inspector'] ?? 'N/A'; ?></strong></td>                    
+                    <td style="text-align: center">
+                    <img src="../../inspector/uploads/<?php echo strtolower($row['inspector']); ?>/images/signature_image.jpg" class="sign" alt="Inspector Signature">
+
+    </td>
                     
                 </tr>
-                <tr>
+                <!-- <tr>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
                 <td style="text-align: center"> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>

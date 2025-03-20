@@ -204,17 +204,19 @@ $html = <<<HTML
                         <td colspan="3">
                             <strong>Name & Qualification of the person making the report:</strong>
                             <br>
-                            SHAROON BOOTA MASIH<br>
+                            {$row['inspector']}
+                            <br>
                             Elevating/Lifting Equipment Inspector <span class="sign-space"><strong>Signature:</strong></span>
                         </td>
-                        <td colspan="2"><img src="../sign.jpg" class="sign" alt="Sign"></td>
+                        <td colspan="2"><img src="../../inspector/uploads/{$row['inspector']}/images/signature_image.jpg" class="sign" alt="Sign"></td>
                         <td colspan="3">
                             <strong>Name of the person authentication of this report:</strong><br>
-                            VENANCIO Z. VERA<br>
+                            {$row['technical_manager']}
+                            <br>
                             Technical Manager <span><strong>Signature:</strong></span>
                             
                         </td>
-                        <td colspan="2"><img src="../sign.jpg" class="sign" alt="Header Image"></td>
+                        <td colspan="2"><img src="../uploads/{$row['technical_manager']}.png" class="sign" alt="Header Image"></td>
                         <td colspan="2"><img src="../seal.png" class="sign" alt="Header Image"></td>
          </tr>
                 </tbody>

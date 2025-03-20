@@ -11,8 +11,7 @@ if (isset($_POST['save_data_lifting'])) {
     $jrn = $_POST['jrn'];
     $color_code = $_POST['color_code'];
     $applicable_standards = $_POST['applicable_standards'];
-    $project_no = $_POST['project_no'];
-    $companyName = $_POST['companyName'];
+    $project_no = $_POST['project_no'];    
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
@@ -53,8 +52,7 @@ if (isset($_POST['save_data_lifting'])) {
             jrn,
             color_code,
             applicable_standards,
-            project_no,
-            companyName,
+            project_no,            
             customer_name,
             customer_email,
             mobile,
@@ -87,7 +85,6 @@ if (isset($_POST['save_data_lifting'])) {
             '$color_code',
             '$applicable_standards',
             '$project_no',
-            '$companyName',
             '$customer_name',
             '$customer_email',
             '$mobile',

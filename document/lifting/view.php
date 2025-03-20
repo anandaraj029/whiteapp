@@ -208,19 +208,50 @@ margin: 5px;
                     <tr>
                         <td colspan="3">
                             <strong>Name & Qualification of the person making the report:</strong>
+                            <br>                            
+                            <?= $certificate['inspector']; ?>
                             <br>
-                            SHAROON BOOTA MASIH<br>
                             Elevating/Lifting Equipment Inspector <span class="sign-space"><strong>Signature:</strong></span>
                         </td>
-                        <td colspan="2"><img src="../sign.jpg" class="sign" alt="Sign"></td>
+                        <td colspan="2">
+    <?php
+    // Construct the inspector's signature image path
+    $inspector_name = urlencode($certificate['inspector']);
+    $inspector_signature_path = "../../inspector/uploads/{$inspector_name}/images/signature_image.jpg";
+
+    // Check if the signature file exists
+    if (file_exists($inspector_signature_path)) {
+        echo "<img src='$inspector_signature_path' class='sign' alt='Inspector Signature'>";
+    } else {
+        // Placeholder image if the signature doesn't exist
+        echo "<img src='../sign.jpg' class='sign' alt='Default Signature'>";
+    }
+    ?>
+</td>
+
                         <td colspan="3">
                             <strong>Name of the person authentication of this report:</strong><br>
-                            VENANCIO Z. VERA<br>
+                            <?= $certificate['technical_manager']; ?><br>
                             Technical Manager <span><strong>Signature:</strong></span>
                             
                         </td>
-                        <td colspan="2"><img src="../sign.jpg" class="sign" alt="Header Image"></td>
-                        <td colspan="2"><img src="../seal.png" class="sign" alt="Header Image"></td>
+                        <td>
+    <?php
+    // Construct the signature image path
+    $technical_manager_name = urlencode($certificate['technical_manager']);
+    $technical_manager_signature_path = "../uploads/{$technical_manager_name}.png";
+
+    // Check if the signature file exists
+    if (file_exists($technical_manager_signature_path)) {
+        echo "<img src='$technical_manager_signature_path' class='sign' alt='Technical Manager Signature'>";
+    } else {
+        // Placeholder image if the signature doesn't exist
+        echo "<img src='../sign.jpg' class='sign' alt='Default Signature'>";
+    }
+    ?>
+</td>
+
+                        <td colspan="3"><img src="../seal.png" class="sign" alt="Header Image"></td>
          </tr>
                 </tbody>
             </table>

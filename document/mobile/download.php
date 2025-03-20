@@ -1,6 +1,5 @@
 <?php
 require_once('../../vendor/autoload.php');
-
 include_once('../../file/config.php'); // include your database connection
 
 // Get the project ID from the query parameter
@@ -207,88 +206,76 @@ $html = <<<HTML
             </tr>
             
             <tr>
-                <td colspan="3">
-      
-                    <strong><span style="text-align: center;">Description and Identification of the equipment:</span></strong>   <br/>
-                    <strong>{$row['equipment_description']}</strong><br/>
-                    <strong>Manufacturer: {$row['manufacturer']}</strong> <span  style="text-align:right;"> <strong>Certificate No.: {$row['certificate_no']}</strong></span><br/>
-                    <strong>Model: {$row['model']}</strong>          <span  style="text-align:right;"> <strong>JRN: {$row['jrn']}</strong></span><br/>
-                    <strong>Equipment ID No.: {$row['equipment_id']}</strong><br>
-                    <strong>Equipment Serial No.: {$row['equipment_serial_no']}</strong><br>
-                    <strong>Main Hook Block SWL: {$row['main_hook_block_swl']}</strong><br>
-                    <strong>Serial No.: {$row['serial_numbers']}</strong><br>
-                    <strong>Rope Dia.: {$row['rope_dia']}</strong><br/>
-                    <strong>Falls: {$row['falls']}</strong>
-                </td>
-                <td style="text-align: center;"><strong>Safe Working Load(s):<br/>{$row['safe_working_load']}</strong></td>
-                <td  style="text-align: center;"><strong>Date of manufacture if known:<br/>{$row['manufacture_date']}</strong></td>
-                <td  style="text-align: center;"><strong>Date of last thorough examination:<br>{$row['last_exam_date']}</strong></td>
+    <td colspan="3">
+        <strong><span style="text-align: center;">Description and Identification of the equipment:</span></strong><br/>
+        <strong>{$row['equipment_description']}</strong><br/>
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="50%" style="border: none;"><strong>Manufacturer: {$row['manufacturer']}</strong></td>
+                <td width="50%" style="border: none; text-align: right;"><strong>Certificate No.: {$row['certificate_no']}</strong></td>
             </tr>
             <tr>
-                <td colspan="3">
-				
-				
-                    <div class="row align-items-start">
-                        <div class="col-8">
-                         <strong>   Is this the first examination after installation or assembly at a new site or location? </strong>
-                        </div>
-                        <div class="col-4">
-                        <strong>    {$row['first_examination']}</strong>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col-8">
-                      <strong>      If the answer to the above question is YES has the equipment been installed correctly? </strong>
-                        </div>
-                        <div class="col-4">
-                       <strong>     {$row['installed_correctly']}</strong>
-                        </div>
-                    </div>
-                    
-                </td>
-                <td colspan="3">
-				
-				<div class="row align-items-start">
-                        <div class="col-12" style="text-align: center;">
-                           <strong> Was the examination carried out: </strong>
-                        </div>
-                        
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col-8">
-                        <strong>    Within an interval of 6 months?  </strong>
-                        </div>
-                        <div class="col-4">
-                       <strong>     {$row['interval_6_months']}</strong>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col-8">
-                       <strong>     Within an interval of 12 months? </strong>
-                        </div>
-                        <div class="col-4">
-                            <strong>{$row['interval_12_months']}</strong>
-                        </div>
-                    </div>
-                    <div class="row align-items-start">
-                        <div class="col-8">
-                          <strong>  In accordance with an examination scheme? </strong>
-                        </div>
-                        <div class="col-4">
-                          <strong>  {$row['examination_scheme']}</strong>
-                        </div>
-                    </div>
-					
-					<div class="row align-items-start">
-                        <div class="col-8">
-                        <strong>    After the occurrence of exceptional circumstances? </strong>
-                        </div>
-                        <div class="col-4">
-                            <strong>{$row['exceptional_circumstances']}</strong>
-                        </div>
-                    </div>
-                </td>
+                <td width="50%" style="border: none;"><strong>Model: {$row['model']}</strong></td>
+                <td width="50%" style="border: none; text-align: right;"><strong>JRN: {$row['jrn']}</strong></td>
             </tr>
+            <tr>
+                <td width="50%" style="border: none;"><strong>Equipment ID No.: {$row['equipment_id']}</strong></td>
+                <td width="50%" style="border: none; text-align: right;"><strong>Equipment Serial No.: {$row['equipment_serial_no']}</strong></td>
+            </tr>
+            <tr>
+                <td width="50%" style="border: none;"><strong>Main Hook Block SWL: {$row['main_hook_block_swl']}</strong></td>
+                <td width="50%" style="border: none; text-align: right;"><strong>Serial No.: {$row['serial_numbers']}</strong></td>
+            </tr>
+            <tr>
+                <td width="50%" style="border: none;"><strong>Rope Dia.: {$row['rope_dia']}</strong></td>
+                <td width="50%" style="border: none; text-align: right;"><strong>Falls: {$row['falls']}</strong></td>
+            </tr>
+        </table>
+    </td>
+    <td style="text-align: center;"><strong>Safe Working Load(s):<br/>{$row['safe_working_load']}</strong></td>
+    <td style="text-align: center;"><strong>Date of manufacture if known:<br/>{$row['manufacture_date']}</strong></td>
+    <td style="text-align: center;"><strong>Date of last thorough examination:<br>{$row['last_exam_date']}</strong></td>
+</tr>
+            <tr>
+    <td colspan="3">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>Is this the first examination after installation or assembly at a new site or location?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px;"><strong>{$row['first_examination']}</strong></td>
+            </tr>
+            <tr>
+                <td width="80%" style="border: none; padding-top: 10px;"><strong>If the answer to the above question is YES, has the equipment been installed correctly?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px; padding-top: 10px;"><strong>{$row['installed_correctly']}</strong></td>
+            </tr>
+        </table>
+    </td>
+    <td colspan="3">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none">
+            <tr>
+                <td colspan="2" style="border: none; text-align: center; padding-bottom: 10px;"><strong>Was the examination carried out:</strong></td>
+            </tr>
+            <tr>
+                <td width="80%" style="border: none;"><strong>Within an interval of 6 months?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px;"><strong>{$row['interval_6_months']}</strong></td>
+            </tr>
+            <tr>
+                <td width="80%" style="border: none; padding-top: 10px;"><strong>Within an interval of 12 months?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px; padding-top: 10px;"><strong>{$row['interval_12_months']}</strong></td>
+            </tr>
+            <tr>
+                <td width="80%" style="border: none; padding-top: 10px;"><strong>In accordance with an examination scheme?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px; padding-top: 10px;"><strong>{$row['examination_scheme']}</strong></td>
+            </tr>
+            <tr>
+                <td width="80%" style="border: none; padding-top: 10px;"><strong>After the occurrence of exceptional circumstances?</strong></td>
+                <td width="20%" style="border: none; padding-left: 20px; padding-top: 10px;"><strong>{$row['exceptional_circumstances']}</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+
+
             <tr>
                 <td colspan="6" style="text-align: center;">
 				
@@ -308,97 +295,76 @@ $html = <<<HTML
 			
 			
 				<tr>
-				
-				<td colspan="6">
-				<div class="row align-items-start">
-                        <div class="col-10">
-                      <strong>      Is the above a defect which is of immediate danger to persons </strong>
-                        </div>
-                        <div class="col-2">
-                       <strong>     {$row['defect']}</strong>
-                        </div>
-                    </div>
-				
-				
-				</td>
-				</tr>
-				
-				<tr>
-				
-				<td colspan="6">
-				<div class="row align-items-start">
-                        <div class="col-10">
-                      <strong>      Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)  </strong>
-                        </div>
-                        <div class="col-2">
-                       <strong>     YES by:  {$row['date_defect']}  </strong>
-                        </div>
-                    </div>
-				
-				
-				</td>
-				
-				</tr>
-				
-				
-
-				
-				
-				<tr>
-				 <td colspan="6" style="text-align: center;">
-				<strong>
-				Particulars of any repair, renewal or alteration required to remedy the defect identified above: <br/>
-
-                {$row['repair_details']} 
-				</strong>
-				</td>
-				</tr>
-				
-				
-				<tr>
-				 <td colspan="6" style="text-align: center;">
-				<strong>
-				Particulars of any tests carried out as part of the examination: (If none state NONE) <br/>
-                {$row['test_particulars']} 
-                (SEE ATTACHED PAGE 2) 
-				</strong>
-				</td>
-				</tr>
+    <td colspan="6">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>Is the above a defect which is of immediate danger to persons?</strong></td>
+                <td width="20%" style="border: none; text-align: right;"><strong>{$row['defect']}</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>
 
 <tr>
-				
-				<td colspan="6">
-				<div class="row align-items-start">
-                        <div class="col-10">
-                      <strong>      IS THIS EQUIPMENT FIT FOR PURPOSE?  </strong>
-                        </div>
-                        <div class="col-2">
-                       <strong>     {$row['equipment_fit']}</strong>
-                        </div>
-                    </div>
-				
-				
-				</td>
-				</tr>				
-				
-				
-				
-				<tr>
-				
+    <td colspan="6">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>Is the above a defect which is not yet but could become a danger to persons: (If YES state the date by when)</strong></td>
+                <td width="20%" style="border: none; text-align: right;"><strong>YES by: {$row['date_defect']}</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="6">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>Particulars of any repair, renewal or alteration required to remedy the defect identified above:</strong></td>
+                <td width="20%" style="border: none; text-align: right;"><strong>{$row['repair_details']}</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr>
+    <td colspan="6">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>Particulars of any tests carried out as part of the examination: (If none state NONE)</strong></td>
+                <td width="20%" style="border: none; text-align: right;"><strong>{$row['test_particulars']} (SEE ATTACHED PAGE 2)</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+
+<tr>
+    <td colspan="6">
+        <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; border: none;">
+            <tr>
+                <td width="80%" style="border: none;"><strong>IS THIS EQUIPMENT FIT FOR PURPOSE?</strong></td>
+                <td width="20%" style="border: none; text-align: right;"><strong>{$row['equipment_fit']}</strong></td>
+            </tr>
+        </table>
+    </td>
+</tr>			
+<tr>
+    			
 				<td colspan="2" style="text-align: center;">
 			<strong>	Name & Qualifications of person making this report: </strong><br/>
 
-            <img src="../sign.jpg" class="sign" alt="Header Image"><br>
+            <img src="../../inspector/uploads/{$row['inspector_name']}/images/signature_image.jpg" class="sign" alt="Header Image"><br>
 
-<strong>{$row['name_qualifications_person']} </strong><br/>
+<strong>{$row['inspector_name']} </strong><br/>
 
-<strong>SAP No. 80019222 </strong>
+<strong>SAP No. 80019222 Inspector </strong>
 				
 				</td>
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
-				<img src="../sign.jpg" class="sign" alt="Header Image"><br>
-			<strong>	{$row['authenticating_person_name']} </strong><br/>
+				<img src="../uploads/{$row['technical_manager']}.png" class="sign" alt="Header Image"><br>
+			<strong>	{$row['technical_manager']} </strong><br/>
 
 <strong>Technical Manager </strong>
 				
@@ -445,7 +411,7 @@ $html = <<<HTML
 
         <table class="content-table">
             <tr class="section-title">
-                <td colspan="5" style="text-align: center">B. LOAD TEST</td>
+                <td colspan="5" style="text-align: center"><strong>B. LOAD TEST</strong></td>
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Length (m)</strong></td>
@@ -472,13 +438,13 @@ $html = <<<HTML
 <p style="font-size: 10px; text-align: center; color: red;"><strong><i>Note: 	SWL Test weight is calculated by the following formula and includes the mass of lifting hook and slings, with test load rated lifting capacity of X 100% and outriggers are fully extended.</i></strong></p>
         <table class="content-table">
             <tr class="section-title">
-                <td colspan="5" style="text-align: center">C. RESULT OF INSPECTION</td>
+                <td colspan="5" style="text-align: center"><strong>C. RESULT OF INSPECTION</strong></td>
             </tr>
             <tr class="section-title" >
-                <td style="text-align: center">OPERATION</td>
-				<td style="text-align: center">COMMENTS</td>
-				<td style="text-align: center">SAFETY DEVICES</td>
-				<td style="text-align: center">COMMENTS</td>              
+                <td style="text-align: center"><strong>OPERATION</strong></td>
+				<td style="text-align: center"><strong>COMMENTS</strong></td>
+				<td style="text-align: center"><strong>SAFETY DEVICES</strong></td>
+				<td style="text-align: center"><strong>COMMENTS</strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Boom Lifting</strong></td>
@@ -514,7 +480,7 @@ $html = <<<HTML
                 <td style="text-align: center"><strong>Swings / Slew</strong></td>
                 <td style="text-align: center"><strong>{$row['swings_slew']}</strong></td>
                 <td style="text-align: center"><strong>Boom Angle Indicator</strong></td>
-				<td style="text-align: center"><strong>{$row['boom_angle']}</strong></td>              
+				<td style="text-align: center"><strong>{$row['boom_angle_indicator']}</strong></td>              
             </tr>
             <tr>
                 <td style="text-align: center"><strong>Hydraulic System</strong></td>

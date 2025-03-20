@@ -242,18 +242,24 @@ input[type="checkbox"] {
         </tr>
         <tr style="height: 25px;">
             <td style="text-align: center;">
-                <?php echo $inspector_name; ?>
+            <?php echo $inspector; ?>
         </td>
             <td class="text-center">
-            <img src="uploads/<?php echo $inspector_name; ?>.png?<?php echo time(); ?>" height="33px" alt="Inspector Signature">
+            <!-- <img src="../../inspector/uploads/<?php echo strtolower($inspector); ?>.png ?>" height="33px" alt="Inspector Signature"> -->
+            <img src="../../inspector/uploads/<?php echo strtolower($row['inspector']); ?>/images/signature_image.jpg" height="33px" alt="Inspector Signature">
+
+            <!-- <img src="../../inspector/uploads/<?php echo strtolower($row['inspector']); ?>/images/signature_image.jpg" class="sign" alt="Inspector Signature"> -->
+            
 
 
                 <!-- <img src="uploads/<?php echo $inspector_name; ?>.png" height="33px" alt="Inspector Signature"> -->
             </td>
-            <td style="text-align: center;"><?php echo $authenticating_person_name; ?></td>
+            <td style="text-align: center;"><?php echo $technical_manager; ?></td>
             <td class="text-center">
-                <!-- <img src="uploads/<?php echo $authenticating_person_name; ?>.png" height="33px" alt="Authenticating Person Signature"> -->
-                <img src="uploads/<?php echo $authenticating_person_name; ?>.png?<?php echo time(); ?>" height="33px" alt="Authenticating Person Signature">
+            
+            
+            <img src="../uploads/<?php echo strtolower($row['technical_manager']); ?>.png" height="33px" alt="Authenticating Person Signature">
+
             </td>
         </tr>
     </table>

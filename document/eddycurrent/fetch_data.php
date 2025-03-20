@@ -3,17 +3,6 @@
 include_once('../../file/config.php');
 
 
-// Function to get the correct image format (supports png, jpg, jpeg)
-function getImagePath($baseName) {
-    $image_formats = ['png', 'jpg', 'jpeg'];
-    foreach ($image_formats as $format) {
-        $filePath = "uploads/{$baseName}.{$format}";
-        if (file_exists($filePath)) {
-            return $filePath . "?" . time(); // Append timestamp to avoid caching issues
-        }
-    }
-    return ""; // Return empty if no valid image found
-}
 
 // Check if a certificate number is provided (e.g., via query string)
 if (isset($_GET['project_no'])) {
@@ -36,6 +25,8 @@ if (isset($_GET['project_no'])) {
         $reference_no = $row['reference_no'];
         $customer_name = $row['customer_name'];
         $site_location = $row['location'];
+        $inspector = $row['inspector'];
+        $technical_manager = $row['technical_manager'];
         $next_inspection_date = $row['next_inspection_date'];
         $inspected_item = $row['inspected_item'];
         $type_of_joint = $row['type_of_joint'];
@@ -56,11 +47,7 @@ if (isset($_GET['project_no'])) {
         $description_3 = $row['description_3'];
         $description_of_inspection = $row['description_of_inspection'];
         $inspection_result = $row['inspection_result'];
-        $reason = $row['reason'];
-        $inspector_name = $row['inspector_name'];
-        $authenticating_person_name = $row['authenticating_person_name'];
-        $inspector_signature = $row['inspector_signature'];
-        $signature = $row['signature'];
+        $reason = $row['reason'];        
     } else {
         echo "No record found for the given certificate number.";
         exit;

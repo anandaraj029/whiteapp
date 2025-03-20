@@ -126,7 +126,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                 <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
                             </div>
                         </div>
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Company Name</label>
                             </div>
@@ -134,7 +134,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
                                 <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
                             </div>
-                        </div>
+                        </div> -->
 
 
 
@@ -143,7 +143,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
                 <div class="col-lg-6">
                     <!-- Customer Information / Inspector -->
-                    <div class="form-element py-30 mb-30" style="height: 470px;">
+                    <div class="form-element py-30 mb-30">
                         <h4 class="font-20 mb-30">Customer Information / Inspector</h4>
                         <div class="form-row mb-20">
                             <div class="col-sm-4">

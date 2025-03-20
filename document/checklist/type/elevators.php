@@ -24,7 +24,7 @@ if (!isset($row) || empty($row)) {
     <style>
 
 .container{
-            max-width: 926px;
+            max-width: 934px;
 
         }
 

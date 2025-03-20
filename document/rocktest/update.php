@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
     $project_no = $_POST['project_no'];
-    $companyName = $_POST['companyName'];
+    // $companyName = $_POST['companyName'];
     $reference_no = $_POST['reference_no'];
     $location = $_POST['location'];
     $next_inspection_date = $_POST['next_inspection_date'];
@@ -61,7 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               report_no = ?,              
               jrn = ?,
               project_no = ?,
-              companyName = ?,
               reference_no = ?,
               location = ?,
               next_inspection_date = ?,
@@ -107,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               WHERE id = ?";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssssssssssssssssssssssssssssssssssssssssssssssi", $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $companyName, $reference_no, $location, $next_inspection_date, $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $report_date, $color_code, $applicable_standards, $employer_address, $premises_address, $inspected_item_type, $identification_no, $quantity, $description, $wll_swl, $last_exam_date, $this_exam_date, $next_exam_date, $reason_for_exam, $details_of_test, $status, $safe_to_use, $grease_condition, $last_aft, $last_stbd, $last_forward, $last_port_side, $actual_aft, $actual_stbd, $actual_forward, $actual_port_side, $permitted_aft, $permitted_stbd, $permitted_forward, $permitted_port_side, $result_aft, $result_stbd, $result_forward, $result_port_side, $certificate_id);
+    $stmt->bind_param("sssssssssssssssssssssssssssssssssssssssssssssssi", $inspection_date, $certificate_no, $report_no, $jrn, $project_no, $reference_no, $location, $next_inspection_date, $customer_name, $customer_email, $mobile, $inspector, $technical_manager, $report_date, $color_code, $applicable_standards, $employer_address, $premises_address, $inspected_item_type, $identification_no, $quantity, $description, $wll_swl, $last_exam_date, $this_exam_date, $next_exam_date, $reason_for_exam, $details_of_test, $status, $safe_to_use, $grease_condition, $last_aft, $last_stbd, $last_forward, $last_port_side, $actual_aft, $actual_stbd, $actual_forward, $actual_port_side, $permitted_aft, $permitted_stbd, $permitted_forward, $permitted_port_side, $result_aft, $result_stbd, $result_forward, $result_port_side, $certificate_id);
 
     if ($stmt->execute()) {
         // Redirect to the list page after successful update

@@ -1,6 +1,6 @@
-<?php 
+<?php
 include_once('../../inc/function.php');
-include_once('../../file/config.php');  
+include_once('../../file/config.php');
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -64,6 +64,7 @@ if (isset($_GET['project_no'])) {
                 <div class="container-fluid">
                 <form action="update_mpi.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="project_no" value="<?php echo $row['project_no']; ?>" />
+                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                  <div class="row">
                         <div class="col-lg-6">
                             <!-- Base Horizontal Form -->
@@ -88,7 +89,7 @@ if (isset($_GET['project_no'])) {
                                             <label class="font-14 bold">Certificate No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="certificate_no" value="<?php echo $row['certificate_no']; ?>" placeholder="Certificate No">
+                                            <input type="text" class="theme-input-style" name="certificate_no" value="<?php echo $row['certificate_no']; ?>" placeholder="Certificate No" readonly>
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -99,7 +100,7 @@ if (isset($_GET['project_no'])) {
                                             <label class="font-14 bold">Report No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $row['report_no']; ?>" placeholder="Report No">
+                                            <input type="text" class="theme-input-style" name="report_no" value="<?php echo $row['report_no']; ?>" placeholder="Report No" readonly>
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -110,7 +111,7 @@ if (isset($_GET['project_no'])) {
                                             <label class="font-14 bold">JRN</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="jrn" value="<?php echo $row['jrn']; ?>" placeholder="JRN">
+                                            <input type="text" class="theme-input-style" name="jrn" value="<?php echo $row['jrn']; ?>" placeholder="JRN" readonly>
                                         </div>
                                     </div>
 
@@ -120,19 +121,19 @@ if (isset($_GET['project_no'])) {
                                 <label class="font-14 bold mb-2">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="project_no" class="theme-input-style" value="<?php echo $row['project_no']; ?>">
+                                <input type="text" name="project_no" class="theme-input-style" value="<?php echo $row['project_no']; ?>" readonly>
                             </div>
                         </div>
 
 
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" name="companyName" class="theme-input-style" value="<?php echo $row['companyName']; ?>">
+                                <input type="text" name="companyName" class="theme-input-style" value="<?php echo $row['companyName']; ?>" readonly>
                             </div>
-                        </div>
+                        </div> -->
                                            
                                     
                                     
@@ -162,7 +163,7 @@ if (isset($_GET['project_no'])) {
                                                     </div>
                                                 </div>
                                                 
-                                                <input type="text" class="form-control pl-1" name="customer_name" placeholder="Type Your Name" value="<?php echo $row['customer_name']; ?>">
+                                                <input type="text" class="form-control pl-1" name="customer_name" placeholder="Type Your Name" value="<?php echo $row['customer_name']; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +181,7 @@ if (isset($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mail3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="email" class="form-control pl-1" name="customer_email" value="<?php echo $row['customer_email']; ?>"  placeholder="Type Email Address">
+                                                <input type="email" class="form-control pl-1" name="customer_email" value="<?php echo $row['customer_email']; ?>"  placeholder="Type Email Address" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +199,7 @@ if (isset($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/mobile3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="number" class="form-control pl-1" name="mobile" value="<?php echo $row['mobile']; ?>" placeholder="Contact Number">
+                                                <input type="number" class="form-control pl-1" name="mobile" value="<?php echo $row['mobile']; ?>" placeholder="Contact Number" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -216,7 +217,7 @@ if (isset($_GET['project_no'])) {
                                                         <img src="../../assets/img/svg/key3.svg" alt="" class="svg">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control pl-1" name="inspector" value="<?php echo $row['inspector']; ?>" placeholder="Inspector name">
+                                                <input type="text" class="form-control pl-1" name="inspector" value="<?php echo $row['inspector']; ?>" placeholder="Inspector name" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -409,57 +410,26 @@ if (isset($_GET['project_no'])) {
 
 
 
-
-<div class="col-lg-12">    
-    <div class="form-element py-30 multiple-column">       
-        <!-- Form -->
-        
-        <!-- <div class="row">
-    <div class="col-lg-12">
-        <div class="form-group">
-            <label class="font-14 bold mb-2">Upload Image</label>
-            
-            
-            <input type="file" name="image" id="image" class="theme-input-style" accept="image/*" placeholder="Upload Image">
-
-            
-            <?php if (!empty($row['image_path'])): ?>
-                <div class="mt-3">
-                    <img src="<?php echo $row['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
-                </div>
-            <?php endif; ?>
-        </div>
-    </div>
-</div> -->
-
-
+<!-- Image Upload Section -->
 <div class="col-lg-12">
-    <div class="form-group">
-        <label class="font-14 bold mb-2">Upload Images</label>
+                    <!-- Image Upload Section -->
+                    <div class="form-group">
+                        <label>Upload Images</label>
+                        <?php foreach ($images as $image): ?>
+                            <div>
+                                <img src="<?php echo $image['image_path']; ?>" alt="Image" style="max-width: 200px;">
+                                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>"
+                                   onclick="return confirm('Are you sure you want to delete this image?');">
+                                    Delete
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                        <input type="file" name="images[]" multiple>
+                    </div>
+                </div>
 
-        <!-- Loop through existing images -->
-        <?php foreach ($images as $image): ?>
-            <div class="mt-3">
-                <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
-                <br>
-                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>" 
-                   onclick="return confirm('Are you sure you want to delete this image?');" 
-                   class="btn btn-danger btn-sm mt-2">Delete</a>
-            </div>
-        <?php endforeach; ?>
 
-        <!-- File input for uploading new images -->
-        <div class="mt-4">
-            <input type="file" name="images[]" id="images" class="theme-input-style" accept="image/*" multiple>
-        </div>
-    </div>
-</div>
-            
-        
-        <!-- End Form -->
-    </div>
-       <!-- End Horizontal Form With Icons -->
-</div>
+
 
 
 
@@ -492,28 +462,41 @@ if (isset($_GET['project_no'])) {
     <div class="form-element py-30 multiple-column">       
         <!-- Form -->
 
-<div class="row">
+        <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-                        <label class="font-14 bold mb-2">NDT Inspector</label>
-                        <input type="text" class="theme-input-style" name="ndt_inspector" placeholder="Enter NDT Inspector" value="<?php echo $row['ndt_inspector']; ?>" >
+            <label class="font-14 bold mb-2">NDT Inspector</label>
+            <input type="text" class="theme-input-style" name="ndt_inspector" placeholder="Enter NDT Inspector" value="<?php echo $row['inspector']; ?>" readonly>
+            <?php
+                $inspector_name = strtolower(str_replace(' ', '_', $row['inspector']));
+                $signature_path = "../../inspector/uploads/$inspector_name/images/signature_image.jpg";
+                
+                if (!file_exists($signature_path)) {
+                    $signature_path = "../default-signature.jpg"; // Fallback image
+                }
+            ?>
+            <div style="margin-top: 10px;">
+                <img src="<?php echo $signature_path; ?>" alt="Inspector Signature" style="width: 120px; height: 60px; border: 1px solid #ccc;">
+            </div>
         </div>                   
     </div>
-<div class="col-lg-6">
+
+    <!-- <div class="col-lg-6">
         <div class="form-group">
-                        <label class="font-14 bold mb-2">NDT Level III</label>
-                        <input type="text" class="theme-input-style" name="ndt_level" placeholder="Enter NDT Level III" value="<?php echo $row['ndt_level']; ?>" >
+            <label class="font-14 bold mb-2">NDT Level III</label>
+            <input type="text" class="theme-input-style" name="ndt_level" placeholder="Enter NDT Level III" value="<?php echo $row['ndt_level']; ?>" readonly>
         </div>                   
+    </div> -->
 </div>
-</div>
+
 
 
 <div class="row">
-                <div class="col-lg-12">
-                    <div class="form-element py-30">
-                        <button type="submit" class="btn btn-success">Update Certificate</button>
-                    </div>
-                </div>
+<div class="col-lg-12">
+<div class="form-element py-30">
+<button type="submit" class="btn btn-success">Update Certificate</button>
+</div>
+</div>
 </div>
 
             
@@ -534,3 +517,17 @@ if (isset($_GET['project_no'])) {
 <?php 
         include_once('../../inc/footer.php');
 ?>        
+
+
+<!-- Script to Add More File Inputs -->
+<script>
+  document.getElementById('add-image-button').addEventListener('click', function() {
+    const additionalImagesContainer = document.getElementById('additional-images');
+    const newFormGroup = document.createElement('div');
+    newFormGroup.className = 'form-group mt-3';
+    newFormGroup.innerHTML = `
+      <input type="file" name="images[]" class="theme-input-style" accept="image/*" placeholder="Upload Image">
+    `;
+    additionalImagesContainer.appendChild(newFormGroup);
+  });
+</script>

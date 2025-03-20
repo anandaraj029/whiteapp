@@ -115,7 +115,8 @@ margin: 5px;
                 <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong> <?= $row['premises_address'] ?></strong></td>
             </tr>
             <tr>
-                <td colspan="3" class="center-text">Description and Identification of the equipment:
+                <td colspan="3" class="center-text">Description and Identification of the equipment: <br/>
+                <strong> <?= $row['equipment_description'] ?></strong> 
                 </td>
                 <td class="center-text">Safe Working Load(s):
                 
@@ -130,7 +131,7 @@ margin: 5px;
             </tr>
             <tr>
                 <td colspan="3" class="no-right-border">
-                    <span style="text-align: center;"> <strong> <?= $row['equipment_description'] ?></strong> </span><br/>
+                    
                     Manufacturer: <strong><?= $row['manufacturer'] ?></strong> <span style="margin-left: 30px;">Certificate No.: <strong><?= $row['certificate_no'] ?></strong></span><br/>
                     Model No.: <strong><?= $row['model'] ?></strong><br/>
                     Equipment ID No.: <strong><?= $row['equipment_id'] ?></strong><br/>

@@ -25,7 +25,7 @@ include_once('./view-fetch.php');
   }
 
         .container{
-            max-width: 926px;
+            max-width: 934px;
 
         }
 /* Custom checkbox styling */

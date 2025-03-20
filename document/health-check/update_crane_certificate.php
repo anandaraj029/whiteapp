@@ -19,7 +19,7 @@ if (isset($_POST['update'])) {
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
     $project_no = $_POST['project_no'];
-    $companyName = $_POST['companyName'];
+    // $companyName = $_POST['companyName'];
     $customer_name = $_POST['customer_name'];
     $customer_email = $_POST['customer_email'];
     $mobile = $_POST['mobile'];
@@ -57,8 +57,7 @@ if (isset($_POST['update'])) {
                 certificate_no = '$certificate_no',
                 report_no = '$report_no',
                 jrn = '$jrn',
-                project_no = '$project_no',
-                companyName = '$companyName',
+                project_no = '$project_no',                
                 customer_name = '$customer_name',
                 customer_email = '$customer_email',
                 mobile = '$mobile',

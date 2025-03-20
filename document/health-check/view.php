@@ -74,7 +74,7 @@ if (mysqli_num_rows($result) > 0) {
             </tr>
             <tr>
                 <th>Company Name</th>
-                <td><?php echo $row['companyName']; ?></td>
+                <td><?php echo $row['customer_name']; ?></td>
             </tr>
             <tr>
                 <th>Manufacturer</th>
@@ -210,8 +210,22 @@ if (mysqli_num_rows($result) > 0) {
     ?>
 </td>
 
-            <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
-           <td> <img src="../sign.jpg" class="sign" alt="Header Image"></td>
+           <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
+           <td>
+    <?php
+    // Construct the signature image path
+    $technical_manager_name = urlencode($row['technical_manager']);
+    $technical_manager_signature_path = "../uploads/{$technical_manager_name}.png";
+
+    // Check if the signature file exists
+    if (file_exists($technical_manager_signature_path)) {
+        echo "<img src='$technical_manager_signature_path' class='sign' alt='Technical Manager Signature'>";
+    } else {
+        // Placeholder image if the signature doesn't exist
+        echo "<img src='../sign.jpg' class='sign' alt='Default Signature'>";
+    }
+    ?>
+</td>
            <td class="text-center"><strong>COMPANY SEAL </strong></td>
            <td> <img src="../seal.png" class="sign" alt="Header Image"></td>
           </tr>
