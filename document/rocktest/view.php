@@ -230,14 +230,14 @@ if (isset($_GET['project_no'])) {
             <td colspan="3" style="text-align: center;">Exceptional Circumstance: <strong>E</strong></td>
         </tr>
         <tr>
-            <td colspan="8" style="text-align: center;"><p><strong>Name &amp; Qualification of the person making the report:</strong></p>
+            <td colspan="8" style="text-align: center;"><p><strong>Name &amp; Qualification of the person making the report: <?php echo $row['inspector']; ?></strong></p>
                 <p style="text-align: left; font-size: 9px;"><strong>Signature:</strong>
-                    <img src="sign.jpg" height="33px">
+                    <img src="../../inspector/uploads/<?php echo $row['inspector']; ?>/images/signature_image.jpg" height="33px">
                 </p>
             </td>
-            <td colspan="9" style="text-align: center;"><p><strong>Name of the person authenticating of this report:</strong></p>
+            <td colspan="9" style="text-align: center;"><p><strong>Name of the person authenticating of this report: <?php echo $row['technical_manager']; ?></strong></p>
                 <p style="text-align: left; font-size: 9px;"><strong>Signature:</strong>
-                    <img src="sign.jpg" height="33px">
+                    <img src="../uploads/<?php echo $row['technical_manager']; ?>.png" height="33px">
                 </p></td>
         </tr>
     </table>

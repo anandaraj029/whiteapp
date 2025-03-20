@@ -288,9 +288,8 @@ if (!isset($row) || empty($row)) {
 			
 			<tr>
                 <td><strong>2.2.1</strong></td>
-                <td><strong> Main Load Hoist Rope   Ø = 36 mm </strong></td>
-				
-                 <td class="checkbox-cell">
+                <td><strong> Main Load Hoist Rope   Ø = 36 mm </strong></td>				
+                <td class="checkbox-cell">
     <input type="checkbox" name="result[9][]" id="checkbox4" value="PASS" class="large-checkbox">
 </td>
 <td class="checkbox-cell">

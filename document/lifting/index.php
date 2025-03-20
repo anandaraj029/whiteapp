@@ -91,7 +91,7 @@ $result = $stmt->get_result();
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="img mr-20">
-                                                        <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
+                                                        <img src="../../inspector/uploads/<?php echo htmlspecialchars($row['inspector']); ?>/images/profile_image.jpg" class="img-40" alt="">
                                                     </div>
                                                     <div class="name bold"><?php echo htmlspecialchars($row['inspector']); ?></div>
                                                 </div>

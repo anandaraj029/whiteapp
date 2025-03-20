@@ -18,7 +18,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         reports r ON p.project_no = r.project_no
     WHERE 
         p.project_no = ?
-";
+    ";
 
     $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $project_no);
@@ -27,6 +27,32 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc();
+
+        // Generate certificate number logic
+        $currentYear = date('Y');
+
+        $certQuery = "SELECT certificate_no FROM mpi_certificates ORDER BY id DESC LIMIT 1";
+        $certResult = $conn->query($certQuery);
+
+        if ($certResult->num_rows > 0) {
+            $lastCert = $certResult->fetch_assoc()['certificate_no'];
+            
+            // Extract the numeric part
+            preg_match('/CMPI-(\d+)-\d{4}/', $lastCert, $matches);
+            $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
+        } else {
+            $nextNumber = 1; // Start with 1 if no previous certificates exist
+        }
+
+        // Format the new certificate number
+        $newCertificateNo = sprintf("CMPI-%03d-%s", $nextNumber, $currentYear);
+        
+        // Insert new certificate into the database
+        $insertCertQuery = "INSERT INTO mpi_certificates (project_no, certificate_no) VALUES (?, ?)";
+        $stmt = $conn->prepare($insertCertQuery);
+        $stmt->bind_param("ss", $project_no, $newCertificateNo);
+        $stmt->execute();
+
     } else {
         $data = null;
     }
@@ -34,8 +60,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
     echo "Invalid or missing project ID.";
     exit;
 }
-
 ?>
+
 
             <!-- Main Content -->
 <div class="main-content">
@@ -80,7 +106,7 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                                             <label class="font-14 bold">Certificate No</label>
                                         </div>
                                         <div class="col-sm-8">
-                                            <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No">
+                                            <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No" value="<?= $newCertificateNo ?>" readonly>
                                         </div>
                                     </div>
                                     <!-- End Form Row -->
@@ -289,18 +315,18 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
         
 <div class="row">
 <div class="col-lg-6">    
-                    <div class="form-group">
-                        <label class="font-14 bold mb-2">INSPECTED ITEM</label>
-                        <input type="text" class="theme-input-style" name="inspected_item" placeholder="Enter INSPECTED ITEM" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="font-14 bold mb-2">SERIAL NUMBERS</label>
-                        <input type="text" class="theme-input-style" name="serial_numbers" placeholder="Enter SERIAL NUMBERS" value="">
-                    </div>
-                    <div class="form-group">
-                        <label class="font-14 bold mb-2">ID</label>
-                        <input type="text" class="theme-input-style" name="id_numbers" placeholder="Enter ID" value="">
-                    </div>
+<div class="form-group">
+<label class="font-14 bold mb-2">INSPECTED ITEM</label>
+<input type="text" class="theme-input-style" name="inspected_item" placeholder="Enter INSPECTED ITEM" value="">
+</div>
+<div class="form-group">
+<label class="font-14 bold mb-2">SERIAL NUMBERS</label>
+<input type="text" class="theme-input-style" name="serial_numbers" placeholder="Enter SERIAL NUMBERS" value="">
+</div>
+<div class="form-group">
+<label class="font-14 bold mb-2">ID</label>
+<input type="text" class="theme-input-style" name="id_numbers" placeholder="Enter ID" value="">
+</div>
 </div>
 
                     <div class="col-lg-6">
@@ -439,14 +465,14 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
 <div class="row">
     <div class="col-lg-6">
         <div class="form-group">
-                        <label class="font-14 bold mb-2">RESULT</label>
-                        <input type="text" class="theme-input-style" name="result" placeholder="Enter RESULT" value="">
+         <label class="font-14 bold mb-2">RESULT</label>
+         <input type="text" class="theme-input-style" name="result" placeholder="Enter RESULT" value="">
         </div>                   
     </div>
 <div class="col-lg-6">
         <div class="form-group">
-                        <label class="font-14 bold mb-2">COMMENTS / ACTION</label>
-                        <input type="text" class="theme-input-style" name="comments" placeholder="Enter COMMENTS / ACTION" value="">
+         <label class="font-14 bold mb-2">COMMENTS / ACTION</label>
+         <input type="text" class="theme-input-style" name="comments" placeholder="Enter COMMENTS / ACTION" value="">
         </div>                   
 </div>
 </div>
