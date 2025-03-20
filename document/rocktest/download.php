@@ -65,16 +65,29 @@ $result_aft = $row['result_aft'];
 $result_stbd = $row['result_stbd'];
 $result_forward = $row['result_forward'];
 $result_port_side = $row['result_port_side'];
-$inspector_name = $row['inspector_name'];
-$authenticating_person_name = $row['authenticating_person_name'];
+$inspector = $row['inspector'];
+$technical_manager = $row['technical_manager'];
+
+
+// Paths to signatures
+$inspectorSignaturePath = "../../inspector/uploads/" . urlencode($inspector) . "/images/signature_image.jpg";
+$authSignaturePath = "../uploads/" . urlencode($technical_manager) . ".png";
+
+$inspectorSignatureImg = file_exists($inspectorSignaturePath) 
+    ? "<img src='$inspectorSignaturePath' alt='Inspector Signature' width='100'>" 
+    : "Signature not available";
+
+$authenticatingSignatureImg = file_exists($authSignaturePath) 
+    ? "<img src='$authSignaturePath' alt='Authenticator Signature' width='100'>" 
+    : "Signature not available";
 
 // Define the paths to the signature images
-$inspector_signature_path = "uploads/{$inspector_name}.png";
-$authenticating_signature_path = "uploads/{$authenticating_person_name}.png";
+// $inspector_signature_path = "../uploads/{$inspector_name}.png";
+// $authenticating_signature_path = "../uploads/{$authenticating_person_name}.png";
 
 // Check if the signature images exist
-$inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
-$authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
+// $inspector_signature_img = file_exists($inspector_signature_path) ? "<img src='$inspector_signature_path' height='33px' alt='Inspector Signature'>" : "No Signature";
+// $authenticating_signature_img = file_exists($authenticating_signature_path) ? "<img src='$authenticating_signature_path' height='33px' alt='Authenticating Person Signature'>" : "No Signature";
 
 // Create an instance of the mPDF class with landscape orientation and minimal margins
 $mpdf = new \Mpdf\Mpdf([
@@ -289,16 +302,24 @@ $html = <<<HTML
             <td colspan="3" style="text-align: center;">Exceptional Circumstance: <strong>E</strong></td>
         </tr>
         <tr>
-            <td colspan="8" style="text-align: center;"><p><strong>Name &amp; Qualification of the person making the report: <strong>$inspector_name</strong></strong></p>
-            <p style="text-align: left; font-size: 9px;"><strong>Signature:</strong>
-            $inspector_signature_img
-            </p>
-            </td>
-            <td colspan="9" style="text-align: center;"><p><strong>Name of the person authenticating of this report: <strong>$authenticating_person_name</strong></strong></p>
-            <p style="text-align: left; font-size: 9px;"><strong>Signature:</strong>
-            $authenticating_signature_img
-            </p></td>
-        </tr>
+    <td colspan="8" style="text-align: center;">
+        <p><strong>Name &amp; Qualification of the person making the report: </strong><br/>
+        <strong>$inspector</strong></p>
+        <p style="text-align: left; font-size: 9px;">
+            <strong>Signature:</strong>
+            $inspectorSignatureImg
+        </p>
+    </td>
+    <td colspan="9" style="text-align: center;">
+        <p><strong>Name of the person authenticating this report: </strong>
+        <strong>$technical_manager</strong></p>
+        <p style="text-align: left; font-size: 9px;">
+            <strong>Signature:</strong>
+            $authenticatingSignatureImg
+        </p>
+    </td>
+</tr>
+
     </table>
 
     <div class="footer">
