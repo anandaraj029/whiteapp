@@ -1,6 +1,5 @@
 <?php
 require_once('../../vendor/autoload.php');
-
 include_once('../../file/config.php'); // include your database connection
 
 // Get the project ID from the query parameter
@@ -355,17 +354,17 @@ $html = <<<HTML
 				<td colspan="2" style="text-align: center;">
 			<strong>	Name & Qualifications of person making this report: </strong><br/>
 
-            <img src="../sign.jpg" class="sign" alt="Header Image"><br>
+            <img src="../../inspector/uploads/{$row['inspector_name']}/images/signature_image.jpg" class="sign" alt="Header Image"><br>
 
-<strong>{$row['name_qualifications_person']} </strong><br/>
+<strong>{$row['inspector_name']} </strong><br/>
 
-<strong>SAP No. 80019222 </strong>
+<strong>SAP No. 80019222 Inspector </strong>
 				
 				</td>
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
-				<img src="../sign.jpg" class="sign" alt="Header Image"><br>
-			<strong>	{$row['authenticating_person_name']} </strong><br/>
+				<img src="../uploads/{$row['technical_manager']}.png" class="sign" alt="Header Image"><br>
+			<strong>	{$row['technical_manager']} </strong><br/>
 
 <strong>Technical Manager </strong>
 				

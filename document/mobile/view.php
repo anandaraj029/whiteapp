@@ -333,19 +333,21 @@ margin: 5px;
 				<tr>
 				
 				<td colspan="2" style="text-align: center;">
-			<strong>	Name & Qualifications of person making this report: </strong><br/>
+			<strong>	Name & Qualifications of person<br/> making this report: </strong><br/>
 
-            <img src="../sign.jpg" class="sign" alt="Header Image"><br>
+            <!-- <img src="../sign.jpg" class="sign" alt="Header Image"><br> -->
+            <img src="../../inspector/uploads/<?php echo htmlspecialchars($row['inspector_name']); ?>/images/signature_image.jpg" class="sign" alt="Header Image"><br>
 
-<strong><?= $row['name_qualifications_person'] ?> </strong><br/>
+<strong><?php echo htmlspecialchars($row['inspector_name']); ?> </strong><br/>
+<strong>Inspector </strong><br/>
 
-<strong><?= $row['report_making_person_qualifications'] ?> </strong>
+<!-- <strong><?= $row['report_making_person_qualifications'] ?> </strong> -->
 				
 				</td>
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
-				<img src="../sign.jpg" class="sign" alt="Header Image"><br/>
-			<strong>	<?= $row['authenticating_person_name'] ?> </strong><br/>
+				<img src="../uploads/<?php echo htmlspecialchars($row['technical_manager']); ?>.png" class="sign" alt="Header Image"><br/>
+			<strong>	<?= $row['technical_manager'] ?> </strong><br/>
 
 <strong>Technical Manager </strong>
 				

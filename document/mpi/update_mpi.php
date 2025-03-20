@@ -1,12 +1,12 @@
 <?php
 ob_start();
 include_once('../../inc/function.php');
-include_once('../../file/config.php'); // Include your database connection
+include_once('../../file/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve form data
     $date_of_report = $_POST['date_of_report'];
-    $certificate_no = $_POST['certificate_no'];    
+    $certificate_no = $_POST['certificate_no'];
     $jrn = $_POST['jrn'];
     $report_no = $_POST['report_no'];
     $project_no = $_POST['project_no'];
@@ -36,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $model_no = $_POST['model_no'];
     $result = $_POST['result'];
     $comments = $_POST['comments'];
+    $certificate_id = $_POST['id']; // Use the certificate ID from the hidden input
 
     // Prepare the SQL update query for mpi_certificates
     $query = "UPDATE mpi_certificates SET 
@@ -69,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         model_no = ?,
         result = ?,
         comments = ?
-        WHERE project_no = ?";
+        WHERE id = ?";
 
     // Use prepared statements to prevent SQL injection
     $stmt = $conn->prepare($query);
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $inspector, $location, $inspection_date, $reference_no, $next_inspection_date, $inspected_item,
         $serial_numbers, $id_numbers, $manufacturer, $standards, $swl, $mpi_equip_type, $current,
         $contrast_paint, $particle_medium, $calibration_expiry_date, $brand, $prod_spacing, $ink,
-        $yoke_sn, $model_no, $result, $comments, $project_no
+        $yoke_sn, $model_no, $result, $comments, $certificate_id
     );
 
     // Execute the update query
@@ -102,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         // Insert image path into mpi_images table
                         $imageQuery = "INSERT INTO mpi_images (certificate_id, image_path) VALUES (?, ?)";
                         $imageStmt = $conn->prepare($imageQuery);
-                        $imageStmt->bind_param('is', $project_no, $file_path);
+                        $imageStmt->bind_param('is', $certificate_id, $file_path);
                         $imageStmt->execute();
                     } else {
                         echo "Error uploading file: " . $_FILES['images']['name'][$key];

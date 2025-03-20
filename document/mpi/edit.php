@@ -1,6 +1,6 @@
-<?php 
+<?php
 include_once('../../inc/function.php');
-include_once('../../file/config.php');  
+include_once('../../file/config.php');
 
 // Enable error reporting
 error_reporting(E_ALL);
@@ -412,25 +412,19 @@ if (isset($_GET['project_no'])) {
 
 <!-- Image Upload Section -->
 <div class="col-lg-12">
+                    <!-- Image Upload Section -->
                     <div class="form-group">
-                        <label class="font-14 bold mb-2">Upload Images</label>
-
-                        <!-- Loop through existing images -->
+                        <label>Upload Images</label>
                         <?php foreach ($images as $image): ?>
-                            <div class="mt-3">
-                                <img src="<?php echo $image['image_path']; ?>" alt="Current Image" style="max-width: 200px;">
-                                <br>
-                                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>" 
-                                   onclick="return confirm('Are you sure you want to delete this image?');" 
-                                   class="btn btn-danger btn-sm mt-2">Delete</a>
+                            <div>
+                                <img src="<?php echo $image['image_path']; ?>" alt="Image" style="max-width: 200px;">
+                                <a href="delete_image.php?image_id=<?php echo $image['id']; ?>&project_no=<?php echo $project_no; ?>"
+                                   onclick="return confirm('Are you sure you want to delete this image?');">
+                                    Delete
+                                </a>
                             </div>
                         <?php endforeach; ?>
-
-                        <!-- File input for uploading new images -->
-                        <div class="mt-4">
-                            <input type="file" name="images[]" id="images" class="theme-input-style" accept="image/*" multiple>
-                        </div>
-                        <button type="button" id="add-image-button" class="btn btn-primary mt-3">Add Another Image</button>
+                        <input type="file" name="images[]" multiple>
                     </div>
                 </div>
 

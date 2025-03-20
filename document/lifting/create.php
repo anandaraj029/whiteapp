@@ -130,14 +130,14 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project ID" readonly>
                             </div>
                         </div>
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold mb-2">Company Name</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="companyName" class="theme-input-style" readonly>
                             </div>
-                        </div>
+                        </div> -->
                     
                 </div>
             </div>
