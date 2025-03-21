@@ -28,6 +28,8 @@ if (isset($_GET['project_no'])) {
 $certificate_no = $row['certificate_no'];
 $reference_no = $row['reference_no'];
 $customer_name = $row['customer_name'];
+$inspector = $row['inspector'];
+$technical_manager = $row['technical_manager'];
 $location = $row['location'];
 $inspection_date = $row['inspection_date'];
 $next_inspection_date = $row['next_inspection_date'];
@@ -51,8 +53,8 @@ $condition_new = $row['condition_new'];
 $description_1 = $row['description_1'];
 $description_2 = $row['description_2'];
 $description_3 = $row['description_3'];
-$inspector_name = $row['inspector_name'];
-$authenticating_person_name = $row['authenticating_person_name'];
+// $inspector_name = $row['inspector_name'];
+// $authenticating_person_name = $row['authenticating_person_name'];
 
 // Define the paths to the signature images
 // $inspector_signature_path = "uploads/{$inspector_name}.png";
@@ -64,23 +66,23 @@ $authenticating_person_name = $row['authenticating_person_name'];
 
 
 // Directory for signatures
-$signature_directory = "uploads/";
+// $signature_directory = "uploads/";
 
 // Function to get the correct image file with any extension
-function getSignatureImage($directory, $filename) {
-    $allowed_extensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp']; // Accepted image formats
-    foreach ($allowed_extensions as $ext) {
-        $file_path = $directory . $filename . '.' . $ext;
-        if (file_exists($file_path)) {
-            return "<img src='$file_path' height='33px' alt='Signature'>";
-        }
-    }
-    return "No Signature"; // Return fallback text if no signature is found
-}
+// function getSignatureImage($directory, $filename) {
+//     $allowed_extensions = ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp']; // Accepted image formats
+//     foreach ($allowed_extensions as $ext) {
+//         $file_path = $directory . $filename . '.' . $ext;
+//         if (file_exists($file_path)) {
+//             return "<img src='$file_path' height='33px' alt='Signature'>";
+//         }
+//     }
+//     return "No Signature"; // Return fallback text if no signature is found
+// }
 
 // Get the correct image file for inspector and authenticating person
-$inspector_signature_img = getSignatureImage($signature_directory, $inspector_name);
-$authenticating_signature_img = getSignatureImage($signature_directory, $authenticating_person_name);
+// $inspector_signature_img = getSignatureImage($signature_directory, $inspector_name);
+// $authenticating_signature_img = getSignatureImage($signature_directory, $authenticating_person_name);
 
 
 // Create an instance of the mPDF class with landscape orientation and minimal margins
@@ -286,10 +288,14 @@ $html = <<<HTML
                 <td colspan="2" class="text-center section-title">AUTHENTICATING PERSON</td>
             </tr>
             <tr style="height: 25px;">
-                <td style="text-align: center; width: 25%;"><strong>$inspector_name</strong></td>
-                <td style="text-align: center; width: 25%;" class="text-center">$inspector_signature_img</td>
-                <td style="text-align: center; width: 25%;"><strong>$authenticating_person_name</strong></td>
-                <td style="text-align: center; width: 25%;" class="text-center">$authenticating_signature_img</td>
+                <td style="text-align: center; width: 25%;"><strong>$inspector</strong></td>
+                <td style="text-align: center; width: 25%;" class="text-center">
+                    <img src="../../inspector/uploads/$inspector/images/signature_image.jpg" alt="inspector" height="33px">
+                </td>
+                <td style="text-align: center; width: 25%;"><strong>$technical_manager</strong></td>
+                <td style="text-align: center; width: 25%;" class="text-center">
+                    <img src="../uploads/$technical_manager.png" alt="technical manager" height="33px">
+                </td>
             </tr>
         </table>
 

@@ -407,6 +407,79 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                     <?php endif; ?>
                                 </div>
                             </div>
+
+
+
+
+<!-- Document Details -->
+<!-- Document Details -->
+<div class="col-lg-4 col-md-6 mt-5">
+    <div class="invoice invoice-form">
+        <div class="black bold font-17 mb-3">Uploaded Documents:</div>
+        <?php
+        // Fetch uploaded documents from the database using MySQLi
+        $project_no = $data['project_no'];
+        $query = "SELECT COUNT(*) AS total_docs FROM documents WHERE project_no = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $project_no);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $docCount = $result->fetch_assoc()['total_docs'];
+        ?>
+
+        <?php if ($docCount > 0): ?>
+            <p class="black">Total Documents Uploaded: <strong><?php echo $docCount; ?></strong></p>
+        <?php else: ?>
+            <p>No documents uploaded.</p>
+        <?php endif; ?>
+    </div>
+</div>
+
+
+
+                            <?php if ($userRole === 'inspector'): ?>
+    <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#uploadModal">
+        Upload Documents
+    </button>
+<?php endif; ?>
+
+
+<!-- Upload Modal -->
+<!-- Upload Modal -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Upload Documents</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Select Documents (Max 10, JPG/PNG/PDF)</label>
+                        <input type="file" class="form-control" name="documents[]" multiple accept=".jpg,.png,.pdf" required>
+                    </div>
+                    <input type="hidden" name="project_no" value="<?php echo htmlspecialchars($data['project_no']); ?>">
+                    <input type="hidden" name="uploaded_by" value="<?php echo htmlspecialchars($userRole); ?>">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="uploadBtn">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+
+
+</div>
+
+
                         </div>
 
                         
@@ -424,7 +497,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                             <th>Doc ID</th>
                                             <th>Document Type</th>
                                             <th>Date of Creation</th>
-                                            <th>Created By</th>
+                                            <th>Inspector</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -488,6 +561,46 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
+
+                                    <!-- Uploaded Documents Rows -->
+                    <?php
+                    // Fetch uploaded documents from the database
+                    $project_no = $data['project_no'];
+                    $query = "SELECT * FROM documents WHERE project_no = ?";
+                    $stmt = $conn->prepare($query);
+                    $stmt->bind_param("s", $project_no);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+
+                    if ($result->num_rows > 0) {
+                        while ($document = $result->fetch_assoc()) {
+                            // Loop through file columns (file_1 to file_10)
+                            for ($i = 1; $i <= 10; $i++) {
+                                $fileColumn = "file_$i";
+                                if (!empty($document[$fileColumn])) {
+                                    $fileName = $document[$fileColumn];
+                                    $uploadedAt = $document['uploaded_at'];
+                                    $uploadedBy = $document['uploaded_by'];
+                                    $project_no  = $document['project_no'];
+                                    ?>
+                                    <tr>
+                                        <td class="bold">#<?php echo htmlspecialchars($document['id']); ?></td>
+                                        <td>Uploaded Document (File <?php echo $i; ?>)</td>
+                                        <td><?php echo date('F d, Y', strtotime($uploadedAt)); ?></td>
+                                        <td><?php echo htmlspecialchars($uploadedBy); ?></td>
+                                        <td>Uploaded</td>
+                                        <td>
+                                            <a href="uploads/<?php echo htmlspecialchars($project_no); ?>/<?php echo htmlspecialchars($fileName); ?>" class="download-btn mr-3" download>
+                                                <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                        }
+                    }
+                    ?>
                                     </tbody>
                                 </table>
                                 <!-- End Invoice List Table -->
@@ -826,6 +939,28 @@ document.getElementById('submitQcReview').addEventListener('click', function () 
             }
         });
     });
+</script>
+
+<script>
+    $(document).ready(function() {
+    $("#uploadBtn").click(function() {
+        var formData = new FormData($("#uploadForm")[0]);
+
+        $.ajax({
+            url: "upload_documents.php",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert(response);
+                location.reload(); // Refresh after upload
+            }
+        });
+    });
+});
+
+
 </script>
     
     <?php

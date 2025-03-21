@@ -79,14 +79,14 @@ if (isset($_GET['project_no'])) {
                                 <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no']; ?>" placeholder="Project No" readonly>
                             </div>
                         </div>
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Company Name</label>
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" class="theme-input-style" name="companyName" value="<?php echo $data['companyName']; ?>" placeholder="Company Name">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">REFERENCE NO.</label>
@@ -363,7 +363,7 @@ if (isset($_GET['project_no'])) {
             </div>
 
             <!-- Inspector and Authenticating Person Details -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-12">
                     <div class="form-element py-30 mb-30">
                         <h4 class="font-20 mb-30">Inspector Details</h4>
@@ -414,7 +414,7 @@ if (isset($_GET['project_no'])) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Save Button -->
             <div class="form-row">

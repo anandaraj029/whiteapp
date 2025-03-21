@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
     $project_no = $_POST['project_no'];
-    $companyName = $_POST['companyName'];
+    // $companyName = $_POST['companyName'];
     $reference_no = $_POST['reference_no'];
     $location = $_POST['location'];
     $next_inspection_date = $_POST['next_inspection_date'];

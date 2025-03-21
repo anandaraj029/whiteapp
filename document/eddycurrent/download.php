@@ -380,14 +380,14 @@ $html = <<<HTML
                 <td style="width: 50%;" colspan="2" class="text-center section-title">INSPECTOR</td>
                 <td style="width: 50%;" colspan="2" class="text-center section-title">AUTHENTICATING PERSON</td>
             </tr>
-            <tr style="height: 25px;">
+            <tr style="height: 50px;">
                 <td style="text-align: center;">$inspector</td>
                 <td class="text-center">
-                <img src="$inspector_signature_img" height="33px" alt="Inspector Signature">
+                <img src="$inspector_signature_img" height="50px" alt="Inspector Signature">
                 </td>
                 <td style="text-align: center;">$technical_manager</td>
                 <td class="text-center">
-                <img src="$authenticating_signature_img" height="33px" alt="Authenticating Person Signature">
+                <img src="$authenticating_signature_img" height="48px" alt="Authenticating Person Signature">
 
                 </td>
             </tr>

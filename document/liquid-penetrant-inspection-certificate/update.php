@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $certificate_no = $_POST['certificate_no'];
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
-    $companyName = $_POST['companyName'];
+    // $companyName = $_POST['companyName'];
     $reference_no = $_POST['reference_no'];
     $location = $_POST['location'];
     $next_inspection_date = $_POST['next_inspection_date'];
@@ -47,49 +47,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description_1 = $_POST['description_1'];
     $description_2 = $_POST['description_2'];
     $description_3 = $_POST['description_3'];
-    $inspector_name = $_POST['inspector_name'];
-    $authenticating_person_name = $_POST['authenticating_person_name'];
+    // $inspector_name = $_POST['inspector_name'];
+    // $authenticating_person_name = $_POST['authenticating_person_name'];
 
     // Handle file uploads
     
 
  // Fetch existing file paths from the database
- $stmt = $conn->prepare("SELECT inspector_signature, authenticating_person_signature FROM liquid_penetrant_inspection WHERE project_no = ?");
- $stmt->bind_param("s", $project_no);
- $stmt->execute();
- $stmt->bind_result($existing_inspector_signature, $existing_authenticating_person_signature);
- $stmt->fetch();
- $stmt->close();
+//  $stmt = $conn->prepare("SELECT inspector_signature, authenticating_person_signature FROM liquid_penetrant_inspection WHERE project_no = ?");
+//  $stmt->bind_param("s", $project_no);
+//  $stmt->execute();
+//  $stmt->bind_result($existing_inspector_signature, $existing_authenticating_person_signature);
+//  $stmt->fetch();
+//  $stmt->close();
 
  // Handle file uploads
- $inspector_signature = $existing_inspector_signature;
- $authenticating_person_signature = $existing_authenticating_person_signature;
+//  $inspector_signature = $existing_inspector_signature;
+//  $authenticating_person_signature = $existing_authenticating_person_signature;
 
- if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
-     $inspector_filename = $upload_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
+//  if (isset($_FILES['inspector_signature']) && $_FILES['inspector_signature']['error'] == UPLOAD_ERR_OK) {
+//      $inspector_filename = $upload_dir . preg_replace('/\s+/', '_', $inspector_name) . '.' . pathinfo($_FILES['inspector_signature']['name'], PATHINFO_EXTENSION);
 
-     // Delete old file if it exists
-     if (!empty($existing_inspector_signature) && file_exists($existing_inspector_signature)) {
-         unlink($existing_inspector_signature);
-     }
+     
+//      if (!empty($existing_inspector_signature) && file_exists($existing_inspector_signature)) {
+//          unlink($existing_inspector_signature);
+//      }
 
-     // Move new file
-     move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
-     $inspector_signature = $inspector_filename;
- }
+     
+//      move_uploaded_file($_FILES['inspector_signature']['tmp_name'], $inspector_filename);
+//      $inspector_signature = $inspector_filename;
+//  }
 
- if (isset($_FILES['authenticating_person_signature']) && $_FILES['authenticating_person_signature']['error'] == UPLOAD_ERR_OK) {
-     $authenticating_person_filename = $upload_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['authenticating_person_signature']['name'], PATHINFO_EXTENSION);
+//  if (isset($_FILES['authenticating_person_signature']) && $_FILES['authenticating_person_signature']['error'] == UPLOAD_ERR_OK) {
+//      $authenticating_person_filename = $upload_dir . preg_replace('/\s+/', '_', $authenticating_person_name) . '.' . pathinfo($_FILES['authenticating_person_signature']['name'], PATHINFO_EXTENSION);
 
-     // Delete old file if it exists
-     if (!empty($existing_authenticating_person_signature) && file_exists($existing_authenticating_person_signature)) {
-         unlink($existing_authenticating_person_signature);
-     }
+     
+//      if (!empty($existing_authenticating_person_signature) && file_exists($existing_authenticating_person_signature)) {
+//          unlink($existing_authenticating_person_signature);
+//      }
 
-     // Move new file
-     move_uploaded_file($_FILES['authenticating_person_signature']['tmp_name'], $authenticating_person_filename);
-     $authenticating_person_signature = $authenticating_person_filename;
- }
+     
+//      move_uploaded_file($_FILES['authenticating_person_signature']['tmp_name'], $authenticating_person_filename);
+//      $authenticating_person_signature = $authenticating_person_filename;
+//  }
 
 
     // Prepare the SQL query to update the record
@@ -97,8 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 inspection_date = ?,
                 certificate_no = ?,
                 report_no = ?,
-                jrn = ?,
-                companyName = ?,
+                jrn = ?,                
                 reference_no = ?,
                 location = ?,
                 next_inspection_date = ?,
@@ -126,22 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 condition_new = ?,
                 description_1 = ?,
                 description_2 = ?,
-                description_3 = ?,
-                inspector_name = ?,
-                inspector_signature = ?,
-                authenticating_person_name = ?,
-                authenticating_person_signature = ?
+                description_3 = ?                
               WHERE project_no = ?";
 
     // Prepare and execute the statement
     $stmt = $conn->prepare($query);
     $stmt->bind_param(
-        "ssssssssssssssssssssssssssssssssssssss",
+        "sssssssssssssssssssssssssssssssss",
         $inspection_date,
         $certificate_no,
         $report_no,
-        $jrn,
-        $companyName,
+        $jrn,        
         $reference_no,
         $location,
         $next_inspection_date,
@@ -169,11 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $condition_new,
         $description_1,
         $description_2,
-        $description_3,
-        $inspector_name,
-        $inspector_signature,
-        $authenticating_person_name,
-        $authenticating_person_signature,
+        $description_3,        
         $project_no
     );
 

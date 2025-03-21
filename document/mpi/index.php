@@ -154,9 +154,11 @@ $result = $conn->query($sql);
                 <td>
                     <div class="d-flex align-items-center">
                         <div class="img mr-20">
-                            <img src="<?php echo $url; ?>assets/img/avatar/m16.png" class="img-40" alt="">
+                            <img src="../../inspector/uploads/<?php echo $row['inspector']; ?>/images/profile_image.jpg" class="img-40" alt="">
                         </div>
-                        <div class="name bold"><?php echo $row['inspector']; ?></div>
+                        <div class="name bold">
+                           <?php echo $row['inspector']; ?>
+                        </div>
                     </div>
                 </td>
                 <td><?php echo $row['inspection_date']; ?></td>

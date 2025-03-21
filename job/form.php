@@ -91,7 +91,7 @@ if (!empty($stickerNo)) {
         ";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("sssss", $projectId, $projectId, $projectId, $projectId, $projectId);
+        $stmt->bind_param("ssssss", $projectId, $projectId, $projectId, $projectId, $projectId, $projectId);
         $stmt->execute();
         $result = $stmt->get_result();
 
