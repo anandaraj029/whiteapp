@@ -294,32 +294,21 @@ if (isset($_GET['project_no'])) {
         </tr>
         
 
-        <?php
-function getImagePath($name) {
-    $extensions = ['png', 'jpg', 'jpeg'];
-    foreach ($extensions as $ext) {
-        $path = "uploads/{$name}.{$ext}";
-        if (file_exists($path)) {
-            return $path;
-        }
-    }
-    return "uploads/default.png"; // Fallback image
-}
-?>
+        
 
 
 <tr>
     <td style="text-align: center; width: 25%;">
-        <strong><?php echo htmlspecialchars($row['inspector_name']); ?></strong>
+        <strong><?php echo htmlspecialchars($row['inspector']); ?></strong>
     </td>
     <td style="text-align: center; width: 25%;" class="text-center">
-        <img src="<?php echo getImagePath($row['inspector_name']); ?>" height="33px">
+        <img src="../../inspector/uploads/<?php echo htmlspecialchars($row['inspector']); ?>/images/signature_image.jpg" height="33px">
     </td>
     <td style="text-align: center; width: 25%;">
-        <strong><?php echo htmlspecialchars($row['authenticating_person_name']); ?></strong>
+        <strong><?php echo htmlspecialchars($row['technical_manager']); ?></strong>
     </td>
     <td style="text-align: center; width: 25%;" class="text-center">
-        <img src="<?php echo getImagePath($row['authenticating_person_name']); ?>" height="33px">
+        <img src="../uploads/<?php echo htmlspecialchars($row['technical_manager']); ?>.png" height="33px">
     </td>
 </tr>
         

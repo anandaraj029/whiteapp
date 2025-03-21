@@ -73,12 +73,12 @@ $technical_manager = $row['technical_manager'];
 $inspectorSignaturePath = "../../inspector/uploads/" . urlencode($inspector) . "/images/signature_image.jpg";
 $authSignaturePath = "../uploads/" . urlencode($technical_manager) . ".png";
 
-$inspectorSignatureImg = file_exists($inspectorSignaturePath) 
-    ? "<img src='$inspectorSignaturePath' alt='Inspector Signature' width='100'>" 
+$inspectorSignatureImg = file_exists($inspectorSignaturePath)
+    ? "<img src='$inspectorSignaturePath' alt='Inspector Signature' width='100'>"
     : "Signature not available";
 
-$authenticatingSignatureImg = file_exists($authSignaturePath) 
-    ? "<img src='$authSignaturePath' alt='Authenticator Signature' width='100'>" 
+$authenticatingSignatureImg = file_exists($authSignaturePath)
+    ? "<img src='$authSignaturePath' alt='Authenticator Signature' width='100'>"
     : "Signature not available";
 
 // Define the paths to the signature images
@@ -341,4 +341,3 @@ $mpdf->showWatermarkImage = true;
 $mpdf->Output('rocking_test_certificate.pdf', 'D');
 
 $conn->close();
-?>

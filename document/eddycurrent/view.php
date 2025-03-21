@@ -106,7 +106,7 @@ input[type="checkbox"] {
     <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
     <div class="text-center">
-        <h3 class="certificate-title"><strong>EDDY CURRENT INSPECTION CERTIFICATE</strong></h3>
+        <h3 class="certificate-title" style="margin-top: 53px;"><strong>EDDY CURRENT INSPECTION CERTIFICATE</strong></h3>
     </div>
 
     <table style="margin-top: 38px;">

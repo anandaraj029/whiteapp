@@ -113,7 +113,8 @@ if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
                             </div>
                         </div>
 
-                        <div class="form-row mb-20">
+                        <d
+                        iv class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold mb-2">Applicable Standard(s)</label>
                             </div>
