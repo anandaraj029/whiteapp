@@ -1230,8 +1230,8 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.10.2 </strong></td>
+                        <td><strong> Main Hoist Drum </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1251,8 +1251,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.10.3 </strong></td>
+                        <td><strong>Auxiliary Hoist Drum </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1272,8 +1272,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.11 </strong></td>
+                        <td><strong>Automatic Boom Back Stops: Maximum boom angle is 82 degrees. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1293,8 +1293,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.12 </strong></td>
+                        <td><strong>Automatic stop limit for minimum boom angle is 9.32 degrees. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1314,8 +1314,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.13 </strong></td>
+                        <td><strong>Minimum Boom Length is 37.9 m <br> Maximum Boom Length is 39.9 m </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1335,8 +1335,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.14 </strong></td>
+                        <td><strong>Boom cradle is provided and can secure the boom at rest. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1355,8 +1355,8 @@ include_once('./view-fetch.php');
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.15</strong></td>
+                        <td><strong>Sheaves are free from deformation, dent, bent, or damage and their bearings sufficiently lubricated. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1376,8 +1376,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>4.16</strong></td>
+                        <td><strong>Aviation or pilot light is provided and is working. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1396,9 +1396,19 @@ include_once('./view-fetch.php');
                             </td>
                         </tr>
 
+
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                            <th style="text-align: center;">5</th>
+                            <th style="text-align: center;">CRANE STRUCTURE AND SWING COMPONENTS</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+                        <tr>
+                        <td><strong>5.1</strong></td>
+                        <td><strong>Base Structure/Pedestal/mast has no signs of loose bolts and fasteners.</strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1419,8 +1429,8 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.2 </strong></td>
+                        <td><strong>Base Structure/Pedestal/mast’s welds and joints are free from corrosion and cracks.</strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1441,8 +1451,8 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.3 </strong></td>
+                        <td><strong>Pins, bearings, shafts, gears, and locking devices are free from distortion, cracks and corrosion. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1462,8 +1472,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.4</strong></td>
+                        <td><strong>Swing brakes operate and can restrict further movement of the rotating structure. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1483,8 +1493,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.5</strong></td>
+                        <td><strong>Swing positive locking device is provided and can lock the structure from further movement.</strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1504,8 +1514,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.6 </strong></td>
+                        <td><strong>Swing brake is adjustable to compensate its wear. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1526,8 +1536,8 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.7 </strong></td>
+                        <td><strong>All swing moving parts are sufficiently lubricated. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1548,8 +1558,8 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.8 </strong></td>
+                        <td><strong>Platforms and walkways are skid resistant. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1569,8 +1579,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>5.9 </strong></td>
+                        <td><strong>Access ladders, & guard rails are free from rust, damage, & corrosion </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1591,8 +1601,18 @@ include_once('./view-fetch.php');
 
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                            <th style="text-align: center;">6</th>
+                            <th style="text-align: center;">MACHINERY POWER, ELECTRICAL COMPONENTS & HYDRAULIC COMPONENTS</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+                        <tr>
+                        <td><strong>6.1 </strong></td>
+                        <td><strong>Work areas, companion ways, access ladders, are equipped with anti-slip surface materials. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1612,8 +1632,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.2</strong></td>
+                        <td><strong> Electrical wirings and related equipment are free of damages. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1633,8 +1653,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.3 </strong></td>
+                        <td><strong>Manholes and hatches’ covers are provided to protect personnel from accidental fall. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1654,8 +1674,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.4 </strong></td>
+                        <td><strong>Electrical and hydraulic motors & pumps are in good working condition. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1675,8 +1695,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.5 </strong></td>
+                        <td><strong>Hydraulic hoses, fittings, tubes, and manifold joints have no evidence of leakages and not damage. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1696,8 +1716,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.6</strong></td>
+                        <td><strong>Hydraulic/pneumatic cylinders, pumps and motors have no leaks and working properly. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1717,8 +1737,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.7</strong></td>
+                        <td><strong>Engine power driven motors and pumps are working properly and have no signs of leaks. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1738,8 +1758,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.8</strong></td>
+                        <td><strong>Machinery compartment is free from spills and obstruction. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1759,8 +1779,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.9</strong></td>
+                        <td><strong>Fire extinguisher is provided in the compartment with minimum rating of 10BC. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
@@ -1780,8 +1800,8 @@ include_once('./view-fetch.php');
                         </tr>
 
                         <tr>
-                            <td><strong>6.4</strong></td>
-                            <td><strong>Data Plate & Markings </strong></td>
+                        <td><strong>6.10</strong></td>
+                        ===============<td><strong>An emergency lowering system, if provided, shall be checked for proper function. </strong></td>
 
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"

@@ -61,7 +61,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query = "
         SELECT 
             'healthcheck' AS certificate_type,
-            hc.certificate_no, hc.created_at
+            hc.certificate_no,
+            COALESCE(hc.inspector, NULL) AS inspector,
+            hc.created_at
         FROM crane_health_check_certificate hc
         WHERE hc.project_no = ?        
 
@@ -69,7 +71,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'loadtestwithload' AS certificate_type,
-            lw.certificate_no, lw.created_at
+            lw.certificate_no,
+            COALESCE(lw.inspector_name, NULL) AS inspector,
+            lw.created_at
         FROM loadtest_certificate lw
         WHERE lw.project_no = ?
 
@@ -77,7 +81,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'mobile' AS certificate_type,
-            mc.certificate_no, mc.created_at
+            mc.certificate_no,
+            COALESCE(mc.inspector_name, NULL) AS inspector,
+            mc.created_at
         FROM mobile_crane_loadtest mc
         WHERE mc.project_no = ?
 
@@ -85,7 +91,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'lifting' AS certificate_type,
-            lc.certificate_no, lc.created_at
+            lc.certificate_no,
+            COALESCE(lc.inspector, NULL) AS inspector,
+            lc.created_at
         FROM lifting_gear_certificates lc
         WHERE lc.project_no = ?
 
@@ -93,7 +101,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'mpi' AS certificate_type,
-            mp.certificate_no, mp.created_at
+            mp.certificate_no,
+            COALESCE(mp.inspector, NULL) AS inspector,
+            mp.created_at
         FROM mpi_certificates mp
         WHERE mp.project_no = ?
         
@@ -101,7 +111,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
         SELECT 
             'eddycurrent' AS certificate_type,
-            ec.certificate_no, ec.created_at
+            ec.certificate_no,
+            COALESCE(ec.inspector, NULL) AS inspector,
+            ec.created_at
         FROM eddy_current_inspection ec
         WHERE ec.project_no = ?
     ";
@@ -116,7 +128,17 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         while ($row = $result->fetch_assoc()) {
             $certificates[] = $row;
         }
-    } 
+    }
+    
+    // Example: Display the new data
+// foreach ($certificates as $certificate) {
+//     echo "Type: " . $certificate['certificate_type'] . "<br>";
+//     echo "Certificate No: " . $certificate['certificate_no'] . "<br>";
+//     echo "Created At: " . $certificate['created_at'] . "<br>";
+//     echo "Inspector: " . $certificate['inspector'] . "<br>";
+ 
+// }
+
 } else {
     echo "Invalid Project ID.";
     exit;
@@ -433,16 +455,18 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             <p>No documents uploaded.</p>
         <?php endif; ?>
     </div>
-</div>
+
 
 
 
                             <?php if ($userRole === 'inspector'): ?>
+                                <div class="d-flex justify-content-center mt-3">
     <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#uploadModal">
         Upload Documents
     </button>
+    </div>
 <?php endif; ?>
-
+</div>
 
 <!-- Upload Modal -->
 <!-- Upload Modal -->
@@ -472,11 +496,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         </div>
     </div>
 </div>
-
-
 <div>
-
-
 </div>
 
 
@@ -541,7 +561,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                 <td class="bold">#<?php echo htmlspecialchars($certificate['certificate_no']); ?></td>
                                                 <td><?php echo ucfirst(htmlspecialchars($certificate['certificate_type'])); ?> Certificate</td>
                                                 <td><?php echo date('F d, Y', strtotime($certificate['created_at'])); ?></td>
-                                                <td><?php echo htmlspecialchars($certificate['created_by'] ?? 'N/A'); ?></td>
+                                                <td><?php echo htmlspecialchars($certificate['inspector'] ?? 'N/A'); ?></td>
                                                 <td>Created</td>
                                                 <td>
                                                     <?php
