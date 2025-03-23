@@ -2,13 +2,19 @@
 include_once('../../inc/function.php');
 include_once('../../file/config.php'); // Include your database connection
 
-// SQL query to fetch data from the 'eddy_current_inspection' table
-$sql = "SELECT certificate_no, project_no, report_no, inspector, inspection_date FROM rocking_test_certificate";
+// SQL query to fetch data from the 'rocking_test_certificate' table and join with 'project_info'
+$sql = "SELECT rt.certificate_no, rt.project_no, rt.report_no, rt.inspector, rt.inspection_date, pi.project_status 
+        FROM rocking_test_certificate rt
+        LEFT JOIN project_info pi 
+        ON rt.project_no = pi.project_no";
+
 $result = $conn->query($sql);
+
 if (!$result) {
     die("Error fetching data: " . $conn->error); // Handle query errors
 }
 ?>
+
         <!-- Main Content -->
         <div class="main-content d-flex flex-column flex-md-row">
             <div class="container-fluid">
