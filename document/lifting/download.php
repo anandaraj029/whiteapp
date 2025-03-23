@@ -130,26 +130,27 @@ $html = <<<HTML
         <table class="table no-border">
         <tr>
                 <td colspan="3"></td>
-                <td colspan="3"><strong>Job Ref. No.:</strong> {$row['jrn']}</td>
-                <td colspan="3"><strong>Certificate No.:</strong> {$row['certificate_no']}</td>
+                
                 <td colspan="3"></td>
+                <td colspan="3" style="text-align: center;"><strong>Job Ref. No.:</strong> {$row['jrn']}</td>
+                <td colspan="3" style="text-align: center;"><strong>Certificate No.:</strong> {$row['certificate_no']}</td>
             </tr>
             <tr>
-                <td colspan="3"><strong>Report No.:</strong> {$row['report_no']}</td>
-                <td colspan="3"><strong>Date of Report:</strong> {$row['date_of_report']}</td>
-                <td colspan="3"><strong>Color Code (if required):</strong> {$row['color_code']}</td>
-                <td colspan="3"><strong>Applicable Standard(s):</strong> {$row['applicable_standards']}</td>
+                <td colspan="3" style="text-align: center;"><strong>Report No.:</strong> {$row['report_no']}</td>
+                <td colspan="3" style="text-align: center;"><strong>Date of Report:</strong> {$row['date_of_report']}</td>
+                <td colspan="3" style="text-align: center;"><strong>Color Code (if required):</strong> {$row['color_code']}</td>
+                <td colspan="3" style="text-align: center;"><strong>Applicable Standard(s):</strong> {$row['applicable_standards']}</td>
             </tr>
         </table>
         <div class="table-responsive">
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">Name & Address of the employer for whom the examination was made:
+                        <th colspan="6">Name & Address of the employer for whom the examination was made:<br/>
                             {$row['employer_name_address']}
 
                         </th>
-                        <th colspan="4">Address of the premises at which the examination was made:
+                        <th colspan="4">Address of the premises at which the examination was made:<br/>
                         {$row['address_of_premises']}
                         </th>
                         <th colspan="2">Status:<br/>
@@ -159,46 +160,46 @@ $html = <<<HTML
                         </th>
                     </tr>
                     <tr>
-                        <th>Identification No./Serial No.</th>
-                        <th>QTY.</th>
-                        <th>Type</th>
-                        <th>Description</th>
-                        <th>WLL or SWL</th>
-                        <th>Date of Last Examination</th>
-                        <th>Date of this Examination</th>
-                        <th>Latest date of the next examination</th>
-                        <th>Reason for Examination (See Below)</th>
-                        <th>Details of test</th>
-                        <th>Status (See Above)</th>
-                        <th>Safe to Use (Yes or No)</th>
+                        <th style="text-align: center;">Identification No./Serial No.</th>
+                        <th style="text-align: center;">QTY.</th>
+                        <th style="text-align: center;">Type</th>
+                        <th style="text-align: center;">Description</th>
+                        <th style="text-align: center;">WLL or SWL</th>
+                        <th style="text-align: center;">Date of Last Examination</th>
+                        <th style="text-align: center;">Date of this Examination</th>
+                        <th style="text-align: center;">Latest date of the next examination</th>
+                        <th style="text-align: center;">Reason for Examination (See Below)</th>
+                        <th style="text-align: center;">Details of test</th>
+                        <th style="text-align: center;">Status (See Above)</th>
+                        <th style="text-align: center;">Safe to Use (Yes or No)</th>
                     </tr>
                 </thead>
                 <tbody>
                 <tr style="height: 150px">                
-                <td>{$row['identification_no']}</td>
-                <td>{$row['qty']}</td>
-                <td>{$row['type']}</td>
-                <td>Manufacturer: {$row['manufacturer']}<br>
+                <td style="text-align: center;"><strong> {$row['identification_no']}</strong> </td>
+                <td style="text-align: center;"><strong> {$row['qty']}</strong> </td>
+                <td style="text-align: center;"> <strong> {$row['type']} </strong> </td>
+                <td style="text-align: center;"> <strong> Manufacturer: {$row['manufacturer']}<br>
                 Size: {$row['size']}<br>
                 Length: {$row['length']}<br>
                 Color: {$row['color']}<br>
-                Ply: {$row['ply']}    </td>
-                <td>{$row['wll_swl']}</td>
-                <td>{$row['date_last_examination']}</td>
-                <td>{$row['date_of_this_examination']}</td>
-                <td>{$row['next_examination_date']}</td>
-                <td>{$row['reason_for_examination']}</td>
-                <td>{$row['test_details']}</td>
-                <td>{$row['status']}</td>
-                <td>{$row['safe_to_use']}</td>
+                Ply: {$row['ply']}    </strong></td>
+                <td style="text-align: center;"> <strong> {$row['wll_swl']} </strong> </td>
+                <td style="text-align: center;"> <strong>  {$row['date_last_examination']} </strong> </td>
+                <td style="text-align: center;"> <strong> {$row['date_of_this_examination']}</strong> </td>
+                <td style="text-align: center;"> <strong> {$row['next_examination_date']} </strong> </td>
+                <td style="text-align: center;"> <strong> {$row['reason_for_examination']}</strong> </td>
+                <td style="text-align: center;"> <strong> {$row['test_details']} </strong> </td>
+                <td style="text-align: center;"> <strong> {$row['status']} </strong> </td>
+                <td style="text-align: center;"> <strong> {$row['safe_to_use']} </strong></td>
             </tr>
                     <tr>
-                        <td colspan="2">Reason for Examination</td>
-                        <td colspan="2">3 Monthly: A</td>
-                        <td colspan="2">6 Monthly: B</td>
-                        <td colspan="2">12 Monthly: C</td>
-                        <td colspan="2">Written Scheme: D</td>
-                        <td colspan="2">Exceptional Circumstance: E</td>
+                        <td colspan="2" style="text-align: center;">Reason for Examination</td>
+                        <td colspan="2" style="text-align: center;">3 Monthly: A</td>
+                        <td colspan="2" style="text-align: center;">6 Monthly: B</td>
+                        <td colspan="2" style="text-align: center;">12 Monthly: C</td>
+                        <td colspan="2" style="text-align: center;">Written Scheme: D</td>
+                        <td colspan="2" style="text-align: center;">Exceptional Circumstance: E</td>
                     </tr>
                     <tr>
                         <td colspan="3">

@@ -26,7 +26,14 @@ if (isset($_GET['id'])) {
 ?>
 
 <div class="main-content">
-    <div class="container-fluid mt-4">
+    <div class="container-fluid">
+        <!-- Back to List Button -->
+        <div class="d-flex justify-content-start mb-3">
+            <a href="all-inspector.php" class="btn btn-outline-primary">
+                <i class="bi bi-arrow-left me-2"></i> Back to List
+            </a>
+        </div>
+
         <!-- Profile Card -->
         <div class="card shadow-sm p-3">
             <div class="d-flex flex-column align-items-center">
@@ -45,7 +52,6 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="card-body">
                     <div class="accordion" id="personalAccordion">
-                        <!-- Personal Details -->
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="personalHeading">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#personalDetails" aria-expanded="true" aria-controls="personalDetails">
@@ -72,7 +78,6 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="card-body">
                     <div class="accordion" id="craneAccordion">
-                        <!-- Handle Cranes -->
                         <div class="accordion-item">
                             <h3 class="accordion-header" id="craneHeading">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#craneDetails" aria-expanded="false" aria-controls="craneDetails">
@@ -118,6 +123,7 @@ if (isset($_GET['id'])) {
         <?php endif; ?>
     </div>
 </div>
+
 
 <!-- Bootstrap & Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">

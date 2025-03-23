@@ -168,7 +168,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                 <img src="<?php echo $url; ?>assets/img/svg/angle-left.svg" alt="" class="svg">
                             </a>
                             <h2 class="regular mr-3 font-30">JOB ID</h2>
-                            <h4 class="c4">#256987</h4>
+                            <h4 class="c4">#<?php echo htmlspecialchars($data['project_no']); ?></h4>
                         </div>
                         <div class="invoice-header-right d-flex align-items-center justify-content-end">
                             <div class="delete_mail mr-20">

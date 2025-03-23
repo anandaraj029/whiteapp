@@ -43,7 +43,7 @@ include_once('../inc/customer-option.php');
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <div class="card">
+                <div class="card mx-2 mx-lg-4 mx-xl-5">
                     <!-- User Profile Image -->
                     <div class="user-profile-img">
                         <div class="cover-img">

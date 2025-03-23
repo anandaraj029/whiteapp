@@ -153,11 +153,11 @@ margin: 5px;
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">Name & Address of the employer for whom the examination was made:
+                        <th colspan="6">Name & Address of the employer for whom the examination was made:<br/>
                             <?= $certificate['employer_name_address']; ?>
 
                         </th>
-                        <th colspan="4">Address of the premises at which the examination was made:
+                        <th colspan="4">Address of the premises at which the examination was made:<br/>
 
                         <?= $certificate['address_of_premises']; ?>
                         </th>
@@ -251,7 +251,8 @@ margin: 5px;
     ?>
 </td>
 
-                        <td colspan="3"><img src="../seal.png" class="sign" alt="Header Image"></td>
+<td > Seal</td>
+                        <td colspan="2"><img src="../seal.png" class="sign" alt="Header Image"></td>
          </tr>
                 </tbody>
             </table>

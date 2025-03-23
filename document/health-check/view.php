@@ -127,39 +127,39 @@ if (mysqli_num_rows($result) > 0) {
         </thead>
         <tbody>
             <tr>
-                <td>Crane Structure Condition:</td>
+                <td> <strong>Crane Structure Condition: </strong></td>
                 <td><?php echo $row['crane_structure_condition']; ?></td>
-                <td>Auto Moment Limiter (LMI):</td>
+                <td><strong> Auto Moment Limiter (LMI): </strong></td>
                 <td><?php echo $row['auto_moment_limiter']; ?></td>
             </tr>
             <tr>
-                <td>Swinging / Slewing Function:</td>
+                <td><strong> Swinging / Slewing Function: </strong></td>
                 <td><?php echo $row['swinging_slewing_function']; ?></td>
-                <td>Anti-Two-Block (A2B) Function:</td>
-                <td><?php echo $row['anti_two_block']; ?></td>
+                <td><strong> Anti-Two-Block (A2B) Function: </strong></td>
+                <td><?php echo $row['anti_two_block']; ?> </td>
             </tr>
             <tr>
-                <td>Hydraulic & Pneumatic System:</td>
+                <td><strong> Hydraulic & Pneumatic System: </strong></td>
                 <td><?php echo $row['hydraulic_pneumatic_system']; ?></td>
-                <td>Winch Drum Lock / Pawls:</td>
+                <td><strong> Winch Drum Lock / Pawls: </strong></td>
                 <td><?php echo $row['winch_drum_lock_pawls']; ?></td>
             </tr>
             <tr>
-                <td>Wire Ropes Condition:</td>
+                <td><strong> Wire Ropes Condition: </strong></td>
                 <td><?php echo $row['wire_ropes_condition']; ?></td>
-                <td>Hook Block Assembly:</td>
+                <td> <strong> Hook Block Assembly: </strong></td>
                 <td><?php echo $row['hook_block_assembly']; ?></td>
             </tr>
             <tr>
-                <td>Boom Lifting, Extending & Retracting:</td>
+                <td><strong> Boom Lifting, Extending & Retracting: </strong></td>
                 <td><?php echo $row['boom_lifting_extending_retracting']; ?></td>
-                <td>Boom Angle Indicator:</td>
+                <td><strong> Boom Angle Indicator: </strong></td>
                 <td><?php echo $row['boom_angle_indicator']; ?></td>
             </tr>
             <tr>
-                <td>Emergency Boom Lowering:</td>
+                <td><strong> Emergency Boom Lowering: </strong></td>
                 <td><?php echo $row['emergency_boom_lowering']; ?></td>
-                <td>Emergency Shutdown:</td>
+                <td> <strong> Emergency Shutdown:</strong></td>
                 <td><?php echo $row['emergency_shutdown']; ?></td>
             </tr>
         </tbody>
@@ -210,7 +210,9 @@ if (mysqli_num_rows($result) > 0) {
     ?>
 </td>
 
-           <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
+           <td class="text-center"><strong>TECHNICAL MANAGER<br/>
+           <?php echo htmlspecialchars($row['technical_manager']); ?>
+        </strong></td>
            <td>
     <?php
     // Construct the signature image path
