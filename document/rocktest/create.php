@@ -1,7 +1,63 @@
 <?php
 include_once('../../inc/function.php');
 include_once('../../file/config.php');
+
+// Ensure `project_no` is set in the request
+if (isset($_GET['project_no']) && !empty($_GET['project_no'])) {
+    $project_no = $_GET['project_no'];
+
+    $query = "
+    SELECT 
+        p.project_no, p.customer_name, p.customer_email, p.customer_mobile, p.inspector_name, p.equipment_location,
+        c.checklist_no, c.inspection_date, c.crane_asset_no, c.crane_serial_no, c.capacity_swl,
+        r.report_no, r.jrn
+    FROM 
+        project_info p
+    LEFT JOIN 
+        checklist_information c ON p.project_no = c.project_no
+    LEFT JOIN 
+        reports r ON p.project_no = r.project_no
+    WHERE 
+        p.project_no = ?
+    ";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $project_no);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $data = $result->fetch_assoc();
+
+        // Generate certificate number logic
+        $currentYear = date('Y');
+
+        $certQuery = "SELECT certificate_no FROM rocking_test_certificate ORDER BY id DESC LIMIT 1";
+        $certResult = $conn->query($certQuery);
+
+        if ($certResult->num_rows > 0) {
+            $lastCert = $certResult->fetch_assoc()['certificate_no'];
+
+            // Extract the numeric part
+            preg_match('/CRC-(\d+)-\d{4}/', $lastCert, $matches);
+            $nextNumber = isset($matches[1]) ? (int)$matches[1] + 1 : 1;
+        } else {
+            $nextNumber = 1; // Start with 1 if no previous certificates exist
+        }
+
+        // Format the new certificate number
+        $newCertificateNo = sprintf("CRC-%03d-%s", $nextNumber, $currentYear);
+
+        // You can use $newCertificateNo as needed (e.g., display it, store it in DB, etc.)
+    } else {
+        $data = null;
+    }
+} else {
+    echo "Invalid or missing project ID.";
+    exit;
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +99,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Date of Inspection</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date'] ?? ''; ?>" placeholder="Date of Inspection">
+                                <input type="date" class="theme-input-style" name="inspection_date" value="<?php echo $data['inspection_date'] ?? ''; ?>" placeholder="Date of Inspection" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -51,7 +107,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Certificate No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No" >
+                                <input type="text" class="theme-input-style" name="certificate_no" placeholder="Certificate No" value="<?= $newCertificateNo ?>" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -59,7 +115,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Report No</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" >
+                                <input type="text" class="theme-input-style" name="report_no" value="<?php echo $data['report_no'] ?? ''; ?>" placeholder="Report No" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -67,7 +123,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">JRN</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN" >
+                                <input type="text" class="theme-input-style" value="<?php echo $data['jrn'] ?? ''; ?>" name="jrn" placeholder="JRN" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -75,10 +131,10 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Project ID</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project No" >
+                                <input type="text" class="theme-input-style" name="project_no" value="<?php echo $data['project_no'] ?? ''; ?>" placeholder="Project No" readonly>
                             </div>
                         </div>
-                        <div class="form-row mb-20">
+                        <!-- <div class="form-row mb-20">
                             <div class="col-sm-4">
                                 <label class="font-14 bold">Company Name</label>
                             </div>
@@ -86,7 +142,7 @@ include_once('../../file/config.php');
 
                                 <input type="text" class="theme-input-style" name="companyName" placeholder="Company Name">
                             </div>
-                        </div>
+                        </div> -->
 
 
                         <div class="form-row mb-20">
@@ -103,7 +159,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">SITE/LOCATION</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="location" placeholder="Site/Location">
+                                <input type="text" class="theme-input-style" name="location" placeholder="Site/Location" value="<?php echo $data['equipment_location'] ?? ''; ?>" readonly>
                             </div>
                         </div>
                        
@@ -130,7 +186,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Customer Name</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" >
+                                <input type="text" class="theme-input-style" name="customer_name" value="<?php echo $data['customer_name'] ?? ''; ?>" placeholder="Customer Name" readonly>
                                 <!-- <input type="text" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
@@ -139,7 +195,7 @@ include_once('../../file/config.php');
                                 <label class="font-14 bold">Customer Email</label>
                             </div>
                             <div class="col-sm-8">
-                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" >
+                                <input type="email" class="theme-input-style" name="customer_email" value="<?php echo $data['customer_email'] ?? ''; ?>" placeholder="Type Email Address" readonly>
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
                             </div>
                         </div>
@@ -149,7 +205,7 @@ include_once('../../file/config.php');
                             </div>
                             <div class="col-sm-8">
 
-                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" >
+                                <input type="number" class="theme-input-style" name="mobile" value="<?php echo $data['customer_mobile'] ?? ''; ?>" placeholder="Contact Number" readonly>
                             </div>
                         </div>
                         <div class="form-row mb-20">
@@ -158,7 +214,7 @@ include_once('../../file/config.php');
                             </div>
                             <div class="col-sm-8">
                                 <!-- <input type="" class="theme-input-style" name="" placeholder=""> -->
-                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" >
+                                <input type="text" class="theme-input-style" name="inspector" value="<?php echo $data['inspector_name'] ?? ''; ?>" placeholder="Inspector Name" readonly>
                             </div>
                         </div>
                         <!-- Add Technical Manager Dropdown -->

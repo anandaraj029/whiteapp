@@ -75,7 +75,7 @@ $result_pending = mysqli_query($conn, $query);
 $query_recent_projects = "SELECT project_no, customer_name, project_status, creation_date 
                           FROM project_info 
                           ORDER BY creation_date DESC 
-                          LIMIT 5"; // Adjust the limit as needed
+                          LIMIT 6"; // Adjust the limit as needed
 
 $result_recent_projects = mysqli_query($conn, $query_recent_projects);
 
@@ -90,8 +90,75 @@ $result_pending_inspector = mysqli_query($conn, "SELECT COUNT(*) AS total_pendin
 $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_pending_inspector'];
 
 
+
+// Calculate total number of projects
+$total_projects_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM project_info");
+$total_projects = mysqli_fetch_assoc($total_projects_query)['total'];
+
+// Number of projects per page
+$projects_per_page = 6;
+
+// Calculate total number of pages
+$total_pages = ceil($total_projects / $projects_per_page);
+
+// Get the current page number from the URL
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+// Ensure the page number is within the valid range
+if ($page < 1) {
+    $page = 1;
+} elseif ($page > $total_pages) {
+    $page = $total_pages;
+}
+
+// Calculate the offset for the SQL query
+$offset = ($page - 1) * $projects_per_page;
+
+// Fetch projects for the current page
+$query_paginated_projects = "SELECT project_no, customer_name, project_status, equipment_type, equipment_location, inspector_name, creation_date 
+                             FROM project_info 
+                             ORDER BY creation_date DESC 
+                             LIMIT $projects_per_page OFFSET $offset";
+
+$result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Internal Styles for Pagination -->
+    <style>
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+        }
+
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
 
 <!-- Main Content -->
 <div class="main-content">
@@ -331,7 +398,7 @@ $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_
                   <div class="d-flex justify-content-between">
                      <div class="title-content mb-4">
                         <h4 class="mb-2">Recent Projects</h4>
-                        <p class="font-14">Tell use paid law ever yet new. Meant to learn of vexed if style allow he there.</p>
+                        <p class="font-14"> Most recent projects will be displayed here</p>
                      </div>                     
                   </div>
                </div>
@@ -340,108 +407,68 @@ $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_
         <!-- Invoice List Table -->
       
         <div class="table-responsive">
-        <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
-    <thead>
-        <tr>
-            <th>Project ID</th>
-            <th>Start Date</th>
-            <!-- <th>Progress</th> -->
-            <th>Customer</th>
-            <th>Status</th>
-            <th>Equip. Type</th>
-            <th>Location</th>
-            <th>Inspector</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                ?>
-                <tr>
-                    <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
-                    <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
-                    <!-- <td>
-                        <div class="product-img">
-                        <badge class="primary">
-                       <a href=""><i class="icofont-checked color-primary"></i> Checklist</a> </badge>
-                       <a href=""><i class="icofont-edit color-primary"></i> Report</a> 
-                       <a href=""><i class="icofont-data color-primary"></i> Certificate</a> 
-                             <img src="../assets/img/product/product1.png" alt="">
-                            <img src="../assets/img/product/product1.png" alt="">
-                            <img src="../assets/img/product/product1.png" alt=""> 
-                        </div>
-                    </td> -->
-
-
-                    <!-- <td>
-    <div class="product-img">
-        <?php if ($row['checklist_status'] === 'Pending') { ?>
-            <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-                <i class="icofont-checked color-primary"></i> Create Checklist
-            </a>
-        <?php } else { ?>
-            <span class="text-success">
-                <i class="icofont-check color-success"></i> Checklist Created
-            </span>
-        <?php } ?>
-
-        
-        <?php if ($row['checklist_status'] === 'Created') { ?>
-    <?php if ($row['report_status'] === 'Pending') { ?>
-        <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-            <i class="icofont-edit color-primary"></i> Create Report
-        </a>
-    <?php } elseif ($row['report_status'] === 'Generated') { ?>
-        <span class="text-success">
-            <i class="icofont-check color-success"></i> Report Created
-        </span>
-    <?php } else { ?>
-        <span class="text-muted">
-            <i class="icofont-lock"></i> Report Locked
-        </span>
-    <?php } ?>
-<?php } else { ?>
-    <span class="text-muted">
-        <i class="icofont-lock"></i> Checklist Pending
-    </span>
-<?php } ?>
-
-        
-    </div>
-</td> -->
-
-                    <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="status-btn">
-    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
-        <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
-    </a>
-</td>
-
-                    <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
-                    <td>
-                     
-                     <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
-                                                        <button type="button" class="details-btn">
-                                                            Details <i class="icofont-arrow-right"></i>
-                                                        </button>
-                                                    </a>
-                                                    
-                                                    
-                                                </td>
-                </tr>
-                <?php
+    <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Start Date</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Equip. Type</th>
+                <th>Location</th>
+                <th>Inspector</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result_paginated_projects->num_rows > 0) {
+                while ($row = $result_paginated_projects->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
+                        <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                        <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
+                        <td class="status-btn">
+                            <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+                                <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+                            </a>
+                        </td>
+                        <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
+                        <td>
+                            <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
+                                <button type="button" class="details-btn">
+                                    Details <i class="icofont-arrow-right"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            } else {
+                echo "<tr><td colspan='8' class='text-center'>No records found.</td></tr>";
             }
-        } else {
-            echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
-        }
-        ?>
-    </tbody>
-</table>
-               </div>
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination Links -->
+<div class="pagination">
+    <?php if ($page > 1): ?>
+        <a href="?page=<?php echo $page - 1; ?>">Previous</a>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+        <a href="?page=<?php echo $i; ?>" <?php if ($i == $page) echo 'class="active"'; ?>><?php echo $i; ?></a>
+    <?php endfor; ?>
+
+    <?php if ($page < $total_pages): ?>
+        <a href="?page=<?php echo $page + 1; ?>">Next</a>
+    <?php endif; ?>
+</div>
         <!-- End Invoice List Table -->
     </div>
     </div>
@@ -451,6 +478,9 @@ $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_
       </div>
    </div>
 </div>
+
+    </body>
+    </html>
 <!-- End Main Content -->
 </div>
 <!-- End Main Wrapper -->

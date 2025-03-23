@@ -1,5 +1,4 @@
 <?php 
-
 include_once('../inc/function.php');
 include '../file/config.php'; // Database connection
 
