@@ -8,220 +8,341 @@ if (!isset($_SESSION['user_id'])) {
    exit();
 }
 
-// Check if the user has the 'inspector' role
+// Check if the user has the 'document controller' role
 if ($_SESSION['role'] !== 'document controller') {
    // Redirect to a default page or show an error
    header("Location: ../index.php");
    exit();
 }
 
-// Get the logged-in inspector's name or ID from the session
-// $inspector_name = $_SESSION['username']; // Assuming you store the inspector's name in the session
-// $inspector_id = $_SESSION['user_id']; // Assuming you store the inspector's ID in the session
+// Query to get total projects count
+$result_projects = mysqli_query($conn, "SELECT COUNT(*) AS total_projects FROM project_info");
+$total_projects = mysqli_fetch_assoc($result_projects)['total_projects'];
+
+// Query to get total pending projects count for the document controller
+$result_pending_projects = mysqli_query($conn, "SELECT COUNT(*) AS pending_projects FROM project_info WHERE project_status = 'Pending'");
+$pending_projects = mysqli_fetch_assoc($result_pending_projects)['pending_projects'];
+
+// Query to get recent projects with their status
+$query_recent_projects = "SELECT project_no, customer_name, project_status, creation_date 
+                          FROM project_info 
+                          ORDER BY creation_date DESC 
+                          LIMIT 6"; // Adjust the limit as needed
+$result_recent_projects = mysqli_query($conn, $query_recent_projects);
+
+// Query to get ongoing pending projects
+// $query_pending = "SELECT project_no, customer_name, project_status 
+//                   FROM project_info 
+//                   WHERE project_status = 'Pending' 
+//                   ORDER BY creation_date DESC 
+//                   LIMIT 4";
+// $result_pending = mysqli_query($conn, $query_pending);
 
 
+$query_completed = "SELECT project_no, customer_name, project_status 
+                    FROM project_info 
+                    WHERE project_status = 'Completed' 
+                    ORDER BY creation_date DESC 
+                    LIMIT 4";
+$result_completed = mysqli_query($conn, $query_completed);
 
+
+// Query to get paginated recent projects
+$total_projects_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM project_info");
+$total_projects = mysqli_fetch_assoc($total_projects_query)['total'];
+
+$projects_per_page = 6;
+$total_pages = ceil($total_projects / $projects_per_page);
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+if ($page < 1) {
+    $page = 1;
+} elseif ($page > $total_pages) {
+    $page = $total_pages;
+}
+
+$offset = ($page - 1) * $projects_per_page;
+
+$query_paginated_projects = "SELECT project_no, customer_name, project_status, equipment_type, equipment_location, inspector_name, creation_date 
+                             FROM project_info 
+                             WHERE project_status = 'Pending' 
+                             ORDER BY creation_date DESC 
+                             LIMIT $projects_per_page OFFSET $offset";
+$result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
+
+
+// Query to get latest news
+$news_query = "SELECT * FROM news ORDER BY created_at DESC";
+$news_result = mysqli_query($conn, $news_query);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Controller Dashboard</title>
+    <!-- Add your CSS and JS links here -->
+    <style>
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+        }
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .news-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .news-item p {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .news-item small {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .delete-news {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .delete-news:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
 
 <!-- Main Content -->
 <div class="main-content">
    <div class="container-fluid">
       <div class="row">
+         <!-- Total Projects Card -->
          <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/tax.png" alt="">
+                        <i class="fa-solid fa-folder-open fa-3x text-primary"></i>
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Total Projects</p>
-                        <!-- <h2><?php echo $total_projects; ?></h2> -->
-                        <h2> 20 
-
-                        </h2>
+                        <h2><?php echo $total_projects; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            <!-- End Card -->
          </div>
 
+         <!-- Pending Projects Card -->
          <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/revenue.png" alt="">
+                        <i class="fa-solid fa-hourglass-half fa-3x text-warning"></i>
                      </div>
                      <div class="state-content">
                         <p class="font-14 mb-2">Pending Projects</p>
-                        <!-- <h2>                           
-                           <?php echo $pending_projects; ?>
-                           </h2> -->
-                           <h2>20</h2>
+                        <h2><?php echo $pending_projects; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            <!-- End Card -->
          </div>
-<!-- 
+
          <div class="col-xl-3 col-sm-6">
-            
             <div class="card mb-30">
                <div class="state">
                   <div class="d-flex align-items-center flex-wrap">
                      <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/comission.png" alt="">
+                        <i class="fa-solid fa-hourglass-half fa-3x text-warning"></i>
                      </div>
                      <div class="state-content">
-                        <p class="font-14 mb-2">Total Customer</p>
-                        <h2><?php echo $total_customers; ?></h2>
-
+                        <p class="font-14 mb-2">Pending Projects</p>
+                        <h2><?php echo $pending_projects; ?></h2>
                      </div>
                   </div>
                </div>
             </div>
-            
-         </div> -->
-
-         <div class="col-xl-3 col-sm-6">
-            <!-- Card -->
-            <div class="card mb-30">
-               <div class="state">
-                  <div class="d-flex align-items-center flex-wrap">
-                     <div class="state-icon d-flex justify-content-center">
-                        <img src="../assets/img/png-icon/user.png" alt="">
-                     </div>
-                     <div class="state-content">
-                        <p class="font-14 mb-2">Expiring Sticker</p>
-                        <h2>46</h2>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- End Card -->
          </div>
 
-        
+         <!-- Recent Projects Timeline -->
+        <!-- Latest News Section -->
+    <div class="col-xl-6 col-lg-6">
+        <div class="card pb-2 mb-30">
+            <div class="p-4">
+                <div class="row">
+                    <div class="col-xl-12 mb-40">
+                        <h4 class="mb-3">Latest News</h4>
+                        <p>Stay updated with the latest news and announcements.</p>
+                    </div>
+                    <div class="col-xl-12 p-4">
+                        <?php
+                        include '../file/config.php';
+                        $query = "SELECT id, news_text, created_at FROM news ORDER BY created_at DESC LIMIT 5";
+                        $result = mysqli_query($conn, $query);
 
-         
-         
-         
+                        // Define an array of Bootstrap color classes for variety
+                        $colors = ['primary', 'success', 'warning', 'info', 'danger'];
+                        $i = 0;
 
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $color = $colors[$i % count($colors)]; // Rotate colors
+                            echo '<div class="card bg-' . $color . ' text-white mb-3">
+                                    <div class="card-body">
+                                        <p class="mb-1 font-weight-bold">' . htmlspecialchars($row['news_text']) . '</p>
+                                        <small class="text-white-50">' . date("F j, Y, g:i A", strtotime($row['created_at'])) . '</small>
+                                    </div>
+                                  </div>';
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-         <!-- <div class="col-xl-12">
-            
+         <!-- Ongoing Projects -->
+         <div class="col-xl-6 col-lg-6">
+            <div class="card mb-30">
+               <div class="card-body" style="min-height: 580px;">
+                  <div class="d-flex align-items-start align-items-sm-end justify-content-between mb-3">
+                     <div class="">
+                        <h4 class="mb-3">Ongoing Projects</h4>
+                        <p class="font-14">List of recent completed projects.</p>
+                     </div>
+                  </div>
+                  <div class="product-list p-4">
+                     <?php while ($row = mysqli_fetch_assoc($result_completed)) { ?>
+                        <div class="product-list-item mb-20 d-flex justify-content-between align-items-center">
+                           <div class="d-flex align-items-center">
+                              <div class="icon mr-3">
+                                 <i class="fa-solid fa-file-alt fa-2x text-primary"></i>
+                              </div>
+                              <div class="content">
+                                 <p class="black mb-1"><?= htmlspecialchars($row['project_no']) ?></p>
+                                 <span class="c3 bold font-14">Client: <?= htmlspecialchars($row['customer_name']) ?></span>
+                              </div>
+                           </div>
+                           <p class="font-14"><?= htmlspecialchars($row['project_status']) ?></p>
+                        </div>
+                     <?php } ?>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Recent Projects Table -->
+         <div class="col-xl-12">
             <div class="card">
                <div class="card-body pb-0">
                   <div class="d-flex justify-content-between">
                      <div class="title-content mb-4">
-                        <h4 class="mb-2">Recent Projects</h4>
-                        <p class="font-14">Tell use paid law ever yet new. Meant to learn of vexed if style allow he there.</p>
-                     </div>
-
-                     
-                     <div class="dropdown-button">
-                        <a href="#" class="d-flex align-items-center" data-toggle="dropdown">
-                           <div class="menu-icon style--two mr-0 d-flex justify-content-center">
-                              <span></span>
-                              <span></span>
-                              <span></span>
-                           </div>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                           <a href="#">Report</a>
-                           <a href="#">FAQ</a>
-                           <a href="#">Charts</a>
-                           <a href="#">Chat</a>
-                           <a href="#">Settings</a>
-                        </div>
-                     </div>
-                     
+                        <h4 class="mb-2">Pending Projects</h4>
+                        <p class="font-14"> Pending projects will be displayed here</p>
+                     </div>                     
                   </div>
                </div>
-
                <div class="table-responsive">
-                  <table class="style--three table-centered text-nowrap">
+                  <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
                      <thead>
                         <tr>
-                           <th>Project ID <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Date <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Document</th>
-                           <th>Customer Name <img src="../assets/img/svg/table-up-arrow.svg" alt="" class="svg"></th>
-                           <th>Status <img src="../assets/img/svg/table-down-arrow.svg" alt="" class="svg"></th>
-                           <th>Price</th>
-                           <th>Shipping Cost</th>
-                           <th>Total Cost</th>
+                           <th>Project ID</th>
+                           <th>Start Date</th>
+                           <th>Customer</th>
+                           <th>Status</th>
+                           <th>Equip. Type</th>
+                           <th>Location</th>
+                           <th>Inspector</th>
                            <th>Action</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                           <td class="bold">#01254</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product1.png" alt="">
-                                 <img src="../assets/img/product/product5.png" alt="">
-                                 <img src="../assets/img/product/product6.png" alt="">
-                              </div>
-                           </td>
-                           <td>Kyle Lee</td>
-                           <td class="text-danger">Processing</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
-
-                        <tr>
-                           <td class="bold">#01365</td>
-                           <td>12 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product2.png" alt="">
-                                 <img src="../assets/img/product/product7.png" alt="">
-                                 <img src="../assets/img/product/product3.png" alt="">
-                              </div>
-                           </td>
-                           <td>Lindo De Sire</td>
-                           <td class="text-warning">Shipped</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
-
-                        <tr>
-                           <td class="bold">#03654</td>
-                           <td>11 Oct 2019</td>
-                           <td>
-                              <div class="product-img">
-                                 <img src="../assets/img/product/product8.png" alt="">
-                                 <img src="../assets/img/product/product9.png" alt="">
-                                 <img src="../assets/img/product/product10.png" alt="">
-                              </div>
-                           </td>
-                           <td>Laturi Yasn</td>
-                           <td class="text-success">Delivered</td>
-                           <td class="bold">$2456.4</td>
-                           <td class="bold">$24.6</td>
-                           <td class="bold">2687</td>
-                           <td><button type="button" class="details-btn">Details <i class="icofont-arrow-right"></i></button></td>
-                        </tr>
+                        <?php
+                        if ($result_paginated_projects->num_rows > 0) {
+                           while ($row = $result_paginated_projects->fetch_assoc()) {
+                              ?>
+                              <tr>
+                                 <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
+                                 <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                                 <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
+                                 <td class="status-btn">
+                                    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+                                       <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+                                    </a>
+                                 </td>
+                                 <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
+                                 <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
+                                 <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
+                                 <td>
+                                    <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
+                                       <button type="button" class="details-btn">
+                                          Details <i class="icofont-arrow-right"></i>
+                                       </button>
+                                    </a>
+                                 </td>
+                              </tr>
+                              <?php
+                           }
+                        } else {
+                           echo "<tr><td colspan='8' class='text-center'>No records found.</td></tr>";
+                        }
+                        ?>
                      </tbody>
                   </table>
                </div>
+               <!-- Pagination Links -->
+               <div class="pagination" style="margin-bottom: 20px;">
+                  <?php if ($page > 1): ?>
+                     <a href="?page=<?php echo $page - 1; ?>">Previous</a>
+                  <?php endif; ?>
+                  <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                     <a href="?page=<?php echo $i; ?>" <?php if ($i == $page) echo 'class="active"'; ?>><?php echo $i; ?></a>
+                  <?php endfor; ?>
+                  <?php if ($page < $total_pages): ?>
+                     <a href="?page=<?php echo $page + 1; ?>">Next</a>
+                  <?php endif; ?>
+               </div>
             </div>
-            
-         </div> -->
+         </div>
+
+         <!-- Latest News Section -->
+         
       </div>
    </div>
 </div>
+
+<!-- News Modal -->
+
+
+</body>
+</html>
 <!-- End Main Content -->
 </div>
 <!-- End Main Wrapper -->

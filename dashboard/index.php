@@ -156,6 +156,42 @@ $result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
             background-color: #007bff;
             color: white;
         }
+
+
+        .news-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-item p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.news-item small {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.delete-news {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.delete-news:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
     </style>
 </head>
 <body>
@@ -456,7 +492,7 @@ $result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
 </div>
 
 <!-- Pagination Links -->
-<div class="pagination">
+<div class="pagination" style="margin-bottom: 20px;">
     <?php if ($page > 1): ?>
         <a href="?page=<?php echo $page - 1; ?>">Previous</a>
     <?php endif; ?>
@@ -474,10 +510,176 @@ $result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
     </div>
     </div>
 
+
+
+
+
+
+
+    <!-- News Section -->
+<!-- News Section -->
+
+<div class="col-xl-12" style="margin-top: 27px;">
+    <div class="card mb-30">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">Latest News</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsModal">
+                    Update News
+                </button>
+            </div>
+            <div id="newsList">
+                <?php
+                // Fetch the latest news from the database
+                $news_query = "SELECT * FROM news ORDER BY created_at DESC";
+                $news_result = mysqli_query($conn, $news_query);
+                if (mysqli_num_rows($news_result) > 0) {
+                    while ($news_row = mysqli_fetch_assoc($news_result)) {
+                        // Generate a random color for each news item
+                        $colors = ['#FF6B6B', '#4ECDC4', '#45B7D5', '#9B59B6', '#E67E22', '#2ECC71'];
+                        $random_color = $colors[array_rand($colors)];
+                        echo '
+                        <div class="news-item mb-4 p-4 rounded shadow position-relative" style="background-color: ' . $random_color . ';" data-id="' . $news_row['id'] . '">
+                            <button class="btn btn-sm btn-danger delete-news" style="position: absolute; top: 10px; right: 10px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <p class="text-white mb-2">' . htmlspecialchars($news_row['news_text']) . '</p>
+                            <small class="text-white-50">' . date("d M Y H:i", strtotime($news_row['created_at'])) . '</small>
+                        </div>';
+                    }
+                } else {
+                    echo '<p>No news available.</p>';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Modal -->
+<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel">Add News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newsForm">
+                    <div class="form-group">
+                        <label for="newsText">News Text</label>
+                        <textarea class="form-control" id="newsText" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNews">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Modal -->
+<!-- <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel">Add News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newsForm">
+                    <div class="form-group">
+                        <label for="newsText">News Text</label>
+                        <textarea class="form-control" id="newsText" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNews">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
          
       </div>
    </div>
 </div>
+
+
+
+
+<!-- Add this script at the end of your HTML file, before the closing </body> tag -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Save news
+    $('#saveNews').on('click', function() {
+        var newsText = $('#newsText').val();
+        if (newsText) {
+            $.ajax({
+                url: 'save_news.php',
+                type: 'POST',
+                data: { news_text: newsText },
+                success: function(response) {
+                    $('#newsModal').modal('hide');
+                    var colors = ['#FF6B6B', '#4ECDC4', '#45B7D5', '#9B59B6', '#E67E22', '#2ECC71'];
+                    var random_color = colors[Math.floor(Math.random() * colors.length)];
+                    var newsItem = `
+                        <div class="news-item mb-4 p-4 rounded shadow position-relative" style="background-color: ${random_color};" data-id="${response.id}">
+                            <button class="btn btn-sm btn-danger delete-news" style="position: absolute; top: 10px; right: 10px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <p class="text-white mb-2">${newsText}</p>
+                            <small class="text-white-50">Just now</small>
+                        </div>`;
+                    $('#newsList').prepend(newsItem);
+                    $('#newsText').val('');
+                },
+                error: function() {
+                    alert('Error saving news.');
+                }
+            });
+        } else {
+            alert('Please enter some news text.');
+        }
+    });
+
+    // Delete news
+    $(document).on('click', '.delete-news', function() {
+    var newsItem = $(this).closest('.news-item');
+    var newsId = newsItem.data('id');
+
+    if (confirm('Are you sure you want to delete this news item?')) {
+        $.ajax({
+            url: 'delete_news.php',
+            type: 'POST',
+            data: { id: newsId },
+            success: function(response) {
+                console.log(response); // Log the server response
+                if (response.status === 'success') {
+                    newsItem.remove(); // Remove the news item from the UI
+                } else {
+                    alert('Error deleting news: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText); // Log the error details
+                alert('Error deleting news. Check the console for details.');
+            }
+        });
+    }
+});
+});
+</script>
 
     </body>
     </html>

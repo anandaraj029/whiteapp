@@ -88,10 +88,27 @@ if (!empty($stickerNo)) {
                 ec.certificate_no, ec.created_at
             FROM eddy_current_inspection ec
             WHERE ec.project_no = ?
+
+            UNION
+
+            SELECT 
+                'liquid-penetrant-inspection-certificate' AS certificate_type,
+                lpi.certificate_no, lpi.created_at
+            FROM liquid_penetrant_inspection lpi
+            WHERE lpi.project_no = ?
+
+            UNION
+
+            SELECT 
+                'rocktest' AS certificate_type,
+                rt.certificate_no, rt.created_at
+            FROM rocking_test_certificate rt
+            WHERE rt.project_no = ?
+
         ";
 
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssss", $projectId, $projectId, $projectId, $projectId, $projectId, $projectId);
+        $stmt->bind_param("ssssssss", $projectId, $projectId, $projectId, $projectId, $projectId, $projectId, $projectId, $projectId);
         $stmt->execute();
         $result = $stmt->get_result();
 

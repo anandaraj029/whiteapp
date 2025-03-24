@@ -262,60 +262,35 @@ $result_projects = mysqli_query($conn, $query_projects);
                 </div>
 
                 <div class="col-xl-4 col-md-6">
-                    <!-- News -->
-                    <div class="card mb-30">
-                        <div class="card-body latest-update">
-                            <h4 class="mb-20">Latest Updates</h4>
+                    
+                <div class="card mb-30">
+    <div class="card-body">
+        <h4 class="mb-20 text-center">Latest News</h4>
 
-                            <!-- Existing Updates (Dynamically Load from Database) -->
-                            <?php
-                            include '../file/config.php';
-                            $query = "SELECT id, status, description FROM updates ORDER BY created_at DESC";
-                            $result = mysqli_query($conn, $query);
+        <?php
+        include '../file/config.php';
+        $query = "SELECT id, news_text, created_at FROM news ORDER BY created_at DESC LIMIT 5";
+        $result = mysqli_query($conn, $query);
 
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                echo '<div class="item-single border-bottom d-flex align-items-center">
-                                        <div class="content">
-                                            <span class="font-14 bold text-' . getStatusColor($row['status']) . '">' . ucfirst($row['status']) . '</span>
-                                            <p class="mb-1">' . htmlspecialchars($row['description']) . '</p>
-                                        </div>
-                                      </div>';
-                            }
+        // Define an array of Bootstrap color classes for variety
+        $colors = ['primary', 'success', 'warning', 'info', 'danger'];
+        $i = 0;
 
-                            function getStatusColor($status) {
-                                $colors = [
-                                    'issue' => 'danger',
-                                    'done' => 'success',
-                                    'fixed' => 'info',
-                                    'updated' => 'pink',
-                                    'bug' => 'warning'
-                                ];
-                                return $colors[strtolower($status)] ?? 'secondary';
-                            }
-                            ?>
-
-                            <!-- Add New Update -->
-                            <div id="new-update-form" class="d-none">
-                                <div class="item-single border-bottom d-flex align-items-center">
-                                    <div class="content">
-                                        <select id="status" class="form-control mb-2">
-                                            <option value="issue">Issue</option>
-                                            <option value="done">Done</option>
-                                            <option value="fixed">Fixed</option>
-                                            <option value="updated">Updated</option>
-                                            <option value="bug">Bug</option>
-                                        </select>
-                                        <textarea id="description" class="form-control mb-2" rows="2" placeholder="Enter update details..."></textarea>
-                                        <button class="btn btn-success btn-sm" onclick="saveUpdate()">Save</button>
-                                        <button class="btn btn-danger btn-sm" onclick="cancelUpdate()">Cancel</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Add Button -->
-                            <button class="btn btn-primary mt-3" onclick="showUpdateForm()">Add Update</button>
-                        </div>
+        while ($row = mysqli_fetch_assoc($result)) {
+            $color = $colors[$i % count($colors)]; // Rotate colors
+            echo '<div class="card bg-' . $color . ' text-white mb-3">
+                    <div class="card-body">
+                        <p class="mb-1 font-weight-bold">' . htmlspecialchars($row['news_text']) . '</p>
+                        <small class="text-white-50">' . date("F j, Y, g:i A", strtotime($row['created_at'])) . '</small>
                     </div>
+                  </div>';
+            $i++;
+        }
+        ?>
+    </div>
+</div>
+
+
                     <!-- End News -->
 
                     <!-- Card -->

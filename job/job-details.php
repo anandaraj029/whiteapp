@@ -59,69 +59,93 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     // Query to fetch certificate data
     $query = "
-        SELECT 
-            'healthcheck' AS certificate_type,
-            hc.certificate_no,
-            COALESCE(hc.inspector, NULL) AS inspector,
-            hc.created_at
-        FROM crane_health_check_certificate hc
-        WHERE hc.project_no = ?        
+    SELECT 
+        'healthcheck' AS certificate_type,
+        hc.certificate_no,
+        COALESCE(hc.inspector, NULL) AS inspector,
+        hc.created_at
+    FROM crane_health_check_certificate hc
+    WHERE hc.project_no = ?        
 
-        UNION
+    UNION
 
-        SELECT 
-            'loadtestwithload' AS certificate_type,
-            lw.certificate_no,
-            COALESCE(lw.inspector_name, NULL) AS inspector,
-            lw.created_at
-        FROM loadtest_certificate lw
-        WHERE lw.project_no = ?
+    SELECT 
+        'loadtestwithload' AS certificate_type,
+        lw.certificate_no,
+        COALESCE(lw.inspector_name, NULL) AS inspector,
+        lw.created_at
+    FROM loadtest_certificate lw
+    WHERE lw.project_no = ?
 
-        UNION
+    UNION
 
-        SELECT 
-            'mobile' AS certificate_type,
-            mc.certificate_no,
-            COALESCE(mc.inspector_name, NULL) AS inspector,
-            mc.created_at
-        FROM mobile_crane_loadtest mc
-        WHERE mc.project_no = ?
+    SELECT 
+        'mobile' AS certificate_type,
+        mc.certificate_no,
+        COALESCE(mc.inspector_name, NULL) AS inspector,
+        mc.created_at
+    FROM mobile_crane_loadtest mc
+    WHERE mc.project_no = ?
 
-        UNION
+    UNION
 
-        SELECT 
-            'lifting' AS certificate_type,
-            lc.certificate_no,
-            COALESCE(lc.inspector, NULL) AS inspector,
-            lc.created_at
-        FROM lifting_gear_certificates lc
-        WHERE lc.project_no = ?
+    SELECT 
+        'lifting' AS certificate_type,
+        lc.certificate_no,
+        COALESCE(lc.inspector, NULL) AS inspector,
+        lc.created_at
+    FROM lifting_gear_certificates lc
+    WHERE lc.project_no = ?
 
-        UNION
+    UNION
 
-        SELECT 
-            'mpi' AS certificate_type,
-            mp.certificate_no,
-            COALESCE(mp.inspector, NULL) AS inspector,
-            mp.created_at
-        FROM mpi_certificates mp
-        WHERE mp.project_no = ?
-        
-        UNION
+    SELECT 
+        'mpi' AS certificate_type,
+        mp.certificate_no,
+        COALESCE(mp.inspector, NULL) AS inspector,
+        mp.created_at
+    FROM mpi_certificates mp
+    WHERE mp.project_no = ?
+    
+    UNION
 
-        SELECT 
-            'eddycurrent' AS certificate_type,
-            ec.certificate_no,
-            COALESCE(ec.inspector, NULL) AS inspector,
-            ec.created_at
-        FROM eddy_current_inspection ec
-        WHERE ec.project_no = ?
-    ";
+    SELECT 
+        'eddycurrent' AS certificate_type,
+        ec.certificate_no,
+        COALESCE(ec.inspector, NULL) AS inspector,
+        ec.created_at
+    FROM eddy_current_inspection ec
+    WHERE ec.project_no = ?
 
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ssssss", $data_id, $data_id, $data_id, $data_id, $data_id, $data_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    UNION
+
+    SELECT 
+        'liquidpenetrantinspection' AS certificate_type,
+        lpi.certificate_no,
+        COALESCE(lpi.inspector, NULL) AS inspector,
+        lpi.created_at
+    FROM liquid_penetrant_inspection lpi
+    WHERE lpi.project_no = ?
+
+    UNION
+
+    SELECT 
+        'rocktest' AS certificate_type,
+        rt.certificate_no,
+        COALESCE(rt.inspector, NULL) AS inspector,
+        rt.created_at
+    FROM rocking_test_certificate rt
+    WHERE rt.project_no = ?
+";
+
+$stmt = $conn->prepare($query);
+if (!$stmt) {
+    die("Error in SQL query: " . $conn->error);
+}
+
+$stmt->bind_param("ssssssss", $data_id, $data_id, $data_id, $data_id, $data_id, $data_id, $data_id, $data_id);
+$stmt->execute();
+$result = $stmt->get_result();
 
     $certificates = [];
     if ($result->num_rows > 0) {
@@ -294,6 +318,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                 <option value="lifting">Lifting</option>
                                                 <option value="mpi">MPI</option>
                                                 <option value="eddycurrent">Eddy Current</option>
+                                                <option value="liquidpenetrantinspection">Liquid Penetrant Inspection</option>
+                                                <option value="rocktest">Rock Test</option>
                                             </select>
                                         </div>
                                     </div>
@@ -567,17 +593,23 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
                                                     <?php
                                                     $certificate_types = [
                                                         'healthcheck' => 'health-check',
+                                                        'liquidpenetrantinspection' => 'liquid-penetrant-inspection-certificate',
                                                     ];
-                                                    $certificate_type = isset($certificate_types[$certificate['certificate_type']]) 
-                                                        ? $certificate_types[$certificate['certificate_type']] 
-                                                        : $certificate['certificate_type'];
+                                                    
+                                                    foreach ($certificates as $certificate) {
+                                                        $certificate_type = isset($certificate_types[$certificate['certificate_type']]) 
+                                                            ? $certificate_types[$certificate['certificate_type']] 
+                                                            : $certificate['certificate_type'];
+                                                        ?>
+                                                        <a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/download.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3">
+                                                            <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
+                                                        </a>
+                                                        <a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/view.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3 bg-info">
+                                                            <img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg">
+                                                        </a>
+                                                        <?php
+                                                    }
                                                     ?>
-                                                    <a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/download.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3">
-                                                        <img src="<?php echo $url; ?>assets/img/svg/download.svg" alt="" class="svg">
-                                                    </a>
-                                                    <a href="../document/<?php echo htmlspecialchars($certificate_type); ?>/view.php?project_no=<?php echo $data['project_no']; ?>" class="download-btn mr-3 bg-info">
-                                                        <img src="<?php echo $url; ?>assets/img/svg/copy.svg" alt="" class="svg">
-                                                    </a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
