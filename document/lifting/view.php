@@ -39,6 +39,13 @@ $conn->close();
             padding: 20px;
             font-size: 12px;
         }
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 10px;
+            /* border: 1px solid #000; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         .container-fluid {
             width: 100%;
             margin: auto;
@@ -127,10 +134,15 @@ margin: 5px;
     </style>
 </head>
 <body>
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <img src="../head2.jpg" alt="Header Image" style="width: 100%;">
         <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
+
+
+    <h1>LIFTING CERTIFICATE</h1>
+
+
     <?php foreach ($certificates as $certificate): ?>
 
         <table class="table no-border">
@@ -153,11 +165,11 @@ margin: 5px;
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">Name & Address of the employer for whom the examination was made:
+                        <th colspan="6">Name & Address of the employer for whom the examination was made:<br/>
                             <?= $certificate['employer_name_address']; ?>
 
                         </th>
-                        <th colspan="4">Address of the premises at which the examination was made:
+                        <th colspan="4">Address of the premises at which the examination was made:<br/>
 
                         <?= $certificate['address_of_premises']; ?>
                         </th>
@@ -251,7 +263,8 @@ margin: 5px;
     ?>
 </td>
 
-                        <td colspan="3"><img src="../seal.png" class="sign" alt="Header Image"></td>
+<td > Seal</td>
+                        <td colspan="2"><img src="../seal.png" class="sign" alt="Header Image"></td>
          </tr>
                 </tbody>
             </table>

@@ -14,8 +14,6 @@ if (mysqli_num_rows($result) > 0) {
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +69,11 @@ if (mysqli_num_rows($result) > 0) {
         .center-text {
             text-align: center;
         }
+
+        .sign {
+      width: 80px;
+      height: 40px;
+    }
         .qrcode {
       width: 70px;
       height: 70px;
@@ -107,37 +110,47 @@ margin: 5px;
     <img src="../code.png" class="qrcode" alt="Qr Code">
 
         <h1>CERTIFICATE OF THOROUGH EXAMINATION</h1>
-        <p style="text-align: center; font-weight: bold;">This report complies with the Lifting Equipment<br> Engineers Association Technical requirements</p>
+        <p style="text-align: center; font-weight: bold;">This report complies with the Lifting Equipment 
+            Engineers Association Technical requirements</p>
+
+        <table class="content-table">
+        <tr>
+                <td><strong>Date of Thorough Examination: <?= $row['examination_date'] ?></strong></td>
+                <td><strong>Date of Report: <?= $row['report_date'] ?></strong></td>
+                <td><strong>Report Number: <?= $row['report_no'] ?></strong><br/>
+                    <strong>Sticker Number: <?= $row['sticker_no'] ?></strong>
+                </td>
+            </tr>
+        </table>
 
         <table class="content-table">
             <tr>
-                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong> <?= $row['employer_address'] ?> </strong></td>
-                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong> <?= $row['premises_address'] ?></strong></td>
+                <td colspan="3" class="center-text"><strong>Name and Address of employer for whom the thorough examination was made:</strong><br/><strong> <?= $row['employer_address'] ?> </strong></td>
+                <td colspan="3" class="center-text"><strong>Address of premises at which the examination was made:</strong><br/><strong> <?= $row['premises_address'] ?></strong></td>
             </tr>
             <tr>
-                <td colspan="3" class="center-text">Description and Identification of the equipment: <br/>
+                <td colspan="3" class="center-text"><strong>Description and Identification of the equipment:</strong> <br/>
                 <strong> <?= $row['equipment_description'] ?></strong> 
                 </td>
-                <td class="center-text">Safe Working Load(s):
-                
+                <td class="center-text"><strong>Safe Working Load(s):              </strong>
                 
                 </td>
-                <td class="center-text">Date of manufacture if known:
+                <td class="center-text"><strong>Date of manufacture if known:</strong>
                                        
                 </td>
-                <td class="center-text">Date of last thorough examination:
+                <td class="center-text"><strong>Date of last thorough examination:</strong>
                                
                 </td>
             </tr>
             <tr>
                 <td colspan="3" class="no-right-border">
                     
-                    Manufacturer: <strong><?= $row['manufacturer'] ?></strong> <span style="margin-left: 30px;">Certificate No.: <strong><?= $row['certificate_no'] ?></strong></span><br/>
-                    Model No.: <strong><?= $row['model'] ?></strong><br/>
-                    Equipment ID No.: <strong><?= $row['equipment_id'] ?></strong><br/>
-                    Equipment Serial No.: <strong><?= $row['equipment_serial_no'] ?></strong><br/>
-                    Width: <strong><?= $row['width'] ?></strong><br/>
-                    Thickness: <strong><?= $row['thickness'] ?></strong>
+                <strong>Manufacturer:</strong> <strong><?= $row['manufacturer'] ?></strong> <span style="float:right;"><strong>Certificate No.:</strong> <strong><?= $row['certificate_no'] ?></strong></span><br/>
+                <strong>Model No.:</strong> <strong><?= $row['model'] ?></strong> <span  style="float:right;"> <strong>JRN: <?= $row['jrn'] ?></strong></span><br/>
+                <strong>Equipment ID No.:</strong> <strong><?= $row['equipment_id'] ?></strong><br/>
+                <strong>Equipment Serial No.:</strong> <strong><?= $row['equipment_serial_no'] ?></strong><br/>
+                <strong>Width:</strong> <strong><?= $row['width'] ?></strong><br/>
+                <strong>Thickness:</strong> <strong><?= $row['thickness'] ?></strong>
                 </td>
                 <td class="center-text"><strong><?= $row['safe_working_load'] ?></strong></td>
                 <td class="center-text"><strong> <?= $row['manufacture_date'] ?></strong></td>
@@ -146,7 +159,7 @@ margin: 5px;
 			
 			<tr>
 			   <td colspan="3"></td>
-				<td class="center-text" colspan="3" ><strong>Within an interval of 6 months?</strong></td>
+				<td class="center-text" colspan="3" ><strong>Was the examination carried out:</strong></td>
             
 			</tr>
             <tr>
@@ -221,7 +234,8 @@ margin: 5px;
                 </td>
 				<td colspan="2" class="center-text">
                     <strong>Name of person authenticating this report:</strong><br/>
-                    <?= $row['authenticating_person_name'] ?><br/>
+                    <img src="../uploads/<?= $row['technical_manager'] ?>.png" class="sign" alt="Header Image"><br/>
+                    <?= $row['technical_manager'] ?><br/>
                     Technical Manager
                 </td>
 				<td colspan="2" class="center-text">

@@ -200,9 +200,9 @@ include_once('../inc/customer-option.php');
                                                      <a class="active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview">Overview</a>
  
                                                      <!-- <a id="nav-work-tab" data-toggle="tab" href="#nav-work">Work</a> -->
-                                                     <a id="nav-basic-tab" data-toggle="tab" href="#nav-basic">Contact And Basic Info</a>
+                                                     <!-- <a id="nav-basic-tab" data-toggle="tab" href="#nav-basic">Contact And Basic Info</a>
  
-                                                     <a id="nav-education-tab" data-toggle="tab" href="#nav-education">Equipments</a>
+                                                     <a id="nav-education-tab" data-toggle="tab" href="#nav-education">Equipments</a> -->
  
                                                      
  
@@ -249,7 +249,21 @@ include_once('../inc/customer-option.php');
                                                                       </div>
                                                                    </div>
                                                                 </li>
-                                                               
+                                                                <!-- <li>
+                                                                   <div class="d-flex">
+                                                                      <div class="img mr-3">
+                                                                            <img src="<?php echo $url; ?>assets/img/png-icon/place.jpg" alt="">
+                                                                      </div>
+                                                                      <div class="content">
+                                                                            Lives in
+                                                                            <a href="#">Dhaka, Bangladesh</a>
+                                                                            <div>
+                                                                               <div>From <a href="#">Chhagalnaiya</a></div>
+                                                                               <div class="c2 hover-to-show">Edit the places you've lived</div>
+                                                                            </div>
+                                                                      </div>
+                                                                   </div>
+                                                                </li> -->
                                                                 <li>
                                                                    <div class="d-flex">
                                                                       <div class="img mr-3">
@@ -693,7 +707,7 @@ include_once('../inc/customer-option.php');
                                                              <!-- End Work Update From -->
                                                           </li>
                                                           <li>
-                                                             <div class="work-content">
+                                                             <!-- <div class="work-content">
                                                                 <div class="d-flex">
                                                                       <div class="img mr-3">
                                                                          <img src="<?php echo $url; ?>assets/img/png-icon/themelooks.png" alt="">
@@ -725,7 +739,7 @@ include_once('../inc/customer-option.php');
                                                                    </div>
                                                                 </div>
                                                                 <!-- End Dropdown Button -->
-                                                             </div>
+                                                             </div> -->
  
                                                              <!-- Work Update From -->
                                                              <div class="work-update-form mb-3">
@@ -941,7 +955,183 @@ include_once('../inc/customer-option.php');
                                                                 <!-- End Dropdown Button -->
                                                              </div>
  
-                                                            
+                                                             <!-- Work Update From -->
+                                                             <div class="work-update-form mb-3">
+                                                                <form action="#">
+ 
+                                                                   <!-- Close Button -->
+                                                                   <div class="add-work-form-close work-form-close">
+                                                                      <i class="icofont-close c4"></i> Cancel
+                                                                   </div>
+                                                                   <!-- End Close Button -->
+ 
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="company4" class="col-sm-3 col-lg-2 col-form-label">Company</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="company" id="company4" placeholder="Where have you worked?">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="position4" class="col-sm-3 col-lg-2 col-form-label">Position</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="position" id="position4" placeholder="What is your job title?">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="cityTown4" class="col-sm-3 col-lg-2 col-form-label">City/Town</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="city" id="cityTown4">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="description4" class="col-sm-3 col-lg-2 col-form-label">Description</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <textarea id="description4" name="description" class="theme-input-style style--three"></textarea>
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label class="col-sm-3 col-lg-2 col-form-label">Time Period</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <div class="d-flex align-items-center position-relative mb-2">
+                                                                            <!-- Custom Checkbox -->
+                                                                            <label class="custom-checkbox">
+                                                                               <input type="checkbox" checked>
+                                                                               <span class="checkmark"></span>
+                                                                            </label>
+                                                                            <!-- End Custom Checkbox -->
+                                                                            
+                                                                            <span class="d-inline-block ml-4">I currently work here</span>
+                                                                         </div>
+ 
+                                                                         <div class="d-flex align-items-center">
+                                                                            <div class="form-group mr-1">
+                                                                               <select class="form-control" name="day" id="exampleFormControlSelect4">
+                                                                                  <option selected="">Day</option>
+                                                                                  <option>1</option>
+                                                                                  <option>2</option>
+                                                                                  <option>3</option>
+                                                                                  <option>4</option>
+                                                                                  <option>5</option>
+                                                                                  <option>6</option>
+                                                                                  <option>7</option>
+                                                                                  <option>8</option>
+                                                                                  <option>9</option>
+                                                                                  <option>10</option>
+                                                                                  <option>11</option>
+                                                                                  <option>12</option>
+                                                                                  <option>13</option>
+                                                                                  <option>14</option>
+                                                                                  <option>15</option>
+                                                                                  <option>16</option>
+                                                                                  <option>17</option>
+                                                                                  <option>18</option>
+                                                                                  <option>19</option>
+                                                                                  <option>20</option>
+                                                                                  <option>21</option>
+                                                                                  <option>22</option>
+                                                                                  <option>23</option>
+                                                                                  <option>24</option>
+                                                                                  <option>25</option>
+                                                                                  <option>26</option>
+                                                                                  <option>27</option>
+                                                                                  <option>28</option>
+                                                                                  <option>29</option>
+                                                                                  <option>30</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group mr-1">
+                                                                               <select class="form-control" name="month" id="month4">
+                                                                                  <option selected="">Month</option>
+                                                                                  <option>January</option>
+                                                                                  <option>February</option>
+                                                                                  <option>March</option>
+                                                                                  <option>April</option>
+                                                                                  <option>May</option>
+                                                                                  <option>June</option>
+                                                                                  <option>July</option>
+                                                                                  <option>August</option>
+                                                                                  <option>September</option>
+                                                                                  <option>October</option>
+                                                                                  <option>November</option>
+                                                                                  <option>December</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                               <select class="form-control" name="year" id="year4">
+                                                                                  <option selected="">Year</option>
+                                                                                  <option>2018</option>
+                                                                                  <option>2017</option>
+                                                                                  <option>2016</option>
+                                                                                  <option>2015</option>
+                                                                                  <option>2014</option>
+                                                                                  <option>2013</option>
+                                                                                  <option>2012</option>
+                                                                                  <option>2011</option>
+                                                                                  <option>2010</option>
+                                                                                  <option>2009</option>
+                                                                                  <option>2008</option>
+                                                                                  <option>2007</option>
+                                                                                  <option>2006</option>
+                                                                                  <option>2005</option>
+                                                                                  <option>2004</option>
+                                                                                  <option>2003</option>
+                                                                                  <option>2002</option>
+                                                                                  <option>2001</option>
+                                                                                  <option>2000</option>
+                                                                                  <option>1999</option>
+                                                                                  <option>1998</option>
+                                                                                  <option>1997</option>
+                                                                                  <option>1996</option>
+                                                                                  <option>1995</option>
+                                                                                  <option>1994</option>
+                                                                                  <option>1993</option>
+                                                                                  <option>1992</option>
+                                                                                  <option>1991</option>
+                                                                                  <option>1990</option>
+                                                                                  <option>1989</option>
+                                                                                  <option>1988</option>
+                                                                                  <option>1987</option>
+                                                                                  <option>1986</option>
+                                                                                  <option>1985</option>
+                                                                                  <option>1984</option>
+                                                                                  <option>1983</option>
+                                                                                  <option>1982</option>
+                                                                                  <option>1981</option>
+                                                                                  <option>1980</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group ml-2">
+                                                                               <span class="d-inline-block ml-2 black">to present</span>
+                                                                            </div>
+                                                                      </div>
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+ 
+                                                                   <div class="row justify-content-end">
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <div class="d-flex">
+                                                                            <button type="submit" class="change-card-btn c2">Save Changes</button>
+                                                                            <button type="reset" class="change-card-btn work-form-close ml-3">Cancel</button>
+                                                                         </div>
+                                                                      </div>
+                                                                   </div>
+                                                                </form>
+                                                             </div>
+                                                             <!-- End Work Update From -->
                                                           </li>
                                                        </ul>
                                                     </div>
@@ -1300,7 +1490,184 @@ include_once('../inc/customer-option.php');
                                                                 <!-- End Dropdown Button -->
                                                              </div>
  
-                                                             
+                                                             <!-- Work Update From -->
+                                                             <div class="work-update-form mb-3">
+                                                                <form action="#">
+ 
+                                                                   <!-- Close Button -->
+                                                                   <div class="add-work-form-close work-form-close">
+                                                                      <i class="icofont-close c4"></i> Cancel
+                                                                   </div>
+                                                                   <!-- End Close Button -->
+ 
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="company33" class="col-sm-3 col-lg-2 col-form-label">Company</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="company" id="company33" placeholder="Where have you worked?">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="position33" class="col-sm-3 col-lg-2 col-form-label">Position</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="position" id="position33" placeholder="What is your job title?">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="cityTown33" class="col-sm-3 col-lg-2 col-form-label">City/Town</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <input type="text" class="form-control" name="city" id="cityTown33">
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label for="description22" class="col-sm-3 col-lg-2 col-form-label">Description</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <textarea id="description22" name="description" class="theme-input-style style--three"></textarea>
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+                                                                   
+                                                                   <!-- Form Group -->
+                                                                   <div class="form-group row">
+                                                                      <label class="col-sm-3 col-lg-2 col-form-label">Time Period</label>
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <div class="d-flex align-items-center position-relative mb-2">
+                                                                            <!-- Custom Checkbox -->
+                                                                            <label class="custom-checkbox">
+                                                                               <input type="checkbox" checked>
+                                                                               <span class="checkmark"></span>
+                                                                            </label>
+                                                                            <!-- End Custom Checkbox -->
+                                                                            
+                                                                            <span class="d-inline-block ml-4">I currently work here</span>
+                                                                         </div>
+ 
+                                                                         <div class="d-flex align-items-center">
+                                                                            <div class="form-group mr-1">
+                                                                               <select class="form-control" name="day" id="exampleFormControlSelect42">
+                                                                                  <option selected="">Day</option>
+                                                                                  <option>1</option>
+                                                                                  <option>2</option>
+                                                                                  <option>3</option>
+                                                                                  <option>4</option>
+                                                                                  <option>5</option>
+                                                                                  <option>6</option>
+                                                                                  <option>7</option>
+                                                                                  <option>8</option>
+                                                                                  <option>9</option>
+                                                                                  <option>10</option>
+                                                                                  <option>11</option>
+                                                                                  <option>12</option>
+                                                                                  <option>13</option>
+                                                                                  <option>14</option>
+                                                                                  <option>15</option>
+                                                                                  <option>16</option>
+                                                                                  <option>17</option>
+                                                                                  <option>18</option>
+                                                                                  <option>19</option>
+                                                                                  <option>20</option>
+                                                                                  <option>21</option>
+                                                                                  <option>22</option>
+                                                                                  <option>23</option>
+                                                                                  <option>24</option>
+                                                                                  <option>25</option>
+                                                                                  <option>26</option>
+                                                                                  <option>27</option>
+                                                                                  <option>28</option>
+                                                                                  <option>29</option>
+                                                                                  <option>30</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group mr-1">
+                                                                               <select class="form-control" name="month" id="month44">
+                                                                                  <option selected="">Month</option>
+                                                                                  <option>January</option>
+                                                                                  <option>February</option>
+                                                                                  <option>March</option>
+                                                                                  <option>April</option>
+                                                                                  <option>May</option>
+                                                                                  <option>June</option>
+                                                                                  <option>July</option>
+                                                                                  <option>August</option>
+                                                                                  <option>September</option>
+                                                                                  <option>October</option>
+                                                                                  <option>November</option>
+                                                                                  <option>December</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                               <select class="form-control" name="year" id="year44">
+                                                                                  <option selected="">Year</option>
+                                                                                  <option>2019</option>
+                                                                                  <option>2018</option>
+                                                                                  <option>2017</option>
+                                                                                  <option>2016</option>
+                                                                                  <option>2015</option>
+                                                                                  <option>2014</option>
+                                                                                  <option>2013</option>
+                                                                                  <option>2012</option>
+                                                                                  <option>2011</option>
+                                                                                  <option>2010</option>
+                                                                                  <option>2009</option>
+                                                                                  <option>2008</option>
+                                                                                  <option>2007</option>
+                                                                                  <option>2006</option>
+                                                                                  <option>2005</option>
+                                                                                  <option>2004</option>
+                                                                                  <option>2003</option>
+                                                                                  <option>2002</option>
+                                                                                  <option>2001</option>
+                                                                                  <option>2000</option>
+                                                                                  <option>1999</option>
+                                                                                  <option>1998</option>
+                                                                                  <option>1997</option>
+                                                                                  <option>1996</option>
+                                                                                  <option>1995</option>
+                                                                                  <option>1994</option>
+                                                                                  <option>1993</option>
+                                                                                  <option>1992</option>
+                                                                                  <option>1991</option>
+                                                                                  <option>1990</option>
+                                                                                  <option>1989</option>
+                                                                                  <option>1988</option>
+                                                                                  <option>1987</option>
+                                                                                  <option>1986</option>
+                                                                                  <option>1985</option>
+                                                                                  <option>1984</option>
+                                                                                  <option>1983</option>
+                                                                                  <option>1982</option>
+                                                                                  <option>1981</option>
+                                                                                  <option>1980</option>
+                                                                               </select>
+                                                                            </div>
+                                                                            <div class="form-group ml-2">
+                                                                               <span class="d-inline-block ml-2 black">to present</span>
+                                                                            </div>
+                                                                      </div>
+                                                                      </div>
+                                                                   </div>
+                                                                   <!-- End Form Group -->
+ 
+                                                                   <div class="row justify-content-end">
+                                                                      <div class="col-sm-9 com-lg-10">
+                                                                         <div class="d-flex">
+                                                                            <button type="submit" class="change-card-btn c2">Save Changes</button>
+                                                                            <button type="reset" class="change-card-btn work-form-close ml-3">Cancel</button>
+                                                                         </div>
+                                                                      </div>
+                                                                   </div>
+                                                                </form>
+                                                             </div>
+                                                             <!-- End Work Update From -->
                                                           </li>
                                                           <li>
                                                              <div class="work-content">
@@ -1789,7 +2156,49 @@ include_once('../inc/customer-option.php');
                          </div>
                          
                          
-                         
+                         <!-- Modal -->
+                         <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                               <div class="modal-content">
+                                  <div class="modal-header">
+                                     <h5 class="modal-title" id="exampleModalLabel">Delete Work Experience</h5>
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                     </button>
+                                  </div>
+                                  <div class="modal-body">
+                                     Are you sure you want to delete Work Experience?
+                                  </div>
+                                  <div class="modal-footer">
+                                     <button type="button" class="btn long" data-dismiss="modal">Cancel</button>
+                                     <button type="button" class="btn long">Delete</button>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+ 
+                         <!-- Modal -->
+                         <div class="modal fade" id="deleteConfirmEducationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                               <div class="modal-content">
+                                  <div class="modal-header">
+                                     <h5 class="modal-title" id="exampleModalLabel2">Delete School Experience</h5>
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                     </button>
+                                  </div>
+                                  <div class="modal-body">
+                                     Are you sure you want to delete School Experience?
+                                  </div>
+                                  <div class="modal-footer">
+                                     <button type="button" class="btn long" data-dismiss="modal">Cancel</button>
+                                     <button type="button" class="btn long">Delete</button>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
  
                      </div> 
                  </div>
@@ -1800,7 +2209,6 @@ include_once('../inc/customer-option.php');
        </div>
 
         
-      <?php 
-        include_once('../inc/footer.php');
-        ?>
-        
+<?php 
+ include_once('../inc/footer.php');
+?>        

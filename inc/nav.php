@@ -47,7 +47,7 @@ if ($role == '' || $role == 'guest') {
       if ($role === 'admin') {
          echo $url . 'dashboard/index.php'; // Admin dashboard
       } elseif ($role === 'customer') {
-         echo $url . 'dashboard/customer.php'; // Inspector dashboard
+         echo $url . 'dashboard/customer_new.php'; // Inspector dashboard
       } elseif ($role === 'inspector') {
          echo $url . 'dashboard/inspector.php'; // Inspector dashboard
       } elseif ($role === 'reviewer') {

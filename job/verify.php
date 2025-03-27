@@ -22,6 +22,16 @@ include_once('../file/config.php');
     <link rel="stylesheet" href="<?php echo $url; ?>assets/css/style.css">
     
     <style>
+        #errorMessage {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+    background: rgba(255, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+}
+
         /* Basic Modal Styling */
         .modal {
             display: block; /* Ensure modal is shown */
@@ -70,44 +80,65 @@ include_once('../file/config.php');
 <body>
 
     <!-- Popup Modal -->
-    <div id="qrPopup" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Enter your sticker no</h3>
-            <input type="text" id="stickerNo" placeholder="Sticker No">
-            <button id="submitStickerNo">Submit</button>
-        </div>
+    <!-- Popup Modal -->
+<div id="qrPopup" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Enter your sticker no</h3>
+        <input type="text" id="stickerNo" placeholder="Sticker No">
+        <p id="errorMessage" style="color: red; display: none;"></p> <!-- Error Message -->
+        <button id="submitStickerNo">Submit</button>
     </div>
+</div>
+
 
     <script>
-        jQuery(document).ready(function($) {
-            var modal = $("#qrPopup");  // Get modal element
-            var closeBtn = $(".close"); // Get close button
+      jQuery(document).ready(function($) {
+    var modal = $("#qrPopup");  
+    var closeBtn = $(".close"); 
+    var errorMessage = $("#errorMessage"); // Error message element
 
-            // Close modal on (X) click
-            closeBtn.click(function() {
-                modal.hide();
-                window.location.href = "job-details.php"; // Redirect on close
-            });
+    closeBtn.click(function() {
+        modal.hide();
+        window.location.href = "job-details.php"; 
+    });
 
-            // Close modal when clicking outside
-            $(window).click(function(event) {
-                if ($(event.target).is("#qrPopup")) {
-                    modal.hide();
-                    window.location.href = "job-details.php"; // Redirect
+    $(window).click(function(event) {
+        if ($(event.target).is("#qrPopup")) {
+            modal.hide();
+            window.location.href = "job-details.php"; 
+        }
+    });
+
+    $("#submitStickerNo").click(function() {
+        var stickerNo = $("#stickerNo").val().trim(); 
+
+        if (stickerNo) {
+            $.ajax({
+                url: "verify_sticker.php",  // Backend script to check the status
+                type: "POST",
+                data: { stickerNo: stickerNo },
+                dataType: "json",
+                success: function(response) {
+                    if (response.status === "active") {
+                        window.location.href = "form.php?stickerNo=" + encodeURIComponent(stickerNo);
+                    } else {
+                        errorMessage.text("Your sticker number is not verified. Kindly contact admin.");
+                        errorMessage.show(); // Show the error message
+                    }
+                },
+                error: function() {
+                    errorMessage.text("Error verifying sticker number. Please try again.");
+                    errorMessage.show();
                 }
             });
+        } else {
+            errorMessage.text("Please enter a sticker number.");
+            errorMessage.show();
+        }
+    });
+});
 
-            // Handle Submit Button Click
-            $("#submitStickerNo").click(function() {
-                var stickerNo = $("#stickerNo").val().trim(); // Get input value
-                if (stickerNo) {
-                    window.location.href = "form.php?stickerNo=" + encodeURIComponent(stickerNo);
-                } else {
-                    alert("Please enter a sticker number.");
-                }
-            });
-        });
     </script>
 
 </body>

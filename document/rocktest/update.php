@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $report_no = $_POST['report_no'];
     $jrn = $_POST['jrn'];
     $project_no = $_POST['project_no'];
-    // $companyName = $_POST['companyName'];
     $reference_no = $_POST['reference_no'];
     $location = $_POST['location'];
     $next_inspection_date = $_POST['next_inspection_date'];
@@ -55,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Add other fields here
 
     // Update query
-    $query = "UPDATE certificates SET 
+    $query = "UPDATE rocking_test_certificate SET 
               inspection_date = ?, 
               certificate_no = ?, 
               report_no = ?,              

@@ -132,15 +132,15 @@ $html = '
       <table class="content-table">
         <tbody>
           <tr>
-            <td class="text-center section-title">Date of Inspection:</td>
+            <td class="text-center section-title" style="text-align: center;">Date of Inspection:</td>
             <td>' . htmlspecialchars($row['inspection_date']) . '</td>
-            <td class="text-center section-title">Report No.:</td>
+            <td class="text-center section-title" style="text-align: center;">Report No.:</td>
             <td>' . htmlspecialchars($row['report_no']) . '</td>
           </tr>
           <tr>
-            <td class="text-center section-title">Certificate No.:</td>
+            <td class="text-center section-title" style="text-align: center;">Certificate No.:</td>
             <td>' . htmlspecialchars($row['certificate_no']) . '</td>
-            <td class="text-center section-title">JRN:</td>
+            <td class="text-center section-title" style="text-align: center;">JRN:</td>
             <td>' . htmlspecialchars($row['jrn']) . '</td>
           </tr>
         </tbody>
@@ -151,7 +151,7 @@ $html = '
       <table class="content-table">
         <tbody>
           <tr>
-            <th colspan="2" class="text-center section-title">A. GENERAL INFORMATION</th>
+            <th colspan="2" class="text-center section-title" style="text-align: center;">A. GENERAL INFORMATION</th>
           </tr>
           <tr>
             <th>Vessel Name & Location</th>
@@ -201,7 +201,7 @@ $html = '
       <table class="content-table">
         <thead>
           <tr>
-            <th colspan="4" class="text-center section-title">B. GENERAL INFORMATION</th>
+            <th colspan="4" class="text-center section-title" style="text-align: center;">B. GENERAL INFORMATION</th>
           </tr>
           <tr class="section-title">
             <th class="text-center">Operation</th>
@@ -212,39 +212,39 @@ $html = '
         </thead>
         <tbody>
           <tr>
-            <td>Crane Structure Condition:</td>
+            <td><strong>Crane Structure Condition:</strong></td>
             <td>' . htmlspecialchars($row['crane_structure_condition']) . '</td>
-            <td>Auto Moment Limiter (LMI):</td>
+            <td><strong>Auto Moment Limiter (LMI):</strong></td>
             <td>' . htmlspecialchars($row['auto_moment_limiter']) . '</td>
           </tr>
           <tr>
-            <td>Swinging / Slewing Function:</td>
+            <td><strong>Swinging / Slewing Function:</strong></td>
             <td>' . htmlspecialchars($row['swinging_slewing_function']) . '</td>
-            <td>Anti-Two-Block (A2B) Function:</td>
+            <td><strong>Anti-Two-Block (A2B) Function:</strong></td>
             <td>' . htmlspecialchars($row['anti_two_block']) . '</td>
           </tr>
           <tr>
-            <td>Hydraulic & Pneumatic System:</td>
+            <td><strong>Hydraulic & Pneumatic System:</strong></td>
             <td>' . htmlspecialchars($row['hydraulic_pneumatic_system']) . '</td>
-            <td>Winch Drum Lock / Pawls:</td>
+            <td><strong>Winch Drum Lock / Pawls:</strong></td>
             <td>' . htmlspecialchars($row['winch_drum_lock_pawls']) . '</td>
           </tr>
           <tr>
-            <td>Wire Ropes Condition:</td>
+            <td><strong>Wire Ropes Condition:</strong></td>
             <td>' . htmlspecialchars($row['wire_ropes_condition']) . '</td>
-            <td>Hook Block Assembly:</td>
+            <td><strong>Hook Block Assembly:</strong></td>
             <td>' . htmlspecialchars($row['hook_block_assembly']) . '</td>
           </tr>
           <tr>
-            <td>Boom Lifting, Extending & Retracting:</td>
+            <td><strong>Boom Lifting, Extending & Retracting:</strong></td>
             <td>' . htmlspecialchars($row['boom_lifting_extending_retracting']) . '</td>
-            <td>Boom Angle Indicator:</td>
+            <td><strong>Boom Angle Indicator:</strong></td>
             <td>' . htmlspecialchars($row['boom_angle_indicator']) . '</td>
           </tr>
           <tr>
-            <td>Emergency Boom Lowering:</td>
+            <td><strong>Emergency Boom Lowering:</strong></td>
             <td>' . htmlspecialchars($row['emergency_boom_lowering']) . '</td>
-            <td>Emergency Shutdown:</td>
+            <td><strong>Emergency Shutdown:</strong></td>
             <td>' . htmlspecialchars($row['emergency_shutdown']) . '</td>
           </tr>
         </tbody>
@@ -253,16 +253,16 @@ $html = '
     <p><strong>
       We hereby certify that the above Crane has been duly Inspected (Health Check) as per the Manufacturer’s Recommendation or based on ASME B30.3 – 2016, B30.4 – 2015, B30.5 – 2018, B30.7 – 2016, B30.8 – 2015, B30.9 – 2018, B30.10 – 2015, B30.22 – 2016, API SPECS 2C – 2012, and API RP 2D – 2014.
     </strong></p>
-    <p class="text-center"><strong>
+    <p class="text-center" style="text-align: center;"><strong>
       The latest date by which the next inspection shall be carried out: <br><strong>(10 JANUARY 2024)</strong>
     </strong></p>
     <div class="table-responsive keep-together">
       <table class="content-table">
         <thead>
           <tr>
-            <th class="text-center section-title" colspan="2">INSPECTED BY</th>
-            <th class="text-center section-title" colspan="2">APPROVED BY:</th>
-            <th class="text-center section-title" colspan="2">COMPANY SEAL</th>
+            <th class="text-center section-title" colspan="2" style="text-align: center;">INSPECTED BY</th>
+            <th class="text-center section-title" colspan="2" style="text-align: center;">APPROVED BY:</th>
+            <th class="text-center section-title" colspan="2" style="text-align: center;">COMPANY SEAL</th>
           </tr>
         </thead>
         <tbody>
@@ -274,7 +274,9 @@ $html = '
           <tr>
             <td class="text-center"><strong>' . htmlspecialchars($row['inspector']) . '</strong></td>
             <td>' . $inspector_signature_html . '</td>
-            <td class="text-center"><strong>TECHNICAL MANAGER</strong></td>
+            <td class="text-center"><strong>TECHNICAL MANAGER<br/>
+            ' . htmlspecialchars($row['technical_manager']) . '
+            </strong></td>
             <td>' . $technical_manager_signature_html . '</td>
             <td class="text-center"><strong>COMPANY SEAL </strong></td>
            <td> <img src="../seal.png" class="sign" alt="Header Image"></td>
@@ -289,7 +291,7 @@ $html = '
       <table class="content-table">
         <tbody>
           <tr>
-            <td class="text-center section-title">
+            <td class="text-center section-title" style="text-align: center;">
               <i>OVERSEAS FULL MEMBER OF LIFTING EQUIPMENT ENGINEERS ASSOCIATION (LEEA, UNITED KINGDOM) CERT. # 662</i>
             </td>
           </tr>

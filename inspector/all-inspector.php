@@ -107,7 +107,7 @@ if (file_exists($profile_photo_path)) {
             </td>
             <td>{$row['inspector_id']}</td>
           <td>
-                <img src='{$profile_photo_path}' alt='Profile Photo' class='img-thumbnail' style='width: 50px; height: 50px; object-fit: cover; margin-right: 10px;'>
+                <img src='{$profile_photo_path}' alt='Profile Photo' class='img-thumbnail' style='width: 36px; height: 36px; object-fit: cover; margin-right: 10px;'>
                 {$row['inspector_name']}
             </td>            
             <td>{$row['email']}</td>

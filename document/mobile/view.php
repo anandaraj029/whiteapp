@@ -346,7 +346,8 @@ margin: 5px;
 				</td>
 				<td colspan="2" style="text-align: center;">
 				<strong>Name of person authenticating this report:</strong> <br/>
-				<img src="../uploads/<?php echo htmlspecialchars($row['technical_manager']); ?>.png" class="sign" alt="Header Image"><br/>
+				<img src="../uploads/<?php echo htmlspecialchars($row['technical_manager']); ?>.png" class="sign" alt="Header Image">
+                <br/>
 			<strong>	<?= $row['technical_manager'] ?> </strong><br/>
 
 <strong>Technical Manager </strong>

@@ -37,6 +37,9 @@ $query_recent_projects = "SELECT project_no, customer_name, project_status, cert
                           LIMIT 5"; // Adjust the limit as needed
 $result_recent_projects = mysqli_query($conn, $query_recent_projects);
 
+// Query to get latest news
+$news_query = "SELECT * FROM news ORDER BY created_at DESC";
+$news_result = mysqli_query($conn, $news_query);
 ?>
 
 <!-- Main Content -->
@@ -115,8 +118,46 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
             
          </div> -->
 
-         <div class="col-xl-6 col-lg-6">
-            <!-- Card -->
+
+
+
+      <div class="col-xl-6 col-lg-6">
+        <div class="card pb-2 mb-30">
+            <div class="p-4">
+                <div class="row">
+                    <div class="col-xl-12 mb-40">
+                        <h4 class="mb-3">Latest News</h4>
+                        <p>Stay updated with the latest news and announcements.</p>
+                    </div>
+                    <div class="col-xl-12 p-4">
+                        <?php
+                        include '../file/config.php';
+                        $query = "SELECT id, news_text, created_at FROM news ORDER BY created_at DESC LIMIT 5";
+                        $result = mysqli_query($conn, $query);
+
+
+                        $colors = ['primary', 'success', 'warning', 'info', 'danger'];
+                        $i = 0;
+
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $color = $colors[$i % count($colors)]; 
+                            echo '<div class="card bg-' . $color . ' text-white mb-3">
+                                    <div class="card-body">
+                                        <p class="mb-1 font-weight-bold">' . htmlspecialchars($row['news_text']) . '</p>
+                                        <small class="text-white-50">' . date("F j, Y, g:i A", strtotime($row['created_at'])) . '</small>
+                                    </div>
+                                  </div>';
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <!-- <div class="col-xl-6 col-lg-6">
+           
             <div class="card pb-2 mb-30">
                <div class="p-4">
                   <div class="row">
@@ -126,7 +167,7 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
                      </div>
 
                      <div class="col-xl-12 p-4">
-                        <!-- Timeline Wrap -->
+                        
                         <div id="timeline-wrap">
                            <ul class="timeline">
                               <?php while ($row = mysqli_fetch_assoc($result_recent_projects)): ?>
@@ -144,13 +185,13 @@ $result_recent_projects = mysqli_query($conn, $query_recent_projects);
                               <?php endwhile; ?>
                            </ul>
                         </div>
-                        <!-- End Timeline Wrap -->
+                        
                      </div>
                   </div>
                </div>
             </div>
-            <!-- End Card -->
-         </div>
+            
+         </div> -->
 
          <div class="col-xl-6 col-lg-6">
             <!-- Card -->

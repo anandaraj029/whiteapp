@@ -75,7 +75,7 @@ $result_pending = mysqli_query($conn, $query);
 $query_recent_projects = "SELECT project_no, customer_name, project_status, creation_date 
                           FROM project_info 
                           ORDER BY creation_date DESC 
-                          LIMIT 5"; // Adjust the limit as needed
+                          LIMIT 6"; // Adjust the limit as needed
 
 $result_recent_projects = mysqli_query($conn, $query_recent_projects);
 
@@ -90,8 +90,111 @@ $result_pending_inspector = mysqli_query($conn, "SELECT COUNT(*) AS total_pendin
 $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_pending_inspector'];
 
 
+
+// Calculate total number of projects
+$total_projects_query = mysqli_query($conn, "SELECT COUNT(*) AS total FROM project_info");
+$total_projects = mysqli_fetch_assoc($total_projects_query)['total'];
+
+// Number of projects per page
+$projects_per_page = 6;
+
+// Calculate total number of pages
+$total_pages = ceil($total_projects / $projects_per_page);
+
+// Get the current page number from the URL
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+
+// Ensure the page number is within the valid range
+if ($page < 1) {
+    $page = 1;
+} elseif ($page > $total_pages) {
+    $page = $total_pages;
+}
+
+// Calculate the offset for the SQL query
+$offset = ($page - 1) * $projects_per_page;
+
+// Fetch projects for the current page
+$query_paginated_projects = "SELECT project_no, customer_name, project_status, equipment_type, equipment_location, inspector_name, creation_date 
+                             FROM project_info 
+                             ORDER BY creation_date DESC 
+                             LIMIT $projects_per_page OFFSET $offset";
+
+$result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Internal Styles for Pagination -->
+    <style>
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #007bff;
+            border-radius: 3px;
+        }
+
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .pagination a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+
+        .news-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.news-item p {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.news-item small {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.delete-news {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.delete-news:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+    </style>
+</head>
+<body>
 
 <!-- Main Content -->
 <div class="main-content">
@@ -331,7 +434,7 @@ $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_
                   <div class="d-flex justify-content-between">
                      <div class="title-content mb-4">
                         <h4 class="mb-2">Recent Projects</h4>
-                        <p class="font-14">Tell use paid law ever yet new. Meant to learn of vexed if style allow he there.</p>
+                        <p class="font-14"> Most recent projects will be displayed here</p>
                      </div>                     
                   </div>
                </div>
@@ -340,117 +443,246 @@ $total_pending_inspector = mysqli_fetch_assoc($result_pending_inspector)['total_
         <!-- Invoice List Table -->
       
         <div class="table-responsive">
-        <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
-    <thead>
-        <tr>
-            <th>Project ID</th>
-            <th>Start Date</th>
-            <!-- <th>Progress</th> -->
-            <th>Customer</th>
-            <th>Status</th>
-            <th>Equip. Type</th>
-            <th>Location</th>
-            <th>Inspector</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                ?>
-                <tr>
-                    <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
-                    <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
-                    <!-- <td>
-                        <div class="product-img">
-                        <badge class="primary">
-                       <a href=""><i class="icofont-checked color-primary"></i> Checklist</a> </badge>
-                       <a href=""><i class="icofont-edit color-primary"></i> Report</a> 
-                       <a href=""><i class="icofont-data color-primary"></i> Certificate</a> 
-                             <img src="../assets/img/product/product1.png" alt="">
-                            <img src="../assets/img/product/product1.png" alt="">
-                            <img src="../assets/img/product/product1.png" alt=""> 
-                        </div>
-                    </td> -->
-
-
-                    <!-- <td>
-    <div class="product-img">
-        <?php if ($row['checklist_status'] === 'Pending') { ?>
-            <a href="../document/checklist/add-checklist.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-                <i class="icofont-checked color-primary"></i> Create Checklist
-            </a>
-        <?php } else { ?>
-            <span class="text-success">
-                <i class="icofont-check color-success"></i> Checklist Created
-            </span>
-        <?php } ?>
-
-        
-        <?php if ($row['checklist_status'] === 'Created') { ?>
-    <?php if ($row['report_status'] === 'Pending') { ?>
-        <a href="../document/report/create.php?project_no=<?php echo $row['project_no']; ?>" class="text-primary">
-            <i class="icofont-edit color-primary"></i> Create Report
-        </a>
-    <?php } elseif ($row['report_status'] === 'Generated') { ?>
-        <span class="text-success">
-            <i class="icofont-check color-success"></i> Report Created
-        </span>
-    <?php } else { ?>
-        <span class="text-muted">
-            <i class="icofont-lock"></i> Report Locked
-        </span>
-    <?php } ?>
-<?php } else { ?>
-    <span class="text-muted">
-        <i class="icofont-lock"></i> Checklist Pending
-    </span>
-<?php } ?>
-
-        
-    </div>
-</td> -->
-
-                    <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
-                    <td class="status-btn">
-    <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
-        <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
-    </a>
-</td>
-
-                    <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
-                    <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
-                    <td>
-                     
-                     <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
-                                                        <button type="button" class="details-btn">
-                                                            Details <i class="icofont-arrow-right"></i>
-                                                        </button>
-                                                    </a>
-                                                    
-                                                    
-                                                </td>
-                </tr>
-                <?php
+    <table id="job-table" class="order-list-table style--three table-centered text-nowrap">
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Start Date</th>
+                <th>Customer</th>
+                <th>Status</th>
+                <th>Equip. Type</th>
+                <th>Location</th>
+                <th>Inspector</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result_paginated_projects->num_rows > 0) {
+                while ($row = $result_paginated_projects->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td class="bold"><?php echo "#" . str_pad($row["project_no"], 5, "0", STR_PAD_LEFT); ?></td>
+                        <td><?php echo date("d M Y", strtotime($row["creation_date"])); ?></td>
+                        <td><?php echo htmlspecialchars($row["customer_name"]); ?></td>
+                        <td class="status-btn">
+                            <a href="#" class="btn s_alert <?php echo ($row["project_status"] === "Completed") ? 'bg-success-light text-success' : 'bg-danger-light text-danger'; ?> mb-10">
+                                <?php echo ($row["project_status"] === "Completed") ? 'Completed' : 'Pending'; ?>
+                            </a>
+                        </td>
+                        <td><?php echo htmlspecialchars($row["equipment_type"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["equipment_location"]); ?></td>
+                        <td><?php echo htmlspecialchars($row["inspector_name"]); ?></td>
+                        <td>
+                            <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>">
+                                <button type="button" class="details-btn">
+                                    Details <i class="icofont-arrow-right"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    <?php
+                }
+            } else {
+                echo "<tr><td colspan='8' class='text-center'>No records found.</td></tr>";
             }
-        } else {
-            echo "<tr><td colspan='9' class='text-center'>No records found.</td></tr>";
-        }
-        ?>
-    </tbody>
-</table>
-               </div>
+            ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination Links -->
+<div class="pagination" style="margin-bottom: 20px;">
+    <?php if ($page > 1): ?>
+        <a href="?page=<?php echo $page - 1; ?>">Previous</a>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+        <a href="?page=<?php echo $i; ?>" <?php if ($i == $page) echo 'class="active"'; ?>><?php echo $i; ?></a>
+    <?php endfor; ?>
+
+    <?php if ($page < $total_pages): ?>
+        <a href="?page=<?php echo $page + 1; ?>">Next</a>
+    <?php endif; ?>
+</div>
         <!-- End Invoice List Table -->
     </div>
     </div>
     </div>
 
+
+
+
+
+
+
+    <!-- News Section -->
+<!-- News Section -->
+
+<div class="col-xl-12" style="margin-top: 27px;">
+    <div class="card mb-30">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">Latest News</h4>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsModal">
+                    Update News
+                </button>
+            </div>
+            <div id="newsList">
+                <?php
+                // Fetch the latest news from the database
+                $news_query = "SELECT * FROM news ORDER BY created_at DESC";
+                $news_result = mysqli_query($conn, $news_query);
+                if (mysqli_num_rows($news_result) > 0) {
+                    while ($news_row = mysqli_fetch_assoc($news_result)) {
+                        // Generate a random color for each news item
+                        $colors = ['#FF6B6B', '#4ECDC4', '#45B7D5', '#9B59B6', '#E67E22', '#2ECC71'];
+                        $random_color = $colors[array_rand($colors)];
+                        echo '
+                        <div class="news-item mb-4 p-4 rounded shadow position-relative" style="background-color: ' . $random_color . ';" data-id="' . $news_row['id'] . '">
+                            <button class="btn btn-sm btn-danger delete-news" style="position: absolute; top: 10px; right: 10px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <p class="text-white mb-2">' . htmlspecialchars($news_row['news_text']) . '</p>
+                            <small class="text-white-50">' . date("d M Y H:i", strtotime($news_row['created_at'])) . '</small>
+                        </div>';
+                    }
+                } else {
+                    echo '<p>No news available.</p>';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Modal -->
+<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel">Add News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newsForm">
+                    <div class="form-group">
+                        <label for="newsText">News Text</label>
+                        <textarea class="form-control" id="newsText" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNews">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- News Modal -->
+<!-- <div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newsModalLabel">Add News</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="newsForm">
+                    <div class="form-group">
+                        <label for="newsText">News Text</label>
+                        <textarea class="form-control" id="newsText" rows="3" required></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveNews">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
          
       </div>
    </div>
 </div>
+
+
+
+
+<!-- Add this script at the end of your HTML file, before the closing </body> tag -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Save news
+    $('#saveNews').on('click', function() {
+        var newsText = $('#newsText').val();
+        if (newsText) {
+            $.ajax({
+                url: 'save_news.php',
+                type: 'POST',
+                data: { news_text: newsText },
+                success: function(response) {
+                    $('#newsModal').modal('hide');
+                    var colors = ['#FF6B6B', '#4ECDC4', '#45B7D5', '#9B59B6', '#E67E22', '#2ECC71'];
+                    var random_color = colors[Math.floor(Math.random() * colors.length)];
+                    var newsItem = `
+                        <div class="news-item mb-4 p-4 rounded shadow position-relative" style="background-color: ${random_color};" data-id="${response.id}">
+                            <button class="btn btn-sm btn-danger delete-news" style="position: absolute; top: 10px; right: 10px;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <p class="text-white mb-2">${newsText}</p>
+                            <small class="text-white-50">Just now</small>
+                        </div>`;
+                    $('#newsList').prepend(newsItem);
+                    $('#newsText').val('');
+                },
+                error: function() {
+                    alert('Error saving news.');
+                }
+            });
+        } else {
+            alert('Please enter some news text.');
+        }
+    });
+
+    // Delete news
+    $(document).on('click', '.delete-news', function() {
+    var newsItem = $(this).closest('.news-item');
+    var newsId = newsItem.data('id');
+
+    if (confirm('Are you sure you want to delete this news item?')) {
+        $.ajax({
+            url: 'delete_news.php',
+            type: 'POST',
+            data: { id: newsId },
+            success: function(response) {
+                console.log(response); // Log the server response
+                if (response.status === 'success') {
+                    newsItem.remove(); // Remove the news item from the UI
+                } else {
+                    alert('Error deleting news: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(xhr.responseText); // Log the error details
+                alert('Error deleting news. Check the console for details.');
+            }
+        });
+    }
+});
+});
+</script>
+
+    </body>
+    </html>
 <!-- End Main Content -->
 </div>
 <!-- End Main Wrapper -->

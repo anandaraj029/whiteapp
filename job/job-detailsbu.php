@@ -522,6 +522,8 @@ $certificate_type = isset($certificate_types[$certificate['certificate_type']])
             mobile: '../document/mobile/create.php',
             mpi: '../document/mpi/create.php',
             eddycurrent: '../document/eddycurrent/create.php',
+            liquidpenetrantinspection: "../document/liquid-penetrant-inspection-certificate/create.php",
+            rocktest: "../document/rocktest/create.php",
             // Add more mappings as needed
         };
 

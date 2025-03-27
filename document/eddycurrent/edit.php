@@ -21,6 +21,7 @@ if (isset($_GET['project_no'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Eddy Current Inspection Certificate</title>
     <!-- Add your CSS styles here -->
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
 <!-- Main Content -->

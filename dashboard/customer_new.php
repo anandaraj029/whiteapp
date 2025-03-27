@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
     $mobile = $customer['mobile'];
     $address = $customer['address'];
     $city = $customer['city'];
-    $rep_name = $customer['rep_name'];
+    $reg_name = $customer['reg_name'];
     $created_at = date('F j, Y', strtotime($customer['created_at']));
     $cus_id = $customer['cus_id']; // Get OSS ID from the result
 } else {
@@ -77,10 +77,10 @@ include_once('../inc/customer-option.php');
                                     <img src="<?php echo $profilePhoto . '?v=' . time(); ?>" alt="Profile Picture">
                                 </div>
 
-                                <!-- <div>
+                                <div>
                                     <h3><?php echo htmlspecialchars($cus_name); ?></h3>
                                     <p class="font-14">Registered Name: <?php echo htmlspecialchars($reg_name); ?></p>
-                                </div> -->
+                                </div>
                             </div>
                             <!-- End Profile Info -->
 
@@ -97,6 +97,8 @@ include_once('../inc/customer-option.php');
                                         <a class="p_nav-link has-before active" href="../dashboard/customer_new.php">About</a>
                                     </li>
                                     <li>
+                                        <!-- <a class="p_nav-link" href="project.php?cus_id=<?php echo $customer_id; ?>">Projects</a> -->
+                                        <!-- <a class="p_nav-link" href="../customer/project.php?php echo $customer_id; ?>">Projects</a> -->
                                         <a href="../customer/project.php?cusid=<?php echo urlencode($customer['cus_id']); ?>">Projects</a>
                                     </li>
                                 </ul>
@@ -112,6 +114,7 @@ include_once('../inc/customer-option.php');
                                             </div>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
+                                            <!-- <a href="../profile/edit-profile.php?cusid={$row['cus_id']}">Edit Profile</a> -->
                                             <a href="../profile/edit-profile.php?cusid=<?php echo urlencode($customer['cus_id']); ?>">Edit Profile</a>
                                             <a href="">User Dashboard</a>
                                         </div>
@@ -151,7 +154,7 @@ include_once('../inc/customer-option.php');
 
                             <!-- Edit Profile Button -->
                             <div class="edit-profile-btn pr-1">
-                                <a href="edit-customer.php" class="btn-circle">
+                                <a href="../customer/edit-customer.php" class="btn-circle">
                                     <img src="<?php echo $url; ?>assets/img/svg/writing.svg" alt="" class="svg">
                                 </a>
                             </div>
@@ -159,74 +162,115 @@ include_once('../inc/customer-option.php');
                         </div>
                         <!-- End Profile Completion -->
 
-                        <!-- NOW ADD YOUR EDIT FORM CONTENT HERE -->
-                        <div class="card mb-30">
-                            <div class="card-body p-30">
-                                <form action="update-customer.php" method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <h4 class="mb-3">Personal Information</h4>
-                                            
-                                            <div class="form-group">
-                                                <label>Full Name</label>
-                                                <input type="text" class="form-control" name="customer_name" value="<?php echo htmlspecialchars($cus_name); ?>">
+                        <!-- Card -->
+                        <div class="card">
+
+                       
+
+                            <div class="p-30">
+                                <div class="about-myself mt-2 pb-2">
+                                    <h4 class="mb-3">About Myself</h4>
+                                    <p>Here are my complete profile details:</p>
+                                </div>
+
+                                <div class="row mt-5">
+                                    <div class="col-md-3">
+                                        <nav>
+                                            <div class="nav flex-md-column about-nav-tab">
+                                                <a class="active" id="nav-overview-tab" data-toggle="tab" href="#nav-overview">Overview</a>
                                             </div>
-                                            
-                                            <div class="form-group">
-                                                <label>Rep. Name</label>
-                                                <input type="text" class="form-control" name="rep_name" value="<?php echo htmlspecialchars($rep_name); ?>">
+                                        </nav>
+                                    </div>
+
+                                    <div class="col-md-9">
+                                        <div class="tab-content about-tab-content pl-md-5 mt-4 mt-md-0">
+                                            <div class="tab-pane fade show active" id="nav-overview" role="tabpanel">
+                                                <!-- Overview -->
+                                                <div class="overview">
+                                                    <h4 class="mb-3">Personal Information</h4>
+
+                                                    <ul class="p_overview-list list-unstyled">
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-id-card"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Customer ID:</strong> <?php echo htmlspecialchars($customer['cus_id']); ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-mobile-phone"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Mobile:</strong> 
+                                                                    <a href="tel:<?php echo htmlspecialchars($mobile); ?>" class="text_color">
+                                                                        <?php echo htmlspecialchars($mobile); ?>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-globe"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Email:</strong> 
+                                                                    <a href="mailto:<?php echo htmlspecialchars($email); ?>" class="text_color">
+                                                                        <?php echo htmlspecialchars($email); ?>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-location-pin"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Address:</strong> 
+                                                                    <?php echo htmlspecialchars($address); ?>, <?php echo htmlspecialchars($city); ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-calendar"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Registration Date:</strong> 
+                                                                    <?php echo $created_at; ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <?php if (!empty($signaturePhoto)): ?>
+                                                        <li>
+                                                            <div class="d-flex">
+                                                                <div class="img mr-3">
+                                                                    <i class="icofont-signature"></i>
+                                                                </div>
+                                                                <div class="content">
+                                                                    <strong>Signature:</strong> 
+                                                                    <img src="<?php echo $signaturePhoto; ?>" alt="Signature" style="max-height: 50px;">
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <?php endif; ?>
+                                                    </ul>
+                                                </div>
+                                                <!-- End Overview -->
                                             </div>
-                                            
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control" name="email" value="<?php echo htmlspecialchars($email); ?>">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label>Mobile</label>
-                                                <input type="text" class="form-control" name="mobile" value="<?php echo htmlspecialchars($mobile); ?>">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-xl-6">
-                                            <h4 class="mb-3">Address Information</h4>
-                                            
-                                            <div class="form-group">
-                                                <label>Address</label>
-                                                <textarea class="form-control" name="address"><?php echo htmlspecialchars($address); ?></textarea>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label>City</label>
-                                                <input type="text" class="form-control" name="city" value="<?php echo htmlspecialchars($city); ?>">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label>Profile Photo</label>
-                                                <input type="file" class="form-control" name="profile_photo">
-                                                <?php if(!empty($profilePhoto)): ?>
-                                                    <img src="<?php echo $profilePhoto; ?>" width="100" class="mt-2">
-                                                <?php endif; ?>
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label>Signature Photo</label>
-                                                <input type="file" class="form-control" name="signature_photo">
-                                                <?php if(!empty($signaturePhoto)): ?>
-                                                    <img src="<?php echo $signaturePhoto; ?>" width="100" class="mt-2">
-                                                <?php endif; ?>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-12 text-center mt-4">
-                                            <input type="hidden" name="cus_id" value="<?php echo $cus_id; ?>">
-                                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                                            <a href="customer_new.php" class="btn btn-secondary ml-2">Cancel</a>
                                         </div>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
+                        <!-- End Card -->
                     </div>
                 </div>
             </div>
