@@ -10,14 +10,32 @@ if ($logged_in_user) {
     // Fetch data based on user role
     if (in_array($user_role, ['admin', 'document controller', 'quality controller', 'reviewer'])) {
         // Fetch all data for admin, document controller, and quality controller
-        $sql = "SELECT ci.*, pi.project_status 
+        $sql = "SELECT 
+            ci.checklist_id, 
+            ci.checklist_no, 
+            ci.project_no, 
+            ci.inspected_by, 
+            ci.equipment_type, 
+            ci.checklist_type, 
+            ci.client_name, 
+            ci.created_at,
+            pi.project_status 
                 FROM checklist_information ci
                 LEFT JOIN project_info pi ON ci.project_no = pi.project_no
                 ORDER BY ci.created_at DESC";
         $stmt = $conn->prepare($sql);
     } else {
         // Fetch data only for the logged-in inspector
-        $sql = "SELECT ci.*, pi.project_status 
+        $sql = "SELECT 
+            ci.checklist_id, 
+            ci.checklist_no, 
+            ci.project_no, 
+            ci.inspected_by, 
+            ci.equipment_type, 
+            ci.checklist_type, 
+            ci.client_name, 
+            ci.created_at,
+            pi.project_status  
                 FROM checklist_information ci
                 LEFT JOIN project_info pi ON ci.project_no = pi.project_no
                 WHERE ci.inspected_by = ?

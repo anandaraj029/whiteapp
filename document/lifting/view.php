@@ -39,6 +39,13 @@ $conn->close();
             padding: 20px;
             font-size: 12px;
         }
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 10px;
+            /* border: 1px solid #000; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
         .container-fluid {
             width: 100%;
             margin: auto;
@@ -127,10 +134,15 @@ margin: 5px;
     </style>
 </head>
 <body>
-    <div class="container-fluid mt-5">
+    <div class="container mt-5">
         <img src="../head2.jpg" alt="Header Image" style="width: 100%;">
         <img src="../leea.png" class="leea" alt="Leea">
     <img src="../code.png" class="qrcode" alt="Qr Code">
+
+
+    <h1>LIFTING CERTIFICATE</h1>
+
+
     <?php foreach ($certificates as $certificate): ?>
 
         <table class="table no-border">

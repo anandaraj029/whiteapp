@@ -177,7 +177,7 @@ ob_start();
         </tr>
         <tr>
             <!-- <td> </td> -->
-            <td><b> <?php echo htmlspecialchars($row['client_company_address']); ?></b> </td>
+            <td><b> <?php echo htmlspecialchars($row['client_company_name']); ?></b> </td>
             <td><b><?php echo htmlspecialchars($row['manufacturer']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['equipment_id_no']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['date_of_inspection']); ?></b></td>

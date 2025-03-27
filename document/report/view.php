@@ -50,6 +50,16 @@ if ($stmt_client) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspection Report</title>
     <style>
+        .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
          body {
             font-family: Arial, sans-serif;
             font-size: 12px;
@@ -137,6 +147,7 @@ if ($stmt_client) {
     </style>
 </head>
 <body>
+<div class="container">
 <div class="header">
         <table style="width: 100%; border-collapse: collapse;">
             <tr>
@@ -176,7 +187,7 @@ if ($stmt_client) {
             <td class="manufac">Model:</td>
         </tr>
         <tr>
-            <td><b> <?php echo htmlspecialchars($row['client_company_address']); ?></b> </td>
+            <td><b> <?php echo htmlspecialchars($row['client_company_name']); ?></b> </td>
             <td><b><?php echo htmlspecialchars($row['manufacturer']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['equipment_id_no']); ?></b></td>
             <td><b><?php echo htmlspecialchars($row['date_of_inspection']); ?></b></td>
@@ -334,12 +345,13 @@ below. Specific repairs to correct each deficiency should be noted in the right 
     <button type="button" class="btn btn-danger" onclick="window.print()">Print</button>
 </div> -->
 
-<div class="text-center">
+<div class="text-center" style="margin-top: 10px;">
     <a href="download.php?project_no=<?php echo $row['project_no']; ?>" >
         <button>Download</button>
     </a>
 </div>
 
+</div>
 
     <!-- <script>
         document.getElementById('downloadBtn').addEventListener('click', function () {

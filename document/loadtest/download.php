@@ -147,17 +147,28 @@ margin: 5px;
     <img src="../code.png" class="qrcode" alt="Qr Code">
 
       
+    <table class="content-table">
+            <tr>
+                <td><strong>Date of Thorough Examination: {$row['examination_date']}</strong></td>
+                <td><strong>Date of Report: {$row['report_date']}</strong></td>
+                <td><strong>Report Number: {$row['report_no']}</strong><br/>
+				<strong>Sticker Number: {$row['sticker_no']}</strong>
+				</td>
+                
+            </tr>
+        </table>
+
         <table class="content-table">
             <tr>
-                <td colspan="3" class="center-text">Name and Address of employer for whom the thorough examination was made:<br/><strong>{$row['employer_address']}</strong></td>
-                <td colspan="3" class="center-text">Address of premises at which the examination was made:<br/><strong>{$row['premises_address']}</strong></td>
+                <td colspan="3" class="center-text"><strong>Name and Address of employer for whom the thorough examination was made:</strong><br/><strong>{$row['employer_address']}</strong></td>
+                <td colspan="3" class="center-text"><strong>Address of premises at which the examination was made:</strong><br/><strong>{$row['premises_address']}</strong></td>
             </tr>
             <tr>
-                <td colspan="3" class="center-text">Description and Identification of the equipment:<br/>
+                <td colspan="3" class="center-text"><strong>Description and Identification of the equipment:</strong><br/>
                 <strong>{$row['equipment_description']}</strong> </td>
-                <td class="center-text">Safe Working Load(s):</td>
-                <td class="center-text">Date of manufacture if known:</td>
-                <td class="center-text">Date of last thorough examination:</td>
+                <td class="center-text"><strong>Safe Working Load(s):</strong></td>
+                <td class="center-text"><strong>Date of manufacture if known:</strong></td>
+                <td class="center-text"><strong>Date of last thorough examination:</strong></td>
             </tr>
             <tr>
                 <td colspan="3" class="no-right-border">

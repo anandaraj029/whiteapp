@@ -1,7 +1,5 @@
-    
-    <?php 
+<?php 
 include_once('../inc/customer-option.php');
-
 ?>
     <!-- Main Content -->
      <div class="main-content2">

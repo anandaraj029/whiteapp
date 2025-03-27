@@ -47,7 +47,7 @@ if ($role == '' || $role == 'guest') {
       if ($role === 'admin') {
          echo $url . 'dashboard/index.php'; // Admin dashboard
       } elseif ($role === 'customer') {
-         echo $url . 'dashboard/customer.php'; // Inspector dashboard
+         echo $url . 'dashboard/customer_new.php'; // Inspector dashboard
       } elseif ($role === 'inspector') {
          echo $url . 'dashboard/inspector.php'; // Inspector dashboard
       } elseif ($role === 'reviewer') {
@@ -132,35 +132,17 @@ if ($role == '' || $role == 'guest') {
             
 
             <!-- Checklist Portal (Visible to All Users) -->
-            <!-- <li>
+            <li>
                <a href="#">
                   <i class="icofont-contacts"></i>
                   <span class="link-title">Checklist Portal</span>
                </a>
-               
+               <!-- Sub Menu -->
                <ul class="nav sub-menu">
                   <li><a href="<?php echo $url; ?>document/checklist/">All Checklist</a></li>
                </ul>
-               
-            </li> -->
-
-
-            <!-- Checklist Portal (Visible to All Users) -->
-<li>
-    <a href="#">
-        <i class="icofont-contacts"></i>
-        <span class="link-title">Checklist Portal</span>
-    </a>
-    <!-- Sub Menu -->
-    <ul class="nav sub-menu">
-        <?php if ($_SESSION['role'] === 'customer'): ?>
-            <li><a href="<?php echo $url; ?>document/checklist/customer.php">My Checklists</a></li>
-        <?php else: ?>
-            <li><a href="<?php echo $url; ?>document/checklist/index.php">All Checklist</a></li>
-        <?php endif; ?>
-    </ul>
-    <!-- End Sub Menu -->
-</li>
+               <!-- End Sub Menu -->
+            </li>
 
             <!-- Report Portal (Visible to All Users) -->
             <li>

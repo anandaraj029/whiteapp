@@ -112,16 +112,17 @@ if ($logged_in_role === 'inspector') {
                                         }
 
                                         // Assign different colors for "Passed" and "Failed" for sticker status
-                                        if ($row['sticker_status'] === "Passed") {
-                                            $sticker_status_class = 'text-success'; // Green text
-                                            $sticker_status_text = 'Passed';
-                                        } elseif ($row['sticker_status'] === "Failed") {
-                                            $sticker_status_class = 'text-danger'; // Red text
-                                            $sticker_status_text = 'Failed';
-                                        } else {
-                                            $sticker_status_class = 'text-muted'; // Gray text for undefined status
-                                            $sticker_status_text = 'Pending';
-                                        }
+                                        // Assign different colors for "Passed" and "Pending" for sticker status
+if ($row['sticker_status'] === "Passed") {
+    $sticker_status_class = 'bg-success text-white'; // Green background
+    $sticker_status_text = 'Passed';
+} elseif ($row['sticker_status'] === "Failed") {
+    $sticker_status_class = 'bg-danger text-white'; // Red background
+    $sticker_status_text = 'Failed';
+} else {
+    $sticker_status_class = 'bg-secondary text-white'; // Gray background for undefined status
+    $sticker_status_text = 'Pending';
+}
 
                                         // Render the table row
                                         echo "<tr>
@@ -134,9 +135,7 @@ if ($logged_in_role === 'inspector') {
                                             <td><button type='button' class='status-btn $sticker_status_class'>$sticker_status_text</button></td>
                                             <td><button type='button' class='status-btn $status_class'>$status_text</button></td>
                                             <td class='actions'>
-                                                <a href='#'><span class='contact-edit' data-toggle='modal' data-target='#contactEditModal'>
-                                                    <img src='{$url}assets/img/svg/c-edit.svg' alt='' class='svg'>
-                                                </span></a>
+                                                
                                                 <a href='delete-sticker.php?id={$row['sticker_start_no']}' onclick='return confirm(\"Are you sure you want to delete this sticker?\");'>
                                                     <span class='contact-close'>
                                                         <img src='{$url}assets/img/svg/c-close.svg' alt='' class='svg'>

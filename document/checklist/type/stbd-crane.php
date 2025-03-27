@@ -264,7 +264,7 @@ if (!isset($row) || empty($row)) {
                         <tr>
                             <td><strong>2.1</strong></td>
                             <td><strong>Crane Class Certificates.</strong></td>
-                            <td style="text-align: center;"><strong> </strong></td>
+                            <!-- <td style="text-align: center;"><strong> </strong></td> -->
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="result[8][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
@@ -535,7 +535,7 @@ if (!isset($row) || empty($row)) {
                         <tr>
                             <td><strong>3.2</strong></td>
                             <td><strong>Crane’s SWL is prominently stenciled/marked.</strong></td>
-                            <td style="text-align: center;"><strong> </strong></td>
+                            <!-- <td style="text-align: center;"><strong> </strong></td> -->
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="result[22][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>

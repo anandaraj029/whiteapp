@@ -113,18 +113,7 @@ $result = $stmt->get_result();
                               </div>
                               <!-- End Delete Mail -->
 
-                              <!-- Pagination -->
-                              <!-- <div class="pagination style--two d-flex flex-column align-items-center ml-n2">
-                                 <ul class="list-inline d-inline-flex align-items-center">
-                                 <li><a href="#">
-                                       <img src="<?php echo $url; ?>assets/img/svg/left-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 <li><a href="#" class="current">
-                                       <img src="<?php echo $url; ?>assets/img/svg/right-angle.svg" alt="" class="svg">
-                                 </a></li>
-                                 </ul>
-                              </div> -->
-                              <!-- End Pagination -->
+                              
                            </div>
                         </div>
                         <!-- End Contact Header -->
@@ -205,9 +194,9 @@ $result = $stmt->get_result();
                 <td><?php echo $row['report_no']; ?></td>
                 <td><?php echo $row['project_no']; ?></td>
                 <td>
-                    <a href='../checklist/type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}' class="text-primary">
+                    <!-- <a href='../checklist/type/view/{$checklist_type_raw}.php?checklist_type={$checklist_type_raw}&&checklist_no={$checklist_no}' class="text-primary"> -->
                         <?php echo htmlspecialchars($row['checklist_no']); ?>
-                    </a>
+                    <!-- </a> -->
                 </td>
                 <td><?php echo date('F d, Y', strtotime($row['date_of_inspection'])); ?></td>
                 <td><?php echo $row['client_company_name']; ?></td>
@@ -243,9 +232,7 @@ $result = $stmt->get_result();
                             <!-- End Invoice List Table -->
                         </div>
                     </div>
-                    <!-- End Card -->
-
-                  
+                    <!-- End Card -->                 
 
                      
                   </div>

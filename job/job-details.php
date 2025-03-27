@@ -17,7 +17,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         SELECT 
             p.project_no, p.creation_date, p.project_status, p.equipment_location, p.customer_mobile, p.customer_email, p.checklist_status, p.report_status, p.certificatestatus, p.review_status,
             c.checklist_no, c.client_name, c.inspected_by, c.created_at, c.checklist_type, c.checklist_id,
-            r.report_no, r.sticker_number_issued, r.inspection_status
+            r.report_no, r.sticker_number_issued, r.inspection_status, r.created_at
         FROM project_info p
         LEFT JOIN checklist_information c ON p.project_no = c.project_no
         LEFT JOIN reports r ON p.project_no = r.project_no
@@ -242,7 +242,7 @@ $result = $stmt->get_result();
                                             <span class="white bold font-17"><?php echo htmlspecialchars(date('d/m/Y', strtotime($data['creation_date']))); ?></span>
                                         </li>
                                         <li><span class="key font-14">End Date:</span>
-                                            <span class="white bold font-17">07/03/2019</span>
+                                            <!-- <span class="white bold font-17">07/03/2019</span> -->
                                         </li>
                                         <li><span class="key font-14">Status:</span>
                                             <span class="white status-btn completed"><?php echo htmlspecialchars($data['project_status']); ?></span>
@@ -259,16 +259,6 @@ $result = $stmt->get_result();
     </div>
     <!-- End Invoice Right -->
 </div>
-
-<!-- Popup Modal -->
-<!-- <div id="qrPopup" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Enter your sticker no</h3>
-        <input type="text" id="stickerNo" placeholder="Sticker No">
-        <button id="submitStickerNo">Submit</button>
-    </div>
-</div> -->
                         </div>
                     </div>
                     <!-- End Invoice Top -->
@@ -281,9 +271,6 @@ $result = $stmt->get_result();
         Add Certificate
     </button>
 <?php endif; ?>
-
-
-
 
 <!-- Add Certificate Modal -->
 <div class="modal fade" id="addCertificateModal" tabindex="-1" role="dialog" aria-labelledby="addCertificateModalLabel" aria-hidden="true">
@@ -367,7 +354,8 @@ $result = $stmt->get_result();
                                             <li><span class="key">Report No:</span> <span class="black"><?php echo htmlspecialchars($data['report_no']); ?></span></li>
                                             <li><span class="key">Sticker:</span> <span class="black"><?php echo htmlspecialchars($data['sticker_number_issued']); ?></span></li>
                                             <li><span class="key">Inspection Status:</span> <span class="black"><?php echo htmlspecialchars($data['inspection_status']); ?></span></li>
-                                            <li><span class="key">Review Status:</span> <span class="text-warning"><?php echo htmlspecialchars($reviewStatus); ?></span></li>
+                                            <li><span class="key">Created At:</span> <?php echo htmlspecialchars($data['created_at']); ?></li>
+                                            <li><span class="key">Review Status:</span> <span class="text-warning"><?php echo htmlspecialchars($reviewStatus); ?></span></li>                                            
                                             <a href="../document/report/view.php?project_no=<?php echo $data['project_no']; ?>">
                                                 <span class="bg-primary text-white status-btn completed"> View</span>
                                             </a>
@@ -439,27 +427,54 @@ $result = $stmt->get_result();
 </div>
 
 
-                            <div class="col-lg-4 col-md-6 mt-5">
-                                <!-- Certificate Details -->
-                                <div class="invoice invoice-form">
-                                    <div class="black bold font-17 mb-3">Certificate Details:</div>
-                                    <?php if (!empty($certificates)): ?>
-                                        <ul class="status-list">
-                                            <?php foreach ($certificates as $certificate): ?>
-                                                <li><span class="key">Certificate No:</span> <span class="black"><?php echo htmlspecialchars($certificate['certificate_no']); ?></span></li>
-                                                <li><span class="key">Created On:</span> <span class="black"><?php echo date('F d, Y', strtotime($certificate['created_at'])); ?></span></li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    <?php else: ?>
-                                        <p>Certificates not created yet.</p>
-                                    <?php endif; ?>
-                                </div>
-                            </div>
 
 
 
+                            <!-- Certificate Details -->
+<div class="col-lg-4 col-md-6 mt-5">
+    <div class="invoice invoice-form">
+        <div class="black bold font-17 mb-3">Certificate Details:</div>
+        <?php if (!empty($certificates)): ?>
+            <ul class="status-list">
+                <?php 
+                // Define path mapping for certificate types
+                $certificate_paths = [
+                    'healthcheck' => 'health-check',
+                    'loadtestwithload' => 'loadtest',
+                    'mobile' => 'mobile',
+                    'lifting' => 'lifting',
+                    'mpi' => 'mpi',
+                    'eddycurrent' => 'eddycurrent',
+                    'liquidpenetrantinspection' => 'liquid-penetrant-inspection-certificate',
+                    'rocktest' => 'rocktest'
+                ];
+                
+                foreach ($certificates as $certificate): 
+                     $path = $certificate_paths[$certificate['certificate_type']] ?? strtolower($certificate['certificate_type']);
+                ?>
+                    <li>
+                        <span class="key">Certificate No:</span> 
+                        <span class="black"><?php echo htmlspecialchars($certificate['certificate_no']); ?></span>
+                    </li>
+                    <li>
+                        <span class="key">Created On:</span> 
+                        <span class="black"><?php echo date('F d, Y', strtotime($certificate['created_at'])); ?></span>
+                    </li>
+                    <li>
+                        <span class="key">Type:</span> 
+                        <span class="black"><?php echo ucfirst(str_replace(['-', 'with'], [' ', 'with '], $certificate['certificate_type'])); ?></span>
+                    </li>
+                    <a href="../document/<?php echo htmlspecialchars($path); ?>/view.php?project_no=<?php echo $data['project_no']; ?>" class="d-inline-block mt-2">
+                        <span class="bg-primary text-white status-btn completed">View Certificate</span>
+                    </a>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>Certificates not created yet.</p>
+        <?php endif; ?>
+    </div>
+</div>
 
-<!-- Document Details -->
 <!-- Document Details -->
 <div class="col-lg-4 col-md-6 mt-5">
     <div class="invoice invoice-form">
@@ -481,18 +496,14 @@ $result = $stmt->get_result();
             <p>No documents uploaded.</p>
         <?php endif; ?>
     </div>
-
-
-
-
-                            <?php if ($userRole === 'inspector'): ?>
-                                <div class="d-flex justify-content-center mt-3">
-    <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#uploadModal">
-        Upload Documents
-    </button>
+        <?php if ($userRole === 'inspector'): ?>
+        <div class="d-flex justify-content-center mt-3">
+          <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#uploadModal">
+             Upload Documents
+          </button>
+        </div>
+        <?php endif; ?>
     </div>
-<?php endif; ?>
-</div>
 
 <!-- Upload Modal -->
 <!-- Upload Modal -->
@@ -722,8 +733,7 @@ $result = $stmt->get_result();
         </div>
     </div>
     <!-- End Main Content -->
-
-    <script>
+<script>
         document.addEventListener("DOMContentLoaded", function () {
     const addCertificateButton = document.querySelector("button[data-target='#addCertificateModal']");
     if (<?php echo json_encode($enableAddCertificate); ?>) {
@@ -775,16 +785,11 @@ $result = $stmt->get_result();
     .catch(error => {
         console.error('Error:', error);
     });
-});
-
-
-        
-    </script>
+});        
+</script>
 
 
 <script>
-
-
 document.addEventListener("DOMContentLoaded", function () {
     $('#reviewModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
@@ -835,7 +840,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-
 </script>
 
 <script>
@@ -851,7 +855,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <script>
-
 document.getElementById('submitQcReview').addEventListener('click', function () {
     const formData = new FormData(document.getElementById('qcReviewForm'));
 
@@ -893,57 +896,6 @@ document.getElementById('submitQcReview').addEventListener('click', function () 
     });
 });
 </script>
-
-
-<!-- <script>
-    
-    $(document).ready(function() {
-        // Get the modal
-        var modal = document.getElementById("qrPopup");
-
-        // Get the QR code image
-        var qrCode = document.getElementById("qrCode");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // Get the project status from PHP
-        var projectStatus = "<?php echo htmlspecialchars($data['project_status']); ?>";
-
-        // When the user clicks on the QR code, open the modal only if project status is "Completed"
-        qrCode.onclick = function() {
-            if (projectStatus === "Completed") {
-                modal.style.display = "block";
-            } else {
-                alert("QR code scanning is invalid");
-            }
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-
-        // Handle the submit button click
-        $("#submitStickerNo").click(function() {
-            var stickerNo = $("#stickerNo").val();
-            if (stickerNo) {
-                // Redirect to the form page with the sticker number as a query parameter
-                window.location.href = "form.php?stickerNo=" + stickerNo;
-            } else {
-                alert("Please enter a sticker number.");
-            }
-        });
-    });
-
-</script> -->
     
 <script>
     $(document).ready(function() {
@@ -1011,12 +963,11 @@ document.getElementById('submitQcReview').addEventListener('click', function () 
         });
     });
 });
-
-
 </script>
+
     
-    <?php
-    include_once('../inc/footer.php');
-    ?>
+<?php
+include_once('../inc/footer.php');
+?>
 </body>
 </html>
