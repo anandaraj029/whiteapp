@@ -53,7 +53,7 @@ $result = $stmt->get_result();
                             <thead>
                                 <tr>
                                     <th>Select</th>
-                                    <th></th>
+                                    <!-- <th></th> -->
                                     <th>Certificate No</th>
                                     <th>Project ID</th>
                                     <th>Report No</th>
@@ -68,22 +68,20 @@ $result = $stmt->get_result();
                                     <?php while ($row = $result->fetch_assoc()): ?>
                                         <tr id="row_<?php echo $row['project_no']; ?>">
                                         <td>
-                                                <input type="checkbox">
-                                            </td>
-                                        <td>
-                    <div class='star d-flex align-items-center'>
-                        <a href='./view.php?project_no=<?php echo $row['project_no']; ?>' class='mr-2'>
-                            <div class='icon text-primary'>
-                                <i class='et-clipboard'></i>
-                            </div>
-                        </a>
-                        <a href='./download.php?project_no=<?php echo $row['project_no']; ?>'>
-                            <div class='icon text-primary'>
-                                <i class='et-download'></i>
-                            </div>
-                        </a>
-                    </div>
-                </td>
+        <input type="checkbox" class="mr-2">
+        <div class='star d-flex align-items-center'>
+            <a href='./view.php?project_no=<?php echo $row['project_no']; ?>' class='mr-2' title="View">
+                <div class='icon text-primary'>
+                    <i class='et-clipboard'></i>
+                </div>
+            </a>
+            <a href='./download.php?project_no=<?php echo $row['project_no']; ?>' title="Download">
+                <div class='icon text-primary'>
+                    <i class='et-download'></i>
+                </div>
+            </a>
+        </div>
+    </td>
                                             
                                             <td><?php echo htmlspecialchars($row['certificate_no']); ?></td>
                                             <td><?php echo htmlspecialchars($row['project_no']); ?></td>

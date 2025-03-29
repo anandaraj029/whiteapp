@@ -84,10 +84,7 @@ include_once('./view-fetch.php');
 
 <body>
     <div class="container">
-
         <div class="table-responsive">
-
-
             <table class="w-100">
                 <tr>
                     <td rowspan="4" class="logo-cell ">
@@ -119,49 +116,56 @@ include_once('./view-fetch.php');
 
         <h4>ARC WELDING EQUIPMENT </h4>
         <h4>BS EN 60974-4:2007 </h4>
-
-
         <!--<button class="btn btn-primary no-print" onclick="preparePrint()">Print View</button>-->
 
         <div class="table-responsive">
             <table class="table table-bordered">
-
-
                 <tr>
-                    <th style="width: 25%;">REPORT NO</th>
+                    <th style="width: 25%;">VESSEL NAME:</th>
                     <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
-                    <th style="width: 25%;">INSPECTION DATE</th>
-                    <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
-                </tr>
-                <tr>
-                    <th>CLIENT’S NAME</th>
-                    <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
-                    <th>INSPECTED BY</th>
-                    <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
+                    <th style="width: 25%;">REPORT NO: </th>
+                    <td style="width: 25%;"><strong> <?php echo htmlspecialchars($row['report_no']); ?></strong></td>
                 </tr>
                 <tr>
                     <th>LOCATION</th>
                     <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
-                    <th>STICKER NO.</th>
+                    <th>INSPECTION DATE</th>
+                    <td><strong> <?php echo htmlspecialchars($row['inspection_date']); ?></strong></td>
+                </tr>
+
+                <tr>                    
+                    <th>EQUIPMENT NO</th>
+                    <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
+                    <th>EQUIPMENT TYPE</th>
+                    <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
+                </tr>
+
+                <!-- <tr>
+                    <th>CLIENT’S NAME</th>
+                    <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
+                    <th>INSPECTED BY</th>
+                    <td><strong> <?php echo htmlspecialchars($row['inspected_by']); ?></strong></td>
+                </tr> -->
+                <tr>
+                    <th>MANUFACTURER:</th>
+                    <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
+                    <th>YEAR MODEL:</th>
                     <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
                 </tr>
                 <tr>
-                    <th>EQUIPMENT NO</th>
-                    <td><strong> <?php echo htmlspecialchars($row['crane_asset_no']); ?></strong></td>
+                    <th>MODEL NO.:</th>
+                    <td><strong> <?php echo htmlspecialchars($row['location']); ?></strong></td>
+                    <th>CAPACITY (SWL):</th>
+                    <td><strong> <?php echo htmlspecialchars($row['sticker_no']); ?></strong></td>
+                </tr>
+                <tr>                    
                     <th>EQUIP.SERIAL NO.:</th>
                     <td><strong> <?php echo htmlspecialchars($row['crane_serial_no']); ?></strong></td>
-                </tr>
-                <!-- <tr>
-        <th>EQUIPMENT TYPE</th>
-        <td><strong> <?php echo htmlspecialchars($row['equipment_type']); ?></strong></td>
-        <th>CAPACITY (SWL)</th>
-        <td><strong> <?php echo htmlspecialchars($row['capacity_swl']); ?></strong></td>
-    </tr> -->
-
+                    <th>CLIENT’S NAME</th>
+                    <td><strong><?php echo htmlspecialchars($row['client_name']); ?></strong></td>
+                </tr>             
             </table>
         </div>
-
-
 
         <form method="post" action="?">
             <input type="hidden" name="checklist_no" value="<?php echo $row['checklist_id'] ?>" />
@@ -183,15 +187,11 @@ include_once('./view-fetch.php');
                             <th style="text-align: center;">NA</th>
                             <th> </th>
                         </tr>
-
                     </thead>
-
                     <tbody>
-
                         <tr>
                             <td><strong>1.1</strong></td>
                             <td><strong> Owner’s Manual or Technical Manual. </strong></td>
-
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
                                     <?php echo $selected_results[0] == "PASS" ? 'checked' : ''; ?> disabled class="custom-checkbox">
@@ -409,7 +409,6 @@ include_once('./view-fetch.php');
                         <tr>
                             <td><strong>2.2.3</strong></td>
                             <td><strong>No. 2 Auxiliary Hoist Rope </strong></td>
-
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
                                     <?php echo $selected_results[10] == "PASS" ? 'checked' : ''; ?> disabled class="custom-checkbox">
@@ -1104,7 +1103,6 @@ include_once('./view-fetch.php');
                         <tr>
                         <td><strong>4.6 </strong></td>
                         <td><strong>No leakages are visible on the hydraulic hoses, fittings, valves, & manifolds. </strong></td>
-
                             <td class="checkbox-cell">
                                 <input type="checkbox" name="checked_arr[0][]" id="checkbox1" value="PASS"
                                     <?php echo $selected_results[41] == "PASS" ? 'checked' : ''; ?> disabled class="custom-checkbox">
@@ -1121,8 +1119,7 @@ include_once('./view-fetch.php');
                                 <input type="text" name="remarks[0]" value="<?php echo $chek_remark[41]; ?>" disabled>
                             </td>
                         </tr>
-
-
+                        
                         <tr>
                         <td><strong>4.7 </strong></td>
                         <td><strong>Nothing was deformed on the tubing, fittings, & other related components. </strong></td>

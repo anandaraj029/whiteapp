@@ -68,43 +68,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $updateQuery = "UPDATE project_info SET report_status = 'Generated' WHERE project_no = ?";
         $updateStmt = $conn->prepare($updateQuery);
         $updateStmt->bind_param("s", $project_no);
-
-        if ($updateStmt->execute()) {
-            // Verify if the sticker_number_issued exists in the stickers table
-            $stickerCheckQuery = "SELECT * FROM stickers WHERE sticker_start_no = ?";
-            $stickerCheckStmt = $conn->prepare($stickerCheckQuery);
-            $stickerCheckStmt->bind_param("s", $sticker_number_issued);
-            $stickerCheckStmt->execute();
-            $stickerResult = $stickerCheckStmt->get_result();
-
-            if ($stickerResult->num_rows > 0) {
-                // Sticker exists, update the existing row in the stickers table
-                $stickerUpdateQuery = "UPDATE stickers 
-                                       SET project_no = ?, inspection_date = ?, next_inspection_due_date = ?, equipment_no = ?, equipment_serial_no = ?, sticker_status = ?, status = 'Active'
-                                       WHERE sticker_start_no = ?";
-                $stickerUpdateStmt = $conn->prepare($stickerUpdateQuery);
-                $stickerUpdateStmt->bind_param("sssssss", $project_no, $date_of_inspection, $next_inspection_due_date, $equipment_id_no, $equipment_serial_no, $inspection_status, $sticker_number_issued);
-
-                if ($stickerUpdateStmt->execute()) {
-                    $msg = "Report created successfully, project status updated, and sticker information updated.";
-                    header('Location: index.php?msg=' . urlencode($msg)); 
-                    exit;
-                } else {
-                    error_log("Error updating sticker data: " . $stickerUpdateStmt->error);
-                    echo "Error updating sticker information.";
-                }
-
-                $stickerUpdateStmt->close();
-            } else {
-                echo "Error: Sticker number does not exist in the database.";
-            }
-
-            $stickerCheckStmt->close();
-        } else {
-            error_log("Error updating project status: " . $updateStmt->error);
-            echo "Error updating project status.";
-        }
+        $updateStmt->execute();
         $updateStmt->close();
+
+        // Verify if the sticker_number_issued exists in the stickers table
+        $stickerCheckQuery = "SELECT * FROM stickers WHERE sticker_start_no = ?";
+        $stickerCheckStmt = $conn->prepare($stickerCheckQuery);
+        $stickerCheckStmt->bind_param("s", $sticker_number_issued);
+        $stickerCheckStmt->execute();
+        $stickerResult = $stickerCheckStmt->get_result();
+
+        if ($stickerResult->num_rows > 0) {
+            // Sticker exists, update the existing row in the stickers table
+            $stickerUpdateQuery = "UPDATE stickers 
+                                   SET project_no = ?, inspection_date = ?, next_inspection_due_date = ?, equipment_no = ?, equipment_serial_no = ?, sticker_status = ?, status = 'Active'
+                                   WHERE sticker_start_no = ?";
+            $stickerUpdateStmt = $conn->prepare($stickerUpdateQuery);
+            $stickerUpdateStmt->bind_param("sssssss", $project_no, $date_of_inspection, $next_inspection_due_date, $equipment_id_no, $equipment_serial_no, $inspection_status, $sticker_number_issued);
+            $stickerUpdateStmt->execute();
+            $stickerUpdateStmt->close();
+        }
+
+        $stickerCheckStmt->close();
+
+        // Insert notification for reviewers
+        $notification_message = "Project $project_no is ready for reviewing.";
+        $insertNotificationQuery = "INSERT INTO project_notifications (project_no, notification_message, reviewer, created_at) VALUES (?, ?, NULL, ?)";
+        $notificationStmt = $conn->prepare($insertNotificationQuery);
+        $notificationStmt->bind_param("sss", $project_no, $notification_message, $created_at);
+
+        if ($notificationStmt->execute()) {
+            echo "Report created, project updated, sticker updated, and notification sent.";
+        } else {
+            error_log("Error inserting notification: " . $notificationStmt->error);
+            echo "Error sending notification.";
+        }
+
+        $notificationStmt->close();
+        
+        // Redirect with success message
+        header('Location: index.php?msg=' . urlencode("Report created successfully."));
+        exit;
     } else {
         error_log("Error inserting data: " . $stmt->error);
         echo "Error saving report. Please try again.";

@@ -32,8 +32,7 @@ $total_pending_report = mysqli_fetch_assoc($result_pending_report)['total_pendin
 $query_recent_projects = "SELECT project_no, customer_name, project_status, creation_date 
                           FROM project_info 
                           WHERE inspector_name = '$logged_in_user'
-                          ORDER BY creation_date DESC 
-                          LIMIT 5"; // Adjust the limit as needed
+                          ORDER BY creation_date DESC"; // Adjust the limit as needed
 
 $result_recent_projects = mysqli_query($conn, $query_recent_projects);
 
@@ -46,7 +45,62 @@ $query_ongoing_projects = "SELECT project_no, customer_name, project_status
 
 $result_ongoing_projects = mysqli_query($conn, $query_ongoing_projects);
 
+
+// Query to fetch notifications for the logged-in inspector
+// Fetch all notifications for the inspector
+$query_notifications = "SELECT project_no FROM project_notifications 
+                        WHERE inspector_name = '$logged_in_user'";
+
+$result_notifications = mysqli_query($conn, $query_notifications);
+
+while ($row = mysqli_fetch_assoc($result_notifications)) {
+    $project_no = $row['project_no'];
+
+    // Check project status from project_info table
+    $status_query = "SELECT project_status FROM project_info WHERE project_no = '$project_no'";
+    $status_result = mysqli_query($conn, $status_query);
+    $status_row = mysqli_fetch_assoc($status_result);
+
+    // If project is completed, delete the notification
+    if ($status_row && $status_row['project_status'] == "Completed") {
+        $delete_query = "DELETE FROM project_notifications WHERE project_no = '$project_no'";
+        mysqli_query($conn, $delete_query);
+    }
+}
+
+// Now fetch only active notifications
+$query_notifications = "SELECT project_no, Notification_message, created_at 
+                        FROM project_notifications 
+                        WHERE inspector_name = '$logged_in_user' 
+                        ORDER BY created_at DESC";
+
+$result_notifications = mysqli_query($conn, $query_notifications);
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Internal Styles for Pagination -->
+    <style>
+
+.list-group-item {
+   border-left: 5px solid #007bff; /* Blue border for notifications */
+   transition: background 0.3s;
+}
+
+.list-group-item:hover {
+   background: #f8f9fa;
+}
+
+      
+    </style>
+</head>
+<body>
 
 <!-- Main Content -->
 <div class="main-content">
@@ -124,6 +178,30 @@ $result_ongoing_projects = mysqli_query($conn, $query_ongoing_projects);
             <!-- End Card -->
          </div>
 
+<div class="col-xl-6 col-lg-6">
+   <div class="card mb-30">
+      <div class="card-body">
+         <h4 class="mb-3">Notifications</h4>
+         <p class="font-14">Recent project assignments and updates.</p>
+         
+         <ul class="list-group">
+            <?php while ($row = mysqli_fetch_assoc($result_notifications)): ?>
+               <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div>
+                     <h6 class="mb-1"><?php echo htmlspecialchars($row['project_no']); ?></h6>
+                     <p class="mb-0"><?php echo htmlspecialchars($row['Notification_message']); ?></p>
+                     <small class="text-muted"><?php echo date("d M Y, H:i A", strtotime($row['created_at'])); ?></small>
+                  </div>
+               </li>
+            <?php endwhile; ?>
+            
+            <?php if (mysqli_num_rows($result_notifications) == 0): ?>
+               <li class="list-group-item text-center">No new notifications.</li>
+            <?php endif; ?>
+         </ul>
+      </div>
+   </div>
+</div>
          <div class="col-xl-6 col-lg-6">
             <!-- Card -->
             <div class="card pb-2 mb-30">
@@ -190,6 +268,13 @@ $result_ongoing_projects = mysqli_query($conn, $query_ongoing_projects);
                </div>
             </div>
          </div>
+
+
+
+
+        
+
+
 
          <div class="col-xl-12">
             <!-- Card -->
@@ -258,7 +343,8 @@ $result_ongoing_projects = mysqli_query($conn, $query_ongoing_projects);
    </div>
 </div>
 <!-- End Main Content -->
-
+                     </body>
+                     </html>
 <?php
 include_once('../inc/footer.php');
 ?>

@@ -102,6 +102,14 @@ if ($checklistResult && $checklistResult->num_rows > 0) {
                                         <input type="text" name="location" class="theme-input-style" placeholder="LOCATION" value="<?php echo htmlspecialchars($location); ?>" readonly required>
                                     </div>
                                     
+
+                                    <!-- VESSEL NAME -->
+        <div class="form-group">
+            <label class="font-14 bold mb-2">VESSEL NAME</label>
+            <input type="text" name="vessel_name" class="theme-input-style" placeholder="VESSEL NAME" required>
+        </div>
+
+
                                     <!-- CRANE ASSET NO -->
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">CRANE ASSET NO</label>
@@ -193,6 +201,14 @@ if ($checklistResult && $checklistResult->num_rows > 0) {
                                         <input type="text" name="year_model" class="theme-input-style" placeholder="YEAR MODEL">
                                     </div>
 
+
+                                    <!-- MODEL NO. -->
+        <div class="form-group">
+            <label class="font-14 bold mb-2">MODEL NO.</label>
+            <input type="text" name="model_no" class="theme-input-style" placeholder="MODEL NO." required>
+        </div>
+
+        
                                     <div class="form-group">
                                         <label class="font-14 bold mb-2">EQUIPMENT NO</label>
                                         <input type="text" name="equipment_no" class="theme-input-style" placeholder="EQUIPMENT NO">

@@ -55,8 +55,22 @@ $project_no = "CIMS" . str_pad(($last_project_no ? $last_project_no + 1 : 1), 3,
     );
 
     if ($stmt->execute()) {
-        header("Location: ../job/overall-job-list.php?status=success");
-        exit();
+        // header("Location: ../job/overall-job-list.php?status=success");
+        // exit();
+
+ // Create notification message
+ $notification_message = "A new project ($project_no) has been created for customer $customer_name and assigned to inspector $inspector_name.";
+
+ // Insert notification into project_notifications table
+ $notif_stmt = $conn->prepare("INSERT INTO project_notifications (project_no, inspector_name, customer_name, Notification_message, reviewer, document_controller, quality_controller) 
+                               VALUES (?, ?, ?, ?, NULL, NULL, NULL)");
+ $notif_stmt->bind_param("ssss", $project_no, $inspector_name, $customer_name, $notification_message);
+ $notif_stmt->execute();
+ $notif_stmt->close();
+
+ header("Location: ../job/overall-job-list.php?status=success");
+ exit();
+
     } else {
         error_log("Database Insert Error: " . $stmt->error);
         header("Location: ../job/create-job.php?status=error&message=" . urlencode("Failed to create project. Please try again."));

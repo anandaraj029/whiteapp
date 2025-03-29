@@ -4,6 +4,11 @@ include_once('../../file/config.php');
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    // Start transaction
+    mysqli_begin_transaction($conn);
+
+    try {
     // Collect form data
     $examination_date = $_POST['examination_date'];
     $report_date = $_POST['report_date'];
@@ -70,6 +75,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $wind_speed_indicator = $_POST['wind_speed_indicator'];
     $created_at = date('Y-m-d H:i:s');
 
+
+     // Check if certificate already exists for this project
+     $check_query = "SELECT * FROM mobile_crane_loadtest WHERE project_no = ?";
+     $check_stmt = $conn->prepare($check_query);
+     $check_stmt->bind_param("s", $project_no);
+     $check_stmt->execute();
+     $check_result = $check_stmt->get_result();
+
+     if ($check_result->num_rows > 0) {
+         throw new Exception("A mobile crane load test certificate already exists for this project.");
+     }
+
+
     // Prepare SQL statement
     $sql = "INSERT INTO mobile_crane_loadtest (
                 examination_date, report_date, report_no, sticker_no, project_no, company_name, customer_name, customer_email, customer_mobile, inspector_name, technical_manager, 
@@ -93,27 +111,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     );
 
     // Execute the query
-    if ($stmt->execute()) {
-        // Update project status
-        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
-        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = ?";
-        $update_stmt = $conn->prepare($update_query);
-        $update_stmt->bind_param('s', $project_no);
-
-        if ($update_stmt->execute()) {
-            $msg = "Mobile Crane created successfully, and project status updated.";
-            header('Location: index.php?msg=' . $msg);
-        } else {
-            echo "Error updating project status: " . $update_stmt->error;
+        if (!$stmt->execute()) {
+            throw new Exception("Error inserting certificate: " . $stmt->error);
         }
 
-        $update_stmt->close();
-    } else {
-        echo "Error: " . $stmt->error;
-    }
+        // Update project status
+        $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = ?";
+        $update_stmt = $conn->prepare($update_query);
+        $update_stmt->bind_param('s', $project_no);
+        
+        if (!$update_stmt->execute()) {
+            throw new Exception("Error updating project status: " . $update_stmt->error);
+        }
 
-    // Close the connection
-    $stmt->close();
-    $conn->close();
+        // ========== NEW CODE FOR QUALITY CONTROLLER NOTIFICATION ==========
+        // Create notification for quality controller
+        $notification_message = "Mobile Crane Load Test Certificate $certificate_no for project $project_no is ready for QC review";
+        $currentDateTime = date('Y-m-d H:i:s');
+        
+        $notification_query = "INSERT INTO project_notifications 
+                             (project_no, certificate_no, notification_message, quality_controller, created_at) 
+                             VALUES (?, ?, ?, 'pending', ?)";
+        $notification_stmt = $conn->prepare($notification_query);
+        $notification_stmt->bind_param("ssss", $project_no, $certificate_no, $notification_message, $currentDateTime);
+        
+        if (!$notification_stmt->execute()) {
+            throw new Exception("Failed to add QC notification: " . $notification_stmt->error);
+        }
+        // ========== END OF NEW CODE ==========
+
+        // Commit transaction
+        mysqli_commit($conn);
+
+        $msg = "Mobile crane load test certificate created successfully, project status updated, and QC notified.";
+        header('Location: index.php?msg=' . urlencode($msg));
+        exit();
+
+    } catch (Exception $e) {
+        // Rollback transaction
+        mysqli_rollback($conn);
+
+        // Log the error (optional)
+        error_log($e->getMessage());
+
+        // Display error message
+        echo "Error: " . $e->getMessage();
+    } finally {
+        // Close the statements
+        if (isset($check_stmt)) $check_stmt->close();
+        if (isset($stmt)) $stmt->close();
+        if (isset($update_stmt)) $update_stmt->close();
+        if (isset($notification_stmt)) $notification_stmt->close();
+        // Close the connection
+        $conn->close();
+    }
 }
 ?>

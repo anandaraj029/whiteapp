@@ -42,9 +42,58 @@ if ($result->num_rows > 0) {
     exit();
 }
 
+
+// Fetch notifications for the logged-in customer
+$customer_name = $_SESSION['username'];
+
+$query_notifications = "SELECT project_no, Notification_message, created_at 
+                        FROM project_notifications 
+                        WHERE customer_name = ? 
+                        ORDER BY created_at DESC 
+                        LIMIT 5";
+
+$stmt = $conn->prepare($query_notifications);
+$stmt->bind_param("s", $customer_name);
+$stmt->execute();
+$result_notifications = $stmt->get_result();
+
+
+// Remove notifications for completed projects
+$cleanup_query = "DELETE pn FROM project_notifications pn
+                  JOIN project_info pi ON pn.project_no = pi.project_no
+                  WHERE pi.project_status = 'Completed' AND pn.customer_name = ?";
+$stmt_cleanup = $conn->prepare($cleanup_query);
+$stmt_cleanup->bind_param("s", $customer_name);
+$stmt_cleanup->execute();
+
+
 include_once('../inc/customer-option.php');
 ?>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <!-- Internal Styles for Pagination -->
+    <style>
+
+.list-group-item {
+   border-left: 5px solid #007bff; /* Blue border for notifications */
+   transition: background 0.3s;
+}
+
+.list-group-item:hover {
+   background: #f8f9fa;
+}
+
+      
+    </style>
+</head>
+<body>
 <!-- Main Content -->
 <div class="main-content3">
     <div class="container-fluid">
@@ -267,6 +316,33 @@ include_once('../inc/customer-option.php');
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-xl-6 col-lg-6">
+   <div class="card mb-30">
+      <div class="card-body">
+         <h4 class="mb-3">Notifications</h4>
+         <p class="font-14">Project updates and important alerts.</p>
+         
+         <ul class="list-group">
+            <?php while ($row = $result_notifications->fetch_assoc()): ?>
+               <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div>
+                     <h6 class="mb-1"><?php echo htmlspecialchars($row['project_no']); ?></h6>
+                     <p class="mb-0"><?php echo htmlspecialchars($row['Notification_message']); ?></p>
+                     <small class="text-muted"><?php echo date("d M Y, H:i A", strtotime($row['created_at'])); ?></small>
+                  </div>
+               </li>
+            <?php endwhile; ?>
+            
+            <?php if ($result_notifications->num_rows == 0): ?>
+               <li class="list-group-item text-center">No new notifications.</li>
+            <?php endif; ?>
+         </ul>
+      </div>
+   </div>
+</div>
+
                                 </div>
                             </div>
                         </div>
@@ -278,7 +354,8 @@ include_once('../inc/customer-option.php');
     </div>
 </div>
 <!-- End Main Content -->
-
+            </body>
+            </html>
 <?php 
 include_once('../inc/footer.php');
 ?>

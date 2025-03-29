@@ -170,8 +170,7 @@ $result = mysqli_query($conn, $sql); // Execute query
     <div class="col-sm-8">
     <select name="customer_id" id="customer-select" class="theme-input-style">
     <option value="">Select Customer</option>
-    <?php
-                                            // Check if customers exist
+    <?php                                            // Check if customers exist
     if ($customerResult && $customerResult->num_rows > 0) {
                                                 // Loop through the student records and populate the dropdown
                                                 while ($row = $customerResult->fetch_assoc()) {
@@ -498,6 +497,5 @@ $(document).ready(function() {
 
 </script> -->
 <?php 
-        include_once('../inc/footer.php');
-        ?>
-        
+include_once('../inc/footer.php');
+?>        

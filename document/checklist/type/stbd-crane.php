@@ -36,7 +36,7 @@ if (!isset($row) || empty($row)) {
             z-index: 1000;
         }
 
-        .modal-content {
+        .modal-content { 
             position: relative;
             top: 50%;
             transform: translateY(-50%);
@@ -1823,16 +1823,16 @@ if (!isset($row) || empty($row)) {
                             <td><strong>The installed view camera is working </strong></td>
 
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+                                <input type="checkbox" name="result[87][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                                <input type="checkbox" name="result[87][]" id="checkbox5" value="FAIL" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+                                <input type="checkbox" name="result[87][]" id="checkbox6" value="NA" class="large-checkbox">
                             </td>
                             <td>
-                                <input type="text" name="checklist_remark[86]">
+                                <input type="text" name="checklist_remark[87]">
                             </td>
                         </tr>
                         <tr>
@@ -1840,16 +1840,16 @@ if (!isset($row) || empty($row)) {
                             <td><strong> All applicable indicators like but not limited to; oil or water temperature gauge, hydraulic oil pressure gauge, etc. are working correctly. </strong></td>
 
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+                                <input type="checkbox" name="result[88][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                                <input type="checkbox" name="result[88][]" id="checkbox5" value="FAIL" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+                                <input type="checkbox" name="result[88][]" id="checkbox6" value="NA" class="large-checkbox">
                             </td>
                             <td>
-                                <input type="text" name="checklist_remark[86]">
+                                <input type="text" name="checklist_remark[88]">
                             </td>
                         </tr>
 
@@ -1867,16 +1867,16 @@ if (!isset($row) || empty($row)) {
                             <td><strong>8.1.1 </strong></td>
                             <td><strong>Boom Hoist </strong></td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+                                <input type="checkbox" name="result[89][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                                <input type="checkbox" name="result[89][]" id="checkbox5" value="FAIL" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+                                <input type="checkbox" name="result[89][]" id="checkbox6" value="NA" class="large-checkbox">
                             </td>
                             <td>
-                                <input type="text" name="checklist_remark[86]">
+                                <input type="text" name="checklist_remark[89]">
                             </td>
                         </tr>
 
@@ -1884,16 +1884,16 @@ if (!isset($row) || empty($row)) {
                             <td><strong>8.1.2 </strong></td>
                             <td><strong>Main Load Hoist </strong></td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+                                <input type="checkbox" name="result[90][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                                <input type="checkbox" name="result[90][]" id="checkbox5" value="FAIL" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+                                <input type="checkbox" name="result[90][]" id="checkbox6" value="NA" class="large-checkbox">
                             </td>
                             <td>
-                                <input type="text" name="checklist_remark[86]">
+                                <input type="text" name="checklist_remark[90]">
                             </td>
                         </tr>
 
@@ -1902,18 +1902,529 @@ if (!isset($row) || empty($row)) {
                             <td><strong>8.1.3 </strong></td>
                             <td><strong>Auxiliary Load Hoist </strong></td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox4" value="PASS" class="large-checkbox">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
                             </td>
                             <td class="checkbox-cell">
-                                <input type="checkbox" name="result[86][]" id="checkbox6" value="NA" class="large-checkbox">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
                             </td>
                             <td>
-                                <input type="text" name="checklist_remark[86]">
+                                <input type="text" name="checklist_remark[91]">
                             </td>
                         </tr>
+
+                        <tr>
+                            <th style="text-align: center;">8.2</th>
+                            <th style="text-align: center;">Wire rope shall be free from bird caging, corrosion, crushing, kinking, un-stranding, core protrusion, main strand displacement, evidence of heat damage, or any other damage.</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+
+
+                        <tr>
+                            <td><strong>                        8.2.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.2.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.2.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <th style="text-align: center;">8.3</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+                        
+	
+
+                        <tr>
+                            <td><strong>                        8.3.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.3.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.3.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <th style="text-align: center;">8.4</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+                        
+	
+
+                        <tr>
+                            <td><strong>                        8.4.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.4.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.4.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <th style="text-align: center;">8.5</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+                        
+	
+
+                        <tr>
+                            <td><strong>                        8.5.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.5.2</strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.5.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <th style="text-align: center;">8.6</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+                        
+	
+
+                        <tr>
+                            <td><strong>                        8.6.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.6.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.6.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+
+                        <tr>
+                            <th style="text-align: center;">8.7</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
+
+
+                        
+	
+
+                        <tr>
+                            <td><strong>                        8.7.1	 </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.7.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.7.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th style="text-align: center;">8.8</th>
+                            <th style="text-align: center;">The rope does not have more than two broken wires in 1 lay in sections beyond end connections or more than 1 broken wire at an end connection (for standing ropes).</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>                     
+	                    <tr>
+                            <td>
+                                <strong>
+                                8.8.1
+                            </strong></td>
+                            <td><strong>Boom Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>8.8.2	 </strong></td>
+                            <td><strong>Main Load Hoist</strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>8.8.3	 </strong></td>
+                            <td><strong>
+                            Auxiliary Load Hoist  </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td><strong>8.9	 </strong></td>
+                            <td><strong>
+                            
+                            Anti-two-blocking system (A2B) is working correctly.
+                        </strong></td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox4" value="PASS" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox5" value="FAIL" class="large-checkbox">
+                            </td>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" name="result[91][]" id="checkbox6" value="NA" class="large-checkbox">
+                            </td>
+                            <td>
+                                <input type="text" name="checklist_remark[91]">
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <th style="text-align: center;">9</th>
+                            <th style="text-align: center;"> HOOKS</th>
+                            <th style="text-align: center;">PASS</th>
+                            <th style="text-align: center;">FAIL</th>
+                            <th style="text-align: center;">NA</th>
+                            <th>REMARKS / RECOMMENDATIONS </th>
+                        </tr>
+
 
                 </table>
             </div>

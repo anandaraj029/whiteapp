@@ -4,7 +4,10 @@
 if (isset($_POST['save_data_lifting'])) {
     // Database connection
     include_once('../../file/config.php');  // Database connection
+// Start transaction
+mysqli_begin_transaction($conn);
 
+try {
     // Loop through the dynamic fields
     $date_of_report = $_POST['date_of_report'];
     $report_no = $_POST['report_no'];
@@ -42,6 +45,7 @@ if (isset($_POST['save_data_lifting'])) {
 
     // Flag to check if any insert was successful
     $insert_successful = false;
+    $certificate_numbers = []; // To store all created certificate numbers
 
     foreach ($certificate_no as $index => $cert_no) {
         // Prepare SQL to insert data
@@ -112,27 +116,61 @@ if (isset($_POST['save_data_lifting'])) {
         )";
 
         // Execute query
-        if (mysqli_query($conn, $sql)) {
-            echo "Record for Certificate No: $cert_no saved successfully!<br>";
-            $insert_successful = true;  // Mark as successful if at least one record is saved
-        } else {
-            echo "Error: " . mysqli_error($conn);
+        // Execute query
+        if (!mysqli_query($conn, $sql)) {
+            throw new Exception("Error inserting certificate $cert_no: " . mysqli_error($conn));
         }
+        
+        $certificate_numbers[] = $cert_no;
+        $insert_successful = true;
     }
 
     // If insertion was successful, update the project status
+    // If insertion was successful, update the project status
     if ($insert_successful) {
         $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created' WHERE project_no = '$project_no'";
-        // $update_query = "UPDATE project_info SET certificatestatus = 'Certificate Created', project_status = 'Completed' WHERE project_no = '$project_no'";
-
-        if (mysqli_query($conn, $update_query)) {
-            echo "Project status updated to 'Certificate Created'.<br>";
-        } else {
-            echo "Error updating project status: " . mysqli_error($conn);
+        
+        if (!mysqli_query($conn, $update_query)) {
+            throw new Exception("Error updating project status: " . mysqli_error($conn));
         }
+
+        // ========== NEW CODE FOR QUALITY CONTROLLER NOTIFICATION ==========
+        // Create notification for quality controller
+        $certificate_list = implode(", ", $certificate_numbers);
+        $notification_message = "Lifting gear certificates ($certificate_list) for project $project_no are ready for QC review";
+        $currentDateTime = date('Y-m-d H:i:s');
+        
+        $notification_query = "INSERT INTO project_notifications 
+                             (project_no, notification_message, quality_controller, created_at) 
+                             VALUES (?, ?, 'pending', ?)";
+        $notification_stmt = $conn->prepare($notification_query);
+        $notification_stmt->bind_param("sss", $project_no, $notification_message, $currentDateTime);
+        
+        if (!$notification_stmt->execute()) {
+            throw new Exception("Failed to add QC notification: " . $notification_stmt->error);
+        }
+        // ========== END OF NEW CODE ==========
     }
 
+    // Commit transaction
+    mysqli_commit($conn);
+    
+    $msg = "Lifting gear certificates created successfully, project status updated, and QC notified.";
+    header('Location: index.php?msg=' . urlencode($msg));
+    exit();
+
+} catch (Exception $e) {
+    // Rollback transaction
+    mysqli_rollback($conn);
+
+    // Log the error (optional)
+    error_log($e->getMessage());
+
+    // Display error message
+    echo "Error: " . $e->getMessage();
+} finally {
     // Close the database connection
     mysqli_close($conn);
+}
 }
 ?>

@@ -42,6 +42,8 @@ if (isset($_POST['save_all'])) {
         $created_at = date('Y-m-d H:i:s');
 
         // Check if certificate already exists
+                
+        // Check if certificate already exists
         $check_query = "SELECT * FROM crane_health_check_certificate WHERE certificate_no = '$certificate_no' OR project_no = '$project_no'";
         $check_result = mysqli_query($conn, $check_query);
 
@@ -67,10 +69,26 @@ if (isset($_POST['save_all'])) {
             throw new Exception("Error updating project status: " . mysqli_error($conn));
         }
 
+        // ========== NEW CODE FOR QUALITY CONTROLLER NOTIFICATION ==========
+        // Create notification for quality controller
+        $notification_message = "Certificate $certificate_no for project $project_no is ready for QC review";
+        $currentDateTime = date('Y-m-d H:i:s');
+        
+        $notification_query = "INSERT INTO project_notifications 
+                             (project_no, notification_message, quality_controller, created_at) 
+                             VALUES (?, ?, 'pending', ?)";
+        $notification_stmt = $conn->prepare($notification_query);
+        $notification_stmt->bind_param("sss", $project_no, $notification_message, $currentDateTime);
+        
+        if (!$notification_stmt->execute()) {
+            throw new Exception("Failed to add QC notification: " . $notification_stmt->error);
+        }
+        // ========== END OF NEW CODE ==========
+
         // Commit transaction
         mysqli_commit($conn);
 
-        $msg = "Health check created successfully, and project status updated.";
+        $msg = "Health check created successfully, project status updated, and QC notified.";
         header('Location: index.php?msg=' . urlencode($msg));
         exit();
     } catch (Exception $e) {

@@ -120,6 +120,58 @@ $news_result = mysqli_query($conn, $news_query);
 
 
 
+         <!-- Quality Controller Notifications Card -->
+<div class="col-xl-6 col-lg-6">
+    <div class="card pb-2 mb-30">
+        <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">QC Notifications</h4>
+                <?php 
+                $qc_notifications_query = "SELECT COUNT(*) AS qc_count FROM project_notifications 
+                                          WHERE quality_controller = 'pending' OR quality_controller IS NOT NULL";
+                $qc_result = mysqli_query($conn, $qc_notifications_query);
+                $qc_count = mysqli_fetch_assoc($qc_result)['qc_count'];
+                
+                if ($qc_count > 0): ?>
+                    <span class="badge badge-danger"><?php echo $qc_count; ?> new</span>
+                <?php endif; ?>
+            </div>
+            <p>Certificates requiring your quality control review.</p>
+            <ul class="list-group">
+                <?php 
+                $qc_notifications_list = "SELECT id, project_no, certificate_no, notification_message, created_at 
+                                        FROM project_notifications 
+                                        WHERE quality_controller = 'pending' OR quality_controller IS NOT NULL
+                                        ORDER BY created_at DESC 
+                                        LIMIT 5";
+                $qc_list_result = mysqli_query($conn, $qc_notifications_list);
+                
+                if (mysqli_num_rows($qc_list_result) > 0) {
+                    while ($row = mysqli_fetch_assoc($qc_list_result)) {
+                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>' . htmlspecialchars($row['notification_message']) . '</strong>
+                                    <div class="text-muted small mt-1">
+                                        Project: ' . htmlspecialchars($row['project_no']) . ' • ' . 
+                                        date("M j, Y g:i A", strtotime($row['created_at'])) . '
+                                    </div>
+                                </div>
+                                <a href="../certificates/view_certificate.php?certificate_no=' . $row['certificate_no'] . '" class="btn btn-sm btn-primary">Review</a>
+                              </li>';
+                    }
+                } else {
+                    echo '<li class="list-group-item text-center text-muted">No QC notifications found</li>';
+                }
+                ?>
+            </ul>
+            <?php if ($qc_count > 0): ?>
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary mark-qc-read">Mark all as read</a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
 
       <div class="col-xl-6 col-lg-6">
         <div class="card pb-2 mb-30">
@@ -319,6 +371,35 @@ $news_result = mysqli_query($conn, $news_query);
    </div>
 </div>
 <!-- End Main Content -->
+
+
+   <script>
+// Mark all QC notifications as read
+document.querySelector('.mark-qc-read')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    fetch('mark_qc_notifications_read.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the badge and "mark as read" button
+            document.querySelector('.badge')?.remove();
+            document.querySelector('.mark-qc-read')?.remove();
+            
+            // Optionally change the notification style to indicate they're read
+            document.querySelectorAll('.list-group-item').forEach(item => {
+                item.style.opacity = '0.8';
+            });
+        }
+    });
+});
+</script>
+
 
 <?php
 include_once('../inc/footer.php');

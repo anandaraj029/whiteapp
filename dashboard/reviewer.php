@@ -31,6 +31,45 @@ $total_completed_reviews = mysqli_fetch_assoc($result_completed_reviews)['total_
 // Query to get recent projects requiring reviews
 $query_recent_reviews = "SELECT project_no, customer_name, review_status, creation_date FROM project_info WHERE review_status = 'Pending' ORDER BY creation_date DESC LIMIT 5";
 $result_recent_reviews = mysqli_query($conn, $query_recent_reviews);
+
+
+
+// Fetch notifications for reviewers (notifications meant for any reviewer)
+$query_notifications = "SELECT id, project_no, customer_name, notification_message, created_at 
+                        FROM project_notifications 
+                        WHERE notification_message LIKE '%ready for reviewing%' 
+                        AND project_no IN (SELECT project_no FROM project_info WHERE review_status = 'Pending')
+                        ORDER BY created_at DESC";
+
+$result_notifications = mysqli_query($conn, $query_notifications);
+$unread_count = mysqli_num_rows($result_notifications);
+
+
+
+if (isset($_POST['project_no'])) {
+   $project_no = mysqli_real_escape_string($conn, $_POST['project_no']);
+
+   // Check if the project is already marked as 'Completed'
+   $check_status_query = "SELECT review_status FROM project_info WHERE project_no = '$project_no'";
+   $result = mysqli_query($conn, $check_status_query);
+   
+   if ($result) {
+       $row = mysqli_fetch_assoc($result);
+       if ($row['review_status'] === 'Completed') {
+           // Delete notifications related to this completed project
+           $delete_query = "DELETE FROM project_notifications WHERE project_no = '$project_no'";
+           if (mysqli_query($conn, $delete_query)) {
+               echo "success";
+           } else {
+               echo "error";
+           }
+       } else {
+           echo "not_completed"; // Project is not marked as 'Completed', so don't delete notifications
+       }
+   } else {
+       echo "error";
+   }
+}
 ?>
 
 <!-- Main Content -->
@@ -85,6 +124,24 @@ $result_recent_reviews = mysqli_query($conn, $query_recent_reviews);
             </div>
          </div>
 
+
+         <div class="col-xl-3 col-sm-6">
+            <div class="card mb-30">
+               <div class="state">
+                  <div class="d-flex align-items-center flex-wrap">
+                     <div class="state-icon d-flex justify-content-center">
+                        <i class="fa-solid fa-bell fa-3x text-danger"></i>
+                     </div>
+                     <div class="state-content">
+                        <p class="font-14 mb-2">Notifications</p>
+                        <h2><?php echo $unread_count; ?></h2>
+                        <!-- <a href="#notification-section" class="btn btn-link">View</a> -->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
          <div class="col-xl-6 col-lg-6">
             <div class="card pb-2 mb-30">
                <div class="p-4">
@@ -102,6 +159,32 @@ $result_recent_reviews = mysqli_query($conn, $query_recent_reviews);
                </div>
             </div>
          </div>
+
+
+         <div class="col-xl-6 col-lg-6" id="notification-section">
+   <div class="card pb-2 mb-30">
+      <div class="p-4">
+         <h4 class="mb-3">Notifications</h4>
+         <p>Recent project updates requiring your attention.</p>
+         <ul class="list-group">
+    <?php while ($row = mysqli_fetch_assoc($result_notifications)): ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>
+                <strong><?php echo htmlspecialchars($row['notification_message']); ?></strong><br>
+                <small class="text-muted"><?php echo date("d M Y H:i", strtotime($row['created_at'])); ?></small>
+            </span>
+            <a href="../job/job-details.php?id=<?php echo $row['project_no']; ?>" class="btn btn-sm btn-primary">View</a>
+        </li>
+    <?php endwhile; ?>
+</ul>
+
+      </div>
+   </div>
+</div>
+
+
+
+
 
          <div class="col-xl-12">
             <div class="card">
@@ -146,5 +229,46 @@ $result_recent_reviews = mysqli_query($conn, $query_recent_reviews);
       </div>
    </div>
 </div>
+
+
+<!-- ✅ JavaScript to Handle Notification Deletion -->
+<script>
+document.querySelectorAll('.delete-notification').forEach(button => {
+    button.addEventListener('click', function() {
+        let projectId = this.getAttribute('data-project-id');
+
+        fetch("delete_notifications.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `project_no=${projectId}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log("Server Response:", data);
+            if (data === "success") {
+                alert("Notifications deleted successfully!");
+                this.closest('li').remove(); // Remove the notification from UI
+            } else {
+                alert("Error: " + data);
+            }
+        });
+    });
+});
+</script>
+
+<!-- <script>
+document.querySelectorAll('.mark-read').forEach(button => {
+    button.addEventListener('click', function() {
+        let notificationId = this.getAttribute('data-id');
+        fetch(`mark_notification.php?id=${notificationId}`)
+            .then(response => response.text())
+            .then(data => {
+                if (data === "success") {
+                    this.closest('li').classList.add('bg-light'); // Mark as read
+                }
+            });
+    });
+});
+</script> -->
 
 <?php include_once('../inc/footer.php'); ?>

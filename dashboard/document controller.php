@@ -74,6 +74,16 @@ $result_paginated_projects = mysqli_query($conn, $query_paginated_projects);
 // Query to get latest news
 $news_query = "SELECT * FROM news ORDER BY created_at DESC";
 $news_result = mysqli_query($conn, $news_query);
+
+
+// Query to get notifications for document controller
+$query_notifications = "SELECT id, project_no, notification_message, created_at 
+                        FROM project_notifications 
+                        WHERE document_controller = 'pending' OR document_controller IS NOT NULL
+                        ORDER BY created_at DESC 
+                        LIMIT 5";
+$result_notifications = mysqli_query($conn, $query_notifications);
+$unread_count = mysqli_num_rows($result_notifications);
 ?>
 
 <!DOCTYPE html>
@@ -133,6 +143,23 @@ $news_result = mysqli_query($conn, $news_query);
         .delete-news:hover {
             background-color: rgba(255, 255, 255, 0.3);
         }
+
+
+        
+/* Add these to your existing style section */
+.list-group-item {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: #007bff;
+}
+.notification-time {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
     </style>
 </head>
 <body>
@@ -191,6 +218,48 @@ $news_result = mysqli_query($conn, $news_query);
             </div>
          </div>
 
+
+
+
+         <!-- Notifications Card -->
+<div class="col-xl-6 col-lg-6">
+    <div class="card pb-2 mb-30">
+        <div class="p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0">Notifications</h4>
+                <?php if ($unread_count > 0): ?>
+                    <span class="badge badge-danger"><?php echo $unread_count; ?> new</span>
+                <?php endif; ?>
+            </div>
+            <p>Recent notifications requiring your attention.</p>
+            <ul class="list-group">
+                <?php 
+                if (mysqli_num_rows($result_notifications) > 0) {
+                    while ($row = mysqli_fetch_assoc($result_notifications)) {
+                        echo '<li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong>' . htmlspecialchars($row['notification_message']) . '</strong>
+                                    <div class="text-muted small mt-1">
+                                        Project: ' . htmlspecialchars($row['project_no']) . ' • ' . 
+                                        date("M j, Y g:i A", strtotime($row['created_at'])) . '
+                                    </div>
+                                </div>
+                                <a href="../job/job-details.php?id=' . $row['project_no'] . '" class="btn btn-sm btn-primary">View</a>
+                              </li>';
+                    }
+                } else {
+                    echo '<li class="list-group-item text-center text-muted">No notifications found</li>';
+                }
+                ?>
+            </ul>
+            <?php if ($unread_count > 0): ?>
+                <div class="text-center mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary mark-all-read">Mark all as read</a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
          <!-- Recent Projects Timeline -->
         <!-- Latest News Section -->
     <div class="col-xl-6 col-lg-6">
@@ -347,6 +416,33 @@ $news_result = mysqli_query($conn, $news_query);
 </div>
 <!-- End Main Wrapper -->
 
+<script>
+   
+// Mark all notifications as read
+document.querySelector('.mark-all-read')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    fetch('mark_notifications_read.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Remove the badge and "mark as read" button
+            document.querySelector('.badge')?.remove();
+            document.querySelector('.mark-all-read')?.remove();
+            
+            // Optionally change the notification style to indicate they're read
+            document.querySelectorAll('.list-group-item').forEach(item => {
+                item.style.opacity = '0.8';
+            });
+        }
+    });
+});
+</script>
 
 <?php
 include_once('../inc/footer.php');

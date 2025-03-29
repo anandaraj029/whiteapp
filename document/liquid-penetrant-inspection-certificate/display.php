@@ -84,6 +84,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['save_all'])) {
             throw new Exception("Error updating project status: " . $update_stmt->error);
         }
 
+
+        // ========== NEW CODE FOR QUALITY CONTROLLER NOTIFICATION ==========
+        // Create notification for quality controller
+        $notification_message = "Liquid Penetrant Inspection Certificate $certificate_no for project $project_no is ready for QC review";
+        $currentDateTime = date('Y-m-d H:i:s');
+        
+        $notification_query = "INSERT INTO project_notifications 
+                             (project_no, certificate_no, notification_message, quality_controller, created_at) 
+                             VALUES (?, ?, ?, 'pending', ?)";
+        $notification_stmt = $conn->prepare($notification_query);
+        $notification_stmt->bind_param("ssss", $project_no, $certificate_no, $notification_message, $currentDateTime);
+        
+        if (!$notification_stmt->execute()) {
+            throw new Exception("Failed to add QC notification: " . $notification_stmt->error);
+        }
+        // ========== END OF NEW CODE ==========
+
+        
         // Commit transaction
         mysqli_commit($conn);
 
